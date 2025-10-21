@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 7,
+  "path": "ActionButton/Item#item",
+  "widget": "Item",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.fill": "parent",
+    "padding": "1",
+    "virtual": "true",
+    "border-width": "1",
+    "border-color": "#00000000",
+    "draggable": "true",
+    "image-source": "/images/ui/button",
+    "image-color": "#dfdfdf",
+    "image-clip": "0 46 22 23",
+    "image-border": "3"
+  }
+}

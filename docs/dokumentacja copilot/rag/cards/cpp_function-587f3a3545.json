@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "find",
+  "return_type": "size_type",
+  "args": "char tofind, size_type offset",
+  "file": "src/framework/xml/tinystr.h"
+}

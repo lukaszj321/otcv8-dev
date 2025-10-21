@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onStyleApply",
+  "return_type": "protected: void",
+  "args": "const std::string& styleName, const OTMLNodePtr& styleNode",
+  "file": "src/client/uigraph.h"
+}

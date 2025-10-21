@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 86,
+  "path": "StaticMainWindow#charactersWindow/Label#accountStatusLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "accountStatusLabel",
+  "props": {
+    "id": "accountStatusLabel",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "separator.top",
+    "margin-bottom": "5",
+    "text-auto-resize": "true",
+    "color": "#FF0000"
+  }
+}

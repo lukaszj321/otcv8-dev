@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 133,
+  "path": "MainWindow#editWindow/Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "5",
+    "height": "330",
+    "visible": "false"
+  }
+}

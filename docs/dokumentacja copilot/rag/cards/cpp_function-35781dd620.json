@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parsePreyTimeLeft",
+  "return_type": "case Proto::GameServerPreyTimeLeft:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

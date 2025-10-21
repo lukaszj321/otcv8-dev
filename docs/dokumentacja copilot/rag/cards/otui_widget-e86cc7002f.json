@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 142,
+  "path": "MainWindow#editWindow/Panel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text-auto-resize": "true",
+    "text-align": "center",
+    "text-wrap": "true"
+  }
+}

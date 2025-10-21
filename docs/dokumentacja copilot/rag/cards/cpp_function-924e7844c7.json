@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getModules",
+  "return_type": "std::deque<ModulePtr>",
+  "args": "nan",
+  "file": "src/framework/core/modulemanager.h"
+}

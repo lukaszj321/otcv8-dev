@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SDLWindow::move",
+  "return_type": "void",
+  "args": "const Point& pos",
+  "file": "src/framework/platform/sdlwindow.cpp"
+}

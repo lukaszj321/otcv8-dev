@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRelative",
+  "return_type": "void",
+  "args": "bool relative",
+  "file": "src/framework/sound/combinedsoundsource.h"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 116,
+  "path": "UIWidget#gameRootPanel/Panel#gameRightPanels",
+  "widget": "Panel",
+  "base": "",
+  "id": "gameRightPanels",
+  "props": {
+    "id": "gameRightPanels",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "focusable": "false",
+    "layout": "",
+    "type": "horizontalBox",
+    "fit-children": "true",
+    "spacing": "-1"
+  }
+}

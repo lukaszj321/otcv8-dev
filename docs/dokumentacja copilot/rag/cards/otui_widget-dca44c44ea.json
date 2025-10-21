@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/viplist.otui",
+  "line": 13,
+  "path": "MiniWindow#vipWindow",
+  "widget": "MiniWindow",
+  "base": "",
+  "id": "vipWindow",
+  "props": {
+    "id": "vipWindow",
+    "height": "100",
+    "icon": "/images/topbuttons/viplist"
+  }
+}

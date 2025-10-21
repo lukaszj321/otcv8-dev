@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 4,
+  "path": "TrackerItem/BotItem#item",
+  "widget": "BotItem",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.top": "parent.top",
+    "margin-top": "2",
+    "anchors.left": "parent.left",
+    "image-source": ""
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttributeSet::Find",
+  "return_type": "TiXmlAttribute*",
+  "args": "const char* name",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

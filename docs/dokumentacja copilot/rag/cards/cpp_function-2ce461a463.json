@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRecorder",
+  "return_type": "void",
+  "args": "PacketRecorderPtr recorder",
+  "file": "src/framework/net/protocol.h"
+}

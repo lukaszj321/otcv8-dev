@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cacheCountText",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/client/uiitem.cpp"
+}

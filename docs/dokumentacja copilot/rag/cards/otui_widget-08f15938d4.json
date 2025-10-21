@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 416,
+  "path": "Profile/BotTextEdit#profileName",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "profileName",
+  "props": {
+    "id": "profileName",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "margin": "5"
+  }
+}

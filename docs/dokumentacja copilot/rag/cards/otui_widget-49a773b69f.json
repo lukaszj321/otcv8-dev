@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 77,
+  "path": "EnterGameWindow#enterGame/Panel#serverSelectorPanel/ComboBox#serverSelector",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "serverSelector",
+  "props": {
+    "id": "serverSelector",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "serverLabel.bottom",
+    "margin-top": "2",
+    "margin-right": "3",
+    "menu-scroll": "true",
+    "menu-height": "125",
+    "menu-scroll-step": "25",
+    "text-offset": "5 2"
+  }
+}

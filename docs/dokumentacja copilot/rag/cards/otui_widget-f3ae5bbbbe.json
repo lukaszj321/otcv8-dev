@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/looting.otui",
+  "line": 46,
+  "path": "TargetBotLootingPanel/Panel#maxDangerPanel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "text": "Max. danger:",
+    "margin-left": "5"
+  }
+}

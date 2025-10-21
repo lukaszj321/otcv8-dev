@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 184,
+  "path": "SuppliesWindow/BotButton#newProfile",
+  "widget": "BotButton",
+  "base": "",
+  "id": "newProfile",
+  "props": {
+    "id": "newProfile",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "size": "35 15",
+    "text": "New",
+    "font": "cipsoftFont",
+    "tooltip": "Create new supplies profile."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Thing::getExactSize",
+  "return_type": "return",
+  "args": "layer, xPattern, yPattern, zPattern, animationPhase",
+  "file": "src/client/item.cpp"
+}

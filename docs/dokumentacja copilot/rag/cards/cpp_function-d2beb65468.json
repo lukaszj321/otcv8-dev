@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calculateGlyphsPositions",
+  "return_type": "const std::vector<Point>&",
+  "args": "const std::string& text, Fw::AlignmentFlag align = Fw::AlignTopLeft, Size* textBoxSize = NULL",
+  "file": "src/framework/graphics/bitmapfont.h"
+}

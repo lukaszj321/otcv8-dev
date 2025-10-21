@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.otui",
+  "line": 92,
+  "path": "DepositerPanel/Button#CloseButton",
+  "widget": "Button",
+  "base": "",
+  "id": "CloseButton",
+  "props": {
+    "id": "CloseButton",
+    "font": "cipsoftFont",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "margin-right": "5"
+  }
+}

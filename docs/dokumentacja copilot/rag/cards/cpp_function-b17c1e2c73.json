@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "asMissile",
+  "return_type": "MissilePtr",
+  "args": "nan",
+  "file": "src/client/missile.h"
+}

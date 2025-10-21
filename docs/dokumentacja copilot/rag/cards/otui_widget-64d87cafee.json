@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/icons.otui",
+  "line": 53,
+  "path": "BotIcon/UIWidget#text",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text-wrap": "true",
+    "text-auto-resize": "true",
+    "phantom": "true"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 73,
+  "path": "SioListWindow/BotSwitch#spell",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "spell",
+  "props": {
+    "id": "spell",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text": "Custom Spell",
+    "margin-top": "3",
+    "text-align": "center"
+  }
+}

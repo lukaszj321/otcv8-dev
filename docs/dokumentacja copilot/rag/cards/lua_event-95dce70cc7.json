@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onSave",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/extension_template.lua"
+}

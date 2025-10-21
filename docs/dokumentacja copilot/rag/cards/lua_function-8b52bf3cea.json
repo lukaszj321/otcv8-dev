@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIComboBox:setMouseScroll",
+  "args": "scroll",
+  "file": "modules/corelib/ui/uicombobox.lua"
+}

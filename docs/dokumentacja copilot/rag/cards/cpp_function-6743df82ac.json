@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAddons",
+  "return_type": "void",
+  "args": "int addons",
+  "file": "src/client/outfit.h"
+}

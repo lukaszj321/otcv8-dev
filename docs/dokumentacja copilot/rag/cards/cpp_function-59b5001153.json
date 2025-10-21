@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::setDraggable",
+  "return_type": "void",
+  "args": "bool draggable",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

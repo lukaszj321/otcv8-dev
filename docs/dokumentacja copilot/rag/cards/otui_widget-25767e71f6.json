@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/target.otui",
+  "line": 113,
+  "path": "TargetBotPanel/Panel#editor/BotSwitch#debug",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "debug",
+  "props": {
+    "id": "debug",
+    "text": "Show target priority"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "throw",
+  "args": "node, \"invalid anchor target edge\"",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

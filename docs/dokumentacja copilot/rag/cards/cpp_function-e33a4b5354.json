@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "movePixels",
+  "return_type": "void",
+  "args": "int x, int y",
+  "file": "src/client/uimap.h"
+}

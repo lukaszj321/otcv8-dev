@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "throw",
+  "args": "\"attempt to call a non function\", 0",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

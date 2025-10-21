@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CombinedSoundSource::setLooping",
+  "return_type": "void",
+  "args": "bool looping",
+  "file": "src/framework/sound/combinedsoundsource.cpp"
+}

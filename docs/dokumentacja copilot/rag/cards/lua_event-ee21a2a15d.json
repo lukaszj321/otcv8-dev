@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onQuestLog",
+  "file": "modules/game_questlog/questlog.lua"
+}

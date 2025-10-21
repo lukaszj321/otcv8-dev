@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ShaderManager::getShader",
+  "return_type": "PainterShaderProgramPtr",
+  "args": "const std::string& name",
+  "file": "src/framework/graphics/shadermanager.cpp"
+}

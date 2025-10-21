@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 111,
+  "path": "MainWindow#assignSpellWindow/TextEdit#paramText",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "paramText",
+  "props": {
+    "id": "paramText",
+    "anchors.top": "prev.top",
+    "anchors.bottom": "prev.bottom",
+    "anchors.right": "parent.right",
+    "anchors.left": "prev.right",
+    "margin-left": "5",
+    "enabled": "false"
+  }
+}

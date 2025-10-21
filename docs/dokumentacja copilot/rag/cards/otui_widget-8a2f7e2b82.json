@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 184,
+  "path": "MainWindow#communicationWindow/Panel/Panel/Button#buttonCancel",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonCancel",
+  "props": {
+    "id": "buttonCancel",
+    "width": "75",
+    "anchors.top": "parent.top",
+    "anchors.left": "prev.right",
+    "margin-left": "10"
+  }
+}

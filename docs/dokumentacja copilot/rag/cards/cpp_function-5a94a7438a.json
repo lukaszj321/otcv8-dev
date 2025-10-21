@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isPreWalking",
+  "return_type": "virtual bool",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

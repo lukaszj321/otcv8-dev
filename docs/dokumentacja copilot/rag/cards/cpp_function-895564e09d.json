@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIItem::setItemCount",
+  "return_type": "void",
+  "args": "int count",
+  "file": "src/client/uiitem.cpp"
+}

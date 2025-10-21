@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getRootPanel",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

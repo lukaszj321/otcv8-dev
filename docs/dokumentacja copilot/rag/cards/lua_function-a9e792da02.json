@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "parseSliderPress",
+  "args": "self, slider, pos, button",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

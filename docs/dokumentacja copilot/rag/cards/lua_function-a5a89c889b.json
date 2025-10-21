@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIWidget:getTooltip",
+  "args": "",
+  "file": "modules/corelib/ui/tooltip.lua"
+}

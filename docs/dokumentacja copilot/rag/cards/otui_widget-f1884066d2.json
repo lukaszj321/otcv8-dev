@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 147,
+  "path": "Panel/SpinBox#amountEdit",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "amountEdit",
+  "props": {
+    "id": "amountEdit",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "width": "55",
+    "buttons": "false",
+    "minimum": "1",
+    "maximum": "64000",
+    "focusable": "true"
+  }
+}

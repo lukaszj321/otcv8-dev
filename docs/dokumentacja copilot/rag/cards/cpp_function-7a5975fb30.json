@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getItemType",
+  "return_type": "const ItemTypePtr&",
+  "args": "uint16 id",
+  "file": "src/client/thingtypemanager.h"
+}

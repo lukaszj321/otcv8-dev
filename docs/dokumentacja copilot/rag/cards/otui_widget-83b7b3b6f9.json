@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 53,
+  "path": "MainWindow#npcWindow/TabButton#sellTab",
+  "widget": "TabButton",
+  "base": "",
+  "id": "sellTab",
+  "props": {
+    "id": "sellTab",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top"
+  }
+}

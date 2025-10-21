@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "contains",
+  "return_type": "bool",
+  "args": "const TPoint<T> &p, bool insideOnly = false",
+  "file": "src/framework/util/rect.h"
+}

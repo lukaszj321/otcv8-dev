@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:onMouseRelease",
+  "args": "mousePos, mouseButton",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

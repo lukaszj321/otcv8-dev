@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/market.otui",
+  "line": 54,
+  "path": "MarketWindow#marketWindow/Button#resetButton",
+  "widget": "Button",
+  "base": "",
+  "id": "resetButton",
+  "props": {
+    "id": "resetButton",
+    "anchors.top": "mainTabContent.bottom",
+    "anchors.left": "mainTabContent.left",
+    "margin-top": "5",
+    "width": "110"
+  }
+}

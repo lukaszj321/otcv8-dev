@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LSB_BIT_SET",
+  "return_type": "nan",
+  "args": "mapBits, i",
+  "file": "src/framework/platform/x11window.cpp"
+}

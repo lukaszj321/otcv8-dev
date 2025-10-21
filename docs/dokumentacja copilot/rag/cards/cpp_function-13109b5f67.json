@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processOpenNpcTrade",
+  "return_type": "void",
+  "args": "const std::vector<std::tuple<ItemPtr, std::string, int, int64_t, int64_t> >& items",
+  "file": "src/client/game.cpp"
+}

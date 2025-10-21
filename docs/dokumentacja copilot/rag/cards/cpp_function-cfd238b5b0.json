@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "spriteData",
+  "return_type": "std::vector<char>",
+  "args": "m_spriteSize * m_spriteSize",
+  "file": "src/client/spritemanager.cpp"
+}

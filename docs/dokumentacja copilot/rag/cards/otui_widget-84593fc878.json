@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 423,
+  "path": "BossList",
+  "widget": "BossList",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "padding-left": "10",
+    "padding-right": "10",
+    "padding-bottom": "10"
+  }
+}

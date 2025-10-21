@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "throw",
+  "args": "\"Compiled lua files are not allowed in free version\", 0",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

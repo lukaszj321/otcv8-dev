@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fatalError",
+  "return_type": "extern void",
+  "args": "const char* error, const char* file, int line",
+  "file": "src/framework/global.h"
+}

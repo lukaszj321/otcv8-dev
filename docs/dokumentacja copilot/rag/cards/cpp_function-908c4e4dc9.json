@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addRectRaw",
+  "return_type": "private: inline void",
+  "args": "float* dest, const Rect& rect",
+  "file": "src/framework/graphics/drawcache.h"
+}

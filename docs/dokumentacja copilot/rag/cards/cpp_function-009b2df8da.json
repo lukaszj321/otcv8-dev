@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int ix = -1; ix <= 1 && firstFloor < cameraPosition.z && !forFading; ++ix",
+  "file": "src/client/mapview.cpp"
+}

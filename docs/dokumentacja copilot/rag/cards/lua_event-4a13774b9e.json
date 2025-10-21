@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMarketEnter",
+  "file": "modules/game_market/market.lua"
+}

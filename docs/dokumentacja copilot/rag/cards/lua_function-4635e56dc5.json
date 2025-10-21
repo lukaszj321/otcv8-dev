@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botChannelEvent",
+  "args": "channelId, name, event",
+  "file": "modules/game_bot/bot.lua"
+}

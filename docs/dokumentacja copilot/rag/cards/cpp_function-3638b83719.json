@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ToLower",
+  "return_type": "inline static int",
+  "args": "int v, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

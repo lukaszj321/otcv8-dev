@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeVip",
+  "return_type": "void",
+  "args": "int playerId",
+  "file": "src/client/game.h"
+}

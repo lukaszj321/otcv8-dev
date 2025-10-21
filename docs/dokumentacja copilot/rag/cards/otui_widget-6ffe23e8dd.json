@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 278,
+  "path": "AddPlayer/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "font": "verdana-11px-rounded",
+    "text": "%HP - heal if below"
+  }
+}

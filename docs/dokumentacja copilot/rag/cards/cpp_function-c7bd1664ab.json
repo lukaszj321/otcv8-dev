@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "src",
+  "return_type": "Rect",
+  "args": "0, 0, MMBLOCK_SIZE, MMBLOCK_SIZE",
+  "file": "src/client/minimap.cpp"
+}

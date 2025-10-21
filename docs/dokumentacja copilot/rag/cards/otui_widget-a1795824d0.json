@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 186,
+  "path": "RightSliders/Button#last",
+  "widget": "Button",
+  "base": "",
+  "id": "last",
+  "props": {
+    "id": "last",
+    "anchors.top": "parent.verticalCenter",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "prev.right",
+    "on": "true",
+    "tooltip": "Move to the last action button"
+  }
+}

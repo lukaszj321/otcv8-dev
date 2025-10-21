@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setColor",
+  "return_type": "void",
+  "args": "const Color& c",
+  "file": "src/client/item.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 61,
+  "path": "HealerPlayerEntry/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "anchors.right": "parent.right",
+    "margin-right": "15",
+    "size": "15 15",
+    "text": "X",
+    "tooltip": "Remove player from the list"
+  }
+}

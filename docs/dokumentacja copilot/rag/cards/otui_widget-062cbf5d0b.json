@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 51,
+  "path": "MainWindow#ruleViolationWindow/RVLabel",
+  "widget": "RVLabel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

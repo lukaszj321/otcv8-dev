@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPathable",
+  "return_type": "void",
+  "args": "bool var",
+  "file": "src/client/thingtype.h"
+}

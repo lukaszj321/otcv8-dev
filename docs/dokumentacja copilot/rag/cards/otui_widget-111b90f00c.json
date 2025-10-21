@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 125,
+  "path": "PlayerListWindow/Settings#settings",
+  "widget": "Settings",
+  "base": "",
+  "id": "settings",
+  "props": {
+    "id": "settings",
+    "anchors.left": "prev.right",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "margin": "3",
+    "margin-left": "6",
+    "margin-bottom": "4"
+  }
+}

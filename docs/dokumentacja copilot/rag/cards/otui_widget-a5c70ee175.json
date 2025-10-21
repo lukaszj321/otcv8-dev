@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 1,
+  "path": "SideActionButton",
+  "widget": "SideActionButton",
+  "base": "UIButton",
+  "id": "",
+  "props": {
+    "font": "cipsoftFont",
+    "height": "36",
+    "padding": "1",
+    "margin-top": "1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Graph",
+  "return_type": "public:",
+  "args": "const std::string& name, size_t capacity = 100",
+  "file": "src/framework/graphics/graph.h"
+}

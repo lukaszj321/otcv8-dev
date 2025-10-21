@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:getMinimum",
+  "args": "",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

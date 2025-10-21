@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFloorDescription",
+  "return_type": "int",
+  "args": "const InputMessagePtr& msg, int x, int y, int z, int width, int height, int offset, int skip",
+  "file": "src/client/protocolgame.h"
+}

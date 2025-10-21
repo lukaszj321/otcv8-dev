@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ToUnknown",
+  "return_type": "TiXmlUnknown*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

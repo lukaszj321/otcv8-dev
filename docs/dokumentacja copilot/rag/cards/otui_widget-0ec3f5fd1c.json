@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 344,
+  "path": "FeaturesWindow#FeaturesWindow",
+  "widget": "FeaturesWindow",
+  "base": "MainWindow",
+  "id": "FeaturesWindow",
+  "props": {
+    "id": "FeaturesWindow",
+    "size": "250 370",
+    "padding": "15",
+    "text": "Analyzers Features"
+  }
+}

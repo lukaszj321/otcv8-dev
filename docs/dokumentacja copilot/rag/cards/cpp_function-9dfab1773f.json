@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ReadText",
+  "return_type": "static const char*",
+  "args": "const char* in, // where to start TIXML_STRING* text, // the string read bool ignoreWhiteSpace, // whether to keep the white space const char* endTag, // what ends this text bool ignoreCase, // whether to ignore case in the end tag TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

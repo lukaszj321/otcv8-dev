@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getBlockOffset",
+  "return_type": "Point",
+  "args": "const Point& pos",
+  "file": "src/client/minimap.h"
+}

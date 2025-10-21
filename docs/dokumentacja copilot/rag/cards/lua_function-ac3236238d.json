@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "ProtocolLogin:parseMotd",
+  "args": "msg",
+  "file": "modules/gamelib/protocollogin.lua"
+}

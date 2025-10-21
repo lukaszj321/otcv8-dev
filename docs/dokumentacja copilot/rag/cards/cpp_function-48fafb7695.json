@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "infoLog",
+  "return_type": "std::vector<GLchar>",
+  "args": "maxLength",
+  "file": "src/framework/graphics/shaderprogram.cpp"
+}

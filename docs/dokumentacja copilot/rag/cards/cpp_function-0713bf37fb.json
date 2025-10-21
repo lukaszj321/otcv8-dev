@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isCompletelyCovered",
+  "return_type": "bool",
+  "args": "const Position& pos, int firstFloor = 0",
+  "file": "src/client/map.h"
+}

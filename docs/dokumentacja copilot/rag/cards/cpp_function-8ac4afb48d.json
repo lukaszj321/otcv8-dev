@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ref_count",
+  "return_type": "refcount_t",
+  "args": "nan",
+  "file": "src/framework/stdext/shared_object.h"
+}

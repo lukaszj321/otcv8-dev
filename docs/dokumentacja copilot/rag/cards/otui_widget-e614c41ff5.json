@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 425,
+  "path": "RerollButton/FlatPanel#button/UIButton#rerollButton",
+  "widget": "UIButton",
+  "base": "",
+  "id": "rerollButton",
+  "props": {
+    "id": "rerollButton",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "prev.top",
+    "image-source": "/images/game/prey/prey_reroll",
+    "image-clip": "0 46 60 47"
+  }
+}

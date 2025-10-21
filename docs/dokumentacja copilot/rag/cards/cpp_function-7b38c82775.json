@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "msg",
+  "return_type": "OutputMessagePtr",
+  "args": "new OutputMessage",
+  "file": "src/client/protocolgamesend.cpp"
+}

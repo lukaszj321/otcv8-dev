@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 69,
+  "path": "AlarmsWindow/FlatPanel#list",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.fill": "parent",
+    "anchors.bottom": "settingsList.top",
+    "margin-bottom": "20",
+    "margin-top": "10",
+    "layout": "verticalBox",
+    "padding": "10",
+    "padding-top": "5"
+  }
+}

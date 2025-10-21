@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BitmapFont::updateColors",
+  "return_type": "void",
+  "args": "std::vector<std::pair<int, Color>>* colors, int pos, int newTextLen",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

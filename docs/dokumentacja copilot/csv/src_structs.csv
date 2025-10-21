@@ -1,0 +1,74 @@
+file,struct,bases
+src/android/android_native_app_glue.h,android_poll_source,
+src/android/android_native_app_glue.h,android_app,
+src/client/game.h,UnjustifiedPoints,
+src/client/lightview.h,TileLight,
+src/client/map.cpp,SNode,
+src/client/map.cpp,LessNode,
+src/client/map.cpp,LessNode,
+src/client/map.cpp,LessNode,
+src/client/map.h,AwareRange,
+src/client/map.h,PathFindResult,
+src/client/map.h,Node,
+src/client/minimap.h,MinimapTile,
+src/client/outfit.h,DrawQueueItemOutfit,public DrawQueueItemTexturedRect
+src/client/outfit.h,DrawQueueItemOutfitWithShader,public DrawQueueItemTexturedRect
+src/client/position.h,PositionHasher,
+src/client/statictext.h,StaticTextMessage,
+src/client/thingtype.h,MarketData,
+src/client/thingtype.h,StoreCategory,
+src/client/thingtype.h,StoreOffer,
+src/client/thingtype.h,Imbuement,
+src/client/thingtype.h,Light,
+src/client/thingtype.h,DrawOutfitParams,
+src/client/thingtype.h,DrawQueueItemThingWithShader,public DrawQueueItemTexturedRect
+src/framework/core/inputevent.h,InputEvent,
+src/framework/core/logger.h,LogMessage,
+src/framework/core/scheduledevent.h,lessScheduledEvent,
+src/framework/graphics/apngloader.cpp,IHDR,
+src/framework/graphics/apngloader.h,apng_data,
+src/framework/graphics/drawqueue.h,DrawQueueItem,
+src/framework/graphics/drawqueue.h,DrawQueueItemTexturedRect,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemTextureCoords,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemColoredTextureCoords,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemImageWithShader,public DrawQueueItemTextureCoords
+src/framework/graphics/drawqueue.h,DrawQueueItemFilledRect,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemClearRect,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemFillCoords,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemText,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemTextColored,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueItemLine,public DrawQueueItem
+src/framework/graphics/drawqueue.h,DrawQueueCondition,
+src/framework/graphics/drawqueue.h,DrawQueueConditionClip,public DrawQueueCondition
+src/framework/graphics/drawqueue.h,DrawQueueConditionRotation,public DrawQueueCondition
+src/framework/graphics/drawqueue.h,DrawQueueConditionMark,public DrawQueueCondition
+src/framework/graphics/painter.h,PainterState,
+src/framework/graphics/textrender.h,TextRenderCache,
+src/framework/http/result.h,HttpResult,
+src/framework/luaengine/luabinder.h,pack_values_into_tuple,
+src/framework/luaengine/luabinder.h,expand_fun_arguments,
+src/framework/luaengine/luavaluecasts.h,push_tuple_internal_luavalue,
+src/framework/luaengine/luavaluecasts.h,push_tuple_luavalue,
+src/framework/platform/win32window.cpp,WindowProcProxy,
+src/framework/sound/soundchannel.h,QueueEntry,
+src/framework/stdext/any.h,placeholder,
+src/framework/stdext/any.h,holder,public placeholder
+src/framework/stdext/boolean.h,boolean,
+src/framework/stdext/dumper.h,dumper_dummy,
+src/framework/stdext/format.h,expand_snprintf,
+src/framework/stdext/packed_any.h,can_pack_in_any,"std::integral_constant<bool, (sizeof(T) <= sizeof(void*) && std::is_trivial<T>::value)>"
+src/framework/stdext/packed_any.h,placeholder,
+src/framework/stdext/packed_any.h,holder,public placeholder
+src/framework/stdext/packed_storage.h,value_pair,
+src/framework/stdext/time.h,timer,
+src/framework/stdext/traits.h,replace_extent,
+src/framework/stdext/traits.h,remove_const_ref,
+src/framework/stdext/uri.h,ParsedURI,
+src/framework/ui/uiwidget.h,EdgeGroup,
+src/framework/util/qrcodegen.h,qrcodegen_Segment,
+src/framework/util/stats.cpp,WidgetTreeNode,
+src/framework/util/stats.h,Stat,
+src/framework/util/stats.h,StatsData,
+src/framework/xml/tinystr.h,Rep,
+src/framework/xml/tinyxml.h,TiXmlCursor,
+src/framework/xml/tinyxml.h,Entity,

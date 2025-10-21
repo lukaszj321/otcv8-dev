@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Updater.abort",
+  "args": "",
+  "file": "modules/updater/updater.lua"
+}

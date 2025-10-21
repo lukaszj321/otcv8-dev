@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "signalcall",
+  "args": "param, ...",
+  "file": "modules/corelib/util.lua"
+}

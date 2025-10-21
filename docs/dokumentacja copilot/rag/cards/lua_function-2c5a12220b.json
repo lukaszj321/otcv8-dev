@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botCreatureTurn",
+  "args": "creature, direction",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 314,
+  "path": "MainWindow#imbuingWindow/ItemInformation#itemInfo",
+  "widget": "ItemInformation",
+  "base": "",
+  "id": "itemInfo",
+  "props": {
+    "id": "itemInfo",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setUniqueId",
+  "return_type": "void",
+  "args": "uint16 uniqueId",
+  "file": "src/client/item.h"
+}

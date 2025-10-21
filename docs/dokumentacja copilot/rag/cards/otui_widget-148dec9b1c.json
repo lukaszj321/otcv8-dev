@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 164,
+  "path": "MainWindow#shopWindow/Panel#adPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "adPanel",
+  "props": {
+    "id": "adPanel",
+    "anchors.top": "parent.top",
+    "anchors.left": "infoPanel.right",
+    "anchors.right": "parent.right",
+    "margin-left": "10",
+    "height": "0"
+  }
+}

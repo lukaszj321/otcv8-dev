@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 23,
+  "path": "OptionPanel/ComboBox#layout/end",
+  "widget": "end",
+  "base": "",
+  "id": "",
+  "props": {}
+}

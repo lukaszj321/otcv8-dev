@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 210,
+  "path": "AnalyzerLootItem",
+  "widget": "AnalyzerLootItem",
+  "base": "UIItem",
+  "id": "",
+  "props": {
+    "opacity": "0.87",
+    "height": "37",
+    "margin-left": "1",
+    "virtual": "true",
+    "background-color": "alpha"
+  }
+}

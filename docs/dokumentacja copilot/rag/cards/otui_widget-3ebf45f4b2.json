@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 9,
+  "path": "LockedPreyPanel/UIButton#perm",
+  "widget": "UIButton",
+  "base": "",
+  "id": "perm",
+  "props": {
+    "id": "perm",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "64",
+    "background-color": "#1c4161",
+    "margin-top": "3"
+  }
+}

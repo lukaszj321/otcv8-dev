@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.otui",
+  "line": 47,
+  "path": "Settings/SettingCheckBox#Outfit",
+  "widget": "SettingCheckBox",
+  "base": "",
+  "id": "Outfit",
+  "props": {
+    "id": "Outfit",
+    "text": "Color listed player outfits to red or blue."
+  }
+}

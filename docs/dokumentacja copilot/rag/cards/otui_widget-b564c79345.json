@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 151,
+  "path": "RangeLabel/Label#description",
+  "widget": "Label",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "anchors.fill": "parent",
+    "text-align": "center",
+    "text": "5 Sqm",
+    "font": "verdana-11px-rounded",
+    "background": "#363636"
+  }
+}

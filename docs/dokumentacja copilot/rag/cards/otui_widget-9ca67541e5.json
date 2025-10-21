@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 422,
+  "path": "FeaturesWindow#FeaturesWindow/TextList#CustomPrices",
+  "widget": "TextList",
+  "base": "",
+  "id": "CustomPrices",
+  "props": {
+    "id": "CustomPrices",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "10",
+    "padding": "1",
+    "height": "220",
+    "vertical-scrollbar": "CustomPricesScrollBar"
+  }
+}

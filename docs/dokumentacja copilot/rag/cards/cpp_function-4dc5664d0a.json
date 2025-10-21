@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glGetShaderiv",
+  "return_type": "nan",
+  "args": "m_shaderId, GL_COMPILE_STATUS, &res",
+  "file": "src/framework/graphics/shader.cpp"
+}

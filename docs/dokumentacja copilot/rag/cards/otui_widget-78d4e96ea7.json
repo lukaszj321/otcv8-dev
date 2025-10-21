@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 122,
+  "path": "ShopOfferImage/Label#image",
+  "widget": "Label",
+  "base": "",
+  "id": "image",
+  "props": {
+    "id": "image",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-top": "4",
+    "margin-bottom": "4",
+    "margin-left": "2",
+    "size": "48 48"
+  }
+}

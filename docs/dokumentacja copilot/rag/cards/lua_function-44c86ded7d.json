@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "cycleEvent",
+  "args": "callback, interval",
+  "file": "modules/corelib/globals.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::fillPosition",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& anchoredWidget, const Position& hookedPosition",
+  "file": "src/client/uiminimap.cpp"
+}

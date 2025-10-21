@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 15,
+  "path": "CureConditions#Cure/Label#label1",
+  "widget": "Label",
+  "base": "",
+  "id": "label1",
+  "props": {
+    "id": "label1",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-top": "10",
+    "margin-left": "5",
+    "text": "Poison",
+    "color": "#ffaa00",
+    "font": "verdana-11px-rounded"
+  }
+}

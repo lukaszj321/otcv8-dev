@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internalLoadCreatureBuffer",
+  "return_type": "protected: void",
+  "args": "TiXmlElement* elem, const CreatureTypePtr& m",
+  "file": "src/client/creatures.h"
+}

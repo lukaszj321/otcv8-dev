@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 43,
+  "path": "LockedPreyPanel/UIButton#temp/UIWidget#shopTempButton",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "shopTempButton",
+  "props": {
+    "id": "shopTempButton",
+    "image-source": "/images/game/prey/prey_temp_test",
+    "size": "195 67",
+    "image-clip": "0 67 204 67"
+  }
+}

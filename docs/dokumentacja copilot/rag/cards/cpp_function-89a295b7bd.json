@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "eglQuerySurface",
+  "return_type": "nan",
+  "args": "m_eglDisplay, m_eglSurface, EGL_WIDTH, &w",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

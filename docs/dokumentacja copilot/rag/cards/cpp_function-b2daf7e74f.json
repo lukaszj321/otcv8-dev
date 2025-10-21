@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "callLuaField",
+  "return_type": "nan",
+  "args": "\"onTextAreaUpdate\", offset, visibleSize, totalSize",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

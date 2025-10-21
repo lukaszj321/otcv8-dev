@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawColorOnTexturedRect",
+  "return_type": "void",
+  "args": "const Rect& dest, const TexturePtr& texture, const Rect& src",
+  "file": "src/framework/graphics/painter.h"
+}

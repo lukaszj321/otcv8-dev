@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bugreport/bugreport.otui",
+  "line": 1,
+  "path": "BugReportWindow",
+  "widget": "BugReportWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "280 250"
+  }
+}

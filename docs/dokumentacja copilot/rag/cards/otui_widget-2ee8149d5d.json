@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 531,
+  "path": "SettingsPanel/CheckBox#BlackListSafe",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "BlackListSafe",
+  "props": {
+    "id": "BlackListSafe",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "margin-top": "8",
+    "width": "200",
+    "height": "18",
+    "text": "Stop if Anti-RS player in range"
+  }
+}

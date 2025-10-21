@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindowContainer:scheduleInsert",
+  "args": "widget, index",
+  "file": "modules/corelib/ui/uiminiwindowcontainer.lua"
+}

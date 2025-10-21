@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "callLuaField",
+  "return_type": "nan",
+  "args": "\"onVisibleDimensionChange\", dimensionWidth, dimensionHeight",
+  "file": "src/client/uimap.cpp"
+}

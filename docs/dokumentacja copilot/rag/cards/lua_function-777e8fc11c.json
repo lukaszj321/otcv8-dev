@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "disableWSAD",
+  "args": "",
+  "file": "modules/game_walking/walking.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 24,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "phantom": "false",
+    "margin-top": "2",
+    "margin-left": "10"
+  }
+}

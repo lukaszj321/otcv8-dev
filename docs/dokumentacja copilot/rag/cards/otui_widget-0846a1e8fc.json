@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/waitinglist.otui",
+  "line": 31,
+  "path": "MainWindow#waitingWindow/HorizontalSeparator#separator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "separator",
+  "props": {
+    "id": "separator",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "10"
+  }
+}

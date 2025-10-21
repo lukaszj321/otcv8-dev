@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "updatePing",
+  "args": "ping",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

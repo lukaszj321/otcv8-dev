@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.otui",
+  "line": 15,
+  "path": "CaveBotPanel/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "2",
+    "margin-bottom": "5"
+  }
+}

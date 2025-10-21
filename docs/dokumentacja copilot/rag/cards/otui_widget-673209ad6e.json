@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/icons.otui",
+  "line": 43,
+  "path": "BotIcon/UIWidget#hotkey",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "hotkey",
+  "props": {
+    "id": "hotkey",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "size": "18 10",
+    "color": "white",
+    "phantom": "true",
+    "text-align": "right"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getInventoryItem",
+  "return_type": "ItemPtr",
+  "args": "Otc::InventorySlot inventory",
+  "file": "src/client/localplayer.h"
+}

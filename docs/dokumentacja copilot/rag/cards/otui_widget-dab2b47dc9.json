@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 103,
+  "path": "OptionPanel/Label#walkStairsDelayLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "walkStairsDelayLabel",
+  "props": {
+    "id": "walkStairsDelayLabel",
+    "margin-top": "10",
+    "self": "setText(tr('Walk delay after floor change: %s ms', value))",
+    "visible": "false"
+  }
+}

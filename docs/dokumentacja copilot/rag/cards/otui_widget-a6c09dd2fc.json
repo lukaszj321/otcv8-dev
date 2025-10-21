@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 347,
+  "path": "InactivePreyPanel/RerollButton#reroll",
+  "widget": "RerollButton",
+  "base": "",
+  "id": "reroll",
+  "props": {
+    "id": "reroll",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "prev.left",
+    "margin-right": "2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::talkChannel",
+  "return_type": "void",
+  "args": "Otc::MessageMode mode, int channelId, const std::string& message",
+  "file": "src/client/game.cpp"
+}

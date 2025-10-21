@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.onWsOpen",
+  "args": "operationId, message",
+  "file": "modules/corelib/http.lua"
+}

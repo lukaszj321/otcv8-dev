@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isMouseButtonPressed",
+  "return_type": "bool",
+  "args": "Fw::MouseButton mouseButton",
+  "file": "src/framework/platform/platformwindow.h"
+}

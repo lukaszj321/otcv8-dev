@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFixedCreatureSize",
+  "return_type": "void",
+  "args": "bool fixed",
+  "file": "src/client/uicreature.h"
+}

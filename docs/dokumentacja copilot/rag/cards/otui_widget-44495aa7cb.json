@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 85,
+  "path": "MainWindow#ruleViolationWindow/VerticalScrollBar#actionListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "actionListScrollBar",
+  "props": {
+    "id": "actionListScrollBar",
+    "anchors.top": "actionList.top",
+    "anchors.bottom": "actionList.bottom",
+    "anchors.right": "actionList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

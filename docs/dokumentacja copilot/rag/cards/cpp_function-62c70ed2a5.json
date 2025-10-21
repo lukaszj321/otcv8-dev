@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseTournamentLeaderboard",
+  "return_type": "case Proto::GameServerTournamentLeaderboard:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

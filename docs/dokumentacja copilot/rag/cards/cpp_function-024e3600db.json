@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlElement::~TiXmlElement",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

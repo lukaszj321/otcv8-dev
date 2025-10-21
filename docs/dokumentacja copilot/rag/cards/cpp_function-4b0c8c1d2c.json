@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addCreature",
+  "return_type": "nan",
+  "args": "placePos, cType",
+  "file": "src/client/creatures.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 308,
+  "path": "PartyAnalyzerWindow#PartyAnalyzerWindow",
+  "widget": "PartyAnalyzerWindow",
+  "base": "MiniWindow",
+  "id": "PartyAnalyzerWindow",
+  "props": {
+    "id": "PartyAnalyzerWindow",
+    "text": "Party Hunt",
+    "height": "200",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

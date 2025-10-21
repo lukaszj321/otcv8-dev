@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "generateLuaErrorMessage",
+  "return_type": "nan",
+  "args": "error, traceLevel",
+  "file": "src/framework/luaengine/luaexception.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setState",
+  "return_type": "nan",
+  "args": "Fw::OnState, on",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "processMessageMenu",
+  "args": "mousePos, mouseButton, creatureName, text, label, tab",
+  "file": "modules/game_console/console.lua"
+}

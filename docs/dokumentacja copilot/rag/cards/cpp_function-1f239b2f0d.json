@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::setZoom",
+  "return_type": "bool",
+  "args": "int zoom",
+  "file": "src/client/uiminimap.cpp"
+}

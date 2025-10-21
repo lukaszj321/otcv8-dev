@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onTibia12HTTPResult",
+  "file": "modules/client_entergame/entergame.lua"
+}

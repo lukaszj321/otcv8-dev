@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onLoadCallback",
+  "file": "modules/game_bot/functions/script_loader.lua"
+}

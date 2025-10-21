@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_state == STATE_CONNECTING_WAIT_FOR_PING",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

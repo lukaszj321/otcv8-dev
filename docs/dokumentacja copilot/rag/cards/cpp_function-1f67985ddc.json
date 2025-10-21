@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ConvertUTF32ToUTF8",
+  "return_type": "nan",
+  "args": "ucs, value, length",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

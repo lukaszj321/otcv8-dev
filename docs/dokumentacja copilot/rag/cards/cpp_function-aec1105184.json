@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Parent",
+  "return_type": "const TiXmlNode*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

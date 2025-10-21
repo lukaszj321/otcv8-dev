@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 1,
+  "path": "MainWindow#transferWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "transferWindow",
+  "props": {
+    "id": "transferWindow",
+    "size": "280 240"
+  }
+}

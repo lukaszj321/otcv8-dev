@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "export",
+  "args": "what, key",
+  "file": "modules/corelib/util.lua"
+}

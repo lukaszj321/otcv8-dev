@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 351,
+  "path": "ComboWindow/BotServer#server",
+  "widget": "BotServer",
+  "base": "",
+  "id": "server",
+  "props": {
+    "id": "server",
+    "anchors.top": "actions.top",
+    "anchors.left": "actions.right",
+    "margin-left": "10"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Market.onCoinBalance",
+  "args": "coins, transferableCoins",
+  "file": "modules/game_market/market.lua"
+}

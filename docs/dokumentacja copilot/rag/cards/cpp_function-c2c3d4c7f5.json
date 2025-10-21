@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateColors",
+  "return_type": "nan",
+  "args": "colors, lastColorSeparator, -1",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

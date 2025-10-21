@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setHeight",
+  "return_type": "void",
+  "args": "T h",
+  "file": "src/framework/util/size.h"
+}

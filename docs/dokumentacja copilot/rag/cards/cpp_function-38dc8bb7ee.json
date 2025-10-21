@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageClip",
+  "return_type": "void",
+  "args": "const Rect& clipRect",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "play",
+  "return_type": "virtual void",
+  "args": "nan",
+  "file": "src/framework/sound/soundsource.h"
+}

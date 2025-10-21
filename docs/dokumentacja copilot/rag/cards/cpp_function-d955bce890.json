@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "disableAttributeArray",
+  "return_type": "static void",
+  "args": "int location",
+  "file": "src/framework/graphics/shaderprogram.h"
+}

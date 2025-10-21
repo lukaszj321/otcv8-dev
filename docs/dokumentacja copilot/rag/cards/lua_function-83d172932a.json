@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getColorByKills",
+  "args": "kills",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.lua"
+}

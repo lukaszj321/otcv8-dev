@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::updateHoveredWidget",
+  "return_type": "void",
+  "args": "bool now",
+  "file": "src/framework/ui/uimanager.cpp"
+}

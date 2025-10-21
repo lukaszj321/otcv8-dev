@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "EncodeString",
+  "return_type": "nan",
+  "args": "value, &buffer",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

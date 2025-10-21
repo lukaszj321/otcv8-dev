@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "MarketProtocol.unregisterProtocol",
+  "args": "",
+  "file": "modules/game_market/marketprotocol.lua"
+}

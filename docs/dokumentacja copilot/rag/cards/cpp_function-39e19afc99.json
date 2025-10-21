@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream::tell",
+  "return_type": "uint",
+  "args": "nan",
+  "file": "src/framework/core/filestream.cpp"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 60,
+  "path": "MainWindow#assignItemWindow/Button#select",
+  "widget": "Button",
+  "base": "",
+  "id": "select",
+  "props": {
+    "id": "select",
+    "anchors.left": "item.left",
+    "anchors.right": "item.right",
+    "anchors.top": "item.bottom",
+    "margin-top": "5",
+    "font": "cipsoftFont",
+    "height": "20",
+    "text": "Select item"
+  }
+}

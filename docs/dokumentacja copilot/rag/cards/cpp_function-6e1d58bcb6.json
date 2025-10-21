@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "init",
+  "return_type": "void",
+  "args": "struct android_app* app",
+  "file": "src/framework/platform/androidwindow.h"
+}

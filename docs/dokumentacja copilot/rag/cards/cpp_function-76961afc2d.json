@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FrameBuffer::resize",
+  "return_type": "void",
+  "args": "const Size& size",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

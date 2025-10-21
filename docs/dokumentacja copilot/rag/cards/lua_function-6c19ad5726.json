@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onShowBarsChange",
+  "args": "checkBox, checked",
+  "file": "modules/game_outfit/outfit.lua"
+}

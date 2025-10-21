@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 241,
+  "path": "ActivePreyPanel/CardLabel#lockPreyPrice",
+  "widget": "CardLabel",
+  "base": "",
+  "id": "lockPreyPrice",
+  "props": {
+    "id": "lockPreyPrice",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "margin-left": "2",
+    "anchors.bottom": "prev.bottom",
+    "anchors.right": "parent.right"
+  }
+}

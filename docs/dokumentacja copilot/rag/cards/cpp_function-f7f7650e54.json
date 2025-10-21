@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "set",
+  "return_type": "template<typename T> void",
+  "args": "Key id, const T& value",
+  "file": "src/framework/stdext/packed_storage.h"
+}

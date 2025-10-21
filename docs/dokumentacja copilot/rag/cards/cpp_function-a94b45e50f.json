@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setClipRect",
+  "return_type": "nan",
+  "args": "oldClipRect",
+  "file": "src/framework/graphics/painter.cpp"
+}

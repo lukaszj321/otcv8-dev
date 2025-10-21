@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "translateState",
+  "return_type": "WidgetState",
+  "args": "std::string state",
+  "file": "src/framework/ui/uitranslator.h"
+}

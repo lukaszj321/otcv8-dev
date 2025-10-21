@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/styles/countwindow.otui",
+  "line": 34,
+  "path": "CountWindow#countWindow/Button#buttonCancel",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonCancel",
+  "props": {
+    "id": "buttonCancel",
+    "height": "20",
+    "anchors.left": "countScrollBar.horizontalCenter",
+    "anchors.right": "countScrollBar.right",
+    "anchors.top": "countScrollBar.bottom",
+    "margin-top": "7",
+    "focusable": "false"
+  }
+}

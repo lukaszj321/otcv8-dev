@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 18,
+  "path": "AttackEntry/UIItem#id",
+  "widget": "UIItem",
+  "base": "",
+  "id": "id",
+  "props": {
+    "id": "id",
+    "anchors.left": "prev.right",
+    "size": "16 16",
+    "focusable": "false",
+    "visible": "false"
+  }
+}

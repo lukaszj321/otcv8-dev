@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onPlayerPositionChange",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/recorder.lua"
+}

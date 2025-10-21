@@ -1,0 +1,28 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemdetails.otui",
+  "line": 23,
+  "path": "Panel/Table#detailsTable",
+  "widget": "Table",
+  "base": "",
+  "id": "detailsTable",
+  "props": {
+    "id": "detailsTable",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "63",
+    "margin-left": "6",
+    "margin-bottom": "85",
+    "margin-right": "6",
+    "padding": "1",
+    "focusable": "false",
+    "background-color": "#222833",
+    "border-width": "1",
+    "border-color": "#191f27",
+    "table-data": "detailsTableData",
+    "row-style": "DetailsTableRow",
+    "column-style": "DetailsTableColumn"
+  }
+}

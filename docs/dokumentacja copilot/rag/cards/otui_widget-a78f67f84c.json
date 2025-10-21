@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 57,
+  "path": "MiniWindow#botWindow/MiniWindowContents/Button#enableButton",
+  "widget": "Button",
+  "base": "",
+  "id": "enableButton",
+  "props": {
+    "id": "enableButton",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-left": "3",
+    "margin-right": "2",
+    "text": "Off",
+    "color": "#FF0000"
+  }
+}

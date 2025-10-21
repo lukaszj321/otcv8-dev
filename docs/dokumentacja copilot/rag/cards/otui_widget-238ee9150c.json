@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 142,
+  "path": "SpellHealing/Label#castSpell",
+  "widget": "Label",
+  "base": "",
+  "id": "castSpell",
+  "props": {
+    "id": "castSpell",
+    "anchors.left": "isSpell.left",
+    "anchors.top": "isSpell.bottom",
+    "text": "Cast",
+    "margin-top": "9",
+    "font": "verdana-11px-rounded"
+  }
+}

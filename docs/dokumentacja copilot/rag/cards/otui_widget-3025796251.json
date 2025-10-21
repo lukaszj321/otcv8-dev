@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 106,
+  "path": "MainWindow#editWindow/Panel#manager/Panel#download/TextEdit#config",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "config",
+  "props": {
+    "id": "config",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "4",
+    "margin-left": "20",
+    "margin-right": "20"
+  }
+}

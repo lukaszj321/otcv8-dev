@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 101,
+  "path": "SioListWindow/BotSwitch#item",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "prev.verticalCenter",
+    "text-align": "center",
+    "text": "Item Healing",
+    "margin-left": "2"
+  }
+}

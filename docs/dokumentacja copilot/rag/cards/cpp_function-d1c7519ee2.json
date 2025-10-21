@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setElevation",
+  "return_type": "void",
+  "args": "uint8 elevation",
+  "file": "src/client/creature.h"
+}

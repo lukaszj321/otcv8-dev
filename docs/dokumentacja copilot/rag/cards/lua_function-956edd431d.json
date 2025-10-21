@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "OutputMessage:addColor",
+  "args": "color",
+  "file": "modules/corelib/outputmessage.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "b_rshift",
+  "return_type": "static int",
+  "args": "lua_State *L",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/looting.otui",
+  "line": 65,
+  "path": "TargetBotLootingPanel/Panel#minCapacityPanel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "text": "Min. capacity:",
+    "margin-left": "5"
+  }
+}

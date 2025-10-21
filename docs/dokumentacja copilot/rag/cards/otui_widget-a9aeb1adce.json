@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 211,
+  "path": "ComboActions#actions/CheckBox#attackSpellToggle",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "attackSpellToggle",
+  "props": {
+    "id": "attackSpellToggle",
+    "anchors.left": "attackSpell.right",
+    "anchors.top": "attackSpell.top",
+    "margin-top": "2",
+    "margin-left": "5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "signal",
+  "return_type": "nan",
+  "args": "SIGABRT, SIG_DFL",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

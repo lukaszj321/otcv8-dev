@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendNewPing",
+  "return_type": "void",
+  "args": "uint32_t pingId, uint16_t localPing, uint16_t fps",
+  "file": "src/client/protocolgamesend.cpp"
+}

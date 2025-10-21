@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 37,
+  "path": "TradeWindow/MiniWindowContents/Label#counterTradeCountLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "counterTradeCountLabel",
+  "props": {
+    "id": "counterTradeCountLabel",
+    "anchors.top": "counterTradeLabel.bottom",
+    "anchors.left": "counterTradeLabel.left",
+    "anchors.right": "counterTradeLabel.right",
+    "font": "verdana-9px-bold",
+    "text-align": "center"
+  }
+}

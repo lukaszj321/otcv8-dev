@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SDLWindow::showTextEditor",
+  "return_type": "void",
+  "args": "const std::string& title, const std::string& description, const std::string& text, int flags",
+  "file": "src/framework/platform/sdlwindow.cpp"
+}

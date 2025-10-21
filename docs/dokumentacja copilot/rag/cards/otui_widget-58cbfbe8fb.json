@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 638,
+  "path": "PreyCreature/UIWidget#preyType",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "preyType",
+  "props": {
+    "id": "preyType",
+    "anchors.left": "prev.right",
+    "margin-left": "5",
+    "size": "15 15"
+  }
+}

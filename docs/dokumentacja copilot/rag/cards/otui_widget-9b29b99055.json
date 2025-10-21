@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 182,
+  "path": "MainWindow#shopWindow/TextList#categories",
+  "widget": "TextList",
+  "base": "",
+  "id": "categories",
+  "props": {
+    "id": "categories",
+    "vertical-scrollbar": "categoriesScrollBar",
+    "anchors.top": "infoPanel.bottom",
+    "anchors.left": "infoPanel.left",
+    "anchors.right": "infoPanel.right",
+    "anchors.bottom": "transactionHistory.top",
+    "margin-top": "10",
+    "margin-bottom": "10",
+    "padding": "1",
+    "focusable": "false"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 97,
+  "path": "OptionPanel/Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "2",
+    "height": "16",
+    "layout": "",
+    "type": "horizontalBox",
+    "visible": "false"
+  }
+}

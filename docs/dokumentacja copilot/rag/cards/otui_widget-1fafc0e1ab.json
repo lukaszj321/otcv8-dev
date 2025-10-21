@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 343,
+  "path": "CustomList/PlayerList#playerList",
+  "widget": "PlayerList",
+  "base": "",
+  "id": "playerList",
+  "props": {
+    "id": "playerList",
+    "anchors.fill": "prev"
+  }
+}

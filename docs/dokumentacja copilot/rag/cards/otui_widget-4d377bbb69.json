@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/console.otui",
+  "line": 18,
+  "path": "OptionPanel/OptionCheckBox#showLevelsInConsole",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showLevelsInConsole",
+  "props": {
+    "id": "showLevelsInConsole"
+  }
+}

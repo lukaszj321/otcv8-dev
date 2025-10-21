@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setItemVisible",
+  "return_type": "void",
+  "args": "bool visible",
+  "file": "src/client/uiitem.h"
+}

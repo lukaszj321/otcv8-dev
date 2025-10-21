@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getEffects",
+  "return_type": "std::vector<EffectPtr>",
+  "args": "nan",
+  "file": "src/client/tile.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageOffsetX",
+  "return_type": "void",
+  "args": "int x",
+  "file": "src/framework/ui/uiwidget.h"
+}

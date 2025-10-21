@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTextAlign",
+  "return_type": "Fw::AlignmentFlag",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

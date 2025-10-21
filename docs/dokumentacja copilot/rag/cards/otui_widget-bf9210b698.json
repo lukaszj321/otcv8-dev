@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 174,
+  "path": "Groups/Panel#box/CategoryCheckBox#botserver",
+  "widget": "CategoryCheckBox",
+  "base": "",
+  "id": "botserver",
+  "props": {
+    "id": "botserver",
+    "text": "BotServer Members"
+  }
+}

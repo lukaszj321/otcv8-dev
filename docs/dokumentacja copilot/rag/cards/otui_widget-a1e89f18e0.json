@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 127,
+  "path": "QuestLogWindow#questLogWindow/Button#closeButton",
+  "widget": "Button",
+  "base": "",
+  "id": "closeButton",
+  "props": {
+    "id": "closeButton",
+    "font": "cipsoftFont",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "color": "#ffffff",
+    "size": "45 21"
+  }
+}

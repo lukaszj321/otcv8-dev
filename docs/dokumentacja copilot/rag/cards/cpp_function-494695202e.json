@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAttackingCreature",
+  "return_type": "nan",
+  "args": "nullptr",
+  "file": "src/client/game.cpp"
+}

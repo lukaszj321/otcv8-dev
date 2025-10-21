@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "json.encode",
+  "args": "val, indent",
+  "file": "modules/corelib/json.lua"
+}

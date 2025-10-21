@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setId",
+  "return_type": "void",
+  "args": "int id",
+  "file": "src/client/outfit.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"BinaryTree: getString failed: string length exceeded buffer size.\"",
+  "file": "src/framework/core/binarytree.cpp"
+}

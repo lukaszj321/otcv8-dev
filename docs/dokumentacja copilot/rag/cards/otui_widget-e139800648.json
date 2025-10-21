@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 86,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugLabel",
+  "widget": "DebugLabel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

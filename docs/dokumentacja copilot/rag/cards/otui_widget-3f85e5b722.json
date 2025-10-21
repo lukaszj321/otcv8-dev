@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 7,
+  "path": "TerminalSelectText",
+  "widget": "TerminalSelectText",
+  "base": "UITextEdit",
+  "id": "",
+  "props": {
+    "font": "terminus-10px",
+    "text-wrap": "true",
+    "text-align": "bottomLeft",
+    "editable": "false",
+    "change-cursor-image": "false",
+    "cursor-visible": "false",
+    "selection-color": "black",
+    "selection-background-color": "white",
+    "color": "alpha",
+    "focusable": "false",
+    "auto-scroll": "false"
+  }
+}

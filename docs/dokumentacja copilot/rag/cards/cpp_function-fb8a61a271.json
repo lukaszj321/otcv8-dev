@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int y=0;y<oh;++y",
+  "file": "src/framework/graphics/image.cpp"
+}

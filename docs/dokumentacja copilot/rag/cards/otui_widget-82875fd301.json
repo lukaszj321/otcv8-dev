@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/market.otui",
+  "line": 10,
+  "path": "MarketWindow#marketWindow/MarketTabBar#mainTabBar",
+  "widget": "MarketTabBar",
+  "base": "",
+  "id": "mainTabBar",
+  "props": {
+    "id": "mainTabBar",
+    "width": "164",
+    "height": "25",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

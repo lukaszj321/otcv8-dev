@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getPaddingRect",
+  "return_type": "Rect",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

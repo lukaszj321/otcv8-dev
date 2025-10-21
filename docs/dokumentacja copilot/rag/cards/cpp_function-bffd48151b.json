@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alSourcei",
+  "return_type": "nan",
+  "args": "m_sourceId, AL_BUFFER, AL_NONE",
+  "file": "src/framework/sound/soundsource.cpp"
+}

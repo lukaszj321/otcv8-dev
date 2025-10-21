@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FrameBuffer::draw",
+  "return_type": "void",
+  "args": "const Rect& dest",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

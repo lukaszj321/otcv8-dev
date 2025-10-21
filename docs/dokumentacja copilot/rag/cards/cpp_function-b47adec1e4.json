@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addThing",
+  "return_type": "nan",
+  "args": "it, pos",
+  "file": "src/client/map.cpp"
+}

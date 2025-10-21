@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 155,
+  "path": "RightSliders/Button#next",
+  "widget": "Button",
+  "base": "",
+  "id": "next",
+  "props": {
+    "id": "next",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.verticalCenter",
+    "anchors.left": "parent.left",
+    "anchors.right": "lock.left",
+    "margin-right": "1",
+    "on": "true",
+    "tooltip": "Move to the next action button"
+  }
+}

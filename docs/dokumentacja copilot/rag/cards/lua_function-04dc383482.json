@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:onDestroy",
+  "args": "",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

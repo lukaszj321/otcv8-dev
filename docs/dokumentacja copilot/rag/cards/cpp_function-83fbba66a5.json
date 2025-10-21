@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::pushCFunction",
+  "return_type": "void",
+  "args": "LuaCFunction func, int n",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

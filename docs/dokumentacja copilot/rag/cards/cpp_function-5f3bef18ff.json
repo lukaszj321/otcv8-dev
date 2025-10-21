@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseGameNews",
+  "return_type": "case Proto::GameServerNews:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

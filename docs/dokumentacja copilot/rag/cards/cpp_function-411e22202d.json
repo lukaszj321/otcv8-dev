@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Module::hasDependency",
+  "return_type": "bool",
+  "args": "const std::string& name, bool recursive",
+  "file": "src/framework/core/module.cpp"
+}

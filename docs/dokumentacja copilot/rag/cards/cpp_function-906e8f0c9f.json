@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setShaderProgram",
+  "return_type": "nan",
+  "args": "m_drawSolidColorOnTextureProgram",
+  "file": "src/framework/graphics/painter.h"
+}

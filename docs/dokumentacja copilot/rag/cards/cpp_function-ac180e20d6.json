@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "init",
+  "return_type": "public: void",
+  "args": "std::vector<std::string>& args",
+  "file": "src/client/client.h"
+}

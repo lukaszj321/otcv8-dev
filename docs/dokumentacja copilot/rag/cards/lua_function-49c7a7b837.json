@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "toboolean",
+  "args": "v",
+  "file": "modules/corelib/util.lua"
+}

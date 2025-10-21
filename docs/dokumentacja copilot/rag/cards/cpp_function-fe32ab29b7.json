@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "schedule",
+  "return_type": "template<class F> std::shared_future<typename std::invoke_result<F>::type>",
+  "args": "const F& task",
+  "file": "src/framework/core/asyncdispatcher.h"
+}

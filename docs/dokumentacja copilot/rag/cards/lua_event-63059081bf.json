@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDragEnter",
+  "file": "modules/corelib/ui/uiwindow.lua"
+}

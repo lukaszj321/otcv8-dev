@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "vec4",
+  "return_type": "return",
+  "args": "0,0,0,0",
+  "file": "src/framework/graphics/shaders/shadersources.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::walk",
+  "return_type": "void",
+  "args": "const Position& oldPos, const Position& newPos",
+  "file": "src/client/localplayer.cpp"
+}

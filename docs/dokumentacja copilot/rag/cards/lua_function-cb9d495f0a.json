@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSetPVPMode",
+  "args": "self, selectedPVPButton",
+  "file": "modules/game_inventory/inventory.lua"
+}

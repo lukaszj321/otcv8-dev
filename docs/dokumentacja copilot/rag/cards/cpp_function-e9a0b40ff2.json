@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Protocol::xteaEncrypt",
+  "return_type": "void",
+  "args": "const OutputMessagePtr& outputMessage",
+  "file": "src/framework/net/protocol.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::make_pair",
+  "return_type": "return",
+  "args": "nullptr, nulltile",
+  "file": "src/client/minimap.cpp"
+}

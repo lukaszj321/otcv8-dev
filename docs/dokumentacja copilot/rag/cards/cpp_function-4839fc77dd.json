@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateText",
+  "return_type": "protected: virtual void",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

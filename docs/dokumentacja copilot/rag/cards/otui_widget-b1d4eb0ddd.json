@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 10,
+  "path": "DebugLabel",
+  "widget": "DebugLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "text-wrap": "false",
+    "text-auto-resize": "false",
+    "text-align": "center",
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom"
+  }
+}

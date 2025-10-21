@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TIXML_LOG",
+  "return_type": "nan",
+  "args": "\"XML parsing Comment\\n\"",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

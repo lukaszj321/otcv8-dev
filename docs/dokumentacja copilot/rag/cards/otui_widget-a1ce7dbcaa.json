@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playerdeath/deathwindow.otui",
+  "line": 1,
+  "path": "DeathWindow#deathWindow",
+  "widget": "DeathWindow",
+  "base": "MainWindow",
+  "id": "deathWindow",
+  "props": {
+    "id": "deathWindow"
+  }
+}

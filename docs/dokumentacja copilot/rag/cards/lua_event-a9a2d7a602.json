@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onEffectEnd",
+  "file": "modules/game_cooldown/cooldown.lua"
+}

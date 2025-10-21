@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onChildFocusChange",
+  "return_type": "virtual void",
+  "args": "const UIWidgetPtr& focusedChild, const UIWidgetPtr& unfocusedChild, Fw::FocusReason reason",
+  "file": "src/framework/ui/uiwidget.h"
+}

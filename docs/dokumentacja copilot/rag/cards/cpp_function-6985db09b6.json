@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "s",
+  "return_type": "AutoStat",
+  "args": "STATS_MAIN, \"PollSounds\"",
+  "file": "src/framework/sound/soundmanager.cpp"
+}

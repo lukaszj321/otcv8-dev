@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isAnimatedTexture",
+  "return_type": "virtual bool",
+  "args": "nan",
+  "file": "src/framework/graphics/animatedtexture.h"
+}

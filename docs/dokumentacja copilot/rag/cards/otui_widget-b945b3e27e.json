@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 405,
+  "path": "HoldConditions#Hold/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "prev.right",
+    "margin-top": "3",
+    "margin-left": "5",
+    "text": "Stop Haste if TargetBot Is Active",
+    "font": "cipsoftFont"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int z = 0; z <= Otc::MAX_Z; ++z",
+  "file": "src/client/map.cpp"
+}

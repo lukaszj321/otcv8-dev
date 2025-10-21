@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/target.otui",
+  "line": 105,
+  "path": "TargetBotPanel/Panel#editor/Panel#buttons/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "text": "Remove",
+    "width": "56"
+  }
+}

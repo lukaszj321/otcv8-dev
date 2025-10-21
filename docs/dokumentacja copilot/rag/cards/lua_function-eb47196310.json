@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIImageView:setImage",
+  "args": "image",
+  "file": "modules/corelib/ui/uiimageview.lua"
+}

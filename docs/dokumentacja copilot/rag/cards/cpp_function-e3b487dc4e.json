@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCategory",
+  "return_type": "ItemCategory",
+  "args": "nan",
+  "file": "src/client/itemtype.h"
+}

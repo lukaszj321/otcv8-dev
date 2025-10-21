@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onVipListMousePress",
+  "file": "modules/game_viplist/viplist.lua"
+}

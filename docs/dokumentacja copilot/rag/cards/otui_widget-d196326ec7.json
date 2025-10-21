@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 31,
+  "path": "BotTextEdit",
+  "widget": "BotTextEdit",
+  "base": "TextEdit",
+  "id": "",
+  "props": {
+    "text-align": "center",
+    "multiline": "false",
+    "focusable": "false",
+    "height": "20"
+  }
+}

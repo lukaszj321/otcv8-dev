@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "to_string",
+  "return_type": "template<typename T> std::string",
+  "args": "const T& t",
+  "file": "src/framework/stdext/string.h"
+}

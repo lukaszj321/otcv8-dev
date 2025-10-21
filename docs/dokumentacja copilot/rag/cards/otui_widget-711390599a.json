@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 693,
+  "path": "PreyTracker#preyTracker/MiniWindowContents/PreyCreature#slot3",
+  "widget": "PreyCreature",
+  "base": "",
+  "id": "slot3",
+  "props": {
+    "id": "slot3"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDecrement",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

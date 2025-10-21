@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_tooltip.hide",
+  "args": "",
+  "file": "modules/corelib/ui/tooltip.lua"
+}

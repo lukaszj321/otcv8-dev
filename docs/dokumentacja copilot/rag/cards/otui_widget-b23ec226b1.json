@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 202,
+  "path": "CureConditions#Cure/Label#label7",
+  "widget": "Label",
+  "base": "",
+  "id": "label7",
+  "props": {
+    "id": "label7",
+    "anchors.left": "label6.left",
+    "anchors.top": "label6.bottom",
+    "margin-top": "10",
+    "margin-left": "12",
+    "text": "Spell:",
+    "font": "verdana-11px-rounded"
+  }
+}

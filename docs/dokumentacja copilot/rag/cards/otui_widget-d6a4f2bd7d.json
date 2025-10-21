@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 55,
+  "path": "MainWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "text-offset": "0 3",
+    "height": "20",
+    "margin-top": "5"
+  }
+}

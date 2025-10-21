@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 297,
+  "path": "BotServer#server/BotSwitch#targetServerLeaderToggle",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "targetServerLeaderToggle",
+  "props": {
+    "id": "targetServerLeaderToggle",
+    "anchors.left": "partyButton.left",
+    "anchors.top": "partyButton.bottom",
+    "anchors.right": "partyButton.right",
+    "margin-top": "3",
+    "height": "30",
+    "text": "Leader Targets"
+  }
+}

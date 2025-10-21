@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onPositionChange",
+  "return_type": "virtual void",
+  "args": "const Position& newPos, const Position& oldPos",
+  "file": "src/client/thing.h"
+}

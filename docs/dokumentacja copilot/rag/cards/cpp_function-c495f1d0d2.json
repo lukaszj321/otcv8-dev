@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCurrentSourcePath",
+  "return_type": "std::string",
+  "args": "int level = 0",
+  "file": "src/framework/luaengine/luainterface.h"
+}

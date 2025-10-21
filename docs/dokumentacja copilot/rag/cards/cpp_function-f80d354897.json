@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::filesystem::rename",
+  "return_type": "nan",
+  "args": "tmpFilePath, filePath",
+  "file": "src/client/minimap.cpp"
+}

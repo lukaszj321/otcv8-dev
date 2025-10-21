@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::tolower",
+  "return_type": "nan",
+  "args": "value",
+  "file": "src/client/thingtypemanager.cpp"
+}

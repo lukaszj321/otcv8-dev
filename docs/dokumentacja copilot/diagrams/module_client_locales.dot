@@ -1,0 +1,4 @@
+digraph G {
+  rankdir=LR;
+  "client_locales" [shape=box];
+}

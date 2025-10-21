@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::moveChildToIndex",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& child, int index",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

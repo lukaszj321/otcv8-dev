@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/addvip.otui",
+  "line": 26,
+  "path": "MainWindow/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10"
+  }
+}

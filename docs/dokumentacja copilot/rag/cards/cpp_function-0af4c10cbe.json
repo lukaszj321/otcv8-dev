@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "PainterShaderProgram::setOffset",
+  "return_type": "void",
+  "args": "const Point& offset",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

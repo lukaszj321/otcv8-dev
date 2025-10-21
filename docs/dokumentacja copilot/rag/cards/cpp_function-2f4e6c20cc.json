@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "EnumWindowsProc",
+  "return_type": "BOOL CALLBACK",
+  "args": "HWND hwnd, LPARAM lParam",
+  "file": "src/framework/platform/win32platform.cpp"
+}

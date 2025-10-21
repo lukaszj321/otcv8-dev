@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 201,
+  "path": "SpellHealing/Button#MoveUp",
+  "widget": "Button",
+  "base": "",
+  "id": "MoveUp",
+  "props": {
+    "id": "MoveUp",
+    "anchors.right": "prev.left",
+    "anchors.bottom": "prev.bottom",
+    "margin-right": "5",
+    "text": "Move Up",
+    "size": "55 17",
+    "font": "cipsoftFont"
+  }
+}

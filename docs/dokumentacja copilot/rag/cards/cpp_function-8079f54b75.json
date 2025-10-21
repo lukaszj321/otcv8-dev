@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getName",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/client/houses.h"
+}

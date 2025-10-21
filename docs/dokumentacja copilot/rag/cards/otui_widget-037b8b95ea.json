@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/marketcombobox.otui",
+  "line": 15,
+  "path": "MarketComboBox",
+  "widget": "MarketComboBox",
+  "base": "ComboBox",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-rounded",
+    "size": "86 20",
+    "text-offset": "3 2"
+  }
+}

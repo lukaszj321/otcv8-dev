@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 37,
+  "path": "SearchPanel",
+  "widget": "SearchPanel",
+  "base": "TextEdit",
+  "id": "",
+  "props": {
+    "placeholder": "Type to search",
+    "margin-top": "1"
+  }
+}

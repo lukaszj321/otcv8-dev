@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_actionbar\n  author: https://github.com/Vithrax/\n  sandboxed: true\n  @onLoad: init()\n  @onUnload: terminate()\n  scripts: [ actionbar ]",
+  "file": "modules/game_actionbar/actionbar.otmod",
+  "description": ""
+}

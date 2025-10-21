@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "traceback",
+  "return_type": "std::string",
+  "args": "const std::string& where, int level = 1, int maxDepth = 32",
+  "file": "src/framework/platform/platform.h"
+}

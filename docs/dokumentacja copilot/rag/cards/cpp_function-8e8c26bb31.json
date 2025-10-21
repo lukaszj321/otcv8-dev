@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parsePlayerInfo",
+  "return_type": "case Proto::GameServerPlayerDataBasic:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

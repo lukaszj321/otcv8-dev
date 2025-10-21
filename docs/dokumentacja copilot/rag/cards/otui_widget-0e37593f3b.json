@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 137,
+  "path": "OptionPanel/Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "height": "30",
+    "margin-top": "10"
+  }
+}

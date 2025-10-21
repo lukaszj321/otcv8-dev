@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 60,
+  "path": "TradeWindow/MiniWindowContents/VerticalScrollBar#ownTradeScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "ownTradeScrollBar",
+  "props": {
+    "id": "ownTradeScrollBar",
+    "anchors.top": "ownTradeContainer.top",
+    "anchors.bottom": "ownTradeContainer.bottom",
+    "anchors.right": "parent.horizontalCenter",
+    "step": "14",
+    "pixels-scroll": "true",
+    "width": "0"
+  }
+}

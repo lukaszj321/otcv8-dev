@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "idat_size <= half_z_window_size && half_z_window_size >= 256",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

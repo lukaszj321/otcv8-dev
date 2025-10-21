@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "OfferStatistic:getTime",
+  "args": "",
+  "file": "modules/game_market/offerstatistic.lua"
+}

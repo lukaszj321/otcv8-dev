@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIRadioGroup:getSelectedWidget",
+  "args": "",
+  "file": "modules/corelib/ui/uiradiogroup.lua"
+}

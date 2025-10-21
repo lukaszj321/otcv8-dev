@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getDrawFlags",
+  "return_type": "Otc::DrawFlags",
+  "args": "nan",
+  "file": "src/client/uimap.h"
+}

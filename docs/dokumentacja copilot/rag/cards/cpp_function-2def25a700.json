@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getItemTypes",
+  "return_type": "const ItemTypeList&",
+  "args": "nan",
+  "file": "src/client/thingtypemanager.h"
+}

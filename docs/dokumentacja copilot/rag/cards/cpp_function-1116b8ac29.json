@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "writeFileStream",
+  "return_type": "bool",
+  "args": "const std::string& fileName, std::iostream& in",
+  "file": "src/framework/core/resourcemanager.h"
+}

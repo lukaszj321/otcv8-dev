@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 59,
+  "path": "MultilineTextEditWindow/Panel#textPanel/MultilineTextEdit#text",
+  "widget": "MultilineTextEdit",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.fill": "parent",
+    "margin-right": "12",
+    "text-wrap": "true",
+    "vertical-scrollbar": "textScroll"
+  }
+}

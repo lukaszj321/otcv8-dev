@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onError",
+  "return_type": "virtual void",
+  "args": "const boost::system::error_code& err",
+  "file": "src/framework/net/protocol.h"
+}

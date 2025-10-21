@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 66,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#buttons/BattlePlayers#hidePlayers",
+  "widget": "BattlePlayers",
+  "base": "",
+  "id": "hidePlayers",
+  "props": {
+    "id": "hidePlayers"
+  }
+}

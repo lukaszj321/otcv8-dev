@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 73,
+  "path": "OptionPanel/Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "height": "40",
+    "margin-top": "3"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture::setupPixels",
+  "return_type": "void",
+  "args": "int level, const Size& size, uchar* pixels, int channels, bool compress",
+  "file": "src/framework/graphics/texture.cpp"
+}

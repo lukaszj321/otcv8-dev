@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 269,
+  "path": "MainWindow#spelllistWindow/CheckBox#groupBoxAttack",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "groupBoxAttack",
+  "props": {
+    "id": "groupBoxAttack",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "width": "75"
+  }
+}

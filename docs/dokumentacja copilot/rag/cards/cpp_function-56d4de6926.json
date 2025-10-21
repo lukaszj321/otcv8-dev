@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "House::save",
+  "return_type": "void",
+  "args": "TiXmlElement* elem",
+  "file": "src/client/houses.cpp"
+}

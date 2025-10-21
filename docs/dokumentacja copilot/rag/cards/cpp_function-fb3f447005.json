@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "event.mouseButton == Fw::MouseLeftButton || event.mouseButton == Fw::MouseTouch2 || event.mouseButton == Fw::MouseTouch3",
+  "file": "src/framework/ui/uimanager.cpp"
+}

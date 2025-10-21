@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "swap",
+  "return_type": "void",
+  "args": "TiXmlString& other",
+  "file": "src/framework/xml/tinystr.h"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 10,
+  "path": "MainWindow#assignItemWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "assignItemWindow",
+  "props": {
+    "id": "assignItemWindow",
+    "size": "275 195"
+  }
+}

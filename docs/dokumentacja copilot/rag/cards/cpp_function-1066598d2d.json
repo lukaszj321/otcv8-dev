@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSkill",
+  "return_type": "void",
+  "args": "uint8_t skill, int level, int levelPercent",
+  "file": "src/client/localplayer.h"
+}

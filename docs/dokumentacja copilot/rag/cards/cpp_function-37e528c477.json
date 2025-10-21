@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::getMetatable",
+  "return_type": "void",
+  "args": "int index",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

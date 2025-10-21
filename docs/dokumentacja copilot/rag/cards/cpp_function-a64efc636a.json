@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "hookedWidget == parentWidget",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

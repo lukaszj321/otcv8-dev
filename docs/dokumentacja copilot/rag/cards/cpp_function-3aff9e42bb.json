@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ConfigManager::loadSettings",
+  "return_type": "ConfigPtr",
+  "args": "const std::string file",
+  "file": "src/framework/core/configmanager.cpp"
+}

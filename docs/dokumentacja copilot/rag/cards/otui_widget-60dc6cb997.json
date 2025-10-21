@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 36,
+  "path": "BattleParty",
+  "widget": "BattleParty",
+  "base": "BattleIcon",
+  "id": "",
+  "props": {
+    "image-source": "/images/game/battle/battle_party"
+  }
+}

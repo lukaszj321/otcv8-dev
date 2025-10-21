@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "read < pixelDataSize && writePos < spriteDataSize",
+  "file": "src/client/spritemanager.cpp"
+}

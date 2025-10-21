@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_textmessage\n  description: Manage game text messages\n  author: edubart\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ textmessage ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_textmessage/textmessage.otmod",
+  "description": "Manage game text messages"
+}

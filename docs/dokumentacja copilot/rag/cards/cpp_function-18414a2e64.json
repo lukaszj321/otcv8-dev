@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setManaBar",
+  "return_type": "void",
+  "args": "uint8 id",
+  "file": "src/client/outfit.h"
+}

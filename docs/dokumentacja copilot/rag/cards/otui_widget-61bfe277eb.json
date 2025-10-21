@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 236,
+  "path": "HoldConditions#Hold/Label#label11",
+  "widget": "Label",
+  "base": "",
+  "id": "label11",
+  "props": {
+    "id": "label11",
+    "anchors.left": "prev.right",
+    "margin-left": "44",
+    "text": "Mana:",
+    "font": "verdana-11px-rounded"
+  }
+}

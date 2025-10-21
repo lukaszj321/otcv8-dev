@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.onGet",
+  "args": "operationId, url, err, data",
+  "file": "modules/corelib/http.lua"
+}

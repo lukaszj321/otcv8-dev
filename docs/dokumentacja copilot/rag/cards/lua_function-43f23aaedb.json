@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollArea:setInverted",
+  "args": "inverted",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/markettabs.otui",
+  "line": 1,
+  "path": "MarketTabBar",
+  "widget": "MarketTabBar",
+  "base": "TabBar",
+  "id": "",
+  "props": {}
+}

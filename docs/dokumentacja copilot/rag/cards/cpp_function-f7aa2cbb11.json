@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AConfiguration_fromAssetManager",
+  "return_type": "nan",
+  "args": "android_app->config, android_app->activity->assetManager",
+  "file": "src/android/android_native_app_glue.cpp"
+}

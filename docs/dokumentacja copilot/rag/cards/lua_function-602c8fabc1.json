@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupScrollMenu:addSeparator",
+  "args": "",
+  "file": "modules/corelib/ui/uipopupscrollmenu.lua"
+}

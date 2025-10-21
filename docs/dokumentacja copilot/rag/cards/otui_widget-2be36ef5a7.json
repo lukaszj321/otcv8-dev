@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 63,
+  "path": "UIWindow#terminalWindow/VerticalScrollBar#terminalScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "terminalScroll",
+  "props": {
+    "id": "terminalScroll",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "step": "48",
+    "pixels-scroll": "true"
+  }
+}

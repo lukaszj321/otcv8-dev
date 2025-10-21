@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/audio.otui",
+  "line": 1,
+  "path": "OptionPanel",
+  "widget": "OptionPanel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

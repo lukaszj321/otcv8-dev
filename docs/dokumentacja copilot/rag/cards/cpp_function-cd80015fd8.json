@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Painter::drawText",
+  "return_type": "void",
+  "args": "const Point& pos, CoordsBuffer& coordsBuffer, const std::vector<std::pair<int, Color>>& colors, const TexturePtr& texture",
+  "file": "src/framework/graphics/painter.cpp"
+}

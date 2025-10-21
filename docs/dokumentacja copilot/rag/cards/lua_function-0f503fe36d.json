@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIComboBox:addOption",
+  "args": "text, data",
+  "file": "modules/corelib/ui/uicombobox.lua"
+}

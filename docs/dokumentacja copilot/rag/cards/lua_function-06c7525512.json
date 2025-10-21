@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMoveableTabBar:addTab",
+  "args": "text, panel, menuCallback",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

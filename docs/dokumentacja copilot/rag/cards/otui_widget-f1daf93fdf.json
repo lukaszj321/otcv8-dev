@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 93,
+  "path": "MainWindow#assignItemWindow/Button#buttonOk",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonOk",
+  "props": {
+    "id": "buttonOk",
+    "anchors.right": "prev.left",
+    "margin-right": "5",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "font": "cipsoftFont",
+    "text": "Ok"
+  }
+}

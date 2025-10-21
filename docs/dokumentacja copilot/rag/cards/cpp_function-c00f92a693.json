@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseContainerRemoveItem",
+  "return_type": "case Proto::GameServerDeleteInContainer:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

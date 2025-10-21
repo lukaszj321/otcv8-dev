@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:addAlternativeWidget",
+  "args": "widget, pos, maxZoom",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

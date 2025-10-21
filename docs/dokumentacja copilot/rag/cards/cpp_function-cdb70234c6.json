@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getBodyBuffer",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/net/inputmessage.h"
+}

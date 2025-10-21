@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 327,
+  "path": "MainWindow#imbuingWindow/ClearImbue#clearImbue",
+  "widget": "ClearImbue",
+  "base": "",
+  "id": "clearImbue",
+  "props": {
+    "id": "clearImbue",
+    "anchors.left": "parent.left",
+    "anchors.top": "emptyImbue.top",
+    "anchors.right": "parent.right"
+  }
+}

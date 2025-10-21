@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "infoLogLength > 1",
+  "file": "src/framework/graphics/shader.cpp"
+}

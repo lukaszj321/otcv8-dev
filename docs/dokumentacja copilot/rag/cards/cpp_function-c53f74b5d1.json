@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processKeyDown",
+  "return_type": "nan",
+  "args": "key",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

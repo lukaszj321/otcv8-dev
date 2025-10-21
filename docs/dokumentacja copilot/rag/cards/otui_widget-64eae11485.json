@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 300,
+  "path": "HoldConditions#Hold/CheckBox#HoldUtana",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "HoldUtana",
+  "props": {
+    "id": "HoldUtana",
+    "anchors.right": "parent.right",
+    "margin-right": "10"
+  }
+}

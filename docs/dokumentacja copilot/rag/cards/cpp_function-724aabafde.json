@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "reedSolomonComputeRemainder",
+  "return_type": "nan",
+  "args": "dat, datLen, rsdiv, blockEccLen, ecc",
+  "file": "src/framework/util/qrcodegen.c"
+}

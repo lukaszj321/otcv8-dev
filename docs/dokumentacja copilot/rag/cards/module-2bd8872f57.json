@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_options\n  description: Create the options window\n  author: edubart, BeniS\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ options ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_options/options.otmod",
+  "description": "Create the options window"
+}

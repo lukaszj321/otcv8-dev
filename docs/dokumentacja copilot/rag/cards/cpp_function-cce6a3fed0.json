@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::trim",
+  "return_type": "nan",
+  "args": "res",
+  "file": "src/framework/platform/unixplatform.cpp"
+}

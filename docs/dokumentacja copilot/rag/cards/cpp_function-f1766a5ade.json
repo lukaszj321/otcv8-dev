@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "doScreenshot",
+  "return_type": "void",
+  "args": "std::string fileName",
+  "file": "src/framework/graphics/framebuffer.h"
+}

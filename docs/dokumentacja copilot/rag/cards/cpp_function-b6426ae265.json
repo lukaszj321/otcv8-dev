@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setScaling",
+  "return_type": "void",
+  "args": "float scaling",
+  "file": "src/framework/platform/platformwindow.h"
+}

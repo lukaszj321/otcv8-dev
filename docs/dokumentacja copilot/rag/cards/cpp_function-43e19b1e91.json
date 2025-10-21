@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseRemoveInventoryItem",
+  "return_type": "case Proto::GameServerDeleteInventory:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

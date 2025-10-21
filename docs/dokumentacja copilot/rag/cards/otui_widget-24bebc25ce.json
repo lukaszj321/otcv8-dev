@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 59,
+  "path": "MissionLog/TextList#missionList",
+  "widget": "TextList",
+  "base": "",
+  "id": "missionList",
+  "props": {
+    "id": "missionList",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "3",
+    "height": "133",
+    "padding": "1",
+    "focusable": "false",
+    "vertical-scrollbar": "missionListScrollBar",
+    "background-color": "#484848"
+  }
+}

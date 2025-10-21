@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 40,
+  "path": "ComboTrigger#trigger/TextEdit#onSayLeader",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "onSayLeader",
+  "props": {
+    "id": "onSayLeader",
+    "anchors.left": "leaderLabel.right",
+    "anchors.top": "leaderLabel.top",
+    "anchors.bottom": "leaderLabel.bottom",
+    "margin-left": "5",
+    "width": "120",
+    "font": "cipsoftFont"
+  }
+}

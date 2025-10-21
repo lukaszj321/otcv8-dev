@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alBufferData",
+  "return_type": "nan",
+  "args": "m_bufferId, sampleFormat, &data[0], size, rate",
+  "file": "src/framework/sound/soundbuffer.cpp"
+}

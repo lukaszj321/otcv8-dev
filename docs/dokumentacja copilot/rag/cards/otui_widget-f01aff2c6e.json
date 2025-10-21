@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 62,
+  "path": "TrackerItem/UIWidget#name",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.top": "prev.top",
+    "margin-top": "1",
+    "anchors.bottom": "prev.verticalCenter",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "text": "Set Item to start track.",
+    "text-align": "left",
+    "font": "verdana-11px-rounded",
+    "color": "#FFFFFF"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 281,
+  "path": "MainWindow#npcWindow/Button#tradeButton",
+  "widget": "Button",
+  "base": "",
+  "id": "tradeButton",
+  "props": {
+    "id": "tradeButton",
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10"
+  }
+}

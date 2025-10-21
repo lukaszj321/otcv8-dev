@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getNumDataCodewords",
+  "return_type": "testable int",
+  "args": "int version, enum qrcodegen_Ecc ecl",
+  "file": "src/framework/util/qrcodegen.c"
+}

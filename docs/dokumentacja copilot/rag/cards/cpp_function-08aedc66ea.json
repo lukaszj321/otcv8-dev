@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::time",
+  "return_type": "nan",
+  "args": "&tnow",
+  "file": "src/framework/stdext/string.cpp"
+}

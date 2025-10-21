@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "loc1 < 1.0 / 6.0",
+  "file": "src/framework/util/color.cpp"
+}

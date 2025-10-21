@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlElement::GetText",
+  "return_type": "const char*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream::write",
+  "return_type": "void",
+  "args": "const void *buffer, uint32 count",
+  "file": "src/framework/core/filestream.cpp"
+}

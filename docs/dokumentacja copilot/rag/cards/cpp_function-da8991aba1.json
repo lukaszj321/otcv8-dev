@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SpriteManager::getSpriteImageHd",
+  "return_type": "ImagePtr",
+  "args": "int id",
+  "file": "src/client/spritemanager.cpp"
+}

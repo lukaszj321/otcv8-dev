@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeWalkingCreature",
+  "return_type": "void",
+  "args": "const CreaturePtr& creature",
+  "file": "src/client/tile.h"
+}

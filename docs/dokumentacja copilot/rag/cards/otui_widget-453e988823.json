@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/console.otui",
+  "line": 1,
+  "path": "ConsolePanel#consolePanel",
+  "widget": "ConsolePanel",
+  "base": "",
+  "id": "consolePanel",
+  "props": {
+    "id": "consolePanel",
+    "phantom": "false"
+  }
+}

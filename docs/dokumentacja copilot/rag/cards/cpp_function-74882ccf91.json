@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "start",
+  "return_type": "Position",
+  "args": "fromPos.z > toPos.z ? toPos : fromPos",
+  "file": "src/client/map.cpp"
+}

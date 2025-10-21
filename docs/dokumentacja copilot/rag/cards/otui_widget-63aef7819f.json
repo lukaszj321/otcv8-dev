@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 59,
+  "path": "ModalDialog#modalDialog/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "5"
+  }
+}

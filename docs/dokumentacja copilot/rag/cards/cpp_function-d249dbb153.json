@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "InputMessage::getDouble",
+  "return_type": "double",
+  "args": "nan",
+  "file": "src/framework/net/inputmessage.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "StreamSoundSource::downMix",
+  "return_type": "void",
+  "args": "StreamSoundSource::DownMix downMix",
+  "file": "src/framework/sound/streamsoundsource.cpp"
+}

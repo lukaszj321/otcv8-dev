@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::strncpy",
+  "return_type": "nan",
+  "args": "s, format, maxlen",
+  "file": "src/framework/stdext/format.h"
+}

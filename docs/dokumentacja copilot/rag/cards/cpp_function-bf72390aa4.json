@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getUnmaximizedPos",
+  "return_type": "Point",
+  "args": "nan",
+  "file": "src/framework/platform/platformwindow.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/config.otui",
+  "line": 42,
+  "path": "BotConfig#botConfig/Button#edit",
+  "widget": "Button",
+  "base": "",
+  "id": "edit",
+  "props": {
+    "id": "edit",
+    "anchors.top": "prev.top",
+    "text": "Edit",
+    "width": "56",
+    "height": "18",
+    "text-offet": "0 2"
+  }
+}

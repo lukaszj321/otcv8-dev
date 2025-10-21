@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 480,
+  "path": "FeaturesWindow#FeaturesWindow/BotSwitch#LootChannel",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "LootChannel",
+  "props": {
+    "id": "LootChannel",
+    "anchors.left": "CustomPrices.left",
+    "anchors.right": "parent.horizontalCenter",
+    "margin-right": "2",
+    "anchors.top": "prev.top",
+    "margin-top": "20",
+    "text": "Loot Channel",
+    "font": "verdana-11px-rounded"
+  }
+}

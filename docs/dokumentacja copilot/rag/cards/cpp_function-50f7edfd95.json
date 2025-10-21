@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DEFINE_OPTION",
+  "return_type": "nan",
+  "args": "disablePredictiveWalking, \"Disable predictive walking\"",
+  "file": "src/framework/util/extras.h"
+}

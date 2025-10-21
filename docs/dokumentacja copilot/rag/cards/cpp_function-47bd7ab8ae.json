@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "clamp",
+  "return_type": "template<typename T> T",
+  "args": "T x, T min, T max",
+  "file": "src/framework/stdext/math.h"
+}

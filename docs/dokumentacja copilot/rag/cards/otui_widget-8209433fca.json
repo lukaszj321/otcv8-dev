@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 371,
+  "path": "FriendHealer",
+  "widget": "FriendHealer",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "512 390",
+    "padding-top": "30"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui",
+  "line": 151,
+  "path": "TargetBotCreatureEditorWindow/Button#ok",
+  "widget": "Button",
+  "base": "",
+  "id": "ok",
+  "props": {
+    "id": "ok",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "next.left",
+    "margin-right": "10",
+    "width": "60"
+  }
+}

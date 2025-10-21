@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 52,
+  "path": "ItemPanel/SupplySpinBox#avg",
+  "widget": "SupplySpinBox",
+  "base": "",
+  "id": "avg",
+  "props": {
+    "id": "avg",
+    "anchors.left": "prev.right",
+    "anchors.bottom": "parent.bottom",
+    "width": "50"
+  }
+}

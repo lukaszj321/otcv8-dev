@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_id == 33",
+  "file": "src/client/effect.cpp"
+}

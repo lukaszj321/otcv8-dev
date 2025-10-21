@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Stats::addWidget",
+  "return_type": "void",
+  "args": "UIWidget* widget",
+  "file": "src/framework/util/stats.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "orderedPairs",
+  "args": "t",
+  "file": "modules/corelib/orderedtable.lua"
+}

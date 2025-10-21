@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::draw",
+  "return_type": "nan",
+  "args": "dest, animate, lightView",
+  "file": "src/client/localplayer.cpp"
+}

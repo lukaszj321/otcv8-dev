@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "numCharCountBits",
+  "return_type": "int",
+  "args": "enum qrcodegen_Mode mode, int version",
+  "file": "src/framework/util/qrcodegen.c"
+}

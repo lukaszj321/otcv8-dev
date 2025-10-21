@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 1,
+  "path": "MarketItemBox#itemBox",
+  "widget": "MarketItemBox",
+  "base": "UICheckBox",
+  "id": "itemBox",
+  "props": {
+    "id": "itemBox",
+    "border-width": "1",
+    "border-color": "#000000",
+    "color": "#aaaaaa",
+    "text-align": "center"
+  }
+}

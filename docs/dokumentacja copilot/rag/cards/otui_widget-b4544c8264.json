@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 195,
+  "path": "ListLabel",
+  "widget": "ListLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "height": "15",
+    "font": "verdana-11px-rounded",
+    "text-offset": "15 0"
+  }
+}

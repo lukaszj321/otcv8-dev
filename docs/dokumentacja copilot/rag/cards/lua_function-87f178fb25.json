@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "parseFeatures",
+  "args": "features",
+  "file": "modules/client_entergame/entergame.lua"
+}

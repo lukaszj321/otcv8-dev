@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int x = 0; x < halfWidth; ++x",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

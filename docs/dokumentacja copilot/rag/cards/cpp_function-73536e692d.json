@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::hasState",
+  "return_type": "bool",
+  "args": "Fw::WidgetState state",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

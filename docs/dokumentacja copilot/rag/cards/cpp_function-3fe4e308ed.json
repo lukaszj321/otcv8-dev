@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onMouseMove",
+  "return_type": "return",
+  "args": "mousePos, mouseMoved",
+  "file": "src/client/uimap.cpp"
+}

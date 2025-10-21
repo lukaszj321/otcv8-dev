@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseTutorialHint",
+  "return_type": "case Proto::GameServerTutorialHint:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

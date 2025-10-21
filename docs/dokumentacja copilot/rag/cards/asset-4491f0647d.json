@@ -1,0 +1,6 @@
+{
+  "type": "asset",
+  "path": "data/shaders/map_rainbow_fragment.frag",
+  "ext": ".frag",
+  "bytes": 318
+}

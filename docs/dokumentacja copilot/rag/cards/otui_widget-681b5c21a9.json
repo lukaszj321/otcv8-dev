@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 85,
+  "path": "MiniWindow#cooldownWindow/MiniWindowContents/SpellProgressRect#progressRectSpecial",
+  "widget": "SpellProgressRect",
+  "base": "",
+  "id": "progressRectSpecial",
+  "props": {
+    "id": "progressRectSpecial",
+    "anchors.fill": "groupIconSpecial"
+  }
+}

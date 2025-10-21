@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "public:",
+  "args": "const std::string& error, int traceLevel = -1",
+  "file": "src/framework/luaengine/luaexception.h"
+}

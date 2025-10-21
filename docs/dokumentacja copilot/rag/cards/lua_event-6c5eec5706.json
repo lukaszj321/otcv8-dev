@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onSessionKey",
+  "file": "modules/gamelib/protocollogin.lua"
+}

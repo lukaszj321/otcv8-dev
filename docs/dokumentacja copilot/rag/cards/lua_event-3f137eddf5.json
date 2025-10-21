@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onShowAllItemsChange",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

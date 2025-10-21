@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XMoveWindow",
+  "return_type": "nan",
+  "args": "m_display, m_window, m_position.x, m_position.y",
+  "file": "src/framework/platform/x11window.cpp"
+}

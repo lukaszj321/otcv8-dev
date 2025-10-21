@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "initFromGzip",
+  "return_type": "private: bool",
+  "args": "const std::string& buffer",
+  "file": "src/framework/core/filestream.h"
+}

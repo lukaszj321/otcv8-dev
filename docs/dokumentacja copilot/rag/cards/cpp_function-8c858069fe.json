@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "print",
+  "return_type": "void",
+  "args": "const T&... args",
+  "file": "src/framework/stdext/format.h"
+}

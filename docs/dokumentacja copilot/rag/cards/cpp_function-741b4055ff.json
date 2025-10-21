@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addContainerItemIndexed",
+  "return_type": "void",
+  "args": "const ItemPtr& i, int slot",
+  "file": "src/client/item.h"
+}

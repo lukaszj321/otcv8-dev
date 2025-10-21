@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "else throw",
+  "args": "node, \"cannot determine layout type\"",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

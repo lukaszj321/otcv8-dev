@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLastFocusReason",
+  "return_type": "Fw::FocusReason",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

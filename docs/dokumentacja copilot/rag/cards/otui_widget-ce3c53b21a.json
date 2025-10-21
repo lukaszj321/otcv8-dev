@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 196,
+  "path": "CureConditions#Cure/CheckBox#CureParalyse",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "CureParalyse",
+  "props": {
+    "id": "CureParalyse",
+    "anchors.right": "parent.right",
+    "margin-right": "10"
+  }
+}

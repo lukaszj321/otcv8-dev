@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "notificateTileUpdate",
+  "return_type": "nan",
+  "args": "pos, false",
+  "file": "src/client/map.cpp"
+}

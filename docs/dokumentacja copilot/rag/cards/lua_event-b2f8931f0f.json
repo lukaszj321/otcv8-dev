@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onExtendedOpcode",
+  "file": "modules/gamelib/protocolgame.lua"
+}

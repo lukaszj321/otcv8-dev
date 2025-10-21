@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAlignmentPatternPositions",
+  "return_type": "testable int",
+  "args": "int version, uint8_t result[7]",
+  "file": "src/framework/util/qrcodegen.c"
+}

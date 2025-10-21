@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getDefaultFont",
+  "return_type": "BitmapFontPtr",
+  "args": "nan",
+  "file": "src/framework/graphics/fontmanager.h"
+}

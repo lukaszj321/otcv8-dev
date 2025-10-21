@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 4,
+  "path": "StatsPanel/ProgressBar#health",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "health",
+  "props": {
+    "id": "health",
+    "anchors.left": "parent.left",
+    "anchors.right": "states.left",
+    "anchors.top": "states.top",
+    "anchors.bottom": "states.bottom",
+    "margin-right": "7"
+  }
+}

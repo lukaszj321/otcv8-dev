@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_type != Proto::CreatureTypeUnknown && m_typeTexture",
+  "file": "src/client/creature.cpp"
+}

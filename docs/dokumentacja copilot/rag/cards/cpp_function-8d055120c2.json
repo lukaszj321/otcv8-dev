@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call",
+  "return_type": "static LuaCppFunction",
+  "args": "const Lambda& f",
+  "file": "src/framework/luaengine/luabinder.h"
+}

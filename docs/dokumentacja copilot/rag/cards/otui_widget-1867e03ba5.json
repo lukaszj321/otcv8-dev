@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 413,
+  "path": "ConditionsWindow",
+  "widget": "ConditionsWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "445 280"
+  }
+}

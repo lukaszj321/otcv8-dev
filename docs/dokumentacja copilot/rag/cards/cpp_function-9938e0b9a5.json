@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Platform::spawnProcess",
+  "return_type": "bool",
+  "args": "std::string process, const std::vector<std::string>& args",
+  "file": "src/framework/platform/androidplatform.cpp"
+}

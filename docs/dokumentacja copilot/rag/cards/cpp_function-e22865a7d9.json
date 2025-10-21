@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Position",
+  "return_type": "return",
+  "args": "x, y, z",
+  "file": "src/client/protocolgameparse.cpp"
+}

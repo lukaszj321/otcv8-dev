@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 137,
+  "path": "SourceLabel/Label#description",
+  "widget": "Label",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "anchors.fill": "parent",
+    "text-align": "center",
+    "text": "Monster Name",
+    "font": "verdana-11px-rounded",
+    "background": "#363636"
+  }
+}

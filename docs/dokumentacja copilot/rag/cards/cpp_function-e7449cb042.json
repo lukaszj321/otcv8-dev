@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getHouse",
+  "return_type": "HousePtr",
+  "args": "uint32 houseId",
+  "file": "src/client/houses.h"
+}

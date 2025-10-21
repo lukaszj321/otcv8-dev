@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cType",
+  "return_type": "CreatureTypePtr",
+  "args": "nullptr",
+  "file": "src/client/creatures.cpp"
+}

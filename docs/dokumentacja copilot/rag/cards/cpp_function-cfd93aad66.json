@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onDragEnter",
+  "return_type": "virtual bool",
+  "args": "const Point& mousePos",
+  "file": "src/framework/ui/uiwidget.h"
+}

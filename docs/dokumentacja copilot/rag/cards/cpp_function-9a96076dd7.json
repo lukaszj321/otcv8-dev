@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseRequestPurchaseData",
+  "return_type": "case Proto::GameServerRequestPurchaseData:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

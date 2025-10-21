@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 456,
+  "path": "CardLabel/UIWidget#text",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.right": "prev.left",
+    "margin-right": "5",
+    "anchors.left": "parent.left",
+    "text-align": "right"
+  }
+}

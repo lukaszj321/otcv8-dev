@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::onCameraPositionChange",
+  "return_type": "void",
+  "args": "const Position& position, const Position& oldPosition",
+  "file": "src/client/uiminimap.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fopen",
+  "return_type": "return",
+  "args": "filename, mode",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

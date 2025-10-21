@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 94,
+  "path": "MainWindow#spelllistWindow/SpellInfoLabel#labelFormula",
+  "widget": "SpellInfoLabel",
+  "base": "",
+  "id": "labelFormula",
+  "props": {
+    "id": "labelFormula",
+    "anchors.left": "spellList.right",
+    "anchors.top": "labelName.bottom"
+  }
+}

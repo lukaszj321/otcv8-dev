@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ALooper_addFd",
+  "return_type": "nan",
+  "args": "looper, android_app->msgread, LOOPER_ID_MAIN, ALOOPER_EVENT_INPUT, NULL, &android_app->cmdPollSource",
+  "file": "src/android/android_native_app_glue.cpp"
+}

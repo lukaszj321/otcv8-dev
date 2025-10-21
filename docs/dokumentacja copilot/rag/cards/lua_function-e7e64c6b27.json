@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_keyboard.getModifiers",
+  "args": "",
+  "file": "modules/corelib/keyboard.lua"
+}

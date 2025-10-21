@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 45,
+  "path": "FlagWindow#flagWindow/TextEdit#description",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "width": "158"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCreatureHealth",
+  "return_type": "case Proto::GameServerCreatureHealth:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

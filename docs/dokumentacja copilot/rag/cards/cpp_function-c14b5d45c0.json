@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "scale",
+  "return_type": "nan",
+  "args": "m_scaling - 0.5",
+  "file": "src/framework/core/graphicalapplication.cpp"
+}

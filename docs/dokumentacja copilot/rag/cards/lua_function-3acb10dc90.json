@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "bonusDescription",
+  "args": "bonusType, bonusValue, bonusGrade",
+  "file": "modules/game_prey/prey.lua"
+}

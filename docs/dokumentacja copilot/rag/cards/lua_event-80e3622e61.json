@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onOwnTrade",
+  "file": "modules/game_playertrade/playertrade.lua"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 24,
+  "path": "GameAction",
+  "widget": "GameAction",
+  "base": "UIButton",
+  "id": "",
+  "props": {
+    "size": "64 64",
+    "phantom": "false"
+  }
+}

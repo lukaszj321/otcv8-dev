@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getMarketData",
+  "return_type": "MarketData",
+  "args": "nan",
+  "file": "src/client/thingtype.h"
+}

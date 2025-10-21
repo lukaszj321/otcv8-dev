@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "printNode",
+  "return_type": "void",
+  "args": "std::stringstream& ret, WidgetTreeNode& node, int depth, int limit, bool pretty",
+  "file": "src/framework/util/stats.cpp"
+}

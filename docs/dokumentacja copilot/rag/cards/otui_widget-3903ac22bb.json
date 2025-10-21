@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 575,
+  "path": "MainWindow#preyWindow/HorizontalSeparator#bottomSep",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "bottomSep",
+  "props": {
+    "id": "bottomSep",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "closeButton.top",
+    "margin-bottom": "10"
+  }
+}

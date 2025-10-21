@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TownManager::findTown",
+  "return_type": "TownList::iterator",
+  "args": "uint32 townId",
+  "file": "src/client/towns.cpp"
+}

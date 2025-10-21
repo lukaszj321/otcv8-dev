@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setShowCount",
+  "return_type": "void",
+  "args": "bool value",
+  "file": "src/client/uiitem.h"
+}

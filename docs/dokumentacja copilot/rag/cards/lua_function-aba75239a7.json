@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "registerOpcode",
+  "args": "code, func",
+  "file": "modules/game_protocol/protocol.lua"
+}

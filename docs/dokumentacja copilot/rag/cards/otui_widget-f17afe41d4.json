@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 146,
+  "path": "MainWindow#hotkeysWindow/Button#selectObjectButton",
+  "widget": "Button",
+  "base": "",
+  "id": "selectObjectButton",
+  "props": {
+    "id": "selectObjectButton",
+    "width": "128",
+    "enabled": "false",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "margin-left": "10"
+  }
+}

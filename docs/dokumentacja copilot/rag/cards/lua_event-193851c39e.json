@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onTouchPress",
+  "file": "modules/client_mobile/mobile.lua"
+}

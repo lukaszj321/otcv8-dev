@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getVertexHardwareCache",
+  "return_type": "HardwareBuffer*",
+  "args": "nan",
+  "file": "src/framework/graphics/coordsbuffer.h"
+}

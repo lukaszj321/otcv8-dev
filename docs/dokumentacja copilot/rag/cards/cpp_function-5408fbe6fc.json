@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "snprintf",
+  "return_type": "int",
+  "args": "char *s, size_t maxlen, const char *format, const Args&... args",
+  "file": "src/framework/stdext/format.h"
+}

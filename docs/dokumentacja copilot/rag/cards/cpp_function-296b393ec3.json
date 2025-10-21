@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture::setUpsideDown",
+  "return_type": "void",
+  "args": "bool upsideDown",
+  "file": "src/framework/graphics/texture.cpp"
+}

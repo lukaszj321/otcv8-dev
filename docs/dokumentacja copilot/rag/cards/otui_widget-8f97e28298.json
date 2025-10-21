@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 184,
+  "path": "SioListWindow/Button#closeButton",
+  "widget": "Button",
+  "base": "",
+  "id": "closeButton",
+  "props": {
+    "id": "closeButton",
+    "font": "cipsoftFont",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "margin-top": "15",
+    "margin-right": "5"
+  }
+}

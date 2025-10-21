@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 74,
+  "path": "NoCreaturePanel/FlatPanel/UIWidget",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "",
+  "props": {
+    "phantom": "true",
+    "image-source": "/images/game/prey/prey_biginactive"
+  }
+}

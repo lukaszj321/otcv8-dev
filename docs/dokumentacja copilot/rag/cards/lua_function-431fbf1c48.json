@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:onDragLeave",
+  "args": "droppedWidget, mousePos",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

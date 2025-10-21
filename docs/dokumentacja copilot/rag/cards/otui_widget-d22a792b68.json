@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 131,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#slowPackets",
+  "widget": "DebugText",
+  "base": "",
+  "id": "slowPackets",
+  "props": {
+    "id": "slowPackets",
+    "text": "-"
+  }
+}

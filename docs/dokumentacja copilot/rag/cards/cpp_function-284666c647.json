@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "size > 0",
+  "file": "src/framework/stdext/math.cpp"
+}

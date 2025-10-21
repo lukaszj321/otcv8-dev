@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "InsertAfterChild",
+  "return_type": "TiXmlNode*",
+  "args": "TiXmlNode* afterThis, const TiXmlNode& addThis",
+  "file": "src/framework/xml/tinyxml.h"
+}

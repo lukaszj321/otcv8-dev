@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addPoint",
+  "return_type": "void",
+  "args": "const Point& point",
+  "file": "src/framework/core/binarytree.h"
+}

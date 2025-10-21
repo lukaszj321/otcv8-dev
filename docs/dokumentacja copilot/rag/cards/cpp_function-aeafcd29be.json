@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"cannot have multiple main widgets in otui files\"",
+  "file": "src/framework/ui/uimanager.cpp"
+}

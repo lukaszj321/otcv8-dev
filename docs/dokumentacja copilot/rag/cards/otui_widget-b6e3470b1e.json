@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_itemselector/itemselector.otui",
+  "line": 1,
+  "path": "ItemSelectorWindow#itemSelector",
+  "widget": "ItemSelectorWindow",
+  "base": "MainWindow",
+  "id": "itemSelector",
+  "props": {
+    "id": "itemSelector",
+    "size": "260 120"
+  }
+}

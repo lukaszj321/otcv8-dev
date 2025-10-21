@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "parse_object",
+  "args": "str, i",
+  "file": "modules/corelib/json.lua"
+}

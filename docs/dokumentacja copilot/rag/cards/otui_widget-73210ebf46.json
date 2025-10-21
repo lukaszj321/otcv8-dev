@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.otui",
+  "line": 23,
+  "path": "StashItem/UIWidget#slot",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "slot",
+  "props": {
+    "id": "slot",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.bottom": "Item.bottom",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "font": "verdana-11px-rounded",
+    "text-align": "left",
+    "text": "Add item to select locker.",
+    "color": "#CCCCCC"
+  }
+}

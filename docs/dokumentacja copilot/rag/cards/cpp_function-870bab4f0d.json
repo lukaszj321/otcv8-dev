@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendBrowseField",
+  "return_type": "void",
+  "args": "const Position& position",
+  "file": "src/client/protocolgamesend.cpp"
+}

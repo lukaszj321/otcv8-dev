@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "fatal",
+  "args": "msg",
+  "file": "modules/corelib/util.lua"
+}

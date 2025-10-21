@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 401,
+  "path": "AttackBotPanel/TextEdit#spellName",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "spellName",
+  "props": {
+    "id": "spellName",
+    "anchors.top": "monsters.top",
+    "anchors.left": "monsters.right",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "height": "15",
+    "text": "spell name",
+    "background": "#363636",
+    "font": "cipsoftFont",
+    "visible": "false"
+  }
+}

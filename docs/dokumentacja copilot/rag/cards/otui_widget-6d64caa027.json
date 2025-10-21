@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 1,
+  "path": "TargetBotEntry",
+  "widget": "TargetBotEntry",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "background-color": "#00000055",
+    "text-offset": "2 0",
+    "focusable": "true"
+  }
+}

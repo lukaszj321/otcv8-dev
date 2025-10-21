@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FontManager::importFont",
+  "return_type": "void",
+  "args": "std::string file",
+  "file": "src/framework/graphics/fontmanager.cpp"
+}

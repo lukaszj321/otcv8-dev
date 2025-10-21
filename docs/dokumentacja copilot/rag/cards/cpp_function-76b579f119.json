@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_call",
+  "return_type": "nan",
+  "args": "L, numArgs, numRets",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

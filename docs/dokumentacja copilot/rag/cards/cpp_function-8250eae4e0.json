@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processEditText",
+  "return_type": "void",
+  "args": "uint id, int itemId, int maxLength, const std::string& text, const std::string& writer, const std::string& date",
+  "file": "src/client/game.cpp"
+}

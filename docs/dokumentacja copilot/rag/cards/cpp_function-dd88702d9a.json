@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setY",
+  "return_type": "void",
+  "args": "T y",
+  "file": "src/framework/util/rect.h"
+}

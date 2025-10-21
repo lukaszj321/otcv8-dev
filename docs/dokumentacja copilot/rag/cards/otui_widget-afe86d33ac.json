@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 1,
+  "path": "SkullProgressBar",
+  "widget": "SkullProgressBar",
+  "base": "ProgressBar",
+  "id": "",
+  "props": {
+    "height": "13",
+    "margin": "4 18 0 10",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

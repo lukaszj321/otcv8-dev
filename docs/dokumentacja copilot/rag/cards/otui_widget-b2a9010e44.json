@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 256,
+  "path": "InputPanel/ConditionBox#useSecondCondition",
+  "widget": "ConditionBox",
+  "base": "",
+  "id": "useSecondCondition",
+  "props": {
+    "id": "useSecondCondition",
+    "anchors.top": "condition.bottom",
+    "margin-top": "10",
+    "width": "50"
+  }
+}

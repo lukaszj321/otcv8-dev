@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "microsleep",
+  "return_type": "void",
+  "args": "size_t us",
+  "file": "src/framework/stdext/time.cpp"
+}

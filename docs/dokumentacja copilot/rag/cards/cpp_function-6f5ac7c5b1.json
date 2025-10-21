@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addDepth",
+  "return_type": "public: inline void",
+  "args": "float depth",
+  "file": "src/framework/graphics/deptharray.h"
+}

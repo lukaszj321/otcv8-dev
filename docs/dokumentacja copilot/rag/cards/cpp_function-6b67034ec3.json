@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "!android_app->destroyed",
+  "file": "src/android/android_native_app_glue.cpp"
+}

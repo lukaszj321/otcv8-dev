@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "translateAutoFocusPolicy",
+  "return_type": "AutoFocusPolicy",
+  "args": "std::string policy",
+  "file": "src/framework/ui/uitranslator.h"
+}

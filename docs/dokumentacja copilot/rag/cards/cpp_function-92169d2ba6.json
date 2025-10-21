@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_encodeBinary",
+  "return_type": "bool",
+  "args": "uint8_t dataAndTemp[], size_t dataLen, uint8_t qrcode[], enum qrcodegen_Ecc ecl, int minVersion, int maxVersion, enum qrcodegen_Mask mask, bool boostEcl",
+  "file": "src/framework/util/qrcodegen.h"
+}

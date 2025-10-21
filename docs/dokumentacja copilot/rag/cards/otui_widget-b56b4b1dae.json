@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 248,
+  "path": "AttackBotPanel/TextEdit#monsters",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "monsters",
+  "props": {
+    "id": "monsters",
+    "anchors.left": "entryList.left",
+    "anchors.top": "range.bottom",
+    "margin-top": "5",
+    "size": "405 15",
+    "text": "monster names",
+    "font": "cipsoftFont",
+    "background": "#363636"
+  }
+}

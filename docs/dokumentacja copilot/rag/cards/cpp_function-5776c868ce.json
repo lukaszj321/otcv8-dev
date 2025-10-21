@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendSellItem",
+  "return_type": "void",
+  "args": "int itemId, int subType, int amount, bool ignoreEquipped",
+  "file": "src/client/protocolgame.h"
+}

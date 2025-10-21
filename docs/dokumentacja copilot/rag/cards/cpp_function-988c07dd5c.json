@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "InsertEndChild",
+  "return_type": "TiXmlNode*",
+  "args": "const TiXmlNode& addThis",
+  "file": "src/framework/xml/tinyxml.h"
+}

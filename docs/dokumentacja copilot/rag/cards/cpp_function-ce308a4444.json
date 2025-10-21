@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "public:",
+  "args": "const OTMLNodePtr& node, const std::string& error",
+  "file": "src/framework/otml/otmlexception.h"
+}

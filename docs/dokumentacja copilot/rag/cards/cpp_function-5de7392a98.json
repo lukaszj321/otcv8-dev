@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SHA1_Init",
+  "return_type": "nan",
+  "args": "&c",
+  "file": "src/framework/util/crypt.cpp"
+}

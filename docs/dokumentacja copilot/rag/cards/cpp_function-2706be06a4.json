@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDepotId",
+  "return_type": "void",
+  "args": "uint16 depotId",
+  "file": "src/client/item.h"
+}

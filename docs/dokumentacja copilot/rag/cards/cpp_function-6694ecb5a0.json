@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "cfile",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

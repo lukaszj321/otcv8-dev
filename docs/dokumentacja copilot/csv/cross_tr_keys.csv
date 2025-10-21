@@ -1,0 +1,920 @@
+tr_key,file,line
+All modules and scripts were reloaded.,modules/modules/client/client.lua,26
+Please wait,modules/modules/client_entergame/characterlist.lua,35
+Connecting to game server...,modules/modules/client_entergame/characterlist.lua,35
+Login Error,modules/modules/client_entergame/characterlist.lua,108
+Two-Factor Authentification,modules/modules/client_entergame/characterlist.lua,119
+Connection Error,modules/modules/client_entergame/characterlist.lua,130
+Update needed,modules/modules/client_entergame/characterlist.lua,141
+Enter with your account again to update your client.,modules/modules/client_entergame/characterlist.lua,141
+ (Frozen),modules/modules/client_entergame/characterlist.lua,303
+ (Suspended),modules/modules/client_entergame/characterlist.lua,305
+Free Account,modules/modules/client_entergame/characterlist.lua,309
+Gratis Premium Account,modules/modules/client_entergame/characterlist.lua,312
+Error,modules/modules/client_entergame/characterlist.lua,393
+You must select a character to login!,modules/modules/client_entergame/characterlist.lua,393
+Character List,modules/modules/client_entergame/characterlist.otui,46
+Account Status,modules/modules/client_entergame/characterlist.otui,81
+Free Account,modules/modules/client_entergame/characterlist.otui,88
+Auto reconnect: Off,modules/modules/client_entergame/characterlist.otui,112
+Auto reconnect: On,modules/modules/client_entergame/characterlist.otui,115
+Ok,modules/modules/client_entergame/characterlist.otui,120
+Cancel,modules/modules/client_entergame/characterlist.otui,129
+"Your client needs updating, try redownloading it.",modules/modules/client_entergame/entergame.lua,64
+Another,modules/modules/client_entergame/entergame.lua,315
+Another,modules/modules/client_entergame/entergame.lua,406
+Login Error,modules/modules/client_entergame/entergame.lua,427
+Cannot login while already in game.,modules/modules/client_entergame/entergame.lua,427
+Please wait,modules/modules/client_entergame/entergame.lua,509
+Connecting to login server...,modules/modules/client_entergame/entergame.lua,509
+Please wait,modules/modules/client_entergame/entergame.lua,554
+Connecting to login server...,modules/modules/client_entergame/entergame.lua,554
+Login Error,modules/modules/client_entergame/entergame.lua,594
+Login Error,modules/modules/client_entergame/entergame.lua,603
+Account name,modules/modules/client_entergame/entergame.otui,6
+Password,modules/modules/client_entergame/entergame.otui,19
+Token,modules/modules/client_entergame/entergame.otui,33
+Server,modules/modules/client_entergame/entergame.otui,71
+IP:PORT or URL,modules/modules/client_entergame/entergame.otui,115
+Make sure that your client uses\nthe correct game client version,modules/modules/client_entergame/entergame.otui,123
+Version,modules/modules/client_entergame/entergame.otui,131
+Remember password,modules/modules/client_entergame/entergame.otui,156
+Remember account and password when starts client,modules/modules/client_entergame/entergame.otui,157
+Login,modules/modules/client_entergame/entergame.otui,170
+Waiting List,modules/modules/client_entergame/waitinglist.otui,3
+Cancel,modules/modules/client_entergame/waitinglist.otui,40
+Feedback/Bug report,modules/modules/client_feedback/feedback.otui,4
+Bellow enter your feedback or bug report. Please include as much details as possible. Thank you!,modules/modules/client_feedback/feedback.otui,14
+Ok,modules/modules/client_feedback/feedback.otui,37
+Cancel,modules/modules/client_feedback/feedback.otui,45
+Select your language,modules/modules/client_locales/locales.otui,19
+Enable audio,modules/modules/client_options/audio.otui,4
+Enable music sound,modules/modules/client_options/audio.otui,8
+Show info messages in console,modules/modules/client_options/console.otui,4
+Show event messages in console,modules/modules/client_options/console.otui,8
+Show status messages in console,modules/modules/client_options/console.otui,12
+Show timestamps in console,modules/modules/client_options/console.otui,16
+Show levels in console,modules/modules/client_options/console.otui,20
+Show private messages in console,modules/modules/client_options/console.otui,24
+Show private messages on screen,modules/modules/client_options/console.otui,28
+Show customizable top status bar,modules/modules/client_options/custom.otui,25
+Show player top health and mana bar,modules/modules/client_options/custom.otui,29
+Show health and mana circle,modules/modules/client_options/custom.otui,33
+Bar 1,modules/modules/client_options/custom.otui,49
+Bar 2,modules/modules/client_options/custom.otui,54
+Bar 3,modules/modules/client_options/custom.otui,59
+Bar 1,modules/modules/client_options/custom.otui,79
+Bar 2,modules/modules/client_options/custom.otui,84
+Bar 3,modules/modules/client_options/custom.otui,89
+Bar 1,modules/modules/client_options/custom.otui,108
+Bar 2,modules/modules/client_options/custom.otui,113
+Bar 3,modules/modules/client_options/custom.otui,118
+Disable action bar hotkeys when chat mode is on,modules/modules/client_options/custom.otui,125
+Classic control,modules/modules/client_options/game.otui,4
+Allow auto chase override,modules/modules/client_options/game.otui,11
+Display text messages,modules/modules/client_options/game.otui,15
+Enable WSAD walking,modules/modules/client_options/game.otui,19
+Disable chat and allow walk using WSAD keys,modules/modules/client_options/game.otui,20
+Enable fast walking (DASH),modules/modules/client_options/game.otui,26
+Allows to execute next move without server confirmation of previous one,modules/modules/client_options/game.otui,27
+Enable smart walking,modules/modules/client_options/game.otui,31
+Will detect when to use diagonal step based on the\nkeys you are pressing,modules/modules/client_options/game.otui,32
+Give you some time to make a turn while walking if you press many keys simultaneously,modules/modules/client_options/game.otui,37
+Change language,modules/modules/client_options/game.otui,143
+GPU: ,modules/modules/client_options/graphics.otui,5
+Version: ,modules/modules/client_options/graphics.otui,10
+Enable vertical synchronization,modules/modules/client_options/graphics.otui,18
+Limits FPS (usually to 60),modules/modules/client_options/graphics.otui,19
+Show frame rate,modules/modules/client_options/graphics.otui,23
+Enable lights,modules/modules/client_options/graphics.otui,27
+Fullscreen,modules/modules/client_options/graphics.otui,31
+Antialiasing,modules/modules/client_options/graphics.otui,36
+Optimization level,modules/modules/client_options/graphics.otui,41
+High/Maximum optimization level may cause visual defects.,modules/modules/client_options/graphics.otui,58
+If you have FPS issues:\n- Use OpenGL version (_gl)\n- Disable vertical synchronization\n- Set higher optimization level\n- Lower screen resolution\nOr report it on forum: http://otclient.net,modules/modules/client_options/graphics.otui,98
+Layout (change requries client restart),modules/modules/client_options/interface.otui,5
+Classic view,modules/modules/client_options/interface.otui,27
+Cache map (for non-classic view),modules/modules/client_options/interface.otui,35
+Show connection ping,modules/modules/client_options/interface.otui,42
+Display connection speed to the server (milliseconds),modules/modules/client_options/interface.otui,43
+Display creature names,modules/modules/client_options/interface.otui,47
+Display creature health bars,modules/modules/client_options/interface.otui,51
+Display creature health bars above texts,modules/modules/client_options/interface.otui,55
+Show player health bar,modules/modules/client_options/interface.otui,61
+Show player mana bar,modules/modules/client_options/interface.otui,65
+Highlight things under cursor,modules/modules/client_options/interface.otui,71
+Left panels,modules/modules/client_options/interface.otui,82
+Right panels,modules/modules/client_options/interface.otui,89
+Open new containers in selected panel,modules/modules/client_options/interface.otui,97
+Crosshair,modules/modules/client_options/interface.otui,148
+Game,modules/modules/client_options/options.lua,106
+Interface,modules/modules/client_options/options.lua,109
+Console,modules/modules/client_options/options.lua,112
+Graphics,modules/modules/client_options/options.lua,115
+Audio,modules/modules/client_options/options.lua,118
+Extras,modules/modules/client_options/options.lua,129
+Custom,modules/modules/client_options/options.lua,133
+Options,modules/modules/client_options/options.lua,135
+Audio,modules/modules/client_options/options.lua,136
+Options,modules/modules/client_options/options.otui,18
+Ok,modules/modules/client_options/options.otui,42
+Debug Info,modules/modules/client_stats/stats.otui,21
+Proxies,modules/modules/client_stats/stats.otui,55
+Main,modules/modules/client_stats/stats.otui,62
+Render,modules/modules/client_stats/stats.otui,69
+Dispatcher,modules/modules/client_stats/stats.otui,80
+Lua,modules/modules/client_stats/stats.otui,87
+Lua by callback,modules/modules/client_stats/stats.otui,94
+Widgets & Objects,modules/modules/client_stats/stats.otui,101
+Packets,modules/modules/client_stats/stats.otui,108
+Slow main functions,modules/modules/client_stats/stats.otui,115
+Slow render functions,modules/modules/client_stats/stats.otui,122
+Slow packets,modules/modules/client_stats/stats.otui,129
+Terminal,modules/modules/client_terminal/terminal.lua,143
+Terminal,modules/modules/client_terminal/terminal.otui,32
+Ok,modules/modules/client_textedit/textedit.otui,7
+Cancel,modules/modules/client_textedit/textedit.otui,15
+Edit text,modules/modules/client_textedit/textedit.otui,22
+"Connection refused, the server might be offline or restarting.\nPlease try again later.",modules/modules/corelib/net.lua,4
+Connection timed out. Either your network is failing or the server is offline.,modules/modules/corelib/net.lua,6
+"Connection failed, the server address does not exist.",modules/modules/corelib/net.lua,8
+Connection failed.,modules/modules/corelib/net.lua,10
+Your connection has been lost.\nEither your network or the server went down.,modules/modules/corelib/net.lua,12
+Ok,modules/modules/corelib/ui/uiinputbox.lua,86
+Cancel,modules/modules/corelib/ui/uiinputbox.lua,87
+You must enter a valid server address and port.,modules/modules/gamelib/protocollogin.lua,21
+Client needs update.,modules/modules/gamelib/protocollogin.lua,173
+Invalid authentification token.,modules/modules/gamelib/protocollogin.lua,179
+Delete mark,modules/modules/gamelib/ui/uiminimap.lua,87
+Create mark,modules/modules/gamelib/ui/uiminimap.lua,237
+Edit Spell,modules/modules/game_actionbar/actionbar.lua,429
+Assign Spell,modules/modules/game_actionbar/actionbar.lua,429
+Edit Object,modules/modules/game_actionbar/actionbar.lua,430
+Assign Object,modules/modules/game_actionbar/actionbar.lua,430
+Edit Text,modules/modules/game_actionbar/actionbar.lua,431
+Assign Text,modules/modules/game_actionbar/actionbar.lua,431
+Edit Hotkey,modules/modules/game_actionbar/actionbar.lua,432
+Assign Hotkey,modules/modules/game_actionbar/actionbar.lua,432
+Clear Action,modules/modules/game_actionbar/actionbar.lua,436
+Battle,modules/modules/game_battle/battle.lua,20
+Battle,modules/modules/game_battle/battle.otui,41
+Hide players,modules/modules/game_battle/battle.otui,68
+Hide Npcs,modules/modules/game_battle/battle.otui,74
+Hide monsters,modules/modules/game_battle/battle.otui,80
+Hide non-skull players,modules/modules/game_battle/battle.otui,85
+Hide party members,modules/modules/game_battle/battle.otui,90
+Bot,modules/modules/game_bot/bot.lua,38
+Config upload failed,modules/modules/game_bot/bot.lua,337
+Config upload failed,modules/modules/game_bot/bot.lua,340
+Uploading config,modules/modules/game_bot/bot.lua,343
+Config upload failed,modules/modules/game_bot/bot.lua,350
+Succesful config upload,modules/modules/game_bot/bot.lua,352
+Config download error,modules/modules/game_bot/bot.lua,359
+Enter correct config hash,modules/modules/game_bot/bot.lua,359
+Downloading config,modules/modules/game_bot/bot.lua,361
+Config download error,modules/modules/game_bot/bot.lua,367
+Bot,modules/modules/game_bot/bot.otui,25
+Edit,modules/modules/game_bot/bot.otui,52
+Status: waiting,modules/modules/game_bot/bot.otui,81
+Config editor & manager,modules/modules/game_bot/edit.otui,3
+Upload config,modules/modules/game_bot/edit.otui,47
+Select config to upload,modules/modules/game_bot/edit.otui,57
+Upload config,modules/modules/game_bot/edit.otui,74
+Download config,modules/modules/game_bot/edit.otui,94
+Enter config hash code,modules/modules/game_bot/edit.otui,104
+Download config,modules/modules/game_bot/edit.otui,120
+Bot configs are stored in:,modules/modules/game_bot/edit.otui,149
+Click here to open bot directory,modules/modules/game_bot/edit.otui,163
+Every directory in bot directory is treated as different config.\nTo create new config just create new directory.,modules/modules/game_bot/edit.otui,178
+"Inside config directory put .lua and .otui files.\nEvery file will be loaded and executed in alphabetical order, .otui first and then .lua.",modules/modules/game_bot/edit.otui,197
+To reload configs just press On and Off in bot window.\nTo learn more about bot click Tutorials button.,modules/modules/game_bot/edit.otui,207
+Documentation,modules/modules/game_bot/edit.otui,210
+Tutorials,modules/modules/game_bot/edit.otui,217
+Scripts,modules/modules/game_bot/edit.otui,225
+Forum,modules/modules/game_bot/edit.otui,233
+Discord,modules/modules/game_bot/edit.otui,241
+Close,modules/modules/game_bot/edit.otui,250
+You can use * (any characters) and ? (any character) in target name,modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui,77
+"You can also enter multiple targets, separate them by ,",modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui,84
+Help & Tutorials,modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui,145
+Ok,modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui,153
+Cancel,modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui,161
+Loot every item,modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.otui,20
+Drag item or click on any of empty slot,modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.otui,75
+Create mark,modules/modules/game_bot/default_configs/vBot_4.7/cavebot/minimap.lua,20
+Add CaveBot GoTo,modules/modules/game_bot/default_configs/vBot_4.7/cavebot/minimap.lua,21
+You can use * (any characters) and ? (any character) in target name,modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui,77
+"You can also enter multiple targets, separate them by ,",modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui,84
+Help & Tutorials,modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui,145
+Ok,modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui,153
+Cancel,modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui,161
+Loot every item,modules/modules/game_bot/default_configs/vBot_4.7/targetbot/looting.otui,20
+Alarms,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua,12
+Alarms,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,2
+Alerts when attacked by player.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,13
+Alerts when a player is detected on screen.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,23
+Attempts to logout when a player is detected on screen.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,33
+Player detection alerts will ignore friends.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,43
+Alerts when a creature is detected on screen.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,60
+"Alerts when a creature/npc with name is detected on screen. \n eg: Benjamin or [boss] would detect a creature with [boss] in name. \n You can add many examples, just separate them by comma.",modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,70
+Alerts when recieving a private message.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,144
+"Alerts when players receive a message that contains given part. \n Eg. event - will trigger alert whenever a message with word event appears. \n You can give many examples, just separate them by comma.",modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,154
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui,175
+x,modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui,130
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui,437
+x,modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui,39
+AttackBot,modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui,54
+More important methods come first (Example: Exori gran above Exori),modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui,565
+BotServer,modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua,13
+BotServer Data,modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui,13
+BotServer,modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui,158
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui,182
+ComboBot,modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua,13
+Combo Options,modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui,318
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui,375
+Help,modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui,385
+Conditions,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua,13
+Condition Manager,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui,414
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui,457
+Open Minimised,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,62
+Reopen All,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,77
+Minimise All,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,88
+M,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,120
+X,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,129
+Remove,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,130
+N,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,139
+Container Names,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,148
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,293
+Depositer Panel,modules/modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.otui,37
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.otui,94
+Dropper,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Dropper.lua,13
+EQ Manager,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,12
+X,modules/modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui,22
+More important methods come first.,modules/modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui,170
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui,527
+Boss list,modules/modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui,535
+Extras,modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.otui,66
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.otui,153
+HealBot,modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua,19
+x,modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui,46
+x,modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui,82
+Self Healer,modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui,445
+More important methods come first (Example: Exura gran above Exura),modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui,454
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui,479
+Settings,modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui,488
+Friend Healer,modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua,13
+Friend Healer,modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui,372
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui,408
+X,modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.otui,14
+Player List,modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.otui,100
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.otui,144
+PUSHMAX,modules/modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.lua,15
+Pushmax Settings,modules/modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.otui,2
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.otui,79
+Friend Healer,modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua,13
+Healer Options,modules/modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui,45
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui,186
+X,modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui,14
+Supplies,modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui,86
+Close,modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui,220
+Create mark,modules/modules/game_bot/default_configs/vBot_4.8/cavebot/minimap.lua,20
+Add CaveBot GoTo,modules/modules/game_bot/default_configs/vBot_4.8/cavebot/minimap.lua,21
+You can use * (any characters) and ? (any character) in target name,modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui,77
+"You can also enter multiple targets, separate them by ,",modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui,84
+Help & Tutorials,modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui,145
+Ok,modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui,153
+Cancel,modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui,161
+Loot every item,modules/modules/game_bot/default_configs/vBot_4.8/targetbot/looting.otui,20
+Alarms,modules/modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua,12
+Alarms,modules/modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui,64
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui,129
+x,modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui,181
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui,508
+x,modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui,39
+AttackBot,modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui,54
+More important methods come first (Example: Exori gran above Exori),modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui,565
+BotServer,modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua,14
+BotServer Data,modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui,13
+BotServer,modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui,159
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui,183
+ComboBot,modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua,13
+Combo Options,modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui,318
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui,375
+Help,modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui,385
+Conditions,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua,13
+Condition Manager,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui,414
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui,457
+Open Minimised,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,62
+Reopen All,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,77
+Minimise All,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,88
+M,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,120
+X,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,129
+Remove,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,130
+N,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,139
+Container Names,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,148
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,293
+Depositer Panel,modules/modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.otui,37
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.otui,93
+Dropper,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Dropper.lua,13
+EQ Manager,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,12
+X,modules/modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui,22
+More important methods come first.,modules/modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui,170
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui,527
+Boss list,modules/modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui,535
+Extras,modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui,66
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui,153
+HealBot,modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua,19
+x,modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui,46
+x,modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui,82
+Self Healer,modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui,445
+More important methods come first (Example: Exura gran above Exura),modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui,454
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui,479
+Settings,modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui,488
+Friend Healer,modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,13
+Friend Healer,modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui,372
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui,408
+X,modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui,14
+Player List,modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui,100
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui,144
+PUSHMAX,modules/modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.lua,15
+Pushmax Settings,modules/modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui,2
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui,79
+Friend Healer,modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua,13
+Healer Options,modules/modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui,45
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui,186
+X,modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui,14
+Supplies,modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui,86
+Close,modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui,220
+Yes,modules/modules/game_bot/functions/ui_windows.lua,44
+No,modules/modules/game_bot/functions/ui_windows.lua,45
+Edit monster,modules/modules/game_bot/panels/attacking.lua,14
+Ok,modules/modules/game_bot/panels/attacking.lua,305
+Cancel,modules/modules/game_bot/panels/attacking.lua,313
+Remove config,modules/modules/game_bot/panels/attacking.lua,715
+Do you want to remove current attacking config?,modules/modules/game_bot/panels/attacking.lua,715
+Yes,modules/modules/game_bot/panels/attacking.lua,716
+No,modules/modules/game_bot/panels/attacking.lua,717
+Remove config,modules/modules/game_bot/panels/looting.lua,302
+Do you want to remove current looting config?,modules/modules/game_bot/panels/looting.lua,302
+Yes,modules/modules/game_bot/panels/looting.lua,303
+No,modules/modules/game_bot/panels/looting.lua,304
+Remove config,modules/modules/game_bot/panels/waypoints.lua,348
+Do you want to remove current waypoints config?,modules/modules/game_bot/panels/waypoints.lua,348
+Yes,modules/modules/game_bot/panels/waypoints.lua,349
+No,modules/modules/game_bot/panels/waypoints.lua,350
+Bug report sent.,modules/modules/game_bugreport/bugreport.lua,26
+Report Bug,modules/modules/game_bugreport/bugreport.otui,2
+Please use this dialog to only report bugs. Do not report rule violations here!,modules/modules/game_bugreport/bugreport.otui,8
+Send,modules/modules/game_bugreport/bugreport.otui,26
+Cancel,modules/modules/game_bugreport/bugreport.otui,35
+Buttons,modules/modules/game_buttons/buttons.otui,4
+Channels,modules/modules/game_console/channelswindow.otui,13
+Open a private message channel:,modules/modules/game_console/channelswindow.otui,28
+Open,modules/modules/game_console/channelswindow.otui,44
+Cancel,modules/modules/game_console/channelswindow.otui,53
+Ignore List,modules/modules/game_console/communicationwindow.otui,26
+Activate ignorelist,modules/modules/game_console/communicationwindow.otui,32
+Ignored Players:,modules/modules/game_console/communicationwindow.otui,38
+Add,modules/modules/game_console/communicationwindow.otui,64
+Remove,modules/modules/game_console/communicationwindow.otui,73
+Global ignore settings,modules/modules/game_console/communicationwindow.otui,81
+Ignore Private Messages,modules/modules/game_console/communicationwindow.otui,88
+Ignore Yelling,modules/modules/game_console/communicationwindow.otui,96
+Activate whitelist,modules/modules/game_console/communicationwindow.otui,104
+Allowed Players:,modules/modules/game_console/communicationwindow.otui,111
+Add,modules/modules/game_console/communicationwindow.otui,137
+Remove,modules/modules/game_console/communicationwindow.otui,146
+Global whitelist settings,modules/modules/game_console/communicationwindow.otui,154
+Allow VIPs to message you,modules/modules/game_console/communicationwindow.otui,161
+Save,modules/modules/game_console/communicationwindow.otui,179
+Cancel,modules/modules/game_console/communicationwindow.otui,186
+"Disable chat mode, allow to walk using ASDW",modules/modules/game_console/console.lua,225
+Enable chat mode,modules/modules/game_console/console.lua,253
+Report Rule,modules/modules/game_console/console.lua,442
+Please wait patiently for a gamemaster to reply,modules/modules/game_console/console.lua,443
+Close,modules/modules/game_console/console.lua,762
+Show Server Messages,modules/modules/game_console/console.lua,763
+Clear Messages,modules/modules/game_console/console.lua,768
+Save Messages,modules/modules/game_console/console.lua,769
+Add to VIP list,modules/modules/game_console/console.lua,803
+Invite to private chat,modules/modules/game_console/console.lua,807
+Exclude from private chat,modules/modules/game_console/console.lua,808
+Unignore,modules/modules/game_console/console.lua,811
+Ignore,modules/modules/game_console/console.lua,813
+Rule Violation,modules/modules/game_console/console.lua,818
+Copy name,modules/modules/game_console/console.lua,822
+Copy,modules/modules/game_console/console.lua,826
+Copy message,modules/modules/game_console/console.lua,829
+Select all,modules/modules/game_console/console.lua,831
+Process,modules/modules/game_console/console.lua,834
+Remove,modules/modules/game_console/console.lua,835
+Report Rule,modules/modules/game_console/console.lua,975
+Default,modules/modules/game_console/console.lua,1124
+Rule Violations,modules/modules/game_console/console.lua,1178
+Your request has been closed,modules/modules/game_console/console.lua,1198
+Default,modules/modules/game_console/console.lua,1469
+Server Log,modules/modules/game_console/console.lua,1470
+Report Rule Violation,modules/modules/game_console/violationwindow.otui,3
+Please state the rule violation in one clear sentence and wait for a reply from a gamemaster. Please note that your message will disappear if you close the channel.,modules/modules/game_console/violationwindow.otui,7
+Ok,modules/modules/game_console/violationwindow.otui,27
+Cancel,modules/modules/game_console/violationwindow.otui,36
+Cooldowns,modules/modules/game_cooldown/cooldown.lua,22
+Spell Cooldowns,modules/modules/game_cooldown/cooldown.otui,26
+Attack,modules/modules/game_cooldown/cooldown.otui,46
+Healing,modules/modules/game_cooldown/cooldown.otui,60
+Support,modules/modules/game_cooldown/cooldown.otui,74
+Special,modules/modules/game_cooldown/cooldown.otui,88
+You are poisoned,modules/modules/game_healthinfo/healthinfo.lua,2
+You are burning,modules/modules/game_healthinfo/healthinfo.lua,3
+You are electrified,modules/modules/game_healthinfo/healthinfo.lua,4
+You are drunk,modules/modules/game_healthinfo/healthinfo.lua,5
+You are protected by a magic shield,modules/modules/game_healthinfo/healthinfo.lua,6
+You are paralysed,modules/modules/game_healthinfo/healthinfo.lua,7
+You are hasted,modules/modules/game_healthinfo/healthinfo.lua,8
+You may not logout during a fight,modules/modules/game_healthinfo/healthinfo.lua,9
+You are drowning,modules/modules/game_healthinfo/healthinfo.lua,10
+You are freezing,modules/modules/game_healthinfo/healthinfo.lua,11
+You are dazzled,modules/modules/game_healthinfo/healthinfo.lua,12
+You are cursed,modules/modules/game_healthinfo/healthinfo.lua,13
+You are strengthened,modules/modules/game_healthinfo/healthinfo.lua,14
+You may not logout or enter a protection zone,modules/modules/game_healthinfo/healthinfo.lua,15
+You are within a protection zone,modules/modules/game_healthinfo/healthinfo.lua,16
+You are bleeding,modules/modules/game_healthinfo/healthinfo.lua,17
+You are hungry,modules/modules/game_healthinfo/healthinfo.lua,18
+Health Information,modules/modules/game_healthinfo/healthinfo.lua,52
+Soul,modules/modules/game_healthinfo/healthinfo.lua,223
+Cap,modules/modules/game_healthinfo/healthinfo.lua,227
+Hotkeys,modules/modules/game_hotkeys/hotkeys_manager.lua,47
+Hotkeys,modules/modules/game_hotkeys/hotkeys_manager.otui,13
+Hotkeys config #1,modules/modules/game_hotkeys/hotkeys_manager.otui,30
+Hotkeys config #2,modules/modules/game_hotkeys/hotkeys_manager.otui,31
+Hotkeys config #3,modules/modules/game_hotkeys/hotkeys_manager.otui,32
+Hotkeys config #4,modules/modules/game_hotkeys/hotkeys_manager.otui,33
+Hotkeys config #5,modules/modules/game_hotkeys/hotkeys_manager.otui,34
+Reset All,modules/modules/game_hotkeys/hotkeys_manager.otui,58
+Add,modules/modules/game_hotkeys/hotkeys_manager.otui,66
+Remove,modules/modules/game_hotkeys/hotkeys_manager.otui,75
+Extra action:,modules/modules/game_hotkeys/hotkeys_manager.otui,93
+Edit hotkey text:,modules/modules/game_hotkeys/hotkeys_manager.otui,113
+Send automatically,modules/modules/game_hotkeys/hotkeys_manager.otui,131
+Select object,modules/modules/game_hotkeys/hotkeys_manager.otui,148
+Clear object,modules/modules/game_hotkeys/hotkeys_manager.otui,158
+Use on yourself,modules/modules/game_hotkeys/hotkeys_manager.otui,169
+Use on target,modules/modules/game_hotkeys/hotkeys_manager.otui,180
+With crosshair,modules/modules/game_hotkeys/hotkeys_manager.otui,191
+Ok,modules/modules/game_hotkeys/hotkeys_manager.otui,209
+Cancel,modules/modules/game_hotkeys/hotkeys_manager.otui,218
+Button Assign,modules/modules/game_hotkeys/hotkeys_manager.otui,226
+"Please, press the key you wish to add onto your hotkeys manager",modules/modules/game_hotkeys/hotkeys_manager.otui,231
+Add,modules/modules/game_hotkeys/hotkeys_manager.otui,255
+Cancel,modules/modules/game_hotkeys/hotkeys_manager.otui,264
+Confirm Clearing,modules/modules/game_imbuing/imbuing.lua,194
+Yes,modules/modules/game_imbuing/imbuing.lua,195
+No,modules/modules/game_imbuing/imbuing.lua,196
+Confirm Imbuing Attempt,modules/modules/game_imbuing/imbuing.lua,230
+Yes,modules/modules/game_imbuing/imbuing.lua,231
+No,modules/modules/game_imbuing/imbuing.lua,232
+Balance,modules/modules/game_imbuing/imbuing.lua,289
+Items can have up to three imbuements slots. This slot is not available for this item.,modules/modules/game_imbuing/imbuing.otui,7
+Item Information,modules/modules/game_imbuing/imbuing.otui,39
+Slot 1,modules/modules/game_imbuing/imbuing.otui,62
+Slot 2,modules/modules/game_imbuing/imbuing.otui,68
+Slot 3,modules/modules/game_imbuing/imbuing.otui,75
+Select Slot:,modules/modules/game_imbuing/imbuing.otui,85
+Imbue Empty Slot,modules/modules/game_imbuing/imbuing.otui,98
+Requires the following astral sources:,modules/modules/game_imbuing/imbuing.otui,128
+Success Rate:,modules/modules/game_imbuing/imbuing.otui,142
+Click here to carry out the selected imbuement. This will consume the required astral sources and gold.,modules/modules/game_imbuing/imbuing.otui,205
+Clear Imbuement,modules/modules/game_imbuing/imbuing.otui,229
+Time remaining:,modules/modules/game_imbuing/imbuing.otui,260
+Clear imbuement:,modules/modules/game_imbuing/imbuing.otui,266
+Your needs have changed? Click here to clear the imbuement from your item for a fee.,modules/modules/game_imbuing/imbuing.otui,293
+Imbue Item,modules/modules/game_imbuing/imbuing.otui,309
+Close,modules/modules/game_imbuing/imbuing.otui,335
+Exit,modules/modules/game_interface/gameinterface.lua,60
+Logout,modules/modules/game_interface/gameinterface.lua,140
+Exit,modules/modules/game_interface/gameinterface.lua,155
+For Your Information,modules/modules/game_interface/gameinterface.lua,190
+Exit,modules/modules/game_interface/gameinterface.lua,208
+Force Exit,modules/modules/game_interface/gameinterface.lua,209
+Logout,modules/modules/game_interface/gameinterface.lua,210
+Cancel,modules/modules/game_interface/gameinterface.lua,211
+Logout,modules/modules/game_interface/gameinterface.lua,259
+Yes,modules/modules/game_interface/gameinterface.lua,260
+No,modules/modules/game_interface/gameinterface.lua,261
+Look,modules/modules/game_interface/gameinterface.lua,408
+Open,modules/modules/game_interface/gameinterface.lua,415
+Open in new window,modules/modules/game_interface/gameinterface.lua,416
+Open,modules/modules/game_interface/gameinterface.lua,418
+Use with ...,modules/modules/game_interface/gameinterface.lua,422
+Use,modules/modules/game_interface/gameinterface.lua,424
+Rotate,modules/modules/game_interface/gameinterface.lua,429
+Wrap,modules/modules/game_interface/gameinterface.lua,432
+Unwrap,modules/modules/game_interface/gameinterface.lua,435
+Browse Field,modules/modules/game_interface/gameinterface.lua,439
+Trade with ...,modules/modules/game_interface/gameinterface.lua,445
+Move up,modules/modules/game_interface/gameinterface.lua,451
+Set Outfit,modules/modules/game_interface/gameinterface.lua,460
+Mount,modules/modules/game_interface/gameinterface.lua,464
+Dismount,modules/modules/game_interface/gameinterface.lua,466
+Open Prey Dialog,modules/modules/game_interface/gameinterface.lua,471
+Disable Shared Experience,modules/modules/game_interface/gameinterface.lua,477
+Enable Shared Experience,modules/modules/game_interface/gameinterface.lua,479
+Leave Party,modules/modules/game_interface/gameinterface.lua,482
+Attack,modules/modules/game_interface/gameinterface.lua,490
+Stop Attack,modules/modules/game_interface/gameinterface.lua,492
+Follow,modules/modules/game_interface/gameinterface.lua,496
+Stop Follow,modules/modules/game_interface/gameinterface.lua,498
+Invite to private chat,modules/modules/game_interface/gameinterface.lua,507
+Exclude from private chat,modules/modules/game_interface/gameinterface.lua,508
+Add to VIP list,modules/modules/game_interface/gameinterface.lua,511
+Unignore,modules/modules/game_interface/gameinterface.lua,515
+Ignore,modules/modules/game_interface/gameinterface.lua,517
+Invite to Party,modules/modules/game_interface/gameinterface.lua,527
+Invite to Party,modules/modules/game_interface/gameinterface.lua,539
+Rule Violation,modules/modules/game_interface/gameinterface.lua,547
+Copy Name,modules/modules/game_interface/gameinterface.lua,551
+"Sorry, not possible.",modules/modules/game_interface/gameinterface.lua,723
+Move Stackable Item,modules/modules/game_interface/styles/countwindow.otui,3
+Cancel,modules/modules/game_interface/styles/countwindow.otui,36
+Ok,modules/modules/game_interface/styles/countwindow.otui,46
+You are poisoned,modules/modules/game_inventory/inventory.lua,2
+You are burning,modules/modules/game_inventory/inventory.lua,3
+You are electrified,modules/modules/game_inventory/inventory.lua,4
+You are drunk,modules/modules/game_inventory/inventory.lua,5
+You are protected by a magic shield,modules/modules/game_inventory/inventory.lua,6
+You are paralysed,modules/modules/game_inventory/inventory.lua,7
+You are hasted,modules/modules/game_inventory/inventory.lua,8
+You may not logout during a fight,modules/modules/game_inventory/inventory.lua,9
+You are drowning,modules/modules/game_inventory/inventory.lua,10
+You are freezing,modules/modules/game_inventory/inventory.lua,11
+You are dazzled,modules/modules/game_inventory/inventory.lua,12
+You are cursed,modules/modules/game_inventory/inventory.lua,13
+You are strengthened,modules/modules/game_inventory/inventory.lua,14
+You may not logout or enter a protection zone,modules/modules/game_inventory/inventory.lua,15
+You are within a protection zone,modules/modules/game_inventory/inventory.lua,16
+You are bleeding,modules/modules/game_inventory/inventory.lua,17
+You are hungry,modules/modules/game_inventory/inventory.lua,18
+Inventory,modules/modules/game_inventory/inventory.lua,66
+Soul,modules/modules/game_inventory/inventory.lua,459
+Cap,modules/modules/game_inventory/inventory.lua,473
+Inventory,modules/modules/game_inventory/inventory.otui,3
+Select item,modules/modules/game_itemselector/itemselector.otui,4
+Item ID,modules/modules/game_itemselector/itemselector.otui,31
+Count / SubType,modules/modules/game_itemselector/itemselector.otui,50
+Clear,modules/modules/game_itemselector/itemselector.otui,54
+Ok,modules/modules/game_itemselector/itemselector.otui,61
+Cancel,modules/modules/game_itemselector/itemselector.otui,69
+This offer is 25%% below the average market price,modules/modules/game_market/market.lua,227
+This offer is 25%% above the average market price,modules/modules/game_market/market.lua,256
+Market Offers,modules/modules/game_market/market.lua,820
+Browse,modules/modules/game_market/market.lua,826
+Overview,modules/modules/game_market/market.lua,831
+Statistics,modules/modules/game_market/market.lua,837
+Details,modules/modules/game_market/market.lua,840
+Offers,modules/modules/game_market/market.lua,843
+Offers,modules/modules/game_market/market.lua,844
+My Offers,modules/modules/game_market/market.lua,848
+Current Offers,modules/modules/game_market/market.lua,854
+Offer History,modules/modules/game_market/market.lua,857
+Market Error,modules/modules/game_market/market.lua,1061
+Market,modules/modules/game_market/market.otui,3
+Balance,modules/modules/game_market/market.otui,30
+Close,modules/modules/game_market/market.otui,38
+Refresh Offers,modules/modules/game_market/market.otui,47
+Reset Market,modules/modules/game_market/market.otui,56
+"Reset selection, filters & search",modules/modules/game_market/market.otui,57
+No item selected.,modules/modules/game_market/ui/marketoffers.otui,50
+Create New Offer,modules/modules/game_market/ui/marketoffers.otui,60
+Offer Type,modules/modules/game_market/ui/marketoffers.otui,70
+Please Select,modules/modules/game_market/ui/marketoffers.otui,79
+Total Price,modules/modules/game_market/ui/marketoffers.otui,90
+Piece Price,modules/modules/game_market/ui/marketoffers.otui,112
+Amount,modules/modules/game_market/ui/marketoffers.otui,134
+Create Offer,modules/modules/game_market/ui/marketoffers.otui,167
+Anonymous,modules/modules/game_market/ui/marketoffers.otui,175
+Amount,modules/modules/game_market/ui/general/amountwindow.otui,3
+Cancel,modules/modules/game_market/ui/general/amountwindow.otui,27
+Ok,modules/modules/game_market/ui/general/amountwindow.otui,37
+Level,modules/modules/game_market/ui/marketoffers/browse.otui,56
+Filter list to match your level,modules/modules/game_market/ui/marketoffers/browse.otui,57
+Voc.,modules/modules/game_market/ui/marketoffers/browse.otui,69
+Filter list to match your vocation,modules/modules/game_market/ui/marketoffers/browse.otui,70
+Show Depot Only,modules/modules/game_market/ui/marketoffers/browse.otui,92
+Show your depot items only,modules/modules/game_market/ui/marketoffers/browse.otui,93
+Find,modules/modules/game_market/ui/marketoffers/browse.otui,134
+All,modules/modules/game_market/ui/marketoffers/browse.otui,153
+Search all items,modules/modules/game_market/ui/marketoffers/browse.otui,154
+Buy Now,modules/modules/game_market/ui/marketoffers/itemoffers.otui,36
+Sell Offers,modules/modules/game_market/ui/marketoffers/itemoffers.otui,44
+Buyer Name,modules/modules/game_market/ui/marketoffers/itemoffers.otui,75
+Amount,modules/modules/game_market/ui/marketoffers/itemoffers.otui,78
+Total Price,modules/modules/game_market/ui/marketoffers/itemoffers.otui,81
+Piece Price,modules/modules/game_market/ui/marketoffers/itemoffers.otui,84
+Auction End,modules/modules/game_market/ui/marketoffers/itemoffers.otui,87
+Sell Now,modules/modules/game_market/ui/marketoffers/itemoffers.otui,108
+Buy Offers,modules/modules/game_market/ui/marketoffers/itemoffers.otui,117
+Seller Name,modules/modules/game_market/ui/marketoffers/itemoffers.otui,148
+Amount,modules/modules/game_market/ui/marketoffers/itemoffers.otui,151
+Total Price,modules/modules/game_market/ui/marketoffers/itemoffers.otui,154
+Piece Price,modules/modules/game_market/ui/marketoffers/itemoffers.otui,157
+Auction End,modules/modules/game_market/ui/marketoffers/itemoffers.otui,160
+Buy Offers,modules/modules/game_market/ui/marketoffers/itemstats.otui,21
+Sell Offers,modules/modules/game_market/ui/marketoffers/itemstats.otui,65
+Reserved for more functionality later.,modules/modules/game_market/ui/marketoffers/overview.otui,6
+Cancel,modules/modules/game_market/ui/myoffers/currentoffers.otui,36
+Sell Offers,modules/modules/game_market/ui/myoffers/currentoffers.otui,44
+Item Name,modules/modules/game_market/ui/myoffers/currentoffers.otui,76
+Total Price,modules/modules/game_market/ui/myoffers/currentoffers.otui,79
+Piece Price,modules/modules/game_market/ui/myoffers/currentoffers.otui,82
+Amount,modules/modules/game_market/ui/myoffers/currentoffers.otui,85
+Auction End,modules/modules/game_market/ui/myoffers/currentoffers.otui,88
+Buy Offers,modules/modules/game_market/ui/myoffers/currentoffers.otui,108
+Cancel,modules/modules/game_market/ui/myoffers/currentoffers.otui,118
+Item Name,modules/modules/game_market/ui/myoffers/currentoffers.otui,150
+Total Price,modules/modules/game_market/ui/myoffers/currentoffers.otui,153
+Piece Price,modules/modules/game_market/ui/myoffers/currentoffers.otui,156
+Amount,modules/modules/game_market/ui/myoffers/currentoffers.otui,159
+Auction End,modules/modules/game_market/ui/myoffers/currentoffers.otui,162
+Item Offers,modules/modules/game_market/ui/myoffers/itemoffers.otui,6
+Action,modules/modules/game_market/ui/myoffers/offerhistory.otui,29
+Item Name,modules/modules/game_market/ui/myoffers/offerhistory.otui,32
+Total Price,modules/modules/game_market/ui/myoffers/offerhistory.otui,35
+Piece Price,modules/modules/game_market/ui/myoffers/offerhistory.otui,38
+Amount,modules/modules/game_market/ui/myoffers/offerhistory.otui,41
+Auction End,modules/modules/game_market/ui/myoffers/offerhistory.otui,44
+Create Map Mark,modules/modules/game_minimap/flagwindow.otui,28
+Position,modules/modules/game_minimap/flagwindow.otui,33
+Description,modules/modules/game_minimap/flagwindow.otui,40
+Ok,modules/modules/game_minimap/flagwindow.otui,177
+Cancel,modules/modules/game_minimap/flagwindow.otui,185
+Minimap,modules/modules/game_minimap/minimap.lua,15
+Minimap,modules/modules/game_minimap/minimap.otui,3
+Look,modules/modules/game_npctrade/npctrade.lua,207
+Buy,modules/modules/game_npctrade/npctrade.lua,269
+NPC Trade,modules/modules/game_npctrade/npctrade.otui,35
+Buy,modules/modules/game_npctrade/npctrade.otui,45
+Sell,modules/modules/game_npctrade/npctrade.otui,56
+Name,modules/modules/game_npctrade/npctrade.otui,107
+Id,modules/modules/game_npctrade/npctrade.otui,118
+Price,modules/modules/game_npctrade/npctrade.otui,130
+Your Money,modules/modules/game_npctrade/npctrade.otui,141
+Weight,modules/modules/game_npctrade/npctrade.otui,153
+Your Capacity,modules/modules/game_npctrade/npctrade.otui,165
+Search,modules/modules/game_npctrade/npctrade.otui,200
+Buy with backpack,modules/modules/game_npctrade/npctrade.otui,219
+Ignore capacity,modules/modules/game_npctrade/npctrade.otui,229
+Ignore equipped,modules/modules/game_npctrade/npctrade.otui,239
+Show all items,modules/modules/game_npctrade/npctrade.otui,251
+Sell all with delay,modules/modules/game_npctrade/npctrade.otui,263
+Sell all,modules/modules/game_npctrade/npctrade.otui,273
+Buy,modules/modules/game_npctrade/npctrade.otui,283
+Close,modules/modules/game_npctrade/npctrade.otui,291
+You are dead,modules/modules/game_playerdeath/deathwindow.otui,3
+Ok,modules/modules/game_playerdeath/deathwindow.otui,18
+Cancel,modules/modules/game_playerdeath/deathwindow.otui,26
+You are dead.,modules/modules/game_playerdeath/playerdeath.lua,39
+Items,modules/modules/game_playertrade/playertrade.lua,54
+Trade,modules/modules/game_playertrade/tradewindow.otui,2
+Accept,modules/modules/game_playertrade/tradewindow.otui,96
+Reject,modules/modules/game_playertrade/tradewindow.otui,106
+infinite bonus,modules/modules/game_prey/prey.lua,47
+Free,modules/modules/game_prey/prey.lua,49
+Prey Dialog,modules/modules/game_prey/prey.lua,161
+Prey Tracker,modules/modules/game_prey/prey.lua,164
+Select monster,modules/modules/game_prey/prey.lua,494
+Error,modules/modules/game_prey/prey.lua,513
+Select monster to proceed.,modules/modules/game_prey/prey.lua,513
+Preys,modules/modules/game_prey/prey.otui,541
+Preys,modules/modules/game_prey/prey.otui,669
+Prey Creatures,modules/modules/game_prey/prey.otui,680
+Quest Log,modules/modules/game_questlog/questlog.lua,20
+Quest Tracker,modules/modules/game_questlog/questlog.lua,21
+Show in quest tracker,modules/modules/game_questlog/questlogwindow.otui,85
+Quest Log,modules/modules/game_questlog/questlogwindow.otui,102
+Close,modules/modules/game_questlog/questlogwindow.otui,129
+Show,modules/modules/game_questlog/questlogwindow.otui,144
+Quest Tracker,modules/modules/game_questlog/questlogwindow.otui,156
+Quest Tracker,modules/modules/game_questlog/questlogwindow.otui,162
+Add Tracked Quest,modules/modules/game_questlog/questlogwindow.otui,182
+1a) Offensive Name,modules/modules/game_ruleviolation/ruleviolation.lua,2
+1b) Invalid Name Format,modules/modules/game_ruleviolation/ruleviolation.lua,3
+1c) Unsuitable Name,modules/modules/game_ruleviolation/ruleviolation.lua,4
+1d) Name Inciting Rule Violation,modules/modules/game_ruleviolation/ruleviolation.lua,5
+2a) Offensive Statement,modules/modules/game_ruleviolation/ruleviolation.lua,6
+2b) Spamming,modules/modules/game_ruleviolation/ruleviolation.lua,7
+2c) Illegal Advertising,modules/modules/game_ruleviolation/ruleviolation.lua,8
+2d) Off-Topic Public Statement,modules/modules/game_ruleviolation/ruleviolation.lua,9
+2e) Non-English Public Statement,modules/modules/game_ruleviolation/ruleviolation.lua,10
+2f) Inciting Rule Violation,modules/modules/game_ruleviolation/ruleviolation.lua,11
+3a) Bug Abuse,modules/modules/game_ruleviolation/ruleviolation.lua,12
+3b) Game Weakness Abuse,modules/modules/game_ruleviolation/ruleviolation.lua,13
+3c) Using Unofficial Software to Play,modules/modules/game_ruleviolation/ruleviolation.lua,14
+3d) Hacking,modules/modules/game_ruleviolation/ruleviolation.lua,15
+3e) Multi-Clienting,modules/modules/game_ruleviolation/ruleviolation.lua,16
+3f) Account Trading or Sharing,modules/modules/game_ruleviolation/ruleviolation.lua,17
+4a) Threatening Gamemaster,modules/modules/game_ruleviolation/ruleviolation.lua,18
+4b) Pretending to Have Influence on Rule Enforcement,modules/modules/game_ruleviolation/ruleviolation.lua,19
+4c) False Report to Gamemaster,modules/modules/game_ruleviolation/ruleviolation.lua,20
+Destructive Behaviour,modules/modules/game_ruleviolation/ruleviolation.lua,21
+Excessive Unjustified Player Killing,modules/modules/game_ruleviolation/ruleviolation.lua,22
+Notation,modules/modules/game_ruleviolation/ruleviolation.lua,25
+Name Report,modules/modules/game_ruleviolation/ruleviolation.lua,26
+Banishment,modules/modules/game_ruleviolation/ruleviolation.lua,27
+Name Report + Banishment,modules/modules/game_ruleviolation/ruleviolation.lua,28
+Banishment + Final Warning,modules/modules/game_ruleviolation/ruleviolation.lua,29
+Name Report + Banishment + Final Warning,modules/modules/game_ruleviolation/ruleviolation.lua,30
+Statement Report,modules/modules/game_ruleviolation/ruleviolation.lua,31
+Error,modules/modules/game_ruleviolation/ruleviolation.lua,119
+You must select a reason.,modules/modules/game_ruleviolation/ruleviolation.lua,119
+Error,modules/modules/game_ruleviolation/ruleviolation.lua,125
+You must select an action.,modules/modules/game_ruleviolation/ruleviolation.lua,125
+Error,modules/modules/game_ruleviolation/ruleviolation.lua,137
+No statement has been selected.,modules/modules/game_ruleviolation/ruleviolation.lua,137
+Error,modules/modules/game_ruleviolation/ruleviolation.lua,139
+You must enter a comment.,modules/modules/game_ruleviolation/ruleviolation.lua,139
+Name,modules/modules/game_ruleviolation/ruleviolation.otui,39
+Statement,modules/modules/game_ruleviolation/ruleviolation.otui,45
+Reason,modules/modules/game_ruleviolation/ruleviolation.otui,52
+Action,modules/modules/game_ruleviolation/ruleviolation.otui,73
+IP Address Banishment,modules/modules/game_ruleviolation/ruleviolation.otui,95
+Comment,modules/modules/game_ruleviolation/ruleviolation.otui,102
+Cancel,modules/modules/game_ruleviolation/ruleviolation.otui,108
+Ok,modules/modules/game_ruleviolation/ruleviolation.otui,115
+Shop,modules/modules/game_shop/shop.lua,152
+Points:,modules/modules/game_shop/shop.lua,283
+Transferable Tibia Coins: ,modules/modules/game_shop/shop.lua,284
+Points:,modules/modules/game_shop/shop.lua,404
+Buying from shop,modules/modules/game_shop/shop.lua,582
+Yes,modules/modules/game_shop/shop.lua,585
+No,modules/modules/game_shop/shop.lua,586
+Shop,modules/modules/game_shop/shop.otui,134
+Buy points,modules/modules/game_shop/shop.otui,162
+Transaction history,modules/modules/game_shop/shop.otui,224
+Transfer Coins,modules/modules/game_shop/shop.otui,232
+Close,modules/modules/game_shop/shop.otui,241
+Gift Tibia Coins,modules/modules/game_shop/transfer.otui,3
+Please select the amount of Tibia Coins you would like to gift and enter the name of the character that should receive the Tibia Coins.,modules/modules/game_shop/transfer.otui,13
+Reciepient:,modules/modules/game_shop/transfer.otui,19
+Transferable Tibia Coins:,modules/modules/game_shop/transfer.otui,35
+Amount to gift: ,modules/modules/game_shop/transfer.otui,42
+Cancel,modules/modules/game_shop/transfer.otui,63
+Gift,modules/modules/game_shop/transfer.otui,74
+Skills,modules/modules/game_skills/skills.lua,28
+ of experience left,modules/modules/game_skills/skills.lua,302
+Now you will gain 50%% more experience,modules/modules/game_skills/skills.lua,355
+"If you are premium player, you will gain 50%% more experience",modules/modules/game_skills/skills.lua,363
+Skills,modules/modules/game_skills/skills.otui,38
+Experience,modules/modules/game_skills/skills.otui,55
+Level,modules/modules/game_skills/skills.otui,61
+Hit Points,modules/modules/game_skills/skills.otui,70
+Mana,modules/modules/game_skills/skills.otui,77
+Soul Points,modules/modules/game_skills/skills.otui,84
+Capacity,modules/modules/game_skills/skills.otui,91
+Speed,modules/modules/game_skills/skills.otui,98
+Regeneration Time,modules/modules/game_skills/skills.otui,104
+Stamina,modules/modules/game_skills/skills.otui,110
+Offline Training,modules/modules/game_skills/skills.otui,117
+Magic Level,modules/modules/game_skills/skills.otui,124
+Fist Fighting,modules/modules/game_skills/skills.otui,132
+Club Fighting,modules/modules/game_skills/skills.otui,139
+Sword Fighting,modules/modules/game_skills/skills.otui,146
+Axe Fighting,modules/modules/game_skills/skills.otui,153
+Distance Fighting,modules/modules/game_skills/skills.otui,160
+Shielding,modules/modules/game_skills/skills.otui,167
+Fishing,modules/modules/game_skills/skills.otui,174
+Critical Hit Chance,modules/modules/game_skills/skills.otui,181
+Critical Hit Damage,modules/modules/game_skills/skills.otui,187
+Life Leech Chance,modules/modules/game_skills/skills.otui,193
+Life Leech Amount,modules/modules/game_skills/skills.otui,199
+Mana Leech Chance,modules/modules/game_skills/skills.otui,205
+Mana Leech Amount,modules/modules/game_skills/skills.otui,211
+Spell List,modules/modules/game_spelllist/spelllist.lua,104
+Spell List,modules/modules/game_spelllist/spelllist.otui,41
+Close,modules/modules/game_spelllist/spelllist.otui,58
+Name,modules/modules/game_spelllist/spelllist.otui,76
+Filters,modules/modules/game_spelllist/spelllist.otui,81
+Level,modules/modules/game_spelllist/spelllist.otui,86
+Hide spells for higher exp. levels,modules/modules/game_spelllist/spelllist.otui,87
+Vocation,modules/modules/game_spelllist/spelllist.otui,91
+Hide spells for other vocations,modules/modules/game_spelllist/spelllist.otui,92
+Formula,modules/modules/game_spelllist/spelllist.otui,98
+Vocation,modules/modules/game_spelllist/spelllist.otui,105
+Group,modules/modules/game_spelllist/spelllist.otui,111
+Type,modules/modules/game_spelllist/spelllist.otui,117
+Cooldown,modules/modules/game_spelllist/spelllist.otui,123
+Level,modules/modules/game_spelllist/spelllist.otui,129
+Mana,modules/modules/game_spelllist/spelllist.otui,135
+Soul,modules/modules/game_spelllist/spelllist.otui,135
+Premium,modules/modules/game_spelllist/spelllist.otui,141
+Description,modules/modules/game_spelllist/spelllist.otui,147
+Vocation,modules/modules/game_spelllist/spelllist.otui,205
+Any,modules/modules/game_spelllist/spelllist.otui,215
+Sorcerer,modules/modules/game_spelllist/spelllist.otui,223
+Druid,modules/modules/game_spelllist/spelllist.otui,231
+Paladin,modules/modules/game_spelllist/spelllist.otui,239
+Knight,modules/modules/game_spelllist/spelllist.otui,247
+Group,modules/modules/game_spelllist/spelllist.otui,256
+Any,modules/modules/game_spelllist/spelllist.otui,266
+Attack,modules/modules/game_spelllist/spelllist.otui,274
+Healing,modules/modules/game_spelllist/spelllist.otui,282
+Support,modules/modules/game_spelllist/spelllist.otui,290
+Premium,modules/modules/game_spelllist/spelllist.otui,299
+Any,modules/modules/game_spelllist/spelllist.otui,309
+No,modules/modules/game_spelllist/spelllist.otui,317
+Yes,modules/modules/game_spelllist/spelllist.otui,325
+There is no way.,modules/modules/game_textmessage/textmessage.lua,134
+It is empty.,modules/modules/game_textwindow/textwindow.lua,59
+You can enter new text.,modules/modules/game_textwindow/textwindow.lua,61
+Show Text,modules/modules/game_textwindow/textwindow.lua,70
+Edit Text,modules/modules/game_textwindow/textwindow.lua,75
+Enter one name per line.,modules/modules/game_textwindow/textwindow.lua,122
+Edit List,modules/modules/game_textwindow/textwindow.lua,123
+Ok,modules/modules/game_textwindow/textwindow.otui,42
+Cancel,modules/modules/game_textwindow/textwindow.otui,50
+Error,modules/modules/game_things/things.lua,48
+You are poisoned,modules/modules/game_topbar/topbar.lua,3
+You are burning,modules/modules/game_topbar/topbar.lua,8
+You are electrified,modules/modules/game_topbar/topbar.lua,13
+You are drunk,modules/modules/game_topbar/topbar.lua,18
+You are protected by a magic shield,modules/modules/game_topbar/topbar.lua,23
+You are paralysed,modules/modules/game_topbar/topbar.lua,28
+You are hasted,modules/modules/game_topbar/topbar.lua,33
+You may not logout during a fight,modules/modules/game_topbar/topbar.lua,38
+You are drowning,modules/modules/game_topbar/topbar.lua,43
+You are freezing,modules/modules/game_topbar/topbar.lua,48
+You are dazzled,modules/modules/game_topbar/topbar.lua,53
+You are cursed,modules/modules/game_topbar/topbar.lua,58
+You are strengthened,modules/modules/game_topbar/topbar.lua,63
+You may not logout or enter a protection zone,modules/modules/game_topbar/topbar.lua,68
+You are within a protection zone,modules/modules/game_topbar/topbar.lua,73
+You are bleeding,modules/modules/game_topbar/topbar.lua,78
+You are hungry,modules/modules/game_topbar/topbar.lua,83
+Unjustified Points,modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua,24
+Unjustified Points,modules/modules/game_unjustifiedpoints/unjustifiedpoints.otui,16
+Open PvP,modules/modules/game_unjustifiedpoints/unjustifiedpoints.otui,27
+Open PvP Situations,modules/modules/game_unjustifiedpoints/unjustifiedpoints.otui,28
+Skull Time,modules/modules/game_unjustifiedpoints/unjustifiedpoints.otui,44
+Add to VIP list,modules/modules/game_viplist/addvip.otui,3
+Please enter a character name:,modules/modules/game_viplist/addvip.otui,8
+Ok,modules/modules/game_viplist/addvip.otui,27
+Cancel,modules/modules/game_viplist/addvip.otui,35
+Edit VIP list entry,modules/modules/game_viplist/editvip.otui,30
+Description,modules/modules/game_viplist/editvip.otui,41
+Notify-Login,modules/modules/game_viplist/editvip.otui,56
+Ok,modules/modules/game_viplist/editvip.otui,127
+Cancel,modules/modules/game_viplist/editvip.otui,135
+VIP List,modules/modules/game_viplist/viplist.lua,16
+Add new VIP,modules/modules/game_viplist/viplist.lua,363
+Hide Offline,modules/modules/game_viplist/viplist.lua,367
+Show Offline,modules/modules/game_viplist/viplist.lua,369
+Sort by name,modules/modules/game_viplist/viplist.lua,373
+Sort by status,modules/modules/game_viplist/viplist.lua,377
+Sort by type,modules/modules/game_viplist/viplist.lua,381
+Send Message,modules/modules/game_viplist/viplist.lua,396
+Add new VIP,modules/modules/game_viplist/viplist.lua,397
+Copy Name,modules/modules/game_viplist/viplist.lua,401
+Invite to private chat,modules/modules/game_viplist/viplist.lua,405
+Exclude from private chat,modules/modules/game_viplist/viplist.lua,406
+Hide Offline,modules/modules/game_viplist/viplist.lua,410
+Show Offline,modules/modules/game_viplist/viplist.lua,412
+Sort by name,modules/modules/game_viplist/viplist.lua,416
+Sort by status,modules/modules/game_viplist/viplist.lua,420
+VIP List,modules/modules/game_viplist/viplist.otui,15
+Updating client (may take few seconds),modules/modules/updater/updater.lua,175
+Timeout,modules/modules/updater/updater.lua,234
+Updater Error,modules/modules/updater/updater.lua,261
+Updater,modules/modules/updater/updater.otui,3
+Checking for updates,modules/modules/updater/updater.otui,12
+Change updater URL,modules/modules/updater/updater.otui,43
+Cancel,modules/modules/updater/updater.otui,51
+"Disable chat mode, allow to walk using ASDW",layouts/layouts/mobile/styles/40-console.otui,73
+Close this channel,layouts/layouts/mobile/styles/40-console.otui,101
+Clear current message window,layouts/layouts/mobile/styles/40-console.otui,110
+Open new channel,layouts/layouts/mobile/styles/40-console.otui,120
+Ignore players,layouts/layouts/mobile/styles/40-console.otui,128
+Adjust volume,layouts/layouts/mobile/styles/40-console.otui,147
+Open purse,layouts/layouts/mobile/styles/40-inventory.otui,78
+Stop,layouts/layouts/mobile/styles/40-inventory.otui,286
+Options,layouts/layouts/mobile/styles/40-inventory.otui,290
+Quests,layouts/layouts/mobile/styles/40-inventory.otui,294
+Logout,layouts/layouts/mobile/styles/40-inventory.otui,298
+"Disable chat mode, allow to walk using ASDW",layouts/layouts/retro/styles/40-console.otui,74
+Close this channel,layouts/layouts/retro/styles/40-console.otui,109
+Clear current message window,layouts/layouts/retro/styles/40-console.otui,126
+Open new channel,layouts/layouts/retro/styles/40-console.otui,144
+Ignore players,layouts/layouts/retro/styles/40-console.otui,160
+Adjust volume,layouts/layouts/retro/styles/40-console.otui,191
+Enter Game,layouts/layouts/retro/styles/40-entergame.otui,2
+Health Info,layouts/layouts/retro/styles/40-healthinfo.otui,115
+Open purse,layouts/layouts/retro/styles/40-inventory.otui,78
+Stop,layouts/layouts/retro/styles/40-inventory.otui,319
+Options,layouts/layouts/retro/styles/40-inventory.otui,323
+Hotkeys,layouts/layouts/retro/styles/40-inventory.otui,327
+Logout,layouts/layouts/retro/styles/40-inventory.otui,331
+Center,layouts/layouts/retro/styles/40-minimap.otui,56
+Create Map Mark,layouts/layouts/retro/styles/40-minimap.otui,113
+Position,layouts/layouts/retro/styles/40-minimap.otui,117
+Description,layouts/layouts/retro/styles/40-minimap.otui,131
+Ok,layouts/layouts/retro/styles/40-minimap.otui,233
+Cancel,layouts/layouts/retro/styles/40-minimap.otui,241

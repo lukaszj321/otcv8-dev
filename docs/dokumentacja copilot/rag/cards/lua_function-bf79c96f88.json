@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSetFightMode",
+  "args": "self, selectedFightButton",
+  "file": "modules/game_inventory/inventory.lua"
+}

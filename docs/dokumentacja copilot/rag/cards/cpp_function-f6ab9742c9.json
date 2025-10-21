@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onStyleApply",
+  "return_type": "nan",
+  "args": "styleName, styleNode",
+  "file": "src/client/uimap.cpp"
+}

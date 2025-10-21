@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Container::onOpen",
+  "return_type": "void",
+  "args": "const ContainerPtr& previousContainer",
+  "file": "src/client/container.cpp"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 41,
+  "path": "Panel/MarketComboBox#subCategoryComboBox",
+  "widget": "MarketComboBox",
+  "base": "",
+  "id": "subCategoryComboBox",
+  "props": {
+    "id": "subCategoryComboBox",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "3",
+    "margin-right": "3",
+    "margin-left": "3",
+    "color": "#aaaaaa44"
+  }
+}

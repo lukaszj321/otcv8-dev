@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawCodewords",
+  "return_type": "static void",
+  "args": "const uint8_t data[], int dataLen, uint8_t qrcode[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

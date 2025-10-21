@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ShaderProgram::create",
+  "return_type": "PainterShaderProgramPtr",
+  "args": "const std::string& name, const std::string& vertexShader, const std::string& fragmentShader, bool colorMatrix",
+  "file": "src/framework/graphics/shaderprogram.cpp"
+}

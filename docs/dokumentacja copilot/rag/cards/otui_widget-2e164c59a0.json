@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 57,
+  "path": "StaticMainWindow#charactersWindow/TextList#characters",
+  "widget": "TextList",
+  "base": "",
+  "id": "characters",
+  "props": {
+    "id": "characters",
+    "background-color": "#565656",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "characterListScrollBar.left",
+    "anchors.bottom": "accountStatusCaption.top",
+    "margin-bottom": "5",
+    "padding": "1",
+    "focusable": "false",
+    "vertical-scrollbar": "characterListScrollBar",
+    "auto-focus": "first"
+  }
+}

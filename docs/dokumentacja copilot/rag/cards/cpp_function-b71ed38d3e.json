@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "round",
+  "return_type": "double",
+  "args": "double r",
+  "file": "src/framework/stdext/math.h"
+}

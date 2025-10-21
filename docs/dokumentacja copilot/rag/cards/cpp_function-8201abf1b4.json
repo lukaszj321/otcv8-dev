@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rect",
+  "return_type": "Rect",
+  "args": "p, textSize",
+  "file": "src/client/animatedtext.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int dy = -1; dy <= 1; dy++",
+  "file": "src/framework/util/qrcodegen.c"
+}

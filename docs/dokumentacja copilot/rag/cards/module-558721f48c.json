@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_unjustifiedpoints\n  description: View unjustified points\n  author: Summ\n  sandboxed: true\n  scripts: [ unjustifiedpoints ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otmod",
+  "description": "View unjustified points"
+}

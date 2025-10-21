@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isInZone",
+  "return_type": "static bool",
+  "args": "const Position& pos/* placePos*/, const Position& centerPos, int radius",
+  "file": "src/client/creatures.cpp"
+}

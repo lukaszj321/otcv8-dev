@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "throw",
+  "args": "\"a function from lua didn't retrieve the expected number of results\", 0",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

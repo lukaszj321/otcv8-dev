@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 61,
+  "path": "ExtrasCheckBox",
+  "widget": "ExtrasCheckBox",
+  "base": "BotSwitch",
+  "id": "",
+  "props": {
+    "height": "20",
+    "margin-top": "7"
+  }
+}

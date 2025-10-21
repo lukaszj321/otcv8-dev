@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bufferData",
+  "return_type": "static DataBuffer<char>",
+  "args": "2*STREAM_FRAGMENT_SIZE",
+  "file": "src/framework/sound/streamsoundsource.cpp"
+}

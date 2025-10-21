@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 142,
+  "path": "MiniWindow#battleWindow/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "margin-top": "6"
+  }
+}

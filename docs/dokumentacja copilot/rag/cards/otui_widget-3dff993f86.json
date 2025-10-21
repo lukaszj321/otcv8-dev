@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.otui",
+  "line": 52,
+  "path": "TargetBotLootingPanel/Panel#minCapacityPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "minCapacityPanel",
+  "props": {
+    "id": "minCapacityPanel",
+    "height": "20",
+    "margin-top": "3"
+  }
+}

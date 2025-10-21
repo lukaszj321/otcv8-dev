@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Fw::translateState",
+  "return_type": "Fw::WidgetState",
+  "args": "std::string state",
+  "file": "src/framework/ui/uitranslator.cpp"
+}

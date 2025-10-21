@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "andMask",
+  "return_type": "std::vector<uchar>",
+  "args": "numbytes, 0",
+  "file": "src/framework/platform/win32window.cpp"
+}

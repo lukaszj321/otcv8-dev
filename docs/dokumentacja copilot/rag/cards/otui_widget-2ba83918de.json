@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_itemselector/itemselector.otui",
+  "line": 14,
+  "path": "ItemSelectorWindow#itemSelector/SpinBox#itemId",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "itemId",
+  "props": {
+    "id": "itemId",
+    "anchors.top": "parent.top",
+    "anchors.left": "prev.right",
+    "margin-top": "15",
+    "margin-left": "5",
+    "padding-left": "5",
+    "width": "70",
+    "minimum": "0",
+    "maximum": "999999",
+    "focusable": "true"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 23,
+  "path": "TradeWindow/MiniWindowContents/Label#counterTradeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "counterTradeLabel",
+  "props": {
+    "id": "counterTradeLabel",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right"
+  }
+}

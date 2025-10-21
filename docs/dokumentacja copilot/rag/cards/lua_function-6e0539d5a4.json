@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "executeWalk",
+  "args": "",
+  "file": "modules/client_mobile/mobile.lua"
+}

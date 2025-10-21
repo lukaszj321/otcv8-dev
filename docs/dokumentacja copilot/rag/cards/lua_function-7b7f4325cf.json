@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "disconnect",
+  "args": "object, arg1, arg2",
+  "file": "modules/corelib/util.lua"
+}

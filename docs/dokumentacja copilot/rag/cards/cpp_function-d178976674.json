@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_pushcclosure",
+  "return_type": "nan",
+  "args": "L, func, n",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

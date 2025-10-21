@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMap::onGeometryChange",
+  "return_type": "void",
+  "args": "const Rect& oldRect, const Rect& newRect",
+  "file": "src/client/uimap.cpp"
+}

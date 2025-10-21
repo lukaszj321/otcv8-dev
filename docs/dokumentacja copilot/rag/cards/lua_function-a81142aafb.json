@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "validateThings",
+  "args": "things",
+  "file": "modules/client_entergame/entergame.lua"
+}

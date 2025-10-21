@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 252,
+  "path": "HoldConditions#Hold/CheckBox#HoldHaste",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "HoldHaste",
+  "props": {
+    "id": "HoldHaste",
+    "anchors.right": "parent.right",
+    "margin-right": "10"
+  }
+}

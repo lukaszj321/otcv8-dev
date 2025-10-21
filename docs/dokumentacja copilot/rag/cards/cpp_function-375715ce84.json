@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFeature",
+  "return_type": "bool",
+  "args": "Otc::GameFeature feature",
+  "file": "src/client/game.h"
+}

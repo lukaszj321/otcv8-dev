@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pushNil",
+  "return_type": "else",
+  "args": "nan",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

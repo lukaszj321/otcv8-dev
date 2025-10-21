@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onKeypadTouchRelease",
+  "args": "widget, pos, button",
+  "file": "modules/client_mobile/mobile.lua"
+}

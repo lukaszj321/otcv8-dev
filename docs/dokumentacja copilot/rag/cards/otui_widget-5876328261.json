@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/viplist.otui",
+  "line": 1,
+  "path": "VipListLabel",
+  "widget": "VipListLabel",
+  "base": "GameLabel",
+  "id": "",
+  "props": {
+    "margin-top": "5",
+    "text-offset": "16 0",
+    "image-rect": "0 0 12 12",
+    "image-clip": "0 0 12 12",
+    "image-source": "/images/game/viplist/icons",
+    "font": "verdana-11px-monochrome",
+    "phantom": "false"
+  }
+}

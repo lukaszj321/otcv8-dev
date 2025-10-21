@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBlendFunc",
+  "return_type": "case CompositionMode_DestBlending:",
+  "args": "GL_ONE_MINUS_DST_ALPHA, GL_DST_ALPHA",
+  "file": "src/framework/graphics/painter.cpp"
+}

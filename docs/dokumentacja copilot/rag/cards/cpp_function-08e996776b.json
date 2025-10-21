@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAwareRange",
+  "return_type": "void",
+  "args": "const AwareRange& range",
+  "file": "src/client/map.h"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bugreport/bugreport.otui",
+  "line": 24,
+  "path": "BugReportWindow/Button#sendButton",
+  "widget": "Button",
+  "base": "",
+  "id": "sendButton",
+  "props": {
+    "id": "sendButton",
+    "anchors.bottom": "cancelButton.bottom",
+    "anchors.right": "cancelButton.left",
+    "margin-right": "10",
+    "width": "80"
+  }
+}

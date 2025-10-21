@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Tile::getEffect",
+  "return_type": "EffectPtr",
+  "args": "uint16 id",
+  "file": "src/client/tile.cpp"
+}

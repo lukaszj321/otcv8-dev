@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 1,
+  "path": "SpellPreview",
+  "widget": "SpellPreview",
+  "base": "UICheckBox",
+  "id": "",
+  "props": {
+    "height": "34",
+    "text-wrap": "true",
+    "multi-line": "true",
+    "focusable": "true",
+    "text-offset": "38 2",
+    "image-source": "",
+    "change-cursor-image": "false",
+    "color": "#dfdfdf88",
+    "background-color": "#ffffff22",
+    "image-color": "#dfdfdf88",
+    "opacity": "0.8"
+  }
+}

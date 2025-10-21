@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addExampleFunction",
+  "args": "title, text",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/example_functions.lua"
+}

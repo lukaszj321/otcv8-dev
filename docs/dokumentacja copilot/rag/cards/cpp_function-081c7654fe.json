@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "asPlayer",
+  "return_type": "PlayerPtr",
+  "args": "nan",
+  "file": "src/client/player.h"
+}

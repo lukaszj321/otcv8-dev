@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alSourcei",
+  "return_type": "nan",
+  "args": "m_sourceId, AL_LOOPING, looping ? AL_TRUE : AL_FALSE",
+  "file": "src/framework/sound/soundsource.cpp"
+}

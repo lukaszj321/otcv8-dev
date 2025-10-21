@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "inRange",
+  "return_type": "bool",
+  "args": "const Position& pos2",
+  "file": "src/client/walkmatrix.h"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 446,
+  "path": "FeaturesWindow#FeaturesWindow/SpinBox#NewPrice",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "NewPrice",
+  "props": {
+    "id": "NewPrice",
+    "anchors.left": "prev.right",
+    "margin-left": "5",
+    "width": "100",
+    "minimum": "0",
+    "maximum": "1000000000",
+    "step": "1",
+    "text-align": "center",
+    "focusable": "true"
+  }
+}

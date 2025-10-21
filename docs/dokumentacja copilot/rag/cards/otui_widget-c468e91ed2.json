@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 12,
+  "path": "WhiteListLabel",
+  "widget": "WhiteListLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "background-color": "#ffffff22",
+    "text-offset": "2 0",
+    "focusable": "true",
+    "phantom": "false",
+    "color": "#ffffff"
+  }
+}

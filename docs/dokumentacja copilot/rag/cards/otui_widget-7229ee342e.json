@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 252,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow/MiniWindowContents/AnalyzerButton#Settings",
+  "widget": "AnalyzerButton",
+  "base": "",
+  "id": "Settings",
+  "props": {
+    "id": "Settings",
+    "text": "Features & Settings",
+    "color": "#FABD02"
+  }
+}

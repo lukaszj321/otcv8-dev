@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onMouseWheel",
+  "return_type": "bool",
+  "args": "const Point& mousePos, Fw::MouseWheelDirection direction",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

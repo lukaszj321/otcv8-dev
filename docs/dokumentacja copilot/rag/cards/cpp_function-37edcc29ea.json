@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_state == STATE_NOT_CONNECTED",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

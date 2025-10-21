@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "friendHealerAction",
+  "args": "spec, targetsInRange",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua"
+}

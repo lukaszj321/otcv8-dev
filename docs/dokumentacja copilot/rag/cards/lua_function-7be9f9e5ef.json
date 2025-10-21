@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "resolvepath",
+  "args": "filePath, depth",
+  "file": "modules/corelib/util.lua"
+}

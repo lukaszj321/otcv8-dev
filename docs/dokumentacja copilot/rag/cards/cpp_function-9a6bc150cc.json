@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseOwnTrade",
+  "return_type": "case Proto::GameServerOwnTrade:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

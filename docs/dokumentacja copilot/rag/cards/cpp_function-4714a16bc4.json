@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::onPositionChange",
+  "return_type": "nan",
+  "args": "newPos, oldPos",
+  "file": "src/client/localplayer.cpp"
+}

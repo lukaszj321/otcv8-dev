@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~Application",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/framework/core/application.h"
+}

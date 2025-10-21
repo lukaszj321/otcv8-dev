@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setOfflineTrainingTime",
+  "return_type": "void",
+  "args": "double offlineTrainingTime",
+  "file": "src/client/localplayer.h"
+}

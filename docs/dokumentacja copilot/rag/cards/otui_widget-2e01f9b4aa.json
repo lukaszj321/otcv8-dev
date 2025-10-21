@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 80,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#soul",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "soul",
+  "props": {
+    "id": "soul",
+    "height": "15"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 127,
+  "path": "MemberWidget/ProgressBar#health",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "health",
+  "props": {
+    "id": "health",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2",
+    "height": "7",
+    "background-color": "#00c000",
+    "phantom": "false"
+  }
+}

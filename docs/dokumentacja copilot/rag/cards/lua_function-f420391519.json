@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "decode_error",
+  "args": "str, idx, msg",
+  "file": "modules/corelib/json.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::getOutfit",
+  "return_type": "Outfit",
+  "args": "const InputMessagePtr& msg, bool ignoreMount",
+  "file": "src/client/protocolgameparse.cpp"
+}

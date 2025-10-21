@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XSetWMSizeHints",
+  "return_type": "nan",
+  "args": "m_display, m_window, &sizeHints, XA_WM_NORMAL_HINTS",
+  "file": "src/framework/platform/x11window.cpp"
+}

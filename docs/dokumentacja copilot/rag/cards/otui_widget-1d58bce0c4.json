@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 418,
+  "path": "ConditionsWindow/CureConditions#Cure",
+  "widget": "CureConditions",
+  "base": "",
+  "id": "Cure",
+  "props": {
+    "id": "Cure",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-top": "7"
+  }
+}

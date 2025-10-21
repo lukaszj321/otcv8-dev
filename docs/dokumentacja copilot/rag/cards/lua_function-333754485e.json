@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIWidget:setMargin",
+  "args": "...",
+  "file": "modules/corelib/ui/uiwidget.lua"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/console.otui",
+  "line": 14,
+  "path": "OptionPanel/OptionCheckBox#showTimestampsInConsole",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showTimestampsInConsole",
+  "props": {
+    "id": "showTimestampsInConsole"
+  }
+}

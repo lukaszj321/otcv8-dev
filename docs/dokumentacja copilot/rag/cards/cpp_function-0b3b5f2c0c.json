@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "X11Window::internalLoadMouseCursor",
+  "return_type": "int",
+  "args": "const ImagePtr& image, const Point& hotSpot",
+  "file": "src/framework/platform/x11window.cpp"
+}

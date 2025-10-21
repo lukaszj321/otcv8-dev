@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIProgressBar:onGeometryChange",
+  "args": "oldRect, newRect",
+  "file": "modules/corelib/ui/uiprogressbar.lua"
+}

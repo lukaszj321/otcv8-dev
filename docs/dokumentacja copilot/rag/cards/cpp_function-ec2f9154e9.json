@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "encoding == TIXML_ENCODING_UTF8",
+  "file": "src/framework/xml/tinyxml.h"
+}

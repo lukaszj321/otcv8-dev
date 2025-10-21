@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture::setRepeat",
+  "return_type": "void",
+  "args": "bool repeat",
+  "file": "src/framework/graphics/texture.cpp"
+}

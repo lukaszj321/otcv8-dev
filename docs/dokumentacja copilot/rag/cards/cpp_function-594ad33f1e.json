@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "compose4",
+  "return_type": "void",
+  "args": "unsigned char * dst, unsigned int dstbytes, unsigned char * src, unsigned int srcbytes, unsigned int w, unsigned int h, unsigned int bop, unsigned char depth",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

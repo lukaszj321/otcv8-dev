@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 97,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#speed/SkillNameLabel",
+  "widget": "SkillNameLabel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

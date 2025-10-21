@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::next",
+  "return_type": "bool",
+  "args": "int index",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

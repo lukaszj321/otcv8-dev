@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/text.otui",
+  "line": 6,
+  "path": "MainWindow#assignTextWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "text": "Text:",
+    "text-horizontal-auto-resize": "true"
+  }
+}

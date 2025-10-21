@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSettings",
+  "return_type": "ConfigPtr",
+  "args": "nan",
+  "file": "src/framework/core/configmanager.h"
+}

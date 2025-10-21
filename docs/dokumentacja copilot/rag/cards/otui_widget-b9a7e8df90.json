@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 151,
+  "path": "MainWindow#editWindow/Panel/TextEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "height": "20",
+    "width": "400",
+    "margin-top": "5",
+    "editable": "false",
+    "text-align": "center"
+  }
+}

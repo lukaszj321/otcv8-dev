@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAttributeValue",
+  "return_type": "void",
+  "args": "const char* name, float value",
+  "file": "src/framework/graphics/shaderprogram.h"
+}

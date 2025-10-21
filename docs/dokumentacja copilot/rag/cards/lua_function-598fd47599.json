@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addExtraHotkey",
+  "args": "name, description, callback",
+  "file": "modules/game_hotkeys/hotkeys_extra.lua"
+}

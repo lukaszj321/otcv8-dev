@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botCraetureHealthPercentChange",
+  "args": "creature, healthPercent",
+  "file": "modules/game_bot/bot.lua"
+}

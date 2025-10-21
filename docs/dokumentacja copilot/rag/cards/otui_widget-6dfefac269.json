@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/options.otui",
+  "line": 26,
+  "path": "MainWindow#optionsWindow/TabBarVertical#optionsTabBar",
+  "widget": "TabBarVertical",
+  "base": "",
+  "id": "optionsTabBar",
+  "props": {
+    "id": "optionsTabBar",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom"
+  }
+}

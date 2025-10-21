@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Minimap::loadImage",
+  "return_type": "bool",
+  "args": "const std::string& fileName, const Position& topLeft, float colorFactor",
+  "file": "src/client/minimap.cpp"
+}

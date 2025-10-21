@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 40,
+  "path": "MainWindow#assignItemWindow/Panel#checks/RoundCheckBox#useTarget",
+  "widget": "RoundCheckBox",
+  "base": "",
+  "id": "useTarget",
+  "props": {
+    "id": "useTarget",
+    "text": "Use on target",
+    "enabled": "false"
+  }
+}

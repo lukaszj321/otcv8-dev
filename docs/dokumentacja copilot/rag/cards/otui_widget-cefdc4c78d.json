@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 161,
+  "path": "MainWindow#editWindow/Panel/Button#documentationButton",
+  "widget": "Button",
+  "base": "",
+  "id": "documentationButton",
+  "props": {
+    "id": "documentationButton",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "width": "250"
+  }
+}

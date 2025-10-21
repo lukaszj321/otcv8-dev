@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "resetSleepTime",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/util/stats.cpp"
+}

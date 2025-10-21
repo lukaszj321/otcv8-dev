@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui",
+  "line": 159,
+  "path": "TargetBotCreatureEditorWindow/Button#cancel",
+  "widget": "Button",
+  "base": "",
+  "id": "cancel",
+  "props": {
+    "id": "cancel",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "width": "60"
+  }
+}

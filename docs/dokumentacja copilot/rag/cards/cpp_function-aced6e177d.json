@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::recursiveGetChildrenByMarginPos",
+  "return_type": "UIWidgetList",
+  "args": "const Point& childPos",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

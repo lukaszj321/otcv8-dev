@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "strcpy",
+  "return_type": "nan",
+  "args": "buffer, demangled",
+  "file": "src/framework/stdext/demangle.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_encodeSegments",
+  "return_type": "bool",
+  "args": "const struct qrcodegen_Segment segs[], size_t len, enum qrcodegen_Ecc ecl, uint8_t tempBuffer[], uint8_t qrcode[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

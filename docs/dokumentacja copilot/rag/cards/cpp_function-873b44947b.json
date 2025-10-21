@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCloseTrade",
+  "return_type": "case Proto::GameServerCloseTrade:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

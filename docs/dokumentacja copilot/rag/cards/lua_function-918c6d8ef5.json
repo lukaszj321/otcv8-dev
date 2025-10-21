@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botManaChange",
+  "args": "player, mana, maxMana, oldMana, oldMaxMana",
+  "file": "modules/game_bot/bot.lua"
+}

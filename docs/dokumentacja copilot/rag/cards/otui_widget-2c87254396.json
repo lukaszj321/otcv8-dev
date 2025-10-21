@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 114,
+  "path": "OptionPanel/Panel/ComboBox#rightPanels",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "rightPanels",
+  "props": {
+    "id": "rightPanels",
+    "anchors.left": "rightPanelsLabel.left",
+    "anchors.right": "rightPanelsLabel.right",
+    "anchors.top": "rightPanelsLabel.bottom",
+    "margin-top": "3",
+    "margin-right": "20",
+    "self": "addOption(\"4\")"
+  }
+}

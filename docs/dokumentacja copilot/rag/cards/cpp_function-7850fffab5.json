@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTopWidgets",
+  "return_type": "std::list<UIWidgetPtr>",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

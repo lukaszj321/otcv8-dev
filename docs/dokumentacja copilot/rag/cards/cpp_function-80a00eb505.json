@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_itemVisible && m_item",
+  "file": "src/client/uiitem.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setKnown",
+  "return_type": "void",
+  "args": "bool known",
+  "file": "src/client/localplayer.h"
+}

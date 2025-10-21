@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FirstChild",
+  "return_type": "TiXmlNode*",
+  "args": "const std::string& _value",
+  "file": "src/framework/xml/tinyxml.h"
+}

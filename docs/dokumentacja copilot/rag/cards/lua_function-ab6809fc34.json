@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "show",
+  "args": "itemWidget",
+  "file": "modules/game_itemselector/itemselector.lua"
+}

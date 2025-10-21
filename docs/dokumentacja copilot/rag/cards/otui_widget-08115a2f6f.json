@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 591,
+  "path": "MainWindow#preyWindow/GoldLabel#gold",
+  "widget": "GoldLabel",
+  "base": "",
+  "id": "gold",
+  "props": {
+    "id": "gold",
+    "anchors.left": "bottomSep.left",
+    "size": "105 20"
+  }
+}

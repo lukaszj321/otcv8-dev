@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAnimator",
+  "return_type": "AnimatorPtr",
+  "args": "nan",
+  "file": "src/client/thingtype.h"
+}

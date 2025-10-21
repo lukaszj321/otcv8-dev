@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::getDirectionalWdigets",
+  "return_type": "std::list<UIWidgetPtr>",
+  "args": "nan",
+  "file": "src/client/creature.cpp"
+}

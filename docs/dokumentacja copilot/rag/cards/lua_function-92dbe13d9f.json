@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollBar:setRange",
+  "args": "minimum, maximum",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

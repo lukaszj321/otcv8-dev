@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 88,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#buttons/BattleParty#hideParty",
+  "widget": "BattleParty",
+  "base": "",
+  "id": "hideParty",
+  "props": {
+    "id": "hideParty"
+  }
+}

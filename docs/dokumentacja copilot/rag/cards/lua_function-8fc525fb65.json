@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIImageView:onDragEnter",
+  "args": "pos",
+  "file": "modules/corelib/ui/uiimageview.lua"
+}

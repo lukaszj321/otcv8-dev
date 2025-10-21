@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMouseMove",
+  "file": "modules/client_mobile/mobile.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addPosition",
+  "return_type": "nan",
+  "args": "msg, position",
+  "file": "src/client/protocolgamesend.cpp"
+}

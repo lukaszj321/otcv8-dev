@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 146,
+  "path": "MiniWindow#battleWindow/MiniWindowContents/Panel#battlePanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "battlePanel",
+  "props": {
+    "id": "battlePanel",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "margin-top": "5",
+    "padding-right": "5",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

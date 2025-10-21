@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::updateWalkOffset",
+  "return_type": "nan",
+  "args": "totalPixelsWalked, inNextFrame",
+  "file": "src/client/localplayer.cpp"
+}

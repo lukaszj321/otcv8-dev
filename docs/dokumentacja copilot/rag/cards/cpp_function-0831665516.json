@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "recursiveFocus",
+  "return_type": "void",
+  "args": "Fw::FocusReason reason",
+  "file": "src/framework/ui/uiwidget.h"
+}

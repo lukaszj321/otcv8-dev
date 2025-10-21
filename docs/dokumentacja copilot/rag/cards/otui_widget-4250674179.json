@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 114,
+  "path": "MainWindow#npcWindow/FlatPanel#setupPanel/NPCOfferLabel#name",
+  "widget": "NPCOfferLabel",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name"
+  }
+}

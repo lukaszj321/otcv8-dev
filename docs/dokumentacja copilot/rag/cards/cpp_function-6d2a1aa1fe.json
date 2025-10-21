@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "pos = 0; pos < textLength; ++pos",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

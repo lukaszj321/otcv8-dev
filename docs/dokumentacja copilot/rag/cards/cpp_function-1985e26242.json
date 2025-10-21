@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FlashWindowEx",
+  "return_type": "nan",
+  "args": "&fInfo",
+  "file": "src/framework/platform/win32window.cpp"
+}

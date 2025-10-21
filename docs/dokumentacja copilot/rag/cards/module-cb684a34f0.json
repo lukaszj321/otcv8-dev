@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_healthinfo\n  description: Displays health, mana points, soul points, and conditions\n  author: edubart, BeniS\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ healthinfo ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_healthinfo/healthinfo.otmod",
+  "description": "Displays health, mana points, soul points, and conditions"
+}

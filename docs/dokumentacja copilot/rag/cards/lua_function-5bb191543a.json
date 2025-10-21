@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "buyOffer",
+  "args": "widget",
+  "file": "modules/game_shop/shop.lua"
+}

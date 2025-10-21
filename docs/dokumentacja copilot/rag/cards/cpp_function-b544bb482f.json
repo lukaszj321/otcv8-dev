@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseTrappers",
+  "return_type": "case Proto::GameServerTrappers:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

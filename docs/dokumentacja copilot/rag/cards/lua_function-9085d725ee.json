@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onGameQuestLine",
+  "args": "questId, questMissions",
+  "file": "modules/game_questlog/questlog.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onGameEditList",
+  "args": "id, doorId, text",
+  "file": "modules/game_textwindow/textwindow.lua"
+}

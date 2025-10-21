@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 436,
+  "path": "BossList/TextList#list",
+  "widget": "TextList",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.fill": "parent",
+    "margin-top": "10",
+    "margin-bottom": "20",
+    "vertical-scrollbar": "listScrollBar",
+    "padding": "2"
+  }
+}

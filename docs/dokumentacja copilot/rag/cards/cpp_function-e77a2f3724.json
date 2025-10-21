@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rawSeti",
+  "return_type": "nan",
+  "args": "5",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "node->parent == 0 || node->parent == this",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

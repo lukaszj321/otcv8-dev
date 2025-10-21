@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FrameBuffer::bind",
+  "return_type": "void",
+  "args": "const FrameBufferPtr& depthFramebuffer",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

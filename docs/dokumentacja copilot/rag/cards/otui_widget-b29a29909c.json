@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 110,
+  "path": "MainWindow#communicationWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "margin-top": "10"
+  }
+}

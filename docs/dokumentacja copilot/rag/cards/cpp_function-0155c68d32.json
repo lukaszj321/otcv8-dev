@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageWidth",
+  "return_type": "void",
+  "args": "int width",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDepth",
+  "return_type": "nan",
+  "args": "m_olderStates[m_oldStateIndex].depth",
+  "file": "src/framework/graphics/painter.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::removeBottomWidget",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& widget",
+  "file": "src/client/creature.cpp"
+}

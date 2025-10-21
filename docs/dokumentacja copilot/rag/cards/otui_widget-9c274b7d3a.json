@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 230,
+  "path": "MainWindow#shopWindow/Button#transferOpen",
+  "widget": "Button",
+  "base": "",
+  "id": "transferOpen",
+  "props": {
+    "id": "transferOpen",
+    "width": "128",
+    "anchors.left": "prev. right",
+    "margin-left": "10"
+  }
+}

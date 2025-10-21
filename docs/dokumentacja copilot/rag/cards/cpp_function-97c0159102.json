@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::format",
+  "return_type": "else ss <<",
+  "args": "\" %d: %s [0x%016lX]\\n\", count, modname, sf.AddrPC.Offset",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 72,
+  "path": "CureConditions#Cure/CheckBox#CureCurse",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "CureCurse",
+  "props": {
+    "id": "CureCurse",
+    "anchors.right": "parent.right",
+    "margin-right": "10"
+  }
+}

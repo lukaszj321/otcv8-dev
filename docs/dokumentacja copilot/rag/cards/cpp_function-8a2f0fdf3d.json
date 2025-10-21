@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Str",
+  "return_type": "const std::string&",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

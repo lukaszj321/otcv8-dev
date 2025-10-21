@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Http::wsClose",
+  "return_type": "bool",
+  "args": "int operationId",
+  "file": "src/framework/http/http.cpp"
+}

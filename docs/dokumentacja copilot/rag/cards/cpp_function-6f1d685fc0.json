@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "recursiveGetChildrenByPos",
+  "return_type": "UIWidgetList",
+  "args": "const Point& childPos",
+  "file": "src/framework/ui/uiwidget.h"
+}

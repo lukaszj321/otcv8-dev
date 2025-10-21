@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 46,
+  "path": "UIWidget#gameRootPanel/GameMapPanel#gameMapPanel",
+  "widget": "GameMapPanel",
+  "base": "",
+  "id": "gameMapPanel",
+  "props": {
+    "id": "gameMapPanel",
+    "anchors.left": "gameLeftPanels.right",
+    "anchors.right": "gameRightPanels.left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "gameBottomPanel.top",
+    "focusable": "false"
+  }
+}

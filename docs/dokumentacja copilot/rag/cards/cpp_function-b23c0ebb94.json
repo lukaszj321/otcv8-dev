@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addAnchor",
+  "return_type": "nan",
+  "args": "anchoredWidget, Fw::AnchorTop, hookedWidgetId, Fw::AnchorTop",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

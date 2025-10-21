@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 645,
+  "path": "PreyCreature/UIWidget#creatureName",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "creatureName",
+  "props": {
+    "id": "creatureName",
+    "anchors.left": "prev.right",
+    "margin-left": "5",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "prev.bottom",
+    "margin-bottom": "7",
+    "anchors.right": "parent.right",
+    "text": "Inactive",
+    "font": "verdana-11px-rounded",
+    "text-align": "left"
+  }
+}

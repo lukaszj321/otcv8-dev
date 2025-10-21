@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int diagonal = 0; diagonal < numDiagonals; ++diagonal",
+  "file": "src/client/mapview.cpp"
+}

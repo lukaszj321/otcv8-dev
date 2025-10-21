@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMaxLength",
+  "return_type": "void",
+  "args": "uint maxLength",
+  "file": "src/framework/ui/uitextedit.h"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 202,
+  "path": "ListPanel/Button#down",
+  "widget": "Button",
+  "base": "",
+  "id": "down",
+  "props": {
+    "id": "down",
+    "anchors.right": "prev.left",
+    "size": "60 17",
+    "margin-right": "5",
+    "text": "Move Down",
+    "text-align": "center",
+    "font": "cipsoftFont",
+    "tooltip": "Decrease priority of selected rule."
+  }
+}

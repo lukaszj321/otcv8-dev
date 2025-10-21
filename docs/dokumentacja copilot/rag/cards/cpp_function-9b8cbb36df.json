@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "popString",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/luaengine/luainterface.h"
+}

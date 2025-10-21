@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 72,
+  "path": "ComboTrigger#trigger/Label#triggerLabel2",
+  "widget": "Label",
+  "base": "",
+  "id": "triggerLabel2",
+  "props": {
+    "id": "triggerLabel2",
+    "anchors.left": "triggerLabel1.left",
+    "anchors.top": "triggerLabel1.bottom",
+    "text": "On Shoot",
+    "margin-top": "5",
+    "color": "#ffaa00"
+  }
+}

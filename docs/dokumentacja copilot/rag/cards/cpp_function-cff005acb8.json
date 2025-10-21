@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setHouseFile",
+  "return_type": "void",
+  "args": "const std::string& file",
+  "file": "src/client/map.h"
+}

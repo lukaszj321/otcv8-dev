@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 189,
+  "path": "MainWindow#npcWindow/FlatPanel#buyOptions",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "buyOptions",
+  "props": {
+    "id": "buyOptions",
+    "height": "80",
+    "anchors.top": "prev.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "image-color": "#ffffff88"
+  }
+}

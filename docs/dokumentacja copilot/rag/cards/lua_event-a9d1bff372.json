@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onClickIgnoreButton",
+  "file": "modules/game_console/console.lua"
+}

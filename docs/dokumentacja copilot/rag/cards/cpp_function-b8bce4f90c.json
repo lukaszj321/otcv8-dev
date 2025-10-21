@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addShaderFromSourceCode",
+  "return_type": "bool",
+  "args": "Shader::ShaderType shaderType, const std::string& sourceCode",
+  "file": "src/framework/graphics/shaderprogram.h"
+}

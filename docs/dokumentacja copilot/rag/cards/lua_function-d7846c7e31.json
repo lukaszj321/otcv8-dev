@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onBaseSpeedChange",
+  "args": "localPlayer, baseSpeed",
+  "file": "modules/game_skills/skills.lua"
+}

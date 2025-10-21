@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onAuraSelect",
+  "file": "modules/game_outfit/outfit.lua"
+}

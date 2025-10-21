@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 100,
+  "path": "EmptyImbue/ComboBox#groups",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "groups",
+  "props": {
+    "id": "groups",
+    "anchors.top": "title.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.HorizontalCenter",
+    "margin-right": "3",
+    "margin-top": "5",
+    "isdisabled": "true"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIComboBox:setCurrentOptionByData",
+  "args": "data, dontSignal",
+  "file": "modules/corelib/ui/uicombobox.lua"
+}

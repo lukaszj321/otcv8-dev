@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaopen_bit32",
+  "return_type": "nan",
+  "args": "L",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

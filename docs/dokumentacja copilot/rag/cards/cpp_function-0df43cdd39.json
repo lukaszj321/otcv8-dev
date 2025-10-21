@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::format",
+  "return_type": "ss <<",
+  "args": "\"build date: %s\\n\", __DATE__",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

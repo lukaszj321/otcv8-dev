@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendNewWalk",
+  "return_type": "void",
+  "args": "int walkId, int predictionId, const Position& pos, uint8_t flags, const std::vector<Otc::Direction>& path",
+  "file": "src/client/protocolgame.h"
+}

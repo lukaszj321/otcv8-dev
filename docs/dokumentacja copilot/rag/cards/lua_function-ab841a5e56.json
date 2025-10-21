@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getMonstersInArea",
+  "args": "category, posOrCreature, pattern, minHp, maxHp, safePattern, monsterNamesTable",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua"
+}

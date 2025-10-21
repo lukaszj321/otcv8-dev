@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "openWindow",
+  "args": "deathType, penalty",
+  "file": "modules/game_playerdeath/playerdeath.lua"
+}

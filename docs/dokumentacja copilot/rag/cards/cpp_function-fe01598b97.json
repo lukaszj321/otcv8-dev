@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getRace",
+  "return_type": "CreatureRace",
+  "args": "nan",
+  "file": "src/client/creatures.h"
+}

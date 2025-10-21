@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 502,
+  "path": "EquipWindow/EQPanel#setup",
+  "widget": "EQPanel",
+  "base": "",
+  "id": "setup",
+  "props": {
+    "id": "setup",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "5",
+    "margin-top": "10"
+  }
+}

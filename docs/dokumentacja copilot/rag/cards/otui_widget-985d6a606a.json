@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 88,
+  "path": "DualLabel",
+  "widget": "DualLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "height": "15",
+    "text-offset": "4 0",
+    "font": "verdana-11px-rounded",
+    "text-align": "left",
+    "width": "50"
+  }
+}

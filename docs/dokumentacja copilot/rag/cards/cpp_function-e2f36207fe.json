@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call",
+  "return_type": "void",
+  "args": "int numArgs = 0, int numRets = 0",
+  "file": "src/framework/luaengine/luainterface.h"
+}

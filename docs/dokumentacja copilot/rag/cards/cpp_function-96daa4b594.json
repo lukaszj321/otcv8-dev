@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CreatureType",
+  "return_type": "nan",
+  "args": "const std::string& name",
+  "file": "src/client/creatures.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alGetSourcei",
+  "return_type": "nan",
+  "args": "m_sourceId, AL_SOURCE_STATE, &state",
+  "file": "src/framework/sound/soundsource.cpp"
+}

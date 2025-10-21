@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundManager::getChannel",
+  "return_type": "SoundChannelPtr",
+  "args": "int channel",
+  "file": "src/framework/sound/soundmanager.cpp"
+}

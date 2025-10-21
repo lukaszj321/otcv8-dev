@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 7,
+  "path": "NPCItemBox",
+  "widget": "NPCItemBox",
+  "base": "UICheckBox",
+  "id": "",
+  "props": {
+    "border-width": "1",
+    "border-color": "#000000",
+    "color": "#aaaaaa",
+    "text-align": "center",
+    "text-offset": "0 30"
+  }
+}

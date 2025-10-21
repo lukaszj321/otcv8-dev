@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "!p || !*p || *p != '='",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 80,
+  "path": "Rule/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "text": "X",
+    "anchors.right": "parent.right",
+    "margin-right": "15",
+    "width": "14",
+    "height": "14",
+    "text-align": "center",
+    "tooltip": "Remove entry"
+  }
+}

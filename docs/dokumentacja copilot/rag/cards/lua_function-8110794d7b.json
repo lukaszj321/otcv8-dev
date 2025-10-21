@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "toggleMount",
+  "args": "",
+  "file": "modules/game_playermount/playermount.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rsaGenerateKey",
+  "return_type": "void",
+  "args": "int bits, int e",
+  "file": "src/framework/util/crypt.h"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 373,
+  "path": "ComboWindow/Button#closeButton",
+  "widget": "Button",
+  "base": "",
+  "id": "closeButton",
+  "props": {
+    "id": "closeButton",
+    "font": "cipsoftFont",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "margin-top": "15",
+    "margin-right": "5"
+  }
+}

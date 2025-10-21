@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Tile::getTopCreatureEx",
+  "return_type": "CreaturePtr",
+  "args": "Point offset",
+  "file": "src/client/tile.cpp"
+}

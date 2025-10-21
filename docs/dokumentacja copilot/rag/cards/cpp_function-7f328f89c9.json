@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAutoRepeatDelay",
+  "return_type": "void",
+  "args": "int delay",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 209,
+  "path": "MainWindow#editWindow/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "width": "118"
+  }
+}

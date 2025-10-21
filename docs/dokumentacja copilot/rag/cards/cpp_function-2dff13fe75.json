@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SetDocument",
+  "return_type": "void",
+  "args": "TiXmlDocument* doc",
+  "file": "src/framework/xml/tinyxml.h"
+}

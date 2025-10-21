@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_inventory/inventory.otui",
+  "line": 1,
+  "path": "InventoryWindow#inventoryWindow",
+  "widget": "InventoryWindow",
+  "base": "",
+  "id": "inventoryWindow",
+  "props": {
+    "id": "inventoryWindow"
+  }
+}

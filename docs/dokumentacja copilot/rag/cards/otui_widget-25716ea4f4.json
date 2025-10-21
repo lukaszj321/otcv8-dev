@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 78,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#buttons/BattleMonsters#hideMonsters",
+  "widget": "BattleMonsters",
+  "base": "",
+  "id": "hideMonsters",
+  "props": {
+    "id": "hideMonsters"
+  }
+}

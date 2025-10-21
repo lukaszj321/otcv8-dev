@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/addvip.otui",
+  "line": 7,
+  "path": "MainWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

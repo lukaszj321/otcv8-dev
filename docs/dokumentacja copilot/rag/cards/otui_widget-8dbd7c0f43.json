@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 97,
+  "path": "FeaturePanel/BotSwitch#Feature1",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "Feature1",
+  "props": {
+    "id": "Feature1",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "margin-left": "3",
+    "margin-top": "5",
+    "text": "Mana info"
+  }
+}

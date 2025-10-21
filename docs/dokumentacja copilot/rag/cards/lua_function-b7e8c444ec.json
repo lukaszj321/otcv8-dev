@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITable:hasHeader",
+  "args": "",
+  "file": "modules/corelib/ui/uitable.lua"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 109,
+  "path": "SuppliesWindow/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "margin-top": "3"
+  }
+}

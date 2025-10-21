@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ThingType::getDrawSize",
+  "return_type": "Rect",
+  "args": "const Point& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase",
+  "file": "src/client/thingtype.cpp"
+}

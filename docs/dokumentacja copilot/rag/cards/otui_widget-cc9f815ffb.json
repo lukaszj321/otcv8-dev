@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/waitinglist.otui",
+  "line": 1,
+  "path": "MainWindow#waitingWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "waitingWindow",
+  "props": {
+    "id": "waitingWindow",
+    "size": "260 180"
+  }
+}

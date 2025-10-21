@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.otui",
+  "line": 85,
+  "path": "DepositerPanel/HorizontalSeparator#sep",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "sep",
+  "props": {
+    "id": "sep",
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "CloseButton.top",
+    "margin-bottom": "8"
+  }
+}

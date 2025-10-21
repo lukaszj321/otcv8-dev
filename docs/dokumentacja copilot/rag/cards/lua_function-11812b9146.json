@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "update",
+  "args": "",
+  "file": "modules/game_skills/skills.lua"
+}

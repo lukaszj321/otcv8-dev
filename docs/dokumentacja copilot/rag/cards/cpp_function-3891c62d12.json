@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getBlock",
+  "return_type": "MinimapBlock&",
+  "args": "const Position& pos",
+  "file": "src/client/minimap.h"
+}

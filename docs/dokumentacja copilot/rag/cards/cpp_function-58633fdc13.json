@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "get",
+  "return_type": "TexturePtr",
+  "args": "int location",
+  "file": "src/framework/graphics/atlas.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_textMustRecache || m_textCachedScreenCoords != rect",
+  "file": "src/framework/graphics/cachedtext.cpp"
+}

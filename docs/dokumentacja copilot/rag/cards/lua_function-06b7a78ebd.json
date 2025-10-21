@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Config:set",
+  "args": "key, value",
+  "file": "modules/corelib/config.lua"
+}

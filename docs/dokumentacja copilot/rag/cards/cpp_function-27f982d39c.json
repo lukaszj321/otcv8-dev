@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "translated",
+  "return_type": "TRect<T>",
+  "args": "const TPoint<T> &p",
+  "file": "src/framework/util/rect.h"
+}

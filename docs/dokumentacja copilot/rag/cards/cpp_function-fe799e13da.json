@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glDeleteFramebuffers",
+  "return_type": "nan",
+  "args": "1, &m_fbo",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

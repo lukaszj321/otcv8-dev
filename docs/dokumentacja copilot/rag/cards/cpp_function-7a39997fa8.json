@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMatrixColor",
+  "return_type": "void",
+  "args": "const Matrix4& colors",
+  "file": "src/framework/graphics/paintershaderprogram.h"
+}

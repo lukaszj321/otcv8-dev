@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LOGV",
+  "return_type": "nan",
+  "args": "\"Attaching input queue to looper\"",
+  "file": "src/android/android_native_app_glue.cpp"
+}

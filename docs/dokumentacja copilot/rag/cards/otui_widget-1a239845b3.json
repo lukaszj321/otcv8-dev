@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_stats/stats.otui",
+  "line": 11,
+  "path": "UIWidget#game_stats/Label#fps",
+  "widget": "Label",
+  "base": "",
+  "id": "fps",
+  "props": {
+    "id": "fps",
+    "font": "verdana-11px-rounded"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TownManager",
+  "return_type": "public:",
+  "args": "nan",
+  "file": "src/client/towns.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLNode::children",
+  "return_type": "OTMLNodeList",
+  "args": "nan",
+  "file": "src/framework/otml/otmlnode.cpp"
+}

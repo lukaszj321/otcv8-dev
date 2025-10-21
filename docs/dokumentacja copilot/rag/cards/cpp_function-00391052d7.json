@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::setUnjustifiedPoints",
+  "return_type": "void",
+  "args": "UnjustifiedPoints unjustifiedPoints",
+  "file": "src/client/game.cpp"
+}

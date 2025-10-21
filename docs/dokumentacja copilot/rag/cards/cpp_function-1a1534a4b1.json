@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSource",
+  "return_type": "std::string",
+  "args": "int level = 2",
+  "file": "src/framework/luaengine/luainterface.h"
+}

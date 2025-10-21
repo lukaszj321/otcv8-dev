@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawText",
+  "return_type": "return",
+  "args": "pos, hash, Color::white",
+  "file": "src/framework/graphics/textrender.cpp"
+}

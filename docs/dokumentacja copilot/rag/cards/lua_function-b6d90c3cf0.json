@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIItem:onItemChange",
+  "args": "",
+  "file": "modules/gamelib/ui/uiitem.lua"
+}

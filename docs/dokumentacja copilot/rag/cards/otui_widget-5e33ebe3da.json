@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 157,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#skillId4",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "skillId4",
+  "props": {
+    "id": "skillId4"
+  }
+}

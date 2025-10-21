@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glClearDepth",
+  "return_type": "nan",
+  "args": "0.99f",
+  "file": "src/framework/graphics/painter.cpp"
+}

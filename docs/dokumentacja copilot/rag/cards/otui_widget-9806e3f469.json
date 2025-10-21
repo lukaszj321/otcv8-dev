@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 341,
+  "path": "MainWindow#imbuingWindow/Label#balance",
+  "widget": "Label",
+  "base": "",
+  "id": "balance",
+  "props": {
+    "id": "balance",
+    "height": "25",
+    "anchors.right": "prev.left",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom"
+  }
+}

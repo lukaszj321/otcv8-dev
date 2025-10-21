@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glClear",
+  "return_type": "nan",
+  "args": "GL_COLOR_BUFFER_BIT",
+  "file": "src/framework/graphics/painter.cpp"
+}

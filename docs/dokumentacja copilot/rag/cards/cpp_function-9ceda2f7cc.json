@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLNode::valueAtIndex",
+  "return_type": "template<typename T> T",
+  "args": "int childIndex, const T& def",
+  "file": "src/framework/otml/otmlnode.h"
+}

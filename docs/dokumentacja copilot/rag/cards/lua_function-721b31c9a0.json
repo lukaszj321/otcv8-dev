@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setSkillPercent",
+  "args": "id, percent, tooltip, color",
+  "file": "modules/game_skills/skills.lua"
+}

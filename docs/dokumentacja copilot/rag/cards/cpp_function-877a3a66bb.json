@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "uint i = 0; i < nmemb; ++i",
+  "file": "src/framework/core/filestream.cpp"
+}

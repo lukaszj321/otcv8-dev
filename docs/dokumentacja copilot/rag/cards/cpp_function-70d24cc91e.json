@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_pushnumber",
+  "return_type": "nan",
+  "args": "L, n",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

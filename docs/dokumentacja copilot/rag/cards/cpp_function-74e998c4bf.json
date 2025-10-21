@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::setChaseMode",
+  "return_type": "void",
+  "args": "Otc::ChaseModes chaseMode",
+  "file": "src/client/game.cpp"
+}

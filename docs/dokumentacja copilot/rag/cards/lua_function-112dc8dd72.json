@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupMenu:display",
+  "args": "pos",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

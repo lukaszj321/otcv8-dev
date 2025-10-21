@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 136,
+  "path": "AnalyzerListPanel",
+  "widget": "AnalyzerListPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "padding-left": "4",
+    "padding-right": "4",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

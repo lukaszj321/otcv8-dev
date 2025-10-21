@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~shared_object",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/framework/stdext/shared_object.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "m_totalFuncRefs == 0",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

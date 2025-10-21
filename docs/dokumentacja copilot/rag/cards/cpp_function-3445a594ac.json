@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFreeCapacity",
+  "return_type": "double",
+  "args": "nan",
+  "file": "src/client/localplayer.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "House::getTile",
+  "return_type": "TilePtr",
+  "args": "const Position& position",
+  "file": "src/client/houses.cpp"
+}

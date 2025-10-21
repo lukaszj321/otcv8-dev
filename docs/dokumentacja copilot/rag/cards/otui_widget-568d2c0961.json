@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 526,
+  "path": "SlotPanel/ActivePreyPanel#active",
+  "widget": "ActivePreyPanel",
+  "base": "",
+  "id": "active",
+  "props": {
+    "id": "active",
+    "anchors.top": "parent.top",
+    "visible": "false"
+  }
+}

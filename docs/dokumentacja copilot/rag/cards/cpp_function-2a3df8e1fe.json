@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSprites",
+  "return_type": "std::vector<int>",
+  "args": "nan",
+  "file": "src/client/thingtype.h"
+}

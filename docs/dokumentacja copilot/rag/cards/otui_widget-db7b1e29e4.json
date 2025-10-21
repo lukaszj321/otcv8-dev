@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 267,
+  "path": "AttackBotPanel/SpinBox#manaPercent",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "manaPercent",
+  "props": {
+    "id": "manaPercent",
+    "anchors.left": "prev.right",
+    "margin-left": "4",
+    "size": "30 20",
+    "minimum": "0",
+    "maximum": "99",
+    "step": "1",
+    "editable": "true",
+    "focusable": "true"
+  }
+}

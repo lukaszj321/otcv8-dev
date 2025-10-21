@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 667,
+  "path": "PreyTracker#preyTracker",
+  "widget": "PreyTracker",
+  "base": "MiniWindow",
+  "id": "preyTracker",
+  "props": {
+    "id": "preyTracker",
+    "height": "95",
+    "icon": "/images/topbuttons/prey"
+  }
+}

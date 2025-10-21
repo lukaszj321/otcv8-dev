@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 155,
+  "path": "ListPanel/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.left": "parent.left",
+    "text": "Rules List",
+    "font": "verdana-11px-rounded",
+    "color": "#FABD02"
+  }
+}

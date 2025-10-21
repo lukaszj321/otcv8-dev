@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onChangeSortType",
+  "file": "modules/game_battle/battle.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 34,
+  "path": "MiniWindow#cooldownWindow/MiniWindowContents/SpellGroupIcon#groupIconAttack",
+  "widget": "SpellGroupIcon",
+  "base": "",
+  "id": "groupIconAttack",
+  "props": {
+    "id": "groupIconAttack",
+    "image-clip": "0 20 20 20",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-left": "2"
+  }
+}

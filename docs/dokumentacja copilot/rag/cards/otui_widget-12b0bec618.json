@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 21,
+  "path": "MainWindow#transferWindow/TextEdit#recipient",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "recipient",
+  "props": {
+    "id": "recipient",
+    "anchors.right": "parent.right",
+    "width": "150",
+    "text-align": "left"
+  }
+}

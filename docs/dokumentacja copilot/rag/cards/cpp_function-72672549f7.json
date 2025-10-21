@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRotation",
+  "return_type": "void",
+  "args": "size_t start, const Point& center, float angle",
+  "file": "src/framework/graphics/drawqueue.h"
+}

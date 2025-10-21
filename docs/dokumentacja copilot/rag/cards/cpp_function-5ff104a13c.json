@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateWalkAnimation",
+  "return_type": "protected: virtual void",
+  "args": "uint8 totalPixelsWalked",
+  "file": "src/client/creature.h"
+}

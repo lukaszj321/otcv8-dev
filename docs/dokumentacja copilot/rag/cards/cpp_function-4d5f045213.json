@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internalUpdate",
+  "return_type": "protected: bool",
+  "args": "nan",
+  "file": "src/framework/ui/uihorizontallayout.h"
+}

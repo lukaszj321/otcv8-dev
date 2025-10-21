@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getRealSize",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/client/thingtype.h"
+}

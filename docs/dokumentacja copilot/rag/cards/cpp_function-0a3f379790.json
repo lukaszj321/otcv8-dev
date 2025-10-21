@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setTransformMatrix",
+  "return_type": "nan",
+  "args": "m_olderStates[m_oldStateIndex].transformMatrix",
+  "file": "src/framework/graphics/painter.cpp"
+}

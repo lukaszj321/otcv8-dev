@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Graphics::init",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/graphics/graphics.cpp"
+}

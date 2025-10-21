@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "loadCasualSpr",
+  "return_type": "return",
+  "args": "sprFile",
+  "file": "src/client/spritemanager.cpp"
+}

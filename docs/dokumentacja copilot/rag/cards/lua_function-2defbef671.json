@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onCharacterList",
+  "args": "protocol, characters, account, otui",
+  "file": "modules/client_entergame/entergame.lua"
+}

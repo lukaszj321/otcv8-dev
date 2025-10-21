@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boost::to_lower",
+  "return_type": "nan",
+  "args": "policy",
+  "file": "src/framework/ui/uitranslator.cpp"
+}

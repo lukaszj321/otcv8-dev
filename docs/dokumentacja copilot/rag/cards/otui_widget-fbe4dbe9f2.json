@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui",
+  "line": 86,
+  "path": "TargetBotCreatureEditorWindow/TextEdit#name",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "90",
+    "margin-top": "5"
+  }
+}

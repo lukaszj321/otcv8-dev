@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textmessage/textmessage.otui",
+  "line": 25,
+  "path": "Panel/Panel#centerTextMessagePanel/TextMessageLabel#lowCenterLabel",
+  "widget": "TextMessageLabel",
+  "base": "",
+  "id": "lowCenterLabel",
+  "props": {
+    "id": "lowCenterLabel"
+  }
+}

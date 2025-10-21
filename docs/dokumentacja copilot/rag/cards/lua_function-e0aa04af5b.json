@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onRuleViolationChannel",
+  "args": "channelId",
+  "file": "modules/game_console/console.lua"
+}

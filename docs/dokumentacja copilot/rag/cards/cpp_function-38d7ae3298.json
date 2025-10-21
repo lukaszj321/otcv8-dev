@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setShader",
+  "return_type": "void",
+  "args": "const std::string& shader",
+  "file": "src/client/outfit.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Painter::clearRect",
+  "return_type": "void",
+  "args": "const Color& color, const Rect& rect",
+  "file": "src/framework/graphics/painter.cpp"
+}

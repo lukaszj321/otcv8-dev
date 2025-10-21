@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int i = Otc::MessageNone; i <= Otc::MessageBeyondLast; ++i",
+  "file": "src/client/protocolcodes.cpp"
+}

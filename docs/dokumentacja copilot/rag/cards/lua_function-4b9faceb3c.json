@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "parse_unicode_escape",
+  "args": "s",
+  "file": "modules/corelib/json.lua"
+}

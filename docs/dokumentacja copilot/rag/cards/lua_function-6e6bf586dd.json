@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "resetCache",
+  "args": "",
+  "file": "modules/game_bot/default_configs/vBot_4.7/cavebot/depositor.lua"
+}

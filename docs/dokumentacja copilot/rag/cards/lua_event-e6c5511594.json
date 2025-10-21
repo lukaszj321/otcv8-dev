@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onEditList",
+  "file": "modules/game_textwindow/textwindow.lua"
+}

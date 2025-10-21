@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/amountwindow.otui",
+  "line": 6,
+  "path": "AmountWindow#amountWindow/Item#item",
+  "widget": "Item",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "text-offset": "0 22",
+    "text-align": "right",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "margin-top": "2",
+    "margin-left": "-4",
+    "focusable": "false",
+    "virtual": "true"
+  }
+}

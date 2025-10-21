@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getProtocolGame",
+  "return_type": "ProtocolGamePtr",
+  "args": "nan",
+  "file": "src/client/game.h"
+}

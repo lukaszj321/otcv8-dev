@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/viplist.otui",
+  "line": 22,
+  "path": "MiniWindow#vipWindow/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {
+    "layout": "verticalBox",
+    "padding-left": "5",
+    "padding-right": "5"
+  }
+}

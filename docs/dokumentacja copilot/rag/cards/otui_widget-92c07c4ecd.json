@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 11,
+  "path": "SkillNameLabel",
+  "widget": "SkillNameLabel",
+  "base": "GameLabel",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom"
+  }
+}

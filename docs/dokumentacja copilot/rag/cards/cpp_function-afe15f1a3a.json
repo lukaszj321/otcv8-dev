@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeThing",
+  "return_type": "bool",
+  "args": "const ThingPtr& thing",
+  "file": "src/client/map.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::turn",
+  "return_type": "void",
+  "args": "Otc::Direction direction",
+  "file": "src/client/game.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onUnjustifiedPointsChange",
+  "args": "unjustifiedPoints",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.lua"
+}

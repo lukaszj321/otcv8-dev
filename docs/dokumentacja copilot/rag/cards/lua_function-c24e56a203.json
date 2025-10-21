@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "readMarketOffer",
+  "args": "msg, action, var",
+  "file": "modules/game_market/marketprotocol.lua"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 523,
+  "path": "SettingsPanel/CheckBox#Training",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "Training",
+  "props": {
+    "id": "Training",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "margin-top": "8",
+    "width": "245",
+    "text": "Stop when attacking trainers"
+  }
+}

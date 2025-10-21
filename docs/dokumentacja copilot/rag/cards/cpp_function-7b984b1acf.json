@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "unpack",
+  "return_type": "nan",
+  "args": "zstream, pTemp, imagesize, pData, zsize, h0, rowbytes, bpp",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

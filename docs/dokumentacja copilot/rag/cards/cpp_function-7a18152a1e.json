@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Proto::buildMessageModesMap",
+  "return_type": "nan",
+  "args": "version",
+  "file": "src/client/game.cpp"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 363,
+  "path": "AttackBotPanel/Button#up",
+  "widget": "Button",
+  "base": "",
+  "id": "up",
+  "props": {
+    "id": "up",
+    "anchors.right": "parent.right",
+    "anchors.top": "entryList.bottom",
+    "size": "60 17",
+    "text": "Move Up",
+    "text-align": "center",
+    "font": "cipsoftFont",
+    "margin-top": "7",
+    "margin-right": "8"
+  }
+}

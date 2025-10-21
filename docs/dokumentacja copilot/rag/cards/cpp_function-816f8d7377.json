@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "push_luavalue",
+  "return_type": "template<typename T> int",
+  "args": "const std::list<T>& list",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "size_t j = m_checkIndex[i]; j < limit; ++j",
+  "file": "src/client/thingtypemanager.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_pressedWidget[i] == widget",
+  "file": "src/framework/ui/uimanager.cpp"
+}

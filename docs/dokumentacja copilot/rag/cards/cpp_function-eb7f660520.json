@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMaxPreWalkingSteps",
+  "return_type": "void",
+  "args": "uint value",
+  "file": "src/client/game.h"
+}

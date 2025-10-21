@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Connection::internal_write",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/net/connection.cpp"
+}

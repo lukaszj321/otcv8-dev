@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onConfigChange",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/depositer.lua"
+}

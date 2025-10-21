@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 57,
+  "path": "SupplyItemList/ScrollablePanel#list",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.fill": "parent",
+    "vertical-scrollbar": "scroll",
+    "margin-right": "7",
+    "layout": "",
+    "type": "verticalBox",
+    "cell-height": "34"
+  }
+}

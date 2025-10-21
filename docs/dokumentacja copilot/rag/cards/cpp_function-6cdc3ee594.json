@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "HealthBars::addHealthBackground",
+  "return_type": "void",
+  "args": "const std::string& path, int offsetX, int offsetY, int barOffsetX, int barOffsetY, int height",
+  "file": "src/client/healthbars.cpp"
+}

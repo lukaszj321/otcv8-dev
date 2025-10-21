@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parsePredictiveCancelWalk",
+  "return_type": "nan",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

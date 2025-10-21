@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendRuleViolation",
+  "return_type": "void",
+  "args": "const std::string& target, int reason, int action, const std::string& comment, const std::string& statement, int statementId, bool ipBanishment",
+  "file": "src/client/protocolgamesend.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlBase::ConvertUTF32ToUTF8",
+  "return_type": "void",
+  "args": "unsigned long input, char* output, int* length",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

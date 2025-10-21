@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "__android_log_assert",
+  "return_type": "nan",
+  "args": "\"\", \"bsd_signal_wrapper\", \"bsd_signal symbol not found!\"",
+  "file": "src/android/dependencies.cpp"
+}

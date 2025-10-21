@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 67,
+  "path": "ActionButton/UIProgressRect#cooldown",
+  "widget": "UIProgressRect",
+  "base": "",
+  "id": "cooldown",
+  "props": {
+    "id": "cooldown",
+    "background": "#101010aa",
+    "percent": "100",
+    "focusable": "false",
+    "phantom": "true",
+    "anchors.fill": "parent",
+    "font": "verdana-11px-rounded",
+    "color": "white"
+  }
+}

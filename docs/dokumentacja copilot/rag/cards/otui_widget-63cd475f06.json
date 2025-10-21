@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/updater/updater.otui",
+  "line": 1,
+  "path": "StaticMainWindow#updaterWindow",
+  "widget": "StaticMainWindow",
+  "base": "",
+  "id": "updaterWindow",
+  "props": {
+    "id": "updaterWindow",
+    "width": "350",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

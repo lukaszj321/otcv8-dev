@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_protocol\n  description: Game protocol\n  author: otclientv8\n  website: http://otclient.ovh\n  scripts: [ protocol ]\n  sandboxed: true\n  autoload: true\n  autoload-priority: 500\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_protocol/protocol.otmod",
+  "description": "Game protocol"
+}

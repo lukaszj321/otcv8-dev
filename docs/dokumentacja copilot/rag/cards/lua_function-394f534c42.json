@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "make_indent",
+  "args": "state",
+  "file": "modules/corelib/json.lua"
+}

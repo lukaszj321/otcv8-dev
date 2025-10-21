@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 183,
+  "path": "ActivePreyPanel/SelectPreyCreature#select",
+  "widget": "SelectPreyCreature",
+  "base": "",
+  "id": "select",
+  "props": {
+    "id": "select",
+    "anchors.right": "prev.left",
+    "margin-right": "2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addItemType",
+  "return_type": "nan",
+  "args": "itemType",
+  "file": "src/client/thingtypemanager.cpp"
+}

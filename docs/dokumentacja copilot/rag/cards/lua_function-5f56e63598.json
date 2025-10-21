@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botOnTalk",
+  "args": "name, level, mode, text, channelId, pos",
+  "file": "modules/game_bot/bot.lua"
+}

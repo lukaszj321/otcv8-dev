@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setupPreview",
+  "args": "display, data",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua"
+}

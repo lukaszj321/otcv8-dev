@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processPlayerGoods",
+  "return_type": "void",
+  "args": "uint64_t money, const std::vector<std::tuple<ItemPtr, int> >& goods",
+  "file": "src/client/game.h"
+}

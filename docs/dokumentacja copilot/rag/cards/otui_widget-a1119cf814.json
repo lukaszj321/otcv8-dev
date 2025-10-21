@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 1,
+  "path": "TerminalLabel",
+  "widget": "TerminalLabel",
+  "base": "UILabel",
+  "id": "",
+  "props": {
+    "font": "terminus-10px",
+    "text-wrap": "true",
+    "text-auto-resize": "true",
+    "phantom": "true"
+  }
+}

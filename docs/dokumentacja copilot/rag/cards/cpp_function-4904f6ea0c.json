@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::getItem",
+  "return_type": "ItemPtr",
+  "args": "const InputMessagePtr& msg, int id, bool hasDescription",
+  "file": "src/client/protocolgameparse.cpp"
+}

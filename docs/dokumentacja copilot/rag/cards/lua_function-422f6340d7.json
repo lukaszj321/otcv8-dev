@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "installLocales",
+  "args": "directory",
+  "file": "modules/client_locales/locales.lua"
+}

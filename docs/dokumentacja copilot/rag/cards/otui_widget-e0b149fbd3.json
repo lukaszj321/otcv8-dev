@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 489,
+  "path": "EquipWindow/VerticalSeparator",
+  "widget": "VerticalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "5",
+    "anchors.left": "prev.right",
+    "margin-left": "10"
+  }
+}

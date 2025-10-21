@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "scalar",
+  "return_type": "nan",
+  "args": "other.scalar",
+  "file": "src/framework/stdext/packed_any.h"
+}

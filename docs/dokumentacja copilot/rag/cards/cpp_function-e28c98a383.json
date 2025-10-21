@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "reserve",
+  "return_type": "nan",
+  "args": "newcapacity",
+  "file": "src/framework/util/databuffer.h"
+}

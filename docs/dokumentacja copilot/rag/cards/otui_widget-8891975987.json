@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemstats.otui",
+  "line": 1,
+  "path": "StatsTableRow",
+  "widget": "StatsTableRow",
+  "base": "TableRow",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "focusable": "false",
+    "color": "#cccccc",
+    "height": "20"
+  }
+}

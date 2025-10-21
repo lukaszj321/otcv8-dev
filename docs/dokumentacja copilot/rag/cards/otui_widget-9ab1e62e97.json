@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 360,
+  "path": "EQPanel/Item#back",
+  "widget": "Item",
+  "base": "",
+  "id": "back",
+  "props": {
+    "id": "back",
+    "image-source": "/images/game/slots/back-blessed",
+    "anchors.top": "head.top",
+    "margin-top": "13",
+    "anchors.left": "head.right",
+    "margin-left": "5",
+    "tooltip": "Main back container modifications are unavailable."
+  }
+}

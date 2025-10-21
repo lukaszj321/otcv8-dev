@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Point",
+  "return_type": "return",
+  "args": "nan",
+  "file": "src/client/healthbars.cpp"
+}

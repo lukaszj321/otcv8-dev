@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 16,
+  "path": "BotTabBarButton",
+  "widget": "BotTabBarButton",
+  "base": "TabBarButton",
+  "id": "",
+  "props": {
+    "padding": "4",
+    "padding-right": "5",
+    "text-horizontal-auto-resize": "true",
+    "margin-left": "0"
+  }
+}

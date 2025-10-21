@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onOpenPvpSituationsChange",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.lua"
+}

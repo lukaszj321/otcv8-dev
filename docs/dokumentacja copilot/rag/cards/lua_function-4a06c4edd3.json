@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITextEdit:onTextAreaUpdate",
+  "args": "virtualOffset, virtualSize, totalSize",
+  "file": "modules/corelib/ui/uitextedit.lua"
+}

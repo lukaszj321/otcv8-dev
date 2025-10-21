@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setQuickLootFlags",
+  "return_type": "void",
+  "args": "uint32 flags",
+  "file": "src/client/item.h"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 1,
+  "path": "QuestTrackerLabel",
+  "widget": "QuestTrackerLabel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "20",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true",
+    "margin-top": "3"
+  }
+}

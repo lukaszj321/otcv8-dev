@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 183,
+  "path": "FlagWindow#flagWindow/Button#cancelButton",
+  "widget": "Button",
+  "base": "",
+  "id": "cancelButton",
+  "props": {
+    "id": "cancelButton",
+    "width": "64",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

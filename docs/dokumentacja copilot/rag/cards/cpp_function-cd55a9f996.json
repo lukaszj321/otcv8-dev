@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_setfield",
+  "return_type": "nan",
+  "args": "L, index, key",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

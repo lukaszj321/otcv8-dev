@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onKeyPress",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua"
+}

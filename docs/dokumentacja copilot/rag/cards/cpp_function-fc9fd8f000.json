@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "max_size > 2048u",
+  "file": "src/framework/graphics/drawqueue.cpp"
+}

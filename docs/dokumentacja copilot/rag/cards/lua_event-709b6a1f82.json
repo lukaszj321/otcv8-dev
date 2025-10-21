@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGameLoginToken",
+  "file": "modules/client_entergame/characterlist.lua"
+}

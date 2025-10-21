@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 118,
+  "path": "AlarmsWindow/HorizontalScrollBar#manaValue",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "manaValue",
+  "props": {
+    "id": "manaValue",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "anchors.top": "manaBelow.top",
+    "margin-left": "3",
+    "margin-top": "2",
+    "minimum": "1",
+    "maximum": "100",
+    "step": "1"
+  }
+}

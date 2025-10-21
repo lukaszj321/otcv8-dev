@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateWidget",
+  "return_type": "virtual bool",
+  "args": "const UIWidgetPtr& widget, const UIAnchorGroupPtr& anchorGroup, UIWidgetPtr first = nullptr",
+  "file": "src/framework/ui/uianchorlayout.h"
+}

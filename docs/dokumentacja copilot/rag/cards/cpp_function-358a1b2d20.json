@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setUniformValue",
+  "return_type": "nan",
+  "args": "TEXTURE_MATRIX_UNIFORM, m_textureMatrix",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 1,
+  "path": "ActionButton",
+  "widget": "ActionButton",
+  "base": "UIButton",
+  "id": "",
+  "props": {
+    "font": "cipsoftFont",
+    "width": "36",
+    "padding": "1",
+    "margin-left": "1"
+  }
+}

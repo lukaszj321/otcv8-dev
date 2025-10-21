@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "format",
+  "return_type": "std::string",
+  "args": "const std::string& format, const Args&... args",
+  "file": "src/framework/stdext/format.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseQuestLog",
+  "return_type": "case Proto::GameServerQuestLog:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

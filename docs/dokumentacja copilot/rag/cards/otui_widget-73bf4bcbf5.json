@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/extras.otui",
+  "line": 84,
+  "path": "ExtrasWindow/VerticalScrollBar#contentScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "contentScroll",
+  "props": {
+    "id": "contentScroll",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "separator.top",
+    "step": "28",
+    "pixels-scroll": "true",
+    "margin-right": "-10",
+    "margin-bottom": "5"
+  }
+}

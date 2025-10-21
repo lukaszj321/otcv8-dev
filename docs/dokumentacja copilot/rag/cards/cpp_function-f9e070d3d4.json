@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawCreatures",
+  "return_type": "void",
+  "args": "const Point& dest, LightView* lightView = nullptr",
+  "file": "src/client/tile.h"
+}

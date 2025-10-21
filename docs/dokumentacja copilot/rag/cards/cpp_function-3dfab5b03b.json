@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "InputMessage::setBuffer",
+  "return_type": "void",
+  "args": "const std::string& buffer",
+  "file": "src/framework/net/inputmessage.cpp"
+}

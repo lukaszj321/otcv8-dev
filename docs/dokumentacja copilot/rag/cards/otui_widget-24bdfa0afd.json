@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/config.otui",
+  "line": 21,
+  "path": "CaveBotConfigNumberValuePanel/BotTextEdit#value",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "value",
+  "props": {
+    "id": "value",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "5",
+    "width": "50"
+  }
+}

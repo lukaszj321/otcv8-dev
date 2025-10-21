@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 61,
+  "path": "MainWindow#npcWindow/FlatPanel",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "",
+  "props": {
+    "height": "150",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5"
+  }
+}

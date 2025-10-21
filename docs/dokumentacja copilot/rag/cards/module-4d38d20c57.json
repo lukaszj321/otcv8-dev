@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_minimap\n  description: Manage minimap\n  author: edubart, BeniS\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ minimap ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_minimap/minimap.otmod",
+  "description": "Manage minimap"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 293,
+  "path": "MainWindow#spelllistWindow/Label#labelPremiumFilter",
+  "widget": "Label",
+  "base": "",
+  "id": "labelPremiumFilter",
+  "props": {
+    "id": "labelPremiumFilter",
+    "anchors.top": "labelPremium.bottom",
+    "anchors.left": "labelGroupFilter.right",
+    "width": "70",
+    "font": "verdana-11px-monochrome",
+    "margin-top": "30",
+    "margin-left": "20"
+  }
+}

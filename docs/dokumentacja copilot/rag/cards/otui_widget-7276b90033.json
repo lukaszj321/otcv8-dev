@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 271,
+  "path": "MainWindow#npcWindow/Button#sellAllButton",
+  "widget": "Button",
+  "base": "",
+  "id": "sellAllButton",
+  "props": {
+    "id": "sellAllButton",
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10",
+    "visible": "false"
+  }
+}

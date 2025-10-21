@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 276,
+  "path": "BotServer#server/Button#partyButton",
+  "widget": "Button",
+  "base": "",
+  "id": "partyButton",
+  "props": {
+    "id": "partyButton",
+    "anchors.left": "labelX.left",
+    "anchors.top": "botServerLeader.bottom",
+    "margin-top": "5",
+    "height": "30",
+    "text": "Join Party",
+    "text-wrap": "true",
+    "multiline": "true"
+  }
+}

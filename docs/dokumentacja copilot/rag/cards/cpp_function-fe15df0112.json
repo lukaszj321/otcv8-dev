@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "load",
+  "return_type": "protected: void",
+  "args": "TiXmlElement* node",
+  "file": "src/client/creatures.h"
+}

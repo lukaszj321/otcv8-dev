@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addQuad",
+  "return_type": "void",
+  "args": "const Rect& dest, const Rect& src",
+  "file": "src/framework/graphics/coordsbuffer.h"
+}

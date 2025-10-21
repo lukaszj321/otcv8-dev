@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addColoredMessage",
+  "return_type": "bool",
+  "args": "const std::string& name, Otc::MessageMode mode, const std::vector<std::string>& texts",
+  "file": "src/client/statictext.h"
+}

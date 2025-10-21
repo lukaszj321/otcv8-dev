@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 190,
+  "path": "UIWidget#gameRootPanel/UIWidget#mouseGrabber",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "mouseGrabber",
+  "props": {
+    "id": "mouseGrabber",
+    "focusable": "false",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIInputBox:addLabel",
+  "args": "text",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

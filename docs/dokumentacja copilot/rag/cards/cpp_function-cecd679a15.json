@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "colorizeThing",
+  "return_type": "void",
+  "args": "const ThingPtr& thing, const Color& color",
+  "file": "src/client/map.h"
+}

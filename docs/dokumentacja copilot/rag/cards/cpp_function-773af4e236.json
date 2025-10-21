@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getReadPos",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/framework/net/inputmessage.h"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 80,
+  "path": "ItemInformation/Label#selectSlot",
+  "widget": "Label",
+  "base": "",
+  "id": "selectSlot",
+  "props": {
+    "id": "selectSlot",
+    "margin-right": "15",
+    "anchors.right": "slots.left"
+  }
+}

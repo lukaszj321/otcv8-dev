@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "updateSize",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

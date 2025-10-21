@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Market.resetCreateOffer",
+  "args": "resetFee",
+  "file": "modules/game_market/market.lua"
+}

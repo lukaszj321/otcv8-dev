@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlString::append",
+  "return_type": "TiXmlString&",
+  "args": "const char* str, size_type len",
+  "file": "src/framework/xml/tinystr.cpp"
+}

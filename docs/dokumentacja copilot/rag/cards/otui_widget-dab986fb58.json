@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_healthinfo/healthinfo.otui",
+  "line": 1,
+  "path": "HealthInfoWindow#healthInfoWindow",
+  "widget": "HealthInfoWindow",
+  "base": "",
+  "id": "healthInfoWindow",
+  "props": {
+    "id": "healthInfoWindow"
+  }
+}

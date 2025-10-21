@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "bindKeys",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

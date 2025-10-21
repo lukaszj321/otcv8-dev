@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "read",
+  "return_type": "int",
+  "args": "void *buffer, uint size, uint nmemb = 1",
+  "file": "src/framework/core/filestream.h"
+}

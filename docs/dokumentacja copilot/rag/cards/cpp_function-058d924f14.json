@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "read == 0",
+  "file": "src/framework/sound/soundbuffer.cpp"
+}

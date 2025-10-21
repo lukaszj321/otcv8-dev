@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 260,
+  "path": "Panel#actionBar/RightSliders#nextPanel",
+  "widget": "RightSliders",
+  "base": "",
+  "id": "nextPanel",
+  "props": {
+    "id": "nextPanel",
+    "anchors.right": "parent.right",
+    "margin-right": "1"
+  }
+}

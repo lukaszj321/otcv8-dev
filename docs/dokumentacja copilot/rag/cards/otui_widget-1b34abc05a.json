@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 78,
+  "path": "UIWidget#gameRootPanel/Panel#gameLeftActions/GameAction#look",
+  "widget": "GameAction",
+  "base": "",
+  "id": "look",
+  "props": {
+    "id": "look"
+  }
+}

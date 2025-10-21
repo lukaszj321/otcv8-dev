@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 79,
+  "path": "MissionLog/CheckBox#track",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "track",
+  "props": {
+    "id": "track",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-bottom": "25",
+    "enabled": "false"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onEnter",
+  "file": "modules/game_interface/gameinterface.lua"
+}

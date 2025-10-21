@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "create",
+  "return_type": "static OTMLDocumentPtr",
+  "args": "nan",
+  "file": "src/framework/otml/otmldocument.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setReadPos",
+  "return_type": "void",
+  "args": "uint32 readPos",
+  "file": "src/framework/net/inputmessage.h"
+}

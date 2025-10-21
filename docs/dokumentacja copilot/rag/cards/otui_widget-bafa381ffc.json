@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 71,
+  "path": "UIWindow#terminalWindow/UILabel#commandSymbolLabel",
+  "widget": "UILabel",
+  "base": "",
+  "id": "commandSymbolLabel",
+  "props": {
+    "id": "commandSymbolLabel",
+    "size": "12 12",
+    "fixed-size": "true",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "margin-left": "2",
+    "font": "terminus-10px",
+    "text": ">"
+  }
+}

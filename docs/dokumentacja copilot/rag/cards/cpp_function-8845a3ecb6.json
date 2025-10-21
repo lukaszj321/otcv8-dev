@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendClearImbuement",
+  "return_type": "void",
+  "args": "uint8_t slot",
+  "file": "src/client/protocolgamesend.cpp"
+}

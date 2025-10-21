@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFunction",
+  "return_type": "const std::string&",
+  "args": "nan",
+  "file": "src/framework/core/event.h"
+}

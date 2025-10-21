@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 1,
+  "path": "NPCOfferLabel",
+  "widget": "NPCOfferLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "margin-left": "5",
+    "text-auto-resize": "true"
+  }
+}

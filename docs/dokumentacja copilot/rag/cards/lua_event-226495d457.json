@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onWsError",
+  "file": "modules/corelib/http.lua"
+}

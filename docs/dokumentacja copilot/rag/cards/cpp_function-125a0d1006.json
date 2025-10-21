@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CloseHandle",
+  "return_type": "nan",
+  "args": "handle",
+  "file": "src/framework/platform/win32platform.cpp"
+}

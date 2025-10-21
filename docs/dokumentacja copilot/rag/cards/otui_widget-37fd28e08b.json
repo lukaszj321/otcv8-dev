@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 34,
+  "path": "OptionPanel/OptionCheckBox#antialiasing",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "antialiasing",
+  "props": {
+    "id": "antialiasing"
+  }
+}

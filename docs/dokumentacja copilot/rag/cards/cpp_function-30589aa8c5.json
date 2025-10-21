@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "MapView::calcFirstVisibleFloor",
+  "return_type": "int",
+  "args": "bool forFading",
+  "file": "src/client/mapview.cpp"
+}

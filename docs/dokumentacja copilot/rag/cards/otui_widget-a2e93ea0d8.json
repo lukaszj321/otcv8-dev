@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 166,
+  "path": "Groups/Panel#box/CategoryCheckBox#party",
+  "widget": "CategoryCheckBox",
+  "base": "",
+  "id": "party",
+  "props": {
+    "id": "party",
+    "text": "Party Members"
+  }
+}

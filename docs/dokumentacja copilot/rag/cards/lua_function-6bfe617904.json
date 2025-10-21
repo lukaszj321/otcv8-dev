@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "executeBot",
+  "args": "config, storage, tabs, msgCallback, saveConfigCallback, reloadCallback, websockets",
+  "file": "modules/game_bot/executor.lua"
+}

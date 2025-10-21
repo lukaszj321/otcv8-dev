@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "dis",
+  "return_type": "static std::uniform_real_distribution<float>",
+  "args": "0.0, 1.0",
+  "file": "src/framework/stdext/math.cpp"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMouseWheel",
+  "file": "modules/client_terminal/terminal.lua"
+}

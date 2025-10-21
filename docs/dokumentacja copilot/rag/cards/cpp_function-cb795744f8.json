@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Cursor",
+  "return_type": "const TiXmlCursor&",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 322,
+  "path": "ComboWindow/ComboTrigger#trigger",
+  "widget": "ComboTrigger",
+  "base": "",
+  "id": "trigger",
+  "props": {
+    "id": "trigger",
+    "anchors.top": "parent.top",
+    "margin-top": "7"
+  }
+}

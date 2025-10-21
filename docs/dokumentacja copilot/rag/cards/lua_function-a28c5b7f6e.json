@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIInputBox:addSpinBox",
+  "args": "labelText, minimum, maximum, value, step",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

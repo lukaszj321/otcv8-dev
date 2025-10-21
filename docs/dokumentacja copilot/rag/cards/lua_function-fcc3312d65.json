@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Creature:onShieldChange",
+  "args": "shieldId",
+  "file": "modules/gamelib/creature.lua"
+}

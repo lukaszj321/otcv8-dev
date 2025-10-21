@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 24,
+  "path": "OptionPanel/OptionCheckBox#dash",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "dash",
+  "props": {
+    "id": "dash"
+  }
+}

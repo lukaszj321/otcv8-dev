@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 165,
+  "path": "Panel/Button#createOfferButton",
+  "widget": "Button",
+  "base": "",
+  "id": "createOfferButton",
+  "props": {
+    "id": "createOfferButton",
+    "anchors.left": "prev.right",
+    "margin-left": "7",
+    "width": "90"
+  }
+}

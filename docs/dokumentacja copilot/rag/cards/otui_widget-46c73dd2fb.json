@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 385,
+  "path": "HoldConditions#Hold/CheckBox#IgnoreInPz",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "IgnoreInPz",
+  "props": {
+    "id": "IgnoreInPz",
+    "anchors.left": "label5.left",
+    "anchors.top": "label6.bottom",
+    "margin-top": "12"
+  }
+}

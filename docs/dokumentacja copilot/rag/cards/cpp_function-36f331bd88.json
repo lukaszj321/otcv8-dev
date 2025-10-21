@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "get",
+  "return_type": "std::string",
+  "args": "int type, int limit, bool pretty",
+  "file": "src/framework/util/stats.h"
+}

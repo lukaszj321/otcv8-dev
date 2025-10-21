@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "clean",
+  "args": "",
+  "file": "modules/game_containers/containers.lua"
+}

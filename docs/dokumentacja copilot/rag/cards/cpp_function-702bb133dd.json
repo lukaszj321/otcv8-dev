@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLDocument",
+  "return_type": "private:",
+  "args": "nan",
+  "file": "src/framework/otml/otmldocument.h"
+}

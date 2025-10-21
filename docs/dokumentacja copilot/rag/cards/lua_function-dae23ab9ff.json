@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botModalDialog",
+  "args": "id, title, message, buttons, enterButton, escapeButton, choices, priority",
+  "file": "modules/game_bot/bot.lua"
+}

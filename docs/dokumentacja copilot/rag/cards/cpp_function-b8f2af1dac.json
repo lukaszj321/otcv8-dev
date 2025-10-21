@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "random_range",
+  "return_type": "long",
+  "args": "long min, long max",
+  "file": "src/framework/stdext/math.cpp"
+}

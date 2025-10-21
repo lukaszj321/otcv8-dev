@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "_G.tr",
+  "args": "text, ...",
+  "file": "modules/client_locales/locales.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 82,
+  "path": "SioListWindow/BotTextEdit#spellName",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "spellName",
+  "props": {
+    "id": "spellName",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3"
+  }
+}

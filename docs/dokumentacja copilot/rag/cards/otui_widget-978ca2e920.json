@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 83,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#buttons/BattleSkulls#hideSkulls",
+  "widget": "BattleSkulls",
+  "base": "",
+  "id": "hideSkulls",
+  "props": {
+    "id": "hideSkulls"
+  }
+}

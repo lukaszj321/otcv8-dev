@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "showPresets",
+  "args": "",
+  "file": "modules/game_outfit/outfit.lua"
+}

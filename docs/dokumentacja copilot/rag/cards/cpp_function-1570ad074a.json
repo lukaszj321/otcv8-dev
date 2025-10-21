@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "update",
+  "return_type": "nan",
+  "args": "true",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

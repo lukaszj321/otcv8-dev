@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "filterHouses",
+  "return_type": "HouseList",
+  "args": "uint32 townId",
+  "file": "src/client/houses.h"
+}

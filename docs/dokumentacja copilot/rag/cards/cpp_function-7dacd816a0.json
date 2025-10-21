@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttribute::Next",
+  "return_type": "TiXmlAttribute*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

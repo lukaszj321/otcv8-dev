@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMinZoom",
+  "return_type": "void",
+  "args": "int minZoom",
+  "file": "src/client/uiminimap.h"
+}

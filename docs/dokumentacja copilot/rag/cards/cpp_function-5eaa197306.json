@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::walk",
+  "return_type": "void",
+  "args": "Otc::Direction direction, bool withPreWalk",
+  "file": "src/client/game.cpp"
+}

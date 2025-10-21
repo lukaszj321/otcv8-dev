@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "moveHorizontalCenter",
+  "return_type": "void",
+  "args": "T x",
+  "file": "src/framework/util/rect.h"
+}

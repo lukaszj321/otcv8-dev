@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMoveableTabBar:moveTab",
+  "args": "tab, units",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

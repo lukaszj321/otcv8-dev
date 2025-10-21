@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onScrollHeightChange",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

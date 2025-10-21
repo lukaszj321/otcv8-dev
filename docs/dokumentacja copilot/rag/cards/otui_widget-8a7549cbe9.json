@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/config.otui",
+  "line": 12,
+  "path": "CaveBotConfigPanel#cavebotEditor/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "text-align": "center",
+    "text": "CaveBot Config",
+    "margin-top": "5"
+  }
+}

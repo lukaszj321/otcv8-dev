@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCreature",
+  "return_type": "CreaturePtr",
+  "args": "nan",
+  "file": "src/client/uicreature.h"
+}

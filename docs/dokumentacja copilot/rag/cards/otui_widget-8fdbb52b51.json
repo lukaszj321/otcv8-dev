@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 26,
+  "path": "MainWindow#channelsWindow/Label#openPrivateChannelWithLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "openPrivateChannelWithLabel",
+  "props": {
+    "id": "openPrivateChannelWithLabel",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "text-align": "center",
+    "margin-bottom": "2"
+  }
+}

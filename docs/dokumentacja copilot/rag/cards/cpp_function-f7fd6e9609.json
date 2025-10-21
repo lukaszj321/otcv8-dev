@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "err > 0 && err < TIXML_ERROR_STRING_COUNT",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

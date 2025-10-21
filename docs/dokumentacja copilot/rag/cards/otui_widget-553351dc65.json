@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 393,
+  "path": "AttackBotPanel/BotItem#itemId",
+  "widget": "BotItem",
+  "base": "",
+  "id": "itemId",
+  "props": {
+    "id": "itemId",
+    "anchors.right": "addEntry.left",
+    "margin-right": "5",
+    "anchors.bottom": "parent.bottom",
+    "margin-bottom": "2",
+    "tooltip": "drag item here on press to open window"
+  }
+}

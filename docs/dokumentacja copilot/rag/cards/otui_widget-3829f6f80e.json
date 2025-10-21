@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 298,
+  "path": "AttackBotPanel/CheckBox#orMore",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "orMore",
+  "props": {
+    "id": "orMore",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "tooltip": "or more creatures"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 93,
+  "path": "MainWindow#ruleViolationWindow/CheckBox#ipBanCheckBox",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "ipBanCheckBox",
+  "props": {
+    "id": "ipBanCheckBox",
+    "margin-top": "10",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

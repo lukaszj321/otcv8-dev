@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 65,
+  "path": "AttackBotBotPanel/Button#1",
+  "widget": "Button",
+  "base": "",
+  "id": "1",
+  "props": {
+    "id": "1",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "text": "1",
+    "margin-right": "2",
+    "margin-top": "4",
+    "size": "17 17"
+  }
+}

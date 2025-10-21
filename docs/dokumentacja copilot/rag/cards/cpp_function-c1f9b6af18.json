@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "encryptBuffer",
+  "return_type": "bool",
+  "args": "std::string & buffer, uint32_t seed = 0",
+  "file": "src/framework/core/resourcemanager.h"
+}

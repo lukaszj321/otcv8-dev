@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 238,
+  "path": "HotkeyAssignWindow#assignWindow/Label#comboPreview",
+  "widget": "Label",
+  "base": "",
+  "id": "comboPreview",
+  "props": {
+    "id": "comboPreview",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "text-auto-resize": "true"
+  }
+}

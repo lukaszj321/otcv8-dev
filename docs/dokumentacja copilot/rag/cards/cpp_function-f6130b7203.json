@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "replace_all",
+  "return_type": "void",
+  "args": "std::string& str, const std::string& search, const std::string& replacement",
+  "file": "src/framework/stdext/string.cpp"
+}

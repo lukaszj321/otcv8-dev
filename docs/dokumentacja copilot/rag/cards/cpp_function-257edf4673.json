@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSpriteColor",
+  "return_type": "void",
+  "args": "Color color",
+  "file": "src/client/uisprite.h"
+}

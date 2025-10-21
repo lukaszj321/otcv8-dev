@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BN_mod",
+  "return_type": "nan",
+  "args": "m_rsa->dmq1, m_rsa->d, r2, ctx",
+  "file": "src/framework/util/crypt.cpp"
+}

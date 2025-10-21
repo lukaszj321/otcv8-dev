@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 44,
+  "path": "SpellEntry/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "anchors.right": "parent.right",
+    "margin-right": "15",
+    "text-offset": "1 0",
+    "width": "15",
+    "height": "15"
+  }
+}

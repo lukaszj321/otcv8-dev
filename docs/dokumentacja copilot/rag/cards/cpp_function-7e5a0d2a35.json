@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaCallLuaField",
+  "return_type": "int",
+  "args": "const std::string& field, const T&... args",
+  "file": "src/framework/luaengine/luaobject.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isLookPossible",
+  "return_type": "bool",
+  "args": "const Position& pos",
+  "file": "src/client/map.h"
+}

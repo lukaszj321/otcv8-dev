@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 619,
+  "path": "PreyCreature",
+  "widget": "PreyCreature",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "22",
+    "margin-top": "3"
+  }
+}

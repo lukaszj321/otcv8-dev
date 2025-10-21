@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 389,
+  "path": "SelectPreyCreature/UIButton#pickSpecificPrey",
+  "widget": "UIButton",
+  "base": "",
+  "id": "pickSpecificPrey",
+  "props": {
+    "id": "pickSpecificPrey",
+    "anchors.top": "parent.top",
+    "size": "66 66",
+    "image-source": "/images/game/prey/prey_select_blocked"
+  }
+}

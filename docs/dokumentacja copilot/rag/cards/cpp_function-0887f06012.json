@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "resize",
+  "return_type": "void",
+  "args": "T w, T h",
+  "file": "src/framework/util/size.h"
+}

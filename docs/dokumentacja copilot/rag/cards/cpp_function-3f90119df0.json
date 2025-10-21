@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::centerIn",
+  "return_type": "void",
+  "args": "const std::string& hookedWidgetId",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

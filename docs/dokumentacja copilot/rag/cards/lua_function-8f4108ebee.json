@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "clearFilters",
+  "args": "",
+  "file": "modules/game_market/market.lua"
+}

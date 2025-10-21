@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 161,
+  "path": "OptionPanel/Label#floorFadingLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "floorFadingLabel",
+  "props": {
+    "id": "floorFadingLabel",
+    "margin-top": "6",
+    "self": "setText(tr('Floor fading: %s ms', value))"
+  }
+}

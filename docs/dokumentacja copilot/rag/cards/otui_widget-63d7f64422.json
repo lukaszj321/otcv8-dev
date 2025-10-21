@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 230,
+  "path": "AttackBotPanel/PreButton#previousRange",
+  "widget": "PreButton",
+  "base": "",
+  "id": "previousRange",
+  "props": {
+    "id": "previousRange",
+    "anchors.left": "nextSource.right",
+    "margin-left": "8"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 118,
+  "path": "ConditionPanel/CondidionLabel#description",
+  "widget": "CondidionLabel",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "anchors.top": "parent.top",
+    "margin-top": "5",
+    "anchors.left": "prev.right",
+    "anchors.right": "nex.left",
+    "margin-left": "3",
+    "margin-right": "3"
+  }
+}

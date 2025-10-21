@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isWritableOnce",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/client/thingtype.h"
+}

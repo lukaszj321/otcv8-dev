@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_mobile/mobile.otui",
+  "line": 1,
+  "path": "UIWidget",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.fill": "parent",
+    "focusable": "false",
+    "phantom": "true"
+  }
+}

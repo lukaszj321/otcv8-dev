@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui",
+  "line": 33,
+  "path": "TargetBotCreatureEditorTextEdit/TextEdit#textEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "textEdit",
+  "props": {
+    "id": "textEdit",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "minimum": "0",
+    "maximum": "10",
+    "step": "1"
+  }
+}

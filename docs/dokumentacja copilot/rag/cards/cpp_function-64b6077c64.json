@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Stacktrace",
+  "return_type": "void",
+  "args": "LPEXCEPTION_POINTERS e, std::stringstream& ss",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 58,
+  "path": "Panel/Label#createLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "createLabel",
+  "props": {
+    "id": "createLabel",
+    "font": "verdana-11px-rounded",
+    "text-offset": "0 2",
+    "anchors.top": "rightTabBar.top",
+    "anchors.left": "rightTabContent.left",
+    "margin-top": "355",
+    "margin-left": "6"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 132,
+  "path": "Panel/Label#amountLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "amountLabel",
+  "props": {
+    "id": "amountLabel",
+    "font": "verdana-11px-rounded",
+    "text-offset": "0 2",
+    "anchors.top": "offerTypeLabel.top",
+    "anchors.left": "amountEdit.left"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::parseTextStyle",
+  "return_type": "void",
+  "args": "const OTMLNodePtr& styleNode",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Connection::onResolve",
+  "return_type": "void",
+  "args": "const boost::system::error_code& error, asio::ip::basic_resolver<asio::ip::tcp>::iterator endpointIterator",
+  "file": "src/framework/net/connection.cpp"
+}

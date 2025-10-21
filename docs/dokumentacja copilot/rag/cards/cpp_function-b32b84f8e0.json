@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AndroidWindow::openUrl",
+  "return_type": "void",
+  "args": "std::string url",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

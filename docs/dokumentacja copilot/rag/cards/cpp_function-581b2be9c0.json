@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setField",
+  "return_type": "nan",
+  "args": "\"__mode\"",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

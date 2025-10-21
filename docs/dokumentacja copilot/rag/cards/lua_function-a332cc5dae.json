@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "displayMessage",
+  "args": "mode, text",
+  "file": "modules/game_textmessage/textmessage.lua"
+}

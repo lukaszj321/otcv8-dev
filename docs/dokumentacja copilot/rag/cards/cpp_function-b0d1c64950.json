@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "write",
+  "return_type": "template<typename T> void",
+  "args": "const T& v",
+  "file": "src/framework/otml/otmlnode.h"
+}

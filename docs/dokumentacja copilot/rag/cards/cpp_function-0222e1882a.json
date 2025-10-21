@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Animator::getPhaseDuration",
+  "return_type": "int",
+  "args": "int phase",
+  "file": "src/client/animator.cpp"
+}

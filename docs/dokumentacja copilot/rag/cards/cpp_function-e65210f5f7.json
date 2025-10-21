@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRGBA",
+  "return_type": "void",
+  "args": "uint8 r, uint8 g, uint8 b, uint8 a = 0xFF",
+  "file": "src/framework/util/color.h"
+}

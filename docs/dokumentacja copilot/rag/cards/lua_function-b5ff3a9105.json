@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "MarketOffer:setId",
+  "args": "id",
+  "file": "modules/game_market/marketoffer.lua"
+}

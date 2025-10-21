@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onHealthChange",
+  "args": "localPlayer, health, maxHealth",
+  "file": "modules/game_healthinfo/healthinfo.lua"
+}

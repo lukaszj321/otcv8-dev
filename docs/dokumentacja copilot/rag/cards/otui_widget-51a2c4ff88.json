@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 518,
+  "path": "EquipWindow/HorizontalSeparator#bottomSep",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "bottomSep",
+  "props": {
+    "id": "bottomSep",
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "closeButton.top",
+    "margin-bottom": "8"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFeet",
+  "return_type": "void",
+  "args": "int feet",
+  "file": "src/client/outfit.h"
+}

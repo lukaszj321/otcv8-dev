@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "create",
+  "return_type": "static ServerPtr",
+  "args": "int port",
+  "file": "src/framework/net/server.h"
+}

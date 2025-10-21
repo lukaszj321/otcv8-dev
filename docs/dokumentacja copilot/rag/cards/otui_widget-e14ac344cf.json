@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 17,
+  "path": "TradeWindow/MiniWindowContents/Label#ownTradeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "ownTradeLabel",
+  "props": {
+    "id": "ownTradeLabel",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter"
+  }
+}

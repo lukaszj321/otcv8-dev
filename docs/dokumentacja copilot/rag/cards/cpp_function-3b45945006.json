@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BitmapFont::calculateDrawTextCoords",
+  "return_type": "void",
+  "args": "CoordsBuffer& coordsBuffer, const std::string& text, const Rect& screenCoords, Fw::AlignmentFlag align",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

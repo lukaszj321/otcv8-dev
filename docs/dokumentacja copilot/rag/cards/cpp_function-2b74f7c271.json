@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XFree",
+  "return_type": "nan",
+  "args": "m_visual",
+  "file": "src/framework/platform/x11window.cpp"
+}

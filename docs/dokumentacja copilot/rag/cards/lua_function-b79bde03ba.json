@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onWalkFinish",
+  "args": "player",
+  "file": "modules/game_walking/walking.lua"
+}

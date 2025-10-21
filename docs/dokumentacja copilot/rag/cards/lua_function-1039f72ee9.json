@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMoveableTabBar:setTabSpacing",
+  "args": "tabSpacing",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getBones",
+  "return_type": "const Point&",
+  "args": "int direction",
+  "file": "src/client/thingtype.h"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 272,
+  "path": "LabelAndTextEditPanel/Label#left",
+  "widget": "Label",
+  "base": "",
+  "id": "left",
+  "props": {
+    "id": "left",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.horizontalCenter",
+    "text-align": "center",
+    "text-wrap": "true",
+    "margin-right": "2"
+  }
+}

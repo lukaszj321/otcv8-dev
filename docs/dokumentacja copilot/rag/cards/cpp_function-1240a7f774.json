@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundFile",
+  "return_type": "public:",
+  "args": "const FileStreamPtr& fileStream",
+  "file": "src/framework/sound/soundfile.h"
+}

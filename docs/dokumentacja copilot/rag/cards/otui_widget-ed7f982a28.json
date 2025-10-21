@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 76,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/SkullProgressBar#monthProgressBar",
+  "widget": "SkullProgressBar",
+  "base": "",
+  "id": "monthProgressBar",
+  "props": {
+    "id": "monthProgressBar"
+  }
+}

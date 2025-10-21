@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addContainerItem",
+  "return_type": "void",
+  "args": "const ItemPtr& i",
+  "file": "src/client/item.h"
+}

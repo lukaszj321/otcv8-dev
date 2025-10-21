@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fseek",
+  "return_type": "nan",
+  "args": "file, 0, SEEK_SET",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAttributeArray",
+  "return_type": "void",
+  "args": "int location, const float* values, int size, int stride = 0",
+  "file": "src/framework/graphics/shaderprogram.h"
+}

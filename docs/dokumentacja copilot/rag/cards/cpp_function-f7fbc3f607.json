@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::isInsideOffset",
+  "return_type": "bool",
+  "args": "Point offset",
+  "file": "src/client/creature.cpp"
+}

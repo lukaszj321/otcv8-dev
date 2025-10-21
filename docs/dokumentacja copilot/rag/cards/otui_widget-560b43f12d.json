@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/target.otui",
+  "line": 64,
+  "path": "TargetBotPanel/BotSwitch#configButton",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "configButton",
+  "props": {
+    "id": "configButton",
+    "self": "getParent().editor:setVisible(self:isOn())",
+    "text": "Show target editor"
+  }
+}

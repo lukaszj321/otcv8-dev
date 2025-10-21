@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onLayoutUpdate",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

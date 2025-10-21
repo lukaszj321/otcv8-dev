@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 46,
+  "path": "BotPanel/ScrollablePanel#content",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "content",
+  "props": {
+    "id": "content",
+    "anchors.fill": "parent",
+    "margin-right": "16",
+    "margin-left": "1",
+    "margin-bottom": "5",
+    "vertical-scrollbar": "botPanelScroll",
+    "layout": "",
+    "type": "verticalBox"
+  }
+}

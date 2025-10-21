@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 266,
+  "path": "BotServer#server/TextEdit#botServerLeader",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "botServerLeader",
+  "props": {
+    "id": "botServerLeader",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "anchors.right": "parent.right",
+    "margin-right": "3",
+    "margin-left": "9",
+    "height": "15",
+    "font": "cipsoftFont"
+  }
+}

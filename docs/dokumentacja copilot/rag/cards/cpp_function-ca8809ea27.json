@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFloorMissiles",
+  "return_type": "const std::vector<MissilePtr>&",
+  "args": "int z",
+  "file": "src/client/map.h"
+}

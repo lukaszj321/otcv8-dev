@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "updateOffers",
+  "args": "offers",
+  "file": "modules/game_market/market.lua"
+}

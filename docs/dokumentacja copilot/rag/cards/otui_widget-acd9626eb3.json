@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 105,
+  "path": "ExtrasWindow/ScrollablePanel#content/Panel#left",
+  "widget": "Panel",
+  "base": "",
+  "id": "left",
+  "props": {
+    "id": "left",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "margin-top": "5",
+    "margin-left": "10",
+    "margin-right": "10",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

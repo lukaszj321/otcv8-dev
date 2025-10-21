@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 147,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#skillId2/SkillValueLabel",
+  "widget": "SkillValueLabel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 429,
+  "path": "HealBotSettingsPanel/FlatPanel#profiles/TextEdit#Name",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "Name",
+  "props": {
+    "id": "Name",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

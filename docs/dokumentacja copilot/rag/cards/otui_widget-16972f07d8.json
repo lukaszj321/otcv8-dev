@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 13,
+  "path": "TextEditButtons#buttons/Button#cancel",
+  "widget": "Button",
+  "base": "",
+  "id": "cancel",
+  "props": {
+    "id": "cancel",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "width": "60"
+  }
+}

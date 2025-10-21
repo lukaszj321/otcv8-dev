@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 8,
+  "path": "CureConditions#Cure",
+  "widget": "CureConditions",
+  "base": "Panel",
+  "id": "Cure",
+  "props": {
+    "id": "Cure",
+    "image-source": "/images/ui/panel_flat",
+    "image-border": "6",
+    "padding": "3",
+    "size": "200 190"
+  }
+}

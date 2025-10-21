@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "module_loader",
+  "args": "modname",
+  "file": "modules/corelib/util.lua"
+}

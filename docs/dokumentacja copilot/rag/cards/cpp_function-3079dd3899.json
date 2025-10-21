@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processQuestLog",
+  "return_type": "void",
+  "args": "const std::vector<std::tuple<int, std::string, bool> >& questList",
+  "file": "src/client/game.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glCompileShader",
+  "return_type": "nan",
+  "args": "m_shaderId",
+  "file": "src/framework/graphics/shader.cpp"
+}

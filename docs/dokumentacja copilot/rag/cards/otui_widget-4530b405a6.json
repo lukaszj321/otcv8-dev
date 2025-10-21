@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/hotkey.otui",
+  "line": 14,
+  "path": "MainWindow#assignHotkeyWindow/Label#desc",
+  "widget": "Label",
+  "base": "",
+  "id": "desc",
+  "props": {
+    "id": "desc",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "10",
+    "multi-line": "true",
+    "height": "40",
+    "text-wrap": "true",
+    "text": "Click \"Ok\" to assign the hotkey. Click \"Clear\" to remove the hotkey from \""
+  }
+}

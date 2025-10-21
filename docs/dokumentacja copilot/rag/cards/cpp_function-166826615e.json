@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DrawQueueItemTexturedRect::draw",
+  "return_type": "void",
+  "args": "const Point& pos",
+  "file": "src/framework/graphics/drawqueue.cpp"
+}

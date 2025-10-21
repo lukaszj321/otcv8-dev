@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getLeftAction",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

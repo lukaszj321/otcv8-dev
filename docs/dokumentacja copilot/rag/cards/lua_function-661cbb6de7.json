@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:open",
+  "args": "dontSave",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

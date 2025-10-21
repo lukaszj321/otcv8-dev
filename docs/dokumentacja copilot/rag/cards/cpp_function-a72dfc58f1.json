@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setXteaKey",
+  "return_type": "void",
+  "args": "uint32 a, uint32 b, uint32 c, uint32 d",
+  "file": "src/framework/net/protocol.h"
+}

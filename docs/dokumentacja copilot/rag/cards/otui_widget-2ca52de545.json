@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 155,
+  "path": "MainWindow#shopWindow/Panel#infoPanel/Button#buy",
+  "widget": "Button",
+  "base": "",
+  "id": "buy",
+  "props": {
+    "id": "buy",
+    "width": "150",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "visible": "false"
+  }
+}

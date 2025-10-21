@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Fw::translateAnchorEdge",
+  "return_type": "Fw::AnchorEdge",
+  "args": "std::string anchorEdge",
+  "file": "src/framework/ui/uitranslator.cpp"
+}

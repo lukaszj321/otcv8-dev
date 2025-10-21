@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "myClone",
+  "return_type": "OTMLNodePtr",
+  "args": "new OTMLNode",
+  "file": "src/framework/otml/otmlnode.cpp"
+}

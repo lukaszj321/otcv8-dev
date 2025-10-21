@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 50,
+  "path": "MainWindow#assignItemWindow/Panel#checks/RoundCheckBox#equip",
+  "widget": "RoundCheckBox",
+  "base": "",
+  "id": "equip",
+  "props": {
+    "id": "equip",
+    "text": "Equip/Unequip",
+    "enabled": "false"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 4,
+  "path": "BossCreaturePanel/UICreature#creature",
+  "widget": "UICreature",
+  "base": "",
+  "id": "creature",
+  "props": {
+    "id": "creature",
+    "size": "35 35",
+    "anchors.left": "parent.left",
+    "old-scaling": "true",
+    "margin-left": "3"
+  }
+}

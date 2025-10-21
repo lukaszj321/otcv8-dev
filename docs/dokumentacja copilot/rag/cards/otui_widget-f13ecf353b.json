@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 50,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#atlas",
+  "widget": "DebugText",
+  "base": "",
+  "id": "atlas",
+  "props": {
+    "id": "atlas",
+    "text": "-"
+  }
+}

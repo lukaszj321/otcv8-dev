@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 630,
+  "path": "PreyCreature/UIWidget#noCreature",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "noCreature",
+  "props": {
+    "id": "noCreature",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "size": "20 20",
+    "image-source": "/images/game/prey/prey_inactive"
+  }
+}

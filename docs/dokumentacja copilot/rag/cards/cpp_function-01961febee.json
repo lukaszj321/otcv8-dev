@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::setShowZones",
+  "return_type": "void",
+  "args": "bool show",
+  "file": "src/client/map.cpp"
+}

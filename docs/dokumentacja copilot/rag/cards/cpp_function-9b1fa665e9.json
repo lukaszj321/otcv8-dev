@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "follow",
+  "return_type": "void",
+  "args": "CreaturePtr creature",
+  "file": "src/client/game.h"
+}

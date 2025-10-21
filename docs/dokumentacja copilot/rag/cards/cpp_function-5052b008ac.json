@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isUIHorizontalLayout",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/framework/ui/uihorizontallayout.h"
+}

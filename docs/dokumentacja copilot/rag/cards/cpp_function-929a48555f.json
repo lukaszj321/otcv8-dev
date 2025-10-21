@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendCancelAttackAndFollow",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/client/protocolgamesend.cpp"
+}

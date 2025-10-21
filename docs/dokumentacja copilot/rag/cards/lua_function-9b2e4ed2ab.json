@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "loadVipInfo",
+  "args": "",
+  "file": "modules/game_viplist/viplist.lua"
+}

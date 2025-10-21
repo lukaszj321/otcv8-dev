@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "SizeType i=0;i<m_size;++i",
+  "file": "src/framework/stdext/packed_storage.h"
+}

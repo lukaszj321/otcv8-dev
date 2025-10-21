@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CreatureManager::addSpawn",
+  "return_type": "SpawnPtr",
+  "args": "const Position& centerPos, int radius",
+  "file": "src/client/creatures.cpp"
+}

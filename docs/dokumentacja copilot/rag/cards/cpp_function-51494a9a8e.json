@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "unbind",
+  "return_type": "static void",
+  "args": "Type type",
+  "file": "src/framework/graphics/hardwarebuffer.h"
+}

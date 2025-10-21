@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 24,
+  "path": "MainWindow#communicationWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "communicationWindow",
+  "props": {
+    "id": "communicationWindow",
+    "size": "515 410"
+  }
+}

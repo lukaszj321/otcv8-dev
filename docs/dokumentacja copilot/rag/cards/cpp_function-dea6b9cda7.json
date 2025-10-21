@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto other : m_animatedTexts",
+  "file": "src/client/map.cpp"
+}

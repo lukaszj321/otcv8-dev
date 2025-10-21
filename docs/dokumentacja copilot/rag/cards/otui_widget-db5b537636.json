@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/market.otui",
+  "line": 17,
+  "path": "MarketWindow#marketWindow/Panel#mainTabContent",
+  "widget": "Panel",
+  "base": "",
+  "id": "mainTabContent",
+  "props": {
+    "id": "mainTabContent",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "padding": "3",
+    "border-width": "1",
+    "border-color": "#000000",
+    "margin-bottom": "20"
+  }
+}

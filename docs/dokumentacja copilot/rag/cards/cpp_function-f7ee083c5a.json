@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addVertex",
+  "return_type": "inline void",
+  "args": "float x, float y",
+  "file": "src/framework/graphics/vertexarray.h"
+}

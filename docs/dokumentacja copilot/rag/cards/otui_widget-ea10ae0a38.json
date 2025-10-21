@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 320,
+  "path": "MainWindow#spelllistWindow/CheckBox#premiumBoxYes",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "premiumBoxYes",
+  "props": {
+    "id": "premiumBoxYes",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "width": "75"
+  }
+}

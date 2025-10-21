@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 48,
+  "path": "ModalDialog#modalDialog/Label#messageLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "messageLabel",
+  "props": {
+    "id": "messageLabel",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text-align": "left",
+    "text-auto-resize": "true",
+    "text-wrap": "true"
+  }
+}

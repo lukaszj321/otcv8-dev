@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollBar:decrement",
+  "args": "count",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

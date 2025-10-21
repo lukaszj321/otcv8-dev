@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 124,
+  "path": "MiniWindow#battleWindow/Panel/UIWidget#toggleFilterButton",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "toggleFilterButton",
+  "props": {
+    "id": "toggleFilterButton",
+    "anchors.top": "prev.top",
+    "width": "21",
+    "image-source": "/images/ui/arrow_vertical",
+    "image-rect": "0 0 21 12",
+    "image-clip": "21 0 21 12",
+    "phantom": "false"
+  }
+}

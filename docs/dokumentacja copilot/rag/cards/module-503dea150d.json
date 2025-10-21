@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_itemselector\n  description: Allow to select item\n  author: OTClientV8\n  website: https://github.com/OTCv8/otclientv8\n  sandboxed: true\n  dependencies: [ game_interface ]\n  scripts: [ itemselector ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_itemselector/itemselector.otmod",
+  "description": "Allow to select item"
+}

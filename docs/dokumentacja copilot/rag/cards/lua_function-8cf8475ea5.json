@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onContainerUpdateItem",
+  "args": "container, slot, item, oldItem",
+  "file": "modules/game_containers/containers.lua"
+}

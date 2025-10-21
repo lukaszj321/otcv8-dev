@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "case APP_CMD_INIT_WINDOW:",
+  "args": "g_androidState->window != NULL",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

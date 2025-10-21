@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_getSize",
+  "return_type": "int",
+  "args": "const uint8_t qrcode[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLNode::clone",
+  "return_type": "OTMLNodePtr",
+  "args": "nan",
+  "file": "src/framework/otml/otmlnode.cpp"
+}

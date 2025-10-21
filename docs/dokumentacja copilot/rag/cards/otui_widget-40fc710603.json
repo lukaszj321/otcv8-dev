@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textwindow/textwindow.otui",
+  "line": 5,
+  "path": "TextWindow#textWindow/Item#textItem",
+  "widget": "Item",
+  "base": "",
+  "id": "textItem",
+  "props": {
+    "id": "textItem",
+    "virtual": "true",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

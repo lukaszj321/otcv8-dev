@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 335,
+  "path": "CustomList/AddPlayer#addPanel",
+  "widget": "AddPlayer",
+  "base": "",
+  "id": "addPanel",
+  "props": {
+    "id": "addPanel",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

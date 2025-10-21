@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "x2 < x1 - 1",
+  "file": "src/framework/util/rect.h"
+}

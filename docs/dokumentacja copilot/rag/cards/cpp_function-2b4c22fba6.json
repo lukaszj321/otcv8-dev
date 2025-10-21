@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getBestTextureDimension",
+  "return_type": "Size",
+  "args": "int w, int h, int count",
+  "file": "src/client/thingtype.h"
+}

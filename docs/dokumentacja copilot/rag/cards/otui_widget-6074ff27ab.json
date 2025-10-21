@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 32,
+  "path": "SideActionButton/Label#text",
+  "widget": "Label",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.fill": "prev",
+    "text-auto-resize": "true",
+    "text-wrap": "true",
+    "phantom": "true",
+    "text-align": "center",
+    "font": "verdana-9px"
+  }
+}

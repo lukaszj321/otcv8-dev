@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/audio.otui",
+  "line": 18,
+  "path": "OptionPanel/OptionScrollbar#musicSoundVolume",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "musicSoundVolume",
+  "props": {
+    "id": "musicSoundVolume",
+    "margin-top": "3",
+    "minimum": "0",
+    "maximum": "100"
+  }
+}

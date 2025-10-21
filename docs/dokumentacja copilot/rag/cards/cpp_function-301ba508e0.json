@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendAttack",
+  "return_type": "void",
+  "args": "uint creatureId, uint seq",
+  "file": "src/client/protocolgame.h"
+}

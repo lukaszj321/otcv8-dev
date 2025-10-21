@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 45,
+  "path": "OptionPanel/OptionCheckBox#displayNames",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "displayNames",
+  "props": {
+    "id": "displayNames"
+  }
+}

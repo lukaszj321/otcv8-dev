@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "e",
+  "return_type": "std::regex",
+  "args": "exp, std::regex::ECMAScript",
+  "file": "src/framework/luafunctions.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:onMouseWheel",
+  "args": "mousePos, direction",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

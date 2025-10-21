@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateData",
+  "return_type": "void",
+  "args": "const std::set<std::string>& files, bool reMount",
+  "file": "src/framework/core/resourcemanager.h"
+}

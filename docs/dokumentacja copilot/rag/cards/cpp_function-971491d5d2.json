@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UITextEdit::moveCursorHorizontally",
+  "return_type": "void",
+  "args": "bool right",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

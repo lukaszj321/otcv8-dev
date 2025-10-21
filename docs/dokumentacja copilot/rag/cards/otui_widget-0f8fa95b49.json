@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 40,
+  "path": "ModalDialog#modalDialog",
+  "widget": "ModalDialog",
+  "base": "MainWindow",
+  "id": "modalDialog",
+  "props": {
+    "id": "modalDialog",
+    "size": "280 97"
+  }
+}

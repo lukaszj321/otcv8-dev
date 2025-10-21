@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ThingTypeManager::getThingType",
+  "return_type": "const ThingTypePtr&",
+  "args": "uint16 id, ThingCategory category",
+  "file": "src/client/thingtypemanager.cpp"
+}

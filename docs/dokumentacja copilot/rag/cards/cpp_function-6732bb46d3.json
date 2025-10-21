@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addLight",
+  "return_type": "inline void",
+  "args": "const Point& pos, const Light& light",
+  "file": "src/client/lightview.h"
+}

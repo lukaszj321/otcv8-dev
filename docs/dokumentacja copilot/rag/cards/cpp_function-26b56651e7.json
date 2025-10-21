@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendRemoveVip",
+  "return_type": "void",
+  "args": "uint playerId",
+  "file": "src/client/protocolgamesend.cpp"
+}

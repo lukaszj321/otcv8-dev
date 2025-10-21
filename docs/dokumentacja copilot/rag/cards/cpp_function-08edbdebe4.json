@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "clearDescriptions",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/client/map.h"
+}

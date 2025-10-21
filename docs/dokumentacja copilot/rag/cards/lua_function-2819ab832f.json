@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addButton",
+  "args": "id, description, icon, callback, panel, toggle, front, index",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

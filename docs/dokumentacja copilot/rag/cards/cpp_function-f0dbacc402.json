@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "applyMask",
+  "return_type": "nan",
+  "args": "tempBuffer, qrcode, msk",
+  "file": "src/framework/util/qrcodegen.c"
+}

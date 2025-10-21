@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DestroyCursor",
+  "return_type": "nan",
+  "args": "m_defaultCursor",
+  "file": "src/framework/platform/win32window.cpp"
+}

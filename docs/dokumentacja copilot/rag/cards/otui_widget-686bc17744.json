@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 95,
+  "path": "SkillPanel/VerticalSeparator#right",
+  "widget": "VerticalSeparator",
+  "base": "",
+  "id": "right",
+  "props": {
+    "id": "right",
+    "anchors.top": "progress.top",
+    "margin-top": "-2",
+    "anchors.bottom": "progress.bottom",
+    "margin-bottom": "-2",
+    "anchors.right": "progress.right"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cancelNewWalk",
+  "return_type": "void",
+  "args": "Otc::Direction dir",
+  "file": "src/client/localplayer.h"
+}

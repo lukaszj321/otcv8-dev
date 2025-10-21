@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Color::getOutfitColor",
+  "return_type": "Color",
+  "args": "int color",
+  "file": "src/framework/util/color.cpp"
+}

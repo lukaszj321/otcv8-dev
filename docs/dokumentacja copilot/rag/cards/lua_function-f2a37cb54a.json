@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "destroyWindow",
+  "args": "",
+  "file": "modules/client_textedit/textedit.lua"
+}

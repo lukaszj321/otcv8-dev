@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 44,
+  "path": "MainWindow#transferWindow/SpinBox#coinsAmount",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "coinsAmount",
+  "props": {
+    "id": "coinsAmount",
+    "anchors.right": "parent.right",
+    "width": "100",
+    "text": "0",
+    "minimum": "0",
+    "maximum": "0",
+    "focusable": "true",
+    "editable": "true"
+  }
+}

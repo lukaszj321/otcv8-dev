@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendEditVip",
+  "return_type": "void",
+  "args": "uint playerId, const std::string& description, int iconId, bool notifyLogin",
+  "file": "src/client/protocolgamesend.cpp"
+}

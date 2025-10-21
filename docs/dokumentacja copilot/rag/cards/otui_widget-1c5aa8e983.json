@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 95,
+  "path": "DualLabel/Label#value",
+  "widget": "Label",
+  "base": "",
+  "id": "value",
+  "props": {
+    "id": "value",
+    "anchors.right": "parent.right",
+    "margin-right": "4",
+    "width": "200",
+    "font": "verdana-11px-rounded",
+    "text-align": "right",
+    "text": "0"
+  }
+}

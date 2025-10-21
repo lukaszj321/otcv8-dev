@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~LuaObject",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/framework/luaengine/luaobject.h"
+}

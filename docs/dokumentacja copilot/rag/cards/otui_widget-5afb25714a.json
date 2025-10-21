@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 110,
+  "path": "PlayerListWindow/FlatPanel#tmpTabContent",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "tmpTabContent",
+  "props": {
+    "id": "tmpTabContent",
+    "anchors.top": "tmpTabBar.bottom",
+    "anchors.left": "parent.left",
+    "width": "180",
+    "anchors.bottom": "separator.top",
+    "margin-bottom": "5"
+  }
+}

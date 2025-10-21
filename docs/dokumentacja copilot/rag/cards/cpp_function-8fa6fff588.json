@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSpritesCount",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/client/spritemanager.h"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playerdeath/deathwindow.otui",
+  "line": 16,
+  "path": "DeathWindow#deathWindow/Button#buttonOk",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonOk",
+  "props": {
+    "id": "buttonOk",
+    "width": "64",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-left": "160"
+  }
+}

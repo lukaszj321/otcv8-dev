@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 63,
+  "path": "ShopOffer/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "margin-top": "4",
+    "margin-left": "55",
+    "text-align": "topleft",
+    "color": "white",
+    "font": "verdana-11px-rounded"
+  }
+}

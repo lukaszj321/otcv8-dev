@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onPiecePriceChange",
+  "args": "",
+  "file": "modules/game_market/market.lua"
+}

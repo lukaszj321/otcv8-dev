@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lineWidths",
+  "return_type": "static thread_local std::vector<int>",
+  "args": "1",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

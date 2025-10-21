@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFrameBufferSize",
+  "return_type": "Size",
+  "args": "nan",
+  "file": "src/framework/graphics/drawqueue.h"
+}

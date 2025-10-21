@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "clone",
+  "return_type": "placeholder*",
+  "args": "nan",
+  "file": "src/framework/stdext/any.h"
+}

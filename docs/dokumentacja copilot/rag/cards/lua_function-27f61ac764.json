@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Spells.getSpellsByVocationId",
+  "args": "vocId",
+  "file": "modules/gamelib/spells.lua"
+}

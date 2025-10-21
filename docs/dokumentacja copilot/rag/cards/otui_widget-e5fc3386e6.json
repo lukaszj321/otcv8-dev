@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 39,
+  "path": "MainWindow#spelllistWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "spelllistWindow",
+  "props": {
+    "id": "spelllistWindow",
+    "size": "550 400"
+  }
+}

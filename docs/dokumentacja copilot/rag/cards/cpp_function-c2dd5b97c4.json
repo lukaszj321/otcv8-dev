@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlDeclaration::Print",
+  "return_type": "void",
+  "args": "FILE* cfile, int /*depth*/, TIXML_STRING* str",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

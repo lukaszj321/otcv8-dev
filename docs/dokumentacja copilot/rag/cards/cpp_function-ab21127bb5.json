@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setOutfit",
+  "return_type": "nan",
+  "args": "outfit",
+  "file": "src/client/uicreature.cpp"
+}

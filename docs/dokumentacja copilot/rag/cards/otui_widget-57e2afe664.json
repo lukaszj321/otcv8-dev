@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/extras.otui",
+  "line": 141,
+  "path": "ExtrasWindow/ResizeBorder#bottomResizeBorder",
+  "widget": "ResizeBorder",
+  "base": "",
+  "id": "bottomResizeBorder",
+  "props": {
+    "id": "bottomResizeBorder",
+    "anchors.fill": "separator",
+    "height": "3",
+    "minimum": "260",
+    "maximum": "600",
+    "margin-left": "3",
+    "margin-right": "3",
+    "background": "#ffffff88"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 62,
+  "path": "AlarmsWindow/BotSwitch#warnBoss",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "warnBoss",
+  "props": {
+    "id": "warnBoss",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "anchors.right": "parent.horizontalCenter",
+    "text-align": "center",
+    "margin-top": "5",
+    "text": "Creature Name"
+  }
+}

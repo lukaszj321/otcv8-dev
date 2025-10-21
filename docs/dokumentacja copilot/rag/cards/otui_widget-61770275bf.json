@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 189,
+  "path": "MainWindow#spelllistWindow/SpellInfoValueLabel#labelPremiumValue",
+  "widget": "SpellInfoValueLabel",
+  "base": "",
+  "id": "labelPremiumValue",
+  "props": {
+    "id": "labelPremiumValue",
+    "anchors.left": "labelPremium.right",
+    "anchors.top": "labelManaValue.bottom"
+  }
+}

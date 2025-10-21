@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIGameMap:onDragMove",
+  "args": "mousePos, mouseMoved",
+  "file": "modules/game_interface/widgets/uigamemap.lua"
+}

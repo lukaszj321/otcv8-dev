@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::createTable",
+  "return_type": "void",
+  "args": "int narr, int nrec",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

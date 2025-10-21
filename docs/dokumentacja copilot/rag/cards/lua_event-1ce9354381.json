@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onRuleViolationChannel",
+  "file": "modules/game_console/console.lua"
+}

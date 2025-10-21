@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 35,
+  "path": "MainWindow#assignItemWindow/Panel#checks/RoundCheckBox#useSelf",
+  "widget": "RoundCheckBox",
+  "base": "",
+  "id": "useSelf",
+  "props": {
+    "id": "useSelf",
+    "text": "Use on yourself",
+    "enabled": "false"
+  }
+}

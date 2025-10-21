@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "MarketProtocol.sendMarketBrowseMyOffers",
+  "args": "",
+  "file": "modules/game_market/marketprotocol.lua"
+}

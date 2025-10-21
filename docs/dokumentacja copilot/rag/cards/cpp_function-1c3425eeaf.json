@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int l = 0; l < 2; ++l",
+  "file": "src/framework/graphics/atlas.cpp"
+}

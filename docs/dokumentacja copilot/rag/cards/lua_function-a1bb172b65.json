@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIButton.create",
+  "args": "",
+  "file": "modules/corelib/ui/uibutton.lua"
+}

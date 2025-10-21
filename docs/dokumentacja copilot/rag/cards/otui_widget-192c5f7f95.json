@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 458,
+  "path": "FeaturesWindow#FeaturesWindow/Button#addItem",
+  "widget": "Button",
+  "base": "",
+  "id": "addItem",
+  "props": {
+    "id": "addItem",
+    "anchors.left": "prev.right",
+    "margin-left": "5",
+    "anchors.right": "CustomPrices.right",
+    "text": "Add",
+    "font": "verdana-11px-rounded"
+  }
+}

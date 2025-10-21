@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onTimeout",
+  "return_type": "void",
+  "args": "const boost::system::error_code& error",
+  "file": "src/framework/http/websocket.h"
+}

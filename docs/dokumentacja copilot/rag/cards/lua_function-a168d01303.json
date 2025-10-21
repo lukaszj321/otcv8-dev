@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:onDragLeave",
+  "args": "widget, pos",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

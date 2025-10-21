@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 331,
+  "path": "HoldConditions#Hold/CheckBox#HoldUtamo",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "HoldUtamo",
+  "props": {
+    "id": "HoldUtamo",
+    "anchors.right": "parent.right",
+    "margin-right": "10"
+  }
+}

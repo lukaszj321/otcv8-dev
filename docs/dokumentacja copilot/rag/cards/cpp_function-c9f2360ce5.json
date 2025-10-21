@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseUpdateNeeded",
+  "return_type": "case Proto::GameServerUpdateNeeded:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

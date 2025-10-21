@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 126,
+  "path": "SpellHealing/SpellConditionBox#spellCondition",
+  "widget": "SpellConditionBox",
+  "base": "",
+  "id": "spellCondition",
+  "props": {
+    "id": "spellCondition",
+    "anchors.left": "spellSource.left",
+    "anchors.top": "spellSource.bottom",
+    "marin-top": "15",
+    "width": "80",
+    "font": "verdana-11px-rounded"
+  }
+}

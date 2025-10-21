@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::editText",
+  "return_type": "void",
+  "args": "uint id, const std::string& text",
+  "file": "src/client/game.cpp"
+}

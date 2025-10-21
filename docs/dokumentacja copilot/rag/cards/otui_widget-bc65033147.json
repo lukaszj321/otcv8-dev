@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/violationwindow.otui",
+  "line": 1,
+  "path": "MainWindow#ignoreWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "ignoreWindow",
+  "props": {
+    "id": "ignoreWindow",
+    "size": "300 240"
+  }
+}

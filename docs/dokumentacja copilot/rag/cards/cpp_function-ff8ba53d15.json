@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLuaField",
+  "return_type": "template<typename T> T",
+  "args": "const std::string& key",
+  "file": "src/framework/luaengine/luaobject.h"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 21,
+  "path": "OptionPanel/OptionCheckBox#showFps",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showFps",
+  "props": {
+    "id": "showFps"
+  }
+}

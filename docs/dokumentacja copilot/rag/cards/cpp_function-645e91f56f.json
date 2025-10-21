@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "findThingTypeByAttr",
+  "return_type": "ThingTypeList",
+  "args": "ThingAttr attr, ThingCategory category",
+  "file": "src/client/thingtypemanager.h"
+}

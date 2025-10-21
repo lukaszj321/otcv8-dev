@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 488,
+  "path": "PreyCreatureBox/UICreature#creature",
+  "widget": "UICreature",
+  "base": "",
+  "id": "creature",
+  "props": {
+    "id": "creature",
+    "phantom": "true",
+    "anchors.fill": "parent",
+    "image-color": "#ffffff88",
+    "margin-top": "3",
+    "border-color": "alpha",
+    "color": "#aaaaaa88"
+  }
+}

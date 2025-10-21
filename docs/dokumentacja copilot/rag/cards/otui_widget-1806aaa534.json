@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 597,
+  "path": "MainWindow#preyWindow/CardLabel#wildCards",
+  "widget": "CardLabel",
+  "base": "",
+  "id": "wildCards",
+  "props": {
+    "id": "wildCards",
+    "anchors.left": "prev.right",
+    "margin-left": "10",
+    "size": "55 20"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "distance",
+  "return_type": "float",
+  "args": "const Position& pos",
+  "file": "src/client/position.h"
+}

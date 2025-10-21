@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getChildAfter",
+  "return_type": "UIWidgetPtr",
+  "args": "const UIWidgetPtr& relativeChild",
+  "file": "src/framework/ui/uiwidget.h"
+}

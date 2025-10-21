@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sellItem",
+  "return_type": "void",
+  "args": "const ItemPtr& item, int amount, bool ignoreEquipped",
+  "file": "src/client/game.h"
+}

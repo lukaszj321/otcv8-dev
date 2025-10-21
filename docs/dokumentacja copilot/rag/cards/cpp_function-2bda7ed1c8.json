@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMaxZoomOut",
+  "return_type": "void",
+  "args": "int maxZoomOut",
+  "file": "src/client/uimap.h"
+}

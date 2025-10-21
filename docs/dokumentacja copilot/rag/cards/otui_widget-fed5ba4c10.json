@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 26,
+  "path": "Panel/Panel#rightTabContent",
+  "widget": "Panel",
+  "base": "",
+  "id": "rightTabContent",
+  "props": {
+    "id": "rightTabContent",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "leftTabContent.right",
+    "anchors.right": "prev.right",
+    "anchors.bottom": "parent.bottom",
+    "margin-left": "3",
+    "border-width": "1",
+    "border-color": "#000000"
+  }
+}

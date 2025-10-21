@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setActionId",
+  "return_type": "void",
+  "args": "uint16 actionId",
+  "file": "src/client/item.h"
+}

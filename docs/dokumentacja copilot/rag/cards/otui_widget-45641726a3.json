@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 111,
+  "path": "SioListWindow/BotLabel#distText",
+  "widget": "BotLabel",
+  "base": "",
+  "id": "distText",
+  "props": {
+    "id": "distText",
+    "anchors.top": "itemId.verticalCenter",
+    "anchors.left": "itemId.right",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "itemId.bottom",
+    "text-align": "center",
+    "text": "Max Distance"
+  }
+}

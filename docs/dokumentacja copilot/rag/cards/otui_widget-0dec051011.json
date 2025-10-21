@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 9,
+  "path": "OptionPanel/OptionCheckBox#autoChaseOverride",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "autoChaseOverride",
+  "props": {
+    "id": "autoChaseOverride"
+  }
+}

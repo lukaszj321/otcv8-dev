@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Item::calculatePatterns",
+  "return_type": "void",
+  "args": "int& xPattern, int& yPattern, int& zPattern",
+  "file": "src/client/item.cpp"
+}

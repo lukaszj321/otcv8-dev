@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::strftime",
+  "return_type": "nan",
+  "args": "date, 32, \"%b %d %Y %H:%M:%S\", ts",
+  "file": "src/framework/stdext/string.cpp"
+}

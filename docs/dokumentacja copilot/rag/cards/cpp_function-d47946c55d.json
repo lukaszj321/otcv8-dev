@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "push_otml_subnode_luavalue",
+  "return_type": "nan",
+  "args": "cnode",
+  "file": "src/framework/luaengine/luavaluecasts.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::initText",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

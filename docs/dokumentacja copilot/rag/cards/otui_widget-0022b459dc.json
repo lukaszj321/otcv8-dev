@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 89,
+  "path": "FlagWindow#flagWindow/FlagButton#flag7",
+  "widget": "FlagButton",
+  "base": "",
+  "id": "flag7",
+  "props": {
+    "id": "flag7",
+    "icon-clip": "66 0 11 11",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "show",
+  "args": "text, options, callback",
+  "file": "modules/client_textedit/textedit.lua"
+}

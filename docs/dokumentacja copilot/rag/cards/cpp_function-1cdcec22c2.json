@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlNode::CopyTo",
+  "return_type": "nan",
+  "args": "target",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

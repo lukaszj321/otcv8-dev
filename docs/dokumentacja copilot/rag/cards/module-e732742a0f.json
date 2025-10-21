@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_walking\n  description: Control walking and turns\n  author: otclient.ovh\n  website: http://otclient.ovh\n  scripts: [ walking ]\n  dependencies: [ game_interface ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_walking/walking.otmod",
+  "description": "Control walking and turns"
+}

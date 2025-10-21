@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Timer::ticksElapsed",
+  "return_type": "ticks_t",
+  "args": "nan",
+  "file": "src/framework/core/timer.cpp"
+}

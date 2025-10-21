@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/cavebot/editor.otui",
+  "line": 11,
+  "path": "CaveBotEditorPanel#cavebotEditor/Label#pos",
+  "widget": "Label",
+  "base": "",
+  "id": "pos",
+  "props": {
+    "id": "pos",
+    "text-align": "center",
+    "text": "-"
+  }
+}

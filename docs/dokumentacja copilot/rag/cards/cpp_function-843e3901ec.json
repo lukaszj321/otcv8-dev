@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getOutfit",
+  "return_type": "nan",
+  "args": "msg, true",
+  "file": "src/client/protocolgameparse.cpp"
+}

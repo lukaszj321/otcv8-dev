@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onBattleButtonHoverChange",
+  "args": "battleButton, hovered",
+  "file": "modules/game_battle/battle.lua"
+}

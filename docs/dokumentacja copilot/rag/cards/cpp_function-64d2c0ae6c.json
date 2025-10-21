@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rawGetThingType",
+  "return_type": "ThingType*",
+  "args": "uint16 id, ThingCategory category",
+  "file": "src/client/thingtypemanager.h"
+}

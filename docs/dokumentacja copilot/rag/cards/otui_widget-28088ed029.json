@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 136,
+  "path": "ComboActions#actions",
+  "widget": "ComboActions",
+  "base": "Panel",
+  "id": "actions",
+  "props": {
+    "id": "actions",
+    "image-source": "/images/ui/panel_flat",
+    "image-border": "6",
+    "padding": "3",
+    "size": "220 100"
+  }
+}

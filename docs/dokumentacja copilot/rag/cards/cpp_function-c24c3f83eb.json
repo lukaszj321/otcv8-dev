@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawFloor",
+  "return_type": "private: void",
+  "args": "short floor, const Position& cameraPosition, const TilePtr& crosshairTile = nullptr",
+  "file": "src/client/mapview.h"
+}

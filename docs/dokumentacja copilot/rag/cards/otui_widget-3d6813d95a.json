@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 172,
+  "path": "ActivePreyPanel/CreatureAndBonus#creatureAndBonus",
+  "widget": "CreatureAndBonus",
+  "base": "",
+  "id": "creatureAndBonus",
+  "props": {
+    "id": "creatureAndBonus",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "margin-top": "20"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AConfiguration_delete",
+  "return_type": "nan",
+  "args": "android_app->config",
+  "file": "src/android/android_native_app_glue.cpp"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.otui",
+  "line": 14,
+  "path": "TargetBotLootingPanel/BotContainer#items",
+  "widget": "BotContainer",
+  "base": "",
+  "id": "items",
+  "props": {
+    "id": "items",
+    "margin-top": "3"
+  }
+}

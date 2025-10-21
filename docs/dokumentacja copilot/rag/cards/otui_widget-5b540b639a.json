@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/target.otui",
+  "line": 44,
+  "path": "TargetBotPanel/Panel#listPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "listPanel",
+  "props": {
+    "id": "listPanel",
+    "height": "40"
+  }
+}

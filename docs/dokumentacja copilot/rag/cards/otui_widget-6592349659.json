@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 294,
+  "path": "SwitchAndButtonPanel/Button#right",
+  "widget": "Button",
+  "base": "",
+  "id": "right",
+  "props": {
+    "id": "right",
+    "anchors.top": "parent.top",
+    "margin-top": "2",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "text-auto-resize": "true",
+    "text-align": "center"
+  }
+}

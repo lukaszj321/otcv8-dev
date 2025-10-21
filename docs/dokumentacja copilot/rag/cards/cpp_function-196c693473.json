@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Stats::add",
+  "return_type": "void",
+  "args": "int type, Stat* stat",
+  "file": "src/framework/util/stats.cpp"
+}

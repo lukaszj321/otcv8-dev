@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTilePosition",
+  "return_type": "Position",
+  "args": "const Point& point, const Rect& screenRect, const Position& mapCenter, float scale",
+  "file": "src/client/minimap.h"
+}

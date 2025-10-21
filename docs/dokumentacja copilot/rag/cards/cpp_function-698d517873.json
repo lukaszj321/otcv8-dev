@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "restartArgs",
+  "return_type": "void",
+  "args": "const std::vector<std::string>& args",
+  "file": "src/framework/core/application.h"
+}

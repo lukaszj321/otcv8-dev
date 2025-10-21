@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 102,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#sortPanel/ComboBox#sortTypeBox",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "sortTypeBox",
+  "props": {
+    "id": "sortTypeBox",
+    "width": "90",
+    "anchors.top": "parent.top",
+    "anchors.left": "prev.right",
+    "margin-left": "-31"
+  }
+}

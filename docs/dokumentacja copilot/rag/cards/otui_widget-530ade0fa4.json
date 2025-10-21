@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 35,
+  "path": "AlarmsWindow/BotSwitch#ignoreFriends",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "ignoreFriends",
+  "props": {
+    "id": "ignoreFriends",
+    "anchors.left": "parent.left",
+    "anchors.top": "playerDetected.bottom",
+    "anchors.right": "parent.right",
+    "text-align": "center",
+    "margin-top": "4",
+    "text": "Ignore Friends"
+  }
+}

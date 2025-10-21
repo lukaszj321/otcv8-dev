@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BitmapFont::drawText",
+  "return_type": "void",
+  "args": "const std::string& text, const Rect& screenCoords, Fw::AlignmentFlag align, const Color& color, bool shadow",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

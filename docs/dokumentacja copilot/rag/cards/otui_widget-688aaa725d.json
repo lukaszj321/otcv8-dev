@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 20,
+  "path": "TargetBotDualLabel/Label#right",
+  "widget": "Label",
+  "base": "",
+  "id": "right",
+  "props": {
+    "id": "right",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "text-auto-resize": "true"
+  }
+}

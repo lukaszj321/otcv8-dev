@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addU8",
+  "return_type": "nan",
+  "args": "BINARYTREE_NODE_START",
+  "file": "src/framework/core/filestream.cpp"
+}

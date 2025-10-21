@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "j=0; j<h0; j++",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

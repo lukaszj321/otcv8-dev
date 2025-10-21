@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onVisibleDimensionChange",
+  "file": "modules/game_interface/gameinterface.lua"
+}

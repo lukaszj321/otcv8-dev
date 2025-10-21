@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "is_base64",
+  "return_type": "inline bool",
+  "args": "unsigned char c",
+  "file": "src/framework/util/crypt.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:getTabs",
+  "args": "",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

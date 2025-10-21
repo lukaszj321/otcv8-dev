@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIInputBox:display",
+  "args": "okButtonText, cancelButtonText",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

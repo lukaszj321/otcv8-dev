@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 45,
+  "path": "AttackBotBotPanel",
+  "widget": "AttackBotBotPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "38"
+  }
+}

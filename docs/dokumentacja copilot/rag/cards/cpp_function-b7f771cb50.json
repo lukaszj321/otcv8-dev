@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Print",
+  "return_type": "nan",
+  "args": "fp, 0",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

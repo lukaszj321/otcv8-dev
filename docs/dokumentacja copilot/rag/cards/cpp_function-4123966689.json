@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFont",
+  "return_type": "BitmapFontPtr",
+  "args": "const std::string& fontName",
+  "file": "src/framework/graphics/fontmanager.h"
+}

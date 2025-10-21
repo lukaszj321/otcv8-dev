@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISpinBox.create",
+  "args": "",
+  "file": "modules/corelib/ui/uispinbox.lua"
+}

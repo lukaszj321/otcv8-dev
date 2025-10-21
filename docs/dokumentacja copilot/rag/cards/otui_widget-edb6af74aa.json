@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/amountwindow.otui",
+  "line": 35,
+  "path": "AmountWindow#amountWindow/Button#buttonOk",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonOk",
+  "props": {
+    "id": "buttonOk",
+    "height": "20",
+    "anchors.right": "amountScrollBar.horizontalCenter",
+    "anchors.left": "amountScrollBar.left",
+    "anchors.top": "amountScrollBar.bottom",
+    "margin-top": "7",
+    "margin-right": "6",
+    "focusable": "false"
+  }
+}

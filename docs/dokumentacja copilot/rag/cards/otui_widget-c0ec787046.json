@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 117,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#slowMain",
+  "widget": "DebugText",
+  "base": "",
+  "id": "slowMain",
+  "props": {
+    "id": "slowMain",
+    "text": "-"
+  }
+}

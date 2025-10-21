@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 53,
+  "path": "ItemEntry",
+  "widget": "ItemEntry",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "background-color": "alpha",
+    "text-offset": "40 1",
+    "focusable": "true",
+    "height": "16",
+    "font": "verdana-11px-rounded"
+  }
+}

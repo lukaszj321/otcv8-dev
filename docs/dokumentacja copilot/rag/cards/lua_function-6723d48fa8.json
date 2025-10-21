@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTotalCapacityChange",
+  "args": "localPlayer, totalCapacity",
+  "file": "modules/game_skills/skills.lua"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 9,
+  "path": "OptionPanel/ComboBox#layout",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "layout",
+  "props": {
+    "id": "layout",
+    "margin-top": "3",
+    "margin-right": "2",
+    "margin-left": "2",
+    "visible": "false",
+    "self": "addOption(file:gsub(\"^%l\", string.upper))"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lochar",
+  "return_type": "char",
+  "args": "char c",
+  "file": "src/framework/stdext/string.cpp"
+}

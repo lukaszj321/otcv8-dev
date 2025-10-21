@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.otui",
+  "line": 47,
+  "path": "PushMaxWindow/BotItem#mwallId",
+  "widget": "BotItem",
+  "base": "",
+  "id": "mwallId",
+  "props": {
+    "id": "mwallId",
+    "anchors.top": "label2.bottom",
+    "margin-top": "5"
+  }
+}

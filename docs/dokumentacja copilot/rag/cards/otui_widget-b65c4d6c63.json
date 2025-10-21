@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 2,
+  "path": "OptionPanel/Label#layoutLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "layoutLabel",
+  "props": {
+    "width": "130",
+    "id": "layoutLabel",
+    "visible": "false"
+  }
+}

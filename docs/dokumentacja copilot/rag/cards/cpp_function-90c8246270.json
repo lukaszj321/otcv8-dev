@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseImpactTracker",
+  "return_type": "case Proto::GameServerImpactTracker:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

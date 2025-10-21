@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::getline",
+  "return_type": "nan",
+  "args": "in, line",
+  "file": "src/framework/otml/otmlparser.cpp"
+}

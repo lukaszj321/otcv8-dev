@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "read16",
+  "return_type": "unsigned short",
+  "args": "std::istream& f1",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

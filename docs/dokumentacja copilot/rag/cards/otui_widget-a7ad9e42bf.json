@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 109,
+  "path": "MiniWindow#botWindow/MiniWindowContents/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "margin-left": "2",
+    "margin-right": "2"
+  }
+}

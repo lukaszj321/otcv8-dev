@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 1,
+  "path": "TradeWindow",
+  "widget": "TradeWindow",
+  "base": "MiniWindow",
+  "id": "",
+  "props": {
+    "height": "150"
+  }
+}

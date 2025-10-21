@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 83,
+  "path": "tPanel/TextEdit#name",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.top": "list.bottom",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

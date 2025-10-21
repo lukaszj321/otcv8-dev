@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addColoredTextureCoords",
+  "return_type": "void",
+  "args": "CoordsBuffer& coords, const TexturePtr& texture, const std::vector<std::pair<int, Color>>& colors",
+  "file": "src/framework/graphics/drawqueue.h"
+}

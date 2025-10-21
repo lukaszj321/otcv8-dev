@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindClassMemberSetField",
+  "return_type": "void",
+  "args": "const std::string& fieldName, F FC::*setFunction",
+  "file": "src/framework/luaengine/luainterface.h"
+}

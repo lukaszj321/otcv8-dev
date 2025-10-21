@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 10,
+  "path": "QuestTrackerLabel/Label#description",
+  "widget": "Label",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "text-align": "center",
+    "text-wrap": "true",
+    "text-auto-resize": "true"
+  }
+}

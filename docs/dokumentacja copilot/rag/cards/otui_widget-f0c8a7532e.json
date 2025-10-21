@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 238,
+  "path": "Priority/TextList#list",
+  "widget": "TextList",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "fit-children": "true",
+    "padding-top": "1"
+  }
+}

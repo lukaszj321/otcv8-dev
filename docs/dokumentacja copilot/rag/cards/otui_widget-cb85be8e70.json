@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui",
+  "line": 60,
+  "path": "TargetBotCreatureEditorCheckBox",
+  "widget": "TargetBotCreatureEditorCheckBox",
+  "base": "BotSwitch",
+  "id": "",
+  "props": {
+    "height": "20",
+    "margin-top": "7"
+  }
+}

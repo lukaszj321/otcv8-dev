@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 21,
+  "path": "StatsPanel/FlatPanel#states",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "states",
+  "props": {
+    "id": "states",
+    "padding": "1",
+    "size": "150 18",
+    "anchors.top": "parent.top"
+  }
+}

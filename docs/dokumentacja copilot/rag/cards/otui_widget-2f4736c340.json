@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 157,
+  "path": "BottomSliders/Button#next",
+  "widget": "Button",
+  "base": "",
+  "id": "next",
+  "props": {
+    "id": "next",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "height": "17",
+    "margin-right": "1",
+    "on": "true",
+    "tooltip": "Move to the next action button"
+  }
+}

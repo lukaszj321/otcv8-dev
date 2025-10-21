@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Mouse::pushCursor",
+  "return_type": "void",
+  "args": "const std::string& name",
+  "file": "src/framework/input/mouse.cpp"
+}

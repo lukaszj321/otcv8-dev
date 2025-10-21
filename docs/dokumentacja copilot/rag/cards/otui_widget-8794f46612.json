@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textmessage/textmessage.otui",
+  "line": 36,
+  "path": "Panel/TextMessageLabel#statusLabel",
+  "widget": "TextMessageLabel",
+  "base": "",
+  "id": "statusLabel",
+  "props": {
+    "id": "statusLabel",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIItem:onClick",
+  "args": "mousePos",
+  "file": "modules/gamelib/ui/uiitem.lua"
+}

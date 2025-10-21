@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 505,
+  "path": "SlotPanel",
+  "widget": "SlotPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "210 320",
+    "image-source": "/images/ui/window",
+    "image-border": "25",
+    "padding-top": "2",
+    "padding-bottom": "6",
+    "padding-left": "8",
+    "padding-right": "8"
+  }
+}

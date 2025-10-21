@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setWritePos",
+  "return_type": "void",
+  "args": "uint32 writePos",
+  "file": "src/framework/net/outputmessage.h"
+}

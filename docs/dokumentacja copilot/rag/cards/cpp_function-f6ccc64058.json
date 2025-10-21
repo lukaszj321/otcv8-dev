@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~shared_object_ptr",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/stdext/shared_object.h"
+}

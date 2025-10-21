@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "load",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

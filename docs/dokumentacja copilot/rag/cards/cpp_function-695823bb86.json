@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_main",
+  "return_type": "void",
+  "args": "struct android_app* state",
+  "file": "src/main.cpp"
+}

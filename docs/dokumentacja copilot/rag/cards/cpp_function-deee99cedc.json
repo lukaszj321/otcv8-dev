@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "compileSourceCode",
+  "return_type": "bool",
+  "args": "const std::string& sourceCode",
+  "file": "src/framework/graphics/shader.h"
+}

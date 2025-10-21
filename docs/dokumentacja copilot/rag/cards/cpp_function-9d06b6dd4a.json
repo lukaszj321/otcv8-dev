@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_app_entry",
+  "return_type": "static void*",
+  "args": "void* param",
+  "file": "src/android/android_native_app_glue.cpp"
+}

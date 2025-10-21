@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 424,
+  "path": "ConditionsWindow/Label#label",
+  "widget": "Label",
+  "base": "",
+  "id": "label",
+  "props": {
+    "id": "label",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "text": "Cure Conditions",
+    "color": "#88e3dd",
+    "margin-left": "10",
+    "font": "verdana-11px-rounded"
+  }
+}

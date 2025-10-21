@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDescription",
+  "return_type": "case OTBM_ATTR_DESCRIPTION:",
+  "args": "tmp",
+  "file": "src/client/mapio.cpp"
+}

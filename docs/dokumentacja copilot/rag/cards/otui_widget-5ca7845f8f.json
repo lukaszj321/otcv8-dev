@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 45,
+  "path": "AlarmsWindow/HorizontalSeparator#sepPlayer",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "sepPlayer",
+  "props": {
+    "id": "sepPlayer",
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "4"
+  }
+}

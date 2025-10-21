@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/minimap.otui",
+  "line": 1,
+  "path": "MinimapWindow#minimapWindow",
+  "widget": "MinimapWindow",
+  "base": "",
+  "id": "minimapWindow",
+  "props": {
+    "id": "minimapWindow",
+    "icon": "/images/topbuttons/minimap"
+  }
+}

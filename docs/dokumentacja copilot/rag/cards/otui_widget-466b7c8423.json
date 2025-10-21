@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 42,
+  "path": "MainWindow#npcWindow/TabButton#buyTab",
+  "widget": "TabButton",
+  "base": "",
+  "id": "buyTab",
+  "props": {
+    "id": "buyTab",
+    "checked": "true",
+    "on": "true",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "anchors.top": "parent.top",
+    "margin-top": "0"
+  }
+}

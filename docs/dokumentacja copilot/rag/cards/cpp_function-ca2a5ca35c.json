@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call",
+  "return_type": "static void",
+  "args": "const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool pushFront",
+  "file": "src/framework/luaengine/luaobject.h"
+}

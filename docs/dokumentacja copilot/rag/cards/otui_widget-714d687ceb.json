@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 44,
+  "path": "StaticMainWindow#charactersWindow",
+  "widget": "StaticMainWindow",
+  "base": "",
+  "id": "charactersWindow",
+  "props": {
+    "id": "charactersWindow",
+    "visible": "false",
+    "size": "350 280"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "inflateInit2",
+  "return_type": "nan",
+  "args": "&m_zstream, -15",
+  "file": "src/framework/net/protocol.cpp"
+}

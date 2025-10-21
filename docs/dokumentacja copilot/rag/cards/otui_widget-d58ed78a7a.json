@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers.otui",
+  "line": 1,
+  "path": "Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

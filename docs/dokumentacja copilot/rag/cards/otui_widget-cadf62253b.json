@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 46,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#luaRamUsage",
+  "widget": "DebugText",
+  "base": "",
+  "id": "luaRamUsage",
+  "props": {
+    "id": "luaRamUsage",
+    "text": "-"
+  }
+}

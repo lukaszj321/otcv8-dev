@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 196,
+  "path": "EmptyImbue/UIButton#imbue",
+  "widget": "UIButton",
+  "base": "",
+  "id": "imbue",
+  "props": {
+    "id": "imbue",
+    "width": "128",
+    "height": "66",
+    "anchors.top": "requiredItems.top",
+    "anchors.right": "parent.right",
+    "image-source": "/images/game/imbuing/imbue_empty",
+    "image-clip": "0 66 128 66",
+    "margin-left": "15"
+  }
+}

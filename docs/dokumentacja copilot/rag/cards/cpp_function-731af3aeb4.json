@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "is",
+  "return_type": "std::istringstream",
+  "args": "data",
+  "file": "src/framework/otml/otmldocument.cpp"
+}

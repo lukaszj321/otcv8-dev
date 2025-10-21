@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_feedback/feedback.otui",
+  "line": 25,
+  "path": "MainWindow#feedbackWindow/VerticalScrollBar#textScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "textScroll",
+  "props": {
+    "id": "textScroll",
+    "anchors.top": "description.bottom",
+    "anchors.bottom": "okButton.top",
+    "anchors.right": "parent.right",
+    "margin-top": "10",
+    "margin-bottom": "10",
+    "step": "16",
+    "pixels-scroll": "true"
+  }
+}

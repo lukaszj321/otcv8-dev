@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlHandle",
+  "return_type": "nan",
+  "args": "TiXmlNode* _node",
+  "file": "src/framework/xml/tinyxml.h"
+}

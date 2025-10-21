@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseRuleViolationLock",
+  "return_type": "case Proto::GameServerRuleViolationLock:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

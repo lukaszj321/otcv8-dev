@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ANativeWindow_setBuffersGeometry",
+  "return_type": "nan",
+  "args": "g_androidState->window, 0, 0, format",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

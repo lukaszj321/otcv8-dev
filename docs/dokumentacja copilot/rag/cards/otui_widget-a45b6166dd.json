@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 30,
+  "path": "HealItem/BotItem#item",
+  "widget": "BotItem",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.left": "parent.left",
+    "size": "34 34"
+  }
+}

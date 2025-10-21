@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCharset",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/core/application.h"
+}

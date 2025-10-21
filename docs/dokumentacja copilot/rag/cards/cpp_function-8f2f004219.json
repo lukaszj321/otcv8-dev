@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawBorder",
+  "return_type": "nan",
+  "args": "m_rect",
+  "file": "src/client/uiprogressrect.cpp"
+}

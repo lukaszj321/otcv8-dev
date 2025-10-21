@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onRun",
+  "file": "modules/client/client.lua"
+}

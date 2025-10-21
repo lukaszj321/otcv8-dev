@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_outfit/outfitwindow.otui",
+  "line": 1,
+  "path": "FloorTile",
+  "widget": "FloorTile",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "image-source": "/images/game/floor",
+    "size": "32 32",
+    "phantom": "true"
+  }
+}

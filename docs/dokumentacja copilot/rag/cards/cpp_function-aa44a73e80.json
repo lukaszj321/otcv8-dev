@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "size_t i = 0; i < ThingLastCategory; ++i",
+  "file": "src/client/thingtypemanager.cpp"
+}

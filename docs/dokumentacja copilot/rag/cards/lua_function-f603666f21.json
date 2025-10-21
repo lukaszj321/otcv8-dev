@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_game.onTextMessage",
+  "args": "messageMode, message",
+  "file": "modules/gamelib/textmessages.lua"
+}

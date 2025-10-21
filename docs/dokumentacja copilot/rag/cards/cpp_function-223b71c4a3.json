@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "blink && !m_shieldBlink",
+  "file": "src/client/creature.cpp"
+}

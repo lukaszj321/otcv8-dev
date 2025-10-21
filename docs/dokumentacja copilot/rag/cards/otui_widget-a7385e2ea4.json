@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 89,
+  "path": "SpellHealing",
+  "widget": "SpellHealing",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "size": "490 130"
+  }
+}

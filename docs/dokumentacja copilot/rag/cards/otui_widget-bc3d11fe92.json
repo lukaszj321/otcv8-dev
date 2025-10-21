@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 293,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow/MiniWindowContents/AnalyzerButton#Stats",
+  "widget": "AnalyzerButton",
+  "base": "",
+  "id": "Stats",
+  "props": {
+    "id": "Stats",
+    "text": "CaveBot Stats",
+    "color": "#74B73E"
+  }
+}

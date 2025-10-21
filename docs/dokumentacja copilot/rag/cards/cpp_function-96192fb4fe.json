@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto& c : creatures",
+  "file": "src/client/mapview.cpp"
+}

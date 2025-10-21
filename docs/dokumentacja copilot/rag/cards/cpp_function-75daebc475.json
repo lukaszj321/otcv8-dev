@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPremium",
+  "return_type": "void",
+  "args": "bool premium",
+  "file": "src/client/localplayer.h"
+}

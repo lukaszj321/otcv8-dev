@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 47,
+  "path": "MainWindow#ruleViolationWindow/RVTextEdit#statementText",
+  "widget": "RVTextEdit",
+  "base": "",
+  "id": "statementText",
+  "props": {
+    "id": "statementText",
+    "enabled": "false"
+  }
+}

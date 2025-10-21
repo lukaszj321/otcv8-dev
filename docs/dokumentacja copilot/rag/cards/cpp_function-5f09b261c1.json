@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CreatureManager::loadMonsters",
+  "return_type": "void",
+  "args": "const std::string& file",
+  "file": "src/client/creatures.cpp"
+}

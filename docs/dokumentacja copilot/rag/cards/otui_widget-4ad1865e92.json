@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 385,
+  "path": "HealBotSettingsPanel/FlatPanel#list/SettingCheckBox#Conditions",
+  "widget": "SettingCheckBox",
+  "base": "",
+  "id": "Conditions",
+  "props": {
+    "id": "Conditions",
+    "text": "Also check conditions from RL Tibia"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "refreshContainerItems",
+  "args": "container",
+  "file": "modules/game_containers/containers.lua"
+}

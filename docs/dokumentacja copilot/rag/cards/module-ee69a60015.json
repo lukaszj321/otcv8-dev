@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_locales\n  description: Translates texts to selected language\n  author: baxnie, edubart\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ locales ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_locales/locales.otmod",
+  "description": "Translates texts to selected language"
+}

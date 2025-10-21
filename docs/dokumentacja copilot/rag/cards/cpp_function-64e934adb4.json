@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::setTotalCapacity",
+  "return_type": "void",
+  "args": "double totalCapacity",
+  "file": "src/client/localplayer.cpp"
+}

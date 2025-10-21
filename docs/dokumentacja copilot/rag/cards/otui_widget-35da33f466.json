@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/text.otui",
+  "line": 27,
+  "path": "MainWindow#assignTextWindow/FlatPanel#checkPanel/CheckBox#tick",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "tick",
+  "props": {
+    "id": "tick",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "text": "Send automatically",
+    "checked": "true"
+  }
+}

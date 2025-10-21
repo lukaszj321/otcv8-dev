@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addOffer",
+  "args": "category, data",
+  "file": "modules/game_shop/shop.lua"
+}

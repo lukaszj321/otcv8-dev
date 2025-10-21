@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 336,
+  "path": "InactivePreyPanel/ChoosePrey#choose",
+  "widget": "ChoosePrey",
+  "base": "",
+  "id": "choose",
+  "props": {
+    "id": "choose",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

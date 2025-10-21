@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 195,
+  "path": "UIWidget#gameRootPanel/Panel#gameTopBar",
+  "widget": "Panel",
+  "base": "",
+  "id": "gameTopBar",
+  "props": {
+    "id": "gameTopBar",
+    "image-source": "/images/ui/panel_bottom2",
+    "anchors.top": "parent.top",
+    "anchors.left": "gameBottomActionPanel.left",
+    "anchors.right": "gameBottomActionPanel.right",
+    "focusable": "false",
+    "height": "0",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

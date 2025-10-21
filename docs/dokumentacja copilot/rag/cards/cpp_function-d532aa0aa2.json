@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Tile",
+  "return_type": "nan",
+  "args": "const Position& position",
+  "file": "src/client/tile.h"
+}

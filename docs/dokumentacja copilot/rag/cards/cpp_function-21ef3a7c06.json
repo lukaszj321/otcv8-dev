@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Thing::updatedMarkedColor",
+  "return_type": "Color",
+  "args": "nan",
+  "file": "src/client/thing.cpp"
+}

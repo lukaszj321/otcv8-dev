@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawTopWidgets",
+  "return_type": "nan",
+  "args": "creatureCenter, m_walking ? m_walkDirection : m_direction",
+  "file": "src/client/creature.cpp"
+}

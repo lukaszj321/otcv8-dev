@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Spells.getSpellProfileById",
+  "args": "id",
+  "file": "modules/gamelib/spells.lua"
+}

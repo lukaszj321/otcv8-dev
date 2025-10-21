@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "MarketOffer:isEqual",
+  "args": "id",
+  "file": "modules/game_market/marketoffer.lua"
+}

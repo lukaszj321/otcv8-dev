@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cancel",
+  "return_type": "bool",
+  "args": "int id",
+  "file": "src/framework/http/http.h"
+}

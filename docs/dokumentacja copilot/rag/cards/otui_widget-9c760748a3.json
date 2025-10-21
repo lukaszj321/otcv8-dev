@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 229,
+  "path": "AnalyzerGraph",
+  "widget": "AnalyzerGraph",
+  "base": "UIGraph",
+  "id": "",
+  "props": {
+    "height": "140",
+    "capacity": "400",
+    "line-width": "1",
+    "color": "red",
+    "margin-top": "5",
+    "margin-left": "5",
+    "margin-right": "5",
+    "background-color": "#383636",
+    "padding": "5",
+    "font": "verdana-11px-rounded",
+    "image-source": "/images/ui/graph_background"
+  }
+}

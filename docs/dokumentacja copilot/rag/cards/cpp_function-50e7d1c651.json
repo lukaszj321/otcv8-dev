@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Tile::getThing",
+  "return_type": "ThingPtr",
+  "args": "int stackPos",
+  "file": "src/client/tile.cpp"
+}

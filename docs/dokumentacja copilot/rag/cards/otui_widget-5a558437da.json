@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui",
+  "line": 143,
+  "path": "TargetBotCreatureEditorWindow/Button#help",
+  "widget": "Button",
+  "base": "",
+  "id": "help",
+  "props": {
+    "id": "help",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "width": "150"
+  }
+}

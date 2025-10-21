@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onChangeCategory",
+  "args": "combobox, option",
+  "file": "modules/game_market/market.lua"
+}

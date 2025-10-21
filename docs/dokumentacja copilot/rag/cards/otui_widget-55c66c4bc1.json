@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/options.otui",
+  "line": 41,
+  "path": "MainWindow#optionsWindow/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "width": "64",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

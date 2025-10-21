@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 162,
+  "path": "SioListWindow/HorizontalScrollBar#minFriendHp",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "minFriendHp",
+  "props": {
+    "id": "minFriendHp",
+    "anchors.left": "spellName.left",
+    "anchors.right": "spellName.right",
+    "anchors.top": "friendHp.bottom",
+    "margin-top": "2",
+    "minimum": "1",
+    "maximum": "100",
+    "step": "1"
+  }
+}

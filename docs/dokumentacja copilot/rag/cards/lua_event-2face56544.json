@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onConfigChange",
+  "file": "modules/game_hotkeys/hotkeys_manager.lua"
+}

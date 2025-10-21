@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "location >= 2 || index >= 6",
+  "file": "src/framework/graphics/atlas.cpp"
+}

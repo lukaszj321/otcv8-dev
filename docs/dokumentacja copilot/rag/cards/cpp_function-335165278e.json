@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "callLuaField",
+  "return_type": "nan",
+  "args": "\"onTurn\", direction",
+  "file": "src/client/creature.cpp"
+}

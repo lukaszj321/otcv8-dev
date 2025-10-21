@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 226,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow/MiniWindowContents/AnalyzerButton#SupplyAnalyzer",
+  "widget": "AnalyzerButton",
+  "base": "",
+  "id": "SupplyAnalyzer",
+  "props": {
+    "id": "SupplyAnalyzer",
+    "text": "Supply Analyzer"
+  }
+}

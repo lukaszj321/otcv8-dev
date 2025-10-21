@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "size_t p = 0; p < patterns; ++p",
+  "file": "src/client/thingtype.cpp"
+}

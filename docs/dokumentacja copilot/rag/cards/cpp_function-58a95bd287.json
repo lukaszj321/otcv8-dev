@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "write_IDATs",
+  "return_type": "else",
+  "args": "f, zbuf2, zstream2.total_out, idat_size",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

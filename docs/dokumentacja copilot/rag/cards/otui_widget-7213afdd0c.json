@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 53,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/Label#skullTimeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "skullTimeLabel",
+  "props": {
+    "id": "skullTimeLabel",
+    "anchors.top": "prev.top",
+    "anchors.right": "prev.left",
+    "font": "verdana-11px-rounded",
+    "margin-right": "6",
+    "phantom": "false"
+  }
+}

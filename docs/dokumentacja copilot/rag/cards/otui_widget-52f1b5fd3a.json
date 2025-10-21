@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 103,
+  "path": "LeftSliders/Button#first",
+  "widget": "Button",
+  "base": "",
+  "id": "first",
+  "props": {
+    "id": "first",
+    "anchors.fill": "parent",
+    "anchors.top": "parent.verticalCenter",
+    "tooltip": "Move to the first action button"
+  }
+}

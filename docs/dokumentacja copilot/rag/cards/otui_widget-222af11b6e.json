@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 10,
+  "path": "HealScroll/ToolTipLabel#text",
+  "widget": "ToolTipLabel",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "text-align": "center",
+    "text": "test"
+  }
+}

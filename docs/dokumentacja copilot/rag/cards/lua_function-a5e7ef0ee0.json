@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setCurrency",
+  "args": "currency, decimal",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

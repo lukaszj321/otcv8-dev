@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPassable",
+  "return_type": "void",
+  "args": "bool passable",
+  "file": "src/client/creature.h"
+}

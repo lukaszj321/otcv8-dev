@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 1,
+  "path": "ChoiceListLabel",
+  "widget": "ChoiceListLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "background-color": "#00000055",
+    "text-offset": "2 0",
+    "focusable": "true",
+    "color": "#ffffff"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 202,
+  "path": "ActivePreyPanel/FlatPanel#autoReroll/CheckBox#autoRerollCheck",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "autoRerollCheck",
+  "props": {
+    "id": "autoRerollCheck",
+    "margin-top": "2",
+    "anchors.left": "parent.left",
+    "image-source": "/images/ui/panel_flat",
+    "image-border": "1",
+    "size": "155 15",
+    "font": "verdana-11px-rounded",
+    "text": "Automatic Bonus Rer...",
+    "margin-left": "5"
+  }
+}

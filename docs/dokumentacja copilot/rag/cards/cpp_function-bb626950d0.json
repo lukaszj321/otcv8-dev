@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setHead",
+  "return_type": "nan",
+  "args": "0",
+  "file": "src/client/outfit.cpp"
+}

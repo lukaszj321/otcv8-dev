@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "strcpy",
+  "return_type": "else",
+  "args": "modname, \"Unknown\"",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

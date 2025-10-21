@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawIcon",
+  "return_type": "void",
+  "args": "const Rect& screenCoords",
+  "file": "src/framework/ui/uiwidget.h"
+}

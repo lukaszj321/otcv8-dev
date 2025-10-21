@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setEntry",
+  "return_type": "nan",
+  "args": "entryPos",
+  "file": "src/client/houses.cpp"
+}

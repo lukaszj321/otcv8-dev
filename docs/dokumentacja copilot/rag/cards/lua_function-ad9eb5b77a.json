@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "translateKeyCombo",
+  "args": "keyCombo",
+  "file": "modules/corelib/keyboard.lua"
+}

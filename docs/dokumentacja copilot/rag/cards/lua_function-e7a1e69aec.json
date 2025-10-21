@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "init",
+  "args": "",
+  "file": "modules/crash_reporter/crash_reporter.lua"
+}

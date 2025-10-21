@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 42,
+  "path": "BotSmallScrollBar",
+  "widget": "BotSmallScrollBar",
+  "base": "SmallScrollBar",
+  "id": "",
+  "props": {}
+}

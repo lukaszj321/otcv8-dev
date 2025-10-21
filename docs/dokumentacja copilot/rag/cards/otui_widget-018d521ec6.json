@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 8,
+  "path": "MarketItemBox#itemBox/Item#item",
+  "widget": "Item",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "phantom": "true",
+    "virtual": "true",
+    "text-offset": "0 22",
+    "text-align": "right",
+    "anchors.top": "parent.top",
+    "margin": "1",
+    "border-color": "#aaaaaa",
+    "image-color": "#ffffff88",
+    "color": "#aaaaaa88"
+  }
+}

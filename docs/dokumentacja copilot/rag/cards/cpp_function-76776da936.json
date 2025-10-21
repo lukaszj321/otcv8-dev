@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"unable to open file\"",
+  "file": "src/client/mapio.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Painter::setClipRect",
+  "return_type": "void",
+  "args": "const Rect& clipRect",
+  "file": "src/framework/graphics/painter.cpp"
+}

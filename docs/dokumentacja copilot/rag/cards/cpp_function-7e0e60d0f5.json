@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendBuyStoreOffer",
+  "return_type": "void",
+  "args": "int offerId, int productType, const std::string& name",
+  "file": "src/client/protocolgame.h"
+}

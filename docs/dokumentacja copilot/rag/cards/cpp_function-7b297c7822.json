@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlFOpen",
+  "return_type": "FILE*",
+  "args": "const char* filename, const char* mode",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

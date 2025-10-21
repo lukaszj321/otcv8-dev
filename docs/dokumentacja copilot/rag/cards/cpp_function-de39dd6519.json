@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call",
+  "return_type": "template<typename Tuple> static void",
+  "args": "Tuple& tuple, LuaInterface* lua",
+  "file": "src/framework/luaengine/luabinder.h"
+}

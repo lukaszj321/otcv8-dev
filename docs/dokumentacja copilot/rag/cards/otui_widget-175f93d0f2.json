@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 109,
+  "path": "EmptyImbue/ComboBox#imbuement",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "imbuement",
+  "props": {
+    "id": "imbuement",
+    "anchors.top": "prev.top",
+    "anchors.left": "groups.right",
+    "anchors.right": "parent.right",
+    "margin-left": "3"
+  }
+}

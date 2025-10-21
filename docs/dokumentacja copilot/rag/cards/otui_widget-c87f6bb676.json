@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 37,
+  "path": "AttackEntry/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "anchors.right": "parent.right",
+    "margin-right": "15",
+    "width": "15",
+    "height": "15"
+  }
+}

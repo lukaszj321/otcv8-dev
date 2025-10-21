@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 47,
+  "path": "SkillPanel/UIWidget#icon",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "icon",
+  "props": {
+    "id": "icon",
+    "anchors.left": "prev.right",
+    "image-source": "/images/game/topbar/icons",
+    "size": "9 9",
+    "image-clip": "0 0 9 9",
+    "margin-left": "7"
+  }
+}

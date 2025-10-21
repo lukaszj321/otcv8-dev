@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "callLuaField",
+  "return_type": "nan",
+  "args": "\"onCheckChange\", checked",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

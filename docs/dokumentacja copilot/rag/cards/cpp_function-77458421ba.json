@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getValue",
+  "return_type": "std::string",
+  "args": "const std::string& key",
+  "file": "src/framework/core/config.h"
+}

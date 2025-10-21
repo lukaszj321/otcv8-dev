@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onConfirm",
+  "file": "modules/game_bot/functions/ui_windows.lua"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onRecv",
+  "file": "modules/gamelib/protocollogin.lua"
+}

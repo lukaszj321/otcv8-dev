@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 12,
+  "path": "ExtrasScrollBar/HorizontalScrollBar#scroll",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "scroll",
+  "props": {
+    "id": "scroll",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "minimum": "0",
+    "maximum": "10",
+    "step": "1"
+  }
+}

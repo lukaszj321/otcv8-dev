@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onCancelWalk",
+  "file": "modules/game_walking/walking.lua"
+}

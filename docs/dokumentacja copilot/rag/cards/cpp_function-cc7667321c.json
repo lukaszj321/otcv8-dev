@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getChildIndex",
+  "return_type": "int",
+  "args": "const UIWidgetPtr& child",
+  "file": "src/framework/ui/uiwidget.h"
+}

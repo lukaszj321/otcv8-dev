@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/updater/updater.otui",
+  "line": 29,
+  "path": "StaticMainWindow#updaterWindow/ProgressBar#downloadProgress",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "downloadProgress",
+  "props": {
+    "id": "downloadProgress",
+    "height": "15",
+    "background-color": "#4444ff",
+    "margin-bottom": "5",
+    "margin-top": "5",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processCloseContainer",
+  "return_type": "void",
+  "args": "int containerId",
+  "file": "src/client/game.h"
+}

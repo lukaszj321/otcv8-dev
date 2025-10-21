@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BN_clear_free",
+  "return_type": "nan",
+  "args": "ebn",
+  "file": "src/framework/util/crypt.cpp"
+}

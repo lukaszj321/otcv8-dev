@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageSmooth",
+  "return_type": "void",
+  "args": "bool smooth",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Container::getItem",
+  "return_type": "ItemPtr",
+  "args": "int slot",
+  "file": "src/client/container.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 63,
+  "path": "EnterGameWindow#enterGame/Panel#serverSelectorPanel/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "margin-top": "10"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addRightGameButton",
+  "args": "id, description, icon, callback, front, index",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

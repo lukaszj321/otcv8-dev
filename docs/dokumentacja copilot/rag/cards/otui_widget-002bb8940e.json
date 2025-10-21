@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 61,
+  "path": "OptionPanel/Label#backgroundFrameRateLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "backgroundFrameRateLabel",
+  "props": {
+    "id": "backgroundFrameRateLabel",
+    "margin-top": "12"
+  }
+}

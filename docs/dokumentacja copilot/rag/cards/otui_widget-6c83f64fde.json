@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 37,
+  "path": "OptionPanel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "5",
+    "text": "Show Bottom Action Bars:"
+  }
+}

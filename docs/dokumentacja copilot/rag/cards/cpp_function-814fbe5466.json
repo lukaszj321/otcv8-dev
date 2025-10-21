@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addColorRaw",
+  "return_type": "inline void",
+  "args": "const Color& color, int count",
+  "file": "src/framework/graphics/drawcache.h"
+}

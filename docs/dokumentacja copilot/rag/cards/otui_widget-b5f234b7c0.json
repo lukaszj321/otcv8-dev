@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 6,
+  "path": "AlarmsWindow/BotSwitch#playerAttack",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "playerAttack",
+  "props": {
+    "id": "playerAttack",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "text-align": "center",
+    "text": "Player Attack"
+  }
+}

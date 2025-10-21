@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 486,
+  "path": "HealWindow/Button#settingsButton",
+  "widget": "Button",
+  "base": "",
+  "id": "settingsButton",
+  "props": {
+    "id": "settingsButton",
+    "font": "cipsoftFont",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21"
+  }
+}

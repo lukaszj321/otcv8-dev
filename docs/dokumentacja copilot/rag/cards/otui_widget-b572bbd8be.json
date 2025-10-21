@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 65,
+  "path": "SioListWindow/BotSwitch#exuraMasRes",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "exuraMasRes",
+  "props": {
+    "id": "exuraMasRes",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text": "Exura Gran Mas Res",
+    "margin-top": "3"
+  }
+}

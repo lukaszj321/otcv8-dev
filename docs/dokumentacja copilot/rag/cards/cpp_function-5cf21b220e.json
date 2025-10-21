@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XSendEvent",
+  "return_type": "nan",
+  "args": "m_display, m_rootWindow, False, SubstructureRedirectMask | SubstructureNotifyMask, &xev",
+  "file": "src/framework/platform/x11window.cpp"
+}

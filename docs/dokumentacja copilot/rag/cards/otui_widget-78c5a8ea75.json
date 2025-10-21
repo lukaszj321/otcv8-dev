@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 35,
+  "path": "SkillPanel",
+  "widget": "SkillPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "19"
+  }
+}

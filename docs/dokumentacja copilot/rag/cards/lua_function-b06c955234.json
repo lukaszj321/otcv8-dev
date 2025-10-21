@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "report",
+  "args": "",
+  "file": "modules/game_ruleviolation/ruleviolation.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::pushLightUserdata",
+  "return_type": "void",
+  "args": "void* p",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

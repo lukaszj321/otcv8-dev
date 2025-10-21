@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getStepProgress",
+  "return_type": "float",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

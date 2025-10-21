@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 48,
+  "path": "AttackBotBotPanel/BotSwitch#title",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "text-align": "center",
+    "width": "130"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::format",
+  "return_type": "ss <<",
+  "args": "\"build compiler: %s\\n\", BUILD_COMPILER",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

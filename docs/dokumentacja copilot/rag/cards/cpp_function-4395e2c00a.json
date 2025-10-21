@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Http::post",
+  "return_type": "int",
+  "args": "const std::string& url, const std::string& data, int timeout, bool isJson",
+  "file": "src/framework/http/http.cpp"
+}

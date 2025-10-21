@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 133,
+  "path": "Groups",
+  "widget": "Groups",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "size": "150 90",
+    "padding": "3",
+    "padding-top": "5"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_entergame\n  description: Manages enter game and character list windows\n  author: edubart & otclient.ovh\n  website: https://github.com/edubart/otclient\n  scripts: [ entergame, characterlist ]\n  @onLoad: EnterGame.init() CharacterList.init()\n  @onUnload: EnterGame.terminate() CharacterList.terminate()\n  \n  load-later:\n    - game_things\n    - game_features",
+  "file": "modules/client_entergame/entergame.otmod",
+  "description": "Manages enter game and character list windows"
+}

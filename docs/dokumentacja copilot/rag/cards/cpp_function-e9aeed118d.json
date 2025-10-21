@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "WIN32Window::displayFatalError",
+  "return_type": "void",
+  "args": "const std::string& message",
+  "file": "src/framework/platform/win32window.cpp"
+}

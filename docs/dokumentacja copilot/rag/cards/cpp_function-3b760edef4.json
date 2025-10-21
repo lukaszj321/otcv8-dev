@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DEFINE_OPTION",
+  "return_type": "nan",
+  "args": "debugPathfinding, \"Debug path finding\"",
+  "file": "src/framework/util/extras.h"
+}

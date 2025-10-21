@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BitmapFont::load",
+  "return_type": "void",
+  "args": "const OTMLNodePtr& fontNode",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

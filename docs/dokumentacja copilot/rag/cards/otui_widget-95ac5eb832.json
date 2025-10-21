@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 382,
+  "path": "DropTracker#DropTracker/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {
+    "padding-left": "3",
+    "padding-right": "3",
+    "padding-top": "1",
+    "layout": "verticalBox"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 296,
+  "path": "EQPanel/SlotBotItem#head",
+  "widget": "SlotBotItem",
+  "base": "",
+  "id": "head",
+  "props": {
+    "id": "head",
+    "image-source": "/images/ui/item",
+    "anchors.top": "prev.bottom",
+    "margin-top": "15"
+  }
+}

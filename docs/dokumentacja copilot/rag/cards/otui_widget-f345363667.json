@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 336,
+  "path": "ComboWindow/ComboActions#actions",
+  "widget": "ComboActions",
+  "base": "",
+  "id": "actions",
+  "props": {
+    "id": "actions",
+    "anchors.top": "trigger.bottom",
+    "anchors.left": "trigger.left",
+    "margin-top": "15"
+  }
+}

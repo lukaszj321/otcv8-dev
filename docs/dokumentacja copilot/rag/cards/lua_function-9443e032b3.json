@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "assignText",
+  "args": "widget",
+  "file": "modules/game_actionbar/actionbar.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "RSA_generate_key_ex",
+  "return_type": "nan",
+  "args": "rsa, bits, ebn, nullptr",
+  "file": "src/framework/util/crypt.cpp"
+}

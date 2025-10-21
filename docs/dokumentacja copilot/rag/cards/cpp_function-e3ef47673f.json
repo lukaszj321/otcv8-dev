@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseMapDescription",
+  "return_type": "case Proto::GameServerFullMap:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

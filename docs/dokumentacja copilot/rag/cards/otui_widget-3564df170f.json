@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 582,
+  "path": "MainWindow#preyWindow/Button#closeButton",
+  "widget": "Button",
+  "base": "",
+  "id": "closeButton",
+  "props": {
+    "id": "closeButton",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "text": "Close",
+    "font": "cipsoftFont"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream::add64",
+  "return_type": "void",
+  "args": "int64 v",
+  "file": "src/framework/core/filestream.cpp"
+}

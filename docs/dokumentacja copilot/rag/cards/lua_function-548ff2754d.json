@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "ProtocolGame:onExtendedOpcode",
+  "args": "opcode, buffer",
+  "file": "modules/gamelib/protocolgame.lua"
+}

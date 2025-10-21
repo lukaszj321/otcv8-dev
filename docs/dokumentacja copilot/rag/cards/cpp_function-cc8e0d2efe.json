@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Tile::removeThing",
+  "return_type": "bool",
+  "args": "ThingPtr thing",
+  "file": "src/client/tile.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rawGetItemType",
+  "return_type": "ItemType*",
+  "args": "uint16 id",
+  "file": "src/client/thingtypemanager.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 48,
+  "path": "TargetBotPanel/Panel#listPanel/TextList#list",
+  "widget": "TextList",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.fill": "parent",
+    "vertical-scrollbar": "listScrollbar",
+    "margin-right": "15",
+    "focusable": "false",
+    "auto-focus": "first"
+  }
+}

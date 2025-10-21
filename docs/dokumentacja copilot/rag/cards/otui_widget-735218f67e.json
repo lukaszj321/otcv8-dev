@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 20,
+  "path": "BossLabel/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "anchors.right": "parent.right",
+    "width": "14",
+    "height": "14",
+    "margin-right": "15",
+    "text-align": "center",
+    "text-offset": "0 1",
+    "tooltip": "Remove profile from the list."
+  }
+}

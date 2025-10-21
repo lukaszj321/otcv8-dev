@@ -1,0 +1,23 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 285,
+  "path": "CreatureAndBonus/FlatPanel#bonus/Panel#grade",
+  "widget": "Panel",
+  "base": "",
+  "id": "grade",
+  "props": {
+    "id": "grade",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "padding-left": "5",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "9 10",
+    "cell-spacing": "2",
+    "num-columns": "5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "m_disconnectCallback",
+  "return_type": "nan",
+  "args": "boost::asio::error::eof",
+  "file": "src/framework/net/packet_player.cpp"
+}

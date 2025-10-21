@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_effects.cancelFade",
+  "args": "widget",
+  "file": "modules/corelib/ui/effects.lua"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 377,
+  "path": "HealBotSettingsPanel/FlatPanel#list/SettingCheckBox#Delay",
+  "widget": "SettingCheckBox",
+  "base": "",
+  "id": "Delay",
+  "props": {
+    "id": "Delay",
+    "text": "Don't use items when interacting"
+  }
+}

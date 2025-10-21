@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setTextVirtualOffset",
+  "return_type": "void",
+  "args": "const Point& offset",
+  "file": "src/framework/ui/uitextedit.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendDebugReport",
+  "return_type": "void",
+  "args": "const std::string& a, const std::string& b, const std::string& c, const std::string& d",
+  "file": "src/client/protocolgame.h"
+}

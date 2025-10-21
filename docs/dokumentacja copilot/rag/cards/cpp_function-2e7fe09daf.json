@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::signalCall",
+  "return_type": "int",
+  "args": "int numArgs, int numRets",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

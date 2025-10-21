@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Atlas::reload",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/graphics/atlas.cpp"
+}

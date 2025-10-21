@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_speed >= 2 && maxFps > 60",
+  "file": "src/framework/core/adaptiverenderer.cpp"
+}

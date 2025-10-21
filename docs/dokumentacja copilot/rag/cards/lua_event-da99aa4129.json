@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGameStart",
+  "file": "modules/client_options/options.lua"
+}

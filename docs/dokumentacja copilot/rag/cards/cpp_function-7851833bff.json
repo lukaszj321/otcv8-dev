@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int skill = 0; skill < lastSkill; skill++",
+  "file": "src/client/protocolgameparse.cpp"
+}

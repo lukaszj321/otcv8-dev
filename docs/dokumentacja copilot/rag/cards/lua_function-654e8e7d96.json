@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addTabText",
+  "args": "text, speaktype, tab, creatureName",
+  "file": "modules/game_console/console.lua"
+}

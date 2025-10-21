@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pcall",
+  "return_type": "int",
+  "args": "int numArgs = 0, int numRets = 0, int errorFuncIndex = 0",
+  "file": "src/framework/luaengine/luainterface.h"
+}

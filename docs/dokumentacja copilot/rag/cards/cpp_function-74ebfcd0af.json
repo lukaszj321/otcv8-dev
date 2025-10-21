@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "throw",
+  "args": "doc, \"indentation with tabs are not allowed\", currentLine",
+  "file": "src/framework/otml/otmlparser.cpp"
+}

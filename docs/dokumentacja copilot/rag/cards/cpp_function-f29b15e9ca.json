@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "init",
+  "return_type": "public: void",
+  "args": "nan",
+  "file": "src/client/minimap.h"
+}

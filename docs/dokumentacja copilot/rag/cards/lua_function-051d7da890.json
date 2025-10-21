@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "bindTurnKey",
+  "args": "key, dir",
+  "file": "modules/game_walking/walking.lua"
+}

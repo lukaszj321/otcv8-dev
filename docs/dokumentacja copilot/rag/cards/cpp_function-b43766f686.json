@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "assert",
+  "return_type": "default:",
+  "args": "false",
+  "file": "src/framework/util/qrcodegen.c"
+}

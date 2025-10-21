@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 332,
+  "path": "CaveBotStats#CaveBotStats",
+  "widget": "CaveBotStats",
+  "base": "MiniWindow",
+  "id": "CaveBotStats",
+  "props": {
+    "id": "CaveBotStats",
+    "text": "CaveBot Stats",
+    "height": "200",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

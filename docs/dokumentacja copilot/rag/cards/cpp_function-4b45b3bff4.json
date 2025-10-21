@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setfill",
+  "return_type": "out << dec <<",
+  "args": "' '",
+  "file": "src/framework/util/color.h"
+}

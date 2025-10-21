@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processKeyUp",
+  "return_type": "nan",
+  "args": "keyCode",
+  "file": "src/framework/platform/x11window.cpp"
+}

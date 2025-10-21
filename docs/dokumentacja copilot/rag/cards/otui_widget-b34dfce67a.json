@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 198,
+  "path": "ItemAndSlotPanel/SlotComboBox#slot",
+  "widget": "SlotComboBox",
+  "base": "",
+  "id": "slot",
+  "props": {
+    "id": "slot",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2",
+    "height": "20"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupScrollMenu:onKeyPress",
+  "args": "keyCode, keyboardModifiers",
+  "file": "modules/corelib/ui/uipopupscrollmenu.lua"
+}

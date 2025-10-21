@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bugreport/bugreport.otui",
+  "line": 6,
+  "path": "BugReportWindow/Label#bugLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "bugLabel",
+  "props": {
+    "id": "bugLabel",
+    "text-wrap": "true",
+    "text-auto-resize": "true",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

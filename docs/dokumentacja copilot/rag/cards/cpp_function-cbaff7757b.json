@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "actionType == AMOTION_EVENT_ACTION_DOWN",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calcFramebufferSource",
+  "return_type": "private: Rect",
+  "args": "const Size& destSize, bool inNextFrame = false",
+  "file": "src/client/mapview.h"
+}

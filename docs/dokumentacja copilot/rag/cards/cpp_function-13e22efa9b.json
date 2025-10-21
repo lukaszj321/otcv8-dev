@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setState",
+  "return_type": "protected: bool",
+  "args": "Fw::WidgetState state, bool on",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::replace_all",
+  "return_type": "nan",
+  "args": "layout, \"/\", \"\"",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

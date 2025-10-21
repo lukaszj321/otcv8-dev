@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onGameEditText",
+  "args": "id, itemId, maxLength, text, writer, time",
+  "file": "modules/game_textwindow/textwindow.lua"
+}

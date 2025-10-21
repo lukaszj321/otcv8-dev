@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "PlatformWindow::loadMouseCursor",
+  "return_type": "int",
+  "args": "const std::string& file, const Point& hotSpot",
+  "file": "src/framework/platform/platformwindow.cpp"
+}

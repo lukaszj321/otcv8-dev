@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cacheFont",
+  "return_type": "Point",
+  "args": "const TexturePtr& fontTexture",
+  "file": "src/framework/graphics/atlas.h"
+}

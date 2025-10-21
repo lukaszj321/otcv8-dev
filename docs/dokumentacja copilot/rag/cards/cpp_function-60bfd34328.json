@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getStyleClass",
+  "return_type": "std::string",
+  "args": "const std::string& styleName",
+  "file": "src/framework/ui/uimanager.h"
+}

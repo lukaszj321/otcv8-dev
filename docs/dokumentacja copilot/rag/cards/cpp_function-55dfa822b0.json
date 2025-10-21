@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseLootTracker",
+  "return_type": "case Proto::GameServerLootTracker:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

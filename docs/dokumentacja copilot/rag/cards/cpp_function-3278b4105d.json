@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::updateState",
+  "return_type": "void",
+  "args": "Fw::WidgetState state",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

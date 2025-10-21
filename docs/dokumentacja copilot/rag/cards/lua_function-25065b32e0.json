@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "changeSpelllistProfile",
+  "args": "oldProfile",
+  "file": "modules/game_spelllist/spelllist.lua"
+}

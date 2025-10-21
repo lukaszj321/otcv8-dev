@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "toggleDisplays",
+  "args": "",
+  "file": "modules/client_options/options.lua"
+}

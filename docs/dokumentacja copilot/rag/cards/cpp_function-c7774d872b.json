@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "saveImage",
+  "return_type": "void",
+  "args": "const std::string& fileName, const Rect& mapRect",
+  "file": "src/client/minimap.h"
+}

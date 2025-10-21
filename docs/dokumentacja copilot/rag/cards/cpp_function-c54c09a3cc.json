@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "m_botSafe",
+  "return_type": "nan",
+  "args": "botSafe",
+  "file": "src/framework/core/event.cpp"
+}

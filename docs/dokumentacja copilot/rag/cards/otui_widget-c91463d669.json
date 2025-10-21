@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 1,
+  "path": "FlagButton",
+  "widget": "FlagButton",
+  "base": "CheckBox",
+  "id": "",
+  "props": {
+    "size": "15 15",
+    "margin-left": "2",
+    "image-source": "/images/game/minimap/flagcheckbox",
+    "image-size": "15 15",
+    "image-border": "3",
+    "icon-source": "/images/game/minimap/mapflags",
+    "icon-size": "11 11",
+    "icon-clip": "0 0 11 11",
+    "icon-offset": "2 4",
+    "text": "",
+    "image-clip": "52 0 26 26"
+  }
+}

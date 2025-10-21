@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 66,
+  "path": "Panel/MarketButtonBox#filterVocation",
+  "widget": "MarketButtonBox",
+  "base": "",
+  "id": "filterVocation",
+  "props": {
+    "id": "filterVocation",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "margin-right": "3",
+    "margin-left": "3",
+    "width": "34",
+    "height": "20"
+  }
+}

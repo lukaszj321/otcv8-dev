@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSelection",
+  "return_type": "nan",
+  "args": "m_selectionReference, m_cursorPos",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

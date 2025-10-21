@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 1,
+  "path": "SpellListLabel",
+  "widget": "SpellListLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "background-color": "#ffffff22",
+    "text-offset": "42 3",
+    "focusable": "true",
+    "height": "36",
+    "image-clip": "0 0 32 32",
+    "image-size": "32 32",
+    "image-offset": "2 2",
+    "image-source": "/images/game/spells/defaultspells",
+    "color": "#ffffff"
+  }
+}

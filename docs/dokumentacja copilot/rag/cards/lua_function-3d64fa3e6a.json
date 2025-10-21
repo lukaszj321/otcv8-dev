@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setSkillValue",
+  "args": "id, value",
+  "file": "modules/game_topbar/topbar.lua"
+}

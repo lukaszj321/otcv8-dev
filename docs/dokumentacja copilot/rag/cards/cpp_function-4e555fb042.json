@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCreatures",
+  "return_type": "std::vector<CreaturePtr>",
+  "args": "nan",
+  "file": "src/client/tile.h"
+}

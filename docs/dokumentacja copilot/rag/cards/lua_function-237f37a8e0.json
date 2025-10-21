@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Creature:setOutfitShader",
+  "args": "shader",
+  "file": "modules/gamelib/creature.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FrameBuffer::draw",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

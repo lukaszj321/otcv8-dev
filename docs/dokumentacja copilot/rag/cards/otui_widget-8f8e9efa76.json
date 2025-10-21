@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 5,
+  "path": "AlarmCheckBox/CheckBox#tick",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "tick",
+  "props": {
+    "id": "tick",
+    "anchors.fill": "parent",
+    "margin-top": "4",
+    "font": "verdana-11px-rounded",
+    "text": "Player Attack",
+    "text-offset": "17 -3"
+  }
+}

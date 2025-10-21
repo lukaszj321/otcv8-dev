@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITable:removeRow",
+  "args": "row",
+  "file": "modules/corelib/ui/uitable.lua"
+}

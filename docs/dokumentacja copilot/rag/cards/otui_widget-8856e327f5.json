@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 15,
+  "path": "NPCItemBox/Item#item",
+  "widget": "Item",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "phantom": "true",
+    "anchors.top": "parent.top",
+    "image-color": "#ffffff88",
+    "margin-top": "3",
+    "border-color": "#000000",
+    "color": "#aaaaaa88"
+  }
+}

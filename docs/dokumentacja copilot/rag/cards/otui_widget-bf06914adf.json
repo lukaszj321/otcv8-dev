@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/icons.otui",
+  "line": 9,
+  "path": "BotIcon/UIItem#item",
+  "widget": "UIItem",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.top": "parent.top",
+    "margin-top": "6",
+    "virtual": "true",
+    "phantom": "true",
+    "size": "32 32"
+  }
+}

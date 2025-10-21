@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 50,
+  "path": "ExtrasItem/UIWidget#text",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.left": "parent.left"
+  }
+}

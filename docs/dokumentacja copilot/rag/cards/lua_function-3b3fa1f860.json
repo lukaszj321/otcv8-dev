@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "canChangeFloorDown",
+  "args": "pos",
+  "file": "modules/game_walking/walking.lua"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 539,
+  "path": "MainWindow#preyWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "preyWindow",
+  "props": {
+    "id": "preyWindow",
+    "size": "688 520",
+    "padding": "20"
+  }
+}

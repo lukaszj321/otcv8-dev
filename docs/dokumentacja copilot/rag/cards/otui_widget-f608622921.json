@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 140,
+  "path": "MainWindow#shopWindow/Panel#infoPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "infoPanel",
+  "props": {
+    "id": "infoPanel",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "width": "230",
+    "height": "60"
+  }
+}

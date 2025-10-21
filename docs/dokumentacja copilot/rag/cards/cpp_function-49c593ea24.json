@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "newMousePos",
+  "return_type": "Point",
+  "args": "event.xbutton.x, event.xbutton.y",
+  "file": "src/framework/platform/x11window.cpp"
+}

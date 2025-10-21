@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLDocument::emit",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/otml/otmldocument.cpp"
+}

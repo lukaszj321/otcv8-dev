@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "listDirectoryFiles",
+  "return_type": "std::list<std::string>",
+  "args": "const std::string & directoryPath = \"\", bool fullPath = false, bool raw = false",
+  "file": "src/framework/core/resourcemanager.h"
+}

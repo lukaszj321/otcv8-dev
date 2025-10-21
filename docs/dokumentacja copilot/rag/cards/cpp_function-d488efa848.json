@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "else",
+  "args": "si.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_AMD64",
+  "file": "src/framework/platform/win32platform.cpp"
+}

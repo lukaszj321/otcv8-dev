@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 1,
+  "path": "VocationPanel",
+  "widget": "VocationPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "padding": "3",
+    "image-source": "/images/ui/panel_flat",
+    "image-border": "6",
+    "size": "190 55"
+  }
+}

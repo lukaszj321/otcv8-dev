@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:save",
+  "args": "",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

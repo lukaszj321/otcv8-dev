@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 135,
+  "path": "MiniWindow#battleWindow/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "miniwindowScrollBar.left",
+    "margin-right": "1",
+    "margin-top": "11"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setupSkillPanel",
+  "args": "id, parent, experience, defaultOff",
+  "file": "modules/game_topbar/topbar.lua"
+}

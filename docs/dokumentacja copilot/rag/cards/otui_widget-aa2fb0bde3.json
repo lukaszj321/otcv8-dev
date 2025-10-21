@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 102,
+  "path": "MainWindow#communicationWindow/CheckBox#checkboxUseWhiteList",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "checkboxUseWhiteList",
+  "props": {
+    "id": "checkboxUseWhiteList",
+    "anchors.top": "parent.top",
+    "anchors.left": "ignoreList.right",
+    "margin-left": "20",
+    "width": "180"
+  }
+}

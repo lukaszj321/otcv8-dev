@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getError",
+  "return_type": "boost::system::error_code",
+  "args": "nan",
+  "file": "src/framework/net/connection.h"
+}

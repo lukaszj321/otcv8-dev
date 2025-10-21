@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "add32",
+  "return_type": "void",
+  "args": "int32 v",
+  "file": "src/framework/core/filestream.h"
+}

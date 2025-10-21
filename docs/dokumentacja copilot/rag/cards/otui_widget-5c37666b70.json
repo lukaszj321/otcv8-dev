@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 136,
+  "path": "SioListWindow/BotLabel#manaInfo",
+  "widget": "BotLabel",
+  "base": "",
+  "id": "manaInfo",
+  "props": {
+    "id": "manaInfo",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "text-align": "center",
+    "margin-top": "5"
+  }
+}

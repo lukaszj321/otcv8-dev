@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 312,
+  "path": "BonusReroll/UIButton#selectPrey",
+  "widget": "UIButton",
+  "base": "",
+  "id": "selectPrey",
+  "props": {
+    "id": "selectPrey",
+    "anchors.top": "parent.top",
+    "margin-top": "5",
+    "image-source": "/images/game/prey/prey_bonus_reroll",
+    "size": "40 55",
+    "image-clip": "0 52 37 54"
+  }
+}

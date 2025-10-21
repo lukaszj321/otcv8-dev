@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "postostring",
+  "args": "pos",
+  "file": "modules/gamelib/util.lua"
+}

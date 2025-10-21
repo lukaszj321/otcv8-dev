@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "overwriteMinimapColor",
+  "return_type": "void",
+  "args": "uint8 color",
+  "file": "src/client/tile.h"
+}

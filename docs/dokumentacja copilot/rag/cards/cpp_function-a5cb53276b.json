@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "data",
+  "return_type": "std::string",
+  "args": "zipSize, '\\0'",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

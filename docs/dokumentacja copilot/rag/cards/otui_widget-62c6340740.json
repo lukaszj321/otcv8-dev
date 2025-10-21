@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 683,
+  "path": "PreyTracker#preyTracker/MiniWindowContents/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "1"
+  }
+}

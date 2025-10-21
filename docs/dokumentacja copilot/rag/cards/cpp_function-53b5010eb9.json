@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundBuffer::fillBuffer",
+  "return_type": "bool",
+  "args": "ALenum sampleFormat, const DataBuffer<char>& data, int size, int rate",
+  "file": "src/framework/sound/soundbuffer.cpp"
+}

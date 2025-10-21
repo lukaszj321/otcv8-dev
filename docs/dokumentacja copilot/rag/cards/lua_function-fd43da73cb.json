@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onAppearanceChange",
+  "args": "widget, selectedWidget",
+  "file": "modules/game_outfit/outfit.lua"
+}

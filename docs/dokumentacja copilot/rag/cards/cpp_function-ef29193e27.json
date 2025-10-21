@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setBlendEquation",
+  "return_type": "nan",
+  "args": "m_olderStates[m_oldStateIndex].blendEquation",
+  "file": "src/framework/graphics/painter.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getPosition",
+  "return_type": "Point",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

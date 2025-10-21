@@ -1,0 +1,30 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/offerhistory.otui",
+  "line": 5,
+  "path": "Panel/Table#myHistoryTable",
+  "widget": "Table",
+  "base": "",
+  "id": "myHistoryTable",
+  "props": {
+    "id": "myHistoryTable",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "390",
+    "margin-top": "5",
+    "margin-bottom": "5",
+    "margin-left": "8",
+    "margin-right": "8",
+    "padding": "1",
+    "focusable": "false",
+    "background-color": "#222833",
+    "border-width": "1",
+    "border-color": "#191f27",
+    "table-data": "myHistoryTableData",
+    "row-style": "OfferTableRow",
+    "column-style": "OfferTableColumn",
+    "header-column-style": "false",
+    "header-row-style": "false"
+  }
+}

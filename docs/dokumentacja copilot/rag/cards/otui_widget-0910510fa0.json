@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 337,
+  "path": "HoldConditions#Hold/Label#label5",
+  "widget": "Label",
+  "base": "",
+  "id": "label5",
+  "props": {
+    "id": "label5",
+    "anchors.left": "label4.left",
+    "anchors.top": "label4.bottom",
+    "margin-top": "10",
+    "text": "Recovery",
+    "color": "#ffaa00",
+    "font": "verdana-11px-rounded"
+  }
+}

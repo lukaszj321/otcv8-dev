@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_isAlphanumeric",
+  "return_type": "bool",
+  "args": "const char *text",
+  "file": "src/framework/util/qrcodegen.c"
+}

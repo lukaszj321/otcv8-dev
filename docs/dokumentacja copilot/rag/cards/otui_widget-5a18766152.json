@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/updater/updater.otui",
+  "line": 10,
+  "path": "StaticMainWindow#updaterWindow/Label#status",
+  "widget": "Label",
+  "base": "",
+  "id": "status",
+  "props": {
+    "id": "status",
+    "text-align": "center"
+  }
+}

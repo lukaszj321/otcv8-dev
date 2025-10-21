@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "inputEvent",
+  "return_type": "void",
+  "args": "InputEvent event",
+  "file": "src/framework/core/graphicalapplication.h"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 36,
+  "path": "Panel/UIItem#selectedItem",
+  "widget": "UIItem",
+  "base": "",
+  "id": "selectedItem",
+  "props": {
+    "id": "selectedItem",
+    "phantom": "true",
+    "size": "34 34",
+    "padding": "1",
+    "font": "verdana-11px-rounded",
+    "border-color": "white",
+    "anchors.top": "rightTabBar.bottom",
+    "anchors.left": "rightTabContent.left",
+    "margin-top": "6",
+    "margin-left": "6"
+  }
+}

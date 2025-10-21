@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CreatureManager::loadCreatureBuffer",
+  "return_type": "void",
+  "args": "const std::string& buffer",
+  "file": "src/client/creatures.cpp"
+}

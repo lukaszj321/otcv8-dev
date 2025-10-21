@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "timestamp_to_date",
+  "return_type": "std::string",
+  "args": "time_t tnow",
+  "file": "src/framework/stdext/string.h"
+}

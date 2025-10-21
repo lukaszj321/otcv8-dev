@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_app_write_cmd",
+  "return_type": "nan",
+  "args": "android_app, APP_CMD_INPUT_CHANGED",
+  "file": "src/android/android_native_app_glue.cpp"
+}

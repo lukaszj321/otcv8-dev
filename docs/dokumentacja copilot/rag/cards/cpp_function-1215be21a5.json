@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "decryptRsa",
+  "return_type": "bool",
+  "args": "int size",
+  "file": "src/framework/net/inputmessage.h"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 285,
+  "path": "AddPlayer/TextEdit#name",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.top": "health.bottom",
+    "margin-top": "5",
+    "anchors.left": "health.left",
+    "anchors.right": "parent.right",
+    "font": "verdana-11px-rounded",
+    "text-align": "center",
+    "text": "friend name"
+  }
+}

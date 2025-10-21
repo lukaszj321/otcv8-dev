@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processPlayerHelpers",
+  "return_type": "void",
+  "args": "int helpers",
+  "file": "src/client/game.cpp"
+}

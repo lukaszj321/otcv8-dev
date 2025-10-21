@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ToComment",
+  "return_type": "virtual TiXmlComment*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

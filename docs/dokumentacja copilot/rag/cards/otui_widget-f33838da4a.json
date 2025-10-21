@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 282,
+  "path": "LabelAndTextEditPanel/BotTextEdit#right",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "right",
+  "props": {
+    "id": "right",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right"
+  }
+}

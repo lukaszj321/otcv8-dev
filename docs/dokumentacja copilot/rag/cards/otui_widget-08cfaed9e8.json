@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 416,
+  "path": "RerollButton/FlatPanel#button/ProgressBar#time",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "time",
+  "props": {
+    "id": "time",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "15",
+    "text-align": "center",
+    "background-color": "#C28400"
+  }
+}

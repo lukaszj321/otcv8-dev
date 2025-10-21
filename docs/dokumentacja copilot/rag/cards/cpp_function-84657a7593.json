@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_calcSegmentBufferSize",
+  "return_type": "size_t",
+  "args": "enum qrcodegen_Mode mode, size_t numChars",
+  "file": "src/framework/util/qrcodegen.h"
+}

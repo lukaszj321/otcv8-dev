@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "QueryIntValue",
+  "return_type": "int",
+  "args": "int* _value",
+  "file": "src/framework/xml/tinyxml.h"
+}

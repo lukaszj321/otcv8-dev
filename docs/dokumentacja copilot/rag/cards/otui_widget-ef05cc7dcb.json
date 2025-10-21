@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 25,
+  "path": "OptionPanel/OptionCheckBox#enableLights",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "enableLights",
+  "props": {
+    "id": "enableLights"
+  }
+}

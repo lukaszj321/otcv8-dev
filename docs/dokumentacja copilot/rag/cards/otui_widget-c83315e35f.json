@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 23,
+  "path": "OptionPanel/OptionCheckBox#topBar",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "topBar",
+  "props": {
+    "id": "topBar"
+  }
+}

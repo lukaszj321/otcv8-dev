@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 168,
+  "path": "OptionPanel/OptionScrollbar#floorFading",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "floorFading",
+  "props": {
+    "id": "floorFading",
+    "margin-top": "3",
+    "minimum": "0",
+    "maximum": "2000"
+  }
+}

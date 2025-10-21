@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setUserAgent",
+  "return_type": "void",
+  "args": "const std::string& userAgent",
+  "file": "src/framework/http/http.h"
+}

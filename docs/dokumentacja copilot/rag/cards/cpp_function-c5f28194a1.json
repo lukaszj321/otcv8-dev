@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "dumpWriter",
+  "return_type": "int",
+  "args": "lua_State *L, const void* p, size_t sz, void* ud",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

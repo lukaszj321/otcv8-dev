@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boost::erase_all",
+  "return_type": "nan",
+  "args": "aligment, \" \"",
+  "file": "src/framework/ui/uitranslator.cpp"
+}

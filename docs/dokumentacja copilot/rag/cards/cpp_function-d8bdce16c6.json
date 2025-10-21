@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internal_connect",
+  "return_type": "protected: void",
+  "args": "asio::ip::basic_resolver<asio::ip::tcp>::iterator endpointIterator",
+  "file": "src/framework/net/connection.h"
+}

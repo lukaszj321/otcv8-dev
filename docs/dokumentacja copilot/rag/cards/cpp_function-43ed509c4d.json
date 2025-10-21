@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_dump",
+  "return_type": "nan",
+  "args": "L, dumpWriter, &ret",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

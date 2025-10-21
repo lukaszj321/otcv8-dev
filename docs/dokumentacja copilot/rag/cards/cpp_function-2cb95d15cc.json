@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "write",
+  "return_type": "nan",
+  "args": "data, 2",
+  "file": "src/framework/core/binarytree.cpp"
+}

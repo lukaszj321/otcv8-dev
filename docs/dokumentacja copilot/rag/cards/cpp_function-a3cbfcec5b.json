@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseTalk",
+  "return_type": "case Proto::GameServerTalk:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

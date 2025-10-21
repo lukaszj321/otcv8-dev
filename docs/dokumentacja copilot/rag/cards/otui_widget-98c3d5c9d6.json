@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 521,
+  "path": "SlotPanel/InactivePreyPanel#inactive",
+  "widget": "InactivePreyPanel",
+  "base": "",
+  "id": "inactive",
+  "props": {
+    "id": "inactive",
+    "anchors.top": "parent.top"
+  }
+}

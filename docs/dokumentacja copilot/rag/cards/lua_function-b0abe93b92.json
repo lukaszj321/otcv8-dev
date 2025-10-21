@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "parseSliderPos",
+  "args": "self, slider, pos, move",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

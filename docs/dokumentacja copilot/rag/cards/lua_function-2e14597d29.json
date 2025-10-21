@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getSmallIconPath",
+  "args": "bonusType",
+  "file": "modules/game_prey/prey.lua"
+}

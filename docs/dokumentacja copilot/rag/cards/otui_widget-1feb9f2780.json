@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 163,
+  "path": "NexButton",
+  "widget": "NexButton",
+  "base": "NextButton",
+  "id": "",
+  "props": {
+    "background": "#363636",
+    "height": "15"
+  }
+}

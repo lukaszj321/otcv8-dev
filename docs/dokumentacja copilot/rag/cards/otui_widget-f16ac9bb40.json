@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 284,
+  "path": "ClearImbue/UIButton#clear",
+  "widget": "UIButton",
+  "base": "",
+  "id": "clear",
+  "props": {
+    "id": "clear",
+    "width": "128",
+    "height": "66",
+    "anchors.top": "time.top",
+    "anchors.right": "parent.right",
+    "image-source": "/images/game/imbuing/clear",
+    "image-clip": "0 66 128 66",
+    "margin-left": "15"
+  }
+}

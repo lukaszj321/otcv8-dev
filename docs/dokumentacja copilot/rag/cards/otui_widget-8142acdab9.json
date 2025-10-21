@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 33,
+  "path": "MiniWindow#cooldownWindow/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {}
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIInputBox:addTextEdit",
+  "args": "labelText, defaultText, maxLength, visibleLines",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

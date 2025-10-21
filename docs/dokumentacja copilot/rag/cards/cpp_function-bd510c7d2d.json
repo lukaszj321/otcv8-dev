@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRadius",
+  "return_type": "void",
+  "args": "int32 r",
+  "file": "src/client/creatures.h"
+}

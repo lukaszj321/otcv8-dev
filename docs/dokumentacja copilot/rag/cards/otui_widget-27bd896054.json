@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 444,
+  "path": "HealWindow",
+  "widget": "HealWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "520 360"
+  }
+}

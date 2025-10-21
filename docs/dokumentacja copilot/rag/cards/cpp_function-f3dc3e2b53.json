@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaSetField",
+  "return_type": "nan",
+  "args": "funcName",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

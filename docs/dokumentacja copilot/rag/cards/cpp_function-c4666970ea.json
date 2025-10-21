@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onFocusChange",
+  "return_type": "nan",
+  "args": "focused, reason",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

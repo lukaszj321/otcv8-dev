@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMoveableTabBar:onDestroy",
+  "args": "",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

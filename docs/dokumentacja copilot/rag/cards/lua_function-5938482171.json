@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIProgressBar:setPercent",
+  "args": "percent",
+  "file": "modules/corelib/ui/uiprogressbar.lua"
+}

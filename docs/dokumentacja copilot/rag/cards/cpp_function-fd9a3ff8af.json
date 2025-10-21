@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "log",
+  "return_type": "public: void",
+  "args": "Fw::LogLevel level, const std::string& message",
+  "file": "src/framework/core/logger.h"
+}

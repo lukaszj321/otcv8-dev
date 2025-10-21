@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 17,
+  "path": "MainWindow#channelsWindow/TextList#channelList",
+  "widget": "TextList",
+  "base": "",
+  "id": "channelList",
+  "props": {
+    "id": "channelList",
+    "vertical-scrollbar": "channelsScrollBar",
+    "anchors.fill": "parent",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "10",
+    "padding": "1",
+    "focusable": "false"
+  }
+}

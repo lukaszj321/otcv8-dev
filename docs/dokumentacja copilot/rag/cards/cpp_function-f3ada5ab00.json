@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLocalPlayer",
+  "return_type": "LocalPlayerPtr",
+  "args": "nan",
+  "file": "src/client/game.h"
+}

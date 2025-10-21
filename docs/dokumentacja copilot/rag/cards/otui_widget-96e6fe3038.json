@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 104,
+  "path": "PlayerListWindow/TabBar#tmpTabBar",
+  "widget": "TabBar",
+  "base": "",
+  "id": "tmpTabBar",
+  "props": {
+    "id": "tmpTabBar",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "width": "180"
+  }
+}

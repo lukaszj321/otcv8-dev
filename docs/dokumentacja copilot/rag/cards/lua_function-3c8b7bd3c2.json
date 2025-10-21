@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "init",
+  "args": "",
+  "file": "modules/client_terminal/terminal.lua"
+}

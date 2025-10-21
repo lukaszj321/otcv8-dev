@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ResourceManager::makeDir",
+  "return_type": "bool",
+  "args": "const std::string directory",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

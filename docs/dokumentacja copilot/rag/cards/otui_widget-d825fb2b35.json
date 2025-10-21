@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui",
+  "line": 64,
+  "path": "TargetBotCreatureEditorWindow",
+  "widget": "TargetBotCreatureEditorWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "text": "TargetBot creature editor",
+    "width": "500",
+    "height": "300"
+  }
+}

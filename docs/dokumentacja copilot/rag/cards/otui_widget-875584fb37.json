@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/looting.otui",
+  "line": 18,
+  "path": "TargetBotLootingPanel/BotSwitch#everyItem",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "everyItem",
+  "props": {
+    "id": "everyItem",
+    "margin-top": "2"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onWalk",
+  "file": "modules/game_bot/bot.lua"
+}

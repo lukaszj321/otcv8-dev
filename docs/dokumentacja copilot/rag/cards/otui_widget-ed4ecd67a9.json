@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textwindow/textwindow.otui",
+  "line": 40,
+  "path": "TextWindow#textWindow/Button#okButton",
+  "widget": "Button",
+  "base": "",
+  "id": "okButton",
+  "props": {
+    "id": "okButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "next.left",
+    "margin-right": "10",
+    "width": "60"
+  }
+}

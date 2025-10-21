@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Connection::write",
+  "return_type": "void",
+  "args": "uint8* buffer, size_t size",
+  "file": "src/framework/net/connection.cpp"
+}

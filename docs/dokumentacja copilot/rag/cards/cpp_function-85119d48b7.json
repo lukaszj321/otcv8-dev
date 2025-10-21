@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addWidget",
+  "return_type": "virtual void",
+  "args": "const UIWidgetPtr& widget",
+  "file": "src/framework/ui/uilayout.h"
+}

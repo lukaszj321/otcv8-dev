@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 222,
+  "path": "ItemHealing/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.left": "parent.left",
+    "margin-left": "5",
+    "text": "Item Healing",
+    "color": "#ff4513",
+    "font": "verdana-11px-rounded"
+  }
+}

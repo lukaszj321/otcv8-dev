@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 382,
+  "path": "FriendHealer/TargetSettings#targetSettings",
+  "widget": "TargetSettings",
+  "base": "",
+  "id": "targetSettings",
+  "props": {
+    "id": "targetSettings",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "anchors.left": "prev.left"
+  }
+}

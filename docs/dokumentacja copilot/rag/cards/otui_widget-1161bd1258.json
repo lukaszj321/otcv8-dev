@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/violationwindow.otui",
+  "line": 14,
+  "path": "MainWindow#ignoreWindow/TextEdit#text",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "text-wrap": "true",
+    "multiline": "true",
+    "anchors.top": "prev.bottom",
+    "anchors.bottom": "next.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin": "8 0",
+    "max-length": "255"
+  }
+}

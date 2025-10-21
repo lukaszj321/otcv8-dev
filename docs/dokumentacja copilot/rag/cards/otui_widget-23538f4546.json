@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 559,
+  "path": "MainWindow#preyWindow/SlotPanel#slot3",
+  "widget": "SlotPanel",
+  "base": "",
+  "id": "slot3",
+  "props": {
+    "id": "slot3",
+    "anchors.left": "prev.right",
+    "margin-left": "10"
+  }
+}

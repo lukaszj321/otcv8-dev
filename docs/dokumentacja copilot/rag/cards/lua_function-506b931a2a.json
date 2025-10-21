@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setOption",
+  "args": "key, value, force",
+  "file": "modules/client_options/options.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hide_map",
+  "args": "",
+  "file": "modules/client_terminal/commands.lua"
+}

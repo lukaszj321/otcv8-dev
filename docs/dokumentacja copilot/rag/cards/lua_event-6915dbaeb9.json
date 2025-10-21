@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onResize",
+  "file": "modules/corelib/ui/uiminiwindowcontainer.lua"
+}

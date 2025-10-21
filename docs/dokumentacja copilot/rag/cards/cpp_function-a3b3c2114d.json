@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSelection",
+  "return_type": "void",
+  "args": "int start, int end",
+  "file": "src/framework/ui/uitextedit.h"
+}

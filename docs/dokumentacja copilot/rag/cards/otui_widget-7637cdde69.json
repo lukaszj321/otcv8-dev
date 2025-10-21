@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 125,
+  "path": "SuppliesWindow/BotSwitch#capSwitch",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "capSwitch",
+  "props": {
+    "id": "capSwitch",
+    "height": "20",
+    "anchors.left": "SoftBoots.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "margin-right": "50",
+    "text-align": "center",
+    "text": "Cap Below:",
+    "tooltip": "Go refill if capacity is below set value."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "changeOutfit",
+  "return_type": "void",
+  "args": "const Outfit& outfit",
+  "file": "src/client/game.h"
+}

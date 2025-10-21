@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battlebutton.otui",
+  "line": 1,
+  "path": "BattleButton",
+  "widget": "BattleButton",
+  "base": "CreatureButton",
+  "id": "",
+  "props": {}
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 63,
+  "path": "AlarmsWindow",
+  "widget": "AlarmsWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "330 400",
+    "padding": "15"
+  }
+}

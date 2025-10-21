@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "add",
+  "return_type": "inline void",
+  "args": "const T& v",
+  "file": "src/framework/util/databuffer.h"
+}

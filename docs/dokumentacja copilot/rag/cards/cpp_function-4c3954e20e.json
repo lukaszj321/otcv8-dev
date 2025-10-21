@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glLineWidth",
+  "return_type": "nan",
+  "args": "width",
+  "file": "src/framework/graphics/painter.cpp"
+}

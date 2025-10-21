@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "scheduleEvent",
+  "args": "callback, delay",
+  "file": "modules/corelib/globals.lua"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onOptionChange",
+  "file": "modules/game_bot/functions/ui_elements.lua"
+}

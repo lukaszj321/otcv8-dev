@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setModule",
+  "return_type": "nan",
+  "args": "qrcode, alignPatPos[i] + dx, alignPatPos[j] + dy, dx == 0 && dy == 0",
+  "file": "src/framework/util/qrcodegen.c"
+}

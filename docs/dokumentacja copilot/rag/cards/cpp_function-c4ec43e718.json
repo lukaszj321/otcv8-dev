@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::answerModalDialog",
+  "return_type": "void",
+  "args": "uint32 dialog, int button, int choice",
+  "file": "src/client/game.cpp"
+}

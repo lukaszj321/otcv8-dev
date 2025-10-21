@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMarginTop",
+  "return_type": "nan",
+  "args": "marginVertical",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

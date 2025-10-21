@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getActionDescription",
+  "args": "action",
+  "file": "modules/game_hotkeys/hotkeys_extra.lua"
+}

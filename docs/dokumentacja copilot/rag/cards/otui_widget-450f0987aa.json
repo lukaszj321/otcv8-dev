@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 148,
+  "path": "MainWindow#debugWindow/ResizeBorder",
+  "widget": "ResizeBorder",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom"
+  }
+}

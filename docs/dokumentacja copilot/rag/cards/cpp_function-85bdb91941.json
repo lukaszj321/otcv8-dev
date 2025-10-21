@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onPing",
+  "return_type": "return",
+  "args": "packetId",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

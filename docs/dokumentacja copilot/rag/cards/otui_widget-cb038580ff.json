@@ -1,0 +1,23 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 44,
+  "path": "UIWindow#terminalWindow/ScrollablePanel#terminalBuffer",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "terminalBuffer",
+  "props": {
+    "id": "terminalBuffer",
+    "focusable": "false",
+    "anchors.left": "parent.left",
+    "anchors.right": "terminalScroll.left",
+    "anchors.top": "terminalScroll.top",
+    "anchors.bottom": "commandTextEdit.top",
+    "layout": "",
+    "type": "verticalBox",
+    "align-bottom": "true",
+    "vertical-scrollbar": "terminalScroll",
+    "inverted-scroll": "true",
+    "margin-left": "2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/styles/countwindow.otui",
+  "line": 44,
+  "path": "CountWindow#countWindow/Button#buttonOk",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonOk",
+  "props": {
+    "id": "buttonOk",
+    "height": "20",
+    "anchors.right": "countScrollBar.horizontalCenter",
+    "anchors.left": "countScrollBar.left",
+    "anchors.top": "countScrollBar.bottom",
+    "margin-top": "7",
+    "margin-right": "6",
+    "focusable": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::setGlobalEnvironment",
+  "return_type": "void",
+  "args": "int env",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_encodeSegmentsAdvanced",
+  "return_type": "return",
+  "args": "segs, len, ecl, qrcodegen_VERSION_MIN, qrcodegen_VERSION_MAX, qrcodegen_Mask_AUTO, true, tempBuffer, qrcode",
+  "file": "src/framework/util/qrcodegen.c"
+}

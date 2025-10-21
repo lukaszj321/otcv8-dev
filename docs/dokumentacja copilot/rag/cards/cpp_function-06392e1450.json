@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateWalkOffset",
+  "return_type": "nan",
+  "args": "walkedPixelsInNextFrame, true",
+  "file": "src/client/creature.cpp"
+}

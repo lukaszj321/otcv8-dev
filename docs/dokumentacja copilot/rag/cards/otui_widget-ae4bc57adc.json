@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textmessage/textmessage.otui",
+  "line": 13,
+  "path": "Panel/Panel#centerTextMessagePanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "centerTextMessagePanel",
+  "props": {
+    "id": "centerTextMessagePanel",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true",
+    "width": "360"
+  }
+}

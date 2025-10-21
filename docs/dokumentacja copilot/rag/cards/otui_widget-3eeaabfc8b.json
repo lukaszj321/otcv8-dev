@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 193,
+  "path": "SpellHealing/Button#addSpell",
+  "widget": "Button",
+  "base": "",
+  "id": "addSpell",
+  "props": {
+    "id": "addSpell",
+    "anchors.right": "spellFormula.right",
+    "anchors.bottom": "spellList.bottom",
+    "text": "Add",
+    "size": "40 17",
+    "font": "cipsoftFont"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 106,
+  "path": "ConditionPanel/NexButton#nex",
+  "widget": "NexButton",
+  "base": "",
+  "id": "nex",
+  "props": {
+    "id": "nex",
+    "anchors.top": "parent.top",
+    "margin-top": "5",
+    "anchors.right": "parent.right"
+  }
+}

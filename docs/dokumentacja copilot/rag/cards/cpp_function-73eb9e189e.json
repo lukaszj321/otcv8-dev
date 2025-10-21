@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setBlue",
+  "return_type": "void",
+  "args": "float b",
+  "file": "src/framework/util/color.h"
+}

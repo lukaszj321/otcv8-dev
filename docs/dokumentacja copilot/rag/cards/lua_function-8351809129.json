@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:addButton",
+  "args": "text, func, icon",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

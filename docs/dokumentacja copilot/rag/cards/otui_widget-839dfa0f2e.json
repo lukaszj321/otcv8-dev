@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 140,
+  "path": "Panel/PreviousButton#prevAmountButton",
+  "widget": "PreviousButton",
+  "base": "",
+  "id": "prevAmountButton",
+  "props": {
+    "id": "prevAmountButton",
+    "anchors.left": "piecePriceEdit.right",
+    "margin-left": "7"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "HttpSession::on_connect",
+  "return_type": "void",
+  "args": "const boost::system::error_code& ec",
+  "file": "src/framework/http/session.cpp"
+}

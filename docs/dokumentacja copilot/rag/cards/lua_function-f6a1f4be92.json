@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "numbertoboolean",
+  "args": "number",
+  "file": "modules/corelib/util.lua"
+}

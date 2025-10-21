@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "keyCode == Fw::KeyDelete && m_editable",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

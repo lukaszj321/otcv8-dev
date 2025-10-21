@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getList",
+  "return_type": "std::vector<std::string>",
+  "args": "const std::string& key",
+  "file": "src/framework/core/config.h"
+}

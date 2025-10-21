@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getNullItemType",
+  "return_type": "const ItemTypePtr&",
+  "args": "nan",
+  "file": "src/client/thingtypemanager.h"
+}

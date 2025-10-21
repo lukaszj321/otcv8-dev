@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 194,
+  "path": "MainWindow#shopWindow/VerticalScrollBar#categoriesScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "categoriesScrollBar",
+  "props": {
+    "id": "categoriesScrollBar",
+    "anchors.top": "categories.top",
+    "anchors.bottom": "categories.bottom",
+    "anchors.right": "categories.right",
+    "step": "50",
+    "pixels-scroll": "true"
+  }
+}

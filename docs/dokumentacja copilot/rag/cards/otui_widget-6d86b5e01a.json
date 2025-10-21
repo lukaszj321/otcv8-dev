@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 16,
+  "path": "SpellProgressRect",
+  "widget": "SpellProgressRect",
+  "base": "UIProgressRect",
+  "id": "",
+  "props": {
+    "background": "#585858AA",
+    "percent": "100",
+    "focusable": "false"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onPost",
+  "file": "modules/corelib/http.lua"
+}

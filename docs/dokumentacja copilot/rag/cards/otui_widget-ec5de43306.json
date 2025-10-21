@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 54,
+  "path": "MainWindow#ruleViolationWindow/TextList#reasonList",
+  "widget": "TextList",
+  "base": "",
+  "id": "reasonList",
+  "props": {
+    "id": "reasonList",
+    "height": "100",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "2",
+    "focusable": "false",
+    "vertical-scrollbar": "reasonListScrollBar"
+  }
+}

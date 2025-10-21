@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "memset",
+  "return_type": "nan",
+  "args": "pOut2, 0, outimg2",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

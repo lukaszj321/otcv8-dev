@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 219,
+  "path": "ItemHealing",
+  "widget": "ItemHealing",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "size": "490 120"
+  }
+}

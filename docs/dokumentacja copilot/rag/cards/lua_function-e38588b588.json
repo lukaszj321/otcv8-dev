@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "CharacterList.create",
+  "args": "characters, account, otui",
+  "file": "modules/client_entergame/characterlist.lua"
+}

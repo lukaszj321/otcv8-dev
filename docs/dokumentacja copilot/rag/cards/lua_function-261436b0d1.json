@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "compressConfig",
+  "args": "configName",
+  "file": "modules/game_bot/bot.lua"
+}

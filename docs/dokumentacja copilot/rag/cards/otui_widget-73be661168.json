@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 65,
+  "path": "ModalDialog#modalDialog/Panel#buttonsPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "buttonsPanel",
+  "props": {
+    "id": "buttonsPanel",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "height": "24",
+    "layout": "horizontalBox",
+    "align-right": "true"
+  }
+}

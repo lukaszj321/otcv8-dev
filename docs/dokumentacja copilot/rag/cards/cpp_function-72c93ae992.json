@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCachedText",
+  "return_type": "const CachedText&",
+  "args": "nan",
+  "file": "src/client/animatedtext.h"
+}

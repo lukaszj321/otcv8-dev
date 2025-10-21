@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 33,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "debugPanel",
+  "props": {
+    "id": "debugPanel",
+    "anchors.fill": "parent",
+    "margin-bottom": "5",
+    "margin": "5 5 5 5",
+    "padding-left": "5",
+    "vertical-scrollbar": "debugScroll"
+  }
+}

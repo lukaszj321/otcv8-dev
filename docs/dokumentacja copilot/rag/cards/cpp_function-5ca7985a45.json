@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "paste",
+  "return_type": "void",
+  "args": "const ImagePtr& other",
+  "file": "src/framework/graphics/image.h"
+}

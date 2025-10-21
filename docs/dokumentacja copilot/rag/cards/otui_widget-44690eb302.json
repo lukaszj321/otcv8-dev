@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 142,
+  "path": "Panel/TextEdit#searchEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "searchEdit",
+  "props": {
+    "id": "searchEdit",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "width": "113"
+  }
+}

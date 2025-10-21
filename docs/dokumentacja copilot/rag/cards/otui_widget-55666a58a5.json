@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 132,
+  "path": "MainWindow#shopWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "shopWindow",
+  "props": {
+    "id": "shopWindow",
+    "size": "500 360"
+  }
+}

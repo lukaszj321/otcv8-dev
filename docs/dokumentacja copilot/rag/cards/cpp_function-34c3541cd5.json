@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Minimap::loadOtmm",
+  "return_type": "bool",
+  "args": "const std::string& fileName",
+  "file": "src/client/minimap.cpp"
+}

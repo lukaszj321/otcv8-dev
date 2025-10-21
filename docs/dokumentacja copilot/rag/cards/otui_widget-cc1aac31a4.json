@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/market.otui",
+  "line": 36,
+  "path": "MarketWindow#marketWindow/Button#closeButton",
+  "widget": "Button",
+  "base": "",
+  "id": "closeButton",
+  "props": {
+    "id": "closeButton",
+    "anchors.top": "mainTabContent.bottom",
+    "margin-top": "5",
+    "width": "110"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glDeleteBuffers",
+  "return_type": "nan",
+  "args": "1, &id",
+  "file": "src/framework/graphics/hardwarebuffer.cpp"
+}

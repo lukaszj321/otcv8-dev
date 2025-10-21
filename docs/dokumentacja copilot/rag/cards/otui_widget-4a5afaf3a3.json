@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 121,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#magiclevel",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "magiclevel",
+  "props": {
+    "id": "magiclevel"
+  }
+}

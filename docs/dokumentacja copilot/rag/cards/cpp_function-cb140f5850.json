@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "callLuaField",
+  "return_type": "nan",
+  "args": "\"onSizeChange\", m_size",
+  "file": "src/client/container.cpp"
+}

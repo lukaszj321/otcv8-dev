@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlHandle::FirstChildElement",
+  "return_type": "TiXmlHandle",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

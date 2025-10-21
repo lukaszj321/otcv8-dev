@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMark",
+  "return_type": "void",
+  "args": "size_t start, const Color& color",
+  "file": "src/framework/graphics/drawqueue.h"
+}

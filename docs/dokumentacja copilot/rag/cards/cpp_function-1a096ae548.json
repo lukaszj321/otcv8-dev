@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setWidget",
+  "return_type": "void",
+  "args": "UIWidgetPtr widget",
+  "file": "src/client/tile.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botImbuementWindow",
+  "args": "itemId, slots, activeSlots, imbuements, needItems",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_prey\n  description: Preys, sponsored by kivera-global.com, remade by Vithrax#5814\n  author: otclient.ovh & kivera-global.com & Vithrax#5814\n  website: http://otclient.ovh\n  sandboxed: true\n  scripts: [ prey ]\n  dependencies: [ client_topmenu ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_prey/prey.otmod",
+  "description": "Preys, sponsored by kivera-global.com, remade by Vithrax#5814"
+}

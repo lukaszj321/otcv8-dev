@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_locales/locales.otui",
+  "line": 11,
+  "path": "UIWindow#localesWindow",
+  "widget": "UIWindow",
+  "base": "",
+  "id": "localesWindow",
+  "props": {
+    "id": "localesWindow",
+    "background-color": "#000000",
+    "opacity": "0.90",
+    "clipping": "true",
+    "anchors.fill": "parent"
+  }
+}

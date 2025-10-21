@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XSetWMHints",
+  "return_type": "nan",
+  "args": "m_display, m_window, &hints",
+  "file": "src/framework/platform/x11window.cpp"
+}

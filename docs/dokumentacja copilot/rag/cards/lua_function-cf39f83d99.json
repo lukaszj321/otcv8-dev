@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "showPreTab",
+  "args": "tabBar",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

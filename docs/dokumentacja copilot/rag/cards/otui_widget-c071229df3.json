@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 68,
+  "path": "MainWindow#assignSpellWindow/VerticalScrollBar#listScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "listScrollBar",
+  "props": {
+    "id": "listScrollBar",
+    "anchors.top": "spellList.top",
+    "anchors.right": "spellList.right",
+    "margin-right": "1",
+    "anchors.bottom": "spellList.bottom",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::setSkull",
+  "return_type": "void",
+  "args": "uint8 skull",
+  "file": "src/client/creature.cpp"
+}

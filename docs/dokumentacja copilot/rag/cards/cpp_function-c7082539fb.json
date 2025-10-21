@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSafeFight",
+  "return_type": "void",
+  "args": "bool on",
+  "file": "src/client/game.h"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 70,
+  "path": "TradeWindow/MiniWindowContents/ScrollableFlatPanel#counterTradeContainer",
+  "widget": "ScrollableFlatPanel",
+  "base": "",
+  "id": "counterTradeContainer",
+  "props": {
+    "id": "counterTradeContainer",
+    "anchors.top": "counterTradeCountLabel.bottom",
+    "anchors.bottom": "acceptButton.top",
+    "anchors.left": "counterTradeCountLabel.left",
+    "anchors.right": "counterTradeCountLabel.right",
+    "margin-bottom": "3",
+    "padding": "2",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "34 34",
+    "flow": "true",
+    "cell-spacing": "1",
+    "vertical-scrollbar": "counterTradeScrollBar"
+  }
+}

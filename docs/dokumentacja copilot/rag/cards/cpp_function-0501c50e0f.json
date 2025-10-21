@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CreatureManager::saveSpawns",
+  "return_type": "void",
+  "args": "const std::string& fileName",
+  "file": "src/client/creatures.cpp"
+}

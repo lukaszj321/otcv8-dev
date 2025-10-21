@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCenterPos",
+  "return_type": "Position",
+  "args": "nan",
+  "file": "src/client/creatures.h"
+}

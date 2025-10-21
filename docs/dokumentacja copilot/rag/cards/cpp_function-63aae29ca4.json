@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "deflateInit2",
+  "return_type": "nan",
+  "args": "&zstream1, 3, 8, 15, 8, Z_DEFAULT_STRATEGY",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

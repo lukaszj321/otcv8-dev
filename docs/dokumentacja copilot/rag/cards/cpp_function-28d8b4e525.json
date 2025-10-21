@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processOpenOwnPrivateChannel",
+  "return_type": "void",
+  "args": "int channelId, const std::string& name",
+  "file": "src/client/game.h"
+}

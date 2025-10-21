@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProxyManager::terminate",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/proxy/proxy.cpp"
+}

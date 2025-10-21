@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onTalk",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua"
+}

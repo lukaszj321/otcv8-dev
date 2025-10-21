@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "gamelib\n  description: Contains game related classes\n  author: OTClient team\n  website: https://github.com/edubart/otclient\n\n  @onLoad: |\n    dofile",
+  "file": "modules/gamelib/gamelib.otmod",
+  "description": "Contains game related classes"
+}

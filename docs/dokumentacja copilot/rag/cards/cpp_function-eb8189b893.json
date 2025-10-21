@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "add8",
+  "return_type": "void",
+  "args": "int8 v",
+  "file": "src/framework/core/filestream.h"
+}

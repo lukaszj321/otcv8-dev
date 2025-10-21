@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processTalk",
+  "return_type": "void",
+  "args": "const std::string& name, int level, Otc::MessageMode mode, const std::string& text, int channelId, const Position& pos",
+  "file": "src/client/game.h"
+}

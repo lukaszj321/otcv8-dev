@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textwindow/textwindow.otui",
+  "line": 11,
+  "path": "TextWindow#textWindow/Label#description",
+  "widget": "Label",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "anchors.top": "parent.top",
+    "anchors.left": "textItem.right",
+    "anchors.right": "parent.right",
+    "margin-left": "8",
+    "text-auto-resize": "true",
+    "text-align": "left",
+    "text-wrap": "true"
+  }
+}

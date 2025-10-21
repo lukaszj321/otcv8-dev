@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setOpenPvpSituations",
+  "return_type": "void",
+  "args": "int openPvpSitations",
+  "file": "src/client/game.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "periodicalEvent",
+  "args": "eventFunc, conditionFunc, delay, autoRepeatDelay",
+  "file": "modules/corelib/globals.lua"
+}

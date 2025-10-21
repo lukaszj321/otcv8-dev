@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 52,
+  "path": "BotServerData/BotLabel#ServerStatus",
+  "widget": "BotLabel",
+  "base": "",
+  "id": "ServerStatus",
+  "props": {
+    "id": "ServerStatus",
+    "anchors.left": "prev.right",
+    "anchors.bottom": "parent.bottom",
+    "margin-left": "10",
+    "margin-bottom": "4",
+    "text-align": "center",
+    "text": "CONNECTED"
+  }
+}

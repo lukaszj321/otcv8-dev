@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 361,
+  "path": "HealBotSettingsPanel/FlatPanel#list/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "text": "Additional Settings",
+    "text-align": "center",
+    "font": "verdana-11px-rounded"
+  }
+}

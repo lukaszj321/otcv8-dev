@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 92,
+  "path": "OptionPanel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "text": "Show Right Action Bars:",
+    "visible": "false"
+  }
+}

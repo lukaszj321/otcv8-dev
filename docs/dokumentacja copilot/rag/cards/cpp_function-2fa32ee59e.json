@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "safe_cast",
+  "return_type": "R",
+  "args": "const T& t",
+  "file": "src/framework/stdext/cast.h"
+}

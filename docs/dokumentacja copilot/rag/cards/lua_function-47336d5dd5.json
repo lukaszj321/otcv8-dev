@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:onDragMove",
+  "args": "mousePos, mouseMoved",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

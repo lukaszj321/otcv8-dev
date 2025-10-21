@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 48,
+  "path": "CondidionLabel",
+  "widget": "CondidionLabel",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "padding": "1",
+    "height": "15"
+  }
+}

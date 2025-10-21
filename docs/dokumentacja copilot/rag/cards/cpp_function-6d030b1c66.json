@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processVipStateChange",
+  "return_type": "void",
+  "args": "uint id, uint status",
+  "file": "src/client/game.cpp"
+}

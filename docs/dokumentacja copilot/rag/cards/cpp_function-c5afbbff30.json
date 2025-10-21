@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "buffer",
+  "return_type": "std::vector<char>",
+  "args": "size",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

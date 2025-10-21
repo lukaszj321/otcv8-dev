@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textwindow/textwindow.otui",
+  "line": 1,
+  "path": "TextWindow#textWindow",
+  "widget": "TextWindow",
+  "base": "MainWindow",
+  "id": "textWindow",
+  "props": {
+    "id": "textWindow",
+    "size": "300 280"
+  }
+}

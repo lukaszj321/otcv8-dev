@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boost::replace_all",
+  "return_type": "return",
+  "args": "str, search, replacement",
+  "file": "src/framework/stdext/string.cpp"
+}

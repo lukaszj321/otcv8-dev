@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::isSightClear",
+  "return_type": "bool",
+  "args": "const Position& fromPos, const Position& toPos",
+  "file": "src/client/map.cpp"
+}

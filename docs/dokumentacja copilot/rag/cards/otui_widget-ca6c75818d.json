@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 19,
+  "path": "QuestLabel",
+  "widget": "QuestLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "height": "18",
+    "text-offset": "2 1",
+    "focusable": "true",
+    "color": "#aaaaaa",
+    "background-color": "#ffffff22"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/waitinglist.otui",
+  "line": 24,
+  "path": "MainWindow#waitingWindow/Label#timeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "timeLabel",
+  "props": {
+    "id": "timeLabel",
+    "anchors.bottom": "separator.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-bottom": "10"
+  }
+}

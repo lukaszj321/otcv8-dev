@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/violationwindow.otui",
+  "line": 6,
+  "path": "MainWindow#ignoreWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "text-wrap": "true",
+    "text-auto-resize": "true",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top"
+  }
+}

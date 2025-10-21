@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SetCDATA",
+  "return_type": "void",
+  "args": "bool _cdata",
+  "file": "src/framework/xml/tinyxml.h"
+}

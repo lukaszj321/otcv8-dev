@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "push_internal_luavalue",
+  "return_type": "nan",
+  "args": "it.first",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

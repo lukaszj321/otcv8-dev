@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDirection",
+  "return_type": "void",
+  "args": "Otc::Direction dir",
+  "file": "src/client/creatures.h"
+}

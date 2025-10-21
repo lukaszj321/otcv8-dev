@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseOpenOutfitWindow",
+  "return_type": "case Proto::GameServerChooseOutfit:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

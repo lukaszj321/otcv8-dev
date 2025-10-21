@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto& widget : m_bottomWidgets",
+  "file": "src/client/creature.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 38,
+  "path": "SkillPanel/UIWidget#level",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "level",
+  "props": {
+    "id": "level",
+    "anchors.left": "parent.left",
+    "text": "999",
+    "font": "verdana-11px-rounded",
+    "text-align": "center",
+    "margin-left": "7"
+  }
+}

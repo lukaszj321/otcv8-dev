@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 91,
+  "path": "Rule/Button#visible",
+  "widget": "Button",
+  "base": "",
+  "id": "visible",
+  "props": {
+    "id": "visible",
+    "text": "V",
+    "anchors.right": "prev.left",
+    "margin-right": "3",
+    "width": "14",
+    "height": "14",
+    "text-align": "center",
+    "tooltip": "Items must be visible"
+  }
+}

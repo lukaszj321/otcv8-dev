@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SetError",
+  "return_type": "nan",
+  "args": "TIXML_ERROR_EMBEDDED_NULL, 0, 0, TIXML_ENCODING_UNKNOWN",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "reset",
+  "return_type": "void",
+  "args": "Fw::InputEventType eventType = Fw::NoInputEvent",
+  "file": "src/framework/core/inputevent.h"
+}

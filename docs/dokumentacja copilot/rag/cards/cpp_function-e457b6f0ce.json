@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMap::getPosition",
+  "return_type": "Position",
+  "args": "const Point& mousePos",
+  "file": "src/client/uimap.cpp"
+}

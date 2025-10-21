@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui",
+  "line": 5,
+  "path": "TargetBotCreatureEditorScrollBar/Label#text",
+  "widget": "Label",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "text-align": "center"
+  }
+}

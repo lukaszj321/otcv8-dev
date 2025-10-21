@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Color",
+  "return_type": "return",
+  "args": "m_r, m_g, m_b, m_a * opacity",
+  "file": "src/framework/util/color.h"
+}

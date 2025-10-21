@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/styles/countwindow.otui",
+  "line": 6,
+  "path": "CountWindow#countWindow/SpinBox#spinBox",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "spinBox",
+  "props": {
+    "id": "spinBox",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "width": "1",
+    "height": "1",
+    "phantom": "true",
+    "margin-top": "2",
+    "focusable": "true"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/console.otui",
+  "line": 6,
+  "path": "OptionPanel/OptionCheckBox#showEventMessagesInConsole",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showEventMessagesInConsole",
+  "props": {
+    "id": "showEventMessagesInConsole"
+  }
+}

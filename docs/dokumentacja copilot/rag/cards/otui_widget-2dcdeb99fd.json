@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 11,
+  "path": "MainWindow#channelsWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "channelsWindow",
+  "props": {
+    "id": "channelsWindow",
+    "size": "250 238"
+  }
+}

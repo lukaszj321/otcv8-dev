@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "items",
+  "return_type": "std::vector<ItemPtr>",
+  "args": "itemCount",
+  "file": "src/client/protocolgameparse.cpp"
+}

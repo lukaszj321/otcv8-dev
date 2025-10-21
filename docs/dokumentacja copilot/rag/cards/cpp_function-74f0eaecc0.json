@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "asFileStream",
+  "return_type": "FileStreamPtr",
+  "args": "nan",
+  "file": "src/framework/core/filestream.h"
+}

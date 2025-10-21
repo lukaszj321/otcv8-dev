@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "doKeyCombo",
+  "args": "keyCombo, repeated",
+  "file": "modules/game_hotkeys/hotkeys_manager.lua"
+}

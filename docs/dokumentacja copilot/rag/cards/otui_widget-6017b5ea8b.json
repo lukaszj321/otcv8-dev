@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 27,
+  "path": "OptionPanel/OptionCheckBox#topHealtManaBar",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "topHealtManaBar",
+  "props": {
+    "id": "topHealtManaBar"
+  }
+}

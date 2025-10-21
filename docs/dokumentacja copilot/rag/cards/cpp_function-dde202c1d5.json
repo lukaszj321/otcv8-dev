@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttribute::SetIntValue",
+  "return_type": "void",
+  "args": "int _value",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 127,
+  "path": "TargetSettings/Vocations#vocations",
+  "widget": "Vocations",
+  "base": "",
+  "id": "vocations",
+  "props": {
+    "id": "vocations",
+    "anchors.left": "prev.right",
+    "margin-left": "5"
+  }
+}

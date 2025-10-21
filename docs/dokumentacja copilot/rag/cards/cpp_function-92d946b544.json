@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cast",
+  "return_type": "template<typename T> bool",
+  "args": "const T& in, std::string& out",
+  "file": "src/framework/stdext/cast.h"
+}

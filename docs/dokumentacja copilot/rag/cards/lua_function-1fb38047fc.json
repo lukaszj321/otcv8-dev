@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "expToAdvance",
+  "args": "currentLevel, currentExp",
+  "file": "modules/game_skills/skills.lua"
+}

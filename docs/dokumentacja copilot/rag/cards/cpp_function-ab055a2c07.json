@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addValue",
+  "return_type": "void",
+  "args": "int value, bool ignoreSmallValues = false",
+  "file": "src/client/uigraph.h"
+}

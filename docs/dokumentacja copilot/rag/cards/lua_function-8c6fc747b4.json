@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "translateNetworkError",
+  "args": "errcode, connecting, errdesc",
+  "file": "modules/corelib/net.lua"
+}

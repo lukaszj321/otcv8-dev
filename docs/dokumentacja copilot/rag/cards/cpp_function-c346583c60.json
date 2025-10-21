@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_pushunsigned",
+  "return_type": "nan",
+  "args": "L, r",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

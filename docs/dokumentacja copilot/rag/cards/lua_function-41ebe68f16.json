@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "extends",
+  "args": "base, name",
+  "file": "modules/corelib/util.lua"
+}

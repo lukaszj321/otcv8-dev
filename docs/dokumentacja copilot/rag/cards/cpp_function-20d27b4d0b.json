@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::traceback",
+  "return_type": "std::string",
+  "args": "const std::string& errorMessage, int level",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

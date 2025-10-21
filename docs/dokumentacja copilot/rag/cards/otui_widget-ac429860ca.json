@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 15,
+  "path": "BotServerData/Label#label",
+  "widget": "Label",
+  "base": "",
+  "id": "label",
+  "props": {
+    "id": "label",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-top": "23",
+    "text-align": "center",
+    "text": "Channel Name:",
+    "margin-left": "6"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseUnjustifiedStats",
+  "return_type": "case Proto::GameServerUnjustifiedStats:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

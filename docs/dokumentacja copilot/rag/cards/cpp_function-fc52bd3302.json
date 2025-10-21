@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setConnection",
+  "return_type": "void",
+  "args": "const ConnectionPtr& connection",
+  "file": "src/framework/net/protocol.h"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 175,
+  "path": "MainWindow#npcWindow/FlatPanel#setupPanel/HorizontalScrollBar#quantityScroll",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "quantityScroll",
+  "props": {
+    "id": "quantityScroll",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "margin-left": "5",
+    "margin-right": "5",
+    "show-value": "true",
+    "minimum": "1",
+    "maximum": "100",
+    "step": "1"
+  }
+}

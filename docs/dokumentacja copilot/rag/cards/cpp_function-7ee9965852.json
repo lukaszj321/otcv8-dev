@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FontManager::fontExists",
+  "return_type": "bool",
+  "args": "const std::string& fontName",
+  "file": "src/framework/graphics/fontmanager.cpp"
+}

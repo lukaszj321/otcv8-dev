@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "any_cast",
+  "return_type": "template<typename T> const T&",
+  "args": "const any& operand",
+  "file": "src/framework/stdext/any.h"
+}

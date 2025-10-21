@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 35,
+  "path": "VocationPanel/BotSwitch#RP",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "RP",
+  "props": {
+    "id": "RP",
+    "anchors.bottom": "ED.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "text": "Paladins"
+  }
+}

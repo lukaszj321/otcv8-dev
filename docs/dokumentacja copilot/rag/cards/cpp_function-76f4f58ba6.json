@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "readCrashLog",
+  "return_type": "std::string",
+  "args": "bool txt",
+  "file": "src/framework/core/resourcemanager.h"
+}

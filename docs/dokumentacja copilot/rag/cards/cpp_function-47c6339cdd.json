@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "read_sub_row",
+  "return_type": "void",
+  "args": "unsigned char * row, unsigned int rowbytes, unsigned int bpp",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

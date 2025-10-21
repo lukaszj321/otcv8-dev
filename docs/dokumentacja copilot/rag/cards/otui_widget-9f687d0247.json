@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 72,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#buttons/BattleNPCs#hideNPCs",
+  "widget": "BattleNPCs",
+  "base": "",
+  "id": "hideNPCs",
+  "props": {
+    "id": "hideNPCs"
+  }
+}

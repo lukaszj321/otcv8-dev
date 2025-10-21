@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 216,
+  "path": "Panel#actionBar",
+  "widget": "Panel",
+  "base": "",
+  "id": "actionBar",
+  "props": {
+    "id": "actionBar",
+    "focusable": "false",
+    "image-source": "/images/ui/actionbar_background",
+    "image-border": "1",
+    "margin-top": "-5",
+    "width": "0",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendTalk",
+  "return_type": "void",
+  "args": "Otc::MessageMode mode, int channelId, const std::string& receiver, const std::string& message, const Position& pos, Otc::Direction dir",
+  "file": "src/client/protocolgamesend.cpp"
+}

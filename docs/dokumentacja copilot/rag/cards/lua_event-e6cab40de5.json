@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onModalDialog",
+  "file": "modules/game_bot/functions/callbacks.lua"
+}

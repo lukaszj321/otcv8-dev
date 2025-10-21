@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBindRenderbuffer",
+  "return_type": "nan",
+  "args": "GL_RENDERBUFFER, m_depthRbo",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

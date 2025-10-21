@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITable:setRowStyle",
+  "args": "style, dontUpdate",
+  "file": "modules/corelib/ui/uitable.lua"
+}

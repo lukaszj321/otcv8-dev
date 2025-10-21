@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_buttons/buttons.otui",
+  "line": 1,
+  "path": "GameButtonsWindow#buttons",
+  "widget": "GameButtonsWindow",
+  "base": "",
+  "id": "buttons",
+  "props": {
+    "id": "buttons",
+    "icon": "/images/topbuttons/buttons"
+  }
+}

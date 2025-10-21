@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "imageSize",
+  "return_type": "Size",
+  "args": "apng.width, apng.height",
+  "file": "src/framework/graphics/texturemanager.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 227,
+  "path": "MainWindow#npcWindow/FlatPanel#buyOptions/CheckBox#ignoreCapacity",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "ignoreCapacity",
+  "props": {
+    "id": "ignoreCapacity",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "margin-top": "3"
+  }
+}

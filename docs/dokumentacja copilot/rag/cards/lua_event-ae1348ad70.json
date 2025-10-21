@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onImbuementWindow",
+  "file": "modules/game_bot/executor.lua"
+}

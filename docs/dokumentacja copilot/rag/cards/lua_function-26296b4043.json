@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hideVersionLabel",
+  "args": "",
+  "file": "modules/client_background/background.lua"
+}

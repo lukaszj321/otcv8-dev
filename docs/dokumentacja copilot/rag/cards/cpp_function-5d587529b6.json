@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processOpenContainer",
+  "return_type": "void",
+  "args": "int containerId, const ItemPtr& containerItem, const std::string& name, int capacity, bool hasParent, const std::vector<ItemPtr>& items, bool isUnlocked, bool hasPages, int containerSize, int firstIndex",
+  "file": "src/client/game.cpp"
+}

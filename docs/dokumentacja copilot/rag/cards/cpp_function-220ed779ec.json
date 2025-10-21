@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "state == Otc::PREY_STATE_LOCKED",
+  "file": "src/client/protocolgameparse.cpp"
+}

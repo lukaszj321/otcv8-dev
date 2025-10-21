@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBlendFuncSeparate",
+  "return_type": "case CompositionMode_AlphaRestoring:",
+  "args": "GL_ZERO, GL_ONE, GL_ONE, GL_ONE",
+  "file": "src/framework/graphics/painter.cpp"
+}

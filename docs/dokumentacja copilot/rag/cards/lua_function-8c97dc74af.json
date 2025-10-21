@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "ProtocolGame.unregisterExtendedJSONOpcode",
+  "args": "opcode",
+  "file": "modules/gamelib/protocolgame.lua"
+}

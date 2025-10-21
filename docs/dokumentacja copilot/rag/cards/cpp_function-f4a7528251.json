@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CombinedSoundSource::setGain",
+  "return_type": "void",
+  "args": "float gain",
+  "file": "src/framework/sound/combinedsoundsource.cpp"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 24,
+  "path": "TrackerItem/UIWidget#drops",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "drops",
+  "props": {
+    "id": "drops",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.bottom": "Item.bottom",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "font": "verdana-11px-rounded",
+    "text-align": "left",
+    "text": "Loot Drops: 0",
+    "color": "#CCCCCC"
+  }
+}

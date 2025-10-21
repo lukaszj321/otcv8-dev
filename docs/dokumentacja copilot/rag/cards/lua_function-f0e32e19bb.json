@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botCloseChannel",
+  "args": "channelId",
+  "file": "modules/game_bot/bot.lua"
+}

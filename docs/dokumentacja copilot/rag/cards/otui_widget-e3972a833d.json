@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 143,
+  "path": "RightSliders/Button#lock/UIWidget#image",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "image",
+  "props": {
+    "id": "image",
+    "margin-right": "1",
+    "phantom": "true",
+    "image-source": "/images/game/actionbar/unlocked"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawFormatBits",
+  "return_type": "void",
+  "args": "enum qrcodegen_Ecc ecl, enum qrcodegen_Mask mask, uint8_t qrcode[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

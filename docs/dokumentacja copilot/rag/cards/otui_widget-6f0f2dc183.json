@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 250,
+  "path": "Panel#actionBar/VerticalScrollBar#actionScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "actionScroll",
+  "props": {
+    "id": "actionScroll",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "step": "37",
+    "pixels-scroll": "true",
+    "visible": "false"
+  }
+}

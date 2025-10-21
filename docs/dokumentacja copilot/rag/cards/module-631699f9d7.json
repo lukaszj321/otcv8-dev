@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_background\n  description: Handles the background of the login screen\n  author: edubart\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ background ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_background/background.otmod",
+  "description": "Handles the background of the login screen"
+}

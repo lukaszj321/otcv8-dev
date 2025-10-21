@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 157,
+  "path": "BotServerWindow",
+  "widget": "BotServerWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "370 310"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/icons.otui",
+  "line": 1,
+  "path": "BotIcon",
+  "widget": "BotIcon",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "size": "50 50",
+    "focusable": "false",
+    "phantom": "false",
+    "draggable": "true"
+  }
+}

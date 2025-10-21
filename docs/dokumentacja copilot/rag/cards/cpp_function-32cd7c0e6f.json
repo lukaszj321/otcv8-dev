@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setModuleBounded",
+  "return_type": "testable void",
+  "args": "uint8_t qrcode[], int x, int y, bool isBlack",
+  "file": "src/framework/util/qrcodegen.c"
+}

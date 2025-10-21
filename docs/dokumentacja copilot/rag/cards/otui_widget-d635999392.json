@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 470,
+  "path": "EquipWindow",
+  "widget": "EquipWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "750 350",
+    "text": "Equipment Manager"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISplitter:onMouseRelease",
+  "args": "mousePos, mouseButton",
+  "file": "modules/corelib/ui/uisplitter.lua"
+}

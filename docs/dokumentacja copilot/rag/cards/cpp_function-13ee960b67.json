@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_makeEci",
+  "return_type": "struct qrcodegen_Segment",
+  "args": "long assignVal, uint8_t buf[]",
+  "file": "src/framework/util/qrcodegen.h"
+}

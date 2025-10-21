@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseVipLogout",
+  "return_type": "else",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

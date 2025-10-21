@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseURI",
+  "return_type": "ParsedURI",
+  "args": "const std::string& url",
+  "file": "src/framework/stdext/uri.h"
+}

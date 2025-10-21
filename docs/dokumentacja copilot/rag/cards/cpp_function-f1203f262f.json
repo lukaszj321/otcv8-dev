@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "tokens",
+  "return_type": "boost::tokenizer<boost::escaped_list_separator<char>>",
+  "args": "tmp",
+  "file": "src/framework/otml/otmlparser.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlText::Clone",
+  "return_type": "TiXmlNode*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

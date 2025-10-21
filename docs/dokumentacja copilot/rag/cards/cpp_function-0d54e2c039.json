@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMount",
+  "return_type": "void",
+  "args": "int mount",
+  "file": "src/client/outfit.h"
+}

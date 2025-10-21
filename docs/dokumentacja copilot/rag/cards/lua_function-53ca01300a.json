@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:setParentSize",
+  "args": "size",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

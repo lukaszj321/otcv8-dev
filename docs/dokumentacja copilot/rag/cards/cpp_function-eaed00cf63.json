@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::setEnabled",
+  "return_type": "void",
+  "args": "bool enabled",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

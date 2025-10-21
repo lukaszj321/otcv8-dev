@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Connection::read",
+  "return_type": "void",
+  "args": "uint32 bytes, const RecvCallback& callback",
+  "file": "src/framework/net/connection.cpp"
+}

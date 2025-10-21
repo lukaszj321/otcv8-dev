@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getDirectionFromPosition",
+  "return_type": "Otc::Direction",
+  "args": "const Position& position",
+  "file": "src/client/position.h"
+}

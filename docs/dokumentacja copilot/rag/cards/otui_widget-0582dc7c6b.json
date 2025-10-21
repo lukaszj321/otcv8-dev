@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 533,
+  "path": "EquipWindow/Button#bossList",
+  "widget": "Button",
+  "base": "",
+  "id": "bossList",
+  "props": {
+    "id": "bossList",
+    "font": "cipsoftFont",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "size": "65 21"
+  }
+}

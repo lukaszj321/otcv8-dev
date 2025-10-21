@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "openUrl",
+  "return_type": "bool",
+  "args": "std::string url, bool now = false",
+  "file": "src/framework/platform/platform.h"
+}

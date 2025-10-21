@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "moveTopCenter",
+  "return_type": "void",
+  "args": "const TPoint<T> &p",
+  "file": "src/framework/util/rect.h"
+}

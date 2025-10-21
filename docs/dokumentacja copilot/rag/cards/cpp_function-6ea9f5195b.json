@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawFloor",
+  "return_type": "nan",
+  "args": "z, cameraPosition, crosshairTile",
+  "file": "src/client/mapview.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "House::load",
+  "return_type": "void",
+  "args": "const TiXmlElement *elem",
+  "file": "src/client/houses.cpp"
+}

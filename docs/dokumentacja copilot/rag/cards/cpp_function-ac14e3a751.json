@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "is_power_of_two",
+  "return_type": "inline bool",
+  "args": "size_t v",
+  "file": "src/framework/stdext/math.h"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 74,
+  "path": "ModalDialog#modalDialog/ChoiceScrollBar",
+  "widget": "ChoiceScrollBar",
+  "base": "",
+  "id": "",
+  "props": {}
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 249,
+  "path": "MainWindow#npcWindow/FlatPanel#buyOptions/CheckBox#showAllItems",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "showAllItems",
+  "props": {
+    "id": "showAllItems",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "margin-top": "3",
+    "visible": "false",
+    "checked": "true"
+  }
+}

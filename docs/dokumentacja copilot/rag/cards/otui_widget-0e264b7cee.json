@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 72,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/SkullWidget#weekSkullWidget",
+  "widget": "SkullWidget",
+  "base": "",
+  "id": "weekSkullWidget",
+  "props": {
+    "id": "weekSkullWidget",
+    "anchors.top": "prev.top"
+  }
+}

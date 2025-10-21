@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "reedSolomonComputeRemainder",
+  "return_type": "testable void",
+  "args": "const uint8_t data[], int dataLen, const uint8_t generator[], int degree, uint8_t result[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

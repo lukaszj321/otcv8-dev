@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::onZoomChange",
+  "return_type": "void",
+  "args": "int zoom, int oldZoom",
+  "file": "src/client/uiminimap.cpp"
+}

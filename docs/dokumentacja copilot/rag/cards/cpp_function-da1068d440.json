@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "v_TexCoord.x < 0.0",
+  "file": "src/framework/graphics/shaders/newshader.h"
+}

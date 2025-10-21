@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onOutputPacket",
+  "return_type": "void",
+  "args": "const OutputMessagePtr& packet",
+  "file": "src/framework/net/packet_player.h"
+}

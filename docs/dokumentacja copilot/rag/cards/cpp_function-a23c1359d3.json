@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Protocol",
+  "return_type": "public:",
+  "args": "nan",
+  "file": "src/framework/net/protocol.h"
+}

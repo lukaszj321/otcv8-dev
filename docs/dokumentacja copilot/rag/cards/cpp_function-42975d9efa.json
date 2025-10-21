@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ResourceManager::setLayout",
+  "return_type": "void",
+  "args": "std::string layout",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

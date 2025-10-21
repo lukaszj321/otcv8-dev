@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processLoginToken",
+  "return_type": "void",
+  "args": "bool unknown",
+  "file": "src/client/game.cpp"
+}

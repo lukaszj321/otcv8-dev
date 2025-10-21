@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMarketBrowse",
+  "file": "modules/game_market/market.lua"
+}

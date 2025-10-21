@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "dis",
+  "return_type": "static std::uniform_int_distribution<long>",
+  "args": "0, 2147483647",
+  "file": "src/framework/stdext/math.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BinaryTree::skipNodes",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/core/binarytree.cpp"
+}

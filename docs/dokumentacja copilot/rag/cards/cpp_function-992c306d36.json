@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendSeekInContainer",
+  "return_type": "void",
+  "args": "int cid, int index",
+  "file": "src/client/protocolgamesend.cpp"
+}

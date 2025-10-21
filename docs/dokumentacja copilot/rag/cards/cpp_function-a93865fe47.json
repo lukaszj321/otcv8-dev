@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "inflate",
+  "return_type": "nan",
+  "args": "&stream, Z_SYNC_FLUSH",
+  "file": "src/framework/core/filestream.cpp"
+}

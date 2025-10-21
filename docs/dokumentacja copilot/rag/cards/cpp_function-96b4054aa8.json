@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Crypt::_decrypt",
+  "return_type": "std::string",
+  "args": "const std::string& encrypted_string, bool useMachineUUID",
+  "file": "src/framework/util/crypt.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 33,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/Label#openPvpSituationsLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "openPvpSituationsLabel",
+  "props": {
+    "id": "openPvpSituationsLabel",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "font": "verdana-11px-rounded",
+    "margin-left": "12",
+    "phantom": "false"
+  }
+}

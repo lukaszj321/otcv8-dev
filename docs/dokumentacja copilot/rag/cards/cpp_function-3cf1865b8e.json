@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseStoreError",
+  "return_type": "case Proto::GameServerStoreError:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Position.equals",
+  "args": "pos1, pos2",
+  "file": "modules/gamelib/position.lua"
+}

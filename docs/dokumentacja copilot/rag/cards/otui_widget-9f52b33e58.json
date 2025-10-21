@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 446,
+  "path": "CardLabel",
+  "widget": "CardLabel",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "padding": "5"
+  }
+}

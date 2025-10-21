@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMarginBottom",
+  "return_type": "void",
+  "args": "int margin",
+  "file": "src/framework/ui/uiwidget.h"
+}

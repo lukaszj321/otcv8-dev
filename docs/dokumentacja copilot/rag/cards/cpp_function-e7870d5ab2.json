@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addRect",
+  "return_type": "inline void",
+  "args": "const Rect& rect",
+  "file": "src/framework/graphics/vertexarray.h"
+}

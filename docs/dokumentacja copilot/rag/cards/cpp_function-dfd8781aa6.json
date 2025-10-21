@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "blinkCursor",
+  "return_type": "else",
+  "args": "nan",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

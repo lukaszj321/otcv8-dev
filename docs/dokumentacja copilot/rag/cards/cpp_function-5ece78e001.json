@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "throw",
+  "args": "\"attempt to call an expired lua function from C++,\" \"did you forget to hold a reference for that function?\", 0",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

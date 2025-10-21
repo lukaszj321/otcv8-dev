@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 118,
+  "path": "ItemsRow/BotItem#item1",
+  "widget": "BotItem",
+  "base": "",
+  "id": "item1",
+  "props": {
+    "id": "item1",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

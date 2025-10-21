@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hotkeyCapture",
+  "args": "assignWindow, keyCode, keyboardModifiers",
+  "file": "modules/game_hotkeys/hotkeys_manager.lua"
+}

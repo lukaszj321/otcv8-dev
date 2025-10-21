@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 361,
+  "path": "FeaturesWindow#FeaturesWindow/VerticalScrollBar#CustomPricesScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "CustomPricesScrollBar",
+  "props": {
+    "id": "CustomPricesScrollBar",
+    "anchors.top": "CustomPrices.top",
+    "anchors.bottom": "CustomPrices.bottom",
+    "anchors.right": "CustomPrices.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

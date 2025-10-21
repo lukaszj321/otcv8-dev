@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "reset",
+  "args": "",
+  "file": "modules/game_playerdeath/playerdeath.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:disableResize",
+  "args": "",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

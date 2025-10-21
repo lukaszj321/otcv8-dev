@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "escape_char",
+  "args": "c",
+  "file": "modules/corelib/json.lua"
+}

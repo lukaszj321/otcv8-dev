@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::format",
+  "return_type": "ss <<",
+  "args": "\"build type: %s\\n\", BUILD_TYPE",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

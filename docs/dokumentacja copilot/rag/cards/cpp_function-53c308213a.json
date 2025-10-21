@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Rect",
+  "return_type": "return",
+  "args": "nan",
+  "file": "src/client/minimap.cpp"
+}

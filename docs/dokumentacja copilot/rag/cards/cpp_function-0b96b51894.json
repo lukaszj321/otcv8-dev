@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "objPtr1 && objPtr2",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

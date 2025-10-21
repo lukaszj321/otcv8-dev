@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCreatureMove",
+  "return_type": "case Proto::GameServerMoveCreature:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

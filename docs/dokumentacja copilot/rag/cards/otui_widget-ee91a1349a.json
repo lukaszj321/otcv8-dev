@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/options.otui",
+  "line": 1,
+  "path": "OptionCheckBox",
+  "widget": "OptionCheckBox",
+  "base": "CheckBox",
+  "id": "",
+  "props": {
+    "height": "16",
+    "margin-top": "2"
+  }
+}

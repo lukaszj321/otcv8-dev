@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "MapView::getPositionOffset",
+  "return_type": "Point",
+  "args": "const Point& point, const Size& mapSize",
+  "file": "src/client/mapview.cpp"
+}

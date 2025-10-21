@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AInputQueue_detachLooper",
+  "return_type": "nan",
+  "args": "android_app->inputQueue",
+  "file": "src/android/android_native_app_glue.cpp"
+}

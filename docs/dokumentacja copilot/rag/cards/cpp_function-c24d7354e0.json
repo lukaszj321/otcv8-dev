@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "dest",
+  "return_type": "Rect",
+  "args": "xs, ys, MMBLOCK_SIZE * scale, MMBLOCK_SIZE * scale",
+  "file": "src/client/minimap.cpp"
+}

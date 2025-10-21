@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cb_seek",
+  "return_type": "static int",
+  "args": "void* source, ogg_int64_t offset, int whence",
+  "file": "src/framework/sound/oggsoundfile.h"
+}

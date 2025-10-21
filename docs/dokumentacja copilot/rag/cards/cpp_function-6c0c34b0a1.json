@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Visit",
+  "return_type": "virtual bool",
+  "args": "const TiXmlText& text",
+  "file": "src/framework/xml/tinyxml.h"
+}

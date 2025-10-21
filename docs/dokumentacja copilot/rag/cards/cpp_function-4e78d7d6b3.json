@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internalLoadCreatureBuffer",
+  "return_type": "nan",
+  "args": "attrib, newType",
+  "file": "src/client/creatures.cpp"
+}

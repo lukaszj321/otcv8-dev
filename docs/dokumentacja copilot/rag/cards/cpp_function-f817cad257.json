@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getModule",
+  "return_type": "testable bool",
+  "args": "const uint8_t qrcode[], int x, int y",
+  "file": "src/framework/util/qrcodegen.c"
+}

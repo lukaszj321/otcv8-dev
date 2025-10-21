@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getStackFunction",
+  "return_type": "nan",
+  "args": "level",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

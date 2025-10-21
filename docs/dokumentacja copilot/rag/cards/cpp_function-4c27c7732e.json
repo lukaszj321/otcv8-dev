@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "elapsedTicks >= m_currentDuration",
+  "file": "src/client/animator.cpp"
+}

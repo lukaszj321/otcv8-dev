@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemdetails.otui",
+  "line": 19,
+  "path": "Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "background-color": "#22283399",
+    "margin": "1"
+  }
+}

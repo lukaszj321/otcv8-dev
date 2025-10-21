@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::updatePressedWidget",
+  "return_type": "void",
+  "args": "Fw::MouseButton button, const UIWidgetPtr& newPressedWidget, const Point& clickedPos, bool fireClicks",
+  "file": "src/framework/ui/uimanager.cpp"
+}

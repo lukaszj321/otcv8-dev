@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addChild",
+  "return_type": "public: void",
+  "args": "const UIWidgetPtr& child",
+  "file": "src/framework/ui/uiwidget.h"
+}

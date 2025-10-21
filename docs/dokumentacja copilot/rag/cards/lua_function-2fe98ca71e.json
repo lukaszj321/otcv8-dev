@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "updateCursor",
+  "args": "",
+  "file": "modules/client_mobile/mobile.lua"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 167,
+  "path": "BotServerWindow/FeaturePanel#Features",
+  "widget": "FeaturePanel",
+  "base": "",
+  "id": "Features",
+  "props": {
+    "id": "Features",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10"
+  }
+}

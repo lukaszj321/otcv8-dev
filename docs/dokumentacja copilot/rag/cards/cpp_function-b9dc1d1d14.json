@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIAnchorLayout::fill",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& anchoredWidget, const std::string& hookedWidgetId",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

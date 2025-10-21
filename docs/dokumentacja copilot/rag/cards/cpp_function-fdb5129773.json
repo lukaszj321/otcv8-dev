@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlBase::ReadText",
+  "return_type": "const char*",
+  "args": "const char* p, TIXML_STRING * text, bool trimWhiteSpace, const char* endTag, bool caseInsensitive, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

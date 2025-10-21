@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 123,
+  "path": "OptionPanel/OptionCheckBox#actionbarLock",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "actionbarLock",
+  "props": {
+    "id": "actionbarLock"
+  }
+}

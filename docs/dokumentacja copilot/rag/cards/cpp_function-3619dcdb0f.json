@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeContainerItem",
+  "return_type": "void",
+  "args": "int slot",
+  "file": "src/client/item.h"
+}

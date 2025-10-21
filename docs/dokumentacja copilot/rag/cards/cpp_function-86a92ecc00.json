@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_depthFunc != DepthFunc_None",
+  "file": "src/framework/graphics/painter.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 69,
+  "path": "ItemEntry/UIItem#id",
+  "widget": "UIItem",
+  "base": "",
+  "id": "id",
+  "props": {
+    "id": "id",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "size": "15 15",
+    "focusable": "false",
+    "background-color": "#00000055"
+  }
+}

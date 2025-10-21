@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 153,
+  "path": "ComboActions#actions/FollowComboBox#followLeader",
+  "widget": "FollowComboBox",
+  "base": "",
+  "id": "followLeader",
+  "props": {
+    "id": "followLeader",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "margin-left": "7",
+    "height": "15",
+    "width": "145",
+    "font": "cipsoftFont"
+  }
+}

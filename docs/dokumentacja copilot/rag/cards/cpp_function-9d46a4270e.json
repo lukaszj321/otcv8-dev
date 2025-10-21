@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ModuleManager::discoverModule",
+  "return_type": "ModulePtr",
+  "args": "const std::string& moduleFile",
+  "file": "src/framework/core/modulemanager.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "send",
+  "return_type": "nan",
+  "args": "msg, true",
+  "file": "src/client/protocolgamesend.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "m_callback",
+  "return_type": "nan",
+  "args": "WEBSOCKET_OPEN, \"\"",
+  "file": "src/framework/http/websocket.cpp"
+}

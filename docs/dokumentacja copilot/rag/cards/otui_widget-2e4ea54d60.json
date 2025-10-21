@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 160,
+  "path": "MainWindow#npcWindow/FlatPanel#setupPanel/NPCOfferLabel#weight",
+  "widget": "NPCOfferLabel",
+  "base": "",
+  "id": "weight",
+  "props": {
+    "id": "weight"
+  }
+}

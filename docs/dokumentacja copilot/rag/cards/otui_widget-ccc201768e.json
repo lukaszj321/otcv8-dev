@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 100,
+  "path": "MiniWindow#botWindow/MiniWindowContents/Panel#messages",
+  "widget": "Panel",
+  "base": "",
+  "id": "messages",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "id": "messages",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

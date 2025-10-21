@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendAttack",
+  "return_type": "void",
+  "args": "uint creatureId, uint seq",
+  "file": "src/client/protocolgamesend.cpp"
+}

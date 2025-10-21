@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "mf",
+  "return_type": "return",
+  "args": "obj, lua",
+  "file": "src/framework/luaengine/luabinder.h"
+}

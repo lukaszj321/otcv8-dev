@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 318,
+  "path": "HuntingAnalyzer#HuntingAnalyzerWindow",
+  "widget": "HuntingAnalyzer",
+  "base": "MiniWindow",
+  "id": "HuntingAnalyzerWindow",
+  "props": {
+    "id": "HuntingAnalyzerWindow",
+    "text": "Hunt Analyzer",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

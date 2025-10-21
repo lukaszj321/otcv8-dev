@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 134,
+  "path": "MainWindow#assignSpellWindow/Button#buttonApply",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonApply",
+  "props": {
+    "id": "buttonApply",
+    "anchors.right": "prev.left",
+    "margin-right": "5",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "font": "cipsoftFont",
+    "text": "Apply"
+  }
+}

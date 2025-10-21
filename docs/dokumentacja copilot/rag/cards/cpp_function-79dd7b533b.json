@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLDocument::parseString",
+  "return_type": "OTMLDocumentPtr",
+  "args": "const std::string& data, const std::string& source",
+  "file": "src/framework/otml/otmldocument.cpp"
+}

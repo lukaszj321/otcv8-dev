@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_doReset",
+  "file": "src/framework/graphics/atlas.cpp"
+}

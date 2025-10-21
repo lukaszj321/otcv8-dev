@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onClickCallback",
+  "file": "modules/game_bot/functions/ui_legacy.lua"
+}

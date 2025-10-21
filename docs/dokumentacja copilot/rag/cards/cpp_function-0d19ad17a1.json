@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::getChildById",
+  "return_type": "UIWidgetPtr",
+  "args": "const std::string& childId",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

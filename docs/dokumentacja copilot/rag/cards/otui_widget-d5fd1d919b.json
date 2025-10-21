@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 452,
+  "path": "BossList/BotTextEdit#name",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.left": "list.left",
+    "anchors.top": "list.bottom",
+    "margin-top": "4",
+    "anchors.right": "next.left"
+  }
+}

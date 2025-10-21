@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "const CreaturePtr& creature : m_walkingCreatures",
+  "file": "src/client/tile.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "toggleOption",
+  "args": "key",
+  "file": "modules/client_options/options.lua"
+}

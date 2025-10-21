@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "throwError",
+  "return_type": "nan",
+  "args": "\"seek failed\"",
+  "file": "src/framework/core/filestream.cpp"
+}

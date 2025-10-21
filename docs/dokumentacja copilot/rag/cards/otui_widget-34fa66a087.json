@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 222,
+  "path": "MainWindow#shopWindow/Button#transactionHistory",
+  "widget": "Button",
+  "base": "",
+  "id": "transactionHistory",
+  "props": {
+    "id": "transactionHistory",
+    "width": "128",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "walk",
+  "args": "dir, ticks",
+  "file": "modules/game_walking/walking.lua"
+}

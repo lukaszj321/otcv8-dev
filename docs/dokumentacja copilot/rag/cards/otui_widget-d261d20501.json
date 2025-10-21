@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 84,
+  "path": "TargetBotPanel/Panel#editor/Panel#buttons",
+  "widget": "Panel",
+  "base": "",
+  "id": "buttons",
+  "props": {
+    "id": "buttons",
+    "height": "20",
+    "margin-top": "2"
+  }
+}

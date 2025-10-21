@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 28,
+  "path": "MainWindow#transferWindow/Label#coinsBalance",
+  "widget": "Label",
+  "base": "",
+  "id": "coinsBalance",
+  "props": {
+    "id": "coinsBalance",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "10",
+    "text-align": "center"
+  }
+}

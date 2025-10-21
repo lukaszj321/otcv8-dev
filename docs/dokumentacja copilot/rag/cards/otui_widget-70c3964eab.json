@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 59,
+  "path": "OptionPanel/OptionCheckBox#hidePlayerBars",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "hidePlayerBars",
+  "props": {
+    "id": "hidePlayerBars"
+  }
+}

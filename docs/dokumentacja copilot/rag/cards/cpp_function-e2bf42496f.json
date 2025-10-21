@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setLimitVisibleRange",
+  "return_type": "void",
+  "args": "bool limitVisibleRange",
+  "file": "src/client/uimap.h"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/market.otui",
+  "line": 45,
+  "path": "MarketWindow#marketWindow/Button#refreshOffersButton",
+  "widget": "Button",
+  "base": "",
+  "id": "refreshOffersButton",
+  "props": {
+    "id": "refreshOffersButton",
+    "anchors.top": "mainTabContent.bottom",
+    "anchors.right": "mainTabContent.right",
+    "margin-top": "5",
+    "width": "110"
+  }
+}

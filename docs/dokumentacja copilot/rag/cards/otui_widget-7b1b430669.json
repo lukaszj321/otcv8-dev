@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.otui",
+  "line": 110,
+  "path": "TargetBotCreatureEditorWindow/ScrollablePanel#content",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "content",
+  "props": {
+    "id": "content",
+    "anchors.top": "name.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "help.top",
+    "vertical-scrollbar": "contentScroll",
+    "margin-bottom": "10"
+  }
+}

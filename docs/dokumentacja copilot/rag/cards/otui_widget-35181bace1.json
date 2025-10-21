@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 116,
+  "path": "MainWindow#communicationWindow/TextList#whiteList",
+  "widget": "TextList",
+  "base": "",
+  "id": "whiteList",
+  "props": {
+    "id": "whiteList",
+    "vertical-scrollbar": "whiteListScrollBar",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "height": "150",
+    "width": "230",
+    "margin-bottom": "10",
+    "margin-top": "3",
+    "padding": "1",
+    "focusable": "false"
+  }
+}

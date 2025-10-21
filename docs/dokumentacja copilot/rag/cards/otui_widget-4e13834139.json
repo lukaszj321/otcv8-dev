@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui",
+  "line": 41,
+  "path": "PushMaxWindow/BotItem#runeId",
+  "widget": "BotItem",
+  "base": "",
+  "id": "runeId",
+  "props": {
+    "id": "runeId",
+    "anchors.top": "label3.bottom",
+    "margin-top": "5"
+  }
+}

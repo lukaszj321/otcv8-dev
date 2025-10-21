@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 507,
+  "path": "SettingsPanel/CheckBox#PvpMode",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "PvpMode",
+  "props": {
+    "id": "PvpMode",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "margin-top": "8",
+    "width": "245",
+    "text": "PVP mode"
+  }
+}

@@ -1,0 +1,4 @@
+digraph G {
+  rankdir=LR;
+  "crash_reporter" [shape=box];
+}

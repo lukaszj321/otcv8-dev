@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseGMActions",
+  "return_type": "case Proto::GameServerGMActions:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

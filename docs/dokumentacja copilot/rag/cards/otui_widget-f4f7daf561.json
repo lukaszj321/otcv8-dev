@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 354,
+  "path": "InactivePreyPanel/FlatPanel#list",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.top": "parent.top",
+    "margin-top": "20",
+    "padding-left": "4",
+    "padding-top": "4",
+    "size": "195 195",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "60 60",
+    "cell-spacing": "3",
+    "num-columns": "3"
+  }
+}

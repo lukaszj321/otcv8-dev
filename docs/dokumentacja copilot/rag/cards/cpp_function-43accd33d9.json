@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto& it : unencryptedExtensions",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

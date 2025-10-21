@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "EnumWindows",
+  "return_type": "nan",
+  "args": "EnumWindowsProc, NULL",
+  "file": "src/framework/platform/win32platform.cpp"
+}

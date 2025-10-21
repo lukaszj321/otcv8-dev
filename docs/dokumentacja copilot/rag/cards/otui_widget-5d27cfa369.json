@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 88,
+  "path": "ShopOffer/Button#buyButton",
+  "widget": "Button",
+  "base": "",
+  "id": "buyButton",
+  "props": {
+    "id": "buyButton",
+    "text": "BUY",
+    "height": "25",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-right": "15",
+    "text-align": "center"
+  }
+}

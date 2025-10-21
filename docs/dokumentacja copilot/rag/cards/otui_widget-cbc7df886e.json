@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 65,
+  "path": "ComboTrigger#trigger/CheckBox#onSayToggle",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "onSayToggle",
+  "props": {
+    "id": "onSayToggle",
+    "anchors.left": "onSayPhrase.right",
+    "anchors.top": "onSayPhrase.top",
+    "margin-top": "1",
+    "margin-left": "5"
+  }
+}

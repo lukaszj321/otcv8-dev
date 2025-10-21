@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "translateActionComboboxIndexToAction",
+  "args": "index",
+  "file": "modules/game_hotkeys/hotkeys_extra.lua"
+}

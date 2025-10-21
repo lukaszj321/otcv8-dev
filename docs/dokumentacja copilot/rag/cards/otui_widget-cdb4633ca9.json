@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 23,
+  "path": "MiniWindow#botWindow",
+  "widget": "MiniWindow",
+  "base": "",
+  "id": "botWindow",
+  "props": {
+    "id": "botWindow",
+    "height": "600",
+    "icon": "/images/topbuttons/bot"
+  }
+}

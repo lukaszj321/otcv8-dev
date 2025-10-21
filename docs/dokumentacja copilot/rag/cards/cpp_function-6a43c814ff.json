@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "else",
+  "args": "direction == Otc::West",
+  "file": "src/client/outfit.cpp"
+}

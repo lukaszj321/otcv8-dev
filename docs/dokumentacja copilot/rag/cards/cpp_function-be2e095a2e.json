@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "mat",
+  "return_type": "out <<",
+  "args": "i,j",
+  "file": "src/framework/util/matrix.h"
+}

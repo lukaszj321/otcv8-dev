@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui",
+  "line": 23,
+  "path": "PushMaxWindow/Label#label2",
+  "widget": "Label",
+  "base": "",
+  "id": "label2",
+  "props": {
+    "id": "label2",
+    "anchors.top": "delay.bottom",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "text-align": "center",
+    "text": "Custom WallID",
+    "margin-top": "5"
+  }
+}

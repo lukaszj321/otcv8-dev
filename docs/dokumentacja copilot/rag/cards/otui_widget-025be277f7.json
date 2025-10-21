@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 262,
+  "path": "HotkeyAssignWindow#assignWindow/Button#cancelButton",
+  "widget": "Button",
+  "base": "",
+  "id": "cancelButton",
+  "props": {
+    "id": "cancelButton",
+    "width": "64",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

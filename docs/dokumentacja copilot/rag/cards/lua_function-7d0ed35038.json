@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindowContainer:onDrop",
+  "args": "widget, mousePos",
+  "file": "modules/corelib/ui/uiminiwindowcontainer.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSoulChange",
+  "args": "localPlayer, soul",
+  "file": "modules/game_inventory/inventory.lua"
+}

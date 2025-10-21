@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"Spawn::save: Ran out of memory while allocating XML element! Terminating now.\"",
+  "file": "src/client/creatures.cpp"
+}

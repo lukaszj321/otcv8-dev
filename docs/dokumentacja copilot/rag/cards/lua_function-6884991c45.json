@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "createTrade",
+  "args": "",
+  "file": "modules/game_playertrade/playertrade.lua"
+}

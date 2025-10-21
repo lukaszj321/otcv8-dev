@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 44,
+  "path": "ExtrasItem",
+  "widget": "ExtrasItem",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "34",
+    "margin-top": "7",
+    "margin-left": "25",
+    "margin-right": "25"
+  }
+}

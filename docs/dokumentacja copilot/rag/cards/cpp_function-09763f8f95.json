@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setClipping",
+  "return_type": "void",
+  "args": "bool clipping",
+  "file": "src/framework/ui/uiwidget.h"
+}

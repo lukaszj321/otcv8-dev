@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendAutoWalk",
+  "return_type": "void",
+  "args": "const std::vector<Otc::Direction>& path",
+  "file": "src/client/protocolgamesend.cpp"
+}

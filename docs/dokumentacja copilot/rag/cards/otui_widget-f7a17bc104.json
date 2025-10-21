@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 372,
+  "path": "ChoosePrey/UIButton#choosePreyButton",
+  "widget": "UIButton",
+  "base": "",
+  "id": "choosePreyButton",
+  "props": {
+    "id": "choosePreyButton",
+    "anchors.fill": "parent",
+    "margin-bottom": "17",
+    "margin-top": "17",
+    "margin-left": "3",
+    "image-source": "/images/game/prey/prey_choose",
+    "image-clip": "0 35 45 37"
+  }
+}

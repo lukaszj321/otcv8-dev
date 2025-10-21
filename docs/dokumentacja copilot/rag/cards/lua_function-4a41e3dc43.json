@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onManaChange",
+  "args": "localPlayer, mana, maxMana",
+  "file": "modules/game_healthinfo/healthinfo.lua"
+}

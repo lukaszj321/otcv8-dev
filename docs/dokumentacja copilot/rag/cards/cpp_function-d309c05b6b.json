@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPath",
+  "return_type": "void",
+  "args": "const Position& fromPosition, const Position& toPosition",
+  "file": "src/client/missile.h"
+}

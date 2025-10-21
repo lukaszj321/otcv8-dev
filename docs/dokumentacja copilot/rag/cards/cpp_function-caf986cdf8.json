@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCreatureMark",
+  "return_type": "case Proto::GameServerMarkCreature:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

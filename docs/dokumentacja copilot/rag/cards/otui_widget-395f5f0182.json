@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 303,
+  "path": "SwitchAndButtonPanel/BotSwitch#left",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "left",
+  "props": {
+    "id": "left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "prev.left",
+    "margin-right": "3",
+    "text-align": "center"
+  }
+}

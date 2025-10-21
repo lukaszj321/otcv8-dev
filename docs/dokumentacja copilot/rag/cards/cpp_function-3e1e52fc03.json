@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setChannel",
+  "return_type": "void",
+  "args": "uchar channel",
+  "file": "src/framework/sound/soundsource.h"
+}

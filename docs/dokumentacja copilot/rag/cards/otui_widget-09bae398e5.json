@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 116,
+  "path": "Panel#topbar/Panel#skills",
+  "widget": "Panel",
+  "base": "",
+  "id": "skills",
+  "props": {
+    "id": "skills",
+    "layout": "",
+    "type": "grid",
+    "num-columns": "2",
+    "fit-children": "true"
+  }
+}

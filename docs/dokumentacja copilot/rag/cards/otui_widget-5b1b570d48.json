@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 226,
+  "path": "ComboActions#actions/BotItem#attackItem",
+  "widget": "BotItem",
+  "base": "",
+  "id": "attackItem",
+  "props": {
+    "id": "attackItem",
+    "anchors.left": "prev.right",
+    "margin-left": "10"
+  }
+}

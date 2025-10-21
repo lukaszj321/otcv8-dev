@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onZoomChange",
+  "return_type": "nan",
+  "args": "zoom, oldZoom",
+  "file": "src/client/uiminimap.cpp"
+}

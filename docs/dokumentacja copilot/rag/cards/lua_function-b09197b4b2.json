@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onPreyFreeRolls",
+  "args": "slot, timeleft",
+  "file": "modules/game_prey/prey.lua"
+}

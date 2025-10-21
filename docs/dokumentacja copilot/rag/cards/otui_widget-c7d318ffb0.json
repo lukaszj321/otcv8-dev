@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 103,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#widgetsInfo",
+  "widget": "DebugText",
+  "base": "",
+  "id": "widgetsInfo",
+  "props": {
+    "id": "widgetsInfo",
+    "text": "Disabled, edit stats.lua to enable"
+  }
+}

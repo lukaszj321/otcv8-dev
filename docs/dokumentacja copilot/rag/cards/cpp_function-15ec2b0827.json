@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "finderPenaltyTerminateAndCount",
+  "return_type": "int",
+  "args": "bool currentRunColor, int currentRunLength, int runHistory[7], int qrsize",
+  "file": "src/framework/util/qrcodegen.c"
+}

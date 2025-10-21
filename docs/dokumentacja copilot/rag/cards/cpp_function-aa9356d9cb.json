@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawOutfit",
+  "return_type": "std::shared_ptr<DrawOutfitParams>",
+  "args": "const Point& dest, int maskLayer, int xPattern, int yPattern, int zPattern, int animationPhase, Color color = Color::white, LightView* lightView = nullptr",
+  "file": "src/client/thingtype.h"
+}

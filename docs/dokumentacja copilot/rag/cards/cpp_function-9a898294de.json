@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ReplaceChild",
+  "return_type": "TiXmlNode*",
+  "args": "TiXmlNode* replaceThis, const TiXmlNode& withThis",
+  "file": "src/framework/xml/tinyxml.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ThingType::drawWithShader",
+  "return_type": "void",
+  "args": "const Point& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase, const std::string& shader, Color color, LightView* lightView",
+  "file": "src/client/thingtype.cpp"
+}

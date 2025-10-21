@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addMenuHook",
+  "args": "category, name, callback, condition, shortcut",
+  "file": "modules/game_interface/gameinterface.lua"
+}

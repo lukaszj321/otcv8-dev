@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "timeEndPeriod",
+  "return_type": "nan",
+  "args": "m_timerRes",
+  "file": "src/framework/platform/win32window.cpp"
+}

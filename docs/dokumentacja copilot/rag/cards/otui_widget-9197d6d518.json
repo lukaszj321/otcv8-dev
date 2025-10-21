@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 3,
+  "path": "SkillButton",
+  "widget": "SkillButton",
+  "base": "UIButton",
+  "id": "",
+  "props": {
+    "height": "21",
+    "margin-bottom": "2"
+  }
+}

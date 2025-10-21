@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundChannel::stop",
+  "return_type": "void",
+  "args": "float fadetime",
+  "file": "src/framework/sound/soundchannel.cpp"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_locales/locales.otui",
+  "line": 1,
+  "path": "LocalesMainLabel",
+  "widget": "LocalesMainLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "font": "sans-bold-16px"
+  }
+}

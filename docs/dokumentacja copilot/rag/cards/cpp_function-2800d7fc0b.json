@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "else",
+  "args": "c == 0xc2 || c == 0xc3",
+  "file": "src/framework/stdext/string.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Matrix",
+  "return_type": "template<typename U>",
+  "args": "const std::initializer_list<U>& values",
+  "file": "src/framework/util/matrix.h"
+}

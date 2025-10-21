@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 47,
+  "path": "CureConditions#Cure/Label#label2",
+  "widget": "Label",
+  "base": "",
+  "id": "label2",
+  "props": {
+    "id": "label2",
+    "anchors.left": "label1.left",
+    "anchors.top": "label1.bottom",
+    "margin-top": "10",
+    "text": "Curse",
+    "color": "#ffaa00",
+    "font": "verdana-11px-rounded"
+  }
+}

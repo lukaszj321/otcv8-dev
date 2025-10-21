@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Position.isValid",
+  "args": "pos",
+  "file": "modules/gamelib/position.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "takeButtons",
+  "args": "buttons",
+  "file": "modules/game_buttons/buttons.lua"
+}

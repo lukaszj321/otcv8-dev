@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "retranslateKeyComboDesc",
+  "args": "keyComboDesc",
+  "file": "modules/corelib/keyboard.lua"
+}

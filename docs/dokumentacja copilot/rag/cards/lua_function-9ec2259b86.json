@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botOnStaticText",
+  "args": "thing, text",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "get_pointer",
+  "return_type": "template<class T> T*",
+  "args": "shared_object_ptr<T> const& p",
+  "file": "src/framework/stdext/shared_object.h"
+}

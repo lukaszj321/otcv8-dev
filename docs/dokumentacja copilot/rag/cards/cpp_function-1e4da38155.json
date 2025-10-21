@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "else",
+  "args": "coltype == 2",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_itemselector/itemselector.otui",
+  "line": 52,
+  "path": "ItemSelectorWindow#itemSelector/Button#clearButton",
+  "widget": "Button",
+  "base": "",
+  "id": "clearButton",
+  "props": {
+    "id": "clearButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "width": "60"
+  }
+}

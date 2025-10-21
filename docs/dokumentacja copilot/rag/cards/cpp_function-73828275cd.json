@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "RSA_get0_crt_params",
+  "return_type": "nan",
+  "args": "m_rsa, &dmp1_c, &dmq1_c, &iqmp_c",
+  "file": "src/framework/util/crypt.cpp"
+}

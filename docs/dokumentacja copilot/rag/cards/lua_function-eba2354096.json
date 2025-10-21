@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "resetSkillColor",
+  "args": "id",
+  "file": "modules/game_skills/skills.lua"
+}

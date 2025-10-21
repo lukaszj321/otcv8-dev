@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "followCreature",
+  "return_type": "void",
+  "args": "const CreaturePtr& creature",
+  "file": "src/client/mapview.h"
+}

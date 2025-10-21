@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "refreshContainer",
+  "return_type": "void",
+  "args": "const ContainerPtr& container",
+  "file": "src/client/game.h"
+}

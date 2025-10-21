@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttribute::QueryDoubleValue",
+  "return_type": "int",
+  "args": "double* dval",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

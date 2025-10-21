@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isAwareOfPosition",
+  "return_type": "bool",
+  "args": "const Position& pos, bool extended = false",
+  "file": "src/client/map.h"
+}

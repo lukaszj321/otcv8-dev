@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 126,
+  "path": "MainWindow#assignSpellWindow/Button#buttonClose",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonClose",
+  "props": {
+    "id": "buttonClose",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "font": "cipsoftFont",
+    "text": "Close"
+  }
+}

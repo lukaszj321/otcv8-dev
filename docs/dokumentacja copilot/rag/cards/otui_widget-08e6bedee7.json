@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 1,
+  "path": "BotButton",
+  "widget": "BotButton",
+  "base": "Button",
+  "id": "",
+  "props": {
+    "height": "17",
+    "margin-top": "2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "free_saved_state",
+  "return_type": "case APP_CMD_SAVE_STATE:",
+  "args": "android_app",
+  "file": "src/android/android_native_app_glue.cpp"
+}

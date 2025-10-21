@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Updater.changeUrl",
+  "args": "",
+  "file": "modules/updater/updater.lua"
+}

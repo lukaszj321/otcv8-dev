@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 119,
+  "path": "AnalyzerPriceLabel",
+  "widget": "AnalyzerPriceLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "background-color": "#00000055",
+    "text-offset": "2 0",
+    "focusable": "true",
+    "height": "16"
+  }
+}

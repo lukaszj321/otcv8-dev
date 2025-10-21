@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 59,
+  "path": "MainWindow#channelsWindow/VerticalScrollBar#channelsScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "channelsScrollBar",
+  "props": {
+    "id": "channelsScrollBar",
+    "anchors.top": "channelList.top",
+    "anchors.bottom": "channelList.bottom",
+    "anchors.right": "channelList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

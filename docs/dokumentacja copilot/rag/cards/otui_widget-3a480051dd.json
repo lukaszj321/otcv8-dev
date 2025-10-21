@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 70,
+  "path": "BotServerData/UIWidget#Members",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "Members",
+  "props": {
+    "id": "Members",
+    "anchors.right": "Participants.left",
+    "anchors.bottom": "parent.bottom",
+    "size": "80 21",
+    "text-align": "center",
+    "text": "Members:"
+  }
+}

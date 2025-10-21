@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/extras.otui",
+  "line": 129,
+  "path": "ExtrasWindow/ScrollablePanel#content/VerticalSeparator",
+  "widget": "VerticalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.horizontalCenter"
+  }
+}

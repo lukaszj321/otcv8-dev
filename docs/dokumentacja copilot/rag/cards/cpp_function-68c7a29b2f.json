@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int stackPos = 0; stackPos < 256; stackPos++",
+  "file": "src/client/protocolgameparse.cpp"
+}

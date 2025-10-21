@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemdetails.otui",
+  "line": 11,
+  "path": "DetailsTableColumn",
+  "widget": "DetailsTableColumn",
+  "base": "TableColumn",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "background-color": "alpha",
+    "text-offset": "2 2",
+    "color": "#cccccc",
+    "width": "100",
+    "focusable": "false"
+  }
+}

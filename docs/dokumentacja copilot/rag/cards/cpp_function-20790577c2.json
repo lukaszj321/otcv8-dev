@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setIcon",
+  "return_type": "void",
+  "args": "uint8 icon",
+  "file": "src/client/creature.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Player:getItems",
+  "args": "itemId, subType",
+  "file": "modules/gamelib/player.lua"
+}

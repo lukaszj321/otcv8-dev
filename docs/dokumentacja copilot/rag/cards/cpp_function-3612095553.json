@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::getSpectatorsByPattern",
+  "return_type": "std::vector<CreaturePtr>",
+  "args": "const Position& centerPos, const std::string& pattern, Otc::Direction direction",
+  "file": "src/client/map.cpp"
+}

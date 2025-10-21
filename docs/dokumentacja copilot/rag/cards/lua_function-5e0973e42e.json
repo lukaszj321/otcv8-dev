@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollArea:ensureChildVisible",
+  "args": "child, offset",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

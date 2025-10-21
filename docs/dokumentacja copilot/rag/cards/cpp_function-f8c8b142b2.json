@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getGain",
+  "return_type": "float",
+  "args": "nan",
+  "file": "src/framework/sound/soundchannel.h"
+}

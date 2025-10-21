@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/cavebot/editor.otui",
+  "line": 16,
+  "path": "CaveBotEditorPanel#cavebotEditor/Panel#buttons",
+  "widget": "Panel",
+  "base": "",
+  "id": "buttons",
+  "props": {
+    "id": "buttons",
+    "margin-top": "2",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "86 20",
+    "cell-spacing": "1",
+    "flow": "true",
+    "fit-children": "true"
+  }
+}

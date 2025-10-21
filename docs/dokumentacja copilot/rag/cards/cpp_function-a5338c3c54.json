@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindAttributeLocation",
+  "return_type": "nan",
+  "args": "DEPTH_ATTR, \"a_Depth\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

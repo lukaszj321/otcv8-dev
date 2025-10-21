@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseChangeMapAwareRange",
+  "return_type": "case Proto::GameServerChangeMapAwareRange:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

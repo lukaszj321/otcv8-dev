@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 28,
+  "path": "MainWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "",
+  "props": {
+    "size": "272 170"
+  }
+}

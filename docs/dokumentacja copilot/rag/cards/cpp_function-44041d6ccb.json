@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "openTransactionHistory",
+  "return_type": "void",
+  "args": "int entriesPerPage",
+  "file": "src/client/game.h"
+}

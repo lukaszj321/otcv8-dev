@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "showQuestLine",
+  "args": "",
+  "file": "modules/game_questlog/questlog.lua"
+}

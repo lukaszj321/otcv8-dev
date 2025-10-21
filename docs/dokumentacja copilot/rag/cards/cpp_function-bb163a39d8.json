@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlUnknown::StreamIn",
+  "return_type": "void",
+  "args": "std::istream * in, TIXML_STRING * tag",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

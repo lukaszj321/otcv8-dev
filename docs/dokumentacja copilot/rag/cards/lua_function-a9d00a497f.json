@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "CaveBot.OpenDepotChest",
+  "args": "",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua"
+}

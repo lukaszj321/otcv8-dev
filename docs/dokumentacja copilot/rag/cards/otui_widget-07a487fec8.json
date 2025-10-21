@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 24,
+  "path": "SpellPreview/UIWidget#image",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "image",
+  "props": {
+    "id": "image",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "phantom": "true",
+    "padding": "1",
+    "size": "34 34"
+  }
+}

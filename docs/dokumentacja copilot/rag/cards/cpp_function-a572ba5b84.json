@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "loadDat",
+  "return_type": "bool",
+  "args": "std::string file",
+  "file": "src/client/thingtypemanager.h"
+}

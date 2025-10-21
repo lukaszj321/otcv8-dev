@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 263,
+  "path": "InputPanel/ConditionPanel#optionalCondition",
+  "widget": "ConditionPanel",
+  "base": "",
+  "id": "optionalCondition",
+  "props": {
+    "id": "optionalCondition",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10"
+  }
+}

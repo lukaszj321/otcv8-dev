@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 385,
+  "path": "SelectPreyCreature",
+  "widget": "SelectPreyCreature",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "padding": "2",
+    "size": "70 92"
+  }
+}

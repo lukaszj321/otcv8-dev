@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.findkey",
+  "args": "t, key",
+  "file": "modules/corelib/table.lua"
+}

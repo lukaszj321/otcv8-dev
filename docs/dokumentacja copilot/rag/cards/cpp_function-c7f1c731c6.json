@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sort",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/client/towns.h"
+}

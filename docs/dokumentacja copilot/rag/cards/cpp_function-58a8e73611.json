@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "opacity",
+  "return_type": "Color",
+  "args": "float opacity",
+  "file": "src/framework/util/color.h"
+}

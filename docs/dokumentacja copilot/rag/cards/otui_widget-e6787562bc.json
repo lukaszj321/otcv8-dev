@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 177,
+  "path": "UIWidget#gameRootPanel/Panel#gameBottomPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "gameBottomPanel",
+  "props": {
+    "id": "gameBottomPanel",
+    "anchors.left": "gameLeftPanels.right",
+    "anchors.right": "gameRightPanels.left",
+    "anchors.top": "gameBottomActionPanel.bottom",
+    "anchors.bottom": "parent.bottom"
+  }
+}

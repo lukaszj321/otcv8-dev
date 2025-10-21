@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OggSoundFile::cb_tell",
+  "return_type": "long",
+  "args": "void* source",
+  "file": "src/framework/sound/oggsoundfile.cpp"
+}

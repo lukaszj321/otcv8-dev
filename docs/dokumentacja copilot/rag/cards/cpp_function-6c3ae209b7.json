@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "transformPositionTo2D",
+  "return_type": "Point",
+  "args": "const Position& position, const Position& relativePosition",
+  "file": "src/client/mapview.h"
+}

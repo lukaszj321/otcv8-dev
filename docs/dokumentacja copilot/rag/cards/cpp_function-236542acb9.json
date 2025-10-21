@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boost::replace_all",
+  "return_type": "nan",
+  "args": "to, \"/\", \"\\\\\"",
+  "file": "src/framework/platform/win32platform.cpp"
+}

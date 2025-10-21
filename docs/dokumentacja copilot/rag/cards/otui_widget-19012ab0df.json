@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 145,
+  "path": "OptionPanel/Label#crosshairLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "crosshairLabel",
+  "props": {
+    "margin-top": "3",
+    "id": "crosshairLabel"
+  }
+}

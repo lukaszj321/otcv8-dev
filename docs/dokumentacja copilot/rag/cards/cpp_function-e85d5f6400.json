@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setServerId",
+  "return_type": "void",
+  "args": "uint16 serverId",
+  "file": "src/client/itemtype.h"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 178,
+  "path": "ActivePreyPanel/BonusReroll#choose",
+  "widget": "BonusReroll",
+  "base": "",
+  "id": "choose",
+  "props": {
+    "id": "choose",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom"
+  }
+}

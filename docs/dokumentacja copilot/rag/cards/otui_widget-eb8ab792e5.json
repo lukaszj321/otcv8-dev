@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 80,
+  "path": "MainWindow#editWindow/Panel#manager/Panel#download",
+  "widget": "Panel",
+  "base": "",
+  "id": "download",
+  "props": {
+    "id": "download",
+    "anchors.top": "prev.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

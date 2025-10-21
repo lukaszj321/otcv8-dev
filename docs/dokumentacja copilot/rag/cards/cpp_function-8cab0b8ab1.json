@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::getStyle",
+  "return_type": "OTMLNodePtr",
+  "args": "const std::string& styleName",
+  "file": "src/framework/ui/uimanager.cpp"
+}

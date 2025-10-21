@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 395,
+  "path": "EQPanel/BotButton#default",
+  "widget": "BotButton",
+  "base": "",
+  "id": "default",
+  "props": {
+    "id": "default",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "3",
+    "text": "Reset fields",
+    "font": "verdana-11px-rounded",
+    "tooltip": "Reset all fields to the blank state"
+  }
+}

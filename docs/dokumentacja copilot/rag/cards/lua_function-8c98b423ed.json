@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "codepoint_to_utf8",
+  "args": "n",
+  "file": "modules/corelib/json.lua"
+}

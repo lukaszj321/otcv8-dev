@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::setSpeed",
+  "return_type": "void",
+  "args": "uint16 speed",
+  "file": "src/client/creature.cpp"
+}

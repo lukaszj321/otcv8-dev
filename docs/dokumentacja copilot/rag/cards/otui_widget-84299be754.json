@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 77,
+  "path": "OptionPanel/OptionScrollbar#walkTurnDelay",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "walkTurnDelay",
+  "props": {
+    "id": "walkTurnDelay",
+    "margin-top": "3",
+    "minimum": "0",
+    "maximum": "300",
+    "visible": "false"
+  }
+}

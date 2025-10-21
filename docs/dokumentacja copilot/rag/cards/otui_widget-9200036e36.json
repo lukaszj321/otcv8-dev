@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 52,
+  "path": "AlarmsWindow/BotSwitch#creatureDetected",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "creatureDetected",
+  "props": {
+    "id": "creatureDetected",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "sepPlayer.bottom",
+    "margin-top": "4",
+    "text-align": "center",
+    "text": "Creature Detected"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMarginLeft",
+  "return_type": "nan",
+  "args": "marginHorizontal",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

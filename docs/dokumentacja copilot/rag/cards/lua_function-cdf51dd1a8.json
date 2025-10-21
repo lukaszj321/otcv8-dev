@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTabDragMove",
+  "args": "tab, mousePos, mouseMoved",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

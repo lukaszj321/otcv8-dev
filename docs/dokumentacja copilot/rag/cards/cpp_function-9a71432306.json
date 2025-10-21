@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "is_unique",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/framework/stdext/shared_object.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 325,
+  "path": "BonusReroll/CardLabel#price",
+  "widget": "CardLabel",
+  "base": "",
+  "id": "price",
+  "props": {
+    "id": "price",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "21",
+    "margin-top": "2"
+  }
+}

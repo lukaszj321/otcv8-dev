@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 177,
+  "path": "ComboActions#actions/AttackComboBox#attackLeaderTarget",
+  "widget": "AttackComboBox",
+  "base": "",
+  "id": "attackLeaderTarget",
+  "props": {
+    "id": "attackLeaderTarget",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "margin-left": "5",
+    "height": "15",
+    "width": "145",
+    "font": "cipsoftFont"
+  }
+}

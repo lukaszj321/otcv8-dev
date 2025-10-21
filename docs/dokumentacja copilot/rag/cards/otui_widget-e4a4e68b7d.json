@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 59,
+  "path": "Rule",
+  "widget": "Rule",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "background-color": "alpha",
+    "text-offset": "18 2",
+    "focusable": "true",
+    "height": "16",
+    "text-align": "left",
+    "font": "verdana-11px-rounded"
+  }
+}

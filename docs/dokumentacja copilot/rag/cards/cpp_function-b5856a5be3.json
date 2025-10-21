@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AnimatedTexture",
+  "return_type": "public:",
+  "args": "const Size& size, std::vector<ImagePtr> frames, std::vector<int> framesDelay, bool buildMipmaps = false, bool compress = false",
+  "file": "src/framework/graphics/animatedtexture.h"
+}

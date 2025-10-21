@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "!m_drawTexturedProgram || !m_drawSolidColorProgram || !m_drawSolidColorOnTextureProgram || !m_drawOutfitLayersProgram || !m_drawNewProgram || !m_drawTextProgram || !m_drawLineProgram",
+  "file": "src/framework/graphics/painter.cpp"
+}

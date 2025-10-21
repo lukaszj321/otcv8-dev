@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getNodeSize",
+  "return_type": "int",
+  "args": "const std::string& key",
+  "file": "src/framework/core/config.h"
+}

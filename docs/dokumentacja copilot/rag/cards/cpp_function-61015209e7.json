@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getThingType",
+  "return_type": "const ThingTypePtr&",
+  "args": "nan",
+  "file": "src/client/missile.h"
+}

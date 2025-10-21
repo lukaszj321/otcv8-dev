@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getTypeImagePath",
+  "args": "creatureType",
+  "file": "modules/gamelib/creature.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture",
+  "return_type": "public:",
+  "args": "const Size& size, bool depthTexture = false, bool smooth = false, bool upsideDown = false",
+  "file": "src/framework/graphics/texture.h"
+}

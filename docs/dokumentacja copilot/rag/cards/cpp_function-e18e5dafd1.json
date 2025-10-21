@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "login",
+  "return_type": "public: void",
+  "args": "const std::string& accountName, const std::string& accountPassword, const std::string& host, uint16 port, const std::string& characterName, const std::string& authenticatorToken, const std::string& sessionKey, const std::string& worldName",
+  "file": "src/client/protocolgame.h"
+}

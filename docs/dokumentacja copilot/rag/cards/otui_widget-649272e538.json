@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 21,
+  "path": "RVTextEdit",
+  "widget": "RVTextEdit",
+  "base": "TextEdit",
+  "id": "",
+  "props": {
+    "margin-top": "2",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom"
+  }
+}

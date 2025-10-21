@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_mobile/mobile.otui",
+  "line": 6,
+  "path": "UIWidget/UIProgressRect#cursor",
+  "widget": "UIProgressRect",
+  "base": "",
+  "id": "cursor",
+  "props": {
+    "id": "cursor",
+    "size": "64 64",
+    "background": "#FF5858",
+    "percent": "100",
+    "visible": "false",
+    "x": "0",
+    "y": "0",
+    "focusable": "false",
+    "phantom": "true"
+  }
+}

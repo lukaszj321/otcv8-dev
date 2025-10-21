@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 53,
+  "path": "OptionPanel/OptionCheckBox#displayHealthOnTop",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "displayHealthOnTop",
+  "props": {
+    "id": "displayHealthOnTop",
+    "visible": "false"
+  }
+}

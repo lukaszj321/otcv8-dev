@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 78,
+  "path": "CureConditions#Cure/Label#label3",
+  "widget": "Label",
+  "base": "",
+  "id": "label3",
+  "props": {
+    "id": "label3",
+    "anchors.left": "label2.left",
+    "anchors.top": "label2.bottom",
+    "margin-top": "10",
+    "text": "Bleed",
+    "color": "#ffaa00",
+    "font": "verdana-11px-rounded"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Painter::rotate",
+  "return_type": "void",
+  "args": "float angle",
+  "file": "src/framework/graphics/painter.cpp"
+}

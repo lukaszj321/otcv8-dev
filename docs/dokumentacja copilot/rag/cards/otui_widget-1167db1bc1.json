@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 191,
+  "path": "BotServerWindow/BotSwitch#enabled",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "enabled",
+  "props": {
+    "id": "enabled",
+    "anchors.left": "parent.left",
+    "margin-left": "5",
+    "height": "21",
+    "text": "BotServer: ON"
+  }
+}

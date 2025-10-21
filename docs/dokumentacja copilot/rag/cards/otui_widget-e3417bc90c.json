@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 77,
+  "path": "MainWindow#assignSpellWindow/FlatPanel#checkPanel",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "checkPanel",
+  "props": {
+    "id": "checkPanel",
+    "anchors.top": "spellList.bottom",
+    "margin-top": "8",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "20"
+  }
+}

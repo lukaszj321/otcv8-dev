@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onIconChange",
+  "file": "modules/gamelib/creature.lua"
+}

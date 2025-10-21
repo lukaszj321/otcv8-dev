@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Spawn::getCreatures",
+  "return_type": "std::vector<CreatureTypePtr>",
+  "args": "nan",
+  "file": "src/client/creatures.cpp"
+}

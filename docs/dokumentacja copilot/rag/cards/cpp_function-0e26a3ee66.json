@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "virtualPos",
+  "return_type": "Point",
+  "args": "0, m_yOffset",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

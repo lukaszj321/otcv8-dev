@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "recursiveGetChildByPos",
+  "return_type": "UIWidgetPtr",
+  "args": "const Point& childPos, bool wantsPhantom",
+  "file": "src/framework/ui/uiwidget.h"
+}

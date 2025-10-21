@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 25,
+  "path": "AlarmsWindow/CheckBox#playerDetectedLogout",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "playerDetectedLogout",
+  "props": {
+    "id": "playerDetectedLogout",
+    "anchors.top": "playerDetected.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "margin-top": "3",
+    "margin-left": "4",
+    "text": "Logout"
+  }
+}

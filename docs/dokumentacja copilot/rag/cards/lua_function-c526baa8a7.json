@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getBestTileByPatern",
+  "args": "pattern, specType, maxDist, safe",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua"
+}

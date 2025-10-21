@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "xorCrypt",
+  "return_type": "std::string",
+  "args": "const std::string& buffer, const std::string& key",
+  "file": "src/framework/util/crypt.h"
+}

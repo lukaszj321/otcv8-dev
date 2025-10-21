@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 110,
+  "path": "ShopOfferCreature",
+  "widget": "ShopOfferCreature",
+  "base": "ShopOffer",
+  "id": "",
+  "props": {}
+}

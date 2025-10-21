@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 48,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/SkullWidget#currentSkullWidget",
+  "widget": "SkullWidget",
+  "base": "",
+  "id": "currentSkullWidget",
+  "props": {
+    "id": "currentSkullWidget",
+    "anchors.top": "prev.bottom",
+    "margin-right": "10"
+  }
+}

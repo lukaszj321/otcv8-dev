@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIBoxLayout::applyStyle",
+  "return_type": "nan",
+  "args": "styleNode",
+  "file": "src/framework/ui/uiverticallayout.cpp"
+}

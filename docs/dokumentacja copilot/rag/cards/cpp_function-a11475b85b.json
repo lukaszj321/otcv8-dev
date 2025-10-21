@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int i = 3; i < pixelCount; i += 4",
+  "file": "src/client/spritemanager.cpp"
+}

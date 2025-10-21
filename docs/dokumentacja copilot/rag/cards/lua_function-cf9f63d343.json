@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIRadioGroup:clearSelected",
+  "args": "",
+  "file": "modules/corelib/ui/uiradiogroup.lua"
+}

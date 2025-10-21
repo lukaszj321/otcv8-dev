@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 200,
+  "path": "MainWindow#communicationWindow/VerticalScrollBar#whiteListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "whiteListScrollBar",
+  "props": {
+    "id": "whiteListScrollBar",
+    "anchors.top": "whiteList.top",
+    "anchors.bottom": "whiteList.bottom",
+    "anchors.right": "whiteList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

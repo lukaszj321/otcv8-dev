@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 16,
+  "path": "OptionPanel/OptionCheckBox#vsync",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "vsync",
+  "props": {
+    "id": "vsync"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGroupSpellCooldown",
+  "file": "modules/game_bot/bot.lua"
+}

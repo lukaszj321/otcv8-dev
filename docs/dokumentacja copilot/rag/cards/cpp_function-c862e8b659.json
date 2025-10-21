@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIProgressRect::setPercent",
+  "return_type": "void",
+  "args": "float percent",
+  "file": "src/client/uiprogressrect.cpp"
+}

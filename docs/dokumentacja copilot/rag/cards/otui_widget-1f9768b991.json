@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 73,
+  "path": "OptionPanel/OptionScrollbar#backgroundFrameRate",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "backgroundFrameRate",
+  "props": {
+    "id": "backgroundFrameRate",
+    "margin-top": "3",
+    "minimum": "10",
+    "maximum": "201"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "free",
+  "return_type": "nan",
+  "args": "avg_row",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

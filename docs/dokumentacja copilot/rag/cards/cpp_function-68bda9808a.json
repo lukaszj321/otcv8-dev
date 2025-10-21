@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageFixedRatio",
+  "return_type": "void",
+  "args": "bool fixedRatio",
+  "file": "src/framework/ui/uiwidget.h"
+}

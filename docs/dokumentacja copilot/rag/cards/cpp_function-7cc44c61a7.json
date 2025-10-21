@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getImageSize",
+  "return_type": "Size",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

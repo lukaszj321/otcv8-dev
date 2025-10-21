@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendLoginPacket",
+  "return_type": "void",
+  "args": "uint challengeTimestamp, uint8 challengeRandom",
+  "file": "src/client/protocolgame.h"
+}

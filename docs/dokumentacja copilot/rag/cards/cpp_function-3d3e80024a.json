@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internalLoadMouseCursor",
+  "return_type": "protected: int",
+  "args": "const ImagePtr& image, const Point& hotSpot",
+  "file": "src/framework/platform/win32window.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Market.loadMarketItems",
+  "args": "category",
+  "file": "modules/game_market/market.lua"
+}

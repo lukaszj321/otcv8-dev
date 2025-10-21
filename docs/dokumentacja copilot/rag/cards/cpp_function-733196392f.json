@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glXMakeCurrent",
+  "return_type": "nan",
+  "args": "m_display, None, NULL",
+  "file": "src/framework/platform/x11window.cpp"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 11,
+  "path": "MainWindow#hotkeysWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "hotkeysWindow",
+  "props": {
+    "id": "hotkeysWindow",
+    "size": "370 475"
+  }
+}

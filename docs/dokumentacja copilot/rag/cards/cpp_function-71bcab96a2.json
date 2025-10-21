@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "rep_ != &nullrep_",
+  "file": "src/framework/xml/tinystr.h"
+}

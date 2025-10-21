@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "osvi.dwMajorVersion == 5 && osvi.dwMinorVersion == 2",
+  "file": "src/framework/platform/win32platform.cpp"
+}

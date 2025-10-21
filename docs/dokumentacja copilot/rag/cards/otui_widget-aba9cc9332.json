@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 189,
+  "path": "ItemAndSlotPanel/SmallBotSwitch#title",
+  "widget": "SmallBotSwitch",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.top",
+    "text-align": "center",
+    "margin-left": "2",
+    "margin-top": "0"
+  }
+}

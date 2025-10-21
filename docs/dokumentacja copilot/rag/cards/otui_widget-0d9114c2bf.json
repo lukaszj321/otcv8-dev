@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 359,
+  "path": "Conditions/Panel#box",
+  "widget": "Panel",
+  "base": "",
+  "id": "box",
+  "props": {
+    "id": "box",
+    "anchors.fill": "parent",
+    "margin-top": "16",
+    "padding": "5",
+    "padding-top": "3",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "128 31",
+    "cell-spacing": "5",
+    "num-columns": "2"
+  }
+}

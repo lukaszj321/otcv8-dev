@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 73,
+  "path": "MiniWindow#botWindow/MiniWindowContents/Label#statusLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "statusLabel",
+  "props": {
+    "id": "statusLabel",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text-wrap": "true",
+    "text-auto-resize": "true",
+    "text-align": "center",
+    "margin-left": "3",
+    "margin-right": "3",
+    "margin-top": "-13",
+    "text": ""
+  }
+}

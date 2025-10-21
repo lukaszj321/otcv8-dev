@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 328,
+  "path": "CustomList/ToolTipLabel",
+  "widget": "ToolTipLabel",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "font": "verdana-11px-rounded",
+    "text": "Custom Player List",
+    "tooltip": "Double click on the list below to add new player."
+  }
+}

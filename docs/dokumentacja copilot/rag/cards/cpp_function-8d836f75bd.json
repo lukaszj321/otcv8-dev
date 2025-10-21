@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Animator::serialize",
+  "return_type": "void",
+  "args": "const FileStreamPtr& fin",
+  "file": "src/client/animator.cpp"
+}

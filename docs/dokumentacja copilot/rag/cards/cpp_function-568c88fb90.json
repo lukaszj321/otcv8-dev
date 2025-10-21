@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "text",
+  "return_type": "TiXmlText",
+  "args": "\"\"",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

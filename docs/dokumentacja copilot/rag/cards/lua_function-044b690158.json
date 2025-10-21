@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "sortBy",
+  "args": "state",
+  "file": "modules/game_viplist/viplist.lua"
+}

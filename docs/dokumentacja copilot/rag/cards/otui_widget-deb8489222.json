@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 206,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow",
+  "widget": "MainAnalyzerWindow",
+  "base": "MiniWindow",
+  "id": "MainAnalyzerWindow",
+  "props": {
+    "id": "MainAnalyzerWindow",
+    "text": "Analytics Selector",
+    "height": "266",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

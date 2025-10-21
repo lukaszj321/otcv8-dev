@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 174,
+  "path": "OptionPanel/Label#floorFadingLabel2",
+  "widget": "Label",
+  "base": "",
+  "id": "floorFadingLabel2",
+  "props": {
+    "id": "floorFadingLabel2",
+    "margin-top": "6"
+  }
+}

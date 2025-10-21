@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "pos.x < px || pos.x >= px + 256 || pos.y < py || pos.y >= py + 256 || pos.z != pz",
+  "file": "src/client/mapio.cpp"
+}

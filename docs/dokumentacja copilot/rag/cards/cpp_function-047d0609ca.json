@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Spawn::addCreature",
+  "return_type": "void",
+  "args": "const Position& placePos, const CreatureTypePtr& cType",
+  "file": "src/client/creatures.cpp"
+}

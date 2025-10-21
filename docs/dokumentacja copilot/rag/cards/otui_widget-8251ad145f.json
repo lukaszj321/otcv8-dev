@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 532,
+  "path": "SlotPanel/LockedPreyPanel#locked",
+  "widget": "LockedPreyPanel",
+  "base": "",
+  "id": "locked",
+  "props": {
+    "id": "locked",
+    "margin-top": "20",
+    "anchors.top": "parent.top",
+    "visible": "false"
+  }
+}

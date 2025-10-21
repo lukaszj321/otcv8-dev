@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OutputBinaryTree",
+  "return_type": "public:",
+  "args": "const FileStreamPtr& finish",
+  "file": "src/framework/core/binarytree.h"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 95,
+  "path": "OptionPanel/OptionScrollbar#walkCtrlTurnDelay",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "walkCtrlTurnDelay",
+  "props": {
+    "id": "walkCtrlTurnDelay",
+    "margin-top": "3",
+    "minimum": "0",
+    "maximum": "300",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 114,
+  "path": "MainWindow#ruleViolationWindow/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "width": "64",
+    "margin-right": "5",
+    "anchors.right": "prev.left",
+    "anchors.bottom": "parent.bottom"
+  }
+}

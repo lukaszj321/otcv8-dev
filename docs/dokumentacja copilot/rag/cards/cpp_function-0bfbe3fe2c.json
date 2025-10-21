@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLastChild",
+  "return_type": "UIWidgetPtr",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

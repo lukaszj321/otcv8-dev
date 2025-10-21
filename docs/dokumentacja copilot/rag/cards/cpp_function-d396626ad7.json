@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "eglDestroySurface",
+  "return_type": "nan",
+  "args": "m_eglDisplay, m_eglSurface",
+  "file": "src/framework/platform/win32window.cpp"
+}

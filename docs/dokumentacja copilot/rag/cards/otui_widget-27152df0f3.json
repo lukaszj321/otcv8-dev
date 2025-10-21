@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 30,
+  "path": "MainWindow#communicationWindow/CheckBox#checkboxUseIgnoreList",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "checkboxUseIgnoreList",
+  "props": {
+    "id": "checkboxUseIgnoreList",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "width": "180"
+  }
+}

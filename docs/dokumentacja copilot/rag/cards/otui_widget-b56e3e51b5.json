@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 158,
+  "path": "Panel/NextButton#nextAmountButton",
+  "widget": "NextButton",
+  "base": "",
+  "id": "nextAmountButton",
+  "props": {
+    "id": "nextAmountButton",
+    "anchors.left": "prev.right",
+    "margin-left": "3"
+  }
+}

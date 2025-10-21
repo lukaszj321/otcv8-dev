@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onGameOwnTrade",
+  "args": "name, items",
+  "file": "modules/game_playertrade/playertrade.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 570,
+  "path": "AttackBotWindow/SettingsPanel#settingsPanel",
+  "widget": "SettingsPanel",
+  "base": "",
+  "id": "settingsPanel",
+  "props": {
+    "id": "settingsPanel",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "anchors.left": "parent.left",
+    "margin-left": "2"
+  }
+}

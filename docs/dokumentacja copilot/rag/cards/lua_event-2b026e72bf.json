@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onFocusChange",
+  "file": "modules/corelib/ui/uispinbox.lua"
+}

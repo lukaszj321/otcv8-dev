@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "readFileContents",
+  "return_type": "std::string",
+  "args": "const std::string& fileName, bool safe = false",
+  "file": "src/framework/core/resourcemanager.h"
+}

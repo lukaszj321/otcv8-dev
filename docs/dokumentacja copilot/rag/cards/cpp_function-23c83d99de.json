@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setY",
+  "return_type": "void",
+  "args": "int y",
+  "file": "src/framework/ui/uiwidget.h"
+}

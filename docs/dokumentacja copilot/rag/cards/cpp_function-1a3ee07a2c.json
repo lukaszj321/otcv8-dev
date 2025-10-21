@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_eglDisplay != EGL_NO_DISPLAY",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

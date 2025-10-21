@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCyclopediaMapData",
+  "return_type": "case Proto::GameServerCyclopediaMapData:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

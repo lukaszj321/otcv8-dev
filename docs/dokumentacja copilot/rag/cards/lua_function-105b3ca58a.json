@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "openAmountWindow",
+  "args": "callback, actionType, actionText",
+  "file": "modules/game_market/market.lua"
+}

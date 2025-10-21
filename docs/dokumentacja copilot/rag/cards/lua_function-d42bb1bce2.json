@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "isMenuHookCategoryEmpty",
+  "args": "category",
+  "file": "modules/game_interface/gameinterface.lua"
+}

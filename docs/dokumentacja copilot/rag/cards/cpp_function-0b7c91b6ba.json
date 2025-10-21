@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setBuffer",
+  "return_type": "protected: void",
+  "args": "const SoundBufferPtr& buffer",
+  "file": "src/framework/sound/soundsource.h"
+}

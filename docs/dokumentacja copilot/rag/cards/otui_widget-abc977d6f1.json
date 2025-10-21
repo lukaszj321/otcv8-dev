@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 192,
+  "path": "MainWindow#communicationWindow/VerticalScrollBar#ignoreListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "ignoreListScrollBar",
+  "props": {
+    "id": "ignoreListScrollBar",
+    "anchors.top": "ignoreList.top",
+    "anchors.bottom": "ignoreList.bottom",
+    "anchors.right": "ignoreList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

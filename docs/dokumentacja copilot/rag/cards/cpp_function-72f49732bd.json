@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alGenSources",
+  "return_type": "nan",
+  "args": "1, &m_sourceId",
+  "file": "src/framework/sound/soundsource.cpp"
+}

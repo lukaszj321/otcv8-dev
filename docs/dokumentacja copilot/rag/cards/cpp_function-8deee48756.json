@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "blockPos",
+  "return_type": "Position",
+  "args": "x, y, mapCenter.z",
+  "file": "src/client/minimap.cpp"
+}

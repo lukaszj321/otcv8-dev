@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Client::init",
+  "return_type": "void",
+  "args": "std::vector<std::string>& args",
+  "file": "src/client/client.cpp"
+}

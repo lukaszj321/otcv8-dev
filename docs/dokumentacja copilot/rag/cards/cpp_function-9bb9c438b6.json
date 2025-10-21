@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseLine",
+  "return_type": "void",
+  "args": "std::string line",
+  "file": "src/framework/otml/otmlparser.h"
+}

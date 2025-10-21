@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onHealthChange",
+  "file": "modules/game_topbar/topbar.lua"
+}

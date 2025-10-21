@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addPrivateText",
+  "args": "text, speaktype, name, isPrivateCommand, creatureName",
+  "file": "modules/game_console/console.lua"
+}

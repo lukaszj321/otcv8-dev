@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UICreature::drawSelf",
+  "return_type": "void",
+  "args": "Fw::DrawPane drawPane",
+  "file": "src/client/uicreature.cpp"
+}

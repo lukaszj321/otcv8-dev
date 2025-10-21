@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "handleInput",
+  "return_type": "int",
+  "args": "AInputEvent* event",
+  "file": "src/framework/platform/androidwindow.h"
+}

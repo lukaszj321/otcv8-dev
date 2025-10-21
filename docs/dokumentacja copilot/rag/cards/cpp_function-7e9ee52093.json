@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "_exit",
+  "return_type": "nan",
+  "args": "EXIT_FAILURE",
+  "file": "src/framework/platform/unixplatform.cpp"
+}

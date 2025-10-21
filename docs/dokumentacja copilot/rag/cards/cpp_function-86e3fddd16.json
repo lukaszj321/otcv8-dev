@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "safeCall",
+  "return_type": "int",
+  "args": "int numArgs = 0, int numRets = -1, const std::shared_ptr<std::string>& error = nullptr",
+  "file": "src/framework/luaengine/luainterface.h"
+}

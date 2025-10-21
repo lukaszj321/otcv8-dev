@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calculateAnimationPhase",
+  "return_type": "int",
+  "args": "bool animate",
+  "file": "src/client/item.h"
+}

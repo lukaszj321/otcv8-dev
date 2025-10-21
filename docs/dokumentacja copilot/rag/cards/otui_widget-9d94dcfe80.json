@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 28,
+  "path": "VocationPanel/BotSwitch#EK",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "EK",
+  "props": {
+    "id": "EK",
+    "anchors.bottom": "ED.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "text": "Knights"
+  }
+}

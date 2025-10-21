@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBlendFunc",
+  "return_type": "case CompositionMode_Light:",
+  "args": "GL_ZERO, GL_SRC_COLOR",
+  "file": "src/framework/graphics/painter.cpp"
+}

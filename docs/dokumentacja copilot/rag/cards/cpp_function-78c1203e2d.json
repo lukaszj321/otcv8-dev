@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processTextMessage",
+  "return_type": "void",
+  "args": "Otc::MessageMode mode, const std::string& text",
+  "file": "src/client/game.h"
+}

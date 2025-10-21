@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::generateByteCode",
+  "return_type": "std::string",
+  "args": "const std::string& buffer, std::string source",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

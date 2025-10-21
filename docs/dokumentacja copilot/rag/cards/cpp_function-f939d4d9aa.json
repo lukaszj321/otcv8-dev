@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onSaveInstanceState",
+  "return_type": "static void*",
+  "args": "ANativeActivity* activity, size_t* outLen",
+  "file": "src/android/android_native_app_glue.cpp"
+}

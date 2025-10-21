@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "loadSingleCreature",
+  "return_type": "nan",
+  "args": "fname",
+  "file": "src/client/creatures.cpp"
+}

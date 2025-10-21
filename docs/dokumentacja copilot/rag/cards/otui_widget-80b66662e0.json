@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_itemselector/itemselector.otui",
+  "line": 45,
+  "path": "ItemSelectorWindow#itemSelector/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "text-align": "center"
+  }
+}

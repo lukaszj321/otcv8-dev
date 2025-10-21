@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 166,
+  "path": "AnalyzerLootItem/Label#count",
+  "widget": "Label",
+  "base": "",
+  "id": "count",
+  "props": {
+    "id": "count",
+    "font": "verdana-11px-rounded",
+    "color": "white",
+    "opacity": "0.87",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "2",
+    "text-align": "right",
+    "text": "0"
+  }
+}

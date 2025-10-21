@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setNumColumns",
+  "return_type": "void",
+  "args": "int columns",
+  "file": "src/framework/ui/uigridlayout.h"
+}

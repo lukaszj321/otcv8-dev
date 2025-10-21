@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_mouse.bindAutoPress",
+  "args": "widget, callback, delay, button",
+  "file": "modules/corelib/mouse.lua"
+}

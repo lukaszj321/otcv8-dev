@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 29,
+  "path": "OptionPanel/OptionCheckBox#smartWalk",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "smartWalk",
+  "props": {
+    "id": "smartWalk"
+  }
+}

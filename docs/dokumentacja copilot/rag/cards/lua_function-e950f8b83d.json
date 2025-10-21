@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupMenu:onMousePress",
+  "args": "mousePos, mouseButton",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

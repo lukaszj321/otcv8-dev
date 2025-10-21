@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XSetLocaleModifiers",
+  "return_type": "nan",
+  "args": "\"\"",
+  "file": "src/framework/platform/x11window.cpp"
+}

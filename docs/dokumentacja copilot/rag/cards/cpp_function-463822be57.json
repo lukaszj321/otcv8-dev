@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCursor",
+  "return_type": "nan",
+  "args": "\"text\"",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

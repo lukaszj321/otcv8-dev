@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 201,
+  "path": "SuppliesWindow/ScrollablePanel#items",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "items",
+  "props": {
+    "id": "items",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "sep.left",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "8",
+    "vertical-scrollbar": "itemsScrollBar",
+    "layout": "verticalBox"
+  }
+}

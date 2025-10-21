@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:onMouseMove",
+  "args": "mousePos, mouseMoved",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

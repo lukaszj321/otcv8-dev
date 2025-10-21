@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "i<256",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

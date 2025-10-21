@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "readType",
+  "return_type": "inline T",
+  "args": "const std::string& str",
+  "file": "src/framework/xml/tinyxml.h"
+}

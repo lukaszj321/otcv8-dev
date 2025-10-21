@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 175,
+  "path": "SuppliesWindow/TextList#profiles",
+  "widget": "TextList",
+  "base": "",
+  "id": "profiles",
+  "props": {
+    "id": "profiles",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "25"
+  }
+}

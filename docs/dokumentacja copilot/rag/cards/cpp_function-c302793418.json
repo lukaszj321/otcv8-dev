@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int xi=-1;xi<=1;++xi",
+  "file": "src/client/tile.cpp"
+}

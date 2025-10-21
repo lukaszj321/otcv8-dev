@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "latin1_to_utf16",
+  "return_type": "std::wstring",
+  "args": "const std::string& src",
+  "file": "src/framework/stdext/string.h"
+}

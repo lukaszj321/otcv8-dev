@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processTutorialHint",
+  "return_type": "void",
+  "args": "int id",
+  "file": "src/client/game.cpp"
+}

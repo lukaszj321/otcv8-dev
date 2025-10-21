@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 12,
+  "path": "SmallBotSwitch",
+  "widget": "SmallBotSwitch",
+  "base": "Button",
+  "id": "",
+  "props": {
+    "margin-top": "2",
+    "height": "15",
+    "image-color": "red"
+  }
+}

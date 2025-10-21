@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ThingTypeManager::parseItemType",
+  "return_type": "void",
+  "args": "uint16 serverId, TiXmlElement* elem",
+  "file": "src/client/thingtypemanager.cpp"
+}

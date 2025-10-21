@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui",
+  "line": 94,
+  "path": "TargetBotCreatureEditorWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "text": "Target name:"
+  }
+}

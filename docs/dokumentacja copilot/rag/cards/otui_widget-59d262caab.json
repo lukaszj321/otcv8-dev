@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 34,
+  "path": "ConditionBox",
+  "widget": "ConditionBox",
+  "base": "ComboBox",
+  "id": "",
+  "props": {
+    "self": "addOption(\"or\")"
+  }
+}

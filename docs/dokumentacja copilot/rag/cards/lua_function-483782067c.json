@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Player:getItemsCount",
+  "args": "itemId",
+  "file": "modules/gamelib/player.lua"
+}

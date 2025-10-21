@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setUniformValue",
+  "return_type": "nan",
+  "args": "ATLAS_TEX0_UNIFORM, 6",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

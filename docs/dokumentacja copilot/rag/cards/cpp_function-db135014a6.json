@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setVocation",
+  "return_type": "void",
+  "args": "int vocation",
+  "file": "src/client/localplayer.h"
+}

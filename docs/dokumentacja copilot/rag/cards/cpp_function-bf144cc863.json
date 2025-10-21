@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addEccAndInterleave",
+  "return_type": "testable void",
+  "args": "uint8_t data[], int version, enum qrcodegen_Ecc ecl, uint8_t result[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

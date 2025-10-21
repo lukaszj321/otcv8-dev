@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::setAutoDraw",
+  "return_type": "void",
+  "args": "bool value",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

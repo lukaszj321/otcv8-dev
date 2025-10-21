@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 14,
+  "path": "MiniWindow#unjustifiedPointsWindow",
+  "widget": "MiniWindow",
+  "base": "",
+  "id": "unjustifiedPointsWindow",
+  "props": {
+    "id": "unjustifiedPointsWindow",
+    "height": "114",
+    "icon": "/images/topbuttons/unjustifiedpoints"
+  }
+}

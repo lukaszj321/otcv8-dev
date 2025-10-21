@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::seekInContainer",
+  "return_type": "void",
+  "args": "int cid, int index",
+  "file": "src/client/game.cpp"
+}

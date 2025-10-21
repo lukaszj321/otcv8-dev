@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glGetString",
+  "return_type": "nan",
+  "args": "GL_NONE",
+  "file": "src/framework/graphics/graphics.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_npctrade\n  description: NPC trade interface\n  author: andrefaramir, baxnie\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ npctrade ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_npctrade/npctrade.otmod",
+  "description": "NPC trade interface"
+}

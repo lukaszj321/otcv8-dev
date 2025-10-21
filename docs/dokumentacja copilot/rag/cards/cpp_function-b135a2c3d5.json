@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "GetEntity",
+  "return_type": "return",
+  "args": "p, _value, length, encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 135,
+  "path": "MainWindow#debugWindow/VerticalScrollBar#debugScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "debugScroll",
+  "props": {
+    "id": "debugScroll",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "step": "48",
+    "pixels-scroll": "true"
+  }
+}

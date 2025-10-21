@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollBar.create",
+  "args": "",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onInventoryChange",
+  "file": "modules/game_bot/executor.lua"
+}

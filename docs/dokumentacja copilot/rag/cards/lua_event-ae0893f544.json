@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onTargeted",
+  "file": "modules/gamelib/ui/uicreaturebutton.lua"
+}

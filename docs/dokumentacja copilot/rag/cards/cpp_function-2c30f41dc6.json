@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "bufferSize > 0",
+  "file": "src/framework/sound/oggsoundfile.cpp"
+}

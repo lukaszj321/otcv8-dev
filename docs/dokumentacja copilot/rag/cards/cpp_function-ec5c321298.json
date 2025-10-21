@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "send",
+  "return_type": "virtual void",
+  "args": "const OutputMessagePtr& outputMessage, bool rawPacket = false",
+  "file": "src/framework/net/protocol.h"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onBuyWithBackpackChange",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

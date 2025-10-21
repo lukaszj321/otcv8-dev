@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 120,
+  "path": "MainWindow#hotkeysWindow/TextEdit#hotkeyText",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "hotkeyText",
+  "props": {
+    "id": "hotkeyText",
+    "enabled": "false",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2"
+  }
+}

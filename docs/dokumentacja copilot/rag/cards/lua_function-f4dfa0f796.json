@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botOnTextMessage",
+  "args": "mode, text",
+  "file": "modules/game_bot/bot.lua"
+}

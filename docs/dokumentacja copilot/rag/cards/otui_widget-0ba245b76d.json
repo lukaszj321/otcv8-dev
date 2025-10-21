@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_locales/locales.otui",
+  "line": 18,
+  "path": "UIWindow#localesWindow/LocalesMainLabel",
+  "widget": "LocalesMainLabel",
+  "base": "",
+  "id": "",
+  "props": {
+    "text-auto-resize": "true",
+    "margin-top": "-100"
+  }
+}

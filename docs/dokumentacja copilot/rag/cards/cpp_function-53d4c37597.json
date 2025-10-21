@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setZoneColor",
+  "return_type": "void",
+  "args": "tileflags_t flag, const Color& color",
+  "file": "src/client/map.h"
+}

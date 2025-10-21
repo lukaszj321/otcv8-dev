@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture",
+  "return_type": "nan",
+  "args": "const ImagePtr& image, bool buildMipmaps = false, bool compress = false, bool smooth = false",
+  "file": "src/framework/graphics/texture.h"
+}

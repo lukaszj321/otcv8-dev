@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "c",
+  "return_type": "Color",
+  "args": "Color::white",
+  "file": "src/framework/graphics/cachedtext.cpp"
+}

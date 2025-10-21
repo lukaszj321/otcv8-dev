@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollBar:getValue",
+  "args": "",
+  "file": "modules/corelib/ui/uiscrollbar.lua"
+}

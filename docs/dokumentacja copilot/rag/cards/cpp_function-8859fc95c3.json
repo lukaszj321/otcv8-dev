@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTilePoint",
+  "return_type": "Point",
+  "args": "const Position& pos",
+  "file": "src/client/uiminimap.h"
+}

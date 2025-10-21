@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_app_free",
+  "return_type": "static void",
+  "args": "struct android_app* android_app",
+  "file": "src/android/android_native_app_glue.cpp"
+}

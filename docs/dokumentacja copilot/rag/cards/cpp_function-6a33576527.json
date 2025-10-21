@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getShaderType",
+  "return_type": "ShaderType",
+  "args": "nan",
+  "file": "src/framework/graphics/shader.h"
+}

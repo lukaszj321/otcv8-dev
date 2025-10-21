@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 67,
+  "path": "NoCreaturePanel/FlatPanel",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "",
+  "props": {
+    "size": "124 124",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "image-source": "/images/ui/panel_flat",
+    "image-border": "1"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "OutputMessage:addTable",
+  "args": "data",
+  "file": "modules/corelib/outputmessage.lua"
+}

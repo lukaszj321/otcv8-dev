@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 51,
+  "path": "MissionLog/Label#questName",
+  "widget": "Label",
+  "base": "",
+  "id": "questName",
+  "props": {
+    "id": "questName",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text-align": "left",
+    "text": "questline name"
+  }
+}

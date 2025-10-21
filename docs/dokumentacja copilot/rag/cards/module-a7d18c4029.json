@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_outfit\n  description: Change local player outfit\n  author: Oen44\n  website: https://discord.gg/DUkqbedmgP\n  sandboxed: true\n  scripts: [ outfit ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_outfit/outfit.otmod",
+  "description": "Change local player outfit"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_mobile/mobile.otui",
+  "line": 17,
+  "path": "UIWidget/UIWidget#keypad",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "keypad",
+  "props": {
+    "id": "keypad",
+    "size": "200 150",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "phantom": "false",
+    "focusable": "false",
+    "visible": "false",
+    "background": "#00000044",
+    "image-source": "/images/game/mobile/keypad",
+    "image-fixed-ratio": "true",
+    "image-rect": "25 0 150 150"
+  }
+}

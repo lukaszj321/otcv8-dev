@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ReadValue",
+  "return_type": "const char*",
+  "args": "const char* in, TiXmlParsingData* prevData, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

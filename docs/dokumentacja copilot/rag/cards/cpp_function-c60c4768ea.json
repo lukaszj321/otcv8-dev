@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"a thing type has more than 4096 sprites\"",
+  "file": "src/client/thingtype.cpp"
+}

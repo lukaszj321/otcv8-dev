@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boost::starts_with",
+  "return_type": "return",
+  "args": "str, test",
+  "file": "src/framework/stdext/string.cpp"
+}

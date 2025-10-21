@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMaxActiveProxies",
+  "return_type": "void",
+  "args": "int value",
+  "file": "src/framework/proxy/proxy.h"
+}

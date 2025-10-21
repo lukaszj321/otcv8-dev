@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alSource3f",
+  "return_type": "nan",
+  "args": "m_sourceId, AL_POSITION, pos.x, pos.y, 0",
+  "file": "src/framework/sound/soundsource.cpp"
+}

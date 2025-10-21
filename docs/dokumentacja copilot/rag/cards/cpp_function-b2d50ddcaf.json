@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindUniformLocation",
+  "return_type": "nan",
+  "args": "TEX3_UNIFORM, \"u_Tex3\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

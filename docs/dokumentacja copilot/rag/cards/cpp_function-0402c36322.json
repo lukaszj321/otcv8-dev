@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processContainerRemoveItem",
+  "return_type": "void",
+  "args": "int containerId, int slot, const ItemPtr& lastItem",
+  "file": "src/client/game.cpp"
+}

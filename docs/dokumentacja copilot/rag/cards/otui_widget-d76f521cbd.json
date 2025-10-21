@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 141,
+  "path": "OptionPanel/Panel/Button#changeLocale",
+  "widget": "Button",
+  "base": "",
+  "id": "changeLocale",
+  "props": {
+    "id": "changeLocale",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "width": "150"
+  }
+}

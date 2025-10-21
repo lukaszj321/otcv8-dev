@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textwindow/textwindow.otui",
+  "line": 48,
+  "path": "TextWindow#textWindow/Button#cancelButton",
+  "widget": "Button",
+  "base": "",
+  "id": "cancelButton",
+  "props": {
+    "id": "cancelButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "width": "60"
+  }
+}

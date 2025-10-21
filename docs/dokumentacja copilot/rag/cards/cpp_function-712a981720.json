@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::setMagicLevel",
+  "return_type": "void",
+  "args": "double magicLevel, double magicLevelPercent",
+  "file": "src/client/localplayer.cpp"
+}

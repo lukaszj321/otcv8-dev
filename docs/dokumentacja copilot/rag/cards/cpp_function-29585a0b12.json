@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "canRead",
+  "return_type": "private: bool",
+  "args": "int bytes",
+  "file": "src/framework/net/inputmessage.h"
+}

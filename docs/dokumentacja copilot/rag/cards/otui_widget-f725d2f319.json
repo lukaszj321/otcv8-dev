@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/itemoffers.otui",
+  "line": 5,
+  "path": "Panel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-left": "10"
+  }
+}

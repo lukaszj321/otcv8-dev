@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 5,
+  "path": "OptionPanel/ComboBox#profile",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "profile",
+  "props": {
+    "id": "profile",
+    "margin-top": "3",
+    "self": "addOption(\"10\")"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "tileRect",
+  "return_type": "Rect",
+  "args": "0,0,tileSize, tileSize",
+  "file": "src/client/minimap.cpp"
+}

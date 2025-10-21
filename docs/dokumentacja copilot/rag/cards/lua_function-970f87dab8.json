@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "timeleftTranslation",
+  "args": "timeleft, forPreyTimeleft",
+  "file": "modules/game_prey/prey.lua"
+}

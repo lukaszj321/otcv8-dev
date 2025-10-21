@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "draw",
+  "return_type": "void",
+  "args": "const Rect& dest, Otc::Direction direction, uint animationPhase, bool animate = true, bool ui = false, bool oldScaling = false",
+  "file": "src/client/outfit.h"
+}

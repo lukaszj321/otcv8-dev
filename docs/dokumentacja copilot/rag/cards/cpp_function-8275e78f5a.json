@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "EGLint* attributes : displayAttributes",
+  "file": "src/framework/platform/win32window.cpp"
+}

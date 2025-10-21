@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISplitter:onHoverChange",
+  "args": "hovered",
+  "file": "modules/corelib/ui/uisplitter.lua"
+}

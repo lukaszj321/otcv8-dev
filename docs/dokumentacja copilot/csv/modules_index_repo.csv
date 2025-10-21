@@ -1,0 +1,502 @@
+module,otmod_path,description
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",modules/client/client.otmod,Initialize the client and setups its main window
+"client_background
+  description: Handles the background of the login screen
+  author: edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ background ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_background/background.otmod,Handles the background of the login screen
+"client_entergame
+  description: Manages enter game and character list windows
+  author: edubart & otclient.ovh
+  website: https://github.com/edubart/otclient
+  scripts: [ entergame, characterlist ]
+  @onLoad: EnterGame.init() CharacterList.init()
+  @onUnload: EnterGame.terminate() CharacterList.terminate()
+  
+  load-later:
+    - game_things
+    - game_features",modules/client_entergame/entergame.otmod,Manages enter game and character list windows
+"client_feedback
+  description: Allow to send feedback
+  author: otclientv8
+  website: otclient.ovh
+  sandboxed: true
+  dependencies: [ game_interface ]
+  scripts: [ feedback ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_feedback/feedback.otmod,Allow to send feedback
+"client_locales
+  description: Translates texts to selected language
+  author: baxnie, edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ locales ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_locales/locales.otmod,Translates texts to selected language
+"client_mobile
+  description: Handles the mobile interface for smartphones
+  author: otclient@otclient.ovh
+  website: http://otclient.net
+  sandboxed: true
+  scripts: [ mobile ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_mobile/mobile.otmod,Handles the mobile interface for smartphones
+"client_options
+  description: Create the options window
+  author: edubart, BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ options ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_options/options.otmod,Create the options window
+"client_profiles
+  description: Client profiles
+  author: Vithrax
+  website: discord_Vithrax#5814
+  autoload: true
+  reloadable: false
+  scripts: [ profiles ]
+  sandboxed: true
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_profiles/profiles.otmod,Client profiles
+"client_stats
+  description: Showing and sending debug/stats informations
+  author: otclient@otclient.ovh
+  sandboxed: true
+  scripts: [ stats ]
+  dependencies: [ client_topmenu ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_stats/stats.otmod,Showing and sending debug/stats informations
+"client_styles
+  description: Load client fonts and styles
+  author: edubart
+  website: https://github.com/edubart/otclient
+  scripts: [ styles ]
+  sandboxed: true
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_styles/styles.otmod,Load client fonts and styles
+"client_terminal
+  description: Terminal for executing lua functions
+  author: edubart
+  website: https://github.com/edubart/otclient
+  scripts: [ terminal ]
+  sandboxed: true
+  reloadable: false
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_terminal/terminal.otmod,Terminal for executing lua functions
+"client_textedit
+  description: Shows window which allows to edit text
+  author: OTClientV8
+  website: https://github.com/OTCv8/otclientv8
+  sandboxed: true
+  scripts: [ textedit ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_textedit/textedit.otmod,Shows window which allows to edit text
+"client_topmenu
+  description: Create the top menu
+  author: edubart
+  website: https://github.com/edubart/otclient
+  scripts: [ topmenu ]
+  sandboxed: true
+  @onLoad: init()
+  @onUnload: terminate()",modules/client_topmenu/topmenu.otmod,Create the top menu
+"corelib
+  description: Contains core lua classes, functions and constants used by other modules
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  reloadable: false
+
+  @onLoad: |
+    dofile",modules/corelib/corelib.otmod,"Contains core lua classes, functions and constants used by other modules"
+"crash_reporter
+  description: Sends crash log to remote server
+  author: otclient@otclient.ovh
+  website: otclient.ovh
+  reloadable: false
+  scripts: [ crash_reporter ]
+  @onLoad: init()",modules/crash_reporter/crash_reporter.otmod,Sends crash log to remote server
+"game_actionbar
+  author: https://github.com/Vithrax/
+  sandboxed: true
+  @onLoad: init()
+  @onUnload: terminate()
+  scripts: [ actionbar ]",modules/game_actionbar/actionbar.otmod,
+"game_battle
+  description: Manage battle window (new)
+  author: otclient@otclient.ovh
+  website: otclient.ovh
+  sandboxed: true
+  scripts: [ battle ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_battle/battle.otmod,Manage battle window (new)
+"game_bot
+  description: Advanced OTClientV8 Bot
+  author: otclient@otclient.ovh
+  sandboxed: true
+  scripts: [ bot ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_bot/bot.otmod,Advanced OTClientV8 Bot
+"game_bugreport
+  description: Bug report interface (Ctrl+Z)
+  author: edubart
+  website: https://github.com/edubart/otclient
+  scripts: [ bugreport ]
+  sandboxed: true
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_bugreport/bugreport.otmod,Bug report interface (Ctrl+Z)
+"game_buttons
+  description: Shows miniwindow with buttons
+  author: otclient@otclient.ovh
+  sandboxed: true
+  scripts: [ buttons ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_buttons/buttons.otmod,Shows miniwindow with buttons
+"game_console
+  description: Manage chat window
+  author: edubart, andrefaramir, baxnie, sn4ake, BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ console ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_console/console.otmod,Manage chat window
+"game_containers
+  description: Manage containers
+  author: edubart, baxnie
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [containers]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_containers/containers.otmod,Manage containers
+"game_cooldown
+  description: Spellcooldowns
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ cooldown ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_cooldown/cooldown.otmod,Spellcooldowns
+"game_features
+  description: Manager game features
+  reloadable: false
+  sandboxed: true
+  scripts: [features]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_features/features.otmod,Manager game features
+"game_healthinfo
+  description: Displays health, mana points, soul points, and conditions
+  author: edubart, BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ healthinfo ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_healthinfo/healthinfo.otmod,"Displays health, mana points, soul points, and conditions"
+"game_hotkeys
+  description: Manage client hotkeys
+  author: andrefaramir, BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ hotkeys_extra, hotkeys_manager ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_hotkeys/hotkeys_manager.otmod,Manage client hotkeys
+"game_imbuing
+  description: imbuing
+  author: Vincent#1766 on discord
+  website: http://otclient.ovh
+  sandboxed: true
+  scripts: [ imbuing ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_imbuing/imbuing.otmod,imbuing
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_interface/interface.otmod,"Create the game interface, where the ingame stuff starts"
+"game_inventory
+  description: View local player equipments window
+  author: baxnie, edubart, BeniS, otclientv8
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ inventory ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_inventory/inventory.otmod,View local player equipments window
+"game_itemselector
+  description: Allow to select item
+  author: OTClientV8
+  website: https://github.com/OTCv8/otclientv8
+  sandboxed: true
+  dependencies: [ game_interface ]
+  scripts: [ itemselector ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_itemselector/itemselector.otmod,Allow to select item
+"game_market
+  description: Global item market system
+  author: BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ offerstatistic, marketoffer, marketprotocol, market ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_market/market.otmod,Global item market system
+"game_minimap
+  description: Manage minimap
+  author: edubart, BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ minimap ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_minimap/minimap.otmod,Manage minimap
+"game_modaldialog
+  description: Show and process modal dialogs
+  author: Summ
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  dependencies: [ game_interface ]
+  scripts: [ modaldialog ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_modaldialog/modaldialog.otmod,Show and process modal dialogs
+"game_npctrade
+  description: NPC trade interface
+  author: andrefaramir, baxnie
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ npctrade ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_npctrade/npctrade.otmod,NPC trade interface
+"game_outfit
+  description: Change local player outfit
+  author: Oen44
+  website: https://discord.gg/DUkqbedmgP
+  sandboxed: true
+  scripts: [ outfit ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_outfit/outfit.otmod,Change local player outfit
+"game_playerdeath
+  description: Manage player deaths
+  author: BeniS, edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ playerdeath ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_playerdeath/playerdeath.otmod,Manage player deaths
+"game_playermount
+  description: Manage player mounts
+  author: BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ playermount ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_playermount/playermount.otmod,Manage player mounts
+"game_playertrade
+  description: Allow to trade items with players
+  author: edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ playertrade ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_playertrade/playertrade.otmod,Allow to trade items with players
+"game_prey
+  description: Preys, sponsored by kivera-global.com, remade by Vithrax#5814
+  author: otclient.ovh & kivera-global.com & Vithrax#5814
+  website: http://otclient.ovh
+  sandboxed: true
+  scripts: [ prey ]
+  dependencies: [ client_topmenu ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_prey/prey.otmod,"Preys, sponsored by kivera-global.com, remade by Vithrax#5814"
+"game_protocol
+  description: Game protocol
+  author: otclientv8
+  website: http://otclient.ovh
+  scripts: [ protocol ]
+  sandboxed: true
+  autoload: true
+  autoload-priority: 500
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_protocol/protocol.otmod,Game protocol
+"game_questlog
+  description: Quest status preview and tracking
+  author: Vithrax
+  website: https://github.com/Vithrax
+  sandboxed: true
+  scripts: [ questlog ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_questlog/questlog.otmod,Quest status preview and tracking
+"game_ruleviolation
+  description: Rule violation interface (Ctrl+Y)
+  author: andrefaramir
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ ruleviolation ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_ruleviolation/ruleviolation.otmod,Rule violation interface (Ctrl+Y)
+"game_shaders
+  description: Load shaders
+  author: otclientv8
+  website: http://otclient.ovh
+  scripts: [ shaders ]
+  sandboxed: true
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_shaders/shaders.otmod,Load shaders
+"game_shop
+  description: Game shop
+  author: otclient.ovh
+  website: http://otclient.ovh
+  sandboxed: true
+  scripts: [ shop ]
+  dependencies: [ client_topmenu ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_shop/shop.otmod,Game shop
+"game_skills
+  description: Manage skills window
+  author: baxnie, edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ skills ]
+  @onLoad: init()
+  @onUnload: terminate()
+  dependencies:
+    - game_interface",modules/game_skills/skills.otmod,Manage skills window
+"game_spelllist
+  description: View available spells
+  author: Summ, Edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ spelllist ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_spelllist/spelllist.otmod,View available spells
+"game_stats
+  description: Display ping and fps
+  author: otclient.ovh
+  website: http://otclient.ovh
+  sandboxed: true
+  scripts: [ stats ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_stats/stats.otmod,Display ping and fps
+"game_textmessage
+  description: Manage game text messages
+  author: edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ textmessage ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_textmessage/textmessage.otmod,Manage game text messages
+"game_textwindow
+  description: Allow to edit text books and lists
+  author: edubart, BeniS
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  dependencies: [ game_interface ]
+  scripts: [ textwindow ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_textwindow/textwindow.otmod,Allow to edit text books and lists
+"game_things
+  description: Contains things spr and dat
+  reloadable: false
+  sandboxed: true
+  scripts: [things]",modules/game_things/things.otmod,Contains things spr and dat
+"game_topbar
+  description: Customizable Top Bar from Cipsoft",modules/game_topbar/topbar.otmod,Customizable Top Bar from Cipsoft's Tibia 12 Client
+"game_unjustifiedpoints
+  description: View unjustified points
+  author: Summ
+  sandboxed: true
+  scripts: [ unjustifiedpoints ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_unjustifiedpoints/unjustifiedpoints.otmod,View unjustified points
+"game_viplist
+  description: Manage vip list window
+  author: baxnie, edubart
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ viplist ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_viplist/viplist.otmod,Manage vip list window
+"game_walking
+  description: Control walking and turns
+  author: otclient.ovh
+  website: http://otclient.ovh
+  scripts: [ walking ]
+  dependencies: [ game_interface ]
+  @onLoad: init()
+  @onUnload: terminate()",modules/game_walking/walking.otmod,Control walking and turns
+"gamelib
+  description: Contains game related classes
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+
+  @onLoad: |
+    dofile",modules/gamelib/gamelib.otmod,Contains game related classes
+"updater
+  description: Updates client
+  author: otclient@otclient.ovh
+  website: otclient.ovh
+  reloadable: false
+  scripts: [ updater ]
+  dependencies: [ client_locales, client_styles, client_textedit ]
+  @onUnload: Updater.terminate()
+  
+  load-later:
+    - client_background",modules/updater/updater.otmod,Updates client

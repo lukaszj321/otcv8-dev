@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_keyboard.bindKeyPress",
+  "args": "keyComboDesc, callback, widget",
+  "file": "modules/corelib/keyboard.lua"
+}

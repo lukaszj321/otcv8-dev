@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "uint i=0;i<apng.num_frames;++i",
+  "file": "src/framework/graphics/texturemanager.cpp"
+}

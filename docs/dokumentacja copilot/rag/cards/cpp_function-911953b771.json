@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ConfigManager::unload",
+  "return_type": "bool",
+  "args": "const std::string& file",
+  "file": "src/framework/core/configmanager.cpp"
+}

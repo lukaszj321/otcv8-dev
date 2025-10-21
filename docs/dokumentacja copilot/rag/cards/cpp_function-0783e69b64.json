@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::setZoneColor",
+  "return_type": "void",
+  "args": "tileflags_t zone, const Color& color",
+  "file": "src/client/map.cpp"
+}

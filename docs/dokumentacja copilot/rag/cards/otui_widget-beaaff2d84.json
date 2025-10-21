@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 238,
+  "path": "ComboActions#actions/BotSwitch#commandsToggle",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "commandsToggle",
+  "props": {
+    "id": "commandsToggle",
+    "anchors.left": "prev.right",
+    "anchors.top": "attackItem.top",
+    "anchors.right": "attackSpellToggle.right",
+    "anchors.bottom": "attackItem.bottom",
+    "margin-left": "5",
+    "text": "Leader Commands",
+    "text-wrap": "true",
+    "multiline": "true"
+  }
+}

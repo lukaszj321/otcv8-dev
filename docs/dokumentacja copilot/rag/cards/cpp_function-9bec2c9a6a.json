@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CachedText::draw",
+  "return_type": "void",
+  "args": "const Rect& rect, const Color& color",
+  "file": "src/framework/graphics/cachedtext.cpp"
+}

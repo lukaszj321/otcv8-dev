@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Crypt::rsaSetPublicKey",
+  "return_type": "void",
+  "args": "const std::string& n, const std::string& e",
+  "file": "src/framework/util/crypt.cpp"
+}

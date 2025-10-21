@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "print_ostream",
+  "return_type": "template<class T> void",
+  "args": "std::ostringstream& stream, const T& last",
+  "file": "src/framework/stdext/format.h"
+}

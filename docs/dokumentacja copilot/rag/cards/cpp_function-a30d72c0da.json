@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDirection",
+  "return_type": "nan",
+  "args": "direction",
+  "file": "src/client/creature.cpp"
+}

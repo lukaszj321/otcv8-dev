@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:setContentMaximumHeight",
+  "args": "height",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

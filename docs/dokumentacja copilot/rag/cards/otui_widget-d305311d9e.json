@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 145,
+  "path": "SuppliesWindow/BotSwitch#staminaSwitch",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "staminaSwitch",
+  "props": {
+    "id": "staminaSwitch",
+    "height": "20",
+    "anchors.left": "SoftBoots.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "margin-right": "50",
+    "text-align": "center",
+    "text": "Stamina:",
+    "tooltip": "Go refill if stamina is below set value. (in minutes)"
+  }
+}

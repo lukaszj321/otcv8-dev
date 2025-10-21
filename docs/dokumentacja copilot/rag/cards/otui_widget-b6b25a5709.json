@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 108,
+  "path": "QuestLogWindow#questLogWindow/QuestLog#questlog",
+  "widget": "QuestLog",
+  "base": "",
+  "id": "questlog",
+  "props": {
+    "id": "questlog",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "bottomSep.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "visible": "false"
+  }
+}

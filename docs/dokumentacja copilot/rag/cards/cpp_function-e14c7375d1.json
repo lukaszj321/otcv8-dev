@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFile",
+  "return_type": "HttpResult_ptr",
+  "args": "std::string path",
+  "file": "src/framework/http/http.h"
+}

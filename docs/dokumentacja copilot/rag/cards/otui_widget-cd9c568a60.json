@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 210,
+  "path": "AttackBotPanel/PreButton#previousSource",
+  "widget": "PreButton",
+  "base": "",
+  "id": "previousSource",
+  "props": {
+    "id": "previousSource",
+    "anchors.left": "entryList.left",
+    "anchors.top": "category.bottom",
+    "margin-top": "8"
+  }
+}

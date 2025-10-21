@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addButton",
+  "args": "name, func, icon",
+  "file": "modules/client_options/options.lua"
+}

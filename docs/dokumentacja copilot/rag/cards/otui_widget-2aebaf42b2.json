@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 89,
+  "path": "TargetBotPanel/Panel#editor/Panel#buttons/Button#add",
+  "widget": "Button",
+  "base": "",
+  "id": "add",
+  "props": {
+    "id": "add",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "text": "Add",
+    "width": "56"
+  }
+}

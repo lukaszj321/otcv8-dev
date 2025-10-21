@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_rawgeti",
+  "return_type": "nan",
+  "args": "L, LUA_REGISTRYINDEX, ref",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

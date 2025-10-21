@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 181,
+  "path": "QuestTracker#questTracker/MiniWindowContents/Panel/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.fill": "parent",
+    "margin-left": "30",
+    "margin-right": "30",
+    "font": "cipsoftFont",
+    "color": "#FFFFFF"
+  }
+}

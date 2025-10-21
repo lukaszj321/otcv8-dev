@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "createEditWindow",
+  "args": "widget",
+  "file": "modules/game_viplist/viplist.lua"
+}

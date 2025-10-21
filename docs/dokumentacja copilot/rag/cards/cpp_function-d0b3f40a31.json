@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onRecv",
+  "return_type": "nan",
+  "args": "m_inputMessage",
+  "file": "src/framework/net/protocol.cpp"
+}

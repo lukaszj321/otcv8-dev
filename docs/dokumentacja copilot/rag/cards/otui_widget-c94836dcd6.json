@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_feedback/feedback.otui",
+  "line": 35,
+  "path": "MainWindow#feedbackWindow/Button#okButton",
+  "widget": "Button",
+  "base": "",
+  "id": "okButton",
+  "props": {
+    "id": "okButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "next.left",
+    "margin-right": "10",
+    "width": "60"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITextEdit:setHorizontalScrollBar",
+  "args": "scrollbar",
+  "file": "modules/corelib/ui/uitextedit.lua"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 87,
+  "path": "ComboTrigger#trigger/TextEdit#onShootLeader",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "onShootLeader",
+  "props": {
+    "id": "onShootLeader",
+    "anchors.left": "leaderLabel1.right",
+    "anchors.top": "leaderLabel1.top",
+    "anchors.bottom": "leaderLabel1.bottom",
+    "anchors.right": "onSayPhrase.right",
+    "margin-left": "5",
+    "width": "120",
+    "font": "cipsoftFont"
+  }
+}

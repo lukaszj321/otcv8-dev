@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 42,
+  "path": "SearchPanel/Button#clear",
+  "widget": "Button",
+  "base": "",
+  "id": "clear",
+  "props": {
+    "id": "clear",
+    "anchors.right": "parent.right",
+    "margin-right": "-2",
+    "size": "18 18",
+    "text": "X",
+    "self": "getParent():setText(\"\")"
+  }
+}

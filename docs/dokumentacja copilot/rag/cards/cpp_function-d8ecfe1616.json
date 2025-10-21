@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::drawOutfit",
+  "return_type": "void",
+  "args": "const Rect& destRect, Otc::Direction direction, const Color& color, bool animate, bool ui, bool oldScaling",
+  "file": "src/client/creature.cpp"
+}

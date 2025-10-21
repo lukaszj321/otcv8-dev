@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:selectTab",
+  "args": "tab",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

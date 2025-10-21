@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "initCooldown",
+  "args": "progressRect, updateCallback, finishCallback",
+  "file": "modules/game_cooldown/cooldown.lua"
+}

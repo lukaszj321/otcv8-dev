@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "connect",
+  "return_type": "template<typename F> void",
+  "args": "const LuaObjectPtr& obj, const std::string& field, const std::function<F>& f, bool pushFront",
+  "file": "src/framework/luaengine/luaobject.h"
+}

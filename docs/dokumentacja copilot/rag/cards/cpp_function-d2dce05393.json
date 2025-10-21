@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeThing",
+  "return_type": "inline void",
+  "args": "nan",
+  "file": "src/framework/util/stats.h"
+}

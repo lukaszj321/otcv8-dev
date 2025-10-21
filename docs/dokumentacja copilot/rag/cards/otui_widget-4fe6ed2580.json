@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 28,
+  "path": "StatsPanel/FlatPanel#states/Panel#box",
+  "widget": "Panel",
+  "base": "",
+  "id": "box",
+  "props": {
+    "id": "box",
+    "image-source": "/images/ui/dark_background",
+    "anchors.fill": "parent",
+    "layout": "",
+    "type": "horizontalBox"
+  }
+}

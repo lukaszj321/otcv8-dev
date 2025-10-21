@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onPreyPrice",
+  "args": "price",
+  "file": "modules/game_prey/prey.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ANativeActivity_onCreate",
+  "return_type": "void",
+  "args": "ANativeActivity* activity, void* savedState, size_t savedStateSize",
+  "file": "src/android/android_native_app_glue.cpp"
+}

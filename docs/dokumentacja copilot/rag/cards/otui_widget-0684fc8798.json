@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 24,
+  "path": "ComboTrigger#trigger/Label#triggerLabel1",
+  "widget": "Label",
+  "base": "",
+  "id": "triggerLabel1",
+  "props": {
+    "id": "triggerLabel1",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "text": "On Say",
+    "margin-top": "8",
+    "margin-left": "5",
+    "color": "#ffaa00"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 77,
+  "path": "TargetBotPanel/Panel#editor",
+  "widget": "Panel",
+  "base": "",
+  "id": "editor",
+  "props": {
+    "id": "editor",
+    "visible": "false",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

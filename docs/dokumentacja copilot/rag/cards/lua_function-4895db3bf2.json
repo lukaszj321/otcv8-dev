@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIImageView:move",
+  "args": "x, y, centerX, centerY",
+  "file": "modules/corelib/ui/uiimageview.lua"
+}

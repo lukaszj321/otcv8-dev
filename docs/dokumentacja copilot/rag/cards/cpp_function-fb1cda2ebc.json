@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addColoredMessage",
+  "return_type": "return",
+  "args": "name, mode, { text, \"\" }",
+  "file": "src/client/statictext.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "loadPNG",
+  "return_type": "static ImagePtr",
+  "args": "const void* data, uint32_t size",
+  "file": "src/framework/graphics/image.h"
+}

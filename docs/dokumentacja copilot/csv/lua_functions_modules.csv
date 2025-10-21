@@ -1,0 +1,2091 @@
+file,function,args
+modules/client/client.lua,exit,
+modules/client/client.lua,init,
+modules/client/client.lua,onGameEnd,
+modules/client/client.lua,onGameStart,
+modules/client/client.lua,reloadScripts,
+modules/client/client.lua,setMusic,filename
+modules/client/client.lua,startup,
+modules/client/client.lua,terminate,
+modules/client_background/background.lua,getBackground,
+modules/client_background/background.lua,hide,
+modules/client_background/background.lua,hideVersionLabel,
+modules/client_background/background.lua,init,
+modules/client_background/background.lua,setVersionText,text
+modules/client_background/background.lua,show,
+modules/client_background/background.lua,terminate,
+modules/client_entergame/characterlist.lua,CharacterList.cancelWait,
+modules/client_entergame/characterlist.lua,CharacterList.create,"characters, account, otui"
+modules/client_entergame/characterlist.lua,CharacterList.destroy,
+modules/client_entergame/characterlist.lua,CharacterList.destroyLoadBox,
+modules/client_entergame/characterlist.lua,CharacterList.doLogin,
+modules/client_entergame/characterlist.lua,CharacterList.hide,showLogin
+modules/client_entergame/characterlist.lua,CharacterList.init,
+modules/client_entergame/characterlist.lua,CharacterList.isVisible,
+modules/client_entergame/characterlist.lua,CharacterList.show,
+modules/client_entergame/characterlist.lua,CharacterList.showAgain,
+modules/client_entergame/characterlist.lua,CharacterList.terminate,
+modules/client_entergame/characterlist.lua,executeAutoReconnect,
+modules/client_entergame/characterlist.lua,onGameConnectionError,"message, code"
+modules/client_entergame/characterlist.lua,onGameEnd,
+modules/client_entergame/characterlist.lua,onGameLoginError,message
+modules/client_entergame/characterlist.lua,onGameLoginToken,unknown
+modules/client_entergame/characterlist.lua,onGameUpdateNeeded,signature
+modules/client_entergame/characterlist.lua,onLoginWait,"message, time"
+modules/client_entergame/characterlist.lua,onLogout,
+modules/client_entergame/characterlist.lua,resendWait,
+modules/client_entergame/characterlist.lua,scheduleAutoReconnect,
+modules/client_entergame/characterlist.lua,tryLogin,"charInfo, tries"
+modules/client_entergame/characterlist.lua,updateWait,"timeStart, timeEnd"
+modules/client_entergame/entergame.lua,EnterGame.clearAccountFields,
+modules/client_entergame/entergame.lua,EnterGame.doLogin,"account, password, token, host"
+modules/client_entergame/entergame.lua,EnterGame.doLoginHttp,
+modules/client_entergame/entergame.lua,EnterGame.hide,
+modules/client_entergame/entergame.lua,EnterGame.init,
+modules/client_entergame/entergame.lua,EnterGame.onError,err
+modules/client_entergame/entergame.lua,EnterGame.onLoginError,err
+modules/client_entergame/entergame.lua,EnterGame.onServerChange,
+modules/client_entergame/entergame.lua,EnterGame.openWindow,
+modules/client_entergame/entergame.lua,EnterGame.show,
+modules/client_entergame/entergame.lua,EnterGame.terminate,
+modules/client_entergame/entergame.lua,onCharacterList,"protocol, characters, account, otui"
+modules/client_entergame/entergame.lua,onHTTPResult,"data, err"
+modules/client_entergame/entergame.lua,onProtocolError,"protocol, message, errorCode"
+modules/client_entergame/entergame.lua,onProxyList,"protocol, proxies"
+modules/client_entergame/entergame.lua,onSessionKey,"protocol, sessionKey"
+modules/client_entergame/entergame.lua,onTibia12HTTPResult,"session, playdata"
+modules/client_entergame/entergame.lua,onUpdateNeeded,"protocol, signature"
+modules/client_entergame/entergame.lua,parseFeatures,features
+modules/client_entergame/entergame.lua,validateThings,things
+modules/client_feedback/feedback.lua,hide,
+modules/client_feedback/feedback.lua,init,
+modules/client_feedback/feedback.lua,send,
+modules/client_feedback/feedback.lua,show,
+modules/client_feedback/feedback.lua,terminate,
+modules/client_locales/locales.lua,_G.tr,"text, ..."
+modules/client_locales/locales.lua,createWindow,
+modules/client_locales/locales.lua,generateNewTranslationTable,localename
+modules/client_locales/locales.lua,getCurrentLocale,
+modules/client_locales/locales.lua,getInstalledLocales,
+modules/client_locales/locales.lua,init,
+modules/client_locales/locales.lua,installLocale,locale
+modules/client_locales/locales.lua,installLocales,directory
+modules/client_locales/locales.lua,selectFirstLocale,name
+modules/client_locales/locales.lua,setLocale,name
+modules/client_locales/locales.lua,terminate,
+modules/client_mobile/mobile.lua,executeWalk,
+modules/client_mobile/mobile.lua,hide,
+modules/client_mobile/mobile.lua,init,
+modules/client_mobile/mobile.lua,offline,
+modules/client_mobile/mobile.lua,onKeypadTouchMove,"widget, pos, offset"
+modules/client_mobile/mobile.lua,onKeypadTouchPress,"widget, pos, button"
+modules/client_mobile/mobile.lua,onKeypadTouchRelease,"widget, pos, button"
+modules/client_mobile/mobile.lua,onMouseMove,"widget, pos, offset"
+modules/client_mobile/mobile.lua,onMousePress,"widget, pos, button"
+modules/client_mobile/mobile.lua,onMouseRelease,"widget, pos, button"
+modules/client_mobile/mobile.lua,online,
+modules/client_mobile/mobile.lua,show,
+modules/client_mobile/mobile.lua,terminate,
+modules/client_mobile/mobile.lua,updateCursor,
+modules/client_options/options.lua,addButton,"name, func, icon"
+modules/client_options/options.lua,addTab,"name, panel, icon"
+modules/client_options/options.lua,getOption,key
+modules/client_options/options.lua,hide,
+modules/client_options/options.lua,init,
+modules/client_options/options.lua,offline,
+modules/client_options/options.lua,online,
+modules/client_options/options.lua,setLightOptionsVisibility,value
+modules/client_options/options.lua,setOption,"key, value, force"
+modules/client_options/options.lua,setup,
+modules/client_options/options.lua,show,
+modules/client_options/options.lua,terminate,
+modules/client_options/options.lua,toggle,
+modules/client_options/options.lua,toggleDisplays,
+modules/client_options/options.lua,toggleOption,key
+modules/client_profiles/profiles.lua,collectiveReload,
+modules/client_profiles/profiles.lua,getProfileFromSettings,
+modules/client_profiles/profiles.lua,getProfileFromStartupArgument,
+modules/client_profiles/profiles.lua,getSettingsFilePath,fileNameWithFormat
+modules/client_profiles/profiles.lua,init,
+modules/client_profiles/profiles.lua,load,
+modules/client_profiles/profiles.lua,offline,
+modules/client_profiles/profiles.lua,onProfileChange,offline
+modules/client_profiles/profiles.lua,online,
+modules/client_profiles/profiles.lua,save,
+modules/client_profiles/profiles.lua,setProfileOption,index
+modules/client_profiles/profiles.lua,terminate,
+modules/client_stats/stats.lua,init,
+modules/client_stats/stats.lua,monitor,
+modules/client_stats/stats.lua,onClose,
+modules/client_stats/stats.lua,sendStats,
+modules/client_stats/stats.lua,terminate,
+modules/client_stats/stats.lua,toggle,
+modules/client_stats/stats.lua,update,
+modules/client_styles/styles.lua,init,
+modules/client_styles/styles.lua,terminate,
+modules/client_terminal/commands.lua,about_graphics,
+modules/client_terminal/commands.lua,about_modules,
+modules/client_terminal/commands.lua,about_version,
+modules/client_terminal/commands.lua,clear,
+modules/client_terminal/commands.lua,draw_debug_boxes,
+modules/client_terminal/commands.lua,hide_map,
+modules/client_terminal/commands.lua,ls,path
+modules/client_terminal/commands.lua,pcolored,"text, color"
+modules/client_terminal/commands.lua,ping,
+modules/client_terminal/commands.lua,pingBack,ping
+modules/client_terminal/commands.lua,show_map,
+modules/client_terminal/terminal.lua,addLine,"text, color"
+modules/client_terminal/terminal.lua,addNewline,textWidget
+modules/client_terminal/terminal.lua,clear,
+modules/client_terminal/terminal.lua,completeCommand,
+modules/client_terminal/terminal.lua,disable,
+modules/client_terminal/terminal.lua,doCommand,textWidget
+modules/client_terminal/terminal.lua,executeCommand,command
+modules/client_terminal/terminal.lua,flushLines,
+modules/client_terminal/terminal.lua,hide,
+modules/client_terminal/terminal.lua,hideButton,
+modules/client_terminal/terminal.lua,init,
+modules/client_terminal/terminal.lua,navigateCommand,step
+modules/client_terminal/terminal.lua,onCommandChange,"textWidget, newText, oldText"
+modules/client_terminal/terminal.lua,onLog,"level, message, time"
+modules/client_terminal/terminal.lua,popWindow,
+modules/client_terminal/terminal.lua,show,
+modules/client_terminal/terminal.lua,terminalPrint,value
+modules/client_terminal/terminal.lua,terminate,
+modules/client_terminal/terminal.lua,toggle,
+modules/client_textedit/textedit.lua,destroyWindow,
+modules/client_textedit/textedit.lua,edit,...
+modules/client_textedit/textedit.lua,hide,
+modules/client_textedit/textedit.lua,init,
+modules/client_textedit/textedit.lua,multilineEditor,"description, text, callback"
+modules/client_textedit/textedit.lua,show,"text, options, callback"
+modules/client_textedit/textedit.lua,singlelineEditor,"text, callback"
+modules/client_textedit/textedit.lua,terminate,
+modules/client_topmenu/topmenu.lua,addButton,"id, description, icon, callback, panel, toggle, front, index"
+modules/client_topmenu/topmenu.lua,addLeftButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addLeftGameButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addLeftGameToggleButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addLeftToggleButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addRightButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addRightGameButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addRightGameToggleButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,addRightToggleButton,"id, description, icon, callback, front, index"
+modules/client_topmenu/topmenu.lua,getButton,id
+modules/client_topmenu/topmenu.lua,getTopMenu,
+modules/client_topmenu/topmenu.lua,hide,
+modules/client_topmenu/topmenu.lua,hideGameButtons,
+modules/client_topmenu/topmenu.lua,init,
+modules/client_topmenu/topmenu.lua,offline,
+modules/client_topmenu/topmenu.lua,online,
+modules/client_topmenu/topmenu.lua,setFpsVisible,enable
+modules/client_topmenu/topmenu.lua,setPingVisible,enable
+modules/client_topmenu/topmenu.lua,show,
+modules/client_topmenu/topmenu.lua,showGameButtons,
+modules/client_topmenu/topmenu.lua,terminate,
+modules/client_topmenu/topmenu.lua,toggle,
+modules/client_topmenu/topmenu.lua,updateFps,
+modules/client_topmenu/topmenu.lua,updatePing,ping
+modules/client_topmenu/topmenu.lua,updateStatus,
+modules/corelib/base64.lua,base64.decode," b64, decoder, usecaching "
+modules/corelib/base64.lua,base64.encode," str, encoder, usecaching "
+modules/corelib/base64.lua,base64.makedecoder," s62, s63, spad "
+modules/corelib/base64.lua,base64.makeencoder," s62, s63, spad "
+modules/corelib/bitwise.lua,Bit.bit,p
+modules/corelib/bitwise.lua,Bit.clearbit,"x, p"
+modules/corelib/bitwise.lua,Bit.hasBit,"x, p"
+modules/corelib/bitwise.lua,Bit.setbit,"x, p"
+modules/corelib/config.lua,Config:get,"key, default"
+modules/corelib/config.lua,Config:getBoolean,"key, default"
+modules/corelib/config.lua,Config:getColor,"key, default"
+modules/corelib/config.lua,Config:getInteger,"key, default"
+modules/corelib/config.lua,Config:getNumber,"key, default"
+modules/corelib/config.lua,Config:getPoint,"key, default"
+modules/corelib/config.lua,Config:getRect,"key, default"
+modules/corelib/config.lua,Config:getSize,"key, default"
+modules/corelib/config.lua,Config:getString,"key, default"
+modules/corelib/config.lua,Config:set,"key, value"
+modules/corelib/config.lua,Config:setDefault,"key, value"
+modules/corelib/config.lua,convertSettingValue,value
+modules/corelib/globals.lua,addEvent,"callback, front"
+modules/corelib/globals.lua,cycleEvent,"callback, interval"
+modules/corelib/globals.lua,periodicalEvent,"eventFunc, conditionFunc, delay, autoRepeatDelay"
+modules/corelib/globals.lua,removeEvent,event
+modules/corelib/globals.lua,scheduleEvent,"callback, delay"
+modules/corelib/http.lua,HTTP.cancel,operationId
+modules/corelib/http.lua,HTTP.download,"url, file, callback, progressCallback"
+modules/corelib/http.lua,HTTP.downloadImage,"url, callback"
+modules/corelib/http.lua,HTTP.get,"url, callback"
+modules/corelib/http.lua,HTTP.getJSON,"url, callback"
+modules/corelib/http.lua,HTTP.onDownload,"operationId, url, err, path, checksum"
+modules/corelib/http.lua,HTTP.onDownloadProgress,"operationId, url, progress, speed"
+modules/corelib/http.lua,HTTP.onGet,"operationId, url, err, data"
+modules/corelib/http.lua,HTTP.onGetProgress,"operationId, url, progress"
+modules/corelib/http.lua,HTTP.onPost,"operationId, url, err, data"
+modules/corelib/http.lua,HTTP.onPostProgress,"operationId, url, progress"
+modules/corelib/http.lua,HTTP.onWsClose,"operationId, message"
+modules/corelib/http.lua,HTTP.onWsError,"operationId, message"
+modules/corelib/http.lua,HTTP.onWsMessage,"operationId, message"
+modules/corelib/http.lua,HTTP.onWsOpen,"operationId, message"
+modules/corelib/http.lua,HTTP.post,"url, data, callback"
+modules/corelib/http.lua,HTTP.postJSON,"url, data, callback"
+modules/corelib/http.lua,HTTP.webSocket,"url, callbacks, timeout, jsonWebsocket"
+modules/corelib/http.lua,HTTP.webSocketJSON,"url, callbacks, timeout"
+modules/corelib/inputmessage.lua,InputMessage:getColor,
+modules/corelib/inputmessage.lua,InputMessage:getData,
+modules/corelib/inputmessage.lua,InputMessage:getPosition,
+modules/corelib/inputmessage.lua,InputMessage:getTable,
+modules/corelib/json.lua,codepoint_to_utf8,n
+modules/corelib/json.lua,create_set,...
+modules/corelib/json.lua,decode_error,"str, idx, msg"
+modules/corelib/json.lua,encode_nil,
+modules/corelib/json.lua,encode_number,val
+modules/corelib/json.lua,encode_string,val
+modules/corelib/json.lua,encode_table,"val, state"
+modules/corelib/json.lua,escape_char,c
+modules/corelib/json.lua,json.decode,str
+modules/corelib/json.lua,json.encode,"val, indent"
+modules/corelib/json.lua,make_indent,state
+modules/corelib/json.lua,next_char,"str, idx, set, negate"
+modules/corelib/json.lua,parse_array,"str, i"
+modules/corelib/json.lua,parse_literal,"str, i"
+modules/corelib/json.lua,parse_number,"str, i"
+modules/corelib/json.lua,parse_object,"str, i"
+modules/corelib/json.lua,parse_string,"str, i"
+modules/corelib/json.lua,parse_unicode_escape,s
+modules/corelib/keyboard.lua,connectKeyDownEvent,widget
+modules/corelib/keyboard.lua,connectKeyPressEvent,widget
+modules/corelib/keyboard.lua,connectKeyUpEvent,widget
+modules/corelib/keyboard.lua,determineKeyComboDesc,"keyCode, keyboardModifiers"
+modules/corelib/keyboard.lua,g_keyboard.areKeysPressed,keyComboDesc
+modules/corelib/keyboard.lua,g_keyboard.bindKeyDown,"keyComboDesc, callback, widget, alone"
+modules/corelib/keyboard.lua,g_keyboard.bindKeyPress,"keyComboDesc, callback, widget"
+modules/corelib/keyboard.lua,g_keyboard.bindKeyUp,"keyComboDesc, callback, widget, alone"
+modules/corelib/keyboard.lua,g_keyboard.getModifiers,
+modules/corelib/keyboard.lua,g_keyboard.isAltPressed,
+modules/corelib/keyboard.lua,g_keyboard.isCtrlPressed,
+modules/corelib/keyboard.lua,g_keyboard.isInUse,
+modules/corelib/keyboard.lua,g_keyboard.isKeyPressed,key
+modules/corelib/keyboard.lua,g_keyboard.isKeySetPressed,"keys, all"
+modules/corelib/keyboard.lua,g_keyboard.isShiftPressed,
+modules/corelib/keyboard.lua,g_keyboard.unbindKeyDown,"keyComboDesc, arg1, arg2"
+modules/corelib/keyboard.lua,g_keyboard.unbindKeyPress,"keyComboDesc, arg1, arg2"
+modules/corelib/keyboard.lua,g_keyboard.unbindKeyUp,"keyComboDesc, arg1, arg2"
+modules/corelib/keyboard.lua,getKeyCode,key
+modules/corelib/keyboard.lua,getUnbindArgs,"arg1, arg2"
+modules/corelib/keyboard.lua,onWidgetKeyDown,"widget, keyCode, keyboardModifiers"
+modules/corelib/keyboard.lua,onWidgetKeyPress,"widget, keyCode, keyboardModifiers, autoRepeatTicks"
+modules/corelib/keyboard.lua,onWidgetKeyUp,"widget, keyCode, keyboardModifiers"
+modules/corelib/keyboard.lua,retranslateKeyComboDesc,keyComboDesc
+modules/corelib/keyboard.lua,translateKeyCombo,keyCombo
+modules/corelib/math.lua,math.isinteger,num
+modules/corelib/math.lua,math.isu16,num
+modules/corelib/math.lua,math.isu32,num
+modules/corelib/math.lua,math.isu64,num
+modules/corelib/math.lua,math.isu8,num
+modules/corelib/math.lua,math.round,"num, idp"
+modules/corelib/mouse.lua,g_mouse.bindAutoPress,"widget, callback, delay, button"
+modules/corelib/mouse.lua,g_mouse.bindPress,"widget, callback, button"
+modules/corelib/mouse.lua,g_mouse.bindPressMove,"widget, callback"
+modules/corelib/net.lua,translateNetworkError,"errcode, connecting, errdesc"
+modules/corelib/orderedtable.lua,__genOrderedIndex, t 
+modules/corelib/orderedtable.lua,orderedNext,"t, state"
+modules/corelib/orderedtable.lua,orderedPairs,t
+modules/corelib/outputmessage.lua,OutputMessage:addColor,color
+modules/corelib/outputmessage.lua,OutputMessage:addData,data
+modules/corelib/outputmessage.lua,OutputMessage:addPosition,position
+modules/corelib/outputmessage.lua,OutputMessage:addTable,data
+modules/corelib/string.lua,string:contains,"str, checkCase, start, plain"
+modules/corelib/string.lua,string:ends,test
+modules/corelib/string.lua,string:explode,"sep, limit"
+modules/corelib/string.lua,string:split,delim
+modules/corelib/string.lua,string:starts,start
+modules/corelib/string.lua,string:trim,
+modules/corelib/struct.lua,Struct.pack,"format, ..."
+modules/corelib/struct.lua,Struct.unpack,"format, stream"
+modules/corelib/table.lua,table.clear,t
+modules/corelib/table.lua,table.collect,"t, func"
+modules/corelib/table.lua,table.compare,"t, other"
+modules/corelib/table.lua,table.contains,"t, value, lowercase"
+modules/corelib/table.lua,table.copy,t
+modules/corelib/table.lua,table.decodeStringPairList,l
+modules/corelib/table.lua,table.dump,"t, depth"
+modules/corelib/table.lua,table.empty,t
+modules/corelib/table.lua,table.encodeStringPairList,t
+modules/corelib/table.lua,table.equal,"t1,t2,ignore_mt"
+modules/corelib/table.lua,table.equals,"t, comp"
+modules/corelib/table.lua,table.find,"t, value, lowercase"
+modules/corelib/table.lua,table.findbyfield,"t, fieldname, fieldvalue"
+modules/corelib/table.lua,table.findbykey,"t, key, lowercase"
+modules/corelib/table.lua,table.findkey,"t, key"
+modules/corelib/table.lua,table.haskey,"t, key"
+modules/corelib/table.lua,table.isList,t
+modules/corelib/table.lua,table.isStringList,t
+modules/corelib/table.lua,table.isStringPairList,t
+modules/corelib/table.lua,table.merge,"t, src"
+modules/corelib/table.lua,table.permute,"t, n, count"
+modules/corelib/table.lua,table.popvalue,value
+modules/corelib/table.lua,table.recursivecopy,t
+modules/corelib/table.lua,table.removevalue,"t, value"
+modules/corelib/table.lua,table.selectivecopy,"t, keys"
+modules/corelib/table.lua,table.size,t
+modules/corelib/table.lua,table.tostring,t
+modules/corelib/ui/effects.lua,g_effects.cancelFade,widget
+modules/corelib/ui/effects.lua,g_effects.fadeIn,"widget, time, elapsed"
+modules/corelib/ui/effects.lua,g_effects.fadeOut,"widget, time, elapsed"
+modules/corelib/ui/effects.lua,g_effects.startBlink,"widget, duration, interval, clickCancel"
+modules/corelib/ui/effects.lua,g_effects.stopBlink,widget
+modules/corelib/ui/tooltip.lua,UIWidget:getTooltip,
+modules/corelib/ui/tooltip.lua,UIWidget:removeTooltip,
+modules/corelib/ui/tooltip.lua,UIWidget:setTooltip,text
+modules/corelib/ui/tooltip.lua,g_tooltip.display,text
+modules/corelib/ui/tooltip.lua,g_tooltip.hide,
+modules/corelib/ui/tooltip.lua,g_tooltip.init,
+modules/corelib/ui/tooltip.lua,g_tooltip.terminate,
+modules/corelib/ui/tooltip.lua,moveToolTip,first
+modules/corelib/ui/tooltip.lua,onWidgetHoverChange,"widget, hovered"
+modules/corelib/ui/tooltip.lua,onWidgetStyleApply,"widget, styleName, styleNode"
+modules/corelib/ui/uibutton.lua,UIButton.create,
+modules/corelib/ui/uibutton.lua,UIButton:onMouseRelease,"pos, button"
+modules/corelib/ui/uicheckbox.lua,UICheckBox.create,
+modules/corelib/ui/uicheckbox.lua,UICheckBox:onClick,
+modules/corelib/ui/uicombobox.lua,UIComboBox.create,
+modules/corelib/ui/uicombobox.lua,UIComboBox:addOption,"text, data"
+modules/corelib/ui/uicombobox.lua,UIComboBox:canMouseScroll,
+modules/corelib/ui/uicombobox.lua,UIComboBox:clear,
+modules/corelib/ui/uicombobox.lua,UIComboBox:clearOptions,
+modules/corelib/ui/uicombobox.lua,UIComboBox:getCurrentOption,
+modules/corelib/ui/uicombobox.lua,UIComboBox:getOptionsCount,
+modules/corelib/ui/uicombobox.lua,UIComboBox:isOption,text
+modules/corelib/ui/uicombobox.lua,UIComboBox:onMousePress,"mousePos, mouseButton"
+modules/corelib/ui/uicombobox.lua,UIComboBox:onMouseWheel,"mousePos, direction"
+modules/corelib/ui/uicombobox.lua,UIComboBox:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uicombobox.lua,UIComboBox:removeOption,text
+modules/corelib/ui/uicombobox.lua,UIComboBox:setCurrentIndex,"index, dontSignal"
+modules/corelib/ui/uicombobox.lua,UIComboBox:setCurrentOption,"text, dontSignal"
+modules/corelib/ui/uicombobox.lua,UIComboBox:setCurrentOptionByData,"data, dontSignal"
+modules/corelib/ui/uicombobox.lua,UIComboBox:setMouseScroll,scroll
+modules/corelib/ui/uicombobox.lua,UIComboBox:setOption,"text, dontSignal"
+modules/corelib/ui/uicombobox.lua,UIComboBox:updateCurrentOption,newText
+modules/corelib/ui/uiimageview.lua,UIImageView.create,
+modules/corelib/ui/uiimageview.lua,UIImageView:center,
+modules/corelib/ui/uiimageview.lua,UIImageView:getDefaultZoom,
+modules/corelib/ui/uiimageview.lua,UIImageView:getImagePosition,"x, y"
+modules/corelib/ui/uiimageview.lua,UIImageView:move,"x, y, centerX, centerY"
+modules/corelib/ui/uiimageview.lua,UIImageView:onDragEnter,pos
+modules/corelib/ui/uiimageview.lua,UIImageView:onDragLeave,"widget, pos"
+modules/corelib/ui/uiimageview.lua,UIImageView:onDragMove,"pos, moved"
+modules/corelib/ui/uiimageview.lua,UIImageView:onMouseWheel,"mousePos, direction"
+modules/corelib/ui/uiimageview.lua,UIImageView:setImage,image
+modules/corelib/ui/uiimageview.lua,UIImageView:setZoom,"zoom, x, y"
+modules/corelib/ui/uiimageview.lua,UIImageView:zoomIn,"x, y"
+modules/corelib/ui/uiimageview.lua,UIImageView:zoomOut,"x, y"
+modules/corelib/ui/uiinputbox.lua,UIInputBox.create,"title, okCallback, cancelCallback"
+modules/corelib/ui/uiinputbox.lua,UIInputBox:addCheckBox,"text, checked"
+modules/corelib/ui/uiinputbox.lua,UIInputBox:addComboBox,"labelText, ..."
+modules/corelib/ui/uiinputbox.lua,UIInputBox:addLabel,text
+modules/corelib/ui/uiinputbox.lua,UIInputBox:addLineEdit,"labelText, defaultText, maxLength"
+modules/corelib/ui/uiinputbox.lua,UIInputBox:addSpinBox,"labelText, minimum, maximum, value, step"
+modules/corelib/ui/uiinputbox.lua,UIInputBox:addTextEdit,"labelText, defaultText, maxLength, visibleLines"
+modules/corelib/ui/uiinputbox.lua,UIInputBox:display,"okButtonText, cancelButtonText"
+modules/corelib/ui/uiinputbox.lua,displayNumberInputBox,"title, label, okCallback, cancelCallback, min, max, value, step"
+modules/corelib/ui/uiinputbox.lua,displayTextInputBox,"title, label, okCallback, cancelCallback"
+modules/corelib/ui/uilabel.lua,UILabel.create,
+modules/corelib/ui/uimessagebox.lua,UIMessageBox.display,"title, message, buttons, onEnterCallback, onEscapeCallback"
+modules/corelib/ui/uimessagebox.lua,UIMessageBox:addButton,"text, callback"
+modules/corelib/ui/uimessagebox.lua,UIMessageBox:cancel,
+modules/corelib/ui/uimessagebox.lua,UIMessageBox:ok,
+modules/corelib/ui/uimessagebox.lua,displayCancelBox,"title, message"
+modules/corelib/ui/uimessagebox.lua,displayErrorBox,"title, message"
+modules/corelib/ui/uimessagebox.lua,displayGeneralBox,"title, message, buttons, onEnterCallback, onEscapeCallback"
+modules/corelib/ui/uimessagebox.lua,displayInfoBox,"title, message"
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow.create,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:clearSettings,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:close,dontSave
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:disableResize,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:enableResize,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:eraseSettings,data
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:fitOnParent,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:getMaximumHeight,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:getMinimumHeight,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:getSettings,name
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:isResizeable,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:lock,dontSave
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:maximize,dontSave
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:minimize,dontSave
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onDragEnter,mousePos
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onDragLeave,"droppedWidget, mousePos"
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onDragMove,"mousePos, mouseMoved"
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onFocusChange,focused
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onHeightChange,height
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onMousePress,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:onVisibilityChange,visible
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:open,dontSave
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:saveParent,parent
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:saveParentIndex,"parentId, index"
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:saveParentPosition,"parentId, position"
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setContentHeight,height
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setContentMaximumHeight,height
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setContentMinimumHeight,height
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setHeight,height
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setParent,"parent, dontsave"
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setSettings,data
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:setup,
+modules/corelib/ui/uiminiwindow.lua,UIMiniWindow:unlock,dontSave
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer.create,
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:fitAll,noRemoveChild
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:moveTo,newPanel
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:onDrop,"widget, mousePos"
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:onGeometryChange,
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:order,
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:saveChildren,
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:scheduleInsert,"widget, index"
+modules/corelib/ui/uiminiwindowcontainer.lua,UIMiniWindowContainer:swapInsert,"widget, index"
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar.create,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:addTab,"text, panel, menuCallback"
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:blinkTab,tab
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:clearTabs,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:getCurrentTab,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:getCurrentTabPanel,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:getTab,text
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:getTabPanel,tab
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:moveTab,"tab, units"
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:onDestroy,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:removeTab,tab
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:selectNextTab,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:selectPrevTab,
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:selectTab,tab
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:setContentWidget,widget
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:setNavigation,"prevButton, nextButton"
+modules/corelib/ui/uimovabletabbar.lua,UIMoveableTabBar:setTabSpacing,tabSpacing
+modules/corelib/ui/uimovabletabbar.lua,getMaxMargin,"tabBar, tab"
+modules/corelib/ui/uimovabletabbar.lua,hideTabs,"tabBar, fromBack, toArray, width"
+modules/corelib/ui/uimovabletabbar.lua,onTabClick,tab
+modules/corelib/ui/uimovabletabbar.lua,onTabDragEnter,"tab, mousePos"
+modules/corelib/ui/uimovabletabbar.lua,onTabDragLeave,tab
+modules/corelib/ui/uimovabletabbar.lua,onTabDragMove,"tab, mousePos, mouseMoved"
+modules/corelib/ui/uimovabletabbar.lua,onTabMousePress,"tab, mousePos, mouseButton"
+modules/corelib/ui/uimovabletabbar.lua,showPostTab,tabBar
+modules/corelib/ui/uimovabletabbar.lua,showPreTab,tabBar
+modules/corelib/ui/uimovabletabbar.lua,tabBlink,"tab, step"
+modules/corelib/ui/uimovabletabbar.lua,updateIndexes,"tabBar, tab, xoff"
+modules/corelib/ui/uimovabletabbar.lua,updateMargins,tabBar
+modules/corelib/ui/uimovabletabbar.lua,updateNavigation,tabBar
+modules/corelib/ui/uimovabletabbar.lua,updateTabs,tabBar
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu.create,
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:addOption,"optionName, optionCallback, shortcut"
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:addSeparator,
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:display,pos
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:onDestroy,
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:onGeometryChange,"oldRect, newRect"
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:onKeyPress,"keyCode, keyboardModifiers"
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:onMousePress,"mousePos, mouseButton"
+modules/corelib/ui/uipopupmenu.lua,UIPopupMenu:setGameMenu,state
+modules/corelib/ui/uipopupmenu.lua,onGameEnd,
+modules/corelib/ui/uipopupmenu.lua,onRootGeometryUpdate,
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu.create,
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:addOption,"optionName, optionCallback, shortcut"
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:addSeparator,
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:display,pos
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:onDestroy,
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:onGeometryChange,"oldRect, newRect"
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:onKeyPress,"keyCode, keyboardModifiers"
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:onMousePress,"mousePos, mouseButton"
+modules/corelib/ui/uipopupscrollmenu.lua,UIPopupScrollMenu:setScrollbarStep,step
+modules/corelib/ui/uipopupscrollmenu.lua,onRootGeometryUpdate,
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar.create,
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:getPercent,
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:getPercentPixels,
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:getProgress,
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:onGeometryChange,"oldRect, newRect"
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:onSetup,
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:onStyleApply,"name, node"
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:setMaximum,maximum
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:setMinimum,minimum
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:setPercent,percent
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:setValue,"value, minimum, maximum"
+modules/corelib/ui/uiprogressbar.lua,UIProgressBar:updateBackground,
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup.create,
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:addWidget,widget
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:clearSelected,
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:destroy,
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:getFirstWidget,
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:getSelectedWidget,
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:removeWidget,widget
+modules/corelib/ui/uiradiogroup.lua,UIRadioGroup:selectWidget,"selectedWidget, dontSignal"
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder.create,
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:checkBoundary,size
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:getMaximum,
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:getMinimum,
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:getParentSize,
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onDestroy,
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onHoverChange,hovered
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onMouseMove,"mousePos, mouseMoved"
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onMouseRelease,"mousePos, mouseButton"
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onSetup,
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:onVisibilityChange,visible
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:setMaximum,maximum
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:setMinimum,minimum
+modules/corelib/ui/uiresizeborder.lua,UIResizeBorder:setParentSize,size
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea.create,
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:ensureChildVisible,"child, offset"
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:onChildFocusChange,"focusedChild, oldFocused, reason"
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:onLayoutUpdate,
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:onMouseWheel,"mousePos, mouseWheel"
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:onScrollHeightChange,
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:onScrollWidthChange,
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:setAlwaysScrollMaximum,value
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:setHorizontalScrollBar,scrollbar
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:setInverted,inverted
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:setVerticalScrollBar,scrollbar
+modules/corelib/ui/uiscrollarea.lua,UIScrollArea:updateScrollBars,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar.create,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:decrement,count
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getMaximum,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getMinimum,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getMouseScroll,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getOrientation,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getShowValue,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getStep,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getSymbol,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:getValue,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:increment,count
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:onDecrement,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:onGeometryChange,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:onIncrement,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:onMouseWheel,"mousePos, mouseWheel"
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:onSetup,
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setMaximum,maximum
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setMinimum,minimum
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setMouseScroll,scroll
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setOrientation,orientation
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setRange,"minimum, maximum"
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setStep,step
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setText,text
+modules/corelib/ui/uiscrollbar.lua,UIScrollBar:setValue,value
+modules/corelib/ui/uiscrollbar.lua,calcValues,self
+modules/corelib/ui/uiscrollbar.lua,parseSliderPos,"self, slider, pos, move"
+modules/corelib/ui/uiscrollbar.lua,parseSliderPress,"self, slider, pos, button"
+modules/corelib/ui/uiscrollbar.lua,updateSlider,self
+modules/corelib/ui/uiscrollbar.lua,updateValueDisplay,widget
+modules/corelib/ui/uispinbox.lua,UISpinBox.create,
+modules/corelib/ui/uispinbox.lua,UISpinBox:down,
+modules/corelib/ui/uispinbox.lua,UISpinBox:getMaximum,
+modules/corelib/ui/uispinbox.lua,UISpinBox:getMinimum,
+modules/corelib/ui/uispinbox.lua,UISpinBox:getMouseScroll,
+modules/corelib/ui/uispinbox.lua,UISpinBox:getValue,
+modules/corelib/ui/uispinbox.lua,UISpinBox:hideButtons,
+modules/corelib/ui/uispinbox.lua,UISpinBox:onFocusChange,focused
+modules/corelib/ui/uispinbox.lua,UISpinBox:onKeyPress,
+modules/corelib/ui/uispinbox.lua,UISpinBox:onMouseWheel,"mousePos, direction"
+modules/corelib/ui/uispinbox.lua,UISpinBox:onSetup,
+modules/corelib/ui/uispinbox.lua,UISpinBox:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uispinbox.lua,UISpinBox:onTextChange,"text, oldText"
+modules/corelib/ui/uispinbox.lua,UISpinBox:onValueChange,value
+modules/corelib/ui/uispinbox.lua,UISpinBox:setMaximum,maximum
+modules/corelib/ui/uispinbox.lua,UISpinBox:setMinimum,minimum
+modules/corelib/ui/uispinbox.lua,UISpinBox:setMouseScroll,mouseScroll
+modules/corelib/ui/uispinbox.lua,UISpinBox:setStep,step
+modules/corelib/ui/uispinbox.lua,UISpinBox:setValue,"value, dontSignal"
+modules/corelib/ui/uispinbox.lua,UISpinBox:showButtons,
+modules/corelib/ui/uispinbox.lua,UISpinBox:up,
+modules/corelib/ui/uisplitter.lua,UISplitter.create,
+modules/corelib/ui/uisplitter.lua,UISplitter:canUpdateMargin,newMargin
+modules/corelib/ui/uisplitter.lua,UISplitter:onHoverChange,hovered
+modules/corelib/ui/uisplitter.lua,UISplitter:onMouseMove,"mousePos, mouseMoved"
+modules/corelib/ui/uisplitter.lua,UISplitter:onMouseRelease,"mousePos, mouseButton"
+modules/corelib/ui/uisplitter.lua,UISplitter:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uitabbar.lua,UITabBar.create,
+modules/corelib/ui/uitabbar.lua,UITabBar:addButton,"text, func, icon"
+modules/corelib/ui/uitabbar.lua,UITabBar:addTab,"text, panel, icon"
+modules/corelib/ui/uitabbar.lua,UITabBar:clearTabs,
+modules/corelib/ui/uitabbar.lua,UITabBar:getCurrentTab,
+modules/corelib/ui/uitabbar.lua,UITabBar:getCurrentTabPanel,
+modules/corelib/ui/uitabbar.lua,UITabBar:getTab,text
+modules/corelib/ui/uitabbar.lua,UITabBar:getTabPanel,tab
+modules/corelib/ui/uitabbar.lua,UITabBar:getTabs,
+modules/corelib/ui/uitabbar.lua,UITabBar:getTabsPanel,
+modules/corelib/ui/uitabbar.lua,UITabBar:onSetup,
+modules/corelib/ui/uitabbar.lua,UITabBar:removeTab,tab
+modules/corelib/ui/uitabbar.lua,UITabBar:selectNextTab,
+modules/corelib/ui/uitabbar.lua,UITabBar:selectPrevTab,
+modules/corelib/ui/uitabbar.lua,UITabBar:selectTab,tab
+modules/corelib/ui/uitabbar.lua,UITabBar:setContentWidget,widget
+modules/corelib/ui/uitabbar.lua,onTabClick,tab
+modules/corelib/ui/uitabbar.lua,onTabMouseRelease,"tab, mousePos, mouseButton"
+modules/corelib/ui/uitable.lua,UITable.create,
+modules/corelib/ui/uitable.lua,UITable:addHeader,data
+modules/corelib/ui/uitable.lua,UITable:addRow,"data, height"
+modules/corelib/ui/uitable.lua,UITable:clearData,
+modules/corelib/ui/uitable.lua,UITable:hasHeader,
+modules/corelib/ui/uitable.lua,UITable:onDestroy,
+modules/corelib/ui/uitable.lua,UITable:onSetup,
+modules/corelib/ui/uitable.lua,UITable:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uitable.lua,UITable:removeHeader,
+modules/corelib/ui/uitable.lua,UITable:removeRow,row
+modules/corelib/ui/uitable.lua,UITable:selectRow,selectedRow
+modules/corelib/ui/uitable.lua,UITable:setColumnStyle,"style, dontUpdate"
+modules/corelib/ui/uitable.lua,UITable:setColumnWidth,width
+modules/corelib/ui/uitable.lua,UITable:setDefaultColumnWidth,width
+modules/corelib/ui/uitable.lua,UITable:setHeader,headerWidget
+modules/corelib/ui/uitable.lua,UITable:setHeaderColumnStyle,style
+modules/corelib/ui/uitable.lua,UITable:setHeaderRowStyle,style
+modules/corelib/ui/uitable.lua,UITable:setRowStyle,"style, dontUpdate"
+modules/corelib/ui/uitable.lua,UITable:setSorting,"colId, sortType"
+modules/corelib/ui/uitable.lua,UITable:setTableData,tableData
+modules/corelib/ui/uitable.lua,UITable:sort,
+modules/corelib/ui/uitable.lua,UITable:toggleSorting,enabled
+modules/corelib/ui/uitable.lua,UITable:updateRows,
+modules/corelib/ui/uitable.lua,UITableHeaderColumn:onClick,
+modules/corelib/ui/uitable.lua,UITableRow:onFocusChange,focused
+modules/corelib/ui/uitable.lua,UITableRow:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uitable.lua,UITableRow:updateBackgroundColor,
+modules/corelib/ui/uitextedit.lua,UITextEdit:onMouseWheel,"mousePos, mouseWheel"
+modules/corelib/ui/uitextedit.lua,UITextEdit:onStyleApply,"styleName, styleNode"
+modules/corelib/ui/uitextedit.lua,UITextEdit:onTextAreaUpdate,"virtualOffset, virtualSize, totalSize"
+modules/corelib/ui/uitextedit.lua,UITextEdit:setHorizontalScrollBar,scrollbar
+modules/corelib/ui/uitextedit.lua,UITextEdit:setVerticalScrollBar,scrollbar
+modules/corelib/ui/uitextedit.lua,UITextEdit:updateScrollBars,
+modules/corelib/ui/uiwidget.lua,UIWidget:setMargin,...
+modules/corelib/ui/uiwindow.lua,UIWindow.create,
+modules/corelib/ui/uiwindow.lua,UIWindow:onDragEnter,mousePos
+modules/corelib/ui/uiwindow.lua,UIWindow:onDragLeave,"droppedWidget, mousePos"
+modules/corelib/ui/uiwindow.lua,UIWindow:onDragMove,"mousePos, mouseMoved"
+modules/corelib/ui/uiwindow.lua,UIWindow:onFocusChange,focused
+modules/corelib/ui/uiwindow.lua,UIWindow:onKeyDown,"keyCode, keyboardModifiers"
+modules/corelib/util.lua,booleantonumber,boolean
+modules/corelib/util.lua,class.internalCreate,
+modules/corelib/util.lua,comma_value,amount
+modules/corelib/util.lua,connect,"object, arg1, arg2, arg3"
+modules/corelib/util.lua,derived.internalCreate,
+modules/corelib/util.lua,disconnect,"object, arg1, arg2"
+modules/corelib/util.lua,exit,
+modules/corelib/util.lua,export,"what, key"
+modules/corelib/util.lua,extends,"base, name"
+modules/corelib/util.lua,fatal,msg
+modules/corelib/util.lua,fromboolean,boolean
+modules/corelib/util.lua,getOppositeAnchor,anchor
+modules/corelib/util.lua,getfsrcpath,depth
+modules/corelib/util.lua,import,table
+modules/corelib/util.lua,loadasmodule,"name, file"
+modules/corelib/util.lua,makesingleton,obj
+modules/corelib/util.lua,module_loader,modname
+modules/corelib/util.lua,newclass,name
+modules/corelib/util.lua,numbertoboolean,number
+modules/corelib/util.lua,pdebug,msg
+modules/corelib/util.lua,perror,msg
+modules/corelib/util.lua,pinfo,msg
+modules/corelib/util.lua,print,...
+modules/corelib/util.lua,protectedcall,"func, ..."
+modules/corelib/util.lua,pwarning,msg
+modules/corelib/util.lua,quit,
+modules/corelib/util.lua,resolvepath,"filePath, depth"
+modules/corelib/util.lua,runinsandbox,"func, ..."
+modules/corelib/util.lua,signalcall,"param, ..."
+modules/corelib/util.lua,toboolean,v
+modules/corelib/util.lua,tr,"s, ..."
+modules/corelib/util.lua,unexport,key
+modules/crash_reporter/crash_reporter.lua,init,
+modules/game_actionbar/actionbar.lua,assignHotkey,widget
+modules/game_actionbar/actionbar.lua,assignItem,widget
+modules/game_actionbar/actionbar.lua,assignSpell,widget
+modules/game_actionbar/actionbar.lua,assignText,widget
+modules/game_actionbar/actionbar.lua,changeLockState,widget
+modules/game_actionbar/actionbar.lua,createActionBars,
+modules/game_actionbar/actionbar.lua,destroyAssignWindows,
+modules/game_actionbar/actionbar.lua,filterByVocation,"a, filter"
+modules/game_actionbar/actionbar.lua,init,
+modules/game_actionbar/actionbar.lua,isSpell,text
+modules/game_actionbar/actionbar.lua,load,
+modules/game_actionbar/actionbar.lua,moveActionButtons,widget
+modules/game_actionbar/actionbar.lua,offline,
+modules/game_actionbar/actionbar.lua,onDropActionButton,"self, mousePosition, mouseButton"
+modules/game_actionbar/actionbar.lua,onSpellCooldown,"iconId, duration"
+modules/game_actionbar/actionbar.lua,onSpellGroupCooldown,"groupId, duration"
+modules/game_actionbar/actionbar.lua,online,
+modules/game_actionbar/actionbar.lua,refresh,
+modules/game_actionbar/actionbar.lua,resetSlot,widget
+modules/game_actionbar/actionbar.lua,save,
+modules/game_actionbar/actionbar.lua,setupAction,widget
+modules/game_actionbar/actionbar.lua,setupActionBar,n
+modules/game_actionbar/actionbar.lua,setupButton,widget
+modules/game_actionbar/actionbar.lua,show,
+modules/game_actionbar/actionbar.lua,startCooldown,"action, duration"
+modules/game_actionbar/actionbar.lua,terminate,
+modules/game_actionbar/actionbar.lua,translateHotkeyDesc,text
+modules/game_actionbar/actionbar.lua,translateVocation,id
+modules/game_actionbar/actionbar.lua,updateCooldown,action
+modules/game_battle/battle.lua,checkCreatures,
+modules/game_battle/battle.lua,doCreatureFitFilters,creature
+modules/game_battle/battle.lua,getDistanceBetween,"p1, p2"
+modules/game_battle/battle.lua,getSortOrder,
+modules/game_battle/battle.lua,getSortType,
+modules/game_battle/battle.lua,hideFilterPanel,
+modules/game_battle/battle.lua,init,
+modules/game_battle/battle.lua,isHidingFilters,
+modules/game_battle/battle.lua,isSortAsc,
+modules/game_battle/battle.lua,isSortDesc,
+modules/game_battle/battle.lua,onBattleButtonHoverChange,"battleButton, hovered"
+modules/game_battle/battle.lua,onBattleButtonMouseRelease,"self, mousePosition, mouseButton"
+modules/game_battle/battle.lua,onChangeSortOrder,"comboBox, option, value"
+modules/game_battle/battle.lua,onChangeSortType,"comboBox, option, value"
+modules/game_battle/battle.lua,onMiniWindowClose,
+modules/game_battle/battle.lua,onPlayerPositionChange,"creature, newPos, oldPos"
+modules/game_battle/battle.lua,setHidingFilters,state
+modules/game_battle/battle.lua,setSortOrder,state
+modules/game_battle/battle.lua,setSortType,state
+modules/game_battle/battle.lua,showFilterPanel,
+modules/game_battle/battle.lua,sortCreatures,creatures
+modules/game_battle/battle.lua,terminate,
+modules/game_battle/battle.lua,toggle,
+modules/game_battle/battle.lua,toggleFilterPanel,
+modules/game_battle/battle.lua,updateBattleList,
+modules/game_battle/battle.lua,updateSquare,
+modules/game_bot/bot.lua,botAddThing,"tile, thing"
+modules/game_bot/bot.lua,botAttackingCreatureChange,"creature, oldCreature"
+modules/game_bot/bot.lua,botChannelEvent,"channelId, name, event"
+modules/game_bot/bot.lua,botChannelList,channels
+modules/game_bot/bot.lua,botCloseChannel,channelId
+modules/game_bot/bot.lua,botContainerAddItem,"container, slot, item, oldItem"
+modules/game_bot/bot.lua,botContainerClose,container
+modules/game_bot/bot.lua,botContainerOpen,"container, previousContainer"
+modules/game_bot/bot.lua,botContainerRemoveItem,"container, slot, item"
+modules/game_bot/bot.lua,botContainerUpdateItem,"container, slot, item, oldItem"
+modules/game_bot/bot.lua,botCraetureHealthPercentChange,"creature, healthPercent"
+modules/game_bot/bot.lua,botCreatureAppear,creature
+modules/game_bot/bot.lua,botCreatureDisappear,creature
+modules/game_bot/bot.lua,botCreaturePositionChange,"creature, newPos, oldPos"
+modules/game_bot/bot.lua,botCreatureTurn,"creature, direction"
+modules/game_bot/bot.lua,botCreatureWalk,"creature, oldPos, newPos"
+modules/game_bot/bot.lua,botGameEditText,"id, itemId, maxLength, text, writer, time"
+modules/game_bot/bot.lua,botGroupSpellCooldown,"iconId, duration"
+modules/game_bot/bot.lua,botImbuementWindow,"itemId, slots, activeSlots, imbuements, needItems"
+modules/game_bot/bot.lua,botInventoryChange,"player, slot, item, oldItem"
+modules/game_bot/bot.lua,botKeyDown,"widget, keyCode, keyboardModifiers"
+modules/game_bot/bot.lua,botKeyPress,"widget, keyCode, keyboardModifiers, autoRepeatTicks"
+modules/game_bot/bot.lua,botKeyUp,"widget, keyCode, keyboardModifiers"
+modules/game_bot/bot.lua,botManaChange,"player, mana, maxMana, oldMana, oldMaxMana"
+modules/game_bot/bot.lua,botModalDialog,"id, title, message, buttons, enterButton, escapeButton, choices, priority"
+modules/game_bot/bot.lua,botOnAnimatedText,"thing, text"
+modules/game_bot/bot.lua,botOnLoginAdvice,message
+modules/game_bot/bot.lua,botOnMissle,missle
+modules/game_bot/bot.lua,botOnStaticText,"thing, text"
+modules/game_bot/bot.lua,botOnTalk,"name, level, mode, text, channelId, pos"
+modules/game_bot/bot.lua,botOnTextMessage,"mode, text"
+modules/game_bot/bot.lua,botOnUse,"pos, itemId, stackPos, subType"
+modules/game_bot/bot.lua,botOnUseWith,"pos, itemId, target, subType"
+modules/game_bot/bot.lua,botOpenChannel,"channelId, name"
+modules/game_bot/bot.lua,botRemoveThing,"tile, thing"
+modules/game_bot/bot.lua,botSpellCooldown,"iconId, duration"
+modules/game_bot/bot.lua,botStatesChange,"player, states, oldStates"
+modules/game_bot/bot.lua,check,
+modules/game_bot/bot.lua,clear,
+modules/game_bot/bot.lua,compressConfig,configName
+modules/game_bot/bot.lua,createDefaultConfigs,
+modules/game_bot/bot.lua,decompressConfig,"configName, archive"
+modules/game_bot/bot.lua,downloadConfig,
+modules/game_bot/bot.lua,edit,
+modules/game_bot/bot.lua,init,
+modules/game_bot/bot.lua,initCallbacks,
+modules/game_bot/bot.lua,message,"category, msg"
+modules/game_bot/bot.lua,offline,
+modules/game_bot/bot.lua,onError,message
+modules/game_bot/bot.lua,onMiniWindowClose,
+modules/game_bot/bot.lua,online,
+modules/game_bot/bot.lua,refresh,
+modules/game_bot/bot.lua,safeBotCall,func
+modules/game_bot/bot.lua,save,
+modules/game_bot/bot.lua,terminate,
+modules/game_bot/bot.lua,terminateCallbacks,
+modules/game_bot/bot.lua,toggle,
+modules/game_bot/bot.lua,uploadConfig,
+modules/game_bot/default_configs/cavebot_1.3/cavebot/example_functions.lua,addExampleFunction,"title, text"
+modules/game_bot/default_configs/cavebot_1.3/cavebot/recorder.lua,addPosition,pos
+modules/game_bot/default_configs/cavebot_1.3/cavebot/recorder.lua,setup,
+modules/game_bot/default_configs/vBot_4.7/_Loader.lua,loadScript,name
+modules/game_bot/default_configs/vBot_4.7/cavebot/actions.lua,breakFurniture,destPos
+modules/game_bot/default_configs/vBot_4.7/cavebot/actions.lua,modPos,dir
+modules/game_bot/default_configs/vBot_4.7/cavebot/actions.lua,pathfinder,
+modules/game_bot/default_configs/vBot_4.7/cavebot/actions.lua,pushPlayer,creature
+modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.lua,reverseTable,"t, max"
+modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.lua,rpairs,t
+modules/game_bot/default_configs/vBot_4.7/cavebot/depositor.lua,print,"""CaveBot[Depositor]: no items to stash, proceeding"""
+modules/game_bot/default_configs/vBot_4.7/cavebot/depositor.lua,resetCache,
+modules/game_bot/default_configs/vBot_4.7/cavebot/example_functions.lua,addExampleFunction,"title, text"
+modules/game_bot/default_configs/vBot_4.7/cavebot/imbuing.lua,reset,
+modules/game_bot/default_configs/vBot_4.7/cavebot/recorder.lua,addPosition,pos
+modules/game_bot/default_configs/vBot_4.7/cavebot/recorder.lua,addStairs,pos
+modules/game_bot/default_configs/vBot_4.7/cavebot/recorder.lua,setup,
+modules/game_bot/default_configs/vBot_4.7/cavebot/stand_lure.lua,modPos,dir
+modules/game_bot/default_configs/vBot_4.7/cavebot/stand_lure.lua,reset,delay
+modules/game_bot/default_configs/vBot_4.7/cavebot/supply_check.lua,setCaveBotData,hunting
+modules/game_bot/default_configs/vBot_4.7/targetbot/creature_attack.lua,getWalkableTilesCount,position
+modules/game_bot/default_configs/vBot_4.7/targetbot/creature_attack.lua,rePosition,minTiles
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,executeAttackBotAction,"categoryOrPos, idOrFormula, cooldown"
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,getBestTileByPattern,"pattern, minHp, maxHp, safePattern, monsterNamesTable"
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,getMonstersInArea,"category, posOrCreature, pattern, minHp, maxHp, safePattern, monsterNamesTable"
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,getPattern,"category, pattern, safe"
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,loadSettings,
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,refreshAttacks,
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,resetFields,
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,setCategoryText,
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,setPatternText,
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,setupWidget,widget
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,toggleItem,
+modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua,toggleSettings,
+modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua,updateStatusText,
+modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,findItemsInArray,"t, tfind"
+modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,moveItem,"item, destination"
+modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,nameContainersOnLogin,
+modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,properTable,t
+modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,refreshSortList,"k, t"
+modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua,reopenBackpacks,
+modules/game_bot/default_configs/vBot_4.7/vBot/Dropper.lua,properTable,t
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,equipItem,"id, slot"
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,finalCheck,"first,relation,second"
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,interpreteCondition,"n, v"
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,isEquipped,id
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,markChild,child
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,refreshRules,
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,resetFields,
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,setCondition,"first, n"
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,setupPreview,"display, data"
+modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua,unequipItem,table
+modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua,isValid,name
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,add,"t, text, color, last"
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,avgTable,t
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,bottingLabels,"lootWorth, wasteWorth, balance"
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,bottingStats,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,capitalFistLetter,str
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,clipboardData,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,createTrackedItems,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,damageHour,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,formatStr,str
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,format_thousand,"v, comma"
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,getColor,v
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,getFrame,v
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,getHuntingData,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,getPanelHeight,panel
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,getPrice,name
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,getSumStats,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,healHour,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,hightlightText,"widget, color, duration"
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,hourVal,v
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,lootHour,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,maintainDropTable,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,niceFormat,v
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,refreshKills,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,refreshList,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,refreshLoot,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,refreshWaste,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,reportStats,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,sendData,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,setFrames,
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,smallNumbers,n
+modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua,wasteHour,
+modules/game_bot/default_configs/vBot_4.7/vBot/antiRs.lua,safeExit,
+modules/game_bot/default_configs/vBot_4.7/vBot/configs.lua,vBotConfigSave,file
+modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.lua,arabicToRoman,n
+modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.lua,getStashingIndex,id
+modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.lua,refreshEntries,
+modules/game_bot/default_configs/vBot_4.7/vBot/depot_withdraw.lua,reopenLootContainer,
+modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua,checkForDoors,pos
+modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua,checkPlayers,
+modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua,forceMarked,creature
+modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua,openNextLootContainer,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.CloseAllLootContainers,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.CloseLootContainer,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.Conversation,...
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.GetLootContainers,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.GetLootItems,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.GetOpenedLootContainers,containerTable
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.GoTo,"position, precision"
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.HasLootItems,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.MatchPosition,"position, distance"
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.OpenDepotBox,index
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.OpenDepotChest,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.OpenInbox,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.OpenLocker,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.OpenLootContainer,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.OpenNpcTrade,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.PingDelay,multiplayer
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.ReachAndOpenDepot,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.ReachAndOpenInbox,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.ReachDepot,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.ReachNPC,name
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.StashItem,"item, index, destination"
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.Travel,destination
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBot.WithdrawItem,"id, amount, fromDepot, destination"
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,CaveBotConfigParse,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua,getNearTiles,pos
+modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua,capitalFistLetter,str
+modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua,clearFields,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua,friendHealerAction,"spec, targetsInRange"
+modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua,setCrementalButtons,
+modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua,validate,"widget, category"
+modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua,addBlackListPlayer,name
+modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua,clearCachedPlayers,
+modules/game_bot/default_configs/vBot_4.7/vBot/quiver_label.lua,getQuiverAmount,
+modules/game_bot/default_configs/vBot_4.7/vBot/quiver_manager.lua,manageQuiver,"isBowEquipped, quiverContainer"
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,addItemPanel,
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,clearEmptyPanels,
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,convertOldConfig,config
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,deleteFirstEmptyPanel,
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,getEmptyItemPanels,
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,loadSettings,
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,refreshProfileList,
+modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua,setProfileFocus,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,broadcastMessage,text
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,burstDamageValue,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,canCast,"spell, ignoreRL, ignoreCd"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,cast,"text, delay"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,castSpell,text
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,containerIsFull,c
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,distanceFromPlayer,coords
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,dropItem,idOrObject
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,findItemOnGround,id
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getActiveItemId,id
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getAllPlayers,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getBestTileByPatern,"pattern, specType, maxDist, safe"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getContainerByItem,"id, notFull"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getContainerByName,"name, notFull"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getCreaturesInArea,"param1, param2, param3"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getEnemies,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getFirstNumberInText,text
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getFriends,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getInactiveItemId,id
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getMonsters,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getMonstersInRange,"pos, range"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getNearTiles,pos
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getNeutrals,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getNpcs,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getPlayerDistribution,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getPlayers,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getPos,"x, y, z"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getSpellCoolDown,text
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getSpellData,spell
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,getTarget,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isAttSpell,expr
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isBlackListedPlayerInRange,range
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isBuffed,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isEnemy,c
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isFriend,c
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isOnTile,"id, p1, p2, p3"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,isSafe,"range, multifloor, padding"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,itemAmount,id
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,killsToRs,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,logInfo,text
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,openPurse,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,reachGroundItem,id
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,reindexTable,t
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,relogOnCharacter,charName
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,reopenPurse,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,scheduleNpcSay,"text, delay"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,standTime,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,statusMessage,"text, logInConsole"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,string.starts,"String, Start"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,target,
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,targetPos,dist
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,useGroundItem,id
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,useOnGroundItem,"a, b"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,useOnInvertoryItem,"a, b"
+modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua,whiteInfoMessage,text
+modules/game_bot/default_configs/vBot_4.8/_Loader.lua,loadScript,name
+modules/game_bot/default_configs/vBot_4.8/cavebot/actions.lua,breakFurniture,destPos
+modules/game_bot/default_configs/vBot_4.8/cavebot/actions.lua,modPos,dir
+modules/game_bot/default_configs/vBot_4.8/cavebot/actions.lua,pathfinder,
+modules/game_bot/default_configs/vBot_4.8/cavebot/actions.lua,pushPlayer,creature
+modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.lua,reverseTable,"t, max"
+modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.lua,rpairs,t
+modules/game_bot/default_configs/vBot_4.8/cavebot/depositor.lua,print,"""CaveBot[Depositor]: no items to stash, proceeding"""
+modules/game_bot/default_configs/vBot_4.8/cavebot/depositor.lua,resetCache,
+modules/game_bot/default_configs/vBot_4.8/cavebot/example_functions.lua,addExampleFunction,"title, text"
+modules/game_bot/default_configs/vBot_4.8/cavebot/imbuing.lua,reset,
+modules/game_bot/default_configs/vBot_4.8/cavebot/recorder.lua,addPosition,pos
+modules/game_bot/default_configs/vBot_4.8/cavebot/recorder.lua,addStairs,pos
+modules/game_bot/default_configs/vBot_4.8/cavebot/recorder.lua,setup,
+modules/game_bot/default_configs/vBot_4.8/cavebot/stand_lure.lua,modPos,dir
+modules/game_bot/default_configs/vBot_4.8/cavebot/stand_lure.lua,reset,delay
+modules/game_bot/default_configs/vBot_4.8/cavebot/supply_check.lua,setCaveBotData,hunting
+modules/game_bot/default_configs/vBot_4.8/targetbot/creature_attack.lua,getWalkableTilesCount,position
+modules/game_bot/default_configs/vBot_4.8/targetbot/creature_attack.lua,rePosition,minTiles
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,executeAttackBotAction,"categoryOrPos, idOrFormula, cooldown"
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,getBestTileByPattern,"pattern, minHp, maxHp, safePattern, monsterNamesTable"
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,getMonstersInArea,"category, posOrCreature, pattern, minHp, maxHp, safePattern, monsterNamesTable"
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,getPattern,"category, pattern, safe"
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,loadSettings,
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,refreshAttacks,
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,resetFields,
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,setCategoryText,
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,setPatternText,
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,setupWidget,widget
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,toggleItem,
+modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua,toggleSettings,
+modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua,initBotServerListenFunctions,
+modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua,updateStatusText,
+modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,findItemsInArray,"t, tfind"
+modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,moveItem,"item, destination"
+modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,nameContainersOnLogin,
+modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,properTable,t
+modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,refreshSortList,"k, t"
+modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua,reopenBackpacks,
+modules/game_bot/default_configs/vBot_4.8/vBot/Dropper.lua,properTable,t
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,equipItem,"id, slot"
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,finalCheck,"first,relation,second"
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,interpreteCondition,"n, v"
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,isEquipped,id
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,markChild,child
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,refreshRules,
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,resetFields,
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,setCondition,"first, n"
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,setupPreview,"display, data"
+modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua,unequipItem,table
+modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua,isValid,name
+modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua,alarm,"file, windowText"
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,add,"t, text, color, last"
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,avgTable,t
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,bottingLabels,"lootWorth, wasteWorth, balance"
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,bottingStats,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,capitalFistLetter,str
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,clipboardData,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,createBossPanel,"bossName, dueTime"
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,createTrackedItems,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,damageHour,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,formatStr,str
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,format_thousand,"v, comma"
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,getColor,v
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,getFrame,v
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,getHuntingData,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,getPanelHeight,panel
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,getPrice,name
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,getSumStats,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,healHour,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,hightlightText,"widget, color, duration"
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,hourVal,v
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,lootHour,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,maintainDropTable,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,niceFormat,v
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,refreshKills,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,refreshList,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,refreshLoot,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,refreshWaste,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,reportStats,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,sendData,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,setFrames,
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,smallNumbers,n
+modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua,wasteHour,
+modules/game_bot/default_configs/vBot_4.8/vBot/antiRs.lua,safeExit,
+modules/game_bot/default_configs/vBot_4.8/vBot/configs.lua,vBotConfigSave,file
+modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.lua,arabicToRoman,n
+modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.lua,getStashingIndex,id
+modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.lua,refreshEntries,
+modules/game_bot/default_configs/vBot_4.8/vBot/depot_withdraw.lua,reopenLootContainer,
+modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua,checkForDoors,pos
+modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua,checkPlayers,
+modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua,forceMarked,creature
+modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua,openNextLootContainer,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.CloseAllLootContainers,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.CloseLootContainer,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.Conversation,...
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.GetLootContainers,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.GetLootItems,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.GetOpenedLootContainers,containerTable
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.GoTo,"position, precision"
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.HasLootItems,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.MatchPosition,"position, distance"
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.OpenDepotBox,index
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.OpenDepotChest,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.OpenInbox,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.OpenLocker,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.OpenLootContainer,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.OpenNpcTrade,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.PingDelay,multiplayer
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.ReachAndOpenDepot,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.ReachAndOpenInbox,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.ReachDepot,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.ReachNPC,name
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.StashItem,"item, index, destination"
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.Travel,destination
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBot.WithdrawItem,"id, amount, fromDepot, destination"
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,CaveBotConfigParse,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_cavebot_lib.lua,getNearTiles,pos
+modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,capitalFistLetter,str
+modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,clearFields,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,friendHealerAction,"spec, targetsInRange"
+modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,isCandidate,spec
+modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,setCrementalButtons,
+modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua,validate,"widget, category"
+modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua,addBlackListPlayer,name
+modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua,clearCachedPlayers,
+modules/game_bot/default_configs/vBot_4.8/vBot/quiver_label.lua,getQuiverAmount,
+modules/game_bot/default_configs/vBot_4.8/vBot/quiver_manager.lua,manageQuiver,"isBowEquipped, quiverContainer"
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,addItemPanel,
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,clearEmptyPanels,
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,convertOldConfig,config
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,deleteFirstEmptyPanel,
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,getEmptyItemPanels,
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,loadSettings,
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,refreshProfileList,
+modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua,setProfileFocus,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,broadcastMessage,text
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,burstDamageValue,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,canCast,"spell, ignoreRL, ignoreCd"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,cast,"text, delay"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,castSpell,text
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,containerIsFull,c
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,distanceFromPlayer,coords
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,dropItem,idOrObject
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,findItemOnGround,id
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getActiveItemId,id
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getAllPlayers,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getBestTileByPatern,"pattern, specType, maxDist, safe"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getContainerByItem,"id, notFull"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getContainerByName,"name, notFull"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getCreaturesInArea,"param1, param2, param3"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getEnemies,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getFirstNumberInText,text
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getFriends,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getInactiveItemId,id
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getMonsters,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getMonstersInRange,"pos, range"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getNearTiles,pos
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getNeutrals,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getNpcs,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getPlayerDistribution,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getPlayers,"range, multifloor"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getPos,"x, y, z"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getSpellCoolDown,text
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getSpellData,spell
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,getTarget,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isAttSpell,expr
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isBlackListedPlayerInRange,range
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isBuffed,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isEnemy,c
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isFriend,c
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isOnTile,"id, p1, p2, p3"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,isSafe,"range, multifloor, padding"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,itemAmount,id
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,killsToRs,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,logInfo,text
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,openPurse,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,reachGroundItem,id
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,reindexTable,t
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,relogOnCharacter,charName
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,reopenPurse,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,scheduleNpcSay,"text, delay"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,standTime,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,statusMessage,"text, logInConsole"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,string.starts,"String, Start"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,target,
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,targetPos,dist
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,useGroundItem,id
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,useOnGroundItem,"a, b"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,useOnInvertoryItem,"a, b"
+modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua,whiteInfoMessage,text
+modules/game_bot/executor.lua,executeBot,"config, storage, tabs, msgCallback, saveConfigCallback, reloadCallback, websockets"
+modules/game_bugreport/bugreport.lua,doReport,
+modules/game_bugreport/bugreport.lua,init,
+modules/game_bugreport/bugreport.lua,show,
+modules/game_bugreport/bugreport.lua,terminate,
+modules/game_buttons/buttons.lua,init,
+modules/game_buttons/buttons.lua,takeButton,"button, dontUpdateOrder"
+modules/game_buttons/buttons.lua,takeButtons,buttons
+modules/game_buttons/buttons.lua,terminate,
+modules/game_buttons/buttons.lua,updateOrder,
+modules/game_console/console.lua,addChannel,"name, id"
+modules/game_console/console.lua,addFilter,filter
+modules/game_console/console.lua,addIgnoredPlayer,name
+modules/game_console/console.lua,addPrivateChannel,receiver
+modules/game_console/console.lua,addPrivateText,"text, speaktype, name, isPrivateCommand, creatureName"
+modules/game_console/console.lua,addTab,"name, focus"
+modules/game_console/console.lua,addTabText,"text, speaktype, tab, creatureName"
+modules/game_console/console.lua,addText,"text, speaktype, tabName, creatureName"
+modules/game_console/console.lua,addWhitelistedPlayer,name
+modules/game_console/console.lua,applyMessagePrefixies,"name, level, message"
+modules/game_console/console.lua,clear,
+modules/game_console/console.lua,clearChannel,consoleTabBar
+modules/game_console/console.lua,clearSelection,consoleBuffer
+modules/game_console/console.lua,disableChat,temporarily
+modules/game_console/console.lua,doChannelListSubmit,
+modules/game_console/console.lua,enableChat,temporarily
+modules/game_console/console.lua,getChannelTab,channelId
+modules/game_console/console.lua,getCurrentTab,
+modules/game_console/console.lua,getHighlightedText,text
+modules/game_console/console.lua,getIgnoredPlayers,
+modules/game_console/console.lua,getNewHighlightedText,"text, color, highlightColor"
+modules/game_console/console.lua,getOwnPrivateTab,
+modules/game_console/console.lua,getRuleViolationsTab,
+modules/game_console/console.lua,getTab,name
+modules/game_console/console.lua,getWhitelistedPlayers,
+modules/game_console/console.lua,init,
+modules/game_console/console.lua,isAllowingVIPs,
+modules/game_console/console.lua,isChatEnabled,
+modules/game_console/console.lua,isIgnored,name
+modules/game_console/console.lua,isIgnoringPrivate,
+modules/game_console/console.lua,isIgnoringYelling,
+modules/game_console/console.lua,isUsingIgnoreList,
+modules/game_console/console.lua,isUsingWhiteList,
+modules/game_console/console.lua,isWhitelisted,name
+modules/game_console/console.lua,load,
+modules/game_console/console.lua,loadCommunicationSettings,
+modules/game_console/console.lua,navigateMessageHistory,step
+modules/game_console/console.lua,offline,
+modules/game_console/console.lua,onChannelEvent,"channelId, name, type"
+modules/game_console/console.lua,onChannelList,channelList
+modules/game_console/console.lua,onClickIgnoreButton,
+modules/game_console/console.lua,onCloseChannel,channelId
+modules/game_console/console.lua,onDragEnter,"widget, pos"
+modules/game_console/console.lua,onDragLeave,"widget, pos"
+modules/game_console/console.lua,onDragMove,"widget, pos, moved"
+modules/game_console/console.lua,onOpenChannel,"channelId, channelName"
+modules/game_console/console.lua,onOpenOwnPrivateChannel,"channelId, channelName"
+modules/game_console/console.lua,onOpenPrivateChannel,receiver
+modules/game_console/console.lua,onRuleViolationCancel,name
+modules/game_console/console.lua,onRuleViolationChannel,channelId
+modules/game_console/console.lua,onRuleViolationLock,
+modules/game_console/console.lua,onRuleViolationRemove,name
+modules/game_console/console.lua,onTabChange,"tabBar, tab"
+modules/game_console/console.lua,onTalk,"name, level, mode, message, channelId, creaturePos"
+modules/game_console/console.lua,online,
+modules/game_console/console.lua,openHelp,
+modules/game_console/console.lua,openPlayerReportRuleViolationWindow,
+modules/game_console/console.lua,processChannelTabMenu,"tab, mousePos, mouseButton"
+modules/game_console/console.lua,processMessageMenu,"mousePos, mouseButton, creatureName, text, label, tab"
+modules/game_console/console.lua,processViolation,"name, text"
+modules/game_console/console.lua,removeCurrentTab,
+modules/game_console/console.lua,removeFilter,filter
+modules/game_console/console.lua,removeIgnoredPlayer,name
+modules/game_console/console.lua,removeTab,tab
+modules/game_console/console.lua,removeTabLabelByName,"tab, name"
+modules/game_console/console.lua,removeWhitelistedPlayer,name
+modules/game_console/console.lua,save,
+modules/game_console/console.lua,saveCommunicationSettings,
+modules/game_console/console.lua,sayModeChange,sayMode
+modules/game_console/console.lua,selectAll,consoleBuffer
+modules/game_console/console.lua,sendCurrentMessage,
+modules/game_console/console.lua,sendMessage,"message, tab"
+modules/game_console/console.lua,setIgnoreNpcMessages,ignore
+modules/game_console/console.lua,setTextEditText,text
+modules/game_console/console.lua,switchMode,newView
+modules/game_console/console.lua,terminate,
+modules/game_console/console.lua,toggleChat,
+modules/game_containers/containers.lua,clean,
+modules/game_containers/containers.lua,destroy,container
+modules/game_containers/containers.lua,init,
+modules/game_containers/containers.lua,markStart,
+modules/game_containers/containers.lua,onContainerChangeSize,"container, size"
+modules/game_containers/containers.lua,onContainerClose,container
+modules/game_containers/containers.lua,onContainerOpen,"container, previousContainer"
+modules/game_containers/containers.lua,onContainerUpdateItem,"container, slot, item, oldItem"
+modules/game_containers/containers.lua,refreshContainerItems,container
+modules/game_containers/containers.lua,refreshContainerPages,container
+modules/game_containers/containers.lua,reloadContainers,
+modules/game_containers/containers.lua,terminate,
+modules/game_containers/containers.lua,toggleContainerPages,"containerWindow, hasPages"
+modules/game_cooldown/cooldown.lua,init,
+modules/game_cooldown/cooldown.lua,initCooldown,"progressRect, updateCallback, finishCallback"
+modules/game_cooldown/cooldown.lua,isCooldownIconActive,iconId
+modules/game_cooldown/cooldown.lua,isGroupCooldownIconActive,groupId
+modules/game_cooldown/cooldown.lua,loadIcon,iconId
+modules/game_cooldown/cooldown.lua,onMiniWindowClose,
+modules/game_cooldown/cooldown.lua,onSpellCooldown,"iconId, duration"
+modules/game_cooldown/cooldown.lua,onSpellGroupCooldown,"groupId, duration"
+modules/game_cooldown/cooldown.lua,online,
+modules/game_cooldown/cooldown.lua,refresh,
+modules/game_cooldown/cooldown.lua,removeCooldown,progressRect
+modules/game_cooldown/cooldown.lua,terminate,
+modules/game_cooldown/cooldown.lua,toggle,
+modules/game_cooldown/cooldown.lua,turnOffCooldown,progressRect
+modules/game_cooldown/cooldown.lua,updateCooldown,"progressRect, duration"
+modules/game_features/features.lua,init,
+modules/game_features/features.lua,terminate,
+modules/game_features/features.lua,updateFeatures,version
+modules/game_healthinfo/healthinfo.lua,hideExperience,
+modules/game_healthinfo/healthinfo.lua,hideLabels,
+modules/game_healthinfo/healthinfo.lua,init,
+modules/game_healthinfo/healthinfo.lua,loadIcon,bitChanged
+modules/game_healthinfo/healthinfo.lua,offline,
+modules/game_healthinfo/healthinfo.lua,onFreeCapacityChange,"player, freeCapacity"
+modules/game_healthinfo/healthinfo.lua,onHealthChange,"localPlayer, health, maxHealth"
+modules/game_healthinfo/healthinfo.lua,onLevelChange,"localPlayer, value, percent"
+modules/game_healthinfo/healthinfo.lua,onManaChange,"localPlayer, mana, maxMana"
+modules/game_healthinfo/healthinfo.lua,onMiniWindowClose,
+modules/game_healthinfo/healthinfo.lua,onOverlayGeometryChange,
+modules/game_healthinfo/healthinfo.lua,onSoulChange,"localPlayer, soul"
+modules/game_healthinfo/healthinfo.lua,onStatesChange,"localPlayer, now, old"
+modules/game_healthinfo/healthinfo.lua,setExperienceTooltip,tooltip
+modules/game_healthinfo/healthinfo.lua,setHealthTooltip,tooltip
+modules/game_healthinfo/healthinfo.lua,setManaTooltip,tooltip
+modules/game_healthinfo/healthinfo.lua,terminate,
+modules/game_healthinfo/healthinfo.lua,toggle,
+modules/game_healthinfo/healthinfo.lua,toggleIcon,bitChanged
+modules/game_hotkeys/hotkeys_extra.lua,addExtraHotkey,"name, description, callback"
+modules/game_hotkeys/hotkeys_extra.lua,executeExtraHotkey,"action, repeated"
+modules/game_hotkeys/hotkeys_extra.lua,getActionDescription,action
+modules/game_hotkeys/hotkeys_extra.lua,setupExtraHotkeys,combobox
+modules/game_hotkeys/hotkeys_extra.lua,translateActionComboboxIndexToAction,index
+modules/game_hotkeys/hotkeys_extra.lua,translateActionToActionComboboxIndex,action
+modules/game_hotkeys/hotkeys_manager.lua,addHotkey,
+modules/game_hotkeys/hotkeys_manager.lua,addKeyCombo,"keyCombo, keySettings, focus"
+modules/game_hotkeys/hotkeys_manager.lua,cancel,
+modules/game_hotkeys/hotkeys_manager.lua,clearObject,
+modules/game_hotkeys/hotkeys_manager.lua,doKeyCombo,"keyCombo, repeated"
+modules/game_hotkeys/hotkeys_manager.lua,hide,
+modules/game_hotkeys/hotkeys_manager.lua,hotkeyCapture,"assignWindow, keyCode, keyboardModifiers"
+modules/game_hotkeys/hotkeys_manager.lua,hotkeyCaptureOk,"assignWindow, keyCombo"
+modules/game_hotkeys/hotkeys_manager.lua,init,
+modules/game_hotkeys/hotkeys_manager.lua,load,forceDefaults
+modules/game_hotkeys/hotkeys_manager.lua,loadDefautComboKeys,
+modules/game_hotkeys/hotkeys_manager.lua,offline,
+modules/game_hotkeys/hotkeys_manager.lua,ok,
+modules/game_hotkeys/hotkeys_manager.lua,onChangeUseType,useTypeWidget
+modules/game_hotkeys/hotkeys_manager.lua,onChooseItemMouseRelease,"self, mousePosition, mouseButton"
+modules/game_hotkeys/hotkeys_manager.lua,onConfigChange,
+modules/game_hotkeys/hotkeys_manager.lua,onHotkeyTextChange,value
+modules/game_hotkeys/hotkeys_manager.lua,onSelectHotkeyLabel,hotkeyLabel
+modules/game_hotkeys/hotkeys_manager.lua,onSendAutomaticallyChange,autoSend
+modules/game_hotkeys/hotkeys_manager.lua,online,
+modules/game_hotkeys/hotkeys_manager.lua,prepareKeyCombo,"keyCombo, ticks"
+modules/game_hotkeys/hotkeys_manager.lua,reload,
+modules/game_hotkeys/hotkeys_manager.lua,removeHotkey,
+modules/game_hotkeys/hotkeys_manager.lua,reset,
+modules/game_hotkeys/hotkeys_manager.lua,save,
+modules/game_hotkeys/hotkeys_manager.lua,setDefaultComboKeys,combo
+modules/game_hotkeys/hotkeys_manager.lua,show,
+modules/game_hotkeys/hotkeys_manager.lua,startChooseItem,
+modules/game_hotkeys/hotkeys_manager.lua,terminate,
+modules/game_hotkeys/hotkeys_manager.lua,toggle,
+modules/game_hotkeys/hotkeys_manager.lua,unload,
+modules/game_hotkeys/hotkeys_manager.lua,updateHotkeyAction,
+modules/game_hotkeys/hotkeys_manager.lua,updateHotkeyForm,reset
+modules/game_hotkeys/hotkeys_manager.lua,updateHotkeyLabel,hotkeyLabel
+modules/game_imbuing/imbuing.lua,hide,
+modules/game_imbuing/imbuing.lua,init,
+modules/game_imbuing/imbuing.lua,onCloseImbuementWindow,
+modules/game_imbuing/imbuing.lua,onImbuementWindow,"itemId, slots, activeSlots, imbuements, needItems"
+modules/game_imbuing/imbuing.lua,onResourceBalance,"type, balance"
+modules/game_imbuing/imbuing.lua,resetSlots,
+modules/game_imbuing/imbuing.lua,selectSlot,"widget, slotId, activeSlot"
+modules/game_imbuing/imbuing.lua,setProtection,value
+modules/game_imbuing/imbuing.lua,show,
+modules/game_imbuing/imbuing.lua,terminate,
+modules/game_imbuing/imbuing.lua,toggle,
+modules/game_interface/gameinterface.lua,addLeftPanel,
+modules/game_interface/gameinterface.lua,addMenuHook,"category, name, callback, condition, shortcut"
+modules/game_interface/gameinterface.lua,addRightPanel,
+modules/game_interface/gameinterface.lua,bindKeys,
+modules/game_interface/gameinterface.lua,createThingMenu,"menuPosition, lookThing, useThing, creatureThing"
+modules/game_interface/gameinterface.lua,forceExit,
+modules/game_interface/gameinterface.lua,getBottomActionPanel,
+modules/game_interface/gameinterface.lua,getBottomPanel,
+modules/game_interface/gameinterface.lua,getContainerPanel,
+modules/game_interface/gameinterface.lua,getLeftAction,
+modules/game_interface/gameinterface.lua,getLeftActionPanel,
+modules/game_interface/gameinterface.lua,getLeftPanel,
+modules/game_interface/gameinterface.lua,getMapPanel,
+modules/game_interface/gameinterface.lua,getRightActionPanel,
+modules/game_interface/gameinterface.lua,getRightPanel,
+modules/game_interface/gameinterface.lua,getRootPanel,
+modules/game_interface/gameinterface.lua,getTopBar,
+modules/game_interface/gameinterface.lua,hide,
+modules/game_interface/gameinterface.lua,init,
+modules/game_interface/gameinterface.lua,isChatVisible,
+modules/game_interface/gameinterface.lua,isMenuHookCategoryEmpty,category
+modules/game_interface/gameinterface.lua,limitZoom,
+modules/game_interface/gameinterface.lua,load,
+modules/game_interface/gameinterface.lua,moveStackableItem,"item, toPos"
+modules/game_interface/gameinterface.lua,onGameEnd,
+modules/game_interface/gameinterface.lua,onGameStart,
+modules/game_interface/gameinterface.lua,onLoginAdvice,message
+modules/game_interface/gameinterface.lua,onMouseGrabberRelease,"self, mousePosition, mouseButton"
+modules/game_interface/gameinterface.lua,onTradeWith,"clickedWidget, mousePosition"
+modules/game_interface/gameinterface.lua,onUseWith,"clickedWidget, mousePosition"
+modules/game_interface/gameinterface.lua,processMouseAction,"menuPosition, mouseButton, autoWalkPos, lookThing, useThing, creatureThing, attackCreature, marking"
+modules/game_interface/gameinterface.lua,refreshViewMode,
+modules/game_interface/gameinterface.lua,removeLeftPanel,
+modules/game_interface/gameinterface.lua,removeMenuHook,"category, name"
+modules/game_interface/gameinterface.lua,removeRightPanel,
+modules/game_interface/gameinterface.lua,resetLeftActions,
+modules/game_interface/gameinterface.lua,save,
+modules/game_interface/gameinterface.lua,setupLeftActions,
+modules/game_interface/gameinterface.lua,show,
+modules/game_interface/gameinterface.lua,startTradeWith,thing
+modules/game_interface/gameinterface.lua,startUseWith,"thing, subType"
+modules/game_interface/gameinterface.lua,terminate,
+modules/game_interface/gameinterface.lua,tryExit,
+modules/game_interface/gameinterface.lua,tryLogout,prompt
+modules/game_interface/gameinterface.lua,updateSize,
+modules/game_interface/gameinterface.lua,updateStretchShrink,
+modules/game_interface/widgets/uigamemap.lua,UIGameMap.create,
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:blockNextMouseRelease,postAction
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:canAcceptDrop,"widget, mousePos"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:markThing,"thing, color"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onDestroy,
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onDragEnter,mousePos
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onDragLeave,"droppedWidget, mousePos"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onDragMove,"mousePos, mouseMoved"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onDrop,"widget, mousePos"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onMouseMove,"mousePos, mouseMoved"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onMousePress,
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onMouseRelease,"mousePosition, mouseButton"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:onTouchRelease,"mousePosition, mouseButton"
+modules/game_interface/widgets/uigamemap.lua,UIGameMap:updateMarkedCreature,
+modules/game_inventory/inventory.lua,check,
+modules/game_inventory/inventory.lua,getPVPBoxByMode,mode
+modules/game_inventory/inventory.lua,init,
+modules/game_inventory/inventory.lua,loadIcon,bitChanged
+modules/game_inventory/inventory.lua,offline,
+modules/game_inventory/inventory.lua,onBlessingsChange,"player, blessings, oldBlessings"
+modules/game_inventory/inventory.lua,onFreeCapacityChange,"player, freeCapacity"
+modules/game_inventory/inventory.lua,onInventoryChange,"player, slot, item, oldItem"
+modules/game_inventory/inventory.lua,onMiniWindowClose,
+modules/game_inventory/inventory.lua,onMountButtonClick,"self, mousePos"
+modules/game_inventory/inventory.lua,onOutfitChange,"localPlayer, outfit, oldOutfit"
+modules/game_inventory/inventory.lua,onSetChaseMode,"self, checked"
+modules/game_inventory/inventory.lua,onSetFightMode,"self, selectedFightButton"
+modules/game_inventory/inventory.lua,onSetPVPMode,"self, selectedPVPButton"
+modules/game_inventory/inventory.lua,onSetSafeFight,"self, checked"
+modules/game_inventory/inventory.lua,onSetSafeFight2,self
+modules/game_inventory/inventory.lua,onSoulChange,"localPlayer, soul"
+modules/game_inventory/inventory.lua,onStatesChange,"localPlayer, now, old"
+modules/game_inventory/inventory.lua,online,
+modules/game_inventory/inventory.lua,refresh,
+modules/game_inventory/inventory.lua,terminate,
+modules/game_inventory/inventory.lua,toggle,
+modules/game_inventory/inventory.lua,toggleAdventurerStyle,hasBlessing
+modules/game_inventory/inventory.lua,toggleIcon,bitChanged
+modules/game_inventory/inventory.lua,update,
+modules/game_itemselector/itemselector.lua,destroyWindow,
+modules/game_itemselector/itemselector.lua,hide,
+modules/game_itemselector/itemselector.lua,init,
+modules/game_itemselector/itemselector.lua,show,itemWidget
+modules/game_itemselector/itemselector.lua,terminate,
+modules/game_market/market.lua,Market.acceptMarketOffer,"amount, timestamp, counter"
+modules/game_market/market.lua,Market.clearSelectedItem,
+modules/game_market/market.lua,Market.close,notify
+modules/game_market/market.lua,Market.createNewOffer,
+modules/game_market/market.lua,Market.decrementAmount,
+modules/game_market/market.lua,Market.displayMessage,message
+modules/game_market/market.lua,Market.enableCreateOffer,enable
+modules/game_market/market.lua,Market.getDepotCount,itemId
+modules/game_market/market.lua,Market.incrementAmount,
+modules/game_market/market.lua,Market.isItemSelected,
+modules/game_market/market.lua,Market.isOfferSelected,type
+modules/game_market/market.lua,Market.loadMarketItems,category
+modules/game_market/market.lua,Market.onCoinBalance,"coins, transferableCoins"
+modules/game_market/market.lua,Market.onItemBoxChecked,widget
+modules/game_market/market.lua,Market.onMarketBrowse,"offers, offersType"
+modules/game_market/market.lua,Market.onMarketDetail,"itemId, descriptions, purchaseStats, saleStats"
+modules/game_market/market.lua,Market.onMarketEnter,"depotItems, offers, balance, vocation, items"
+modules/game_market/market.lua,Market.onMarketLeave,
+modules/game_market/market.lua,Market.refreshItemsWidget,selectItem
+modules/game_market/market.lua,Market.refreshMyOffers,
+modules/game_market/market.lua,Market.refreshMyOffersHistory,
+modules/game_market/market.lua,Market.refreshOffers,
+modules/game_market/market.lua,Market.reset,
+modules/game_market/market.lua,Market.resetCreateOffer,resetFee
+modules/game_market/market.lua,Market.updateCategories,
+modules/game_market/market.lua,Market.updateCurrentItems,
+modules/game_market/market.lua,addOffer,"offer, offerType"
+modules/game_market/market.lua,cancelMyOffer,actionType
+modules/game_market/market.lua,clearFee,
+modules/game_market/market.lua,clearFilters,
+modules/game_market/market.lua,clearItems,
+modules/game_market/market.lua,clearMyOffers,
+modules/game_market/market.lua,clearOffers,
+modules/game_market/market.lua,destroyAmountWindow,
+modules/game_market/market.lua,init,
+modules/game_market/market.lua,initInterface,
+modules/game_market/market.lua,initMarketItems,items
+modules/game_market/market.lua,isItemValid,"item, category, searchFilter"
+modules/game_market/market.lua,mergeOffer,offer
+modules/game_market/market.lua,onAmountChange,
+modules/game_market/market.lua,onChangeCategory,"combobox, option"
+modules/game_market/market.lua,onChangeOfferType,"combobox, option"
+modules/game_market/market.lua,onChangeSlotFilter,"combobox, option"
+modules/game_market/market.lua,onChangeSubCategory,"combobox, option"
+modules/game_market/market.lua,onMarketMessage,"messageMode, message"
+modules/game_market/market.lua,onPiecePriceChange,
+modules/game_market/market.lua,onSelectBuyOffer,"table, selectedRow, previousSelectedRow"
+modules/game_market/market.lua,onSelectMyBuyOffer,"table, selectedRow, previousSelectedRow"
+modules/game_market/market.lua,onSelectMySellOffer,"table, selectedRow, previousSelectedRow"
+modules/game_market/market.lua,onSelectSellOffer,"table, selectedRow, previousSelectedRow"
+modules/game_market/market.lua,onTotalPriceChange,
+modules/game_market/market.lua,openAmountWindow,"callback, actionType, actionText"
+modules/game_market/market.lua,refreshTypeList,
+modules/game_market/market.lua,terminate,
+modules/game_market/market.lua,updateBalance,balance
+modules/game_market/market.lua,updateDetails,"itemId, descriptions, purchaseStats, saleStats"
+modules/game_market/market.lua,updateFee,"price, amount"
+modules/game_market/market.lua,updateHistoryOffers,offers
+modules/game_market/market.lua,updateOffers,offers
+modules/game_market/market.lua,updateSelectedItem,widget
+modules/game_market/marketoffer.lua,MarketOffer:getAmount,
+modules/game_market/marketoffer.lua,MarketOffer:getCounter,
+modules/game_market/marketoffer.lua,MarketOffer:getId,
+modules/game_market/marketoffer.lua,MarketOffer:getItem,
+modules/game_market/marketoffer.lua,MarketOffer:getPlayer,
+modules/game_market/marketoffer.lua,MarketOffer:getPrice,
+modules/game_market/marketoffer.lua,MarketOffer:getState,
+modules/game_market/marketoffer.lua,MarketOffer:getTimeStamp,
+modules/game_market/marketoffer.lua,MarketOffer:getTotalPrice,
+modules/game_market/marketoffer.lua,MarketOffer:getType,
+modules/game_market/marketoffer.lua,MarketOffer:isEqual,id
+modules/game_market/marketoffer.lua,MarketOffer:isLessThan,id
+modules/game_market/marketoffer.lua,MarketOffer:isNull,
+modules/game_market/marketoffer.lua,MarketOffer:setAmount,amount
+modules/game_market/marketoffer.lua,MarketOffer:setId,id
+modules/game_market/marketoffer.lua,MarketOffer:setItem,item
+modules/game_market/marketoffer.lua,MarketOffer:setPlayer,player
+modules/game_market/marketoffer.lua,MarketOffer:setPrice,price
+modules/game_market/marketoffer.lua,MarketOffer:setState,state
+modules/game_market/marketoffer.lua,MarketOffer:setType,t
+modules/game_market/marketprotocol.lua,MarketProtocol.registerProtocol,
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketAcceptOffer,"timestamp, counter, amount"
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketBrowse,browseId
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketBrowseMyHistory,
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketBrowseMyOffers,
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketCancelOffer,"timestamp, counter"
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketCreateOffer,"type, spriteId, amount, price, anonymous"
+modules/game_market/marketprotocol.lua,MarketProtocol.sendMarketLeave,
+modules/game_market/marketprotocol.lua,MarketProtocol.silent,mode
+modules/game_market/marketprotocol.lua,MarketProtocol.unregisterProtocol,
+modules/game_market/marketprotocol.lua,MarketProtocol.updateProtocol,_protocol
+modules/game_market/marketprotocol.lua,initProtocol,
+modules/game_market/marketprotocol.lua,parseMarketBrowse,"protocol, msg"
+modules/game_market/marketprotocol.lua,parseMarketDetail,"protocol, msg"
+modules/game_market/marketprotocol.lua,parseMarketEnter,"protocol, msg"
+modules/game_market/marketprotocol.lua,parseMarketLeave,"protocol, msg"
+modules/game_market/marketprotocol.lua,readMarketOffer,"msg, action, var"
+modules/game_market/marketprotocol.lua,send,msg
+modules/game_market/marketprotocol.lua,terminateProtocol,
+modules/game_market/offerstatistic.lua,OfferStatistic:getHighestPrice,
+modules/game_market/offerstatistic.lua,OfferStatistic:getLowestPrice,
+modules/game_market/offerstatistic.lua,OfferStatistic:getTime,
+modules/game_market/offerstatistic.lua,OfferStatistic:getTotalPrice,
+modules/game_market/offerstatistic.lua,OfferStatistic:getTransactions,
+modules/game_market/offerstatistic.lua,OfferStatistic:getType,
+modules/game_market/offerstatistic.lua,OfferStatistic:isNull,
+modules/game_market/offerstatistic.lua,OfferStatistic:setHighestPrice,highestPrice
+modules/game_market/offerstatistic.lua,OfferStatistic:setLowestPrice,lowestPrice
+modules/game_market/offerstatistic.lua,OfferStatistic:setTime,time
+modules/game_market/offerstatistic.lua,OfferStatistic:setTotalPrice,amount
+modules/game_market/offerstatistic.lua,OfferStatistic:setTransactions,transactions
+modules/game_market/offerstatistic.lua,OfferStatistic:setType,t
+modules/game_minimap/minimap.lua,init,
+modules/game_minimap/minimap.lua,loadMap,
+modules/game_minimap/minimap.lua,offline,
+modules/game_minimap/minimap.lua,onMiniWindowClose,
+modules/game_minimap/minimap.lua,online,
+modules/game_minimap/minimap.lua,saveMap,
+modules/game_minimap/minimap.lua,terminate,
+modules/game_minimap/minimap.lua,toggle,
+modules/game_minimap/minimap.lua,toggleFullMap,
+modules/game_minimap/minimap.lua,updateCameraPosition,
+modules/game_modaldialog/modaldialog.lua,destroyDialog,
+modules/game_modaldialog/modaldialog.lua,init,
+modules/game_modaldialog/modaldialog.lua,onModalDialog,"id, title, message, buttons, enterButton, escapeButton, choices, priority"
+modules/game_modaldialog/modaldialog.lua,terminate,
+modules/game_npctrade/npctrade.lua,canTradeItem,item
+modules/game_npctrade/npctrade.lua,checkSellAllTooltip,
+modules/game_npctrade/npctrade.lua,clearSelectedItem,
+modules/game_npctrade/npctrade.lua,closeNpcTrade,
+modules/game_npctrade/npctrade.lua,formatCurrency,amount
+modules/game_npctrade/npctrade.lua,getCurrentTradeType,
+modules/game_npctrade/npctrade.lua,getItemPrice,"item, single"
+modules/game_npctrade/npctrade.lua,getMaxAmount,
+modules/game_npctrade/npctrade.lua,getSellQuantity,item
+modules/game_npctrade/npctrade.lua,getTradeItemData,"id, type"
+modules/game_npctrade/npctrade.lua,hide,
+modules/game_npctrade/npctrade.lua,init,
+modules/game_npctrade/npctrade.lua,itemPopup,"self, mousePosition, mouseButton"
+modules/game_npctrade/npctrade.lua,onBuyWithBackpackChange,
+modules/game_npctrade/npctrade.lua,onCloseNpcTrade,
+modules/game_npctrade/npctrade.lua,onFreeCapacityChange,"localPlayer, freeCapacity, oldFreeCapacity"
+modules/game_npctrade/npctrade.lua,onIgnoreCapacityChange,
+modules/game_npctrade/npctrade.lua,onIgnoreEquippedChange,
+modules/game_npctrade/npctrade.lua,onInventoryChange,"inventory, item, oldItem"
+modules/game_npctrade/npctrade.lua,onItemBoxChecked,widget
+modules/game_npctrade/npctrade.lua,onOpenNpcTrade,items
+modules/game_npctrade/npctrade.lua,onPlayerGoods,"money, items"
+modules/game_npctrade/npctrade.lua,onQuantityValueChange,quantity
+modules/game_npctrade/npctrade.lua,onSearchTextChange,
+modules/game_npctrade/npctrade.lua,onShowAllItemsChange,
+modules/game_npctrade/npctrade.lua,onTradeClick,
+modules/game_npctrade/npctrade.lua,onTradeTypeChange,"radioTabs, selected, deselected"
+modules/game_npctrade/npctrade.lua,refreshItem,item
+modules/game_npctrade/npctrade.lua,refreshPlayerGoods,
+modules/game_npctrade/npctrade.lua,refreshTradeItems,
+modules/game_npctrade/npctrade.lua,sellAll,"delayed, exceptions"
+modules/game_npctrade/npctrade.lua,setCurrency,"currency, decimal"
+modules/game_npctrade/npctrade.lua,setShowWeight,state
+modules/game_npctrade/npctrade.lua,setShowYourCapacity,state
+modules/game_npctrade/npctrade.lua,show,
+modules/game_npctrade/npctrade.lua,terminate,
+modules/game_outfit/outfit.lua,accept,
+modules/game_outfit/outfit.lua,configureAddons,addons
+modules/game_outfit/outfit.lua,create,"currentOutfit, outfitList, mountList, wingList, auraList, shaderList, healthBarList, manaBarList"
+modules/game_outfit/outfit.lua,deletePreset,
+modules/game_outfit/outfit.lua,deselectPreset,
+modules/game_outfit/outfit.lua,destroy,
+modules/game_outfit/outfit.lua,init,
+modules/game_outfit/outfit.lua,loadDefaultSettings,
+modules/game_outfit/outfit.lua,loadSettings,
+modules/game_outfit/outfit.lua,newPreset,
+modules/game_outfit/outfit.lua,onAddonChange,"widget, checked"
+modules/game_outfit/outfit.lua,onAppearanceChange,"widget, selectedWidget"
+modules/game_outfit/outfit.lua,onAuraSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onColorCheckChange,"widget, selectedWidget"
+modules/game_outfit/outfit.lua,onColorModeChange,"widget, selectedWidget"
+modules/game_outfit/outfit.lua,onFilterSearch,
+modules/game_outfit/outfit.lua,onHealthBarSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onManaBarSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onMountSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onMovementChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onOutfitSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onPresetSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onShaderSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,onShowAuraChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onShowBarsChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onShowFloorChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onShowMountChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onShowOutfitChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onShowShaderChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onShowWingsChange,"checkBox, checked"
+modules/game_outfit/outfit.lua,onWingsSelect,"list, focusedChild, unfocusedChild, reason"
+modules/game_outfit/outfit.lua,renamePreset,
+modules/game_outfit/outfit.lua,rotate,value
+modules/game_outfit/outfit.lua,savePreset,
+modules/game_outfit/outfit.lua,saveRename,presetId
+modules/game_outfit/outfit.lua,saveSettings,
+modules/game_outfit/outfit.lua,showAuras,
+modules/game_outfit/outfit.lua,showHealthBars,
+modules/game_outfit/outfit.lua,showManaBars,
+modules/game_outfit/outfit.lua,showMounts,
+modules/game_outfit/outfit.lua,showOutfits,
+modules/game_outfit/outfit.lua,showPresets,
+modules/game_outfit/outfit.lua,showShaders,
+modules/game_outfit/outfit.lua,showWings,
+modules/game_outfit/outfit.lua,terminate,
+modules/game_outfit/outfit.lua,updateAppearanceText,"widget, text"
+modules/game_outfit/outfit.lua,updateAppearanceTexts,outfit
+modules/game_outfit/outfit.lua,updatePreview,
+modules/game_playerdeath/playerdeath.lua,display,"deathType, penalty"
+modules/game_playerdeath/playerdeath.lua,displayDeadMessage,
+modules/game_playerdeath/playerdeath.lua,init,
+modules/game_playerdeath/playerdeath.lua,openWindow,"deathType, penalty"
+modules/game_playerdeath/playerdeath.lua,reset,
+modules/game_playerdeath/playerdeath.lua,terminate,
+modules/game_playermount/playermount.lua,dismount,
+modules/game_playermount/playermount.lua,init,
+modules/game_playermount/playermount.lua,mount,
+modules/game_playermount/playermount.lua,offline,
+modules/game_playermount/playermount.lua,online,
+modules/game_playermount/playermount.lua,terminate,
+modules/game_playermount/playermount.lua,toggleMount,
+modules/game_playertrade/playertrade.lua,createTrade,
+modules/game_playertrade/playertrade.lua,fillTrade,"name, items, counter"
+modules/game_playertrade/playertrade.lua,init,
+modules/game_playertrade/playertrade.lua,onGameCloseTrade,
+modules/game_playertrade/playertrade.lua,onGameCounterTrade,"name, items"
+modules/game_playertrade/playertrade.lua,onGameOwnTrade,"name, items"
+modules/game_playertrade/playertrade.lua,terminate,
+modules/game_prey/prey.lua,bonusDescription,"bonusType, bonusValue, bonusGrade"
+modules/game_prey/prey.lua,capitalFormatStr,str
+modules/game_prey/prey.lua,check,
+modules/game_prey/prey.lua,getBigIconPath,bonusType
+modules/game_prey/prey.lua,getBonusDescription,bonusType
+modules/game_prey/prey.lua,getSmallIconPath,bonusType
+modules/game_prey/prey.lua,getTooltipBonusDescription,"bonusType, bonusValue"
+modules/game_prey/prey.lua,hide,
+modules/game_prey/prey.lua,init,
+modules/game_prey/prey.lua,onHover,widget
+modules/game_prey/prey.lua,onItemBoxChecked,widget
+modules/game_prey/prey.lua,onPreyActive,"slot, currentHolderName, currentHolderOutfit, bonusType, bonusValue, bonusGrade, timeLeft, timeUntilFreeReroll, lockType"
+modules/game_prey/prey.lua,onPreyFreeRolls,"slot, timeleft"
+modules/game_prey/prey.lua,onPreyInactive,"slot, timeUntilFreeReroll"
+modules/game_prey/prey.lua,onPreyLocked,"slot, unlockState, timeUntilFreeReroll"
+modules/game_prey/prey.lua,onPreyPrice,price
+modules/game_prey/prey.lua,onPreySelection,"slot, bonusType, bonusValue, bonusGrade, names, outfits, timeUntilFreeReroll"
+modules/game_prey/prey.lua,onPreyTimeLeft,"slot, timeLeft"
+modules/game_prey/prey.lua,onResourceBalance,"type, balance"
+modules/game_prey/prey.lua,setBonusGradeStars,"slot, grade"
+modules/game_prey/prey.lua,setTimeUntilFreeReroll,"slot, timeUntilFreeReroll"
+modules/game_prey/prey.lua,setUnsupportedSettings,
+modules/game_prey/prey.lua,show,
+modules/game_prey/prey.lua,showMessage,"title, message"
+modules/game_prey/prey.lua,terminate,
+modules/game_prey/prey.lua,timeleftTranslation,"timeleft, forPreyTimeleft"
+modules/game_prey/prey.lua,toggle,
+modules/game_prey/prey.lua,toggleTracker,
+modules/game_protocol/protocol.lua,init,
+modules/game_protocol/protocol.lua,readAddItem,msg
+modules/game_protocol/protocol.lua,readDailyReward,msg
+modules/game_protocol/protocol.lua,registerOpcode,"code, func"
+modules/game_protocol/protocol.lua,registerProtocol,
+modules/game_protocol/protocol.lua,terminate,
+modules/game_protocol/protocol.lua,unregisterProtocol,
+modules/game_questlog/questlog.lua,back,
+modules/game_questlog/questlog.lua,init,
+modules/game_questlog/questlog.lua,load,
+modules/game_questlog/questlog.lua,offline,
+modules/game_questlog/questlog.lua,onGameQuestLine,"questId, questMissions"
+modules/game_questlog/questlog.lua,onGameQuestLog,quests
+modules/game_questlog/questlog.lua,onTrackOptionChange,checkbox
+modules/game_questlog/questlog.lua,online,
+modules/game_questlog/questlog.lua,refreshQuests,
+modules/game_questlog/questlog.lua,refreshTrackerWidgets,
+modules/game_questlog/questlog.lua,save,
+modules/game_questlog/questlog.lua,show,questlog
+modules/game_questlog/questlog.lua,showQuestLine,
+modules/game_questlog/questlog.lua,terminate,
+modules/game_questlog/questlog.lua,toggle,
+modules/game_ruleviolation/ruleviolation.lua,clearForm,
+modules/game_ruleviolation/ruleviolation.lua,hasWindowAccess,
+modules/game_ruleviolation/ruleviolation.lua,hide,
+modules/game_ruleviolation/ruleviolation.lua,init,
+modules/game_ruleviolation/ruleviolation.lua,loadReasons,
+modules/game_ruleviolation/ruleviolation.lua,onSelectReason,"reasonLabel, focused"
+modules/game_ruleviolation/ruleviolation.lua,report,
+modules/game_ruleviolation/ruleviolation.lua,show,"target, statement"
+modules/game_ruleviolation/ruleviolation.lua,terminate,
+modules/game_shaders/shaders.lua,init,
+modules/game_shaders/shaders.lua,terminate,
+modules/game_shop/shop.lua,addCategory,data
+modules/game_shop/shop.lua,addOffer,"category, data"
+modules/game_shop/shop.lua,buyCanceled,
+modules/game_shop/shop.lua,buyConfirmed,
+modules/game_shop/shop.lua,buyOffer,widget
+modules/game_shop/shop.lua,changeCategory,"widget, newCategory"
+modules/game_shop/shop.lua,check,
+modules/game_shop/shop.lua,clearCategories,
+modules/game_shop/shop.lua,clearHistory,
+modules/game_shop/shop.lua,clearOffers,
+modules/game_shop/shop.lua,createShop,
+modules/game_shop/shop.lua,createTransferWindow,
+modules/game_shop/shop.lua,hide,
+modules/game_shop/shop.lua,hideTransfer,
+modules/game_shop/shop.lua,init,
+modules/game_shop/shop.lua,onCoinBalance,"coins, transferableCoins"
+modules/game_shop/shop.lua,onExtendedJSONOpcode,"protocol, code, json_data"
+modules/game_shop/shop.lua,onStoreCategories,categories
+modules/game_shop/shop.lua,onStoreError,"errorType, message"
+modules/game_shop/shop.lua,onStoreInit,"url, coins"
+modules/game_shop/shop.lua,onStoreOffers,"categoryName, offers"
+modules/game_shop/shop.lua,onStorePurchase,message
+modules/game_shop/shop.lua,onStoreTransactionHistory,"currentPage, hasNextPage, offers"
+modules/game_shop/shop.lua,processAd,data
+modules/game_shop/shop.lua,processCategories,data
+modules/game_shop/shop.lua,processHistory,data
+modules/game_shop/shop.lua,processMessage,data
+modules/game_shop/shop.lua,processStatus,data
+modules/game_shop/shop.lua,sendAction,"action, data"
+modules/game_shop/shop.lua,show,
+modules/game_shop/shop.lua,showHistory,force
+modules/game_shop/shop.lua,showTransfer,
+modules/game_shop/shop.lua,softHide,
+modules/game_shop/shop.lua,terminate,
+modules/game_shop/shop.lua,toggle,
+modules/game_shop/shop.lua,transferCoins,
+modules/game_skills/skills.lua,checkAlert,"id, value, maxValue, threshold, greaterThan"
+modules/game_skills/skills.lua,checkExpSpeed,
+modules/game_skills/skills.lua,expForLevel,level
+modules/game_skills/skills.lua,expToAdvance,"currentLevel, currentExp"
+modules/game_skills/skills.lua,init,
+modules/game_skills/skills.lua,offline,
+modules/game_skills/skills.lua,onBaseMagicLevelChange,"localPlayer, baseMagicLevel"
+modules/game_skills/skills.lua,onBaseSkillChange,"localPlayer, id, baseLevel"
+modules/game_skills/skills.lua,onBaseSpeedChange,"localPlayer, baseSpeed"
+modules/game_skills/skills.lua,onExperienceChange,"localPlayer, value"
+modules/game_skills/skills.lua,onFreeCapacityChange,"localPlayer, freeCapacity"
+modules/game_skills/skills.lua,onHealthChange,"localPlayer, health, maxHealth"
+modules/game_skills/skills.lua,onLevelChange,"localPlayer, value, percent"
+modules/game_skills/skills.lua,onMagicLevelChange,"localPlayer, magiclevel, percent"
+modules/game_skills/skills.lua,onManaChange,"localPlayer, mana, maxMana"
+modules/game_skills/skills.lua,onMiniWindowClose,
+modules/game_skills/skills.lua,onOfflineTrainingChange,"localPlayer, offlineTrainingTime"
+modules/game_skills/skills.lua,onRegenerationChange,"localPlayer, regenerationTime"
+modules/game_skills/skills.lua,onSkillButtonClick,button
+modules/game_skills/skills.lua,onSkillChange,"localPlayer, id, level, percent"
+modules/game_skills/skills.lua,onSoulChange,"localPlayer, soul"
+modules/game_skills/skills.lua,onSpeedChange,"localPlayer, speed"
+modules/game_skills/skills.lua,onStaminaChange,"localPlayer, stamina"
+modules/game_skills/skills.lua,onTotalCapacityChange,"localPlayer, totalCapacity"
+modules/game_skills/skills.lua,refresh,
+modules/game_skills/skills.lua,resetSkillColor,id
+modules/game_skills/skills.lua,setSkillBase,"id, value, baseValue"
+modules/game_skills/skills.lua,setSkillColor,"id, value"
+modules/game_skills/skills.lua,setSkillPercent,"id, percent, tooltip, color"
+modules/game_skills/skills.lua,setSkillTooltip,"id, value"
+modules/game_skills/skills.lua,setSkillValue,"id, value"
+modules/game_skills/skills.lua,terminate,
+modules/game_skills/skills.lua,toggle,
+modules/game_skills/skills.lua,toggleSkill,"id, state"
+modules/game_skills/skills.lua,update,
+modules/game_spelllist/spelllist.lua,changeSpelllistProfile,oldProfile
+modules/game_spelllist/spelllist.lua,getSpelllistProfile,
+modules/game_spelllist/spelllist.lua,init,
+modules/game_spelllist/spelllist.lua,initializeSpelllist,
+modules/game_spelllist/spelllist.lua,offline,
+modules/game_spelllist/spelllist.lua,online,
+modules/game_spelllist/spelllist.lua,resetWindow,
+modules/game_spelllist/spelllist.lua,resizeWindow,
+modules/game_spelllist/spelllist.lua,setSpelllistProfile,name
+modules/game_spelllist/spelllist.lua,terminate,
+modules/game_spelllist/spelllist.lua,toggle,
+modules/game_spelllist/spelllist.lua,toggleFilter,"widget, selectedWidget"
+modules/game_spelllist/spelllist.lua,updateSpellInformation,widget
+modules/game_spelllist/spelllist.lua,updateSpelllist,
+modules/game_stats/stats.lua,hide,
+modules/game_stats/stats.lua,init,
+modules/game_stats/stats.lua,show,
+modules/game_stats/stats.lua,terminate,
+modules/game_stats/stats.lua,update,
+modules/game_textmessage/textmessage.lua,LocalPlayer:onAutoWalkFail,player
+modules/game_textmessage/textmessage.lua,calculateVisibleTime,text
+modules/game_textmessage/textmessage.lua,clearMessages,
+modules/game_textmessage/textmessage.lua,displayBroadcastMessage,text
+modules/game_textmessage/textmessage.lua,displayFailureMessage,text
+modules/game_textmessage/textmessage.lua,displayGameMessage,text
+modules/game_textmessage/textmessage.lua,displayMessage,"mode, text"
+modules/game_textmessage/textmessage.lua,displayPrivateMessage,text
+modules/game_textmessage/textmessage.lua,displayStatusMessage,text
+modules/game_textmessage/textmessage.lua,init,
+modules/game_textmessage/textmessage.lua,terminate,
+modules/game_textwindow/textwindow.lua,destroy,
+modules/game_textwindow/textwindow.lua,destroy,
+modules/game_textwindow/textwindow.lua,destroyWindows,
+modules/game_textwindow/textwindow.lua,init,
+modules/game_textwindow/textwindow.lua,onGameEditList,"id, doorId, text"
+modules/game_textwindow/textwindow.lua,onGameEditText,"id, itemId, maxLength, text, writer, time"
+modules/game_textwindow/textwindow.lua,terminate,
+modules/game_things/things.lua,isLoaded,
+modules/game_things/things.lua,load,
+modules/game_things/things.lua,setFileName,name
+modules/game_topbar/topbar.lua,init,
+modules/game_topbar/topbar.lua,load,
+modules/game_topbar/topbar.lua,loadIcon,bitChanged
+modules/game_topbar/topbar.lua,menu,mouseButton
+modules/game_topbar/topbar.lua,offline,
+modules/game_topbar/topbar.lua,onBaseMagicLevelChange,"localPlayer, baseMagicLevel"
+modules/game_topbar/topbar.lua,onBaseSkillChange,"localPlayer, id, baseLevel"
+modules/game_topbar/topbar.lua,onHealthChange,"localPlayer, health, maxHealth"
+modules/game_topbar/topbar.lua,onLevelChange,"localPlayer, value, percent"
+modules/game_topbar/topbar.lua,onMagicLevelChange,"localPlayer, magiclevel, percent"
+modules/game_topbar/topbar.lua,onManaChange,"localPlayer, mana, maxMana"
+modules/game_topbar/topbar.lua,onSkillChange,"localPlayer, id, level, percent"
+modules/game_topbar/topbar.lua,onStatesChange,"localPlayer, now, old"
+modules/game_topbar/topbar.lua,refresh,profileChange
+modules/game_topbar/topbar.lua,refreshVisibleBars,
+modules/game_topbar/topbar.lua,save,
+modules/game_topbar/topbar.lua,setSkillBase,"id, value, baseValue"
+modules/game_topbar/topbar.lua,setSkillPercent,"id, percent, tooltip"
+modules/game_topbar/topbar.lua,setSkillValue,"id, value"
+modules/game_topbar/topbar.lua,setSkillsLayout,
+modules/game_topbar/topbar.lua,setupSkillPanel,"id, parent, experience, defaultOff"
+modules/game_topbar/topbar.lua,setupSkills,
+modules/game_topbar/topbar.lua,setupTopBar,
+modules/game_topbar/topbar.lua,show,
+modules/game_topbar/topbar.lua,terminate,
+modules/game_topbar/topbar.lua,toggleIcon,bitChanged
+modules/game_topbar/topbar.lua,toggleSkillPanel,id
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,getColorByKills,kills
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,init,
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,onMiniWindowClose,
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,onOpenPvpSituationsChange,amount
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,onSkullChange,"localPlayer, skull"
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,onUnjustifiedPointsChange,unjustifiedPoints
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,online,
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,refresh,
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,terminate,
+modules/game_unjustifiedpoints/unjustifiedpoints.lua,toggle,
+modules/game_viplist/viplist.lua,addVip,
+modules/game_viplist/viplist.lua,clear,
+modules/game_viplist/viplist.lua,createAddWindow,
+modules/game_viplist/viplist.lua,createEditWindow,widget
+modules/game_viplist/viplist.lua,destroyAddWindow,
+modules/game_viplist/viplist.lua,getSortedBy,
+modules/game_viplist/viplist.lua,hideOffline,state
+modules/game_viplist/viplist.lua,init,
+modules/game_viplist/viplist.lua,isHiddingOffline,
+modules/game_viplist/viplist.lua,loadVipInfo,
+modules/game_viplist/viplist.lua,onAddVip,"id, name, state, description, iconId, notify"
+modules/game_viplist/viplist.lua,onMiniWindowClose,
+modules/game_viplist/viplist.lua,onVipListLabelMousePress,"widget, mousePos, mouseButton"
+modules/game_viplist/viplist.lua,onVipListMousePress,"widget, mousePos, mouseButton"
+modules/game_viplist/viplist.lua,onVipStateChange,"id, state"
+modules/game_viplist/viplist.lua,refresh,
+modules/game_viplist/viplist.lua,removeVip,widgetOrName
+modules/game_viplist/viplist.lua,saveVipInfo,
+modules/game_viplist/viplist.lua,sortBy,state
+modules/game_viplist/viplist.lua,terminate,
+modules/game_viplist/viplist.lua,toggle,
+modules/game_walking/walking.lua,bindKeys,
+modules/game_walking/walking.lua,bindTurnKey,"key, dir"
+modules/game_walking/walking.lua,bindWalkKey,"key, dir"
+modules/game_walking/walking.lua,canChangeFloorDown,pos
+modules/game_walking/walking.lua,canChangeFloorUp,pos
+modules/game_walking/walking.lua,changeWalkDir,"dir, pop"
+modules/game_walking/walking.lua,checkTurn,
+modules/game_walking/walking.lua,disableWSAD,
+modules/game_walking/walking.lua,enableWSAD,
+modules/game_walking/walking.lua,init,
+modules/game_walking/walking.lua,onCancelWalk,player
+modules/game_walking/walking.lua,onPositionChange,"player, newPos, oldPos"
+modules/game_walking/walking.lua,onTeleport,"player, newPos, oldPos"
+modules/game_walking/walking.lua,onWalk,"player, newPos, oldPos"
+modules/game_walking/walking.lua,onWalkFinish,player
+modules/game_walking/walking.lua,smartWalk,"dir, ticks"
+modules/game_walking/walking.lua,stopSmartWalk,
+modules/game_walking/walking.lua,terminate,
+modules/game_walking/walking.lua,turn,"dir, repeated"
+modules/game_walking/walking.lua,unbindKeys,
+modules/game_walking/walking.lua,unbindTurnKey,key
+modules/game_walking/walking.lua,unbindWalkKey,key
+modules/game_walking/walking.lua,walk,"dir, ticks"
+modules/gamelib/creature.lua,Creature:onEmblemChange,emblemId
+modules/gamelib/creature.lua,Creature:onIconChange,iconId
+modules/gamelib/creature.lua,Creature:onShieldChange,shieldId
+modules/gamelib/creature.lua,Creature:onSkullChange,skullId
+modules/gamelib/creature.lua,Creature:onTypeChange,typeId
+modules/gamelib/creature.lua,Creature:setOutfitShader,shader
+modules/gamelib/creature.lua,getEmblemImagePath,emblemId
+modules/gamelib/creature.lua,getIconImagePath,iconId
+modules/gamelib/creature.lua,getNextSkullId,skullId
+modules/gamelib/creature.lua,getShieldImagePathAndBlink,shieldId
+modules/gamelib/creature.lua,getSkullImagePath,skullId
+modules/gamelib/creature.lua,getTypeImagePath,creatureType
+modules/gamelib/game.lua,g_game.chooseRsa,host
+modules/gamelib/game.lua,g_game.findPlayerItem,"itemId, subType"
+modules/gamelib/game.lua,g_game.getClientProtocolVersion,client
+modules/gamelib/game.lua,g_game.getRsa,
+modules/gamelib/game.lua,g_game.getSupportedClients,
+modules/gamelib/game.lua,g_game.isOfficialTibia,
+modules/gamelib/game.lua,g_game.setRsa,"rsa, e"
+modules/gamelib/market.lua,getMarketCategoryId,name
+modules/gamelib/market.lua,getMarketCategoryName,id
+modules/gamelib/market.lua,getMarketDescriptionId,name
+modules/gamelib/market.lua,getMarketDescriptionName,id
+modules/gamelib/market.lua,getMarketSlotFilterId,name
+modules/gamelib/market.lua,getMarketSlotFilterName,id
+modules/gamelib/player.lua,Player:dismount,
+modules/gamelib/player.lua,Player:getItem,"itemId, subType"
+modules/gamelib/player.lua,Player:getItems,"itemId, subType"
+modules/gamelib/player.lua,Player:getItemsCount,itemId
+modules/gamelib/player.lua,Player:hasState,"state, states"
+modules/gamelib/player.lua,Player:hasVip,creatureName
+modules/gamelib/player.lua,Player:isMounted,
+modules/gamelib/player.lua,Player:isPartyLeader,
+modules/gamelib/player.lua,Player:isPartyMember,
+modules/gamelib/player.lua,Player:isPartySharedExperienceActive,
+modules/gamelib/player.lua,Player:mount,
+modules/gamelib/player.lua,Player:toggleMount,
+modules/gamelib/position.lua,Position.distance,"pos1, pos2"
+modules/gamelib/position.lua,Position.equals,"pos1, pos2"
+modules/gamelib/position.lua,Position.greaterThan,"pos1, pos2, orEqualTo"
+modules/gamelib/position.lua,Position.isInRange,"pos1, pos2, xRange, yRange"
+modules/gamelib/position.lua,Position.isValid,pos
+modules/gamelib/position.lua,Position.lessThan,"pos1, pos2, orEqualTo"
+modules/gamelib/position.lua,Position.manhattanDistance,"pos1, pos2"
+modules/gamelib/protocolgame.lua,ProtocolGame.registerExtendedJSONOpcode,"opcode, callback"
+modules/gamelib/protocolgame.lua,ProtocolGame.registerExtendedOpcode,"opcode, callback"
+modules/gamelib/protocolgame.lua,ProtocolGame.registerOpcode,"opcode, callback"
+modules/gamelib/protocolgame.lua,ProtocolGame.unregisterExtendedJSONOpcode,opcode
+modules/gamelib/protocolgame.lua,ProtocolGame.unregisterExtendedOpcode,opcode
+modules/gamelib/protocolgame.lua,ProtocolGame.unregisterOpcode,opcode
+modules/gamelib/protocolgame.lua,ProtocolGame:onExtendedOpcode,"opcode, buffer"
+modules/gamelib/protocolgame.lua,ProtocolGame:onOpcode,"opcode, msg"
+modules/gamelib/protocolgame.lua,ProtocolGame:sendExtendedJSONOpcode,"opcode, data"
+modules/gamelib/protocollogin.lua,ProtocolLogin:cancelLogin,
+modules/gamelib/protocollogin.lua,ProtocolLogin:login,"host, port, accountName, accountPassword, authenticatorToken, stayLogged"
+modules/gamelib/protocollogin.lua,ProtocolLogin:onConnect,
+modules/gamelib/protocollogin.lua,ProtocolLogin:onError,"msg, code"
+modules/gamelib/protocollogin.lua,ProtocolLogin:onRecv,msg
+modules/gamelib/protocollogin.lua,ProtocolLogin:parseCharacterList,msg
+modules/gamelib/protocollogin.lua,ProtocolLogin:parseError,msg
+modules/gamelib/protocollogin.lua,ProtocolLogin:parseExtendedCharacterList,msg
+modules/gamelib/protocollogin.lua,ProtocolLogin:parseMotd,msg
+modules/gamelib/protocollogin.lua,ProtocolLogin:parseOpcode,"opcode, msg"
+modules/gamelib/protocollogin.lua,ProtocolLogin:parseSessionKey,msg
+modules/gamelib/protocollogin.lua,ProtocolLogin:sendLoginPacket,
+modules/gamelib/spells.lua,Spells.filterSpellsByGroups,"spells, groups"
+modules/gamelib/spells.lua,Spells.getClientId,spellName
+modules/gamelib/spells.lua,Spells.getGroupIds,spell
+modules/gamelib/spells.lua,Spells.getImageClip,"id, profile"
+modules/gamelib/spells.lua,Spells.getServerId,spellName
+modules/gamelib/spells.lua,Spells.getSpellByIcon,iconId
+modules/gamelib/spells.lua,Spells.getSpellByName,name
+modules/gamelib/spells.lua,Spells.getSpellByWords,words
+modules/gamelib/spells.lua,Spells.getSpellIconIds,
+modules/gamelib/spells.lua,Spells.getSpellProfileById,id
+modules/gamelib/spells.lua,Spells.getSpellProfileByName,spellName
+modules/gamelib/spells.lua,Spells.getSpellProfileByWords,words
+modules/gamelib/spells.lua,Spells.getSpellsByVocationId,vocId
+modules/gamelib/textmessages.lua,g_game.onTextMessage,"messageMode, message"
+modules/gamelib/textmessages.lua,registerMessageMode,"messageMode, callback"
+modules/gamelib/textmessages.lua,unregisterMessageMode,"messageMode, callback"
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton.create,
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:creatureSetup,creature
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:getCreature,
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:getCreatureId,
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:setCreature,creature
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:setup,id
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:update,
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:updateEmblem,
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:updateLifeBarPercent,
+modules/gamelib/ui/uicreaturebutton.lua,UICreatureButton:updateSkull,
+modules/gamelib/ui/uiitem.lua,UIItem:canAcceptDrop,"widget, mousePos"
+modules/gamelib/ui/uiitem.lua,UIItem:onClick,mousePos
+modules/gamelib/ui/uiitem.lua,UIItem:onDestroy,
+modules/gamelib/ui/uiitem.lua,UIItem:onDragEnter,mousePos
+modules/gamelib/ui/uiitem.lua,UIItem:onDragLeave,"droppedWidget, mousePos"
+modules/gamelib/ui/uiitem.lua,UIItem:onDrop,"widget, mousePos, forced"
+modules/gamelib/ui/uiitem.lua,UIItem:onHoverChange,hovered
+modules/gamelib/ui/uiitem.lua,UIItem:onItemChange,
+modules/gamelib/ui/uiitem.lua,UIItem:onMouseRelease,"mousePosition, mouseButton"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:addAlternativeWidget,"widget, pos, maxZoom"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:addFlag,"pos, icon, description, temporary"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:createFlagWindow,pos
+modules/gamelib/ui/uiminimap.lua,UIMinimap:destroyFlagWindow,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:disableAutoWalk,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:getFlag,pos
+modules/gamelib/ui/uiminimap.lua,UIMinimap:hideFloor,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:hideZoom,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:load,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:move,"x, y"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onCameraPositionChange,cameraPos
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onCreate,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onDestroy,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onDragEnter,pos
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onDragLeave,"widget, pos"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onDragMove,"pos, moved"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onMousePress,"pos, button"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onMouseRelease,"pos, button"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onMouseWheel,"mousePos, direction"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onSetup,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onStyleApply,"styleName, styleNode"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onVisibilityChange,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:onZoomChange,zoom
+modules/gamelib/ui/uiminimap.lua,UIMinimap:removeFlag,"pos, icon, description"
+modules/gamelib/ui/uiminimap.lua,UIMinimap:reset,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:save,
+modules/gamelib/ui/uiminimap.lua,UIMinimap:setAlternativeWidgetsVisible,show
+modules/gamelib/ui/uiminimap.lua,UIMinimap:setCrossPosition,pos
+modules/gamelib/ui/uiminimap.lua,onFlagMouseRelease,"widget, pos, button"
+modules/gamelib/util.lua,dirtostring,dir
+modules/gamelib/util.lua,postostring,pos
+modules/updater/updater.lua,Updater.abort,
+modules/updater/updater.lua,Updater.changeUrl,
+modules/updater/updater.lua,Updater.check,args
+modules/updater/updater.lua,Updater.error,message
+modules/updater/updater.lua,Updater.init,loadModulesFunc
+modules/updater/updater.lua,Updater.terminate,
+modules/updater/updater.lua,downloadFiles,"url, files, index, retries, doneCallback"
+modules/updater/updater.lua,initAppWindow,
+modules/updater/updater.lua,loadModules,
+modules/updater/updater.lua,onLog,"level, message, time"
+modules/updater/updater.lua,progressUpdater,value
+modules/updater/updater.lua,updateFiles,"data, keepCurrentFiles"

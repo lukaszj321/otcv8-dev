@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "partialSrc",
+  "return_type": "Rect",
+  "args": "src",
+  "file": "src/framework/graphics/coordsbuffer.cpp"
+}

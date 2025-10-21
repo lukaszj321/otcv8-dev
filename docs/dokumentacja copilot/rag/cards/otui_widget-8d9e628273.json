@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 90,
+  "path": "PriorityEntry/Button#increment",
+  "widget": "Button",
+  "base": "",
+  "id": "increment",
+  "props": {
+    "id": "increment",
+    "anchors.right": "parent.right",
+    "margin-right": "2",
+    "size": "14 14",
+    "text": "+",
+    "tooltip": "Increase Priority"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeWidget",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& widget",
+  "file": "src/framework/ui/uigridlayout.h"
+}

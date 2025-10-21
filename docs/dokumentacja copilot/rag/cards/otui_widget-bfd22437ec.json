@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 67,
+  "path": "Rule/CheckBox#enabled",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "enabled",
+  "props": {
+    "id": "enabled",
+    "anchors.left": "parent.left",
+    "width": "15",
+    "height": "15",
+    "margin-top": "2",
+    "margin-left": "3",
+    "tooltip": "Entry enabled/disabled",
+    "background-color": "#00000055"
+  }
+}

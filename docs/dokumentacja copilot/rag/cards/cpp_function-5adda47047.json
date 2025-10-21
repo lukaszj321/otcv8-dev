@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cancelNewWalk",
+  "return_type": "return",
+  "args": "direction",
+  "file": "src/client/localplayer.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 251,
+  "path": "AddPlayer/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "font": "verdana-11px-rounded",
+    "text": "Add Player to Custom List",
+    "text-align": "center",
+    "text-wrap": "true"
+  }
+}

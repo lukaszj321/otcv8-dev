@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:selectPrevTab",
+  "args": "",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

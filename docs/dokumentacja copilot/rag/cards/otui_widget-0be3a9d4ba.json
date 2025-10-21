@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 94,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel/Panel#sortPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "sortPanel",
+  "props": {
+    "id": "sortPanel",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "20",
+    "margin-top": "6"
+  }
+}

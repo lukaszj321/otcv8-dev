@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.decodeStringPairList",
+  "args": "l",
+  "file": "modules/corelib/table.lua"
+}

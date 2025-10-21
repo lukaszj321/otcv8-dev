@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 262,
+  "path": "ClearImbue/Label#clearImbuementTitle",
+  "widget": "Label",
+  "base": "",
+  "id": "clearImbuementTitle",
+  "props": {
+    "id": "clearImbuementTitle",
+    "anchors.top": "info.top",
+    "anchors.right": "parent.right"
+  }
+}

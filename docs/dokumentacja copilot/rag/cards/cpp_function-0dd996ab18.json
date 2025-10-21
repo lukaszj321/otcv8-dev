@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onFocusChange",
+  "return_type": "virtual void",
+  "args": "bool focused, Fw::FocusReason reason",
+  "file": "src/framework/ui/uiwidget.h"
+}

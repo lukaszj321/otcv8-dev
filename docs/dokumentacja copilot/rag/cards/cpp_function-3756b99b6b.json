@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Animator::calculateSynchronous",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/client/animator.cpp"
+}

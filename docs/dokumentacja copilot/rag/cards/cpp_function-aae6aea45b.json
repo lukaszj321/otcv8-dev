@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "safeRunScript",
+  "return_type": "bool",
+  "args": "const std::string& fileName",
+  "file": "src/framework/luaengine/luainterface.h"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 98,
+  "path": "AlarmsWindow/HorizontalScrollBar#healthValue",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "healthValue",
+  "props": {
+    "id": "healthValue",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "anchors.top": "healthBelow.top",
+    "margin-left": "3",
+    "margin-top": "2",
+    "minimum": "1",
+    "maximum": "100",
+    "step": "1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "createTileEx",
+  "return_type": "const TilePtr&",
+  "args": "const Position& pos, const Items&... items",
+  "file": "src/client/map.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "draw",
+  "return_type": "virtual void",
+  "args": "const Rect& visibleRect, Fw::DrawPane drawPane",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 1,
+  "path": "RoundCheckBox",
+  "widget": "RoundCheckBox",
+  "base": "CheckBox",
+  "id": "",
+  "props": {
+    "image-source": "/images/ui/checkbox_round",
+    "margin-top": "5"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 25,
+  "path": "BossCreaturePanel/Label#cooldown",
+  "widget": "Label",
+  "base": "",
+  "id": "cooldown",
+  "props": {
+    "id": "cooldown",
+    "anchors.left": "creature.right",
+    "margin": "1",
+    "margin-left": "5",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "anchors.top": "creature.verticalCenter",
+    "font": "verdana-11px-rounded",
+    "text": "19h 20min"
+  }
+}

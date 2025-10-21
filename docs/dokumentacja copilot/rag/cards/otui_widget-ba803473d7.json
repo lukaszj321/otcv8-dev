@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_outfit/outfitwindow.otui",
+  "line": 6,
+  "path": "OutfitWindow",
+  "widget": "OutfitWindow",
+  "base": "",
+  "id": "",
+  "props": {}
+}

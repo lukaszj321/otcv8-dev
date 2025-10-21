@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getPrewalkingPosition",
+  "return_type": "virtual Position",
+  "args": "bool beforePrewalk = false",
+  "file": "src/client/creature.h"
+}

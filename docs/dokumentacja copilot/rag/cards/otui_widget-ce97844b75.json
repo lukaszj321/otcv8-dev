@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/styles/countwindow.otui",
+  "line": 25,
+  "path": "CountWindow#countWindow/HorizontalScrollBar#countScrollBar",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "countScrollBar",
+  "props": {
+    "id": "countScrollBar",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.top",
+    "margin-left": "10",
+    "margin-top": "-2",
+    "focusable": "false"
+  }
+}

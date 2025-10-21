@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onOutfitChange",
+  "args": "localPlayer, outfit, oldOutfit",
+  "file": "modules/game_inventory/inventory.lua"
+}

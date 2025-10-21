@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDragMove",
+  "file": "modules/game_bot/functions/icon.lua"
+}

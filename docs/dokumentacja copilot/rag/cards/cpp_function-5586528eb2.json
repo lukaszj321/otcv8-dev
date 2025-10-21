@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "qrcodegen_makeBytes",
+  "return_type": "struct qrcodegen_Segment",
+  "args": "const uint8_t data[], size_t len, uint8_t buf[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

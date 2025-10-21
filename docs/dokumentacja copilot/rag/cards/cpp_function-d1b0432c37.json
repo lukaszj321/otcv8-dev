@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "adjust",
+  "return_type": "void",
+  "args": "ticks_t value",
+  "file": "src/framework/core/timer.h"
+}

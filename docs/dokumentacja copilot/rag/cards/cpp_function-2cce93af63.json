@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getVisibleCenterOffset",
+  "return_type": "Point",
+  "args": "nan",
+  "file": "src/client/mapview.h"
+}

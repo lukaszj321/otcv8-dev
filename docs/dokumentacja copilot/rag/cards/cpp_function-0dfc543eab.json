@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "dec_to_hex",
+  "return_type": "std::string",
+  "args": "uint32_t num",
+  "file": "src/framework/stdext/string.cpp"
+}

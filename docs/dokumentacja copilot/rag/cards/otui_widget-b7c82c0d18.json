@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 231,
+  "path": "Panel#actionBar/LeftSliders#prevPanel",
+  "widget": "LeftSliders",
+  "base": "",
+  "id": "prevPanel",
+  "props": {
+    "id": "prevPanel",
+    "anchors.left": "parent.left",
+    "margin-left": "1"
+  }
+}

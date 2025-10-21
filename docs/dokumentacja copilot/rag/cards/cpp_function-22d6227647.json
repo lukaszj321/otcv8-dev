@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlDocument::Parse",
+  "return_type": "const char*",
+  "args": "const char* p, TiXmlParsingData* prevData, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "endTag",
+  "return_type": "TIXML_STRING",
+  "args": "\"</\"",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

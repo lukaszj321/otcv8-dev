@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "showPostTab",
+  "args": "tabBar",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

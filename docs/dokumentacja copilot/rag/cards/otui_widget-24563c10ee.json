@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/options.otui",
+  "line": 8,
+  "path": "OptionScrollbar",
+  "widget": "OptionScrollbar",
+  "base": "HorizontalScrollBar",
+  "id": "",
+  "props": {
+    "step": "1"
+  }
+}

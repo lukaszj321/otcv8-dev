@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setWings",
+  "return_type": "void",
+  "args": "int wings",
+  "file": "src/client/outfit.h"
+}

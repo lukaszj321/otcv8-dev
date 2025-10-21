@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 88,
+  "path": "Panel/Label#totalPriceLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "totalPriceLabel",
+  "props": {
+    "id": "totalPriceLabel",
+    "font": "verdana-11px-rounded",
+    "text-offset": "0 2",
+    "anchors.top": "offerTypeLabel.top",
+    "anchors.left": "prev.right",
+    "margin-left": "7"
+  }
+}

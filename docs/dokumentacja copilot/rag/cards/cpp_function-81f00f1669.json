@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSmooth",
+  "return_type": "virtual void",
+  "args": "bool smooth",
+  "file": "src/framework/graphics/texture.h"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 91,
+  "path": "OptionPanel/Panel/Label#backpackPanelLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "backpackPanelLabel",
+  "props": {
+    "width": "130",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "id": "backpackPanelLabel"
+  }
+}

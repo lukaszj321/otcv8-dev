@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream",
+  "return_type": "public:",
+  "args": "const std::string& name, PHYSFS_File *fileHandle, bool writeable",
+  "file": "src/framework/core/filestream.h"
+}

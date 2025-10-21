@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getSellQuantity",
+  "args": "item",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

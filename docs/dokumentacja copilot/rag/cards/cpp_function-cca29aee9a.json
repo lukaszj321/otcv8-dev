@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCursorPos",
+  "return_type": "nan",
+  "args": "m_selectionStart",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

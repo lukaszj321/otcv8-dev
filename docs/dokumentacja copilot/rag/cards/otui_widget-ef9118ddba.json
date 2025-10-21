@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 43,
+  "path": "ActionButton/Label#hotkeyLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "hotkeyLabel",
+  "props": {
+    "id": "hotkeyLabel",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "margin": "3 4 3 3",
+    "text-auto-resize": "true",
+    "text-wrap": "false",
+    "phantom": "true",
+    "font": "cipsoftFont",
+    "color": "white",
+    "background": "#292A2A"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 105,
+  "path": "TradeWindow/MiniWindowContents/Button#rejectButton",
+  "widget": "Button",
+  "base": "",
+  "id": "rejectButton",
+  "props": {
+    "id": "rejectButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.horizontalCenter",
+    "margin-left": "2"
+  }
+}

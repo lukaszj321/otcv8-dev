@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemstats.otui",
+  "line": 89,
+  "path": "Panel/TableData#sellStatsTableData",
+  "widget": "TableData",
+  "base": "",
+  "id": "sellStatsTableData",
+  "props": {
+    "id": "sellStatsTableData",
+    "anchors.top": "sellStatsTable.top",
+    "anchors.bottom": "sellStatsTable.bottom",
+    "anchors.left": "sellStatsTable.left",
+    "anchors.right": "sellStatsTable.right",
+    "vertical-scrollbar": "sellStatsTableScrollBar"
+  }
+}

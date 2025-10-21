@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processConnectionError",
+  "return_type": "protected: void",
+  "args": "const boost::system::error_code& error",
+  "file": "src/client/game.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Timer",
+  "return_type": "public:",
+  "args": "nan",
+  "file": "src/framework/core/timer.h"
+}

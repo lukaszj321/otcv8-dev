@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIComboBox:removeOption",
+  "args": "text",
+  "file": "modules/corelib/ui/uicombobox.lua"
+}

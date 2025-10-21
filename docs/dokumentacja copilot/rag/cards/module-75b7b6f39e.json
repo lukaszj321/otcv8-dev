@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_shaders\n  description: Load shaders\n  author: otclientv8\n  website: http://otclient.ovh\n  scripts: [ shaders ]\n  sandboxed: true\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_shaders/shaders.otmod",
+  "description": "Load shaders"
+}

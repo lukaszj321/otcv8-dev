@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "ret != 0",
+  "file": "src/framework/platform/win32window.cpp"
+}

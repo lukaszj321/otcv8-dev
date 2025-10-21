@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Point",
+  "return_type": "return",
+  "args": "-1, -1",
+  "file": "src/framework/graphics/atlas.cpp"
+}

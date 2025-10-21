@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Position",
+  "return_type": "return",
+  "args": "pos2d.x, pos2d.y, mapCenter.z",
+  "file": "src/client/minimap.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setOldScaling",
+  "return_type": "void",
+  "args": "bool value",
+  "file": "src/client/uicreature.h"
+}

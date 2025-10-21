@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIItem:onMouseRelease",
+  "args": "mousePosition, mouseButton",
+  "file": "modules/gamelib/ui/uiitem.lua"
+}

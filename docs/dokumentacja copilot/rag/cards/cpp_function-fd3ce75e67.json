@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onConnect",
+  "return_type": "protected: void",
+  "args": "nan",
+  "file": "src/client/protocolgame.h"
+}

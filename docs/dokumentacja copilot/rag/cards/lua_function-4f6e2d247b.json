@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "base64.makedecoder",
+  "args": " s62, s63, spad ",
+  "file": "modules/corelib/base64.lua"
+}

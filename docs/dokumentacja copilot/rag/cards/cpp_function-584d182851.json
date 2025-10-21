@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_idleAnimator && !m_animator",
+  "file": "src/client/thingtype.cpp"
+}

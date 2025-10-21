@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setIndex",
+  "return_type": "void",
+  "args": "size_t index",
+  "file": "src/framework/otml/otmlnode.h"
+}

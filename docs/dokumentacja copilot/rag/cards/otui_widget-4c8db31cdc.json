@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 50,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#experience",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "experience",
+  "props": {
+    "margin-top": "5",
+    "id": "experience",
+    "height": "15"
+  }
+}

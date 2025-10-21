@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "eglGetConfigAttrib",
+  "return_type": "nan",
+  "args": "m_eglDisplay, m_eglConfig, EGL_NATIVE_VISUAL_ID, &format",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getVisibleDimension",
+  "return_type": "Size",
+  "args": "nan",
+  "file": "src/client/uimap.h"
+}

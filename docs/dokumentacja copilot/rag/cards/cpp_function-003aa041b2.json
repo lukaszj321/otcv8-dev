@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDrawProgram",
+  "return_type": "void",
+  "args": "PainterShaderProgram* drawProgram",
+  "file": "src/framework/graphics/painter.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "while",
+  "return_type": "nan",
+  "args": "len--",
+  "file": "src/framework/util/crypt.cpp"
+}

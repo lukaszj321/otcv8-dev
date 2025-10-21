@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTabClick",
+  "args": "tab",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

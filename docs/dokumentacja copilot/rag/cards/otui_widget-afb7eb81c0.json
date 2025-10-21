@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 266,
+  "path": "AddPlayer/SpinBox#health",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "health",
+  "props": {
+    "id": "health",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "20",
+    "width": "50",
+    "minimum": "1",
+    "maximum": "99",
+    "step": "1",
+    "focusable": "true",
+    "text-align": "center"
+  }
+}

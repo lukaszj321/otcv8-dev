@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_buttons\n  description: Shows miniwindow with buttons\n  author: otclient@otclient.ovh\n  sandboxed: true\n  scripts: [ buttons ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_buttons/buttons.otmod",
+  "description": "Shows miniwindow with buttons"
+}

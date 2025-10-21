@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 440,
+  "path": "FeaturesWindow#FeaturesWindow/BotItem#ID",
+  "widget": "BotItem",
+  "base": "",
+  "id": "ID",
+  "props": {
+    "id": "ID",
+    "anchors.left": "CustomPrices.left",
+    "anchors.top": "CustomPrices.bottom",
+    "margin-top": "5"
+  }
+}

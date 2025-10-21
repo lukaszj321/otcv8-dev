@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 306,
+  "path": "ItemHealing/Button#addItem",
+  "widget": "Button",
+  "base": "",
+  "id": "addItem",
+  "props": {
+    "id": "addItem",
+    "anchors.right": "itemValue.right",
+    "anchors.bottom": "itemList.bottom",
+    "text": "Add",
+    "size": "40 17",
+    "font": "cipsoftFont"
+  }
+}

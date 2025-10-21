@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.otui",
+  "line": 1,
+  "path": "PushMaxWindow",
+  "widget": "PushMaxWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "200 240"
+  }
+}

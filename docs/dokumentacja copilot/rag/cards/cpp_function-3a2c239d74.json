@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "create",
+  "return_type": "static OTMLNodePtr",
+  "args": "std::string tag = \"\", bool unique = false",
+  "file": "src/framework/otml/otmlnode.h"
+}

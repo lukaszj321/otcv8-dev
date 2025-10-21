@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setIconHeight",
+  "return_type": "void",
+  "args": "int height",
+  "file": "src/framework/ui/uiwidget.h"
+}

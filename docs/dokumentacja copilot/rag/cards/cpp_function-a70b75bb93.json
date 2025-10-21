@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCursorPos",
+  "return_type": "public: void",
+  "args": "int pos",
+  "file": "src/framework/ui/uitextedit.h"
+}

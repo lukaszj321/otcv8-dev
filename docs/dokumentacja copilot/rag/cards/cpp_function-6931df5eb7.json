@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getDebugInfo",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/proxy/proxy_client.h"
+}

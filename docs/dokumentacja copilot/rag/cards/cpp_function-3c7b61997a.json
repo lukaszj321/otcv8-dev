@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::drawText",
+  "return_type": "void",
+  "args": "const Rect& screenCoords",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

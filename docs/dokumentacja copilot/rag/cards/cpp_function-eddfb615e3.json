@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "h <= MAX",
+  "file": "src/client/thingtype.cpp"
+}

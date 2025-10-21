@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "string:ends",
+  "args": "test",
+  "file": "modules/corelib/string.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ResourceManager::launchCorrect",
+  "return_type": "bool",
+  "args": "const std::string& product, const std::string& app",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

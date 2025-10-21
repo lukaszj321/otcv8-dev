@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Crypt::bdecrypt",
+  "return_type": "void",
+  "args": "uint8_t* buffer, int len, uint64_t k",
+  "file": "src/framework/util/crypt.cpp"
+}

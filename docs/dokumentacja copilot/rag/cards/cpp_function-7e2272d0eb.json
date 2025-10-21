@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onKeyText",
+  "return_type": "virtual bool",
+  "args": "const std::string& keyText",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto& cache : m_cache",
+  "file": "src/framework/graphics/textrender.cpp"
+}

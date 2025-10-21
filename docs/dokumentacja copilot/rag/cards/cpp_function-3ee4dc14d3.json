@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Config::exists",
+  "return_type": "bool",
+  "args": "const std::string& key",
+  "file": "src/framework/core/config.cpp"
+}

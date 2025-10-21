@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getOrCreateTile",
+  "return_type": "const TilePtr&",
+  "args": "const Position& pos",
+  "file": "src/client/map.h"
+}

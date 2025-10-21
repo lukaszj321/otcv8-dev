@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlElement::Attribute",
+  "return_type": "std::string",
+  "args": "const std::string& name, int* i",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

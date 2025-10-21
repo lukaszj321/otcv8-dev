@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 147,
+  "path": "FeaturePanel/Button#Broadcast",
+  "widget": "Button",
+  "base": "",
+  "id": "Broadcast",
+  "props": {
+    "id": "Broadcast",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-right": "3",
+    "margin-left": "3",
+    "height": "22",
+    "text": "Broadcast"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hideButton",
+  "args": "",
+  "file": "modules/client_terminal/terminal.lua"
+}

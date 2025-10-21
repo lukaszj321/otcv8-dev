@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 69,
+  "path": "MainWindow/UIWidget",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "",
+  "props": {
+    "layout": "horizontalBox",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "24"
+  }
+}

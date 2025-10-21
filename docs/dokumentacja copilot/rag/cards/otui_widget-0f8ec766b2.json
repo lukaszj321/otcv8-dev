@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 71,
+  "path": "MainWindow#npcWindow/FlatPanel/VerticalScrollBar#itemsPanelListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "itemsPanelListScrollBar",
+  "props": {
+    "id": "itemsPanelListScrollBar",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "step": "24",
+    "pixels-scroll": "true"
+  }
+}

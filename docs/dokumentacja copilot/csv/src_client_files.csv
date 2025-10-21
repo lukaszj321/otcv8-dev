@@ -1,0 +1,83 @@
+file,summary
+animatedtext.cpp,"Implementacja klasy `AnimatedText`, która odpowiada za renderowanie animowanego tekstu na mapie, takiego jak komunikaty o zadanych obrażeniach, leczeniu czy zdobytych punktach doświadczenia. Plik zawiera logikę animacji, rysowania oraz łączenia podobnych tekstów w jeden."
+houses.h,"Plik ten definiuje klasy `House` i `HouseManager`, które służą do zarządzania informacjami o domach w grze. Zawiera definicje struktur przechowujących atrybuty domów, takie jak nazwa, ID, wejście, oraz metody do zarządzania nimi."
+animatedtext.h,"Plik nagłówkowy dla klasy `AnimatedText`. Definiuje interfejs klasy, która zarządza animowanym tekstem na mapie."
+animator.h,"Plik nagłówkowy dla klasy `Animator`, która zarządza animacjami klatek dla obiektów w grze, takich jak przedmioty czy efekty."
+animator.cpp,Implementacja klasy `Animator`. Zawiera logikę obliczania faz animacji w zależności od czasu i trybu pracy.
+client.cpp,"Plik implementuje klasę `Client`, która jest głównym punktem wejścia i zarządzania dla aplikacji klienckiej. Odpowiada za inicjalizację i zamykanie kluczowych modułów gry."
+client.h,Plik nagłówkowy dla klasy `Client`. Deklaruje interfejs głównej klasy aplikacji klienckiej.
+CMakeLists.txt,"Plik konfiguracyjny systemu budowania CMake dla modułu klienta. Definiuje on, które pliki źródłowe (`.cpp`, `.h`) zostaną skompilowane i włączone do finalnej aplikacji klienckiej."
+const.h,"Plik nagłówkowy zawierający globalne stałe i typy wyliczeniowe używane w całej aplikacji klienckiej. Definiuje kluczowe wartości, takie jak flagi rysowania, atrybuty przedmiotów, tryby gry, a także identyfikatory funkcji serwera (`GameFeature`)."
+container.cpp,"Implementacja klasy `Container`, która reprezentuje pojemniki w grze, takie jak plecaki. Plik zawiera logikę zarządzania przedmiotami wewnątrz kontenera oraz obsługę zdarzeń z nim związanych."
+creature.cpp,"Implementacja klasy `Creature`, która jest podstawową klasą dla wszystkich żywych istot w grze (graczy, potworów, NPC). Plik ten zawiera złożoną logikę rysowania, animacji, poruszania się, skakania oraz wyświetlania informacji o postaci."
+container.h,Plik nagłówkowy dla klasy `Container`. Definiuje interfejs do zarządzania pojemnikami w grze.
+creature.h,Plik nagłówkowy dla klasy `Creature` oraz jej specjalizacji: `Npc` i `Monster`. Definiuje interfejs dla wszystkich istot w grze.
+creatures.h,"Plik nagłówkowy definiujący klasy do zarządzania typami stworzeń (`CreatureType`) oraz ich miejscami odradzania (`Spawn`). Jest to część systemu, który prawdopodobnie służy do edycji map lub działania jako serwer, a nie tylko do gry."
+declarations.h,Plik nagłówkowy zawierający deklaracje wyprzedzające (forward declarations) oraz definicje typów wskaźników i kolekcji używanych w całym module klienta. Jego głównym celem jest przełamanie cyklicznych zależności między plikami nagłówkowymi.
+creatures.cpp,"Implementacja `CreatureManager` i `Spawn`, odpowiedzialnych za zarządzanie typami stworzeń i ich miejscami odradzania. Plik zawiera logikę wczytywania i zapisywania danych z plików XML oraz zarządzania stworzeniami na mapie."
+effect.cpp,"Implementacja klasy `Effect`, która odpowiada za renderowanie efektów wizualnych na mapie, takich jak eksplozje, efekty magiczne itp."
+global.h,"Plik nagłówkowy, który pełni rolę centralnego punktu dołączania najważniejszych plików nagłówkowych używanych w całym projekcie klienta."
+effect.h,"Plik nagłówkowy dla klasy `Effect`, definiujący jej interfejs."
+healthbars.cpp,"Implementacja `HealthBars`, globalnego managera niestandardowych teł dla pasków życia i many. Umożliwia ładowanie i przypisywanie różnych grafik do pasków zdrowia w zależności od ID ubioru postaci."
+game.h,"Plik nagłówkowy dla klasy `Game`, która jest centralnym punktem zarządzania stanem gry. Definiuje interfejs do obsługi logowania, akcji gracza, komunikacji z serwerem oraz przechowywania stanu gry."
+healthbars.h,Plik nagłówkowy definiujący klasy `HealthBar` i `HealthBars` do zarządzania niestandardowymi tłami pasków życia i many.
+houses.cpp,"Implementacja klas `House` i `HouseManager`, które zarządzają danymi o domach w grze. Plik zawiera logikę wczytywania i zapisywania danych o domach z/do plików XML oraz zarządzania ich stanem."
+item.cpp,"Implementacja klasy `Item`, która reprezentuje przedmioty w grze. Plik zawiera logikę rysowania przedmiotów, obsługę ich atrybutów oraz serializację/deserializację do formatu binarnego (OTBM)."
+itemtype.cpp,"Implementacja klasy `ItemType`, która reprezentuje szablon (typ) przedmiotu. Plik zawiera logikę wczytywania definicji typów przedmiotów z binarnego formatu OTB."
+item.h,"Plik nagłówkowy dla klasy `Item`, która reprezentuje konkretny przedmiot w grze."
+itemtype.h,"Plik nagłówkowy dla klasy `ItemType`, która reprezentuje szablon (typ) przedmiotu."
+lightview.cpp,"Implementacja klasy `LightView`, która zarządza i renderuje dynamiczne oświetlenie na mapie."
+lightview.h,"Plik nagłówkowy dla klasy `LightView`, która jest odpowiedzialna za system dynamicznego oświetlenia w grze."
+localplayer.cpp,"Implementacja klasy `LocalPlayer`, która reprezentuje postać sterowaną przez gracza. Rozszerza klasę `Player` o logikę specyficzną dla lokalnego gracza, taką jak obsługa ruchu inicjowanego przez klienta (pre-walking), blokady chodzenia, auto-walking oraz zarządzanie statystykami."
+map.cpp,"Implementacja klasy `Map`, która jest centralnym repozytorium dla wszystkich danych o świecie gry. Plik zawiera logikę zarządzania polami (`Tile`), umieszczania na nich obiektów (`Thing`), wyszukiwania ścieżek oraz zarządzania widocznym obszarem mapy."
+luavaluecasts_client.h,Plik nagłówkowy definiujący funkcje do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Jest to kluczowy element integracji logiki gry z silnikiem skryptowym Lua.
+mapio.cpp,"Plik ten zawiera implementację metod klasy `Map` odpowiedzialnych za operacje wejścia/wyjścia, czyli wczytywanie i zapisywanie danych mapy w formatach OTBM (OpenTibia Binary Map) i OTCM (OTClient Map)."
+luavaluecasts_client.cpp,"Implementacja funkcji do konwersji (rzutowania) niestandardowych typów danych C++ na wartości Lua i z powrotem. Ten plik zawiera logikę ""tłumaczenia"" złożonych obiektów C++ na tabele Lua i odwrotnie."
+mapview.cpp,"Implementacja klasy `MapView`, która jest odpowiedzialna za renderowanie widoku mapy. Plik zawiera skomplikowaną logikę określania, które pola są widoczne, jak je rysować w odpowiedniej kolejności (z uwzględnieniem pięter i efektu paralaksy) oraz jak zarządzać oświetleniem i tekstami na mapie."
+mapview.h,"Plik nagłówkowy dla klasy `MapView`. Definiuje interfejs widoku mapy, który jest głównym komponentem renderującym świat gry."
+minimap.h,Plik nagłówkowy dla `Minimap` i powiązanych struktur. Definiuje interfejs do zarządzania danymi minimapy i jej renderowania.
+missile.cpp,"Implementacja klasy `Missile`, która odpowiada za renderowanie pocisków w grze."
+missile.h,"Plik nagłówkowy dla klasy `Missile`, która reprezentuje pociski i inne efekty dystansowe."
+outfit.cpp,"Implementacja klasy `Outfit` oraz niestandardowych elementów kolejki rysowania `DrawQueueItemOutfit` i `DrawQueueItemOutfitWithShader`. Plik zawiera złożoną logikę rysowania ubioru postaci, w tym warstw, kolorów, dodatków, wierzchowców, skrzydeł, aury i shaderów."
+outfit.h,Plik nagłówkowy dla klasy `Outfit` oraz powiązanych struktur do rysowania.
+player.cpp,"Ten plik jest obecnie pusty, co oznacza, że klasa `Player` nie posiada żadnej dodatkowej implementacji poza tym, co dziedziczy z klasy `Creature`."
+player.h,"Plik nagłówkowy dla klasy `Player`, która jest specjalizacją klasy `Creature`."
+protocolcodes.cpp,"Implementacja funkcji pomocniczych zadeklarowanych w `protocolcodes.h`. Głównym zadaniem tego pliku jest zarządzanie mapowaniem trybów wiadomości (`Otc::MessageMode`) na ich liczbowe odpowiedniki używane w protokole sieciowym, które mogą się różnić w zależności od wersji klienta."
+minimap.cpp,"Implementacja `Minimap` i `MinimapBlock`, które razem tworzą system minimapy w grze. Plik zawiera logikę renderowania, aktualizacji danych, a także wczytywania i zapisywania minimapy w formatach `.otmm` i graficznych."
+position.h,Plik nagłówkowy definiujący strukturę `Position` oraz powiązane z nią funkcje pomocnicze. Jest to fundamentalna struktura używana w całym projekcie do reprezentowania współrzędnych w trójwymiarowym świecie gry.
+protocolcodes.h,Plik nagłówkowy definiujący kody operacyjne (opcodes) używane w protokole sieciowym między klientem a serwerem gry. Zawiera również definicje typów stworzeń i mapowanie trybów wiadomości.
+protocolgame.cpp,Implementacja części klasy `ProtocolGame` odpowiedzialnej za zarządzanie połączeniem i podstawową obsługę zdarzeń sieciowych.
+protocolgame.h,Plik nagłówkowy dla klasy `ProtocolGame`. Definiuje interfejs protokołu sieciowego używanego do komunikacji z serwerem gry. Zawiera deklaracje funkcji do wysyłania pakietów oraz parsowania odpowiedzi z serwera.
+spritemanager.cpp,"Implementacja `SpriteManager`, klasy odpowiedzialnej za zarządzanie plikami sprite'ów (`.spr`, `.cwm`). Plik zawiera logikę wczytywania, zapisywania, a także deszyfrowania i dekompresji danych sprite'ów."
+protocolgamesend.cpp,Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za **wysyłanie** pakietów do serwera gry. Każda metoda odpowiada za stworzenie i wysłanie konkretnego komunikatu zgodnie z protokołem sieciowym.
+localplayer.h,"Plik nagłówkowy dla klasy `LocalPlayer`, która reprezentuje postać sterowaną przez gracza. Jest to specjalizacja klasy `Player`."
+towns.cpp,"Implementacja `Town` i `TownManager`, które służą do zarządzania danymi o miastach w grze."
+spritemanager.h,"Plik nagłówkowy dla `SpriteManager`, singletonu odpowiedzialnego za zarządzanie plikami sprite'ów (`.spr`)."
+tile.cpp,"Implementacja klasy `Tile`, która reprezentuje pojedyncze pole na mapie gry. Plik zawiera logikę rysowania pola i wszystkich znajdujących się na nim obiektów, zarządzania stosem obiektów oraz dostarczania informacji o właściwościach pola."
+statictext.h,"Plik nagłówkowy dla klasy `StaticText`, która reprezentuje tekst pojawiający się nad głowami stworzeń lub na polach mapy."
+uimapanchorlayout.cpp,"Implementacja `UIPositionAnchor` i `UIMapAnchorLayout`, które rozszerzają standardowy system kotwic (`UIAnchorLayout`) o możliwość przypinania widżetów do konkretnych pozycji na minimapie."
+thing.h,"Plik nagłówkowy dla `Thing`, abstrakcyjnej klasy bazowej dla wszystkich obiektów, które mogą pojawić się na mapie w grze."
+uiitem.h,"Plik nagłówkowy dla `UIItem`, widżetu interfejsu użytkownika przeznaczonego do wyświetlania przedmiotów (`Item`)."
+thing.cpp,Implementacja klasy bazowej `Thing`. Zawiera podstawową logikę wspólną dla wszystkich obiektów na mapie.
+uimap.cpp,"Implementacja `UIMap`, widżetu interfejsu użytkownika, który renderuje główny widok mapy gry."
+statictext.cpp,"Implementacja `StaticText`, klasy odpowiedzialnej za wyświetlanie mowy postaci i innych tekstów na mapie."
+uiitem.cpp,"Implementacja `UIItem`, widżetu do wyświetlania przedmiotów w interfejsie użytkownika."
+thingstype.h,"Plik nagłówkowy dla klasy `ThingsType` (błąd w nazwie, prawdopodobnie powinno być `ThingTypeManager`). Definiuje interfejs singletonu, który zarządza wszystkimi typami obiektów (`ThingType`) w grze, wczytywanymi z plików `.dat`. > NOTE: Nazwa klasy `ThingsType` jest myląca. W rzeczywistości jest to menedżer, który przechowuje i zarządza obiektami `ThingType`. W innych plikach jest on nazywany `ThingTypeManager`."
+uigraph.h,"Plik nagłówkowy dla `UIGraph`, widżetu służącego do rysowania prostych wykresów liniowych."
+uicreature.h,"Plik nagłówkowy dla `UICreature`, widżetu interfejsu użytkownika do wyświetlania stworzeń."
+thingtype.cpp,"Implementacja klasy `ThingType`, która reprezentuje szablon dla wszystkich obiektów w grze. Plik zawiera logikę serializacji, deserializacji, a przede wszystkim renderowania obiektów danego typu."
+towns.h,Plik nagłówkowy definiujący klasy `Town` i `TownManager` do zarządzania miastami w grze.
+thingtype.h,"Plik nagłówkowy dla klasy `ThingType`, która jest szablonem dla wszystkich obiektów w grze. Definiuje ona ich wspólne, niezmienne właściwości."
+uicreature.cpp,"Implementacja `UICreature`, widżetu do wyświetlania stworzeń w interfejsie użytkownika."
+thingtypemanager.h,"Plik nagłówkowy dla `ThingTypeManager`, singletonu zarządzającego wszystkimi typami obiektów (`ThingType`) i przedmiotów (`ItemType`)."
+uigraph.cpp,"Implementacja `UIGraph`, widżetu do rysowania wykresów liniowych."
+uimap.h,"Plik nagłówkowy dla `UIMap`, widżetu UI, który jest odpowiedzialny za wyświetlanie mapy gry."
+uiminimap.cpp,"Implementacja `UIMinimap`, widżetu interfejsu użytkownika do wyświetlania minimapy."
+uiprogressrect.cpp,"Implementacja `UIProgressRect`, niestandardowego widżetu, który wizualizuje postęp za pomocą wypełniającego się okręgu (lub kwadratu) w sposób radialny."
+uimapanchorlayout.h,Plik nagłówkowy definiujący `UIPositionAnchor` i `UIMapAnchorLayout`. Rozszerzają one standardowy system kotwic o możliwość przypinania widżetów do dynamicznych pozycji na `UIMinimap`.
+uiminimap.h,"Plik nagłówkowy dla `UIMinimap`, widżetu do wyświetlania minimapy."
+uiprogressrect.h,"Plik nagłówkowy dla `UIProgressRect`, widżetu do wyświetlania paska postępu w formie radialnej."
+uisprite.cpp,"Implementacja `UISprite`, widżetu do wyświetlania pojedynczego sprite'a z plików `.spr`."
+uisprite.h,"Plik nagłówkowy dla `UISprite`, widżetu do wyświetlania pojedynczego sprite'a."
+walkmatrix.h,"Plik nagłówkowy definiujący klasę `WalkMatrix`, która jest używana do śledzenia i zarządzania predykcjami kroków lokalnego gracza w nowym systemie chodzenia (`GameNewWalking`)."
+protocolgameparse.cpp,Plik ten zawiera implementację metod klasy `ProtocolGame` odpowiedzialnych za **parsowanie** pakietów przychodzących z serwera gry. Jest to serce logiki sieciowej po stronie klienta.

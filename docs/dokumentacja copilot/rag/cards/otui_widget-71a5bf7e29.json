@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 97,
+  "path": "ComboTrigger#trigger/CheckBox#onShootToggle",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "onShootToggle",
+  "props": {
+    "id": "onShootToggle",
+    "anchors.left": "onShootLeader.right",
+    "anchors.top": "onShootLeader.top",
+    "margin-top": "1",
+    "margin-left": "5"
+  }
+}

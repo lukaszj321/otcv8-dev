@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/text.otui",
+  "line": 1,
+  "path": "MainWindow#assignTextWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "assignTextWindow",
+  "props": {
+    "id": "assignTextWindow",
+    "size": "275 150",
+    "text": "Assign Text"
+  }
+}

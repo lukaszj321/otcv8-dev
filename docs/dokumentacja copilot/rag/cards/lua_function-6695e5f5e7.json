@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "EnterGame.onLoginError",
+  "args": "err",
+  "file": "modules/client_entergame/entergame.lua"
+}

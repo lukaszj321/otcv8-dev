@@ -1,0 +1,23 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 1,
+  "path": "IconButton",
+  "widget": "IconButton",
+  "base": "CheckBox",
+  "id": "",
+  "props": {
+    "size": "20 20",
+    "image-source": "/images/game/viplist/vipcheckbox",
+    "image-size": "20 20",
+    "image-border": "3",
+    "margin": "2",
+    "icon-source": "/images/game/viplist/icons",
+    "icon-size": "12 12",
+    "icon-rect": "0 0 12 12",
+    "icon-clip": "0 0 12 12",
+    "icon-offset": "4 6",
+    "margin-left": "0",
+    "image-clip": "52 0 26 26"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alignIn",
+  "return_type": "void",
+  "args": "const TRect<T> &r, Fw::AlignmentFlag align",
+  "file": "src/framework/util/rect.h"
+}

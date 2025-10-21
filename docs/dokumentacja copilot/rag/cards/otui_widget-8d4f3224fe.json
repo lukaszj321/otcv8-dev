@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 85,
+  "path": "SuppliesWindow",
+  "widget": "SuppliesWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "430 330"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "check",
+  "return_type": "private: void",
+  "args": "const boost::system::error_code& ec",
+  "file": "src/framework/proxy/proxy_client.h"
+}

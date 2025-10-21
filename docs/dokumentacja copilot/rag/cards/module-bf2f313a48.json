@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_topbar\n  description: Customizable Top Bar from Cipsoft",
+  "file": "modules/game_topbar/topbar.otmod",
+  "description": "Customizable Top Bar from Cipsoft's Tibia 12 Client"
+}

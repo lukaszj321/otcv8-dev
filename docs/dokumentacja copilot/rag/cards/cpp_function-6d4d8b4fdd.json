@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "loadFiles",
+  "return_type": "nan",
+  "args": "fullPath, true, contains",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 57,
+  "path": "ModalDialog#modalDialog/ChoiceList",
+  "widget": "ChoiceList",
+  "base": "",
+  "id": "",
+  "props": {}
+}

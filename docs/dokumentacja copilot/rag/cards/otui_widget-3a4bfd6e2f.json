@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 342,
+  "path": "ComboWindow/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-left": "10",
+    "margin-top": "85",
+    "text": "Combo Actions",
+    "color": "#ff7700"
+  }
+}

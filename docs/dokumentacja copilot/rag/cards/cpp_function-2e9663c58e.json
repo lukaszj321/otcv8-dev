@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "reserve",
+  "return_type": "void",
+  "args": "size_type cap",
+  "file": "src/framework/xml/tinystr.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 38,
+  "path": "SupplyItem/Panel#fields/BotTextEdit#min",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "min",
+  "props": {
+    "id": "min",
+    "anchors.top": "minLabel.bottom",
+    "anchors.left": "minLabel.left",
+    "anchors.right": "minLabel.right",
+    "text-align": "center",
+    "text": "1"
+  }
+}

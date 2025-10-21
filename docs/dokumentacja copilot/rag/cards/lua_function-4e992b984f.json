@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.isStringList",
+  "args": "t",
+  "file": "modules/corelib/table.lua"
+}

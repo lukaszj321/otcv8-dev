@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 120,
+  "path": "SioListWindow/HorizontalScrollBar#Distance",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "Distance",
+  "props": {
+    "id": "Distance",
+    "anchors.left": "parent.left",
+    "anchors.top": "itemId.bottom",
+    "anchors.right": "parent.right",
+    "margin-top": "3",
+    "minimum": "1",
+    "maximum": "10",
+    "step": "1"
+  }
+}

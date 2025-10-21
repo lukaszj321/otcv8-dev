@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 483,
+  "path": "SettingsPanel/CheckBox#Rotate",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "Rotate",
+  "props": {
+    "id": "Rotate",
+    "anchors.top": "Kills.bottom",
+    "anchors.left": "Kills.left",
+    "margin-top": "8",
+    "width": "220",
+    "text": "Turn to side with most monsters"
+  }
+}

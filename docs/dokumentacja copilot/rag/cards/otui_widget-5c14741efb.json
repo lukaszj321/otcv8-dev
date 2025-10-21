@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 1,
+  "path": "HotkeyListLabel",
+  "widget": "HotkeyListLabel",
+  "base": "UILabel",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "background-color": "#ffffff22",
+    "text-offset": "2 0",
+    "focusable": "true",
+    "phantom": "false"
+  }
+}

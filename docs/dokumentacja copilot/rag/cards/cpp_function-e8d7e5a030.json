@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getContainer",
+  "return_type": "ContainerPtr",
+  "args": "int index",
+  "file": "src/client/game.h"
+}

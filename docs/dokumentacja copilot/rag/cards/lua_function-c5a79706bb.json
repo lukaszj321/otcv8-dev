@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setupSkills",
+  "args": "",
+  "file": "modules/game_topbar/topbar.lua"
+}

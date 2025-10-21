@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setOnLog",
+  "return_type": "void",
+  "args": "const OnLogCallback& onLog",
+  "file": "src/framework/core/logger.h"
+}

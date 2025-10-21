@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processNewPing",
+  "return_type": "void",
+  "args": "uint32_t pingId",
+  "file": "src/client/game.h"
+}

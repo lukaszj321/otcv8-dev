@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "expand",
+  "return_type": "void",
+  "args": "T top, T right, T bottom, T left",
+  "file": "src/framework/util/rect.h"
+}

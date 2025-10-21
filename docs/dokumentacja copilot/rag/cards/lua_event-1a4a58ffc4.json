@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onCharacterList",
+  "file": "modules/client_entergame/entergame.lua"
+}

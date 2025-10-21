@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 331,
+  "path": "AttackBotPanel/SpinBox#maxHp",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "maxHp",
+  "props": {
+    "id": "maxHp",
+    "anchors.left": "prev.right",
+    "margin-left": "4",
+    "size": "40 20",
+    "minimum": "1",
+    "maximum": "100",
+    "value": "100",
+    "editable": "true",
+    "focusable": "true"
+  }
+}

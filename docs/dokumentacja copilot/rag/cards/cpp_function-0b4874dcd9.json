@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onStop",
+  "return_type": "static void",
+  "args": "ANativeActivity* activity",
+  "file": "src/android/android_native_app_glue.cpp"
+}

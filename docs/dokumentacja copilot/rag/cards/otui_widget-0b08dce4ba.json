@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 48,
+  "path": "MiniWindow#cooldownWindow/MiniWindowContents/SpellGroupIcon#groupIconHealing",
+  "widget": "SpellGroupIcon",
+  "base": "",
+  "id": "groupIconHealing",
+  "props": {
+    "id": "groupIconHealing",
+    "image-clip": "20 20 20 20",
+    "anchors.top": "parent.top",
+    "anchors.left": "groupIconAttack.right",
+    "margin-left": "3"
+  }
+}

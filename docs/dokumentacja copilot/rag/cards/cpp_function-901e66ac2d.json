@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "type == \"<\"",
+  "file": "src/framework/net/packet_player.cpp"
+}

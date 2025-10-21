@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "base64Encode",
+  "return_type": "std::string",
+  "args": "const std::string& decoded_string",
+  "file": "src/framework/util/crypt.h"
+}

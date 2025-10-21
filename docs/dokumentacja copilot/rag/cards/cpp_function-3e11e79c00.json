@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "resize",
+  "return_type": "void",
+  "args": "T width, T height",
+  "file": "src/framework/util/rect.h"
+}

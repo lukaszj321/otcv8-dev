@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawBackground",
+  "return_type": "protected: void",
+  "args": "const Rect& screenCoords",
+  "file": "src/framework/ui/uiwidget.h"
+}

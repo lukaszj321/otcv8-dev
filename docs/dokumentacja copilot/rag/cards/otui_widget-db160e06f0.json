@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 63,
+  "path": "OptionPanel/OptionCheckBox#displayMana",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "displayMana",
+  "props": {
+    "id": "displayMana",
+    "visible": "false"
+  }
+}

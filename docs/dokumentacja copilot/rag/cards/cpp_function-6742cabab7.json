@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "delay >= 0",
+  "file": "src/framework/core/eventdispatcher.cpp"
+}

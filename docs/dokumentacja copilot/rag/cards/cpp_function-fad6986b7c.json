@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "MapView::drawMapBackground",
+  "return_type": "void",
+  "args": "const Rect& rect, const TilePtr& crosshairTile",
+  "file": "src/client/mapview.cpp"
+}

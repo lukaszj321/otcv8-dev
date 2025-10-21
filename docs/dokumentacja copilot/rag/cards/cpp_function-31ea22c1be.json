@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::createWidget",
+  "return_type": "UIWidgetPtr",
+  "args": "const std::string& styleName, const UIWidgetPtr& parent",
+  "file": "src/framework/ui/uimanager.cpp"
+}

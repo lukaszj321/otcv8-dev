@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VisitEnter",
+  "return_type": "virtual bool",
+  "args": "const TiXmlElement& /*element*/, const TiXmlAttribute* /*firstAttribute*/",
+  "file": "src/framework/xml/tinyxml.h"
+}

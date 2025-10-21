@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botOnUse",
+  "args": "pos, itemId, stackPos, subType",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getConnection",
+  "return_type": "ConnectionPtr",
+  "args": "nan",
+  "file": "src/framework/net/protocol.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::getTiles",
+  "return_type": "const TileList",
+  "args": "int floor/* = -1*/",
+  "file": "src/client/map.cpp"
+}

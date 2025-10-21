@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 19,
+  "path": "BotLabel",
+  "widget": "BotLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "margin-top": "2",
+    "height": "15",
+    "text-auto-resize": "true",
+    "text-align": "center",
+    "text-wrap": "true"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawColoredText",
+  "return_type": "void",
+  "args": "const std::string& text, const Rect& screenCoords, Fw::AlignmentFlag align, const std::vector<std::pair<int, Color>>& colors, bool shadow = false",
+  "file": "src/framework/graphics/bitmapfont.h"
+}

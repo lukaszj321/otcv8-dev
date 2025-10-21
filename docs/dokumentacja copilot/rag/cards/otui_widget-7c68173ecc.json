@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 30,
+  "path": "Settings",
+  "widget": "Settings",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "padding": "6",
+    "layout": "",
+    "type": "verticalBox"
+  }
+}

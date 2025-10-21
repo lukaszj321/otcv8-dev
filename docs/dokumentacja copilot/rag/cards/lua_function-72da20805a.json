@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getProfileFromSettings",
+  "args": "",
+  "file": "modules/client_profiles/profiles.lua"
+}

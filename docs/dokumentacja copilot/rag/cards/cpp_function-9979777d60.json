@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "crashHandler",
+  "return_type": "void",
+  "args": "int signum, siginfo_t* info, void* secret",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

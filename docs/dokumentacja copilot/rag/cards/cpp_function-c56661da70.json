@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "GetChar",
+  "return_type": "inline static const char*",
+  "args": "const char* p, char* _value, int* length, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

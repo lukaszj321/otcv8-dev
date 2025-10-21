@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stop",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/sound/streamsoundsource.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:getCurrentTabPanel",
+  "args": "",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

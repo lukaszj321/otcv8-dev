@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onBaseMagicLevelChange",
+  "file": "modules/game_skills/skills.lua"
+}

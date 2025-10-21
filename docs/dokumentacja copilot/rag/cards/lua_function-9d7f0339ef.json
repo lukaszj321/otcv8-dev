@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:setContentWidget",
+  "args": "widget",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

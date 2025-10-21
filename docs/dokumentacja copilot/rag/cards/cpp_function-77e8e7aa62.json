@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlDeclaration",
+  "return_type": "nan",
+  "args": "const char* _version, const char* _encoding, const char* _standalone",
+  "file": "src/framework/xml/tinyxml.h"
+}

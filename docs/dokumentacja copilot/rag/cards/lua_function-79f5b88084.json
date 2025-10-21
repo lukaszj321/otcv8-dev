@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "isSortAsc",
+  "args": "",
+  "file": "modules/game_battle/battle.lua"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 16,
+  "path": "QuestTrackerLabel/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "3"
+  }
+}

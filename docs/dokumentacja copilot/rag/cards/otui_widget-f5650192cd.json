@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 320,
+  "path": "MainWindow#imbuingWindow/EmptyImbue#emptyImbue",
+  "widget": "EmptyImbue",
+  "base": "",
+  "id": "emptyImbue",
+  "props": {
+    "id": "emptyImbue",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "anchors.right": "parent.right",
+    "margin-top": "5"
+  }
+}

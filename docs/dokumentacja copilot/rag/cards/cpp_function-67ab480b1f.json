@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundBuffer::fillBuffer",
+  "return_type": "bool",
+  "args": "const SoundFilePtr& soundFile",
+  "file": "src/framework/sound/soundbuffer.cpp"
+}

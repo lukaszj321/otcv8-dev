@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 64,
+  "path": "MainWindow#hotkeysWindow/Button#addHotkeyButton",
+  "widget": "Button",
+  "base": "",
+  "id": "addHotkeyButton",
+  "props": {
+    "id": "addHotkeyButton",
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.top": "next.top",
+    "margin-right": "5"
+  }
+}

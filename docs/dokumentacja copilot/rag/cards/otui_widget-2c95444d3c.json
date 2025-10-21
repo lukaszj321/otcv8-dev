@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_stats/stats.otui",
+  "line": 1,
+  "path": "UIWidget#game_stats",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "game_stats",
+  "props": {
+    "id": "game_stats",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-left": "3",
+    "size": "100 100",
+    "visible": "false",
+    "layout": "",
+    "type": "verticalBox"
+  }
+}

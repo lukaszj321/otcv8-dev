@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundFile::loadSoundFile",
+  "return_type": "SoundFilePtr",
+  "args": "const std::string& filename",
+  "file": "src/framework/sound/soundfile.cpp"
+}

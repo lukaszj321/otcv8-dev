@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::getGlobalField",
+  "return_type": "void",
+  "args": "const std::string& globalKey, const std::string& fieldKey",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Bit.bit",
+  "args": "p",
+  "file": "modules/corelib/bitwise.lua"
+}

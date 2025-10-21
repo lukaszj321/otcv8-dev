@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AnimatedText::setColor",
+  "return_type": "void",
+  "args": "int color",
+  "file": "src/client/animatedtext.cpp"
+}

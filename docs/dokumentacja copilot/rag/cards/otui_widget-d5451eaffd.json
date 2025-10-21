@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/config.otui",
+  "line": 1,
+  "path": "BotConfig#botConfig",
+  "widget": "BotConfig",
+  "base": "Panel",
+  "id": "botConfig",
+  "props": {
+    "id": "botConfig",
+    "height": "45",
+    "margin-left": "2",
+    "margin-right": "2"
+  }
+}

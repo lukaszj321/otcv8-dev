@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onRemoveItem",
+  "return_type": "void",
+  "args": "int slot, const ItemPtr& lastItem",
+  "file": "src/client/container.h"
+}

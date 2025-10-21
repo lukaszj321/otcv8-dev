@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "parseMarketEnter",
+  "args": "protocol, msg",
+  "file": "modules/game_market/marketprotocol.lua"
+}

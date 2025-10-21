@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 173,
+  "path": "AttackBotPanel/TextList#entryList",
+  "widget": "TextList",
+  "base": "",
+  "id": "entryList",
+  "props": {
+    "id": "entryList",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "margin-top": "3",
+    "size": "430 100",
+    "vertical-scrollbar": "entryListScrollBar"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Image",
+  "return_type": "public:",
+  "args": "const Size& size, int bpp = 4, uint8 *pixels = nullptr",
+  "file": "src/framework/graphics/image.h"
+}

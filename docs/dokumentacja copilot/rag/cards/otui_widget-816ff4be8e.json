@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 77,
+  "path": "Panel/MarketComboBox#offerTypeComboBox",
+  "widget": "MarketComboBox",
+  "base": "",
+  "id": "offerTypeComboBox",
+  "props": {
+    "id": "offerTypeComboBox",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "createLabel.left",
+    "margin-top": "3",
+    "width": "105",
+    "color": "#aaaaaa44"
+  }
+}

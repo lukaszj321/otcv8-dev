@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTibia12HTTPResult",
+  "args": "session, playdata",
+  "file": "modules/client_entergame/entergame.lua"
+}

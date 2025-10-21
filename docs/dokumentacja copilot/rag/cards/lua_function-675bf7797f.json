@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "ProtocolLogin:onConnect",
+  "args": "",
+  "file": "modules/gamelib/protocollogin.lua"
+}

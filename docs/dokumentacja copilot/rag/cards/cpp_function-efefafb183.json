@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Client::terminate",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/client/client.cpp"
+}

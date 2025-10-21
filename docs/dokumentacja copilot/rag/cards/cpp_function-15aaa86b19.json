@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "get",
+  "return_type": "bool",
+  "args": "const std::string& key",
+  "file": "src/framework/util/extras.h"
+}

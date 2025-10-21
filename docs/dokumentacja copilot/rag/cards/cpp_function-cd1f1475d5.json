@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSampleFormat",
+  "return_type": "ALenum",
+  "args": "nan",
+  "file": "src/framework/sound/soundfile.h"
+}

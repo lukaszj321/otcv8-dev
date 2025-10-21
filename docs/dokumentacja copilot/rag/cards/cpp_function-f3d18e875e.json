@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UITextEdit::onFocusChange",
+  "return_type": "void",
+  "args": "bool focused, Fw::FocusReason reason",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

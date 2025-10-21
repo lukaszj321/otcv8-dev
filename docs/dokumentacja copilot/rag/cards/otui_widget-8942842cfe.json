@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_textmessage/textmessage.otui",
+  "line": 1,
+  "path": "TextMessageLabel",
+  "widget": "TextMessageLabel",
+  "base": "UILabel",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-rounded",
+    "text-align": "center",
+    "text-wrap": "true",
+    "text-auto-resize": "true",
+    "margin-bottom": "2",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 433,
+  "path": "ConditionsWindow/HoldConditions#Hold",
+  "widget": "HoldConditions",
+  "base": "",
+  "id": "Hold",
+  "props": {
+    "id": "Hold",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "margin-top": "7"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "IsWhiteSpace",
+  "return_type": "inline static bool",
+  "args": "int c",
+  "file": "src/framework/xml/tinyxml.h"
+}

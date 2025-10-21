@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 306,
+  "path": "BotServer#server/BotSwitch#Triggers",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "Triggers",
+  "props": {
+    "id": "Triggers",
+    "anchors.left": "prev.right",
+    "anchors.top": "partyButton.bottom",
+    "anchors.right": "parent.right",
+    "margin-top": "3",
+    "height": "30",
+    "margin-left": "3",
+    "margin-right": "3",
+    "text": "Triggers"
+  }
+}

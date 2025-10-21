@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIImageView.create",
+  "args": "",
+  "file": "modules/corelib/ui/uiimageview.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "guessFilePath",
+  "return_type": "std::string",
+  "args": "const std::string& filename, const std::string& type",
+  "file": "src/framework/core/resourcemanager.h"
+}

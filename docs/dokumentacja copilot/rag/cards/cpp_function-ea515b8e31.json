@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAngleFromPositions",
+  "return_type": "static double",
+  "args": "const Position& fromPos, const Position& toPos",
+  "file": "src/client/position.h"
+}

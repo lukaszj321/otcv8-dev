@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 4,
+  "path": "LockedPreyPanel/NoCreaturePanel#noCreature",
+  "widget": "NoCreaturePanel",
+  "base": "",
+  "id": "noCreature",
+  "props": {
+    "id": "noCreature",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

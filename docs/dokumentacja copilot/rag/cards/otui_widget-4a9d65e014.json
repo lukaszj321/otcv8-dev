@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/target.otui",
+  "line": 56,
+  "path": "TargetBotPanel/Panel#listPanel/VerticalScrollBar#listScrollbar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "listScrollbar",
+  "props": {
+    "id": "listScrollbar",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "pixels-scroll": "true",
+    "step": "10"
+  }
+}

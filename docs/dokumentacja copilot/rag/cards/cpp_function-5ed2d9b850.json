@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "throw",
+  "args": "errorMsg",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

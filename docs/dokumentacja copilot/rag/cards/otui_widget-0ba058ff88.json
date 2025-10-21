@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 79,
+  "path": "StaticMainWindow#charactersWindow/Label#accountStatusCaption",
+  "widget": "Label",
+  "base": "",
+  "id": "accountStatusCaption",
+  "props": {
+    "id": "accountStatusCaption",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "separator.top",
+    "margin-bottom": "5"
+  }
+}

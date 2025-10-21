@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 79,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/SkullWidget#monthSkullWidget",
+  "widget": "SkullWidget",
+  "base": "",
+  "id": "monthSkullWidget",
+  "props": {
+    "id": "monthSkullWidget",
+    "anchors.top": "prev.top"
+  }
+}

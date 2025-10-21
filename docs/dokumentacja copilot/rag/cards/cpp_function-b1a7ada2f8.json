@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calculatePatterns",
+  "return_type": "nan",
+  "args": "xPattern, yPattern, zPattern",
+  "file": "src/client/item.cpp"
+}

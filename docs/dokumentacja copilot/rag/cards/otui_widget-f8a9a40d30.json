@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 178,
+  "path": "MainWindow#hotkeysWindow/ButtonBox#useOnTarget",
+  "widget": "ButtonBox",
+  "base": "",
+  "id": "useOnTarget",
+  "props": {
+    "id": "useOnTarget",
+    "width": "128",
+    "enabled": "false",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "checked": "false",
+    "margin-top": "2"
+  }
+}

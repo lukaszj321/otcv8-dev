@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 167,
+  "path": "MainWindow#hotkeysWindow/ButtonBox#useOnSelf",
+  "widget": "ButtonBox",
+  "base": "",
+  "id": "useOnSelf",
+  "props": {
+    "id": "useOnSelf",
+    "width": "128",
+    "enabled": "false",
+    "anchors.left": "selectObjectButton.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "selectObjectButton.top",
+    "checked": "false",
+    "margin-left": "10"
+  }
+}

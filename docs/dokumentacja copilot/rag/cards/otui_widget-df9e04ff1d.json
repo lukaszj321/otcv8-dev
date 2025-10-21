@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 41,
+  "path": "ItemInformation/UIItem#item",
+  "widget": "UIItem",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-left": "10",
+    "margin-top": "5",
+    "height": "64",
+    "width": "64"
+  }
+}

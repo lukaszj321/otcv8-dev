@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemoffers.otui",
+  "line": 106,
+  "path": "Panel/Button#sellButton",
+  "widget": "Button",
+  "base": "",
+  "id": "sellButton",
+  "props": {
+    "id": "sellButton",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "margin-right": "6",
+    "width": "80",
+    "enabled": "false"
+  }
+}

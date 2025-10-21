@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/currentoffers.otui",
+  "line": 73,
+  "path": "Panel/Table#mySellingTable/OfferTableHeaderRow#header",
+  "widget": "OfferTableHeaderRow",
+  "base": "",
+  "id": "header",
+  "props": {
+    "id": "header"
+  }
+}

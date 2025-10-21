@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.otui",
+  "line": 131,
+  "path": "TargetBotCreatureEditorWindow/ScrollablePanel#content/Panel#right",
+  "widget": "Panel",
+  "base": "",
+  "id": "right",
+  "props": {
+    "id": "right",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "margin-top": "5",
+    "margin-left": "10",
+    "margin-right": "10",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

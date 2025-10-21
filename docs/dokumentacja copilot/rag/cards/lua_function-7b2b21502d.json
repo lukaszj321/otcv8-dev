@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindowContainer:moveTo",
+  "args": "newPanel",
+  "file": "modules/corelib/ui/uiminiwindowcontainer.lua"
+}

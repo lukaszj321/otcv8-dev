@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendRequestQuestLine",
+  "return_type": "void",
+  "args": "int questId",
+  "file": "src/client/protocolgamesend.cpp"
+}

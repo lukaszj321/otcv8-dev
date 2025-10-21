@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "MarketProtocol.sendMarketCreateOffer",
+  "args": "type, spriteId, amount, price, anonymous",
+  "file": "modules/game_market/marketprotocol.lua"
+}

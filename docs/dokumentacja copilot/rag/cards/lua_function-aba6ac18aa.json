@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "math.round",
+  "args": "num, idp",
+  "file": "modules/corelib/math.lua"
+}

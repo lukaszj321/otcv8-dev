@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onVipStateChange",
+  "args": "id, state",
+  "file": "modules/game_viplist/viplist.lua"
+}

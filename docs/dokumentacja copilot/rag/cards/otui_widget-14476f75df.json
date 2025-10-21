@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 399,
+  "path": "HealBotSettingsPanel/FlatPanel#profiles",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "profiles",
+  "props": {
+    "id": "profiles",
+    "anchors.fill": "parent",
+    "anchors.left": "prev.left",
+    "margin-left": "8",
+    "margin-right": "8",
+    "padding": "8"
+  }
+}

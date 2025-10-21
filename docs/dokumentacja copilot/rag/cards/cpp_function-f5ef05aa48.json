@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onWrite",
+  "return_type": "void",
+  "args": "const boost::system::error_code& error, size_t writeSize, std::shared_ptr<asio::streambuf> outputStream",
+  "file": "src/framework/net/connection.h"
+}

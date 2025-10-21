@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseRestingAreaState",
+  "return_type": "case Proto::GameServerRestingAreaState:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_styles\n  description: Load client fonts and styles\n  author: edubart\n  website: https://github.com/edubart/otclient\n  scripts: [ styles ]\n  sandboxed: true\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_styles/styles.otmod",
+  "description": "Load client fonts and styles"
+}

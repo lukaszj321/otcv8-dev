@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "process_input",
+  "return_type": "static void",
+  "args": "struct android_app* app, struct android_poll_source* source",
+  "file": "src/android/android_native_app_glue.cpp"
+}

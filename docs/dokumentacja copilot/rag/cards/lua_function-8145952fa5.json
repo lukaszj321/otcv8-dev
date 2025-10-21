@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.contains",
+  "args": "t, value, lowercase",
+  "file": "modules/corelib/table.lua"
+}

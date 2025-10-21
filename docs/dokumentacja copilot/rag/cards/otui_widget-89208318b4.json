@@ -1,0 +1,23 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 74,
+  "path": "ShopOffer/Label#description",
+  "widget": "Label",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "margin-left": "55",
+    "margin-right": "55",
+    "text-align": "topleft",
+    "text-auto-resize": "true",
+    "text-wrap": "true",
+    "color": "white",
+    "font": "verdana-11px-rounded"
+  }
+}

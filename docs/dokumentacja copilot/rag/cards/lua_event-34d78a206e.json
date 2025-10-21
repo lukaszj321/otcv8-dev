@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMinimize",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

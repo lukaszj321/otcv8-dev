@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "bsd_signal_func == NULL",
+  "file": "src/android/dependencies.cpp"
+}

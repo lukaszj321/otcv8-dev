@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::onWidgetDisappear",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& widget",
+  "file": "src/framework/ui/uimanager.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setField",
+  "return_type": "void",
+  "args": "const char* key, int index = -2",
+  "file": "src/framework/luaengine/luainterface.h"
+}

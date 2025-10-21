@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCreatureUnpass",
+  "return_type": "case Proto::GameServerCreatureUnpass:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

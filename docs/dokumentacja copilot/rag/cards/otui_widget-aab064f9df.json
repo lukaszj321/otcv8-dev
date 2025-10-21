@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 303,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow/MiniWindowContents/AnalyzerButton#BossTracker",
+  "widget": "AnalyzerButton",
+  "base": "",
+  "id": "BossTracker",
+  "props": {
+    "id": "BossTracker",
+    "text": "Boss Cooldowns",
+    "color": "#df3afb"
+  }
+}

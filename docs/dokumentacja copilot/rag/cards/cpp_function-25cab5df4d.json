@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "right",
+  "return_type": "inline T",
+  "args": "nan",
+  "file": "src/framework/util/rect.h"
+}

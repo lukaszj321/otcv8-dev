@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setEditable",
+  "return_type": "void",
+  "args": "bool editable",
+  "file": "src/framework/ui/uitextedit.h"
+}

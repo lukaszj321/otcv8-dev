@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 39,
+  "path": "EnterGameWindow#enterGame/TextEdit#accountTokenTextEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "accountTokenTextEdit",
+  "props": {
+    "id": "accountTokenTextEdit",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getOs",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/client/game.h"
+}

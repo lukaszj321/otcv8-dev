@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlParsingData",
+  "return_type": "nan",
+  "args": "const char* start, int _tabsize, int row, int col",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

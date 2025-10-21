@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMouseRelease",
+  "file": "modules/game_interface/widgets/uigamemap.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CopyTo",
+  "return_type": "protected: void",
+  "args": "TiXmlUnknown* target",
+  "file": "src/framework/xml/tinyxml.h"
+}

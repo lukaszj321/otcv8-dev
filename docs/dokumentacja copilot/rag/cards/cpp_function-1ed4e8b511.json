@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSize",
+  "return_type": "nan",
+  "args": "size",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

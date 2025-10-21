@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addTexture",
+  "return_type": "void",
+  "args": "const std::string& name, const std::string& file",
+  "file": "src/framework/graphics/shadermanager.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTownByName",
+  "return_type": "const TownPtr&",
+  "args": "std::string name",
+  "file": "src/client/towns.h"
+}

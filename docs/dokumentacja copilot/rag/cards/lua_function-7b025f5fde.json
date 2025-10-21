@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "removeVip",
+  "args": "widgetOrName",
+  "file": "modules/game_viplist/viplist.lua"
+}

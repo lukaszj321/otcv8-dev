@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::updateDraggingWidget",
+  "return_type": "bool",
+  "args": "const UIWidgetPtr& draggingWidget, const Point& clickedPos",
+  "file": "src/framework/ui/uimanager.cpp"
+}

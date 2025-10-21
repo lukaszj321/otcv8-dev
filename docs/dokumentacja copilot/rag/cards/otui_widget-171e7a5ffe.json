@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 160,
+  "path": "EmptyImbue/Panel#requiredItems/RequiredItem#item3",
+  "widget": "RequiredItem",
+  "base": "",
+  "id": "item3",
+  "props": {
+    "id": "item3",
+    "margin-left": "10",
+    "anchors.left": "prev.right"
+  }
+}

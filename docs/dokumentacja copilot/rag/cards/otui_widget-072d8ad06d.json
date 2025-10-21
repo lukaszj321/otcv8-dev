@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 33,
+  "path": "BotServerData/Button#Random",
+  "widget": "Button",
+  "base": "",
+  "id": "Random",
+  "props": {
+    "id": "Random",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "anchors.right": "parent.right",
+    "text-align": "center",
+    "text": "Randomize",
+    "margin-left": "6",
+    "margin-right": "6"
+  }
+}

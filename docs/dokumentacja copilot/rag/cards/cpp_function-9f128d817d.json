@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isNpc",
+  "return_type": "public: bool",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

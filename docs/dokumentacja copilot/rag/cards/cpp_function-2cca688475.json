@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAlignBottom",
+  "return_type": "void",
+  "args": "bool aliginBottom",
+  "file": "src/framework/ui/uiverticallayout.h"
+}

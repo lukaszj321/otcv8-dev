@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LOGV",
+  "return_type": "case APP_CMD_RESUME: case APP_CMD_START: case APP_CMD_PAUSE: case APP_CMD_STOP:",
+  "args": "\"activityState=%d\\n\", cmd",
+  "file": "src/android/android_native_app_glue.cpp"
+}

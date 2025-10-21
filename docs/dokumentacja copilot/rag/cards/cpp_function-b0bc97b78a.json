@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSecondTexture",
+  "return_type": "void",
+  "args": "const TexturePtr& texture",
+  "file": "src/framework/graphics/painter.h"
+}

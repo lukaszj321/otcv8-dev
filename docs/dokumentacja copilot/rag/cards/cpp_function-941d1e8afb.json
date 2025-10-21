@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "iconData",
+  "return_type": "std::vector<unsigned long int>",
+  "args": "n + 2",
+  "file": "src/framework/platform/x11window.cpp"
+}

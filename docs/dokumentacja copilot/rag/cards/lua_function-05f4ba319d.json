@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getChannelTab",
+  "args": "channelId",
+  "file": "modules/game_console/console.lua"
+}

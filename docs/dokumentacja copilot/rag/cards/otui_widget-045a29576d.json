@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/currentoffers.otui",
+  "line": 165,
+  "path": "Panel/TableData#myBuyingTableData",
+  "widget": "TableData",
+  "base": "",
+  "id": "myBuyingTableData",
+  "props": {
+    "id": "myBuyingTableData",
+    "anchors.bottom": "myBuyingTable.bottom",
+    "anchors.left": "myBuyingTable.left",
+    "anchors.right": "myBuyingTable.right",
+    "vertical-scrollbar": "myBuyingTableScrollBar"
+  }
+}

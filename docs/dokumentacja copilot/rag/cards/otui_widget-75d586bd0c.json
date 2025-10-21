@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 657,
+  "path": "PreyCreature/ProgressBar#time",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "time",
+  "props": {
+    "id": "time",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "margin-bottom": "2",
+    "height": "6",
+    "background-color": "#C28400",
+    "phantom": "false"
+  }
+}

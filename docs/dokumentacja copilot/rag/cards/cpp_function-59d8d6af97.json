@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindUniformLocation",
+  "return_type": "nan",
+  "args": "RESOLUTION_UNIFORM, \"u_Resolution\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

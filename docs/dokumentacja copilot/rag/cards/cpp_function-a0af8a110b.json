@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UITextEdit::onGeometryChange",
+  "return_type": "void",
+  "args": "const Rect& oldRect, const Rect& newRect",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

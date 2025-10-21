@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 85,
+  "path": "MainWindow#assignSpellWindow/FlatPanel#checkPanel/CheckBox#tick",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "tick",
+  "props": {
+    "id": "tick",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "text": "Only show vocation spells",
+    "checked": "true"
+  }
+}

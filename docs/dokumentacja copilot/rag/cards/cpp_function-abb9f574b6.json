@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendPreyAction",
+  "return_type": "void",
+  "args": "int slot, int actionType, int index",
+  "file": "src/client/protocolgame.h"
+}

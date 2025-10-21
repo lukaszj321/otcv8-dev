@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "takeButton",
+  "args": "button, dontUpdateOrder",
+  "file": "modules/game_buttons/buttons.lua"
+}

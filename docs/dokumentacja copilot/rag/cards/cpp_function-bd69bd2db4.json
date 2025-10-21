@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int i = 0; i < outfitCount; i++",
+  "file": "src/client/protocolgameparse.cpp"
+}

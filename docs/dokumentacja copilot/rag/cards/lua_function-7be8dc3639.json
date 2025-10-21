@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSpellCooldown",
+  "args": "iconId, duration",
+  "file": "modules/game_cooldown/cooldown.lua"
+}

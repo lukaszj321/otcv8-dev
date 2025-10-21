@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCloseTrade",
+  "return_type": "void",
+  "args": "const InputMessagePtr&",
+  "file": "src/client/protocolgame.h"
+}

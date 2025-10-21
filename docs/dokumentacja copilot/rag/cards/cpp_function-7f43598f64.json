@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getFrameBufferSrc",
+  "return_type": "Rect",
+  "args": "nan",
+  "file": "src/framework/graphics/drawqueue.h"
+}

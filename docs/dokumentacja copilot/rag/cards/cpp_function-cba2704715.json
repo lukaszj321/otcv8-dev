@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "else",
+  "args": "m_name != name || m_mode != mode",
+  "file": "src/client/statictext.cpp"
+}

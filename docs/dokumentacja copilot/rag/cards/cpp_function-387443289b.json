@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int x = 6; x >= 0; --x",
+  "file": "src/client/walkmatrix.h"
+}

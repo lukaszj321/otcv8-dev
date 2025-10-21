@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 213,
+  "path": "InputPanel",
+  "widget": "InputPanel",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "size": "270 300",
+    "padding-left": "10",
+    "padding-right": "10",
+    "padding-bottom": "10"
+  }
+}

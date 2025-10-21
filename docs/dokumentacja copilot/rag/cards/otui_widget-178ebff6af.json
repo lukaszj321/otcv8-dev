@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 40,
+  "path": "OptionPanel/OptionCheckBox#showPing",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showPing",
+  "props": {
+    "id": "showPing"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/updater/updater.otui",
+  "line": 48,
+  "path": "StaticMainWindow#updaterWindow/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-left": "90",
+    "margin-right": "90"
+  }
+}

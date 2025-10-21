@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setHeight",
+  "return_type": "void",
+  "args": "uint16 h",
+  "file": "src/client/map.h"
+}

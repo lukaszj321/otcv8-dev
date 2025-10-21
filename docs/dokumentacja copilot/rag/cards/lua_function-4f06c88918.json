@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setLightOptionsVisibility",
+  "args": "value",
+  "file": "modules/client_options/options.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Platform::traceback",
+  "return_type": "std::string",
+  "args": "const std::string& where, int level, int maxDepth",
+  "file": "src/framework/platform/unixplatform.cpp"
+}

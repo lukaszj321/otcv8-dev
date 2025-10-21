@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onWindowFocusChanged",
+  "return_type": "static void",
+  "args": "ANativeActivity* activity, int focused",
+  "file": "src/android/android_native_app_glue.cpp"
+}

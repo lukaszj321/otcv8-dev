@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OggSoundFile::cb_read",
+  "return_type": "size_t",
+  "args": "void* ptr, size_t size, size_t nmemb, void* source",
+  "file": "src/framework/sound/oggsoundfile.cpp"
+}

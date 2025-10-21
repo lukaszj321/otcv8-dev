@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "const TexturePtr& tex : m_multiTextures",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

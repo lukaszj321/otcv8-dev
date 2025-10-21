@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 38,
+  "path": "OptionPanel/Label#optimizationLevelLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "optimizationLevelLabel",
+  "props": {
+    "margin-top": "12",
+    "id": "optimizationLevelLabel"
+  }
+}

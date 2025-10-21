@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Effect::draw",
+  "return_type": "void",
+  "args": "const Point& dest, int offsetX, int offsetY, bool animate, LightView* lightView",
+  "file": "src/client/effect.cpp"
+}

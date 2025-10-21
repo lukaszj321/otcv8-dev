@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int x = centerPos.x - width / 2, endx = centerPos.x + width / 2; x <= endx; ++x",
+  "file": "src/client/map.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internalLoadMouseCursor",
+  "return_type": "return",
+  "args": "image, hotSpot",
+  "file": "src/framework/platform/platformwindow.cpp"
+}

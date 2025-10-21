@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 139,
+  "path": "ConditionPanel/BotTextEdit#text",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.top": "description.bottom",
+    "margin-top": "10",
+    "width": "200",
+    "text-align": "center"
+  }
+}

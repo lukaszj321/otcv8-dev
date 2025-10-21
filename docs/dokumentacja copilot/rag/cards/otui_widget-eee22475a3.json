@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 193,
+  "path": "ComboActions#actions/Label#label3",
+  "widget": "Label",
+  "base": "",
+  "id": "label3",
+  "props": {
+    "id": "label3",
+    "anchors.left": "label2.left",
+    "anchors.top": "label2.bottom",
+    "margin-top": "5",
+    "text": "Spell:",
+    "color": "#ffaa00"
+  }
+}

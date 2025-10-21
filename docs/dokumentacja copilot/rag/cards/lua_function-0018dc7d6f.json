@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollArea:onScrollHeightChange",
+  "args": "",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

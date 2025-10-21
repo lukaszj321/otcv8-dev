@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "replaceSprites",
+  "return_type": "void",
+  "args": "std::map<uint32_t, ImagePtr>& replacements, std::string fileName",
+  "file": "src/client/thingtype.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_playerdeath\n  description: Manage player deaths\n  author: BeniS, edubart\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ playerdeath ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_playerdeath/playerdeath.otmod",
+  "description": "Manage player deaths"
+}

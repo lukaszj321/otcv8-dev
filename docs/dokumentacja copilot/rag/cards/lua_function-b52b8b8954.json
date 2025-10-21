@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "string:starts",
+  "args": "start",
+  "file": "modules/corelib/string.lua"
+}

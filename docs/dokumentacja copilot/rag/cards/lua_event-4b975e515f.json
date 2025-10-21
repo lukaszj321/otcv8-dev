@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onEscape",
+  "file": "modules/client_textedit/textedit.lua"
+}

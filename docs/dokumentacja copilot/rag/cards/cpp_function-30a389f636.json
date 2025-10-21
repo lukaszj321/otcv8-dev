@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "translate",
+  "return_type": "void",
+  "args": "T x, T y",
+  "file": "src/framework/util/rect.h"
+}

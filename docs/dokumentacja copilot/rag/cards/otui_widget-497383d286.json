@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 38,
+  "path": "BotSeparator",
+  "widget": "BotSeparator",
+  "base": "HorizontalSeparator",
+  "id": "",
+  "props": {
+    "margin-top": "5",
+    "margin-bottom": "3"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::copy",
+  "return_type": "nan",
+  "args": "begin + pos + 1, end, tmp + pos",
+  "file": "src/framework/stdext/packed_storage.h"
+}

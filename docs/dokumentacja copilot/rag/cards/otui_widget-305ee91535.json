@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_itemselector/itemselector.otui",
+  "line": 6,
+  "path": "ItemSelectorWindow#itemSelector/Item#item",
+  "widget": "Item",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "virtual": "true",
+    "size": "32 32",
+    "margin-top": "10",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

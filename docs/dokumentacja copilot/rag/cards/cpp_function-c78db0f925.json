@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::setOn",
+  "return_type": "void",
+  "args": "bool on",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

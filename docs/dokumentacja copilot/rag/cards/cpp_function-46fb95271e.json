@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addPosition",
+  "return_type": "public: void",
+  "args": "const OutputMessagePtr& msg, const Position& position",
+  "file": "src/client/protocolgame.h"
+}

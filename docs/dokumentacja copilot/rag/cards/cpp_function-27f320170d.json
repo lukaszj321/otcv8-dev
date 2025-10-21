@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "emitNode",
+  "return_type": "ss <<",
+  "args": "child, currentDepth+1",
+  "file": "src/framework/otml/otmlemitter.cpp"
+}

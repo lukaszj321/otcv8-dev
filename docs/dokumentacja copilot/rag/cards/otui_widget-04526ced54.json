@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 53,
+  "path": "SideActionButton/Label#parameterText",
+  "widget": "Label",
+  "base": "",
+  "id": "parameterText",
+  "props": {
+    "id": "parameterText",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "margin-bottom": "-3",
+    "margin-left": "2",
+    "margin-right": "2",
+    "font": "verdana-9px",
+    "color": "white",
+    "text-align": "center"
+  }
+}

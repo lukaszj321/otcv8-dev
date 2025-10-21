@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 200,
+  "path": "MainWindow#hotkeysWindow/HorizontalSeparator#separator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "separator",
+  "props": {
+    "id": "separator",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "5"
+  }
+}

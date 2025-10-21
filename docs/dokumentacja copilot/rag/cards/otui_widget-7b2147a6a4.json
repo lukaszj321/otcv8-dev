@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 48,
+  "path": "MainWindow/TextEdit#descriptionText",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "descriptionText",
+  "props": {
+    "id": "descriptionText",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin": "0 5"
+  }
+}

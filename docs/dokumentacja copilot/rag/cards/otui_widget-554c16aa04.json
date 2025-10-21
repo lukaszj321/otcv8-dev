@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 34,
+  "path": "OptionPanel/Label#hotkeyDelayLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "hotkeyDelayLabel",
+  "props": {
+    "id": "hotkeyDelayLabel",
+    "margin-top": "10",
+    "self": "setText(tr('Hotkey delay: %s ms', value))"
+  }
+}

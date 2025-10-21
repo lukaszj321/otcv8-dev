@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addPositionAnchor",
+  "return_type": "nan",
+  "args": "anchoredWidget, Fw::AnchorBottom, hookedPosition, Fw::AnchorBottom",
+  "file": "src/client/uimapanchorlayout.cpp"
+}

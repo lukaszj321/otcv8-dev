@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onFontChange",
+  "return_type": "void",
+  "args": "const std::string& font",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

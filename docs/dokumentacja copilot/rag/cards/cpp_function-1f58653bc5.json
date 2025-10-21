@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alcProcessContext",
+  "return_type": "nan",
+  "args": "m_context",
+  "file": "src/framework/sound/soundmanager.cpp"
+}

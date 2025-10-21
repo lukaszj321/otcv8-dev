@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRed",
+  "return_type": "void",
+  "args": "int r",
+  "file": "src/framework/util/color.h"
+}

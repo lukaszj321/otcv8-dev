@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_background/background.otui",
+  "line": 1,
+  "path": "UIWidget#background",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "background",
+  "props": {
+    "id": "background",
+    "anchors.fill": "parent",
+    "focusable": "false",
+    "image-source": "/images/background",
+    "image-smooth": "true",
+    "image-fixed-ratio": "true",
+    "margin-top": "1"
+  }
+}

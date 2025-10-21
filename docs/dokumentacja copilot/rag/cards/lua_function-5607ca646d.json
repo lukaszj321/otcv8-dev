@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTabChange",
+  "args": "tabBar, tab",
+  "file": "modules/game_console/console.lua"
+}

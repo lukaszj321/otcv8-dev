@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glGetShaderInfoLog",
+  "return_type": "nan",
+  "args": "m_shaderId, infoLogLength-1, NULL, &buf[0]",
+  "file": "src/framework/graphics/shader.cpp"
+}

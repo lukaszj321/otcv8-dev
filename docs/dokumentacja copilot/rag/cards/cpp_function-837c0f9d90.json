@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ThingTypeManager::getThingTypes",
+  "return_type": "const ThingTypeList&",
+  "args": "ThingCategory category",
+  "file": "src/client/thingtypemanager.cpp"
+}

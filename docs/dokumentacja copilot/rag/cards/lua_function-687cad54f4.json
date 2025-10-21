@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getNewHighlightedText",
+  "args": "text, color, highlightColor",
+  "file": "modules/game_console/console.lua"
+}

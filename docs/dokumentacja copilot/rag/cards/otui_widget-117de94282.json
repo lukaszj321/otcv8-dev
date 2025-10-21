@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/audio.otui",
+  "line": 6,
+  "path": "OptionPanel/OptionCheckBox#enableMusicSound",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "enableMusicSound",
+  "props": {
+    "id": "enableMusicSound"
+  }
+}

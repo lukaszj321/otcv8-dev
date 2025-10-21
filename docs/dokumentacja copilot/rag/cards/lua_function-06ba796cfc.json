@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "base64.encode",
+  "args": " str, encoder, usecaching ",
+  "file": "modules/corelib/base64.lua"
+}

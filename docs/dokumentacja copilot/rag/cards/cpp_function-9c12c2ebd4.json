@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::filesystem::copy_file",
+  "return_type": "nan",
+  "args": "dll_path, out_path",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

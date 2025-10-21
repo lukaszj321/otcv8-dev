@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glGenRenderbuffers",
+  "return_type": "nan",
+  "args": "1, &m_depthRbo",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onHover",
+  "file": "modules/game_prey/prey.lua"
+}

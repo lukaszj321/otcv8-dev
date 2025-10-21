@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ResourceManager::writeFileBuffer",
+  "return_type": "bool",
+  "args": "const std::string& fileName, const uchar* data, uint size",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

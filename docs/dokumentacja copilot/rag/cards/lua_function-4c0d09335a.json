@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "downloadFiles",
+  "args": "url, files, index, retries, doneCallback",
+  "file": "modules/updater/updater.lua"
+}

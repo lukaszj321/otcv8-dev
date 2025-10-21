@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlNode",
+  "return_type": ":",
+  "args": "TiXmlNode::TINYXML_DECLARATION",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

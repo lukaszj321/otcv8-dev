@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 436,
+  "path": "HealBotSettingsPanel/FlatPanel#profiles/Button#ResetSettings",
+  "widget": "Button",
+  "base": "",
+  "id": "ResetSettings",
+  "props": {
+    "id": "ResetSettings",
+    "anchors.bottom": "parent.bottom",
+    "text": "Reset Current Profile",
+    "text-auto-resize": "true",
+    "color": "#ff4513"
+  }
+}

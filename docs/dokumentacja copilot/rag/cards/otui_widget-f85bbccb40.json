@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 1,
+  "path": "EnterGameWindow#enterGame",
+  "widget": "EnterGameWindow",
+  "base": "",
+  "id": "enterGame",
+  "props": {
+    "id": "enterGame"
+  }
+}

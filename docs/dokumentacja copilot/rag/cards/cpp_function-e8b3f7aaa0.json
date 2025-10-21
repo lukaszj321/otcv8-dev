@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UnhandledExceptionFilter2",
+  "return_type": "LONG WINAPI",
+  "args": "PEXCEPTION_POINTERS exception",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

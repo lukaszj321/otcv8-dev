@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 60,
+  "path": "ItemEntry/CheckBox#enabled",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "enabled",
+  "props": {
+    "id": "enabled",
+    "anchors.left": "parent.left",
+    "width": "15",
+    "height": "15",
+    "margin-top": "2",
+    "margin-left": "3"
+  }
+}

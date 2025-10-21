@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DrawQueueConditionRotation::start",
+  "return_type": "void",
+  "args": "DrawQueue*",
+  "file": "src/framework/graphics/drawqueue.cpp"
+}

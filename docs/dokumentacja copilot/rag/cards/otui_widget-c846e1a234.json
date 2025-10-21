@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 33,
+  "path": "ActionButton/Label#text",
+  "widget": "Label",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.fill": "prev",
+    "text-auto-resize": "true",
+    "text-wrap": "true",
+    "phantom": "true",
+    "margin": "1",
+    "text-align": "center",
+    "font": "verdana-9px"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "get",
+  "return_type": "int",
+  "args": "const std::string& url, int timeout = 5",
+  "file": "src/framework/http/http.h"
+}

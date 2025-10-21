@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "split",
+  "return_type": "std::vector<std::string>",
+  "args": "const std::string& str, const std::string& separators = \" \"",
+  "file": "src/framework/stdext/string.h"
+}

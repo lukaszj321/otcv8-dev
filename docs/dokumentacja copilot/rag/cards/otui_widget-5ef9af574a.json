@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 388,
+  "path": "FriendHealer/Priority#priority",
+  "widget": "Priority",
+  "base": "",
+  "id": "priority",
+  "props": {
+    "id": "priority",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "appendText",
+  "return_type": "void",
+  "args": "std::string text",
+  "file": "src/framework/ui/uitextedit.h"
+}

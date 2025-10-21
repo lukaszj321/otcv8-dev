@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Protocol::onPlayerPacket",
+  "return_type": "void",
+  "args": "const std::shared_ptr<std::vector<uint8_t>>& packet",
+  "file": "src/framework/net/protocol.cpp"
+}

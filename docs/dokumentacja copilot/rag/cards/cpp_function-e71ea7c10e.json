@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int iy = -1; iy <= 1 && firstFloor < cameraPosition.z; ++iy",
+  "file": "src/client/mapview.cpp"
+}

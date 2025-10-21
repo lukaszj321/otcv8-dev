@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 177,
+  "path": "SioListWindow/HorizontalSeparator#separator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "separator",
+  "props": {
+    "id": "separator",
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "closeButton.top",
+    "margin-bottom": "8"
+  }
+}

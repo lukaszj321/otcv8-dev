@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 24,
+  "path": "SupplySpinBox",
+  "widget": "SupplySpinBox",
+  "base": "SpinBox",
+  "id": "",
+  "props": {
+    "height": "20",
+    "margin-left": "3",
+    "width": "75",
+    "minimum": "0",
+    "maximum": "9999",
+    "text-align": "center",
+    "focusable": "true",
+    "text": "0"
+  }
+}

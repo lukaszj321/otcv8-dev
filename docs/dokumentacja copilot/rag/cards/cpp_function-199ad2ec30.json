@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "swap",
+  "return_type": "template<class T> void",
+  "args": "stdext::shared_object_ptr<T>& lhs, stdext::shared_object_ptr<T>& rhs",
+  "file": "src/framework/stdext/shared_object.h"
+}

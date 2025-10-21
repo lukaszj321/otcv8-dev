@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 56,
+  "path": "ShopOffer",
+  "widget": "ShopOffer",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "56",
+    "background": "#99999999"
+  }
+}

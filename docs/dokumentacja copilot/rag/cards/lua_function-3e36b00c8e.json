@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "create_set",
+  "args": "...",
+  "file": "modules/corelib/json.lua"
+}

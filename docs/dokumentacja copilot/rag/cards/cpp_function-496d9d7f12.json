@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAttackingCreature",
+  "return_type": "CreaturePtr",
+  "args": "nan",
+  "file": "src/client/game.h"
+}

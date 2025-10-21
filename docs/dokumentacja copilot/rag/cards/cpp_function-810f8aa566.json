@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glDepthFunc",
+  "return_type": "case DepthFunc_LESS:",
+  "args": "GL_LESS",
+  "file": "src/framework/graphics/painter.cpp"
+}

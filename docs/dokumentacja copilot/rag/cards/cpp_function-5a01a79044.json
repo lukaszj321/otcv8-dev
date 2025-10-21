@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "save",
+  "return_type": "void",
+  "args": "TiXmlElement* node",
+  "file": "src/client/creatures.h"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.otui",
+  "line": 40,
+  "path": "DepositerPanel/UIWidget#title",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text": "Double click here to add item.",
+    "text-align": "left",
+    "font": "verdana-11px-rounded",
+    "color": "#aeaeae"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "initializeFunctionModules",
+  "return_type": "testable void",
+  "args": "int version, uint8_t qrcode[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

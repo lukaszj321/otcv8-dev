@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLParser::getLineDepth",
+  "return_type": "int",
+  "args": "const std::string& line, bool multilining",
+  "file": "src/framework/otml/otmlparser.cpp"
+}

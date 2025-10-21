@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 1,
+  "path": "SlotBotItem",
+  "widget": "SlotBotItem",
+  "base": "BotItem",
+  "id": "",
+  "props": {
+    "border-width": "1",
+    "image-source": "/images/ui/item",
+    "border-color": "#FF0000"
+  }
+}

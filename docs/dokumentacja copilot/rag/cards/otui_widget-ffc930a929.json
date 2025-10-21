@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/icons.otui",
+  "line": 26,
+  "path": "BotIcon/UIWidget#status",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "status",
+  "props": {
+    "id": "status",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "size": "18 10",
+    "color": "black",
+    "font": "terminus-10px",
+    "phantom": "true",
+    "text": "OFF",
+    "background": "red"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onCloseImbuementWindow",
+  "args": "",
+  "file": "modules/game_imbuing/imbuing.lua"
+}

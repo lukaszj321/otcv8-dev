@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 35,
+  "path": "DualScrollPanel/BotTextEdit#text",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "scroll1.bottom",
+    "margin-top": "3",
+    "margin-left": "2",
+    "margin-right": "1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "vertices",
+  "return_type": "static std::vector<float>",
+  "args": "1024, 0",
+  "file": "src/framework/graphics/drawqueue.cpp"
+}

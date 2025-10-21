@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "assert",
+  "return_type": "nan",
+  "args": "0 <= numChars && numChars <= INT16_MAX",
+  "file": "src/framework/util/qrcodegen.c"
+}

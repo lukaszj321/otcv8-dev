@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIItem:canAcceptDrop",
+  "args": "widget, mousePos",
+  "file": "modules/gamelib/ui/uiitem.lua"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 8,
+  "path": "SpellIcon",
+  "widget": "SpellIcon",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "size": "24 24",
+    "image-size": "24 24",
+    "focusable": "false",
+    "margin-left": "1"
+  }
+}

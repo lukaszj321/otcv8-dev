@@ -1,0 +1,23 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 26,
+  "path": "AlarmCheckBoxAndSpinBox/SpinBox#value",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "value",
+  "props": {
+    "id": "value",
+    "anchors.top": "parent.top",
+    "margin-top": "1",
+    "margin-bottom": "1",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "width": "40",
+    "minimum": "0",
+    "maximum": "100",
+    "step": "1",
+    "editable": "true",
+    "focusable": "true"
+  }
+}

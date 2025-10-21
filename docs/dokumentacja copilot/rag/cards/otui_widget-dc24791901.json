@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 20,
+  "path": "UIWindow#terminalWindow",
+  "widget": "UIWindow",
+  "base": "",
+  "id": "terminalWindow",
+  "props": {
+    "id": "terminalWindow",
+    "background-color": "#000000",
+    "opacity": "0.85",
+    "clipping": "true",
+    "anchors.fill": "parent",
+    "border": "1 black"
+  }
+}

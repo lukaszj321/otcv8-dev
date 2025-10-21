@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int j = 0, k = i; j < datLen; j++, k += numBlocks",
+  "file": "src/framework/util/qrcodegen.c"
+}

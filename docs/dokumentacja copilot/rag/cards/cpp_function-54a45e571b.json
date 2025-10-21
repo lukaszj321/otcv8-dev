@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "writeULE16",
+  "return_type": "inline void",
+  "args": "uchar *addr, uint16_t value",
+  "file": "src/framework/stdext/math.h"
+}

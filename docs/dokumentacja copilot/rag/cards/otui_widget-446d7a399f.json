@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers.otui",
+  "line": 183,
+  "path": "Panel/Label#feeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "feeLabel",
+  "props": {
+    "id": "feeLabel",
+    "font": "verdana-11px-rounded",
+    "anchors.top": "createOfferButton.bottom",
+    "anchors.left": "createOfferButton.left",
+    "margin": "2"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 128,
+  "path": "BottomSliders",
+  "widget": "BottomSliders",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "34 32"
+  }
+}

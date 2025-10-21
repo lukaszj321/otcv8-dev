@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 15,
+  "path": "BotTabBarPanel",
+  "widget": "BotTabBarPanel",
+  "base": "TabBarPanel",
+  "id": "",
+  "props": {}
+}

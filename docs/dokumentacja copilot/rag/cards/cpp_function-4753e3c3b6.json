@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTexture",
+  "return_type": "nan",
+  "args": "animationPhase",
+  "file": "src/client/thingtype.cpp"
+}

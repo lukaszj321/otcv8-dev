@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onPingBack",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaObject::hasLuaField",
+  "return_type": "bool",
+  "args": "const std::string& field",
+  "file": "src/framework/luaengine/luaobject.cpp"
+}

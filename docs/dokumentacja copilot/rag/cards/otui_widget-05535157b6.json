@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 308,
+  "path": "BonusReroll",
+  "widget": "BonusReroll",
+  "base": "FlatPanel",
+  "id": "",
+  "props": {
+    "padding": "2",
+    "size": "55 92"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parsePreyData",
+  "return_type": "case Proto::GameServerPreyData:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

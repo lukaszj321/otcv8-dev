@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "about_version",
+  "args": "",
+  "file": "modules/client_terminal/commands.lua"
+}

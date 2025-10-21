@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onAnimatedText",
+  "file": "modules/game_bot/bot.lua"
+}

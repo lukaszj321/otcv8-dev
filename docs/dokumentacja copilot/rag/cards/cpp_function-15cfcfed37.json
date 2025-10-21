@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pushNumber",
+  "return_type": "void",
+  "args": "double v",
+  "file": "src/framework/luaengine/luainterface.h"
+}

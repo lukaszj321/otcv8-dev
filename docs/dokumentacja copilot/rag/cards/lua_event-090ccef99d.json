@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onClick",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua"
+}

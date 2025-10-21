@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendMove",
+  "return_type": "void",
+  "args": "const Position& fromPos, int thingId, int stackpos, const Position& toPos, int count",
+  "file": "src/client/protocolgamesend.cpp"
+}

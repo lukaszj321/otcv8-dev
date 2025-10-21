@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FirstChildElement",
+  "return_type": "TiXmlElement*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

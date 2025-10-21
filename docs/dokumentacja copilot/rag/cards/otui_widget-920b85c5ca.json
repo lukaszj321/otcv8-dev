@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 121,
+  "path": "EnterGameWindow#enterGame/Panel#customServerSelectorPanel/TextEdit#serverHostTextEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "serverHostTextEdit",
+  "props": {
+    "id": "serverHostTextEdit",
+    "anchors.left": "parent.left",
+    "anchors.top": "serverLabel.bottom",
+    "margin-top": "2",
+    "width": "150"
+  }
+}

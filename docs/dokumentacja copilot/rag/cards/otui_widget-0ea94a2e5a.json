@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/config.otui",
+  "line": 32,
+  "path": "BotConfig#botConfig/Button#add",
+  "widget": "Button",
+  "base": "",
+  "id": "add",
+  "props": {
+    "margin-top": "2",
+    "id": "add",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "text": "Add",
+    "width": "56",
+    "height": "18",
+    "text-offet": "0 2"
+  }
+}

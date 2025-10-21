@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 28,
+  "path": "GameAction/UIButton#image",
+  "widget": "UIButton",
+  "base": "",
+  "id": "image",
+  "props": {
+    "id": "image",
+    "size": "48 48",
+    "phantom": "true",
+    "opacity": "0.6",
+    "background": "alpha"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "nResult != JNI_ERR",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

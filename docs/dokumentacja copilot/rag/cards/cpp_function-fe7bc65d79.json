@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onZoomChange",
+  "return_type": "protected: virtual void",
+  "args": "int zoom, int oldZoom",
+  "file": "src/client/uiminimap.h"
+}

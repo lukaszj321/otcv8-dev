@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getExactSize",
+  "return_type": "int",
+  "args": "int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern = 0, int animationPhase = 0",
+  "file": "src/client/item.h"
+}

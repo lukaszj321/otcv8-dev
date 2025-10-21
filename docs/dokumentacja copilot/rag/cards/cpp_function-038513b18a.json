@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::addAnchor",
+  "return_type": "void",
+  "args": "Fw::AnchorEdge anchoredEdge, const std::string& hookedWidgetId, Fw::AnchorEdge hookedEdge",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

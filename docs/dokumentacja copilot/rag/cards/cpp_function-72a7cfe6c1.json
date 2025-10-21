@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ss",
+  "return_type": "std::stringstream",
+  "args": "coltext",
+  "file": "src/framework/util/color.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "node = prev; node; node = node->prev",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

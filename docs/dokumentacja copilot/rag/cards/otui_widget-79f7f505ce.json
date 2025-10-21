@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 129,
+  "path": "RightSliders/Button#lock",
+  "widget": "Button",
+  "base": "",
+  "id": "lock",
+  "props": {
+    "id": "lock",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "width": "12",
+    "tooltip": "Action Bar Unlocked: You can assign actions to or switch actions on action buttons by \"drag&drop\"."
+  }
+}

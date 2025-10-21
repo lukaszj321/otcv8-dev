@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "zip_error_fini",
+  "return_type": "nan",
+  "args": "&error",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

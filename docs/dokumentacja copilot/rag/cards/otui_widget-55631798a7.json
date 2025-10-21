@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 172,
+  "path": "SioListWindow/VocationPanel#vocation",
+  "widget": "VocationPanel",
+  "base": "",
+  "id": "vocation",
+  "props": {
+    "id": "vocation",
+    "anchors.top": "prev.bottom",
+    "margin-top": "6"
+  }
+}

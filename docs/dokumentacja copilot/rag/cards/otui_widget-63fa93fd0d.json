@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 510,
+  "path": "EquipWindow/InputPanel#inputPanel",
+  "widget": "InputPanel",
+  "base": "",
+  "id": "inputPanel",
+  "props": {
+    "id": "inputPanel",
+    "anchors.left": "prev.right",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "5",
+    "margin-left": "5"
+  }
+}

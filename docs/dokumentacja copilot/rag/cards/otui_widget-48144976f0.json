@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 333,
+  "path": "MainWindow#imbuingWindow/Button#close",
+  "widget": "Button",
+  "base": "",
+  "id": "close",
+  "props": {
+    "id": "close",
+    "width": "50",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

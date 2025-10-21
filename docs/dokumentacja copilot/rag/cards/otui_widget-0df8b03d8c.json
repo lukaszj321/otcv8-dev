@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 5,
+  "path": "EnterGameWindow#enterGame/MenuLabel",
+  "widget": "MenuLabel",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "text-auto-resize": "true"
+  }
+}

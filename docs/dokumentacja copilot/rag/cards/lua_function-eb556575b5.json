@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getMarketDescriptionId",
+  "args": "name",
+  "file": "modules/gamelib/market.lua"
+}

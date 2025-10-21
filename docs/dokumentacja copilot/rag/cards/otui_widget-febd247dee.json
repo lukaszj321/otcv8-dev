@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 180,
+  "path": "MainWindow#editWindow/Panel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "5",
+    "anchors.top": "prev.bottom",
+    "height": "175",
+    "image-source": "configs.png",
+    "image-fixed-ratio": "true",
+    "image-size": "500 175"
+  }
+}

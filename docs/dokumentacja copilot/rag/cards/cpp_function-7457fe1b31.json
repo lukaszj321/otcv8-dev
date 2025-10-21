@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::getTilePosition",
+  "return_type": "Position",
+  "args": "const Point& mousePos",
+  "file": "src/client/uiminimap.cpp"
+}

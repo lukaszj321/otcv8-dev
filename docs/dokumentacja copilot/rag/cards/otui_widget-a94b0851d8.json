@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 273,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow/MiniWindowContents/AnalyzerButton#LootAnalyzer",
+  "widget": "AnalyzerButton",
+  "base": "",
+  "id": "LootAnalyzer",
+  "props": {
+    "id": "LootAnalyzer",
+    "text": "Loot Analyzer"
+  }
+}

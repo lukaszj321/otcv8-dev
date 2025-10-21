@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTowns",
+  "return_type": "TownList",
+  "args": "nan",
+  "file": "src/client/towns.h"
+}

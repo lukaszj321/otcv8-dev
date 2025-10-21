@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "NextSibling",
+  "return_type": "const TiXmlNode*",
+  "args": "const char *",
+  "file": "src/framework/xml/tinyxml.h"
+}

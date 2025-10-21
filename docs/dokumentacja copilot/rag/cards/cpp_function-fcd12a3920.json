@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTextPos",
+  "return_type": "int",
+  "args": "Point pos",
+  "file": "src/framework/ui/uitextedit.h"
+}

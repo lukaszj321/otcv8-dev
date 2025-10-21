@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 217,
+  "path": "MainWindow#npcWindow/FlatPanel#buyOptions/CheckBox#buyWithBackpack",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "buyWithBackpack",
+  "props": {
+    "id": "buyWithBackpack",
+    "anchors.top": "searchText.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "margin-top": "3"
+  }
+}

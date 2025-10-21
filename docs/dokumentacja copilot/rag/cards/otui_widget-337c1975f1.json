@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 42,
+  "path": "Settings/SettingCheckBox#Members",
+  "widget": "SettingCheckBox",
+  "base": "",
+  "id": "Members",
+  "props": {
+    "id": "Members",
+    "margin-top": "6",
+    "text": "Consider group members as friends."
+  }
+}

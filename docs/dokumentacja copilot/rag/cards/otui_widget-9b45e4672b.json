@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers.otui",
+  "line": 3,
+  "path": "Panel/MarketTabBar#offersTabBar",
+  "widget": "MarketTabBar",
+  "base": "",
+  "id": "offersTabBar",
+  "props": {
+    "id": "offersTabBar",
+    "width": "187",
+    "height": "25",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

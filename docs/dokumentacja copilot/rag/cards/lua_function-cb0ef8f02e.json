@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "encode_table",
+  "args": "val, state",
+  "file": "modules/corelib/json.lua"
+}

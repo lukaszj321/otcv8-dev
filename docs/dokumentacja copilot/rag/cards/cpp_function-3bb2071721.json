@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawText",
+  "return_type": "void",
+  "args": "const Point& pos, uint64_t hash, const Color& color, bool shadow = false",
+  "file": "src/framework/graphics/textrender.h"
+}

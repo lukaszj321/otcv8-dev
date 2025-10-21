@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/target.otui",
+  "line": 14,
+  "path": "TargetBotDualLabel/Label#left",
+  "widget": "Label",
+  "base": "",
+  "id": "left",
+  "props": {
+    "id": "left",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "text-auto-resize": "true"
+  }
+}

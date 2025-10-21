@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseVipAdd",
+  "return_type": "case Proto::GameServerVipAdd:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

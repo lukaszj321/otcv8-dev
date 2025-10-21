@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 176,
+  "path": "EmptyImbue/FlatLabel#protectionCost",
+  "widget": "FlatLabel",
+  "base": "",
+  "id": "protectionCost",
+  "props": {
+    "id": "protectionCost",
+    "margin-top": "5",
+    "text-align": "center",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "anchors.top": "prev.bottom"
+  }
+}

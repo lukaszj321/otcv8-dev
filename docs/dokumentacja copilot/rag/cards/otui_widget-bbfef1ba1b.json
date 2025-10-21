@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 182,
+  "path": "AttackBotPanel/VerticalScrollBar#entryListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "entryListScrollBar",
+  "props": {
+    "id": "entryListScrollBar",
+    "anchors.top": "entryList.top",
+    "anchors.bottom": "entryList.bottom",
+    "anchors.right": "entryList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

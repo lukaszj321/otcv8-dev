@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::setMapDescription",
+  "return_type": "void",
+  "args": "const InputMessagePtr& msg, int x, int y, int z, int width, int height",
+  "file": "src/client/protocolgameparse.cpp"
+}

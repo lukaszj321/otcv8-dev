@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "loadIcon",
+  "args": "bitChanged",
+  "file": "modules/game_healthinfo/healthinfo.lua"
+}

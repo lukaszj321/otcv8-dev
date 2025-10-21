@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_cooldown\n  description: Spellcooldowns\n  author: OTClient team\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ cooldown ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_cooldown/cooldown.otmod",
+  "description": "Spellcooldowns"
+}

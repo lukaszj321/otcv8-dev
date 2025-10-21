@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 154,
+  "path": "EnterGameWindow#enterGame/CheckBox#rememberPasswordBox",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "rememberPasswordBox",
+  "props": {
+    "id": "rememberPasswordBox",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "9"
+  }
+}

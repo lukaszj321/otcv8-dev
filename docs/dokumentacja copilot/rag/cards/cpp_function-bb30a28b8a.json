@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FrameBuffer::getSize",
+  "return_type": "Size",
+  "args": "nan",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

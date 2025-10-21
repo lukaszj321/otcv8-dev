@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDoubleClick",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

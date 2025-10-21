@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "derived.internalCreate",
+  "args": "",
+  "file": "modules/corelib/util.lua"
+}

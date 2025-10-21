@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "print_ostream",
+  "return_type": "void",
+  "args": "std::ostringstream& stream, const T& first, const Args&... rest",
+  "file": "src/framework/stdext/format.h"
+}

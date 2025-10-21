@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 114,
+  "path": "FeaturePanel/BotSwitch#Feature3",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "Feature3",
+  "props": {
+    "id": "Feature3",
+    "anchors.top": "sep.bottom",
+    "anchors.left": "prev.right",
+    "margin-top": "5",
+    "margin-left": "5",
+    "text": "Send Vocation"
+  }
+}

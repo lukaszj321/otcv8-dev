@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 61,
+  "path": "BotServerData/Label#Participants",
+  "widget": "Label",
+  "base": "",
+  "id": "Participants",
+  "props": {
+    "id": "Participants",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "width": "20",
+    "margin-right": "8",
+    "margin-bottom": "4",
+    "text-align": "center"
+  }
+}

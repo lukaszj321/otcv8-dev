@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 18,
+  "path": "MainWindow#debugWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "debugWindow",
+  "props": {
+    "id": "debugWindow",
+    "size": "550 300",
+    "margin": "0 0 0 0",
+    "padding": "25 3 3 3",
+    "opacity": "0.9"
+  }
+}

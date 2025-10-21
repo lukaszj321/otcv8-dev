@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getPing",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/framework/proxy/proxy.h"
+}

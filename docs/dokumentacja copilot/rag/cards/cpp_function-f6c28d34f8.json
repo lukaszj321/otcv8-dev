@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "main",
+  "return_type": "nan",
+  "args": "1, args",
+  "file": "src/main.cpp"
+}

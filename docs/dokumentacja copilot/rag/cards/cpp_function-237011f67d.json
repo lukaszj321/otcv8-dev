@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onRecv",
+  "return_type": "void",
+  "args": "const InputMessagePtr& inputMessage",
+  "file": "src/client/protocolgame.h"
+}

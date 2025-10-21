@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Platform::getFileModificationTime",
+  "return_type": "ticks_t",
+  "args": "std::string file",
+  "file": "src/framework/platform/androidplatform.cpp"
+}

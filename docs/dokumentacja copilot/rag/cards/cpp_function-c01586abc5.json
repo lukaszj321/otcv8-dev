@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "findHouse",
+  "return_type": "protected: HouseList::iterator",
+  "args": "uint32 houseId",
+  "file": "src/client/houses.h"
+}

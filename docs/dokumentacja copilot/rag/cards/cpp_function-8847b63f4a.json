@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "applyMask",
+  "return_type": "void",
+  "args": "const uint8_t functionModules[], uint8_t qrcode[], enum qrcodegen_Mask mask",
+  "file": "src/framework/util/qrcodegen.c"
+}

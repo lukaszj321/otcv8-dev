@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 288,
+  "path": "EQPanel/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.left": "parent.left",
+    "text": "Equipment Setup",
+    "font": "verdana-11px-rounded",
+    "color": "#03C04A"
+  }
+}

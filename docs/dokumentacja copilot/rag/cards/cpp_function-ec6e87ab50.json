@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlBase::StringEqual",
+  "return_type": "bool",
+  "args": "const char* p, const char* tag, bool ignoreCase, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

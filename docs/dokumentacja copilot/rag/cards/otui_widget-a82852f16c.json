@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 44,
+  "path": "AlarmCheckBoxAndTextEdit/CheckBox#tick",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "tick",
+  "props": {
+    "id": "tick",
+    "anchors.fill": "parent",
+    "anchors.right": "next.left",
+    "margin-top": "4",
+    "font": "verdana-11px-rounded",
+    "text": "Creature Name",
+    "text-offset": "17 -3"
+  }
+}

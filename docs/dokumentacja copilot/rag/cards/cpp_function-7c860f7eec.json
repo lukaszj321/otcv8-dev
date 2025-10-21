@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "findItemTypeByCategory",
+  "return_type": "ItemTypeList",
+  "args": "ItemCategory category",
+  "file": "src/client/thingtypemanager.h"
+}

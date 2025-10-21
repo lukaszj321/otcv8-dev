@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 125,
+  "path": "MainWindow/Button#buttonOK",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonOK",
+  "props": {
+    "id": "buttonOK",
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10"
+  }
+}

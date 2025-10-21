@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 165,
+  "path": "SuppliesWindow/BotSwitch#imbues",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "imbues",
+  "props": {
+    "id": "imbues",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "sep.right",
+    "anchors.right": "parent.right",
+    "margin-top": "5",
+    "margin-left": "10",
+    "text": "No Imbues",
+    "tooltip": "Go refill when mana leech imbue has worn off."
+  }
+}

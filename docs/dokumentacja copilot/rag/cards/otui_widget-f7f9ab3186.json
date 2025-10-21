@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 117,
+  "path": "MiniWindow#botWindow/MiniWindowContents/BotTabBar#botTabs",
+  "widget": "BotTabBar",
+  "base": "",
+  "id": "botTabs",
+  "props": {
+    "id": "botTabs",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-right": "-20"
+  }
+}

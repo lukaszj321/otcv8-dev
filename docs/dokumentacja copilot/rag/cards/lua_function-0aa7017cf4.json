@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISpinBox:onFocusChange",
+  "args": "focused",
+  "file": "modules/corelib/ui/uispinbox.lua"
+}

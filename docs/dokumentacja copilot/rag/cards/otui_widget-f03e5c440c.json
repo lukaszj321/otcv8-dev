@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 33,
+  "path": "OptionPanel/OptionCheckBox#cacheMap",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "cacheMap",
+  "props": {
+    "id": "cacheMap",
+    "visible": "false"
+  }
+}

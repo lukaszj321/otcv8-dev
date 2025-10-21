@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 459,
+  "path": "BossList/Button#add",
+  "widget": "Button",
+  "base": "",
+  "id": "add",
+  "props": {
+    "id": "add",
+    "anchors.right": "list.right",
+    "anchors.top": "list.bottom",
+    "margin-top": "3",
+    "height": "21",
+    "text": "Add Boss",
+    "text-align": "center",
+    "font": "verdana-11px-rounded",
+    "tooltip": "Creature with given name will be considered as boss."
+  }
+}

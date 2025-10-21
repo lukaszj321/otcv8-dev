@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "init",
+  "return_type": "private: void",
+  "args": "size_type sz",
+  "file": "src/framework/xml/tinystr.h"
+}

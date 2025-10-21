@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onVisibilityChange",
+  "return_type": "virtual void",
+  "args": "bool visible",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pushCppFunction",
+  "return_type": "nan",
+  "args": "setFunction",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

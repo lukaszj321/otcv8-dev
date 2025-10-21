@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glActiveTexture",
+  "return_type": "nan",
+  "args": "GL_TEXTURE1",
+  "file": "src/framework/graphics/painter.cpp"
+}

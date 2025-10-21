@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Crypt::rsaGetSize",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/framework/util/crypt.cpp"
+}

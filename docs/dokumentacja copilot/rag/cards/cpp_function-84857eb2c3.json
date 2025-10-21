@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileMetadata",
+  "return_type": "public:",
+  "args": "const FileStreamPtr& file",
+  "file": "src/framework/util/pngunpacker.h"
+}

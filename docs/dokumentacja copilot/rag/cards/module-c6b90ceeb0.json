@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_battle\n  description: Manage battle window (new)\n  author: otclient@otclient.ovh\n  website: otclient.ovh\n  sandboxed: true\n  scripts: [ battle ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_battle/battle.otmod",
+  "description": "Manage battle window (new)"
+}

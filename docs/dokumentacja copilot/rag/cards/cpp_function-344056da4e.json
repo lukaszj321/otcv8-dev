@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"Unable to change client version while online\"",
+  "file": "src/client/game.cpp"
+}

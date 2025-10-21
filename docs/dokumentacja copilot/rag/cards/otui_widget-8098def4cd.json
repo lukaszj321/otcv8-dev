@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 58,
+  "path": "UIWindow#terminalWindow/TerminalSelectText#terminalSelectText",
+  "widget": "TerminalSelectText",
+  "base": "",
+  "id": "terminalSelectText",
+  "props": {
+    "id": "terminalSelectText",
+    "anchors.fill": "terminalBuffer",
+    "focusable": "false"
+  }
+}

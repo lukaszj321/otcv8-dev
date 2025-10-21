@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calcSegmentBitLength",
+  "return_type": "testable int",
+  "args": "enum qrcodegen_Mode mode, size_t numChars",
+  "file": "src/framework/util/qrcodegen.c"
+}

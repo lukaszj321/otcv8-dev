@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "load",
+  "return_type": "static ImagePtr",
+  "args": "std::string file",
+  "file": "src/framework/graphics/image.h"
+}

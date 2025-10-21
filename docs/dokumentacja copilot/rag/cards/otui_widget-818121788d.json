@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 2,
+  "path": "OptionPanel/OptionCheckBox#classicControl",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "classicControl",
+  "props": {
+    "id": "classicControl",
+    "visible": "false"
+  }
+}

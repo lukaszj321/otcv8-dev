@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseMultiUseCooldown",
+  "return_type": "case Proto::GameServerMultiUseDelay:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

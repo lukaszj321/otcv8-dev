@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 261,
+  "path": "MainWindow#npcWindow/Button#sellAllWithDelayButton",
+  "widget": "Button",
+  "base": "",
+  "id": "sellAllWithDelayButton",
+  "props": {
+    "id": "sellAllWithDelayButton",
+    "width": "128",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10",
+    "visible": "false"
+  }
+}

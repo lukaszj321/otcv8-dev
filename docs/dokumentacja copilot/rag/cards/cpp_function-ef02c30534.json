@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getThingStackPos",
+  "return_type": "int",
+  "args": "const ThingPtr& thing",
+  "file": "src/client/tile.h"
+}

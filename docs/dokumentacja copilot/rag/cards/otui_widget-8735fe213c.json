@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 249,
+  "path": "CreatureAndBonus",
+  "widget": "CreatureAndBonus",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "195 152"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "displayNumberInputBox",
+  "args": "title, label, okCallback, cancelCallback, min, max, value, step",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

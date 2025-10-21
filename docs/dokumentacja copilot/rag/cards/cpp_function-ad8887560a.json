@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getHookedWidget",
+  "return_type": "UIWidgetPtr",
+  "args": "const UIWidgetPtr& widget, const UIWidgetPtr& parentWidget",
+  "file": "src/client/uimapanchorlayout.h"
+}

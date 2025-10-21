@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIAnchorLayout::updateWidget",
+  "return_type": "bool",
+  "args": "const UIWidgetPtr& widget, const UIAnchorGroupPtr& anchorGroup, UIWidgetPtr first",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

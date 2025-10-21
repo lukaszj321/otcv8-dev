@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 34,
+  "path": "QuestLog/TextList#questList",
+  "widget": "TextList",
+  "base": "",
+  "id": "questList",
+  "props": {
+    "id": "questList",
+    "anchors.fill": "parent",
+    "margin-bottom": "20",
+    "focusable": "false",
+    "background-color": "#484848",
+    "vertical-scrollbar": "questListScrollBar"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageRect",
+  "return_type": "void",
+  "args": "const Rect& rect",
+  "file": "src/framework/ui/uiwidget.h"
+}

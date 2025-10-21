@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFading",
+  "return_type": "void",
+  "args": "FadeState state, float fadetime",
+  "file": "src/framework/sound/combinedsoundsource.h"
+}

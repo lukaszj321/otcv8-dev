@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~OggSoundFile",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/framework/sound/oggsoundfile.h"
+}

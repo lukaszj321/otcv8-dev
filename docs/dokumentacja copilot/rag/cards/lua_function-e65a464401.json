@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISplitter:onStyleApply",
+  "args": "styleName, styleNode",
+  "file": "modules/corelib/ui/uisplitter.lua"
+}

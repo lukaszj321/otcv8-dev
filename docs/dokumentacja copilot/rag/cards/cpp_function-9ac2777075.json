@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "PHYSFS_fileLength",
+  "return_type": "return",
+  "args": "m_fileHandle",
+  "file": "src/framework/core/filestream.cpp"
+}

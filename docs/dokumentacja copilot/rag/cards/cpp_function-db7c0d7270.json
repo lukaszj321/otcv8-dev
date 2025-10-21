@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BN_MONT_CTX_free",
+  "return_type": "nan",
+  "args": "m_rsa->_method_mod_n",
+  "file": "src/framework/util/crypt.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.webSocket",
+  "args": "url, callbacks, timeout, jsonWebsocket",
+  "file": "modules/corelib/http.lua"
+}

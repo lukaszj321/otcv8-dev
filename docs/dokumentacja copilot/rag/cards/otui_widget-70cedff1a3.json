@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/editor.otui",
+  "line": 1,
+  "path": "CaveBotEditorButton",
+  "widget": "CaveBotEditorButton",
+  "base": "Button",
+  "id": "",
+  "props": {}
+}

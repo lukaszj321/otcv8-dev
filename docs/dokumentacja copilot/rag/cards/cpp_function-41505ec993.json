@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseClientCheck",
+  "return_type": "case Proto::GameServerClientCheck:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

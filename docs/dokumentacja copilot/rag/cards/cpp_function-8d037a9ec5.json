@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "print_cur_config",
+  "return_type": "nan",
+  "args": "android_app",
+  "file": "src/android/android_native_app_glue.cpp"
+}

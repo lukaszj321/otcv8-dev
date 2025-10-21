@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 55,
+  "path": "MainWindow#transferWindow/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.right": "parent.right",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "cancelButton.top",
+    "margin-bottom": "8"
+  }
+}

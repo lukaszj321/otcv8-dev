@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addColor",
+  "return_type": "public: inline void",
+  "args": "float r, float g, float b, float a",
+  "file": "src/framework/graphics/colorarray.h"
+}

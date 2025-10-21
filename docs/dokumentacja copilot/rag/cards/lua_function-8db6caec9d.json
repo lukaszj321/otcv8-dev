@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "load",
+  "args": "forceDefaults",
+  "file": "modules/game_hotkeys/hotkeys_manager.lua"
+}

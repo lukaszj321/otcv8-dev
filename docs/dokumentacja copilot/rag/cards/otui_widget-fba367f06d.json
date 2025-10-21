@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 127,
+  "path": "StaticMainWindow#charactersWindow/Button#buttonCancel",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonCancel",
+  "props": {
+    "id": "buttonCancel",
+    "width": "64",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

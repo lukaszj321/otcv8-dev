@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSkillButtonClick",
+  "args": "button",
+  "file": "modules/game_skills/skills.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 35,
+  "path": "MainWindow#channelsWindow/TextEdit#openPrivateChannelWith",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "openPrivateChannelWith",
+  "props": {
+    "id": "openPrivateChannelWith",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "10"
+  }
+}

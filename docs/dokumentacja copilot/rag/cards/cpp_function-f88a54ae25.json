@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internalRecvData",
+  "return_type": "void",
+  "args": "uint8* buffer, uint32 size",
+  "file": "src/framework/net/protocol.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getBackground",
+  "args": "",
+  "file": "modules/client_background/background.lua"
+}

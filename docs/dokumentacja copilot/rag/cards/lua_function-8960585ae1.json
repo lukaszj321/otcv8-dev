@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setMusic",
+  "args": "filename",
+  "file": "modules/client/client.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "forceExit",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

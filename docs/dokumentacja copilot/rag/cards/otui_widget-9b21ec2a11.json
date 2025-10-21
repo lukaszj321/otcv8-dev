@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 19,
+  "path": "LockedPreyPanel/UIButton#perm/UIWidget#shopPermButton",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "shopPermButton",
+  "props": {
+    "id": "shopPermButton",
+    "image-source": "/images/game/prey/prey_perm_test",
+    "size": "195 67",
+    "image-clip": "0 67 204 67"
+  }
+}

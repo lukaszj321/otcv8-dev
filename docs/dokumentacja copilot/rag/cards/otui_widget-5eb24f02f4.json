@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 63,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#level/SkillPercentPanel",
+  "widget": "SkillPercentPanel",
+  "base": "",
+  "id": "",
+  "props": {
+    "background-color": "red"
+  }
+}

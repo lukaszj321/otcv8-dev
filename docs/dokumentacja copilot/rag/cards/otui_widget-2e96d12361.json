@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 78,
+  "path": "Panel/MarketComboBox#slotComboBox",
+  "widget": "MarketComboBox",
+  "base": "",
+  "id": "slotComboBox",
+  "props": {
+    "id": "slotComboBox",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-right": "3",
+    "margin-left": "3",
+    "color": "#aaaaaa44"
+  }
+}

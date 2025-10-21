@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSkillBaseLevel",
+  "return_type": "int",
+  "args": "uint8_t skill",
+  "file": "src/client/localplayer.h"
+}

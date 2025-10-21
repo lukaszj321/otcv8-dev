@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int iz = prevFirstVisibleFloor; iz < m_cachedFirstVisibleFloor; ++iz",
+  "file": "src/client/mapview.cpp"
+}

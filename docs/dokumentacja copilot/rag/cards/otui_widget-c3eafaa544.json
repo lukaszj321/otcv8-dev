@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 335,
+  "path": "HealerPanel/SpellHealing#spells",
+  "widget": "SpellHealing",
+  "base": "",
+  "id": "spells",
+  "props": {
+    "id": "spells",
+    "anchors.top": "parent.top",
+    "margin-top": "8",
+    "anchors.left": "parent.left"
+  }
+}

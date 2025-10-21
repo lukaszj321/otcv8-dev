@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "CaveBot.Conversation",
+  "args": "...",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_cavebot_lib.lua"
+}

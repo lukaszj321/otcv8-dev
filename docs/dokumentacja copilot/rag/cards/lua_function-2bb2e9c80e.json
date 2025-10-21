@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIProgressBar:setMinimum",
+  "args": "minimum",
+  "file": "modules/corelib/ui/uiprogressbar.lua"
+}

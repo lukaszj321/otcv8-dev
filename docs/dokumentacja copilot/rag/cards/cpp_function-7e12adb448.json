@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::requestItemInfo",
+  "return_type": "void",
+  "args": "const ItemPtr& item, int index",
+  "file": "src/client/game.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_itemselector/itemselector.otui",
+  "line": 67,
+  "path": "ItemSelectorWindow#itemSelector/Button#cancelButton",
+  "widget": "Button",
+  "base": "",
+  "id": "cancelButton",
+  "props": {
+    "id": "cancelButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "width": "60"
+  }
+}

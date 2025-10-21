@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 84,
+  "path": "MainWindow#spelllistWindow/FilterButton#buttonFilterLevel",
+  "widget": "FilterButton",
+  "base": "",
+  "id": "buttonFilterLevel",
+  "props": {
+    "id": "buttonFilterLevel"
+  }
+}

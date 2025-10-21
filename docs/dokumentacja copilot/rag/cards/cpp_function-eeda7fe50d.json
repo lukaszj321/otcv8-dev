@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "translate",
+  "return_type": "void",
+  "args": "int dx, int dy, short dz = 0",
+  "file": "src/client/position.h"
+}

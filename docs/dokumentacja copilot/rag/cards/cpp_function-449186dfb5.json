@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAutoSpacing",
+  "return_type": "void",
+  "args": "bool enable",
+  "file": "src/framework/ui/uigridlayout.h"
+}

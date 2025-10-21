@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 216,
+  "path": "Vocations/Panel#box/CategoryCheckBox#druids",
+  "widget": "CategoryCheckBox",
+  "base": "",
+  "id": "druids",
+  "props": {
+    "id": "druids",
+    "text": "Druids"
+  }
+}

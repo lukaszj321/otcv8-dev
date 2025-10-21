@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 214,
+  "path": "ActivePreyPanel/CardLabel#autoRerollPrice",
+  "widget": "CardLabel",
+  "base": "",
+  "id": "autoRerollPrice",
+  "props": {
+    "id": "autoRerollPrice",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "margin-left": "2",
+    "anchors.bottom": "prev.bottom",
+    "anchors.right": "parent.right"
+  }
+}

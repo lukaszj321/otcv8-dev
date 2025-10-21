@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateGeometry",
+  "return_type": "nan",
+  "args": "visibleDimension, m_optimizedSize",
+  "file": "src/client/mapview.cpp"
+}

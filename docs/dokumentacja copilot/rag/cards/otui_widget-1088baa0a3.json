@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 73,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#mana",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "mana",
+  "props": {
+    "id": "mana",
+    "height": "15"
+  }
+}

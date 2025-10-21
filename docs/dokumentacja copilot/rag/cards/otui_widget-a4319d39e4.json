@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 127,
+  "path": "ConditionPanel/SpinBox#spinbox",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "spinbox",
+  "props": {
+    "id": "spinbox",
+    "anchors.top": "description.bottom",
+    "margin-top": "10",
+    "width": "100",
+    "text-align": "center",
+    "minimum": "0",
+    "maximum": "100",
+    "step": "1",
+    "focusable": "true"
+  }
+}

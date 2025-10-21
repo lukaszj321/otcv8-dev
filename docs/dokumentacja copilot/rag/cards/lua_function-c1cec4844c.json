@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "avgTable",
+  "args": "t",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua"
+}

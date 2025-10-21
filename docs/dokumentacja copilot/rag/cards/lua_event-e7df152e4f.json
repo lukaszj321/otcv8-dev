@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onShieldChange",
+  "file": "modules/gamelib/creature.lua"
+}

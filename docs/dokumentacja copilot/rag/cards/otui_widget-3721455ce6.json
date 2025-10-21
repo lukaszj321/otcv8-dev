@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 96,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#luaCallback",
+  "widget": "DebugText",
+  "base": "",
+  "id": "luaCallback",
+  "props": {
+    "id": "luaCallback",
+    "text": "-"
+  }
+}

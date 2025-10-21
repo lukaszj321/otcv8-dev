@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "canShoot",
+  "return_type": "bool",
+  "args": "int distance",
+  "file": "src/client/creature.h"
+}

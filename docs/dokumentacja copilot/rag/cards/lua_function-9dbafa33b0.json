@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onLevelChange",
+  "args": "localPlayer, value, percent",
+  "file": "modules/game_skills/skills.lua"
+}

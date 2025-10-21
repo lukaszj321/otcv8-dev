@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateTile",
+  "return_type": "void",
+  "args": "const Position& pos, const TilePtr& tile",
+  "file": "src/client/minimap.h"
+}

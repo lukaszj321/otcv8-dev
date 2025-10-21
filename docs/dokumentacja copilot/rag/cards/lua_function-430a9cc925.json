@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botKeyDown",
+  "args": "widget, keyCode, keyboardModifiers",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 29,
+  "path": "SupplyItem/Panel#fields/Label#maxLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "maxLabel",
+  "props": {
+    "id": "maxLabel",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "margin-left": "2",
+    "text-align": "center",
+    "text": "\"Max\""
+  }
+}

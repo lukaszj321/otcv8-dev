@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 29,
+  "path": "OptionPanel/OptionCheckBox#fullscreen",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "fullscreen",
+  "props": {
+    "id": "fullscreen",
+    "tooltip": "Ctrl+Shift+F"
+  }
+}

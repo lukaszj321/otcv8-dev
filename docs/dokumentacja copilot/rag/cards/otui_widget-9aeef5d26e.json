@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 33,
+  "path": "MainWindow#npcWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "npcWindow",
+  "props": {
+    "id": "npcWindow",
+    "size": "550 360"
+  }
+}

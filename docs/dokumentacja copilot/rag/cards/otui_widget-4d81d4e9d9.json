@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 166,
+  "path": "QuestTracker#questTracker/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {
+    "padding-left": "5",
+    "padding-right": "5",
+    "padding-top": "5",
+    "layout": "verticalBox"
+  }
+}

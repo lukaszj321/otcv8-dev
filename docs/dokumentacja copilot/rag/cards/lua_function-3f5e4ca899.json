@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "refresh",
+  "args": "",
+  "file": "modules/game_cooldown/cooldown.lua"
+}

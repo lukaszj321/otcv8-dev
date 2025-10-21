@@ -1,0 +1,23 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 237,
+  "path": "Panel#actionBar/ScrollablePanel#tabBar",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "tabBar",
+  "props": {
+    "id": "tabBar",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "prev.right",
+    "anchors.right": "nextPanel.left",
+    "margin-left": "4",
+    "margin-right": "4",
+    "clipping": "true",
+    "padding-top": "2",
+    "padding-bottom": "2",
+    "horizontal-scrollbar": "actionScroll",
+    "layout": "horizontalBox"
+  }
+}

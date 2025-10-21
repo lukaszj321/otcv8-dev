@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::canWalk",
+  "return_type": "bool",
+  "args": "Otc::Direction direction, bool ignoreLock",
+  "file": "src/client/localplayer.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "eglChooseConfig",
+  "return_type": "nan",
+  "args": "m_eglDisplay, attribs, &m_eglConfig, 1, &numConfigs",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

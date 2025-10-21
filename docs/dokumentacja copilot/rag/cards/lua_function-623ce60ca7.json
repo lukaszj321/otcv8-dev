@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSetSafeFight",
+  "args": "self, checked",
+  "file": "modules/game_inventory/inventory.lua"
+}

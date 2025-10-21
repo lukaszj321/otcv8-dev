@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAlign",
+  "return_type": "Fw::AlignmentFlag",
+  "args": "nan",
+  "file": "src/framework/graphics/cachedtext.h"
+}

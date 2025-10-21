@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 471,
+  "path": "SettingsPanel/SpinBox#KillsAmount",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "KillsAmount",
+  "props": {
+    "id": "KillsAmount",
+    "anchors.top": "prev.top",
+    "anchors.bottom": "prev.bottom",
+    "anchors.left": "prev.right",
+    "text-align": "left",
+    "width": "30",
+    "minimum": "1",
+    "maximum": "10",
+    "focusable": "true",
+    "margin-left": "5"
+  }
+}

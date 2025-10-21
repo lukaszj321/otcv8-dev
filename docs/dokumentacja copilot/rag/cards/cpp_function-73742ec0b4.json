@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "spawn_thread",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/core/asyncdispatcher.cpp"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 19,
+  "path": "MainWindow#hotkeysWindow/ComboBox#configSelector",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "configSelector",
+  "props": {
+    "id": "configSelector",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "menu-scroll": "true",
+    "menu-height": "125",
+    "menu-scroll-step": "25",
+    "text-offset": "5 2",
+    "self": "addOption(tr(\"Hotkeys config #5\"))"
+  }
+}

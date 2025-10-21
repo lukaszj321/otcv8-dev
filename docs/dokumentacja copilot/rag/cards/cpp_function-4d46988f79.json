@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onTextAreaUpdate",
+  "return_type": "nan",
+  "args": "m_textVirtualOffset, m_textVirtualSize, m_textTotalSize",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

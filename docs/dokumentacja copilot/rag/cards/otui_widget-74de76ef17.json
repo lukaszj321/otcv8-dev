@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 201,
+  "path": "RightSliders/Button#last/UIWidget#image",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "image",
+  "props": {
+    "id": "image",
+    "phantom": "true",
+    "margin-top": "1",
+    "margin-left": "1",
+    "rotation": "180",
+    "on": "true",
+    "image-source": "/images/game/actionbar/arrow-skip"
+  }
+}

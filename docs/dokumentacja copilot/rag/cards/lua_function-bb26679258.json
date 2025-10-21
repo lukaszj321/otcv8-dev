@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "multilineEditor",
+  "args": "description, text, callback",
+  "file": "modules/client_textedit/textedit.lua"
+}

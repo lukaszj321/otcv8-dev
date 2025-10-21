@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "textureClipRect",
+  "return_type": "Rect",
+  "args": "texCoordsOffset, textureClipSize",
+  "file": "src/framework/ui/uiwidgetimage.cpp"
+}

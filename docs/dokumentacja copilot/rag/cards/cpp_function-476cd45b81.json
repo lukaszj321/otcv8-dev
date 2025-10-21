@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onKeyPress",
+  "return_type": "return",
+  "args": "keyCode, keyboardModifiers, autoRepeatTicks",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

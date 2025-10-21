@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/violationwindow.otui",
+  "line": 34,
+  "path": "MainWindow#ignoreWindow/Button#buttonCancel",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonCancel",
+  "props": {
+    "id": "buttonCancel",
+    "width": "64",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_number2unsigned",
+  "return_type": "nan",
+  "args": "r, x",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~PacketRecorder",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/framework/net/packet_recorder.h"
+}

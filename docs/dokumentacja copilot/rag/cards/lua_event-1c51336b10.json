@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onOk",
+  "file": "modules/corelib/ui/uimessagebox.lua"
+}

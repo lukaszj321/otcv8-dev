@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getBit",
+  "return_type": "bool",
+  "args": "int x, int i",
+  "file": "src/framework/util/qrcodegen.c"
+}

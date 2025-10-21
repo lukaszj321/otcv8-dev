@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addShader",
+  "return_type": "return",
+  "args": "shader",
+  "file": "src/framework/graphics/shaderprogram.cpp"
+}

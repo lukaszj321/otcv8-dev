@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "static_assert",
+  "return_type": "nan",
+  "args": "std::is_base_of<shared_object, T>::value, \"classes using shared_object_ptr must be a derived of stdext::shared_object\"",
+  "file": "src/framework/stdext/shared_object.h"
+}

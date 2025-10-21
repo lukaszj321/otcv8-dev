@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "terminate",
+  "return_type": "void",
+  "args": "boost::system::error_code ec = boost::asio::error::eof",
+  "file": "src/framework/proxy/proxy_client.h"
+}

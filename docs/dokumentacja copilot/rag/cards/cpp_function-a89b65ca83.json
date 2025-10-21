@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttributeSet::Add",
+  "return_type": "void",
+  "args": "TiXmlAttribute* addMe",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

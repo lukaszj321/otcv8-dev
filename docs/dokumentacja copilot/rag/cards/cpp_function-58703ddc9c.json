@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttributeSet",
+  "return_type": "nan",
+  "args": "const TiXmlAttributeSet&",
+  "file": "src/framework/xml/tinyxml.h"
+}

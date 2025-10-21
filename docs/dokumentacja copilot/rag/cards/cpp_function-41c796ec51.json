@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlText::Accept",
+  "return_type": "bool",
+  "args": "TiXmlVisitor* visitor",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

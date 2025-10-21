@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "dumpTextures",
+  "return_type": "void",
+  "args": "std::string dir",
+  "file": "src/client/thingtypemanager.h"
+}

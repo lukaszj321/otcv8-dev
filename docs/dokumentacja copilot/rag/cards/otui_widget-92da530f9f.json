@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 373,
+  "path": "HealBotSettingsPanel/FlatPanel#list/SettingCheckBox#Visible",
+  "widget": "SettingCheckBox",
+  "base": "",
+  "id": "Visible",
+  "props": {
+    "id": "Visible",
+    "text": "Items must be visible (recommended)"
+  }
+}

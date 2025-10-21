@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 202,
+  "path": "MainWindow#shopWindow/TextList#offers",
+  "widget": "TextList",
+  "base": "",
+  "id": "offers",
+  "props": {
+    "id": "offers",
+    "vertical-scrollbar": "offersScrollBar",
+    "anchors.top": "adPanel.bottom",
+    "anchors.left": "adPanel.left",
+    "anchors.right": "adPanel.right",
+    "anchors.bottom": "transactionHistory.top",
+    "margin-top": "10",
+    "margin-bottom": "10",
+    "padding": "1",
+    "focusable": "false"
+  }
+}

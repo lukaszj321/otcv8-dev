@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setProjectionMatrix",
+  "return_type": "nan",
+  "args": "projectionMatrix",
+  "file": "src/framework/graphics/painter.cpp"
+}

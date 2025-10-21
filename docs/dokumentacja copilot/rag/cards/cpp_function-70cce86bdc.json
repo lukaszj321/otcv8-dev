@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setModuleBounded",
+  "return_type": "nan",
+  "args": "qrcode, qrsize - 4 + dx, 3 + dy, false",
+  "file": "src/framework/util/qrcodegen.c"
+}

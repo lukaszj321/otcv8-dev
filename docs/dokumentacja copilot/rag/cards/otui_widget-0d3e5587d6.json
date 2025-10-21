@@ -1,0 +1,25 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 79,
+  "path": "MainWindow#npcWindow/FlatPanel/ScrollablePanel#itemsPanel",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "itemsPanel",
+  "props": {
+    "id": "itemsPanel",
+    "height": "200",
+    "anchors.left": "parent.left",
+    "anchors.right": "prev.left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "vertical-scrollbar": "itemsPanelListScrollBar",
+    "margin-left": "5",
+    "margin-right": "5",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "160 90",
+    "flow": "true",
+    "auto-spacing": "true"
+  }
+}

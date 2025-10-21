@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_game.setRsa",
+  "args": "rsa, e",
+  "file": "modules/gamelib/game.lua"
+}

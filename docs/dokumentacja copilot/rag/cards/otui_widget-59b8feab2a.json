@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 33,
+  "path": "QuestLog",
+  "widget": "QuestLog",
+  "base": "Panel",
+  "id": "",
+  "props": {}
+}

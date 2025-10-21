@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 96,
+  "path": "NoCreaturePanel/FlatPanel#bonus/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.top": "prev.bottom",
+    "margin-top": "2",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "10",
+    "margin-right": "10"
+  }
+}

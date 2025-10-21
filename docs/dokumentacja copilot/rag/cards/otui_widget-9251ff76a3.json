@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 150,
+  "path": "NoCreaturePanel/FlatPanel#bonus/Panel#grade/NoStar#noBonusIcon",
+  "widget": "NoStar",
+  "base": "",
+  "id": "noBonusIcon",
+  "props": {
+    "id": "noBonusIcon"
+  }
+}

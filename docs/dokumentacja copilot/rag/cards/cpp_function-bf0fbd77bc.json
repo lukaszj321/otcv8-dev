@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "type",
+  "return_type": "ThingTypePtr",
+  "args": "new ThingType",
+  "file": "src/client/thingtypemanager.cpp"
+}

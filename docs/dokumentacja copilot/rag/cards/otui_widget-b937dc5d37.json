@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemdetails.otui",
+  "line": 50,
+  "path": "Panel/VerticalScrollBar#detailsTableScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "detailsTableScrollBar",
+  "props": {
+    "id": "detailsTableScrollBar",
+    "anchors.top": "detailsTable.top",
+    "anchors.bottom": "detailsTable.bottom",
+    "anchors.right": "detailsTable.right",
+    "step": "28",
+    "pixels-scroll": "true"
+  }
+}

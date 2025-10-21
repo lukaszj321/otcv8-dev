@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Config:getNumber",
+  "args": "key, default",
+  "file": "modules/corelib/config.lua"
+}

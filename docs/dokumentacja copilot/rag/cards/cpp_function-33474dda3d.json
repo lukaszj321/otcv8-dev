@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calculateIndex",
+  "return_type": "inline int",
+  "args": "const Size& size",
+  "file": "src/framework/graphics/atlas.h"
+}

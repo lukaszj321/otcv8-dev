@@ -1,0 +1,6 @@
+{
+  "type": "asset",
+  "path": "data/shaders/map_default_vertex.frag",
+  "ext": ".frag",
+  "bytes": 371
+}

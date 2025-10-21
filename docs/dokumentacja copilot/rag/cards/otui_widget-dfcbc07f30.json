@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 75,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#render",
+  "widget": "DebugText",
+  "base": "",
+  "id": "render",
+  "props": {
+    "id": "render",
+    "text": "-"
+  }
+}

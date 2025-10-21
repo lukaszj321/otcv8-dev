@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 72,
+  "path": "MainWindow#transferWindow/Button#giftButton",
+  "widget": "Button",
+  "base": "",
+  "id": "giftButton",
+  "props": {
+    "id": "giftButton",
+    "font": "cipsoftFont",
+    "size": "45 21",
+    "anchors.right": "prev.left",
+    "margin-right": "5"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 72,
+  "path": "UIWidget#gameRootPanel/Panel#gameLeftActions/GameAction#attack",
+  "widget": "GameAction",
+  "base": "",
+  "id": "attack",
+  "props": {
+    "id": "attack"
+  }
+}

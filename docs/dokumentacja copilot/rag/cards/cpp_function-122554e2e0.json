@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "replace",
+  "return_type": "virtual void",
+  "args": "const ImagePtr& image",
+  "file": "src/framework/graphics/texture.h"
+}

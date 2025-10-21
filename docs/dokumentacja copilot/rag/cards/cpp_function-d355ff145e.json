@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::propagateOnKeyDown",
+  "return_type": "bool",
+  "args": "uchar keyCode, int keyboardModifiers",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

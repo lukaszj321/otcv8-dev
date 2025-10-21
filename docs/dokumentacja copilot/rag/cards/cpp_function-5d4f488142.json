@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rsaDecrypt",
+  "return_type": "bool",
+  "args": "unsigned char *msg, int size",
+  "file": "src/framework/util/crypt.h"
+}

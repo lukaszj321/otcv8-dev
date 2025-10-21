@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 53,
+  "path": "MultilineTextEditWindow/Panel#textPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "textPanel",
+  "props": {
+    "id": "textPanel",
+    "height": "300"
+  }
+}

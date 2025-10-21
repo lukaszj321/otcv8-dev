@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 473,
+  "path": "FeaturesWindow#FeaturesWindow/HorizontalSeparator#secondSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "secondSeparator",
+  "props": {
+    "id": "secondSeparator",
+    "anchors.left": "ID.right",
+    "margin-left": "5",
+    "anchors.right": "CustomPrices.right",
+    "anchors.bottom": "ID.bottom"
+  }
+}

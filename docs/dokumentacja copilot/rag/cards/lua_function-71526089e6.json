@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botInventoryChange",
+  "args": "player, slot, item, oldItem",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "HttpSession::onError",
+  "return_type": "void",
+  "args": "const std::string& error, const std::string& details",
+  "file": "src/framework/http/session.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_icon != Otc::NpcIconNone && m_iconTexture",
+  "file": "src/client/creature.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 376,
+  "path": "DropTracker#DropTracker",
+  "widget": "DropTracker",
+  "base": "MiniWindow",
+  "id": "DropTracker",
+  "props": {
+    "id": "DropTracker",
+    "text": "Drop Tracker",
+    "height": "200",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

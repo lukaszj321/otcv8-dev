@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getMessageMode",
+  "return_type": "Otc::MessageMode",
+  "args": "nan",
+  "file": "src/client/statictext.h"
+}

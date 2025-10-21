@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DrawQueue::addColoredText",
+  "return_type": "void",
+  "args": "BitmapFontPtr font, const std::string& text, const Rect& screenCoords, Fw::AlignmentFlag align, const std::vector<std::pair<int, Color>>& colors, bool shadow",
+  "file": "src/framework/graphics/drawqueue.cpp"
+}

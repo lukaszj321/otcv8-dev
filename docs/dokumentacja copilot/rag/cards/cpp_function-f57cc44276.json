@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "micros",
+  "return_type": "ticks_t",
+  "args": "nan",
+  "file": "src/framework/core/clock.h"
+}

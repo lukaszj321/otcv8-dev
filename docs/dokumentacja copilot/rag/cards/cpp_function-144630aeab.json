@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawOutfit",
+  "return_type": "virtual void",
+  "args": "const Rect& destRect, Otc::Direction direction = Otc::InvalidDirection, const Color& color = Color::white, bool animate = false, bool ui = false, bool oldScaling = false",
+  "file": "src/client/creature.h"
+}

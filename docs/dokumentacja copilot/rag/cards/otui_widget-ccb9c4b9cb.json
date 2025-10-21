@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 39,
+  "path": "FlagWindow#flagWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "7"
+  }
+}

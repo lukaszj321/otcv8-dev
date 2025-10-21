@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 46,
+  "path": "MainWindow#hotkeysWindow/TextList#currentHotkeys",
+  "widget": "TextList",
+  "base": "",
+  "id": "currentHotkeys",
+  "props": {
+    "id": "currentHotkeys",
+    "vertical-scrollbar": "currentHotkeysScrollBar",
+    "anchors.left": "parent.left",
+    "anchors.right": "prev.left",
+    "anchors.top": "prev.top",
+    "anchors.bottom": "prev.bottom",
+    "focusable": "false"
+  }
+}

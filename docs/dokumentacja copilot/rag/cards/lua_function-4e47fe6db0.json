@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Creature:onEmblemChange",
+  "args": "emblemId",
+  "file": "modules/gamelib/creature.lua"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onWidgetHoverChange",
+  "args": "widget, hovered",
+  "file": "modules/corelib/ui/tooltip.lua"
+}

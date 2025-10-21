@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ShaderProgram::bindAttributeLocation",
+  "return_type": "void",
+  "args": "int location, const char* name",
+  "file": "src/framework/graphics/shaderprogram.cpp"
+}

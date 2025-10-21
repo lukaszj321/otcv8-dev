@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLayout",
+  "return_type": "UILayoutPtr",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

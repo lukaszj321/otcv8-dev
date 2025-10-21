@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 137,
+  "path": "EmptyImbue/Label#successRateTitle",
+  "widget": "Label",
+  "base": "",
+  "id": "successRateTitle",
+  "props": {
+    "id": "successRateTitle",
+    "anchors.top": "info.top",
+    "anchors.right": "successRate.left",
+    "margin-right": "15"
+  }
+}

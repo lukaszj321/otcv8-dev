@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glyphRect",
+  "return_type": "Rect",
+  "args": "glyphsPositions[pos], glyphsSize[glyph]",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

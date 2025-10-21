@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 14,
+  "path": "TradeWindow/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {
+    "padding": "2"
+  }
+}

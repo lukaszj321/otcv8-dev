@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getRef",
+  "return_type": "void",
+  "args": "int ref",
+  "file": "src/framework/luaengine/luainterface.h"
+}

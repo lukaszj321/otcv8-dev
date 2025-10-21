@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_game.chooseRsa",
+  "args": "host",
+  "file": "modules/gamelib/game.lua"
+}

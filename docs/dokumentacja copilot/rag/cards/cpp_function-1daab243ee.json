@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ToDocument",
+  "return_type": "virtual TiXmlDocument*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

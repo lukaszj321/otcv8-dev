@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "what == \"fill\"",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isWalkable",
+  "return_type": "bool",
+  "args": "bool ignoreCreatures = false",
+  "file": "src/client/tile.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~FrameBuffer",
+  "return_type": "public: virtual",
+  "args": "nan",
+  "file": "src/framework/graphics/framebuffer.h"
+}

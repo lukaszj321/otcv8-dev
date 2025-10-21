@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/offerhistory.otui",
+  "line": 55,
+  "path": "Panel/VerticalScrollBar#myHistoryTableScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "myHistoryTableScrollBar",
+  "props": {
+    "id": "myHistoryTableScrollBar",
+    "anchors.top": "myHistoryTable.top",
+    "anchors.bottom": "myHistoryTable.bottom",
+    "anchors.right": "myHistoryTable.right",
+    "step": "28",
+    "pixels-scroll": "true"
+  }
+}

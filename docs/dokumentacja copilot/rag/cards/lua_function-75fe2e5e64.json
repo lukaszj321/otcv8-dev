@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "comma_value",
+  "args": "amount",
+  "file": "modules/corelib/util.lua"
+}

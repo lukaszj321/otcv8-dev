@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 55,
+  "path": "ExtrasItem/BotItem#item",
+  "widget": "BotItem",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right"
+  }
+}

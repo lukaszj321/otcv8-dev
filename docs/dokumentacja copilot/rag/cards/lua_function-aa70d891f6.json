@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "selectSlot",
+  "args": "widget, slotId, activeSlot",
+  "file": "modules/game_imbuing/imbuing.lua"
+}

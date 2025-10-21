@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.haskey",
+  "args": "t, key",
+  "file": "modules/corelib/table.lua"
+}

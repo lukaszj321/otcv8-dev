@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onEnterGame",
+  "file": "modules/game_protocol/protocol.lua"
+}

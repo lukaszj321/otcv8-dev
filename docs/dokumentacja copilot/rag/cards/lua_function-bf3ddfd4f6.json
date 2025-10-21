@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "loadasmodule",
+  "args": "name, file",
+  "file": "modules/corelib/util.lua"
+}

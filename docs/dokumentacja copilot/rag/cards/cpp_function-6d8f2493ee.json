@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_newuserdata",
+  "return_type": "return",
+  "args": "L, size",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

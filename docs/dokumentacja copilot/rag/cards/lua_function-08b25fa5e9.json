@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "clearMessages",
+  "args": "",
+  "file": "modules/game_textmessage/textmessage.lua"
+}

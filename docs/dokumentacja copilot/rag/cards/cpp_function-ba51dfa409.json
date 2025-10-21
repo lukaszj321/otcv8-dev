@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindUniformLocation",
+  "return_type": "nan",
+  "args": "ATLAS_TEX0_UNIFORM, \"u_Atlas\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

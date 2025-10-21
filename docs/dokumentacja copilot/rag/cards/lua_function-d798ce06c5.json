@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTabMousePress",
+  "args": "tab, mousePos, mouseButton",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

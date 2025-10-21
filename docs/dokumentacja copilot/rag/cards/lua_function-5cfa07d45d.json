@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.equal",
+  "args": "t1,t2,ignore_mt",
+  "file": "modules/corelib/table.lua"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 496,
+  "path": "EquipWindow/Profile#profileName",
+  "widget": "Profile",
+  "base": "",
+  "id": "profileName",
+  "props": {
+    "id": "profileName",
+    "anchors.top": "parent.top",
+    "anchors.left": "prev.right",
+    "margin-left": "10"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendDlls",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/client/protocolgameparse.cpp"
+}

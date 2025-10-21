@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaL_checkunsigned",
+  "return_type": "static lua_Unsigned",
+  "args": "lua_State *L, int arg",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

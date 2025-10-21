@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "executeCommand",
+  "args": "command",
+  "file": "modules/client_terminal/terminal.lua"
+}

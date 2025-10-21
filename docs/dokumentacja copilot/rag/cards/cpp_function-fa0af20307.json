@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlNode::LinkEndChild",
+  "return_type": "TiXmlNode*",
+  "args": "TiXmlNode* node",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 31,
+  "path": "ModalButton",
+  "widget": "ModalButton",
+  "base": "Button",
+  "id": "",
+  "props": {
+    "text-auto-resize": "true",
+    "margin-top": "2",
+    "margin-bottom": "2",
+    "margin-left": "2",
+    "text-offset": "0 0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setTileDescription",
+  "return_type": "nan",
+  "args": "msg, tilePos",
+  "file": "src/client/protocolgameparse.cpp"
+}

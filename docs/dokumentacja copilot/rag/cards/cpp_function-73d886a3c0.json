@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPixel",
+  "return_type": "void",
+  "args": "int x, int y, const Color& color",
+  "file": "src/framework/graphics/image.h"
+}

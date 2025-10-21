@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIAnchorLayout::removeAnchors",
+  "return_type": "void",
+  "args": "const UIWidgetPtr& anchoredWidget",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

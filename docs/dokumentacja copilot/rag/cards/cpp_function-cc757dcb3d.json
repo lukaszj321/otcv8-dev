@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isValidDatId",
+  "return_type": "bool",
+  "args": "uint16 id, ThingCategory category",
+  "file": "src/client/thingtypemanager.h"
+}

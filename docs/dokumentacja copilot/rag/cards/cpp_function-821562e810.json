@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCameraPosition",
+  "return_type": "Position",
+  "args": "nan",
+  "file": "src/client/uimap.h"
+}

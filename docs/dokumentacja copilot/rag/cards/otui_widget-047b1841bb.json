@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/target.otui",
+  "line": 97,
+  "path": "TargetBotPanel/Panel#editor/Panel#buttons/Button#edit",
+  "widget": "Button",
+  "base": "",
+  "id": "edit",
+  "props": {
+    "id": "edit",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "text": "Edit",
+    "width": "56"
+  }
+}

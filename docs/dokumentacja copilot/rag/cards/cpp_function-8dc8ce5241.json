@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XPeekEvent",
+  "return_type": "nan",
+  "args": "m_display, &peekEvent",
+  "file": "src/framework/platform/x11window.cpp"
+}

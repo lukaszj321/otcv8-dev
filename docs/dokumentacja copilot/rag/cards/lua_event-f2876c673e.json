@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onContainerChangeSize",
+  "file": "modules/game_containers/containers.lua"
+}

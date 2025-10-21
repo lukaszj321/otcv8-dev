@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "removeTabLabelByName",
+  "args": "tab, name",
+  "file": "modules/game_console/console.lua"
+}

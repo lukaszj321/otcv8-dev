@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setColoredText",
+  "return_type": "void",
+  "args": "const std::vector<std::string>& texts",
+  "file": "src/framework/graphics/cachedtext.h"
+}

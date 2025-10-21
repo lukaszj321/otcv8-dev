@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/styles/countwindow.otui",
+  "line": 1,
+  "path": "CountWindow#countWindow",
+  "widget": "CountWindow",
+  "base": "MainWindow",
+  "id": "countWindow",
+  "props": {
+    "id": "countWindow",
+    "size": "196 90"
+  }
+}

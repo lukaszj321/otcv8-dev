@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onTradeWith",
+  "file": "modules/game_interface/gameinterface.lua"
+}

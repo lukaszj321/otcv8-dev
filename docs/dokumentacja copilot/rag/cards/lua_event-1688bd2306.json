@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMiniWindowClose",
+  "file": "modules/game_healthinfo/healthinfo.lua"
+}

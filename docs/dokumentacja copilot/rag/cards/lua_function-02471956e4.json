@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "pingBack",
+  "args": "ping",
+  "file": "modules/client_terminal/commands.lua"
+}

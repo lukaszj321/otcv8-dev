@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/container.otui",
+  "line": 4,
+  "path": "BotContainer/ScrollablePanel#items",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "items",
+  "props": {
+    "id": "items",
+    "anchors.fill": "parent",
+    "vertical-scrollbar": "scroll",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "34 34",
+    "flow": "true"
+  }
+}

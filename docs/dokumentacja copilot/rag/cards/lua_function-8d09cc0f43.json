@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onHover",
+  "args": "widget",
+  "file": "modules/game_prey/prey.lua"
+}

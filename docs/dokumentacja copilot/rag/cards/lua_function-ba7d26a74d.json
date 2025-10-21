@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "showMessage",
+  "args": "title, message",
+  "file": "modules/game_prey/prey.lua"
+}

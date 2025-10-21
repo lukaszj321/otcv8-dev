@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "color % HSI_H_STEPS != 0",
+  "file": "src/framework/util/color.cpp"
+}

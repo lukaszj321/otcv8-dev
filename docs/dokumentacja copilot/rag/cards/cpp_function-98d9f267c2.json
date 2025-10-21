@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendBuyItem",
+  "return_type": "void",
+  "args": "int itemId, int subType, int amount, bool ignoreCapacity, bool buyWithBackpack",
+  "file": "src/client/protocolgame.h"
+}

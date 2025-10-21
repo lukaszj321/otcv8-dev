@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 20,
+  "path": "SupplyItem/Panel#fields/Label#minLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "minLabel",
+  "props": {
+    "id": "minLabel",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "margin-right": "2",
+    "text-align": "center",
+    "text": "\"Min\""
+  }
+}

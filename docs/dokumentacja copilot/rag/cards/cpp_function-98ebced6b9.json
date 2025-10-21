@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "android_app->savedState != NULL",
+  "file": "src/android/android_native_app_glue.cpp"
+}

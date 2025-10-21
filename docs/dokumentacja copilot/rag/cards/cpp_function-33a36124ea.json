@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Platform::openDir",
+  "return_type": "bool",
+  "args": "std::string path, bool now",
+  "file": "src/framework/platform/androidplatform.cpp"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 23,
+  "path": "SpellInfoValueLabel",
+  "widget": "SpellInfoValueLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "text-align": "left",
+    "width": "190",
+    "margin-left": "10",
+    "margin-top": "5"
+  }
+}

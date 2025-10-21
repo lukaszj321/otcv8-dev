@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Container",
+  "return_type": "protected:",
+  "args": "int id, int capacity, const std::string& name, const ItemPtr& containerItem, bool hasParent, bool isUnlocked, bool hasPages, int containerSize, int firstIndex",
+  "file": "src/client/container.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAnchoredLayout",
+  "return_type": "UIAnchorLayoutPtr",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

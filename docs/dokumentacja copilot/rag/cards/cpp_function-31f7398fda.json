@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendUseItemWith",
+  "return_type": "void",
+  "args": "const Position& fromPos, int itemId, int fromStackPos, const Position& toPos, int toThingId, int toStackPos",
+  "file": "src/client/protocolgame.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeAnchors",
+  "return_type": "nan",
+  "args": "widget",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

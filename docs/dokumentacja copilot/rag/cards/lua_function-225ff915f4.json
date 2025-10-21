@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupScrollMenu.create",
+  "args": "",
+  "file": "modules/corelib/ui/uipopupscrollmenu.lua"
+}

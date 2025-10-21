@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Column",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

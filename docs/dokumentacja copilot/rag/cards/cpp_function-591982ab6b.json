@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageAutoResize",
+  "return_type": "void",
+  "args": "bool autoResize",
+  "file": "src/framework/ui/uiwidget.h"
+}

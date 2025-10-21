@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:getMinimumHeight",
+  "args": "",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

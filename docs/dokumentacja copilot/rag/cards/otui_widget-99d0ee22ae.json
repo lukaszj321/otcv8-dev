@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 172,
+  "path": "MainWindow#shopWindow/Panel#adPanel/Label#ad",
+  "widget": "Label",
+  "base": "",
+  "id": "ad",
+  "props": {
+    "id": "ad",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "text-auto-resize": "true",
+    "text-wrap": "true",
+    "text-align": "center",
+    "font": "sans-bold-16px"
+  }
+}

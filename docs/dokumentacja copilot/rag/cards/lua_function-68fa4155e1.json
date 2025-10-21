@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupMenu:addOption",
+  "args": "optionName, optionCallback, shortcut",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

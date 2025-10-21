@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 143,
+  "path": "UIWidget#gameRootPanel/Splitter#bottomSplitter",
+  "widget": "Splitter",
+  "base": "",
+  "id": "bottomSplitter",
+  "props": {
+    "id": "bottomSplitter",
+    "anchors.left": "gameLeftPanels.right",
+    "anchors.right": "gameRightPanels.left",
+    "anchors.bottom": "parent.bottom",
+    "height": "5",
+    "relative-margin": "bottom",
+    "margin-bottom": "150",
+    "visible": "false"
+  }
+}

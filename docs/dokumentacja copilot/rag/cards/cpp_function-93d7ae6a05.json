@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "push_luavalue",
+  "return_type": "int",
+  "args": "const Size& size",
+  "file": "src/framework/luaengine/luavaluecasts.cpp"
+}

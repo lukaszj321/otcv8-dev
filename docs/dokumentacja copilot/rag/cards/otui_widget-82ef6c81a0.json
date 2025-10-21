@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 177,
+  "path": "MainWindow#communicationWindow/Panel/Panel/Button#buttonSave",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonSave",
+  "props": {
+    "id": "buttonSave",
+    "width": "75",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left"
+  }
+}

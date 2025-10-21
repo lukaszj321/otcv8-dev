@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/market.otui",
+  "line": 28,
+  "path": "MarketWindow#marketWindow/Label#balanceLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "balanceLabel",
+  "props": {
+    "id": "balanceLabel",
+    "font": "verdana-11px-rounded",
+    "text-offset": "0 2",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/target.otui",
+  "line": 39,
+  "path": "TargetBotPanel/TargetBotDualLabel#config",
+  "widget": "TargetBotDualLabel",
+  "base": "",
+  "id": "config",
+  "props": {
+    "id": "config"
+  }
+}

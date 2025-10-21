@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onHoverChange",
+  "file": "modules/gamelib/ui/uiitem.lua"
+}

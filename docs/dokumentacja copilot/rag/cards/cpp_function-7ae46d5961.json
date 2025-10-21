@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::getTileRect",
+  "return_type": "Rect",
+  "args": "const Position& pos",
+  "file": "src/client/uiminimap.cpp"
+}

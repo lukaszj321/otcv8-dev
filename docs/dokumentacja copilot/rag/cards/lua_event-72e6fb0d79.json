@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onMessage",
+  "file": "modules/game_bot/functions/server.lua"
+}

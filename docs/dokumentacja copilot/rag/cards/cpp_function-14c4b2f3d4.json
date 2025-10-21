@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream::read",
+  "return_type": "int",
+  "args": "void* buffer, uint32 size, uint32 nmemb",
+  "file": "src/framework/core/filestream.cpp"
+}

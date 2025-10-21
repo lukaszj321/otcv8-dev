@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseMapMoveWest",
+  "return_type": "case Proto::GameServerMapLeftRow:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

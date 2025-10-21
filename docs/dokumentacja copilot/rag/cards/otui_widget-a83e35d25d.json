@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 237,
+  "path": "MainWindow#npcWindow/FlatPanel#buyOptions/CheckBox#ignoreEquipped",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "ignoreEquipped",
+  "props": {
+    "id": "ignoreEquipped",
+    "anchors.top": "searchText.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "margin-top": "3",
+    "visible": "false",
+    "checked": "true"
+  }
+}

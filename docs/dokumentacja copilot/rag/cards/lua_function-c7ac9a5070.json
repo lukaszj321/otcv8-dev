@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onAddonChange",
+  "args": "widget, checked",
+  "file": "modules/game_outfit/outfit.lua"
+}

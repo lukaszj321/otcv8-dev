@@ -1,0 +1,33 @@
+digraph NSTree {
+  node [shape=folder];
+  "global" -> "Otc";
+  "global" -> "Proto";
+  "global" -> "Proto";
+  "global" -> "Fw";
+  "global" -> "luabinder";
+  "global" -> "luabinder";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "std";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "stdext";
+  "global" -> "Fw";
+}

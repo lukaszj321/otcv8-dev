@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 165,
+  "path": "SpellHealing/TextEdit#manaCost",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "manaCost",
+  "props": {
+    "id": "manaCost",
+    "anchors.left": "spellFormula.left",
+    "anchors.top": "spellFormula.bottom",
+    "width": "40",
+    "font": "verdana-11px-rounded"
+  }
+}

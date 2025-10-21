@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "applyMessagePrefixies",
+  "args": "name, level, message",
+  "file": "modules/game_console/console.lua"
+}

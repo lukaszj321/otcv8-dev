@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::setColoredText",
+  "return_type": "void",
+  "args": "const std::vector<std::string>& texts, bool dontFireLuaCall",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

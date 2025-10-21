@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMoveableTabBar.create",
+  "args": "",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

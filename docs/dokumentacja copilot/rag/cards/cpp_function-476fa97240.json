@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseLoginToken",
+  "return_type": "case Proto::GameServerLoginToken:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

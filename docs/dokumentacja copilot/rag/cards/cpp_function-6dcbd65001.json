@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SetDoubleValue",
+  "return_type": "void",
+  "args": "double _value",
+  "file": "src/framework/xml/tinyxml.h"
+}

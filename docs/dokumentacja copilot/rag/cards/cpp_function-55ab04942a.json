@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "type",
+  "return_type": "const std::type_info&",
+  "args": "nan",
+  "file": "src/framework/stdext/packed_any.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onStatesChange",
+  "args": "localPlayer, now, old",
+  "file": "modules/game_healthinfo/healthinfo.lua"
+}

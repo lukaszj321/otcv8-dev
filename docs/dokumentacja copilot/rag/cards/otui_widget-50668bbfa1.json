@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 65,
+  "path": "ExtrasWindow",
+  "widget": "ExtrasWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "440 360",
+    "padding": "25"
+  }
+}

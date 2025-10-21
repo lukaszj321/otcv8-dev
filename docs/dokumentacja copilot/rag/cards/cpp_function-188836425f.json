@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XSendEvent",
+  "return_type": "nan",
+  "args": "m_display, req->requestor, 0, 0, &respond",
+  "file": "src/framework/platform/x11window.cpp"
+}

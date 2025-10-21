@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/icons.otui",
+  "line": 18,
+  "path": "BotIcon/UICreature#creature",
+  "widget": "UICreature",
+  "base": "",
+  "id": "creature",
+  "props": {
+    "id": "creature",
+    "anchors.top": "parent.top",
+    "margin-top": "0",
+    "size": "48 48",
+    "phantom": "true"
+  }
+}

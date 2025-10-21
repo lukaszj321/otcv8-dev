@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processRemoveAutomapFlag",
+  "return_type": "void",
+  "args": "const Position& pos, int icon, const std::string& message",
+  "file": "src/client/game.h"
+}

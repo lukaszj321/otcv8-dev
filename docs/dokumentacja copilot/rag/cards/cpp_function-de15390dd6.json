@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int32 i = 0; i < 32; i++",
+  "file": "src/framework/net/protocol.cpp"
+}

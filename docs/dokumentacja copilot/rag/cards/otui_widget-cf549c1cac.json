@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 1,
+  "path": "BattleIcon",
+  "widget": "BattleIcon",
+  "base": "UICheckBox",
+  "id": "",
+  "props": {
+    "size": "20 20",
+    "image-color": "#ffffff88",
+    "image-rect": "0 0 20 20",
+    "color": "#cccccc",
+    "image-clip": "0 60 20 20"
+  }
+}

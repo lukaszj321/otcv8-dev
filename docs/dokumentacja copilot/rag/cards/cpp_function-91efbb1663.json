@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getViewportSize",
+  "return_type": "const Size&",
+  "args": "nan",
+  "file": "src/framework/graphics/graphics.h"
+}

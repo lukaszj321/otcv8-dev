@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "editVip",
+  "return_type": "void",
+  "args": "int playerId, const std::string& description, int iconId, bool notifyLogin",
+  "file": "src/client/game.h"
+}

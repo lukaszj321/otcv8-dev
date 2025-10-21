@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui",
+  "line": 99,
+  "path": "TargetBotCreatureEditorWindow/VerticalScrollBar#contentScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "contentScroll",
+  "props": {
+    "id": "contentScroll",
+    "anchors.top": "name.bottom",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "help.top",
+    "step": "28",
+    "pixels-scroll": "true",
+    "margin-right": "-10",
+    "margin-top": "5",
+    "margin-bottom": "5"
+  }
+}

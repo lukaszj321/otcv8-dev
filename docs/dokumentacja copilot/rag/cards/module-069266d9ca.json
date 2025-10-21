@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_stats\n  description: Display ping and fps\n  author: otclient.ovh\n  website: http://otclient.ovh\n  sandboxed: true\n  scripts: [ stats ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_stats/stats.otmod",
+  "description": "Display ping and fps"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.otui",
+  "line": 40,
+  "path": "CaveBotPanel/BotSwitch#showEditor",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "showEditor",
+  "props": {
+    "id": "showEditor",
+    "margin-top": "2",
+    "text": "Show waypoints editor"
+  }
+}

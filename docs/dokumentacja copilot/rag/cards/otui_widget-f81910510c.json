@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/addvip.otui",
+  "line": 13,
+  "path": "MainWindow/TextEdit#name",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "4"
+  }
+}

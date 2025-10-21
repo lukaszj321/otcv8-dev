@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "last",
+  "return_type": "inline const T&",
+  "args": "nan",
+  "file": "src/framework/util/databuffer.h"
+}

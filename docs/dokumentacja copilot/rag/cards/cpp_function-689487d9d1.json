@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isWritable",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/client/itemtype.h"
+}

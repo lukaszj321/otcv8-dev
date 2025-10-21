@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "push_internal_luavalue",
+  "return_type": "template<typename T> int",
+  "args": "T v",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "return",
+  "return_type": "nan",
+  "args": "res == GL_TRUE",
+  "file": "src/framework/graphics/shader.cpp"
+}

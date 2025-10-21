@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~Item",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/client/item.h"
+}

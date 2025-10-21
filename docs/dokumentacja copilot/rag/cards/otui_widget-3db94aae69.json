@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 44,
+  "path": "SingleScrollItemPanel",
+  "widget": "SingleScrollItemPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "45",
+    "margin-top": "2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onWidgetKeyUp",
+  "args": "widget, keyCode, keyboardModifiers",
+  "file": "modules/corelib/keyboard.lua"
+}

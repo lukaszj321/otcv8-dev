@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 75,
+  "path": "TopSliders",
+  "widget": "TopSliders",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "34 17"
+  }
+}

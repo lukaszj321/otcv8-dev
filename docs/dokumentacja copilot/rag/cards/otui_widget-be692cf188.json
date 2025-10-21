@@ -1,0 +1,25 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.otui",
+  "line": 50,
+  "path": "DepositerPanel/ScrollablePanel#DepositerList",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "DepositerList",
+  "props": {
+    "id": "DepositerList",
+    "image-source": "/images/ui/panel_flat",
+    "image-border": "1",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "sep.top",
+    "margin-bottom": "10",
+    "padding": "2",
+    "padding-left": "4",
+    "vertical-scrollbar": "DepositerScrollBar",
+    "layout": "",
+    "type": "verticalBox"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 219,
+  "path": "InputPanel/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.left": "parent.left",
+    "text": "Condition Panel",
+    "font": "verdana-11px-rounded",
+    "color": "#FF0000"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "pixels[i] != 0x00 && pixels[i] != 0xFF",
+  "file": "src/client/spritemanager.cpp"
+}

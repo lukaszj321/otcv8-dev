@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 10,
+  "path": "CharacterWidget/end",
+  "widget": "end",
+  "base": "",
+  "id": "",
+  "props": {
+    "background-color": "#ffffff22"
+  }
+}

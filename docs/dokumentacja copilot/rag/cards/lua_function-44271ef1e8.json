@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onBaseSkillChange",
+  "args": "localPlayer, id, baseLevel",
+  "file": "modules/game_topbar/topbar.lua"
+}

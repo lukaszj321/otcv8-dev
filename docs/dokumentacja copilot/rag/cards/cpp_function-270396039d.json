@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alcCloseDevice",
+  "return_type": "nan",
+  "args": "m_device",
+  "file": "src/framework/sound/soundmanager.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/updater/updater.otui",
+  "line": 37,
+  "path": "StaticMainWindow#updaterWindow/Button#changeUrlButton",
+  "widget": "Button",
+  "base": "",
+  "id": "changeUrlButton",
+  "props": {
+    "id": "changeUrlButton",
+    "margin-left": "50",
+    "margin-right": "50",
+    "margin-top": "5",
+    "margin-bottom": "10",
+    "visible": "false"
+  }
+}

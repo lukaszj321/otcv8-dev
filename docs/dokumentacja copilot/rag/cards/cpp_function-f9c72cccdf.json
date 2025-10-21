@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::changeMapAwareRange",
+  "return_type": "void",
+  "args": "int xrange, int yrange",
+  "file": "src/client/game.cpp"
+}

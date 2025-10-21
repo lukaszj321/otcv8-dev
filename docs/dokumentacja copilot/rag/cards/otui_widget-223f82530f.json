@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 136,
+  "path": "AlarmsWindow/BotSwitch#privateMessage",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "privateMessage",
+  "props": {
+    "id": "privateMessage",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "anchors.right": "parent.right",
+    "text-align": "center",
+    "margin-top": "4",
+    "text": "Private Message"
+  }
+}

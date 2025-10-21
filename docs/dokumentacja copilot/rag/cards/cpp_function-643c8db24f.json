@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseHunting",
+  "return_type": "case Proto::GameServerHunting:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

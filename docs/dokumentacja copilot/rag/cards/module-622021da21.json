@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_skills\n  description: Manage skills window\n  author: baxnie, edubart\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ skills ]\n  @onLoad: init()\n  @onUnload: terminate()\n  dependencies:\n    - game_interface",
+  "file": "modules/game_skills/skills.otmod",
+  "description": "Manage skills window"
+}

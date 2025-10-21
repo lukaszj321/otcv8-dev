@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "containsPoint",
+  "return_type": "bool",
+  "args": "const Point& point",
+  "file": "src/framework/ui/uiwidget.h"
+}

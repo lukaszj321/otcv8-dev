@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setWidth",
+  "return_type": "void",
+  "args": "uint16 w",
+  "file": "src/client/map.h"
+}

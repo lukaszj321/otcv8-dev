@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pushBoolean",
+  "return_type": "nan",
+  "args": "done",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

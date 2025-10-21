@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "save_png",
+  "return_type": "void",
+  "args": "std::stringstream& f, unsigned int width, unsigned int height, int channels, unsigned char *pixels",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

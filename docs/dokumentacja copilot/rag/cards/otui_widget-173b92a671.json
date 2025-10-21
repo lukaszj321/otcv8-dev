@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.otui",
+  "line": 66,
+  "path": "DepositerPanel/VerticalScrollBar#DepositerScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "DepositerScrollBar",
+  "props": {
+    "id": "DepositerScrollBar",
+    "anchors.top": "DepositerList.top",
+    "anchors.bottom": "DepositerList.bottom",
+    "anchors.right": "DepositerList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

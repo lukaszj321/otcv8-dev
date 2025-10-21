@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 45,
+  "path": "MainWindow#assignItemWindow/Panel#checks/RoundCheckBox#useCross",
+  "widget": "RoundCheckBox",
+  "base": "",
+  "id": "useCross",
+  "props": {
+    "id": "useCross",
+    "text": "With crosshair",
+    "enabled": "false"
+  }
+}

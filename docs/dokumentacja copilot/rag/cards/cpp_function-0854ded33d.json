@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_typename",
+  "return_type": "return",
+  "args": "L, type",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

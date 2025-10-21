@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isDrawingDebugBoxes",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/framework/ui/uimanager.h"
+}

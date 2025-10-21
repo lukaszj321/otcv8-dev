@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "RSA_get0_key",
+  "return_type": "nan",
+  "args": "m_rsa, nullptr, nullptr, &d",
+  "file": "src/framework/util/crypt.cpp"
+}

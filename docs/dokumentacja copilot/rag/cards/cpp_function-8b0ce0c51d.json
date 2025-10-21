@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pushObject",
+  "return_type": "void",
+  "args": "const LuaObjectPtr& obj",
+  "file": "src/framework/luaengine/luainterface.h"
+}

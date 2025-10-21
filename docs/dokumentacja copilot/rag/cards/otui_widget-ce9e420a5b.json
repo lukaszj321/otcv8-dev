@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 20,
+  "path": "RequiredItem/FlatLabel#count",
+  "widget": "FlatLabel",
+  "base": "",
+  "id": "count",
+  "props": {
+    "id": "count",
+    "margin-top": "5",
+    "text-align": "center",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "anchors.top": "prev.bottom"
+  }
+}

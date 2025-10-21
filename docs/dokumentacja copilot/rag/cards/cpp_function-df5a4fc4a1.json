@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::setShield",
+  "return_type": "void",
+  "args": "uint8 shield",
+  "file": "src/client/creature.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "executeAutoReconnect",
+  "args": "",
+  "file": "modules/client_entergame/characterlist.lua"
+}

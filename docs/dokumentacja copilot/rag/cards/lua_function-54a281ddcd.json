@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getDistanceBetween",
+  "args": "p1, p2",
+  "file": "modules/game_battle/battle.lua"
+}

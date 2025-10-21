@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_interface/gameinterface.otui",
+  "line": 157,
+  "path": "UIWidget#gameRootPanel/Panel#gameBottomActionPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "gameBottomActionPanel",
+  "props": {
+    "id": "gameBottomActionPanel",
+    "phantom": "true",
+    "focusable": "false",
+    "anchors.left": "gameLeftPanels.right",
+    "anchors.right": "gameRightPanels.left",
+    "anchors.top": "bottomSplitter.top",
+    "margin-top": "3",
+    "anchors.bottom": "gameBottomPanel.top",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

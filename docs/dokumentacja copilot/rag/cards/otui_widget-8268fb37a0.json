@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 55,
+  "path": "MainWindow#communicationWindow/TextEdit#ignoreNameEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "ignoreNameEdit",
+  "props": {
+    "id": "ignoreNameEdit",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "width": "110",
+    "margin-top": "5"
+  }
+}

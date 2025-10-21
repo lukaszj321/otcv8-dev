@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPitch",
+  "return_type": "virtual void",
+  "args": "float pitch",
+  "file": "src/framework/sound/soundsource.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "offset",
+  "return_type": "Point",
+  "args": "0, 0",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

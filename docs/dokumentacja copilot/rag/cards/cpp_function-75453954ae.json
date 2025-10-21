@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getExactSize",
+  "return_type": "virtual int",
+  "args": "int layer, int xPattern, int yPattern, int zPattern, int animationPhase",
+  "file": "src/client/thing.h"
+}

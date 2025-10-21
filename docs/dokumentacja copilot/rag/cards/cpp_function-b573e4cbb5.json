@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addVertex",
+  "return_type": "nan",
+  "args": "right, bottom",
+  "file": "src/framework/graphics/vertexarray.h"
+}

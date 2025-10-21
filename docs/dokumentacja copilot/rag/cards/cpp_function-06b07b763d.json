@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "find",
+  "return_type": "size_type",
+  "args": "char lookup",
+  "file": "src/framework/xml/tinystr.h"
+}

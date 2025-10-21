@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/editor.otui",
+  "line": 35,
+  "path": "CaveBotEditorPanel#cavebotEditor/BotSwitch#autoRecording",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "autoRecording",
+  "props": {
+    "id": "autoRecording",
+    "text": "Auto Recording",
+    "margin-top": "3"
+  }
+}

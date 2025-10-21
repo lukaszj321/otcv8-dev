@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "popInteger",
+  "return_type": "long",
+  "args": "nan",
+  "file": "src/framework/luaengine/luainterface.h"
+}

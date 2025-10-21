@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "hasFrameBuffer",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/framework/graphics/drawqueue.h"
+}

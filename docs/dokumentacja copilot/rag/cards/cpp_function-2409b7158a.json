@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Proxy::send",
+  "return_type": "void",
+  "args": "const ProxyPacketPtr& packet",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

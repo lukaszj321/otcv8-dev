@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 286,
+  "path": "BotServer#server/BotSwitch#botServerToggle",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "botServerToggle",
+  "props": {
+    "id": "botServerToggle",
+    "anchors.left": "prev.right",
+    "anchors.top": "botServerLeader.bottom",
+    "anchors.right": "parent.right",
+    "height": "30",
+    "margin-left": "3",
+    "margin-right": "3",
+    "margin-top": "5",
+    "text": "Server Enabled"
+  }
+}

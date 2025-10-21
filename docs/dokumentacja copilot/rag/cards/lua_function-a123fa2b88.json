@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "print",
+  "args": "\"CaveBot[Depositor]: no items to stash, proceeding\"",
+  "file": "modules/game_bot/default_configs/vBot_4.7/cavebot/depositor.lua"
+}

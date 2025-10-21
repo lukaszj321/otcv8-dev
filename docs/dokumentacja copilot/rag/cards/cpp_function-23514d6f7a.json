@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "copy",
+  "return_type": "void",
+  "args": "const OTMLNodePtr& node",
+  "file": "src/framework/otml/otmlnode.h"
+}

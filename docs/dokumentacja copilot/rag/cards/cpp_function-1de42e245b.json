@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendLoginPacket",
+  "return_type": "nan",
+  "args": "timestamp, random",
+  "file": "src/client/protocolgameparse.cpp"
+}

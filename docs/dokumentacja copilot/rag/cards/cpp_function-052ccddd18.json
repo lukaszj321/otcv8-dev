@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rawGeti",
+  "return_type": "nan",
+  "args": "weakRef",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

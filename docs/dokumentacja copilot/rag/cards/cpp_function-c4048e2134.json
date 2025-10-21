@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "m_cachedFirstVisibleFloor >= 0 && m_cachedLastVisibleFloor >= 0 && m_cachedFirstVisibleFloor <= Otc::MAX_Z && m_cachedLastVisibleFloor <= Otc::MAX_Z",
+  "file": "src/client/mapview.cpp"
+}

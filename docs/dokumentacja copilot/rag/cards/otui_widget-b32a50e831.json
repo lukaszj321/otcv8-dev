@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 164,
+  "path": "MainWindow#spelllistWindow/SpellInfoValueLabel#labelGroupValue",
+  "widget": "SpellInfoValueLabel",
+  "base": "",
+  "id": "labelGroupValue",
+  "props": {
+    "id": "labelGroupValue",
+    "anchors.left": "labelGroup.right",
+    "anchors.top": "labelVocationValue.bottom"
+  }
+}

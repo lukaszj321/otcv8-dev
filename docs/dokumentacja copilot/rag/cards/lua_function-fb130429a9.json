@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "toggleAdventurerStyle",
+  "args": "hasBlessing",
+  "file": "modules/game_inventory/inventory.lua"
+}

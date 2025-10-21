@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Painter::drawCoords",
+  "return_type": "void",
+  "args": "CoordsBuffer& coordsBuffer, DrawMode drawMode, ColorArray* colorArray, const std::vector<std::pair<int, Color>>* colors",
+  "file": "src/framework/graphics/painter.cpp"
+}

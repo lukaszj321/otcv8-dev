@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "openPrivateChannel",
+  "return_type": "void",
+  "args": "const std::string& receiver",
+  "file": "src/client/game.h"
+}

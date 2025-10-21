@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onInventoryChange",
+  "args": "player, slot, item, oldItem",
+  "file": "modules/game_inventory/inventory.lua"
+}

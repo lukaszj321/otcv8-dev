@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 94,
+  "path": "MainWindow#assignSpellWindow/Label#paramLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "paramLabel",
+  "props": {
+    "id": "paramLabel",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "anchors.left": "parent.left",
+    "text": "Parameter:",
+    "height": "20",
+    "text-horizontal-auto-resize": "true",
+    "text-offset": "0 3",
+    "on": "false",
+    "color": "#c0c0c0"
+  }
+}

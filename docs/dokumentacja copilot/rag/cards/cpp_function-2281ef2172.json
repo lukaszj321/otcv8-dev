@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "moveBottom",
+  "return_type": "void",
+  "args": "T pos",
+  "file": "src/framework/util/rect.h"
+}

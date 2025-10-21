@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "smartWalk",
+  "args": "dir, ticks",
+  "file": "modules/game_walking/walking.lua"
+}

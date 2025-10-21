@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLastWalkDir",
+  "return_type": "Otc::Direction",
+  "args": "nan",
+  "file": "src/client/game.h"
+}

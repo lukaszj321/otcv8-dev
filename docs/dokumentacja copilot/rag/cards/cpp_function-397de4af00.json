@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseFloorDescription",
+  "return_type": "case Proto::GameServerFloorDescription:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

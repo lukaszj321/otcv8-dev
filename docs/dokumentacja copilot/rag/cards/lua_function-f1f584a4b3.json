@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "dirtostring",
+  "args": "dir",
+  "file": "modules/gamelib/util.lua"
+}

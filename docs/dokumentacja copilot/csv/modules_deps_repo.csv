@@ -1,0 +1,1896 @@
+from_module,to_module,type
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_background,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_entergame,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_feedback,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_locales,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_mobile,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_options,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_stats,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_styles,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_terminal,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_textedit,load-later
+"client
+  description: Initialize the client and setups its main window
+  author: edubart
+  website: https://github.com/edubart/otclient
+  reloadable: false
+  sandboxed: true
+  scripts: [ client ]
+  @onLoad: init()
+  @onUnload: terminate()
+
+  load-later:
+    - client_styles
+    - client_locales
+    - client_topmenu
+    - client_background
+    - client_textedit
+    - client_options
+    - client_entergame
+    - client_terminal
+    - client_stats
+    - client_feedback
+    - client_mobile",client_topmenu,load-later
+"client_entergame
+  description: Manages enter game and character list windows
+  author: edubart & otclient.ovh
+  website: https://github.com/edubart/otclient
+  scripts: [ entergame, characterlist ]
+  @onLoad: EnterGame.init() CharacterList.init()
+  @onUnload: EnterGame.terminate() CharacterList.terminate()
+  
+  load-later:
+    - game_things
+    - game_features",game_features,load-later
+"client_entergame
+  description: Manages enter game and character list windows
+  author: edubart & otclient.ovh
+  website: https://github.com/edubart/otclient
+  scripts: [ entergame, characterlist ]
+  @onLoad: EnterGame.init() CharacterList.init()
+  @onUnload: EnterGame.terminate() CharacterList.terminate()
+  
+  load-later:
+    - game_things
+    - game_features",game_things,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",client_profiles,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",client_textedit,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_actionbar,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_battle,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_bot,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_bugreport,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_buttons,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_console,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_containers,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_cooldown,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_healthinfo,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_hotkeys,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_imbuing,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_inventory,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_itemselector,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_market,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_minimap,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_modaldialog,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_npctrade,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_outfit,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_playerdeath,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_playermount,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_playertrade,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_prey,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_questlog,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_ruleviolation,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_shaders,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_shop,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_skills,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_spelllist,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_stats,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_textmessage,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_textwindow,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_unjustifiedpoints,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_viplist,load-later
+"game_interface
+  description: Create the game interface, where the ingame stuff starts
+  author: OTClient team
+  website: https://github.com/edubart/otclient
+  sandboxed: true
+  scripts: [ widgets/uigamemap, gameinterface ]
+  load-later:
+    - game_buttons
+    - game_hotkeys
+    - game_questlog
+    - game_textmessage
+    - game_console
+    - game_outfit
+    - game_healthinfo
+    - game_skills
+    - game_inventory
+    - game_containers
+    - game_viplist
+    - game_battle
+    - game_minimap
+    - game_npctrade
+    - game_textwindow
+    - game_playertrade
+    - game_bugreport
+    - game_playerdeath
+    - game_playermount
+    - game_ruleviolation
+    - game_market
+    - game_spelllist
+    - game_cooldown
+    - game_modaldialog
+    - game_unjustifiedpoints
+    - game_walking
+    - game_shop
+    - game_itemselector
+    - client_textedit
+    - client_profiles
+    - game_actionbar
+    - game_prey
+    - game_imbuing
+    - game_stats
+    - game_shaders
+    - game_bot
+  @onLoad: init()
+  @onUnload: terminate()",game_walking,load-later
+"updater
+  description: Updates client
+  author: otclient@otclient.ovh
+  website: otclient.ovh
+  reloadable: false
+  scripts: [ updater ]
+  dependencies: [ client_locales, client_styles, client_textedit ]
+  @onUnload: Updater.terminate()
+  
+  load-later:
+    - client_background",client_background,load-later

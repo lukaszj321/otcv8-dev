@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onGeometryChange",
+  "return_type": "virtual void",
+  "args": "const Rect& oldRect, const Rect& newRect",
+  "file": "src/client/uimap.h"
+}

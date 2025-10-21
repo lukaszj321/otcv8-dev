@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 467,
+  "path": "GoldLabel/UIWidget#gold",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "gold",
+  "props": {
+    "id": "gold",
+    "anchors.right": "parent.right",
+    "image-source": "/images/game/prey/prey_gold",
+    "tooltip": "Gold Coins"
+  }
+}

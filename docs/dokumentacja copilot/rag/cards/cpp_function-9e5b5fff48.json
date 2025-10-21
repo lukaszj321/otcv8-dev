@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIManager::loadUI",
+  "return_type": "UIWidgetPtr",
+  "args": "std::string file, const UIWidgetPtr& parent",
+  "file": "src/framework/ui/uimanager.cpp"
+}

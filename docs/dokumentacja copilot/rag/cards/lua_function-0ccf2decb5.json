@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addLeftGameToggleButton",
+  "args": "id, description, icon, callback, front, index",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ref_count",
+  "return_type": "return",
+  "args": "nan",
+  "file": "src/framework/luaengine/luaobject.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "refreshSortList",
+  "args": "k, t",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "tilePos",
+  "return_type": "Position",
+  "args": "x + nx + offset, y + ny + offset, z",
+  "file": "src/client/protocolgameparse.cpp"
+}

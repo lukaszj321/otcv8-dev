@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "predictiveCancelWalk",
+  "return_type": "bool",
+  "args": "const Position& pos, uint32_t predictionId, Otc::Direction dir",
+  "file": "src/client/localplayer.h"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 63,
+  "path": "tPanel",
+  "widget": "tPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "margin": "3",
+    "padding": "3"
+  }
+}

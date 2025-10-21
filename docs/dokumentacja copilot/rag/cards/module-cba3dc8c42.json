@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_feedback\n  description: Allow to send feedback\n  author: otclientv8\n  website: otclient.ovh\n  sandboxed: true\n  dependencies: [ game_interface ]\n  scripts: [ feedback ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_feedback/feedback.otmod",
+  "description": "Allow to send feedback"
+}

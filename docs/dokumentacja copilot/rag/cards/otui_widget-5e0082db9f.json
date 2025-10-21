@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_locales/locales.otui",
+  "line": 4,
+  "path": "LocalesButton",
+  "widget": "LocalesButton",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "size": "96 96",
+    "image-size": "96 96",
+    "image-smooth": "true",
+    "text-offset": "0 96",
+    "font": "verdana-11px-antialised"
+  }
+}

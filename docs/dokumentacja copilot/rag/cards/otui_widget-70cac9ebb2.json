@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 393,
+  "path": "FriendHealer/CustomList#customList",
+  "widget": "CustomList",
+  "base": "",
+  "id": "customList",
+  "props": {
+    "id": "customList",
+    "anchors.top": "priority.bottom",
+    "margin-top": "10",
+    "anchors.left": "priority.left"
+  }
+}

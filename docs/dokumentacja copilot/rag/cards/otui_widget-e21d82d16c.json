@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 92,
+  "path": "AlarmsWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "settingsList.left",
+    "margin-left": "5",
+    "width": "200",
+    "text": "Alarms Settings",
+    "font": "verdana-11px-rounded",
+    "color": "#9f5031"
+  }
+}

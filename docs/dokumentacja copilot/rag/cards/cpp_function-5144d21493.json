@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OutputMessage::checkWrite",
+  "return_type": "void",
+  "args": "int bytes",
+  "file": "src/framework/net/outputmessage.cpp"
+}

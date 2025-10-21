@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendOutfitExtensionStatus",
+  "return_type": "void",
+  "args": "int mount, int wings, int aura, int shader, int healthBar, int manaBar",
+  "file": "src/client/protocolgamesend.cpp"
+}

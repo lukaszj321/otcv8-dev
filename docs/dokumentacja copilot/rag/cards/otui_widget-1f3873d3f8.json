@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_feedback/feedback.otui",
+  "line": 1,
+  "path": "MainWindow#feedbackWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "feedbackWindow",
+  "props": {
+    "id": "feedbackWindow",
+    "size": "400 280"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "correctOutfit",
+  "return_type": "void",
+  "args": "const Rect& dest, int fromPos, bool oldScaling",
+  "file": "src/framework/graphics/drawqueue.h"
+}

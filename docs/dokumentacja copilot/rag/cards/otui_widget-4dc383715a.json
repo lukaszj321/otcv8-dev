@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 89,
+  "path": "AlarmsWindow/BotSwitch#healthBelow",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "healthBelow",
+  "props": {
+    "id": "healthBelow",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "anchors.right": "parent.horizontalCenter",
+    "text-align": "center",
+    "margin-top": "4",
+    "text": "Health < 50%"
+  }
+}

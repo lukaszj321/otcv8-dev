@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSpells",
+  "return_type": "void",
+  "args": "const std::vector<int>& spells",
+  "file": "src/client/localplayer.h"
+}

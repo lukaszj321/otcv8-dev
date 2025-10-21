@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 30,
+  "path": "UIWindow#terminalWindow/Label#titleBar",
+  "widget": "Label",
+  "base": "",
+  "id": "titleBar",
+  "props": {
+    "id": "titleBar",
+    "border": "1 black",
+    "color": "white",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "background-color": "#ffffff11",
+    "text-align": "left",
+    "text-offset": "4 0",
+    "height": "18",
+    "visible": "false"
+  }
+}

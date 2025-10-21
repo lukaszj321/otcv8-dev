@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ExceptionHandler",
+  "return_type": "LONG CALLBACK",
+  "args": "PEXCEPTION_POINTERS e",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

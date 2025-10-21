@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DefWindowProc",
+  "return_type": "return",
+  "args": "hWnd, uMsg, wParam, lParam",
+  "file": "src/framework/platform/win32window.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/container.otui",
+  "line": 13,
+  "path": "BotContainer/BotSmallScrollBar#scroll",
+  "widget": "BotSmallScrollBar",
+  "base": "",
+  "id": "scroll",
+  "props": {
+    "id": "scroll",
+    "anchors.top": "prev.top",
+    "anchors.bottom": "prev.bottom",
+    "anchors.right": "parent.right",
+    "step": "10",
+    "pixels-scroll": "true"
+  }
+}

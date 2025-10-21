@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIGraph::onStyleApply",
+  "return_type": "void",
+  "args": "const std::string& styleName, const OTMLNodePtr& styleNode",
+  "file": "src/client/uigraph.cpp"
+}

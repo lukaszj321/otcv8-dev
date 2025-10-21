@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getSkullImagePath",
+  "args": "skullId",
+  "file": "modules/gamelib/creature.lua"
+}

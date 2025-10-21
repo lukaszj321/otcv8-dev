@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "PlatformWindow::processKeyUp",
+  "return_type": "void",
+  "args": "Fw::Key keyCode",
+  "file": "src/framework/platform/platformwindow.cpp"
+}

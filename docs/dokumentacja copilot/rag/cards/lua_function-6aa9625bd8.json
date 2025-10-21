@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:onHoverChange",
+  "args": "hovered",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

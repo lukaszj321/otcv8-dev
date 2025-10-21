@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 32,
+  "path": "MainWindow#assignSpellWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "assignSpellWindow",
+  "props": {
+    "id": "assignSpellWindow",
+    "size": "275 310"
+  }
+}

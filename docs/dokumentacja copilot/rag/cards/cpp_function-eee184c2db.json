@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCoords",
+  "return_type": "void",
+  "args": "int left, int top, int right, int bottom",
+  "file": "src/framework/util/rect.h"
+}

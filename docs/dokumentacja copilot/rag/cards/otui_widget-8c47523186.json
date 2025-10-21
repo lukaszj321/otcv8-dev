@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 25,
+  "path": "EnterGameWindow#enterGame/PasswordTextEdit#accountPasswordTextEdit",
+  "widget": "PasswordTextEdit",
+  "base": "",
+  "id": "accountPasswordTextEdit",
+  "props": {
+    "id": "accountPasswordTextEdit",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2"
+  }
+}

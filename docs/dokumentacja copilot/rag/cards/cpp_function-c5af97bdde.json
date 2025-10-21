@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sha1Encode",
+  "return_type": "std::string",
+  "args": "const std::string& decoded_string, bool upperCase",
+  "file": "src/framework/util/crypt.h"
+}

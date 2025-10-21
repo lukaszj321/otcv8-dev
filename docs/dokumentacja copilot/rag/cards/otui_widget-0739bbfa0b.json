@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 66,
+  "path": "SupplyItemList/BotSmallScrollBar#scroll",
+  "widget": "BotSmallScrollBar",
+  "base": "",
+  "id": "scroll",
+  "props": {
+    "id": "scroll",
+    "anchors.top": "prev.top",
+    "anchors.bottom": "prev.bottom",
+    "anchors.right": "parent.right",
+    "step": "10",
+    "pixels-scroll": "true"
+  }
+}

@@ -1,0 +1,180 @@
+file,class,bases
+src/client/animatedtext.h,AnimatedText,public Thing
+src/client/animator.h,Animator,public stdext::shared_object
+src/client/client.h,Client,
+src/client/container.h,Container,public LuaObject
+src/client/creature.h,Creature,public Thing
+src/client/creature.h,Npc,public Creature
+src/client/creature.h,Monster,public Creature
+src/client/creatures.h,Spawn,public LuaObject
+src/client/creatures.h,CreatureType,public LuaObject
+src/client/creatures.h,CreatureManager,
+src/client/effect.h,Effect,public Thing
+src/client/game.h,Game,
+src/client/healthbars.h,HealthBar,public stdext::shared_object
+src/client/healthbars.h,HealthBars,
+src/client/houses.h,House,public LuaObject
+src/client/houses.h,HouseManager,
+src/client/item.h,Item,public Thing
+src/client/itemtype.h,ItemType,public LuaObject
+src/client/lightview.h,LightView,public DrawQueueItem
+src/client/localplayer.h,LocalPlayer,public Player
+src/client/map.h,TileBlock,
+src/client/map.h,Map,
+src/client/mapview.h,MapView,public LuaObject
+src/client/minimap.h,MinimapBlock,
+src/client/minimap.h,Minimap,
+src/client/missile.h,Missile,public Thing
+src/client/outfit.h,Outfit,
+src/client/player.h,Player,public Creature
+src/client/position.h,Position,
+src/client/protocolgame.h,ProtocolGame,public Protocol
+src/client/spritemanager.h,SpriteManager,
+src/client/statictext.h,StaticText,public Thing
+src/client/thing.h,Thing,public LuaObject
+src/client/thingstype.h,ThingsType,
+src/client/thingtype.h,ThingType,public LuaObject
+src/client/thingtypemanager.h,ThingTypeManager,
+src/client/tile.h,Tile,public LuaObject
+src/client/towns.h,Town,public LuaObject
+src/client/towns.h,TownManager,
+src/client/uicreature.h,UICreature,public UIWidget
+src/client/uigraph.h,UIGraph,public UIWidget
+src/client/uiitem.h,UIItem,public UIWidget
+src/client/uimap.h,UIMap,public UIWidget
+src/client/uimapanchorlayout.h,UIPositionAnchor,public UIAnchor
+src/client/uimapanchorlayout.h,UIMapAnchorLayout,public UIAnchorLayout
+src/client/uiminimap.h,UIMinimap,public UIWidget
+src/client/uiprogressrect.h,UIProgressRect,public UIWidget
+src/client/uisprite.h,UISprite,public UIWidget
+src/client/walkmatrix.h,WalkMatrix,
+src/framework/core/adaptiverenderer.h,AdaptiveRenderer,
+src/framework/core/application.h,Application,
+src/framework/core/asyncdispatcher.h,AsyncDispatcher,
+src/framework/core/binarytree.h,BinaryTree,public stdext::shared_object
+src/framework/core/binarytree.h,OutputBinaryTree,public stdext::shared_object
+src/framework/core/clock.h,Clock,
+src/framework/core/config.h,Config,public LuaObject
+src/framework/core/configmanager.h,ConfigManager,
+src/framework/core/consoleapplication.h,ConsoleApplication,public Application
+src/framework/core/event.h,Event,public LuaObject
+src/framework/core/eventdispatcher.h,EventDispatcher,
+src/framework/core/filestream.h,FileStream,public LuaObject
+src/framework/core/graphicalapplication.h,GraphicalApplication,public Application
+src/framework/core/logger.h,Logger,
+src/framework/core/module.h,Module,public LuaObject
+src/framework/core/modulemanager.h,ModuleManager,
+src/framework/core/resourcemanager.h,ResourceManager,
+src/framework/core/scheduledevent.h,ScheduledEvent,public Event
+src/framework/core/timer.h,Timer,
+src/framework/graphics/animatedtexture.h,AnimatedTexture,public Texture
+src/framework/graphics/atlas.h,Atlas,
+src/framework/graphics/bitmapfont.h,BitmapFont,public stdext::shared_object
+src/framework/graphics/cachedtext.h,CachedText,
+src/framework/graphics/colorarray.h,ColorArray,
+src/framework/graphics/coordsbuffer.h,CoordsBuffer,
+src/framework/graphics/deptharray.h,DepthArray,
+src/framework/graphics/drawcache.h,DrawCache,
+src/framework/graphics/drawqueue.h,DrawQueue,
+src/framework/graphics/fontmanager.h,FontManager,
+src/framework/graphics/framebuffer.h,FrameBuffer,public stdext::shared_object
+src/framework/graphics/framebuffermanager.h,FrameBufferManager,
+src/framework/graphics/graph.h,Graph,
+src/framework/graphics/graphics.h,Graphics,
+src/framework/graphics/hardwarebuffer.h,HardwareBuffer,
+src/framework/graphics/image.h,Image,public stdext::shared_object
+src/framework/graphics/painter.h,Painter,
+src/framework/graphics/paintershaderprogram.h,PainterShaderProgram,public ShaderProgram
+src/framework/graphics/shader.h,Shader,public stdext::shared_object
+src/framework/graphics/shadermanager.h,ShaderManager,
+src/framework/graphics/shaderprogram.h,ShaderProgram,public LuaObject
+src/framework/graphics/textrender.h,TextRender,
+src/framework/graphics/texture.h,Texture,public stdext::shared_object
+src/framework/graphics/texturemanager.h,TextureManager,
+src/framework/graphics/vertexarray.h,VertexArray,
+src/framework/http/http.h,Http,
+src/framework/http/session.h,HttpSession,public std::enable_shared_from_this<HttpSession>
+src/framework/http/websocket.h,WebsocketSession,public std::enable_shared_from_this<WebsocketSession>
+src/framework/input/mouse.h,Mouse,
+src/framework/luaengine/luaexception.h,LuaException,public stdext::exception
+src/framework/luaengine/luaexception.h,LuaBadNumberOfArgumentsException,public LuaException
+src/framework/luaengine/luaexception.h,LuaBadValueCastException,public LuaException
+src/framework/luaengine/luainterface.h,LuaInterface,
+src/framework/luaengine/luaobject.h,LuaObject,public stdext::shared_object
+src/framework/net/connection.h,Connection,public LuaObject
+src/framework/net/inputmessage.h,InputMessage,public LuaObject
+src/framework/net/outputmessage.h,OutputMessage,public LuaObject
+src/framework/net/packet_player.h,PacketPlayer,public LuaObject
+src/framework/net/packet_recorder.h,PacketRecorder,public LuaObject
+src/framework/net/protocol.h,Protocol,public LuaObject
+src/framework/net/server.h,Server,public LuaObject
+src/framework/otml/otmldocument.h,OTMLDocument,public OTMLNode
+src/framework/otml/otmlemitter.h,OTMLEmitter,
+src/framework/otml/otmlexception.h,OTMLException,public stdext::exception
+src/framework/otml/otmlnode.h,OTMLNode,public stdext::shared_object
+src/framework/otml/otmlparser.h,OTMLParser,
+src/framework/platform/androidwindow.h,AndroidWindow,public PlatformWindow
+src/framework/platform/platform.h,Platform,
+src/framework/platform/platformwindow.h,PlatformWindow,
+src/framework/platform/sdlwindow.h,SDLWindow,public PlatformWindow
+src/framework/platform/win32window.h,WIN32Window,public PlatformWindow
+src/framework/platform/x11window.h,X11Window,public PlatformWindow
+src/framework/proxy/proxy.h,ProxyManager,
+src/framework/proxy/proxy_client.h,Proxy,public std::enable_shared_from_this<Proxy>
+src/framework/proxy/proxy_client.h,Session,public std::enable_shared_from_this<Session>
+src/framework/sound/combinedsoundsource.h,CombinedSoundSource,public SoundSource
+src/framework/sound/oggsoundfile.h,OggSoundFile,public SoundFile
+src/framework/sound/soundbuffer.h,SoundBuffer,public stdext::shared_object
+src/framework/sound/soundchannel.h,SoundChannel,public LuaObject
+src/framework/sound/soundfile.h,SoundFile,public stdext::shared_object
+src/framework/sound/soundmanager.h,SoundManager,
+src/framework/sound/soundsource.h,SoundSource,public LuaObject
+src/framework/sound/streamsoundsource.h,StreamSoundSource,public SoundSource
+src/framework/stdext/any.h,any,
+src/framework/stdext/cast.h,cast_exception,public exception
+src/framework/stdext/dynamic_storage.h,dynamic_storage,
+src/framework/stdext/exception.h,exception,public std::exception
+src/framework/stdext/packed_any.h,packed_any,
+src/framework/stdext/packed_storage.h,packed_storage,
+src/framework/stdext/shared_object.h,shared_object,
+src/framework/stdext/shared_object.h,shared_object_ptr,
+src/framework/ui/uianchorlayout.h,UIAnchor,public stdext::shared_object
+src/framework/ui/uianchorlayout.h,UIAnchorGroup,public stdext::shared_object
+src/framework/ui/uianchorlayout.h,UIAnchorLayout,public UILayout
+src/framework/ui/uiboxlayout.h,UIBoxLayout,public UILayout
+src/framework/ui/uigridlayout.h,UIGridLayout,public UILayout
+src/framework/ui/uihorizontallayout.h,UIHorizontalLayout,public UIBoxLayout
+src/framework/ui/uilayout.h,UILayout,public LuaObject
+src/framework/ui/uimanager.h,UIManager,
+src/framework/ui/uitextedit.h,UITextEdit,public UIWidget
+src/framework/ui/uiverticallayout.h,UIVerticalLayout,public UIBoxLayout
+src/framework/ui/uiwidget.h,UIWidget,public LuaObject
+src/framework/util/color.h,Color,
+src/framework/util/crypt.h,Crypt,
+src/framework/util/databuffer.h,DataBuffer,
+src/framework/util/extras.h,Extras,
+src/framework/util/framecounter.h,FrameCounter,
+src/framework/util/matrix.h,Matrix,
+src/framework/util/pngunpacker.h,FileMetadata,
+src/framework/util/pngunpacker.h,PngUnpacker,
+src/framework/util/point.h,TPoint,
+src/framework/util/rect.h,TRect,
+src/framework/util/size.h,TSize,
+src/framework/util/stats.h,Stats,
+src/framework/util/stats.h,AutoStat,
+src/framework/xml/tinystr.h,TiXmlString,
+src/framework/xml/tinystr.h,TiXmlOutStream,public TiXmlString
+src/framework/xml/tinyxml.h,TiXmlVisitor,
+src/framework/xml/tinyxml.h,TiXmlBase,
+src/framework/xml/tinyxml.h,TiXmlNode,public TiXmlBase
+src/framework/xml/tinyxml.h,TiXmlAttribute,public TiXmlBase
+src/framework/xml/tinyxml.h,TiXmlAttributeSet,
+src/framework/xml/tinyxml.h,TiXmlElement,public TiXmlNode
+src/framework/xml/tinyxml.h,TiXmlComment,public TiXmlNode
+src/framework/xml/tinyxml.h,TiXmlText,public TiXmlNode
+src/framework/xml/tinyxml.h,TiXmlDeclaration,public TiXmlNode
+src/framework/xml/tinyxml.h,TiXmlUnknown,public TiXmlNode
+src/framework/xml/tinyxml.h,TiXmlDocument,public TiXmlNode
+src/framework/xml/tinyxml.h,TiXmlHandle,
+src/framework/xml/tinyxml.h,TiXmlPrinter,public TiXmlVisitor
+src/framework/xml/tinyxmlparser.cpp,TiXmlParsingData,

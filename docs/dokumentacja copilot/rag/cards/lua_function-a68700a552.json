@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSpellGroupCooldown",
+  "args": "groupId, duration",
+  "file": "modules/game_actionbar/actionbar.lua"
+}

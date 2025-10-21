@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui",
+  "line": 53,
+  "path": "PushMaxWindow/Label#label1",
+  "widget": "Label",
+  "base": "",
+  "id": "label1",
+  "props": {
+    "id": "label1",
+    "anchors.top": "mwallId.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "10",
+    "text-align": "center",
+    "text": "Hotkey for PUSHMAX"
+  }
+}

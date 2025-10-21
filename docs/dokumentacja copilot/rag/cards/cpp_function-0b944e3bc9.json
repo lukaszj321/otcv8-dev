@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onDrop",
+  "return_type": "bool",
+  "args": "UIWidgetPtr draggedWidget, const Point& mousePos",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

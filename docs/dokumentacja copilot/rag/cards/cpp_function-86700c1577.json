@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "version >= 1055",
+  "file": "src/client/protocolcodes.cpp"
+}

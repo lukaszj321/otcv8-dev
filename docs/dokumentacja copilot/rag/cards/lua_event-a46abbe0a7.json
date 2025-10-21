@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onProxyList",
+  "file": "modules/client_entergame/entergame.lua"
+}

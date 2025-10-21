@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFrameBuffer",
+  "return_type": "void",
+  "args": "const Rect& dest, const Size& size, const Rect& src",
+  "file": "src/framework/graphics/drawqueue.h"
+}

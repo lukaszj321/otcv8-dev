@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "writeULE64",
+  "return_type": "void",
+  "args": "uchar *addr, uint64_t value",
+  "file": "src/framework/stdext/math.h"
+}

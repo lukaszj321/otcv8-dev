@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 103,
+  "path": "Panel#topbar",
+  "widget": "Panel",
+  "base": "",
+  "id": "topbar",
+  "props": {
+    "id": "topbar",
+    "focusable": "false",
+    "padding-top": "4",
+    "padding-left": "7",
+    "padding-right": "7",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

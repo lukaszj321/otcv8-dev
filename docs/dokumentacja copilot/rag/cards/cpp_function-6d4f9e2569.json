@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::setPVPMode",
+  "return_type": "void",
+  "args": "Otc::PVPModes pvpMode",
+  "file": "src/client/game.cpp"
+}

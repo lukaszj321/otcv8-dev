@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 47,
+  "path": "ItemPanel/SupplySpinBox#max",
+  "widget": "SupplySpinBox",
+  "base": "",
+  "id": "max",
+  "props": {
+    "id": "max",
+    "anchors.left": "prev.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

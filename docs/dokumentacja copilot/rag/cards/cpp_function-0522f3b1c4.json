@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Tile::limitsFloorsView",
+  "return_type": "bool",
+  "args": "bool isFreeView",
+  "file": "src/client/tile.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parsePlayerModes",
+  "return_type": "case Proto::GameServerPlayerModes:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

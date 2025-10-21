@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITextEdit:onMouseWheel",
+  "args": "mousePos, mouseWheel",
+  "file": "modules/corelib/ui/uitextedit.lua"
+}

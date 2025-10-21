@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XNextEvent",
+  "return_type": "nan",
+  "args": "m_display, &event",
+  "file": "src/framework/platform/x11window.cpp"
+}

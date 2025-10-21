@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 134,
+  "path": "SpellHealing/TextEdit#spellValue",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "spellValue",
+  "props": {
+    "id": "spellValue",
+    "anchors.left": "spellCondition.right",
+    "anchors.top": "spellCondition.top",
+    "anchors.bottom": "spellCondition.bottom",
+    "anchors.right": "spellSource.right",
+    "font": "verdana-11px-rounded"
+  }
+}

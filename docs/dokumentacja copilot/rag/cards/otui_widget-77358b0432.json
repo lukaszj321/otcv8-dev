@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 95,
+  "path": "TradeWindow/MiniWindowContents/Button#acceptButton",
+  "widget": "Button",
+  "base": "",
+  "id": "acceptButton",
+  "props": {
+    "id": "acceptButton",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "margin-right": "2",
+    "enabled": "false"
+  }
+}

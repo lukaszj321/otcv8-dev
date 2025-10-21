@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luavalue_cast",
+  "return_type": "bool",
+  "args": "int index, OTMLNodePtr& node",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

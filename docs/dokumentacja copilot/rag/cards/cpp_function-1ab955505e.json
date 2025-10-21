@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addProxy",
+  "return_type": "void",
+  "args": "const std::string& host, uint16_t port, int priority",
+  "file": "src/framework/proxy/proxy.h"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.otui",
+  "line": 1,
+  "path": "PlayerLabel",
+  "widget": "PlayerLabel",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "background-color": "#00000055",
+    "text-offset": "3 1",
+    "focusable": "true",
+    "height": "16",
+    "font": "verdana-11px-rounded",
+    "text-align": "left"
+  }
+}

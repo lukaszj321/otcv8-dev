@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.download",
+  "args": "url, file, callback, progressCallback",
+  "file": "modules/corelib/http.lua"
+}

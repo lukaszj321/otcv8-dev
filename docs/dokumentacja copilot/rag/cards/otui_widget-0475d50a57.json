@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 24,
+  "path": "MiniWindow#cooldownWindow",
+  "widget": "MiniWindow",
+  "base": "",
+  "id": "cooldownWindow",
+  "props": {
+    "id": "cooldownWindow",
+    "height": "82",
+    "icon": "/images/topbuttons/cooldowns"
+  }
+}

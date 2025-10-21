@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::pushBoolean",
+  "return_type": "void",
+  "args": "bool v",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

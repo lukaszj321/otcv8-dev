@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_market\n  description: Global item market system\n  author: BeniS\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ offerstatistic, marketoffer, marketprotocol, market ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_market/market.otmod",
+  "description": "Global item market system"
+}

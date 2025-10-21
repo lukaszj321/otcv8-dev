@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMarked",
+  "return_type": "void",
+  "args": "const std::string& color",
+  "file": "src/client/thing.h"
+}

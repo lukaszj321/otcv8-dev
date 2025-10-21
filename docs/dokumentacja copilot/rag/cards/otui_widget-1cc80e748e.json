@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 139,
+  "path": "MainWindow#hotkeysWindow/Item#itemPreview",
+  "widget": "Item",
+  "base": "",
+  "id": "itemPreview",
+  "props": {
+    "id": "itemPreview",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "virtual": "true"
+  }
+}

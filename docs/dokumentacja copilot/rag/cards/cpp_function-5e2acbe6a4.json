@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTeleportDestination",
+  "return_type": "Position",
+  "args": "nan",
+  "file": "src/client/item.h"
+}

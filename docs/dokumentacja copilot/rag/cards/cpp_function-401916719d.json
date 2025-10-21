@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "catch",
+  "return_type": "nan",
+  "args": "...",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

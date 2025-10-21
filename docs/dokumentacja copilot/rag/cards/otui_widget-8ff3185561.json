@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/waitinglist.otui",
+  "line": 7,
+  "path": "MainWindow#waitingWindow/Label#infoLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "infoLabel",
+  "props": {
+    "id": "infoLabel",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "progressBar.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "text-wrap": "true"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "i=0; i<numItems; ++i",
+  "file": "src/framework/platform/x11window.cpp"
+}

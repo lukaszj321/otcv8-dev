@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "WIN32Window::adjustWindowRect",
+  "return_type": "Rect",
+  "args": "const Rect& clientRect",
+  "file": "src/framework/platform/win32window.cpp"
+}

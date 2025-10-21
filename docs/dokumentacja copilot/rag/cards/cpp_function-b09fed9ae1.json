@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseCloseChannel",
+  "return_type": "case Proto::GameServerCloseChannel:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/config.otui",
+  "line": 1,
+  "path": "CaveBotConfigPanel#cavebotEditor",
+  "widget": "CaveBotConfigPanel",
+  "base": "Panel",
+  "id": "cavebotEditor",
+  "props": {
+    "id": "cavebotEditor",
+    "visible": "false",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

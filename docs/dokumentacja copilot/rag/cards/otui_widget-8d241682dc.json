@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 134,
+  "path": "CureConditions#Cure/CheckBox#CureBurn",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "CureBurn",
+  "props": {
+    "id": "CureBurn",
+    "anchors.right": "parent.right",
+    "margin-right": "10"
+  }
+}

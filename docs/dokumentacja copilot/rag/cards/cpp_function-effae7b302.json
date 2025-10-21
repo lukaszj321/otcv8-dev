@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Module::discover",
+  "return_type": "void",
+  "args": "const OTMLNodePtr& moduleNode",
+  "file": "src/framework/core/module.cpp"
+}

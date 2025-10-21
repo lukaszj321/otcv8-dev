@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendUpContainer",
+  "return_type": "void",
+  "args": "int containerId",
+  "file": "src/client/protocolgamesend.cpp"
+}

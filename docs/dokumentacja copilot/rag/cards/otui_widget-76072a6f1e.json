@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 298,
+  "path": "ItemHealing/VerticalScrollBar#itemListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "itemListScrollBar",
+  "props": {
+    "id": "itemListScrollBar",
+    "anchors.top": "itemList.top",
+    "anchors.bottom": "itemList.bottom",
+    "anchors.right": "itemList.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

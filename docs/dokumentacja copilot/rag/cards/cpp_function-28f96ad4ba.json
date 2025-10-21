@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "tolower",
+  "return_type": "void",
+  "args": "std::string& str",
+  "file": "src/framework/stdext/string.h"
+}

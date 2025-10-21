@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseMagicEffect",
+  "return_type": "case Proto::GameServerGraphicalEffect:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

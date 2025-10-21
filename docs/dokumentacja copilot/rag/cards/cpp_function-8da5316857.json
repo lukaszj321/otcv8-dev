@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Parse",
+  "return_type": "nan",
+  "args": "buf, 0, encoding",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

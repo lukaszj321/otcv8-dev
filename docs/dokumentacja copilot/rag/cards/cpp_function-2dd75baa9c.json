@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ThingType::draw",
+  "return_type": "DrawQueueItem*",
+  "args": "const Rect& dest, int layer, int xPattern, int yPattern, int zPattern, int animationPhase, Color color",
+  "file": "src/client/thingtype.cpp"
+}

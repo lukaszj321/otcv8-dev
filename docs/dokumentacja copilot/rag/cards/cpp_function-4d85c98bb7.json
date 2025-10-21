@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawFormatBits",
+  "return_type": "nan",
+  "args": "ecl, msk, qrcode",
+  "file": "src/framework/util/qrcodegen.c"
+}

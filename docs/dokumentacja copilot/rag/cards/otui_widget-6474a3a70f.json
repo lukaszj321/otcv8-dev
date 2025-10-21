@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 552,
+  "path": "AttackBotWindow",
+  "widget": "AttackBotWindow",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "535 300",
+    "padding": "15",
+    "text": "AttackBot v2"
+  }
+}

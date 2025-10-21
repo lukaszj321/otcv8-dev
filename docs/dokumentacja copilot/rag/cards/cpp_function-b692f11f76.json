@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "m_headerPos >= 4",
+  "file": "src/framework/net/outputmessage.cpp"
+}

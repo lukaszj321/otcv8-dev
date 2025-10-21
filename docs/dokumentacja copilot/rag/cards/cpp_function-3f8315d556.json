@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isalnum",
+  "return_type": "return",
+  "args": "anyByte",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

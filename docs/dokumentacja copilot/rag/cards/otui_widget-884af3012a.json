@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 104,
+  "path": "StaticMainWindow#charactersWindow/Button#autoReconnect",
+  "widget": "Button",
+  "base": "",
+  "id": "autoReconnect",
+  "props": {
+    "id": "autoReconnect",
+    "width": "140",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "image-color": "green"
+  }
+}

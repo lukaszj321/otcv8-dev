@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boundedTo",
+  "return_type": "TSize<T>",
+  "args": "const TSize<T>& other",
+  "file": "src/framework/util/size.h"
+}

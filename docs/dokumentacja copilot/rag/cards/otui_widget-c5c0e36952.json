@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playerdeath/deathwindow.otui",
+  "line": 7,
+  "path": "DeathWindow#deathWindow/Label#labelText",
+  "widget": "Label",
+  "base": "",
+  "id": "labelText",
+  "props": {
+    "id": "labelText",
+    "width": "550",
+    "height": "140",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "margin-left": "10",
+    "margin-top": "2"
+  }
+}

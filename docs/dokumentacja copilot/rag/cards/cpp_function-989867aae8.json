@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPaddingVertical",
+  "return_type": "void",
+  "args": "int padding",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 67,
+  "path": "OptionPanel/Label#walkTurnDelayLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "walkTurnDelayLabel",
+  "props": {
+    "id": "walkTurnDelayLabel",
+    "margin-top": "10",
+    "self": "setText(tr('Walk delay after turn: %s ms', value))",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseTileAddThing",
+  "return_type": "case Proto::GameServerCreateOnMap:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

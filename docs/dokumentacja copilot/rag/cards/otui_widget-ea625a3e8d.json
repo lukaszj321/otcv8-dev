@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 5,
+  "path": "TradeWindow/UIItem#tradeItem",
+  "widget": "UIItem",
+  "base": "",
+  "id": "tradeItem",
+  "props": {
+    "id": "tradeItem",
+    "virtual": "true",
+    "size": "16 16",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-top": "4",
+    "margin-left": "4"
+  }
+}

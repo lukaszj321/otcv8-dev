@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawInformation",
+  "return_type": "void",
+  "args": "const Point& point, bool useGray, const Rect& parentRect, int drawFlags",
+  "file": "src/client/creature.h"
+}

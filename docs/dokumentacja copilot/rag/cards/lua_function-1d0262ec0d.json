@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onHealthBarSelect",
+  "args": "list, focusedChild, unfocusedChild, reason",
+  "file": "modules/game_outfit/outfit.lua"
+}

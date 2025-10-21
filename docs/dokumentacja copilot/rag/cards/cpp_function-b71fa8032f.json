@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "loadCwmSpr",
+  "return_type": "return",
+  "args": "cwmFile",
+  "file": "src/client/spritemanager.cpp"
+}

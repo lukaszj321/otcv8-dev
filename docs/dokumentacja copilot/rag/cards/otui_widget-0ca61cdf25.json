@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 57,
+  "path": "SioListWindow/BotSwitch#exuraGranSio",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "exuraGranSio",
+  "props": {
+    "id": "exuraGranSio",
+    "anchors.top": "parent.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "text": "Exura Gran Sio",
+    "margin-left": "2"
+  }
+}

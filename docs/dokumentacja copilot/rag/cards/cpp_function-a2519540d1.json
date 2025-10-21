@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addTriangle",
+  "return_type": "inline void",
+  "args": "const Point& a, const Point& b, const Point& c",
+  "file": "src/framework/graphics/vertexarray.h"
+}

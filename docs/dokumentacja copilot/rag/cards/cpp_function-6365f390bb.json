@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "EncodeString",
+  "return_type": "static void",
+  "args": "const TIXML_STRING& str, TIXML_STRING* out",
+  "file": "src/framework/xml/tinyxml.h"
+}

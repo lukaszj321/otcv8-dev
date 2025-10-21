@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 11,
+  "path": "ChoiceList#choiceList",
+  "widget": "ChoiceList",
+  "base": "TextList",
+  "id": "choiceList",
+  "props": {
+    "id": "choiceList",
+    "vertical-scrollbar": "choiceScrollBar",
+    "anchors.fill": "parent",
+    "anchors.top": "prev.bottom",
+    "anchors.bottom": "next.top",
+    "margin-top": "4",
+    "margin-bottom": "10",
+    "focusable": "false",
+    "visible": "false"
+  }
+}

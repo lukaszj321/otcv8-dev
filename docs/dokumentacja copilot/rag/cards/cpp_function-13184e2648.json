@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::autoWalk",
+  "return_type": "void",
+  "args": "const std::vector<Otc::Direction>& dirs, Position startPos",
+  "file": "src/client/game.cpp"
+}

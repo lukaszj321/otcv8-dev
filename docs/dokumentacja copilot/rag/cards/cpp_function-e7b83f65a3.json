@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "finderPenaltyCountPatterns",
+  "return_type": "int",
+  "args": "const int runHistory[7], int qrsize",
+  "file": "src/framework/util/qrcodegen.c"
+}

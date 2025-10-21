@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "serverId > 20000 && serverId < 20100",
+  "file": "src/client/itemtype.cpp"
+}

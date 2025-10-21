@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "propagateOnMouseEvent",
+  "return_type": "bool",
+  "args": "const Point& mousePos, UIWidgetList& widgetList",
+  "file": "src/framework/ui/uiwidget.h"
+}

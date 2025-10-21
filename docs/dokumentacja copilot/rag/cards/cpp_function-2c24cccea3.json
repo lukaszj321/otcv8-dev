@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::partyRevokeInvitation",
+  "return_type": "void",
+  "args": "int creatureId",
+  "file": "src/client/game.cpp"
+}

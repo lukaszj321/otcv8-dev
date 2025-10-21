@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "displayDeadMessage",
+  "args": "",
+  "file": "modules/game_playerdeath/playerdeath.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "handleTextInput",
+  "return_type": "virtual void",
+  "args": "std::string text",
+  "file": "src/framework/platform/platformwindow.h"
+}

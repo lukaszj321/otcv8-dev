@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SetLineBreak",
+  "return_type": "void",
+  "args": "const char* _lineBreak",
+  "file": "src/framework/xml/tinyxml.h"
+}

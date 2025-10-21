@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "actionType == 2 || actionType == 5",
+  "file": "src/client/protocolgamesend.cpp"
+}

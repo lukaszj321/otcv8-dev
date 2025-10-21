@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pthread_cond_init",
+  "return_type": "nan",
+  "args": "&android_app->cond, NULL",
+  "file": "src/android/android_native_app_glue.cpp"
+}

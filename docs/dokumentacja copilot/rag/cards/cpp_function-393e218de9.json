@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "dist == 2 || dist == 4",
+  "file": "src/framework/util/qrcodegen.c"
+}

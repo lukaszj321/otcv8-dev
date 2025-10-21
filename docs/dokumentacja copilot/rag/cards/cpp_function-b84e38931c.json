@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OutputBinaryTree::addU16",
+  "return_type": "void",
+  "args": "uint16 v",
+  "file": "src/framework/core/binarytree.cpp"
+}

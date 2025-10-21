@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 104,
+  "path": "MainWindow#ruleViolationWindow/RVTextEdit#commentText",
+  "widget": "RVTextEdit",
+  "base": "",
+  "id": "commentText",
+  "props": {
+    "id": "commentText"
+  }
+}

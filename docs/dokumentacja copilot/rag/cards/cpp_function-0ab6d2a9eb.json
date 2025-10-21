@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pushCFunction",
+  "return_type": "nan",
+  "args": "&LuaInterface::luaScriptLoader",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

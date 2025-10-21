@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDrawFlags",
+  "return_type": "void",
+  "args": "Otc::DrawFlags drawFlags",
+  "file": "src/client/mapview.h"
+}

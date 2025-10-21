@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 357,
+  "path": "ComboWindow/Label#title",
+  "widget": "Label",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.top": "parent.top",
+    "anchors.left": "server.left",
+    "margin-left": "3",
+    "margin-top": "85",
+    "text": "BotServer",
+    "color": "#ff7700"
+  }
+}

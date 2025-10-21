@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/waitinglist.otui",
+  "line": 15,
+  "path": "MainWindow#waitingWindow/ProgressBar#progressBar",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "progressBar",
+  "props": {
+    "id": "progressBar",
+    "height": "15",
+    "background-color": "#4444ff",
+    "anchors.bottom": "timeLabel.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-bottom": "10"
+  }
+}

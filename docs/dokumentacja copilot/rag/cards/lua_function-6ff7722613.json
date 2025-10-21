@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "tr",
+  "args": "s, ...",
+  "file": "modules/corelib/util.lua"
+}

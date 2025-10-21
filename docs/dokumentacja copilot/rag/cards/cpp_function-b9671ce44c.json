@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setStyle",
+  "return_type": "void",
+  "args": "const std::string& styleName",
+  "file": "src/framework/ui/uiwidget.h"
+}

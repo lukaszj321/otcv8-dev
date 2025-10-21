@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OutputBinaryTree::startNode",
+  "return_type": "void",
+  "args": "uint8 node",
+  "file": "src/framework/core/binarytree.cpp"
+}

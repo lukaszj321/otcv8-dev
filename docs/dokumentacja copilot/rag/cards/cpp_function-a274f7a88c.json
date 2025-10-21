@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Proxy::addSession",
+  "return_type": "void",
+  "args": "uint32_t id, int port",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "moveCursorVertically",
+  "return_type": "void",
+  "args": "bool up",
+  "file": "src/framework/ui/uitextedit.h"
+}

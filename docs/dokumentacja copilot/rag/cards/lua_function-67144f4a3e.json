@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.collect",
+  "args": "t, func",
+  "file": "modules/corelib/table.lua"
+}

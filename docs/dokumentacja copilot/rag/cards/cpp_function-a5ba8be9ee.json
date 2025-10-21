@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_app_post_exec_cmd",
+  "return_type": "void",
+  "args": "struct android_app* android_app, int8_t cmd",
+  "file": "src/android/android_native_app_glue.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendRotateItem",
+  "return_type": "void",
+  "args": "const Position& pos, int thingId, int stackpos",
+  "file": "src/client/protocolgamesend.cpp"
+}

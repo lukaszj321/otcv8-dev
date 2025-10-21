@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "merge",
+  "return_type": "bool",
+  "args": "const AnimatedTextPtr& other",
+  "file": "src/client/animatedtext.h"
+}

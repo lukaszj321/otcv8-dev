@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 106,
+  "path": "AttackBotBotPanel/Label#name",
+  "widget": "Label",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "text-align": "center",
+    "margin-left": "4",
+    "height": "17",
+    "text": "Profile #1",
+    "background": "#292A2A"
+  }
+}

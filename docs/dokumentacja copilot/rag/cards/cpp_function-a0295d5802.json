@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Mouse::popCursor",
+  "return_type": "void",
+  "args": "const std::string& name",
+  "file": "src/framework/input/mouse.cpp"
+}

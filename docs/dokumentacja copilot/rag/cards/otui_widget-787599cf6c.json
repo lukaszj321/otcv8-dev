@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 341,
+  "path": "HealerPanel/ItemHealing#items",
+  "widget": "ItemHealing",
+  "base": "",
+  "id": "items",
+  "props": {
+    "id": "items",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "margin-top": "10"
+  }
+}

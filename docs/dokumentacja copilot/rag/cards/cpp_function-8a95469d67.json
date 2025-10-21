@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getHealthBar",
+  "return_type": "HealthBarPtr",
+  "args": "int id",
+  "file": "src/client/healthbars.h"
+}

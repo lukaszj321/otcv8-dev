@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::onMouseMove",
+  "return_type": "bool",
+  "args": "const Point& mousePos, const Point& mouseMoved",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

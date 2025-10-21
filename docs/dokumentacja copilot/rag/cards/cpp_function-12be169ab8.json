@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "translatedToDirections",
+  "return_type": "std::vector<Position>",
+  "args": "const std::vector<Otc::Direction>& dirs",
+  "file": "src/client/position.h"
+}

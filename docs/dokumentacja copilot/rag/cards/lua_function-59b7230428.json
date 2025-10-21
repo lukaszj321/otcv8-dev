@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "unbindTurnKey",
+  "args": "key",
+  "file": "modules/game_walking/walking.lua"
+}

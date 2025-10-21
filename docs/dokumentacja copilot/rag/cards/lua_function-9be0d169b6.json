@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.permute",
+  "args": "t, n, count",
+  "file": "modules/corelib/table.lua"
+}

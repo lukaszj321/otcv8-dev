@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processRuleViolationChannel",
+  "return_type": "void",
+  "args": "int channelId",
+  "file": "src/client/game.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glDeleteTextures",
+  "return_type": "nan",
+  "args": "1, &textureId",
+  "file": "src/framework/graphics/texture.cpp"
+}

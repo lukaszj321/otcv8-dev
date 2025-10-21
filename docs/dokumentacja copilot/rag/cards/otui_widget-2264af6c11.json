@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 124,
+  "path": "MiniWindow#botWindow/MiniWindowContents/Panel#botPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "botPanel",
+  "props": {
+    "id": "botPanel",
+    "margin-top": "2",
+    "anchors.top": "prev.bottom",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

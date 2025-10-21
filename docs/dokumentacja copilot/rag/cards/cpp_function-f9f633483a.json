@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setName",
+  "return_type": "void",
+  "args": "const std::string& name",
+  "file": "src/client/towns.h"
+}

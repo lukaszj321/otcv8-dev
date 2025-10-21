@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/markettabs.otui",
+  "line": 23,
+  "path": "MarketRightTabBarButton",
+  "widget": "MarketRightTabBarButton",
+  "base": "TabBarButton",
+  "id": "",
+  "props": {
+    "size": "20 25",
+    "font": "verdana-11px-rounded",
+    "text-offset": "0 2",
+    "color": "#f55e5e",
+    "anchors.right": "prev.left",
+    "anchors.left": "none"
+  }
+}

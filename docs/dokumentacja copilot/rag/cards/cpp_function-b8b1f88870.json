@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sigaction",
+  "return_type": "nan",
+  "args": "SIGSEGV, &sa, NULL",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

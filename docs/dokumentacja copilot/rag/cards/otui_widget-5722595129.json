@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 42,
+  "path": "OptionPanel/OptionScrollbar#hotkeyDelay",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "hotkeyDelay",
+  "props": {
+    "id": "hotkeyDelay",
+    "margin-top": "3",
+    "minimum": "5",
+    "maximum": "50"
+  }
+}

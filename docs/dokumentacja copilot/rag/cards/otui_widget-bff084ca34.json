@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 577,
+  "path": "AttackBotWindow/Label#settingsLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "settingsLabel",
+  "props": {
+    "id": "settingsLabel",
+    "anchors.left": "prev.left",
+    "margin-left": "3",
+    "text": "Settings",
+    "color": "#fe4400",
+    "font": "verdana-11px-rounded"
+  }
+}

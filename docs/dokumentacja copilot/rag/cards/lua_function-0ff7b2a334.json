@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "safeBotCall",
+  "args": "func",
+  "file": "modules/game_bot/bot.lua"
+}

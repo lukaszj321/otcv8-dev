@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "reset",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/net/outputmessage.cpp"
+}

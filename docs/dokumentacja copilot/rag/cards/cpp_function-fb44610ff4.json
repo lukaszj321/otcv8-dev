@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::autoWalk",
+  "return_type": "bool",
+  "args": "Position destination, bool retry",
+  "file": "src/client/localplayer.cpp"
+}

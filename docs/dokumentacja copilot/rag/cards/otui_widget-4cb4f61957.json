@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 49,
+  "path": "ComboTrigger#trigger/Label#phrase",
+  "widget": "Label",
+  "base": "",
+  "id": "phrase",
+  "props": {
+    "id": "phrase",
+    "anchors.left": "onSayLeader.right",
+    "anchors.top": "onSayLeader.top",
+    "text": "Phrase:",
+    "margin-left": "5"
+  }
+}

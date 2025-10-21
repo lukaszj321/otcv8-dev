@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/marketbuttons.otui",
+  "line": 1,
+  "path": "MarketButtonBox",
+  "widget": "MarketButtonBox",
+  "base": "ButtonBoxRounded",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-rounded",
+    "color": "#666666ff",
+    "size": "106 22",
+    "text-offset": "0 2",
+    "text-align": "center",
+    "image-color": "#ffffff88"
+  }
+}

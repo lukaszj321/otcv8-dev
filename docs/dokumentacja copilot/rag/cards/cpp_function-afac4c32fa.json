@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setUniformValue",
+  "return_type": "void",
+  "args": "const char* name, const Matrix3& mat",
+  "file": "src/framework/graphics/shaderprogram.h"
+}

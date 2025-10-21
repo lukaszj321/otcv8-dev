@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSpectatorsInRangeEx",
+  "return_type": "return",
+  "args": "centerPos, multiFloor, m_awareRange.left - 1, m_awareRange.right - 2, m_awareRange.top - 1, m_awareRange.bottom - 2",
+  "file": "src/client/map.cpp"
+}

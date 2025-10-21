@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaObjectSetEvent",
+  "return_type": "static int",
+  "args": "LuaInterface* lua",
+  "file": "src/framework/luaengine/luainterface.h"
+}

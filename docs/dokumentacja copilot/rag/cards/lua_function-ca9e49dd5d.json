@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISplitter:onMouseMove",
+  "args": "mousePos, mouseMoved",
+  "file": "modules/corelib/ui/uisplitter.lua"
+}

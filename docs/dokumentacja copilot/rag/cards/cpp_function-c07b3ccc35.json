@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "draw",
+  "return_type": "void",
+  "args": "Point dest, Otc::Direction direction, uint walkAnimationPhase, bool animate = true, LightView* lightView = nullptr, bool ui = false",
+  "file": "src/client/outfit.h"
+}

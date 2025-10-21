@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "mount",
+  "args": "",
+  "file": "modules/game_playermount/playermount.lua"
+}

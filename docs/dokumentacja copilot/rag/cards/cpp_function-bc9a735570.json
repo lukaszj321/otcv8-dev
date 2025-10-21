@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setIcon",
+  "return_type": "void",
+  "args": "const std::string& file",
+  "file": "src/framework/platform/win32window.h"
+}

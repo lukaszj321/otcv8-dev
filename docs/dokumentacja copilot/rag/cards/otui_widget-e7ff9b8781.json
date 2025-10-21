@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/container.otui",
+  "line": 1,
+  "path": "BotContainer",
+  "widget": "BotContainer",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "68"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlElement::CopyTo",
+  "return_type": "void",
+  "args": "TiXmlElement* target",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

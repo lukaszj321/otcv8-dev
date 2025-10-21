@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 77,
+  "path": "LeftSliders",
+  "widget": "LeftSliders",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "17 34"
+  }
+}

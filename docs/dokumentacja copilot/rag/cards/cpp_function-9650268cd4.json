@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "update",
+  "return_type": "protected: void",
+  "args": "nan",
+  "file": "src/framework/sound/soundchannel.h"
+}

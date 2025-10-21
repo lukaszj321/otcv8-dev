@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 298,
+  "path": "XPAnalyzer#XPAnalyzerWindow",
+  "widget": "XPAnalyzer",
+  "base": "MiniWindow",
+  "id": "XPAnalyzerWindow",
+  "props": {
+    "id": "XPAnalyzerWindow",
+    "text": "XP Analyzer",
+    "height": "150",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

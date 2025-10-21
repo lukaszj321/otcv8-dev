@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getWalkOffset",
+  "return_type": "Point",
+  "args": "bool inNextFrame = false",
+  "file": "src/client/creature.h"
+}

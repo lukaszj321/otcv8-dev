@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_hotkeys\n  description: Manage client hotkeys\n  author: andrefaramir, BeniS\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ hotkeys_extra, hotkeys_manager ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_hotkeys/hotkeys_manager.otmod",
+  "description": "Manage client hotkeys"
+}

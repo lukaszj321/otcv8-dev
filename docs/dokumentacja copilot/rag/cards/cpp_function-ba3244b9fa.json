@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "combinedSource",
+  "return_type": "CombinedSoundSourcePtr",
+  "args": "new CombinedSoundSource",
+  "file": "src/framework/sound/soundmanager.cpp"
+}

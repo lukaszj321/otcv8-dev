@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::equipItemId",
+  "return_type": "void",
+  "args": "int itemId, int subType",
+  "file": "src/client/game.cpp"
+}

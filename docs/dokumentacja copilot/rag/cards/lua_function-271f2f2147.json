@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Creature:onTypeChange",
+  "args": "typeId",
+  "file": "modules/gamelib/creature.lua"
+}

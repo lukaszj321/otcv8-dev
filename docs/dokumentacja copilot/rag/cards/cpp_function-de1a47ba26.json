@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "play",
+  "return_type": "SoundSourcePtr",
+  "args": "const std::string& filename, float fadetime = 0, float gain = 1.0f",
+  "file": "src/framework/sound/soundchannel.h"
+}

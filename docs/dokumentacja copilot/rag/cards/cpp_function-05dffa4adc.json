@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getChildren",
+  "return_type": "BinaryTreeVec",
+  "args": "nan",
+  "file": "src/framework/core/binarytree.h"
+}

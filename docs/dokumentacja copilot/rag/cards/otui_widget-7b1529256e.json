@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 55,
+  "path": "MainWindow#hotkeysWindow/Button#resetButton",
+  "widget": "Button",
+  "base": "",
+  "id": "resetButton",
+  "props": {
+    "id": "resetButton",
+    "width": "96",
+    "anchors.left": "parent.left",
+    "anchors.top": "next.top",
+    "margin-right": "10"
+  }
+}

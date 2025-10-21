@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LoadLibraryA",
+  "return_type": "nan",
+  "args": "\"progdn32.dll\"",
+  "file": "src/main.cpp"
+}

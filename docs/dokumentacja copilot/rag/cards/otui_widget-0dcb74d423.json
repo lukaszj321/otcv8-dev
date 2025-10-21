@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 120,
+  "path": "Panel/Panel#itemsContainer/ScrollablePanel#itemsPanel",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "itemsPanel",
+  "props": {
+    "id": "itemsPanel",
+    "anchors.left": "parent.left",
+    "anchors.right": "prev.left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "vertical-scrollbar": "itemsPanelListScrollBar",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "36 36",
+    "flow": "true",
+    "auto-spacing": "true"
+  }
+}

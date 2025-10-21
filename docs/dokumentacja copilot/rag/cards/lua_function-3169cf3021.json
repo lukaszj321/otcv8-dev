@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Spells.getImageClip",
+  "args": "id, profile",
+  "file": "modules/gamelib/spells.lua"
+}

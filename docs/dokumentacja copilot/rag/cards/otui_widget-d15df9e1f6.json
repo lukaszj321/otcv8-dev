@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 191,
+  "path": "ListPanel/Button#up",
+  "widget": "Button",
+  "base": "",
+  "id": "up",
+  "props": {
+    "id": "up",
+    "anchors.right": "parent.right",
+    "anchors.top": "list.bottom",
+    "size": "60 17",
+    "text": "Move Up",
+    "text-align": "center",
+    "font": "cipsoftFont",
+    "margin-top": "5",
+    "tooltip": "Increase priority of selected rule."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 295,
+  "path": "AddPlayer/Button#add",
+  "widget": "Button",
+  "base": "",
+  "id": "add",
+  "props": {
+    "id": "add",
+    "anchors.left": "health.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "font": "verdana-11px-rounded",
+    "text": "Add Player"
+  }
+}

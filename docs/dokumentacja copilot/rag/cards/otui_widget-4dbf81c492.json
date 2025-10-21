@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 64,
+  "path": "MainWindow#spelllistWindow/VerticalScrollBar#spellsScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "spellsScrollBar",
+  "props": {
+    "id": "spellsScrollBar",
+    "anchors.top": "spellList.top",
+    "anchors.bottom": "spellList.bottom",
+    "anchors.right": "spellList.right",
+    "step": "50",
+    "pixels-scroll": "true"
+  }
+}

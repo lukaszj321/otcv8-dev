@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fillRectangle",
+  "return_type": "void",
+  "args": "int left, int top, int width, int height, uint8_t qrcode[]",
+  "file": "src/framework/util/qrcodegen.c"
+}

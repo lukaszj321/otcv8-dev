@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/marketcombobox.otui",
+  "line": 6,
+  "path": "MarketComboBoxPopupMenuSeparator",
+  "widget": "MarketComboBoxPopupMenuSeparator",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "image-source": "/images/combobox_rounded",
+    "image-repeated": "true",
+    "image-clip": "1 59 89 1",
+    "height": "1",
+    "phantom": "true"
+  }
+}

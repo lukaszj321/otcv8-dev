@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "showZone",
+  "return_type": "bool",
+  "args": "tileflags_t zone",
+  "file": "src/client/map.h"
+}

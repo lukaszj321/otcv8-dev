@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 26,
+  "path": "BotItem",
+  "widget": "BotItem",
+  "base": "Item",
+  "id": "",
+  "props": {
+    "virtual": "true"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 66,
+  "path": "MultilineTextEditWindow/Panel#textPanel/VerticalScrollBar#textScroll",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "textScroll",
+  "props": {
+    "id": "textScroll",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "pixels-scroll": "true",
+    "step": "10"
+  }
+}

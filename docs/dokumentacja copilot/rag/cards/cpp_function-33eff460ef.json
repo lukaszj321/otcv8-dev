@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addInputPacket",
+  "return_type": "void",
+  "args": "const InputMessagePtr& packet",
+  "file": "src/framework/net/packet_recorder.h"
+}

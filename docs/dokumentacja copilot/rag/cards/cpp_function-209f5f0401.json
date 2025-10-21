@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "b_rot",
+  "return_type": "static int",
+  "args": "lua_State *L, int i",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

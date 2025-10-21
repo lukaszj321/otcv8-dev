@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "y - ydiff > 6",
+  "file": "src/client/walkmatrix.h"
+}

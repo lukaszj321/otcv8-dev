@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "area",
+  "return_type": "T",
+  "args": "nan",
+  "file": "src/framework/util/size.h"
+}

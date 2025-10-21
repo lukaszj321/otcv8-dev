@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto& proxy : g_proxies",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

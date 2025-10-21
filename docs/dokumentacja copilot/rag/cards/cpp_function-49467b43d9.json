@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luavalue_cast",
+  "return_type": "template<typename T> bool",
+  "args": "int index, std::list<T>& list",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

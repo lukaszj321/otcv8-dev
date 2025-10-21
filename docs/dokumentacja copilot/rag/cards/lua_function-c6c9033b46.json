@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "newclass",
+  "args": "name",
+  "file": "modules/corelib/util.lua"
+}

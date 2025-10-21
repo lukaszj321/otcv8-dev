@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onTabDragLeave",
+  "args": "tab",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/alarms.otui",
+  "line": 72,
+  "path": "AlarmsWindow/BotTextEdit#bossName",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "bossName",
+  "props": {
+    "id": "bossName",
+    "anchors.left": "prev.right",
+    "margin-left": "4",
+    "anchors.top": "prev.top",
+    "anchors.right": "parent.right",
+    "margin-top": "1",
+    "height": "17",
+    "font": "terminus-10px"
+  }
+}

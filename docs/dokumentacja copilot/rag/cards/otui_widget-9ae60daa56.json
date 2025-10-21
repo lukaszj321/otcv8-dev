@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/text.otui",
+  "line": 19,
+  "path": "MainWindow#assignTextWindow/FlatPanel#checkPanel",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "checkPanel",
+  "props": {
+    "id": "checkPanel",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "20"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processGMActions",
+  "return_type": "void",
+  "args": "const std::vector<uint8>& actions",
+  "file": "src/client/game.h"
+}

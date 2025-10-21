@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "from8bit",
+  "return_type": "static Color",
+  "args": "int color",
+  "file": "src/framework/util/color.h"
+}

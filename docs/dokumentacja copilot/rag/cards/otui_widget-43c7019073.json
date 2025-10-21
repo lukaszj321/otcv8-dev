@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 82,
+  "path": "PriorityEntry/CheckBox#enabled",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "enabled",
+  "props": {
+    "id": "enabled",
+    "anchors.left": "parent.left",
+    "size": "15 15",
+    "margin-top": "2",
+    "margin-left": "3"
+  }
+}

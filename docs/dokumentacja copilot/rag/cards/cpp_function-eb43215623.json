@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "distanceFrom",
+  "return_type": "float",
+  "args": "const TPoint<T>& other",
+  "file": "src/framework/util/point.h"
+}

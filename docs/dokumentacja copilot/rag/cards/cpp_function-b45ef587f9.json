@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ChildElement",
+  "return_type": "TiXmlHandle",
+  "args": "const std::string& _value, int index",
+  "file": "src/framework/xml/tinyxml.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isKeyPressed",
+  "return_type": "bool",
+  "args": "Fw::Key keyCode",
+  "file": "src/framework/platform/platformwindow.h"
+}

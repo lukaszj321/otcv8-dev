@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setUniformValue",
+  "return_type": "nan",
+  "args": "PROJECTION_MATRIX_UNIFORM, projectionMatrix",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

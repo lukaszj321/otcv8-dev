@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addTexturedCoords",
+  "return_type": "void",
+  "args": "CoordsBuffer& coords, const Point& offset, const Color& color",
+  "file": "src/framework/graphics/drawcache.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hideTabs",
+  "args": "tabBar, fromBack, toArray, width",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCustomAttribute",
+  "return_type": "void",
+  "args": "uint16 key, uint64 value",
+  "file": "src/client/item.h"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGameCloseTrade",
+  "file": "modules/game_playertrade/playertrade.lua"
+}

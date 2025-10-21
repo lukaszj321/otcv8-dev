@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "static_assert",
+  "return_type": "nan",
+  "args": "N==P, \"N==P\"",
+  "file": "src/framework/util/matrix.h"
+}

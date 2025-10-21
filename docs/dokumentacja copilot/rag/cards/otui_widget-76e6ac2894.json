@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 242,
+  "path": "AttackBotPanel/RangeLabel#range",
+  "widget": "RangeLabel",
+  "base": "",
+  "id": "range",
+  "props": {
+    "id": "range",
+    "anchors.left": "previousRange.right",
+    "margin-left": "3"
+  }
+}

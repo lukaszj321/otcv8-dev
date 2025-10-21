@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 236,
+  "path": "AttackBotPanel/NexButton#nextRange",
+  "widget": "NexButton",
+  "base": "",
+  "id": "nextRange",
+  "props": {
+    "id": "nextRange",
+    "anchors.left": "range.right",
+    "margin-left": "2"
+  }
+}

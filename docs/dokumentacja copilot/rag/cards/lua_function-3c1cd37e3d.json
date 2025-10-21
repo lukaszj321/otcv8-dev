@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "ProtocolLogin:onError",
+  "args": "msg, code",
+  "file": "modules/gamelib/protocollogin.lua"
+}

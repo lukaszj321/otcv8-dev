@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 129,
+  "path": "EnterGameWindow#enterGame/Panel#customServerSelectorPanel/MenuLabel#clientLabel",
+  "widget": "MenuLabel",
+  "base": "",
+  "id": "clientLabel",
+  "props": {
+    "id": "clientLabel",
+    "anchors.left": "serverHostTextEdit.right",
+    "anchors.top": "serverLabel.top",
+    "text-auto-resize": "true",
+    "margin-left": "10"
+  }
+}

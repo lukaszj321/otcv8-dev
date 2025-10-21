@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 565,
+  "path": "MainWindow#preyWindow/FlatLabel#description",
+  "widget": "FlatLabel",
+  "base": "",
+  "id": "description",
+  "props": {
+    "id": "description",
+    "anchors.left": "slot1.left",
+    "anchors.top": "slot1.bottom",
+    "anchors.right": "slot3.right",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "10",
+    "margin-top": "10",
+    "text-wrap": "true"
+  }
+}

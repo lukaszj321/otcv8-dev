@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setText",
+  "return_type": "void",
+  "args": "const std::string& text",
+  "file": "src/framework/graphics/cachedtext.h"
+}

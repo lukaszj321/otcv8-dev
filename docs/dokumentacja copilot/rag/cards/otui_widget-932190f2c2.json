@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 117,
+  "path": "MainWindow#npcWindow/FlatPanel#setupPanel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "margin-top": "5",
+    "margin-left": "195",
+    "width": "15"
+  }
+}

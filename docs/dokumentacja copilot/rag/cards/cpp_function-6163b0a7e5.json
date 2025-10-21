@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alSourcef",
+  "return_type": "nan",
+  "args": "m_sourceId, AL_PITCH, pitch",
+  "file": "src/framework/sound/soundsource.cpp"
+}

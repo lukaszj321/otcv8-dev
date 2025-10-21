@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onInventoryChange",
+  "args": "inventory, item, oldItem",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

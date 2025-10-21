@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 116,
+  "path": "QuestLogWindow#questLogWindow/MissionLog#missionlog",
+  "widget": "MissionLog",
+  "base": "",
+  "id": "missionlog",
+  "props": {
+    "id": "missionlog",
+    "anchors.fill": "prev"
+  }
+}

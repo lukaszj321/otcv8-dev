@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawBackground",
+  "return_type": "nan",
+  "args": "m_rect",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

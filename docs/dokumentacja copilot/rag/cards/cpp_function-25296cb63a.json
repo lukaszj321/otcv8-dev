@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processDeath",
+  "return_type": "void",
+  "args": "int deathType, int penality",
+  "file": "src/client/game.h"
+}

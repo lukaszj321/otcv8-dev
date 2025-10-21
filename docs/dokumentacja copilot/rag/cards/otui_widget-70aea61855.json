@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 64,
+  "path": "CaveBotLabel",
+  "widget": "CaveBotLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "background-color": "#00000055",
+    "text-offset": "2 0",
+    "focusable": "true"
+  }
+}

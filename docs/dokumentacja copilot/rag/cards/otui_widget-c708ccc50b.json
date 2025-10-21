@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui",
+  "line": 13,
+  "path": "PushMaxWindow/HorizontalScrollBar#delay",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "delay",
+  "props": {
+    "id": "delay",
+    "anchors.left": "delayText.left",
+    "anchors.right": "delayText.right",
+    "anchors.top": "delayText.bottom",
+    "margin-top": "5",
+    "minimum": "800",
+    "maximum": "2000",
+    "step": "10"
+  }
+}

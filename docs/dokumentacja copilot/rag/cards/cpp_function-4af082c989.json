@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "set",
+  "return_type": "public: template<typename T> void",
+  "args": "const Key& k, const T& value",
+  "file": "src/framework/stdext/dynamic_storage.h"
+}

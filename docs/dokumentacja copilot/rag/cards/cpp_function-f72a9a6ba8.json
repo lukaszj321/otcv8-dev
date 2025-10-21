@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onDragMove",
+  "return_type": "virtual bool",
+  "args": "const Point& mousePos, const Point& mouseMoved",
+  "file": "src/framework/ui/uiwidget.h"
+}

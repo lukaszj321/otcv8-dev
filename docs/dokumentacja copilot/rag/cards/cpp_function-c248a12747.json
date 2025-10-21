@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::filesystem::create_directory",
+  "return_type": "nan",
+  "args": "\"records\", ec",
+  "file": "src/framework/net/packet_recorder.cpp"
+}

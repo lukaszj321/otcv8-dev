@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 109,
+  "path": "SpellHealing/Label#whenSpell",
+  "widget": "Label",
+  "base": "",
+  "id": "whenSpell",
+  "props": {
+    "id": "whenSpell",
+    "anchors.left": "spellList.right",
+    "text": "When",
+    "margin-left": "7",
+    "font": "verdana-11px-rounded"
+  }
+}

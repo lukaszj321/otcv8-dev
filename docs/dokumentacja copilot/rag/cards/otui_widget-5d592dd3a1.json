@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 312,
+  "path": "AttackBotPanel/SpinBox#minHp",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "minHp",
+  "props": {
+    "id": "minHp",
+    "anchors.left": "prev.right",
+    "margin-left": "4",
+    "size": "40 20",
+    "minimum": "0",
+    "maximum": "99",
+    "value": "0",
+    "editable": "true",
+    "focusable": "true"
+  }
+}

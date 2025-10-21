@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_inventory\n  description: View local player equipments window\n  author: baxnie, edubart, BeniS, otclientv8\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ inventory ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_inventory/inventory.otmod",
+  "description": "View local player equipments window"
+}

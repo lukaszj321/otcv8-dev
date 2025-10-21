@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setHead",
+  "return_type": "void",
+  "args": "int head",
+  "file": "src/client/outfit.h"
+}

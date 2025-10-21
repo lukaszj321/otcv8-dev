@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "~Thing",
+  "return_type": "virtual",
+  "args": "nan",
+  "file": "src/client/thing.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "optimizeForSize",
+  "return_type": "void",
+  "args": "const Size & visibleSize",
+  "file": "src/client/mapview.h"
+}

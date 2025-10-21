@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 74,
+  "path": "SlotComboBox",
+  "widget": "SlotComboBox",
+  "base": "ComboBox",
+  "id": "",
+  "props": {
+    "self": "addOption(\"Purse\")"
+  }
+}

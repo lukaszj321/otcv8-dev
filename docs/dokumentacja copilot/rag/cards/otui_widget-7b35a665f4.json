@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.otui",
+  "line": 80,
+  "path": "TargetBotLootingPanel/BotButton",
+  "widget": "BotButton",
+  "base": "",
+  "id": "",
+  "props": {
+    "margin-top": "3",
+    "text": "Help & Tutorials"
+  }
+}

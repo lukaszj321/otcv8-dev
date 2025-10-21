@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getDisplacementX",
+  "return_type": "virtual int",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

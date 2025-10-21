@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processVipAdd",
+  "return_type": "void",
+  "args": "uint id, const std::string& name, uint status, const std::string& description, int iconId, bool notifyLogin",
+  "file": "src/client/game.h"
+}

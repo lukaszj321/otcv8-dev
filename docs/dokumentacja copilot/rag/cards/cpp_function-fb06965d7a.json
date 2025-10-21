@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "grow",
+  "return_type": "inline void",
+  "args": "uint n, bool precise = false",
+  "file": "src/framework/util/databuffer.h"
+}

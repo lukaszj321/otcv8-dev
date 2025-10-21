@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setupPixels",
+  "return_type": "void",
+  "args": "int level, const Size& size, uchar *pixels, int channels = 4, bool compress = false",
+  "file": "src/framework/graphics/texture.h"
+}

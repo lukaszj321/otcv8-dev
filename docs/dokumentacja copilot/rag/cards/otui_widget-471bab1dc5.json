@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 298,
+  "path": "ClearImbue/FlatLabel#cost",
+  "widget": "FlatLabel",
+  "base": "",
+  "id": "cost",
+  "props": {
+    "id": "cost",
+    "margin-top": "5",
+    "text-align": "center",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "anchors.top": "prev.bottom"
+  }
+}

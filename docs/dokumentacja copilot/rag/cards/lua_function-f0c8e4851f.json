@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "CharacterList.hide",
+  "args": "showLogin",
+  "file": "modules/client_entergame/characterlist.lua"
+}

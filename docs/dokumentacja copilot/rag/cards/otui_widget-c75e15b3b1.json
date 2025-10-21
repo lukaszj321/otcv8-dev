@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 333,
+  "path": "InactivePreyPanel",
+  "widget": "InactivePreyPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "195 312"
+  }
+}

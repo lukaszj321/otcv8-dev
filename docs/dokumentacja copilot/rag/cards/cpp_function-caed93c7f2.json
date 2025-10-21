@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "HouseManager::findHouse",
+  "return_type": "HouseList::iterator",
+  "args": "uint32 houseId",
+  "file": "src/client/houses.cpp"
+}

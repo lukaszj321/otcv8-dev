@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onVipListLabelMousePress",
+  "args": "widget, mousePos, mouseButton",
+  "file": "modules/game_viplist/viplist.lua"
+}

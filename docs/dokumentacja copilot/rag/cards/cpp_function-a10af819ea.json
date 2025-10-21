@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isInRange",
+  "return_type": "bool",
+  "args": "const Position& pos, int minXRange, int maxXRange, int minYRange, int maxYRange",
+  "file": "src/client/position.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException::generateLuaErrorMessage",
+  "return_type": "void",
+  "args": "const std::string& error, int traceLevel",
+  "file": "src/framework/luaengine/luaexception.cpp"
+}

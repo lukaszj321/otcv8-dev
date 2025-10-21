@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 40,
+  "path": "SinglelineTextEditWindow",
+  "widget": "SinglelineTextEditWindow",
+  "base": "TextEditWindow",
+  "id": "",
+  "props": {
+    "width": "250"
+  }
+}

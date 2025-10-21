@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIRadioGroup:selectWidget",
+  "args": "selectedWidget, dontSignal",
+  "file": "modules/corelib/ui/uiradiogroup.lua"
+}

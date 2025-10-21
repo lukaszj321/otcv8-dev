@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Position.isInRange",
+  "args": "pos1, pos2, xRange, yRange",
+  "file": "modules/gamelib/position.lua"
+}

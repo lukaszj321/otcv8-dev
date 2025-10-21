@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 1,
+  "path": "BossCreaturePanel",
+  "widget": "BossCreaturePanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "38"
+  }
+}

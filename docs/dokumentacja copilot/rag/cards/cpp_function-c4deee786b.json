@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "GlobalFree",
+  "return_type": "nan",
+  "args": "pSym",
+  "file": "src/framework/platform/win32crashhandler.cpp"
+}

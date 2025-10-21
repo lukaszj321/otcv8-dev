@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hide",
+  "args": "",
+  "file": "modules/client_textedit/textedit.lua"
+}

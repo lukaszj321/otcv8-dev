@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 75,
+  "path": "MainWindow#ruleViolationWindow/TextList#actionList",
+  "widget": "TextList",
+  "base": "",
+  "id": "actionList",
+  "props": {
+    "id": "actionList",
+    "height": "60",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "2",
+    "focusable": "false",
+    "vertical-scrollbar": "actionListScrollBar"
+  }
+}

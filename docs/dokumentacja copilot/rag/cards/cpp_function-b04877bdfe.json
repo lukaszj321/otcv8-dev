@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getAutoFocusPolicy",
+  "return_type": "Fw::AutoFocusPolicy",
+  "args": "nan",
+  "file": "src/framework/ui/uiwidget.h"
+}

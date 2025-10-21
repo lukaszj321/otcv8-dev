@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 73,
+  "path": "MainWindow#hotkeysWindow/Button#removeHotkeyButton",
+  "widget": "Button",
+  "base": "",
+  "id": "removeHotkeyButton",
+  "props": {
+    "id": "removeHotkeyButton",
+    "width": "64",
+    "enabled": "false",
+    "anchors.right": "parent.right",
+    "anchors.top": "currentHotkeys.bottom",
+    "margin-top": "8"
+  }
+}

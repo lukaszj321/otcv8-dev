@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onRootGeometryUpdate",
+  "args": "",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

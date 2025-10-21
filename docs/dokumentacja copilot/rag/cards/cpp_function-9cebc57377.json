@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::castValue",
+  "return_type": "template<class T> T",
+  "args": "int index",
+  "file": "src/framework/luaengine/luainterface.h"
+}

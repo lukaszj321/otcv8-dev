@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "protectedcall",
+  "args": "func, ...",
+  "file": "modules/corelib/util.lua"
+}

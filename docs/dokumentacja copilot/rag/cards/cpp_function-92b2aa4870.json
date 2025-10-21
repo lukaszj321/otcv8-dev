@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "rsaSetPrivateKey",
+  "return_type": "void",
+  "args": "const std::string &p, const std::string &q, const std::string &d",
+  "file": "src/framework/util/crypt.h"
+}

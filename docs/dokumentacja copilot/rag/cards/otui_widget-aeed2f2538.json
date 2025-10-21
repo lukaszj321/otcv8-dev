@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 175,
+  "path": "ListPanel/TextList#list",
+  "widget": "TextList",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.fill": "parent",
+    "margin-top": "25",
+    "margin-bottom": "18",
+    "vertical-scrollbar": "listScrollBar",
+    "padding": "2"
+  }
+}

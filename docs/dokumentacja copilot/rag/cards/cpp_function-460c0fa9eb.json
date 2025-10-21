@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "size",
+  "return_type": "std::size_t",
+  "args": "nan",
+  "file": "src/framework/stdext/packed_storage.h"
+}

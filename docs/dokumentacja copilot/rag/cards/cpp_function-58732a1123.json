@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "filename",
+  "return_type": "TIXML_STRING",
+  "args": "_filename",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

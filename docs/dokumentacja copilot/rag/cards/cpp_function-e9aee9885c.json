@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fieldargs",
+  "return_type": "int",
+  "args": "lua_State *L, int farg, int *width",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

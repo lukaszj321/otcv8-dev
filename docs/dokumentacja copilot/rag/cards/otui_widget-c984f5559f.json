@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 160,
+  "path": "QuestTracker#questTracker",
+  "widget": "QuestTracker",
+  "base": "MiniWindow",
+  "id": "questTracker",
+  "props": {
+    "id": "questTracker",
+    "height": "60",
+    "icon": "/images/topbuttons/quest_tracker"
+  }
+}

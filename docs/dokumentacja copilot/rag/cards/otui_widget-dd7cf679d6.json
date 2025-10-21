@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/extras.otui",
+  "line": 96,
+  "path": "ExtrasWindow/ScrollablePanel#content",
+  "widget": "ScrollablePanel",
+  "base": "",
+  "id": "content",
+  "props": {
+    "id": "content",
+    "anchors.top": "prev.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "separator.top",
+    "vertical-scrollbar": "contentScroll",
+    "margin-bottom": "10"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/actionbar.otui",
+  "line": 251,
+  "path": "Panel#actionBar/HorizontalScrollBar#actionScroll",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "actionScroll",
+  "props": {
+    "id": "actionScroll",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right",
+    "step": "37",
+    "pixels-scroll": "true",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_mobile/mobile.otui",
+  "line": 30,
+  "path": "UIWidget/UIWidget#keypad/UIWidget#pointer",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "pointer",
+  "props": {
+    "id": "pointer",
+    "size": "49 49",
+    "image-source": "/images/game/mobile/keypad_pointer",
+    "image-fixed-ratio": "true",
+    "phantom": "true",
+    "focusable": "false"
+  }
+}

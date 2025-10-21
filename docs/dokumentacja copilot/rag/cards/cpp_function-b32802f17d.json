@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundManager::play",
+  "return_type": "SoundSourcePtr",
+  "args": "std::string filename, float fadetime, float gain",
+  "file": "src/framework/sound/soundmanager.cpp"
+}

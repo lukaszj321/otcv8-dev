@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 120,
+  "path": "OptionPanel/Label#walkTeleportDelayLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "walkTeleportDelayLabel",
+  "props": {
+    "id": "walkTeleportDelayLabel",
+    "margin-top": "10",
+    "self": "setText(tr('Walk delay after teleport: %s ms', value))",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XFreeColormap",
+  "return_type": "nan",
+  "args": "m_display, m_colormap",
+  "file": "src/framework/platform/x11window.cpp"
+}

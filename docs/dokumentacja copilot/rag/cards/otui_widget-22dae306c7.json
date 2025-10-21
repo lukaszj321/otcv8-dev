@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 452,
+  "path": "SettingsPanel/CheckBox#IgnoreMana",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "IgnoreMana",
+  "props": {
+    "id": "IgnoreMana",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "margin-top": "5",
+    "width": "200",
+    "text": "Check RL Tibia conditions"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "PainterShaderProgram::setDepth",
+  "return_type": "void",
+  "args": "float depth",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

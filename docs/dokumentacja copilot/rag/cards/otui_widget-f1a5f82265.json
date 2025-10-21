@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 264,
+  "path": "ItemHealing/TextEdit#itemValue",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "itemValue",
+  "props": {
+    "id": "itemValue",
+    "anchors.left": "itemCondition.right",
+    "anchors.top": "itemCondition.top",
+    "anchors.bottom": "itemCondition.bottom",
+    "width": "49",
+    "font": "verdana-11px-rounded"
+  }
+}

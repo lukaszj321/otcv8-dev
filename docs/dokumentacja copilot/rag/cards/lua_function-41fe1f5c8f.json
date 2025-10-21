@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onPreyTimeLeft",
+  "args": "slot, timeLeft",
+  "file": "modules/game_prey/prey.lua"
+}

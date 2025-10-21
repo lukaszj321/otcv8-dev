@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 58,
+  "path": "OptionPanel/OptionScrollbar#walkFirstStepDelay",
+  "widget": "OptionScrollbar",
+  "base": "",
+  "id": "walkFirstStepDelay",
+  "props": {
+    "id": "walkFirstStepDelay",
+    "margin-top": "3",
+    "minimum": "50",
+    "maximum": "300",
+    "visible": "false"
+  }
+}

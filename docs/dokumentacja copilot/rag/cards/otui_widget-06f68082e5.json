@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 165,
+  "path": "EmptyImbue/UIButton#protection",
+  "widget": "UIButton",
+  "base": "",
+  "id": "protection",
+  "props": {
+    "id": "protection",
+    "width": "66",
+    "height": "66",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "image-source": "/images/game/imbuing/100percent",
+    "image-clip": "0 0 66 66",
+    "margin-left": "15"
+  }
+}

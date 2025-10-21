@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onPreyActive",
+  "file": "modules/game_prey/prey.lua"
+}

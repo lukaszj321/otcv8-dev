@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getLight",
+  "return_type": "Light",
+  "args": "nan",
+  "file": "src/client/map.h"
+}

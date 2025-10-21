@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendOutfitExtensionStatus",
+  "return_type": "void",
+  "args": "int mount = -1, int wings = -1, int aura = -1, int shader = -1, int healthBar = -1, int manaBar = -1",
+  "file": "src/client/protocolgame.h"
+}

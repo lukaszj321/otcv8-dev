@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_locales/locales.otui",
+  "line": 25,
+  "path": "UIWindow#localesWindow/Panel#localesPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "localesPanel",
+  "props": {
+    "id": "localesPanel",
+    "margin-top": "50",
+    "anchors.top": "prev.bottom",
+    "anchors.bottom": "parent.bottom",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "96 128",
+    "cell-spacing": "32",
+    "flow": "true"
+  }
+}

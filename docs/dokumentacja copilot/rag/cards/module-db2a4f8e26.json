@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "crash_reporter\n  description: Sends crash log to remote server\n  author: otclient@otclient.ovh\n  website: otclient.ovh\n  reloadable: false\n  scripts: [ crash_reporter ]\n  @onLoad: init()",
+  "file": "modules/crash_reporter/crash_reporter.otmod",
+  "description": "Sends crash log to remote server"
+}

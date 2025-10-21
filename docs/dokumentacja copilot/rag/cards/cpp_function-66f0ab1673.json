@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "!ec && writeTime > lastWrite",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

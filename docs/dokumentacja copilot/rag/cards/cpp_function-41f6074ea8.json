@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isValidOtbId",
+  "return_type": "bool",
+  "args": "uint16 id",
+  "file": "src/client/thingtypemanager.h"
+}

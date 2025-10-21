@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Minimap::calcMapRect",
+  "return_type": "Rect",
+  "args": "const Rect& screenRect, const Position& mapCenter, float scale",
+  "file": "src/client/minimap.cpp"
+}

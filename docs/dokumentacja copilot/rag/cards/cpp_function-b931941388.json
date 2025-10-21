@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LOGV",
+  "return_type": "case APP_CMD_SAVE_STATE:",
+  "args": "\"APP_CMD_SAVE_STATE\\n\"",
+  "file": "src/android/android_native_app_glue.cpp"
+}

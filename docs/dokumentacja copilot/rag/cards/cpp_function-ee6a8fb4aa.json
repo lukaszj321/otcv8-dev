@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "get",
+  "return_type": "template<typename T> T",
+  "args": "const Key& k",
+  "file": "src/framework/stdext/dynamic_storage.h"
+}

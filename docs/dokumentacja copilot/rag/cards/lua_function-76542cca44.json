@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getRightActionPanel",
+  "args": "",
+  "file": "modules/game_interface/gameinterface.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseTileRemoveThing",
+  "return_type": "case Proto::GameServerDeleteOnMap:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_emblem != Otc::EmblemNone && m_emblemTexture",
+  "file": "src/client/creature.cpp"
+}

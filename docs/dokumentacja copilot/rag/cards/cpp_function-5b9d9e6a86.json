@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int x = 0; x < size + border * 2; ++x",
+  "file": "src/framework/graphics/image.cpp"
+}

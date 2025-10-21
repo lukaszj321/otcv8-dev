@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glTexParameteri",
+  "return_type": "nan",
+  "args": "GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter",
+  "file": "src/framework/graphics/texture.cpp"
+}

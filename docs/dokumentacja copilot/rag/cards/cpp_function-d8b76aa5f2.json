@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "XDefineCursor",
+  "return_type": "nan",
+  "args": "m_display, m_window, m_cursor",
+  "file": "src/framework/platform/x11window.cpp"
+}

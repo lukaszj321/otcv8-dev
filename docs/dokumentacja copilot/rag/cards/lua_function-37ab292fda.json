@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "loadCommunicationSettings",
+  "args": "",
+  "file": "modules/game_console/console.lua"
+}

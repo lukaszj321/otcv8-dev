@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 11,
+  "path": "SupplyItem/Panel#fields",
+  "widget": "Panel",
+  "base": "",
+  "id": "fields",
+  "props": {
+    "id": "fields",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-left": "2",
+    "margin-right": "2"
+  }
+}

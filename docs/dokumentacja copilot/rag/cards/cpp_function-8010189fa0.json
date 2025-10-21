@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "resize",
+  "return_type": "public: void",
+  "args": "int width, int height",
+  "file": "src/framework/ui/uiwidget.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawBottomWidgets",
+  "return_type": "void",
+  "args": "const Point& rect, const Otc::Direction direction",
+  "file": "src/client/creature.h"
+}

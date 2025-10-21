@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "unpack",
+  "return_type": "void",
+  "args": "z_stream& zstream, unsigned char * dst, unsigned int dst_size, unsigned char * src, unsigned int src_size, unsigned int h, unsigned int rowbytes, unsigned char bpp",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

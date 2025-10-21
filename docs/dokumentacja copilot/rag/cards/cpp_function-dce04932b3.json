@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setLayout",
+  "return_type": "void",
+  "args": "const UILayoutPtr& layout",
+  "file": "src/framework/ui/uiwidget.h"
+}

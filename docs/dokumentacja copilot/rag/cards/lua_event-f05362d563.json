@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onPlayerGoods",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

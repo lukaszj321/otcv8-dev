@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindUniformLocation",
+  "return_type": "nan",
+  "args": "TIME_UNIFORM, \"u_Time\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

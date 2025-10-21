@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onLoginAdvice",
+  "args": "message",
+  "file": "modules/game_interface/gameinterface.lua"
+}

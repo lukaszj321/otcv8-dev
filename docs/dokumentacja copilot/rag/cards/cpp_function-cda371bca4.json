@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaObject::luaSetField",
+  "return_type": "void",
+  "args": "const std::string& key",
+  "file": "src/framework/luaengine/luaobject.cpp"
+}

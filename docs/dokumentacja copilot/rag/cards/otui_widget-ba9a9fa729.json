@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 128,
+  "path": "OptionPanel/Panel/ComboBox#containerPanel",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "containerPanel",
+  "props": {
+    "id": "containerPanel",
+    "anchors.left": "backpackPanelLabel.left",
+    "anchors.right": "backpackPanelLabel.right",
+    "anchors.top": "backpackPanelLabel.bottom",
+    "margin-top": "3",
+    "self": "addOption(\"4th right panel\")"
+  }
+}

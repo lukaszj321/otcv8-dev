@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 157,
+  "path": "SuppliesWindow/BotTextEdit#staminaValue",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "staminaValue",
+  "props": {
+    "id": "staminaValue",
+    "size": "40 20",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.top",
+    "margin-left": "5"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_mouse.bindPressMove",
+  "args": "widget, callback",
+  "file": "modules/corelib/mouse.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UITextEdit::appendCharacter",
+  "return_type": "void",
+  "args": "char c",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

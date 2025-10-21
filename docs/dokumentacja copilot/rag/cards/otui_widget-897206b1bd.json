@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 212,
+  "path": "Vocations/Panel#box/CategoryCheckBox#paladins",
+  "widget": "CategoryCheckBox",
+  "base": "",
+  "id": "paladins",
+  "props": {
+    "id": "paladins",
+    "text": "Paladins"
+  }
+}

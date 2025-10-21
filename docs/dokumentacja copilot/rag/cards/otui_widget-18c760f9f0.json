@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 268,
+  "path": "LabelAndTextEditPanel",
+  "widget": "LabelAndTextEditPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "20",
+    "padding": "1"
+  }
+}

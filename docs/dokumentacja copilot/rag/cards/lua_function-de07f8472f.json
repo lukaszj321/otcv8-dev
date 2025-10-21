@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:removeFlag",
+  "args": "pos, icon, description",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

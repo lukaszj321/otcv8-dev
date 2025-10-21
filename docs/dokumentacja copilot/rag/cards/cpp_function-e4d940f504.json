@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSpells",
+  "return_type": "std::vector<int>",
+  "args": "nan",
+  "file": "src/client/localplayer.h"
+}

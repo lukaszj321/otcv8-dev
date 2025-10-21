@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ShowWindow",
+  "return_type": "else",
+  "args": "m_window, SW_SHOW",
+  "file": "src/framework/platform/win32window.cpp"
+}

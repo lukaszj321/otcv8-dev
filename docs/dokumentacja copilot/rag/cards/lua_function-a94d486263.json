@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "refreshVisibleBars",
+  "args": "",
+  "file": "modules/game_topbar/topbar.lua"
+}

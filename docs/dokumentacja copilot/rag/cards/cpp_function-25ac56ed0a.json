@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BN_mod_inverse",
+  "return_type": "nan",
+  "args": "m_rsa->iqmp, m_rsa->q, m_rsa->p, ctx",
+  "file": "src/framework/util/crypt.cpp"
+}

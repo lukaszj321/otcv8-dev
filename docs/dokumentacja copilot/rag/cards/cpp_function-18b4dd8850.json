@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Color",
+  "return_type": "return",
+  "args": "0, 0, 0",
+  "file": "src/framework/util/color.cpp"
+}

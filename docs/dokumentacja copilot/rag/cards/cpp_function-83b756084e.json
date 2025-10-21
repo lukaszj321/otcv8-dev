@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bsd_signal",
+  "return_type": "__sighandler_t",
+  "args": "int s, __sighandler_t f",
+  "file": "src/android/dependencies.cpp"
+}

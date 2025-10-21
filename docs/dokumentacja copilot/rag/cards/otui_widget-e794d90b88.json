@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 71,
+  "path": "MissionLog/VerticalScrollBar#missionListScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "missionListScrollBar",
+  "props": {
+    "id": "missionListScrollBar",
+    "anchors.top": "missionList.top",
+    "anchors.right": "missionList.right",
+    "anchors.bottom": "missionList.bottom",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

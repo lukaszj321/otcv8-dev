@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 679,
+  "path": "PreyTracker#preyTracker/MiniWindowContents/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-rounded"
+  }
+}

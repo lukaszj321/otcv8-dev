@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawTileWidget",
+  "return_type": "void",
+  "args": "const Rect& rect, const Rect& srcRect",
+  "file": "src/client/mapview.h"
+}

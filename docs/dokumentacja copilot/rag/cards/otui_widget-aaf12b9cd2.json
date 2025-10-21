@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/targetbot/looting.otui",
+  "line": 28,
+  "path": "TargetBotLootingPanel/BotContainer#containers",
+  "widget": "BotContainer",
+  "base": "",
+  "id": "containers",
+  "props": {
+    "id": "containers",
+    "margin-top": "3",
+    "height": "45"
+  }
+}

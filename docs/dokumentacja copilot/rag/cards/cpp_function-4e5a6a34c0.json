@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setGreen",
+  "return_type": "void",
+  "args": "float g",
+  "file": "src/framework/util/color.h"
+}

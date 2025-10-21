@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "IsAlpha",
+  "return_type": "static int",
+  "args": "unsigned char anyByte, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

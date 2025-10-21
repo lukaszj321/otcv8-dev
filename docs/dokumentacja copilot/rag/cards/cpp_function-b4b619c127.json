@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::getSpectatorsInRangeEx",
+  "return_type": "std::vector<CreaturePtr>",
+  "args": "const Position& centerPos, bool multiFloor, int minXRange, int maxXRange, int minYRange, int maxYRange",
+  "file": "src/client/map.cpp"
+}

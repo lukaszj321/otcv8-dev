@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "readDailyReward",
+  "args": "msg",
+  "file": "modules/game_protocol/protocol.lua"
+}

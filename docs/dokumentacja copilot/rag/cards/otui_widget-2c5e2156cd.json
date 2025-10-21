@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/alarms.otui",
+  "line": 40,
+  "path": "AlarmCheckBoxAndTextEdit",
+  "widget": "AlarmCheckBoxAndTextEdit",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "20",
+    "margin-top": "2"
+  }
+}

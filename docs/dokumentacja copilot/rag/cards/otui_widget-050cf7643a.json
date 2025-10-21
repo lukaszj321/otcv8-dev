@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_stats/stats.otui",
+  "line": 15,
+  "path": "UIWidget#game_stats/Label#ping",
+  "widget": "Label",
+  "base": "",
+  "id": "ping",
+  "props": {
+    "id": "ping",
+    "font": "verdana-11px-rounded"
+  }
+}

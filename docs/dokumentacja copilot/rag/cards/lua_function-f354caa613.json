@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "assignHotkey",
+  "args": "widget",
+  "file": "modules/game_actionbar/actionbar.lua"
+}

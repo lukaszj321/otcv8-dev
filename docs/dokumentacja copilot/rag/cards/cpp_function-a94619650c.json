@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBindAttribLocation",
+  "return_type": "return",
+  "args": "m_programId, location, name",
+  "file": "src/framework/graphics/shaderprogram.cpp"
+}

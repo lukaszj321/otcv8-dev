@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemstats.otui",
+  "line": 48,
+  "path": "Panel/TableData#buyStatsTableData",
+  "widget": "TableData",
+  "base": "",
+  "id": "buyStatsTableData",
+  "props": {
+    "id": "buyStatsTableData",
+    "anchors.top": "buyStatsTable.top",
+    "anchors.bottom": "buyStatsTable.bottom",
+    "anchors.left": "buyStatsTable.left",
+    "anchors.right": "buyStatsTable.right",
+    "vertical-scrollbar": "buyStatsTableScrollBar"
+  }
+}

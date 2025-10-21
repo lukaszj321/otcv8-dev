@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "alSourceQueueBuffers",
+  "return_type": "nan",
+  "args": "m_sourceId, 1, &buffer",
+  "file": "src/framework/sound/streamsoundsource.cpp"
+}

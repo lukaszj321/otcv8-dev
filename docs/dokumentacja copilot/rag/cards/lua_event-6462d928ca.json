@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onFlagMouseRelease",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

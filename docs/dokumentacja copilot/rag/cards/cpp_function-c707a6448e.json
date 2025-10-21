@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "encryptSprites",
+  "return_type": "void",
+  "args": "std::string fileName",
+  "file": "src/client/spritemanager.h"
+}

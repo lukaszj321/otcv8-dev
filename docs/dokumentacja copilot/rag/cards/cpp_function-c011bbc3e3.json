@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "throw",
+  "args": "node, \"cannot create anchor, the parent widget doesn't use anchor layout!\"",
+  "file": "src/framework/ui/uiwidgetbasestyle.cpp"
+}

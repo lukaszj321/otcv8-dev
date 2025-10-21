@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 234,
+  "path": "MainWindow#spelllistWindow/CheckBox#vocationBoxPaladin",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "vocationBoxPaladin",
+  "props": {
+    "id": "vocationBoxPaladin",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "width": "75"
+  }
+}

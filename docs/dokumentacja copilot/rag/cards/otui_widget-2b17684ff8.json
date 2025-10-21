@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 491,
+  "path": "SettingsPanel/CheckBox#Cooldown",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "Cooldown",
+  "props": {
+    "id": "Cooldown",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "margin-top": "8",
+    "width": "220",
+    "text": "Check spell cooldowns"
+  }
+}

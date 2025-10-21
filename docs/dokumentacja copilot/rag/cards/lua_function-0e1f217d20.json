@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.onPostProgress",
+  "args": "operationId, url, progress",
+  "file": "modules/corelib/http.lua"
+}

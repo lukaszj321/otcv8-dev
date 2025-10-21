@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 46,
+  "path": "EnterGameWindow#enterGame/Panel#serverSelectorPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "serverSelectorPanel",
+  "props": {
+    "id": "serverSelectorPanel",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "height": "52",
+    "on": "true",
+    "focusable": "false",
+    "visible": "false",
+    "margin-top": "-52"
+  }
+}

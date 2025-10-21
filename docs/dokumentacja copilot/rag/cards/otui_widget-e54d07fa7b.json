@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 99,
+  "path": "PriorityEntry/Button#decrement",
+  "widget": "Button",
+  "base": "",
+  "id": "decrement",
+  "props": {
+    "id": "decrement",
+    "anchors.right": "prev.left",
+    "margin-right": "2",
+    "size": "14 14",
+    "text": "-",
+    "tooltip": "Decrease Priority"
+  }
+}

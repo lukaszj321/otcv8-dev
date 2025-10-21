@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processModalDialog",
+  "return_type": "void",
+  "args": "uint32 id, std::string title, std::string message, std::vector<std::tuple<int, std::string> > buttonList, int enterButton, int escapeButton, std::vector<std::tuple<int, std::string> > choiceList, bool priority",
+  "file": "src/client/game.cpp"
+}

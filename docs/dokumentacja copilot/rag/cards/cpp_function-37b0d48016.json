@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "signal",
+  "return_type": "nan",
+  "args": "SIGINT, exitSignalHandler",
+  "file": "src/framework/core/application.cpp"
+}

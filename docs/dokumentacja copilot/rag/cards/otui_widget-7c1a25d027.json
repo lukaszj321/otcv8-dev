@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bugreport/bugreport.otui",
+  "line": 15,
+  "path": "BugReportWindow/MultilineTextEdit#bugTextEdit",
+  "widget": "MultilineTextEdit",
+  "base": "",
+  "id": "bugTextEdit",
+  "props": {
+    "id": "bugTextEdit",
+    "anchors.top": "bugLabel.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "sendButton.top",
+    "margin-top": "4",
+    "margin-bottom": "8"
+  }
+}

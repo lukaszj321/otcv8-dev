@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "return",
+  "return_type": "nan",
+  "args": "bytesRead >= STREAM_FRAGMENT_SIZE && !m_eof",
+  "file": "src/framework/sound/streamsoundsource.cpp"
+}

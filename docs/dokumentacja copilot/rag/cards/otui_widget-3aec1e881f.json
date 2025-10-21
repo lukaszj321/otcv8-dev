@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/audio.otui",
+  "line": 24,
+  "path": "OptionPanel/Label#botSoundVolumeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "botSoundVolumeLabel",
+  "props": {
+    "id": "botSoundVolumeLabel",
+    "margin-top": "6",
+    "self": "setText(tr('Bot sound volume: %d', value))"
+  }
+}

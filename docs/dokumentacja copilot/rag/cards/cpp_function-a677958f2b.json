@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call",
+  "return_type": "template<typename Tuple> static void",
+  "args": "const Tuple& tuple",
+  "file": "src/framework/luaengine/luavaluecasts.h"
+}

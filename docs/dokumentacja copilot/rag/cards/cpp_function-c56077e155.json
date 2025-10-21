@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSpriteIndex",
+  "return_type": "uint",
+  "args": "int w, int h, int l, int x, int y, int z, int a",
+  "file": "src/client/thingtype.h"
+}

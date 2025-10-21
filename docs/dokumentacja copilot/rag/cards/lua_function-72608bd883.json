@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMessageBox:cancel",
+  "args": "",
+  "file": "modules/corelib/ui/uimessagebox.lua"
+}

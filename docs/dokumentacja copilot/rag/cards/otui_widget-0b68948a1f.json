@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 42,
+  "path": "MainWindow#channelsWindow/Button#buttonOpen",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonOpen",
+  "props": {
+    "id": "buttonOpen",
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10"
+  }
+}

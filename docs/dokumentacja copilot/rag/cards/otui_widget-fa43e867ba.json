@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 179,
+  "path": "EnterGameWindow#enterGame/Label#serverInfoLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "serverInfoLabel",
+  "props": {
+    "id": "serverInfoLabel",
+    "font": "verdana-11px-rounded",
+    "anchors.top": "prev.top",
+    "anchors.left": "parent.left",
+    "margin-top": "5",
+    "color": "green",
+    "text-auto-resize": "true"
+  }
+}

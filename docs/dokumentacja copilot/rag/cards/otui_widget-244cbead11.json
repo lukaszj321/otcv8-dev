@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 43,
+  "path": "MainWindow#communicationWindow/TextList#ignoreList",
+  "widget": "TextList",
+  "base": "",
+  "id": "ignoreList",
+  "props": {
+    "id": "ignoreList",
+    "vertical-scrollbar": "ignoreListScrollBar",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "height": "150",
+    "width": "230",
+    "margin-bottom": "10",
+    "margin-top": "3",
+    "padding": "1",
+    "focusable": "false"
+  }
+}

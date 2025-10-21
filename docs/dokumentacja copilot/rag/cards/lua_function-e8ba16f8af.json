@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITabBar:addTab",
+  "args": "text, panel, icon",
+  "file": "modules/corelib/ui/uitabbar.lua"
+}

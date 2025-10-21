@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 89,
+  "path": "MainWindow#hotkeysWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10"
+  }
+}

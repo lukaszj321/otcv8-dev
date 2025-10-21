@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isUIBoxLayout",
+  "return_type": "virtual bool",
+  "args": "nan",
+  "file": "src/framework/ui/uilayout.h"
+}

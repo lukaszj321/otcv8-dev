@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 259,
+  "path": "Panel#actionBar/BottomSliders#nextPanel",
+  "widget": "BottomSliders",
+  "base": "",
+  "id": "nextPanel",
+  "props": {
+    "id": "nextPanel",
+    "anchors.bottom": "parent.bottom",
+    "margin-bottom": "3"
+  }
+}

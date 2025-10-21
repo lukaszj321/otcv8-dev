@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "fillTrade",
+  "args": "name, items, counter",
+  "file": "modules/game_playertrade/playertrade.lua"
+}

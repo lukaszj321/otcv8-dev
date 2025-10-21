@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 148,
+  "path": "QuestLogWindow#questLogWindow/Button#trackerButton",
+  "widget": "Button",
+  "base": "",
+  "id": "trackerButton",
+  "props": {
+    "id": "trackerButton",
+    "anchors.left": "parent.left",
+    "margin-right": "3",
+    "color": "#ffffff",
+    "size": "80 21",
+    "text-align": "center",
+    "font": "cipsoftFont"
+  }
+}

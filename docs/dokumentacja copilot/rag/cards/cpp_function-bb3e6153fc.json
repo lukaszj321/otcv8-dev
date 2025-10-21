@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setForcedLevel",
+  "return_type": "void",
+  "args": "int value",
+  "file": "src/framework/core/adaptiverenderer.h"
+}

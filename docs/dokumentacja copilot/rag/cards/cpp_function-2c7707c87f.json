@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawWhiteFunctionModules",
+  "return_type": "void",
+  "args": "uint8_t qrcode[], int version",
+  "file": "src/framework/util/qrcodegen.c"
+}

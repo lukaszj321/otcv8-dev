@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/currentoffers.otui",
+  "line": 116,
+  "path": "Panel/Button#buyCancelButton",
+  "widget": "Button",
+  "base": "",
+  "id": "buyCancelButton",
+  "props": {
+    "id": "buyCancelButton",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "prev.bottom",
+    "margin-top": "5",
+    "margin-right": "6",
+    "width": "80",
+    "enabled": "false"
+  }
+}

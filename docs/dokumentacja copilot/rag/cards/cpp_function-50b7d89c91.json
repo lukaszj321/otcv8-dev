@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "catch",
+  "return_type": "nan",
+  "args": "const std::exception&",
+  "file": "src/framework/graphics/graphics.cpp"
+}

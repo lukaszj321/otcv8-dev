@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/config.otui",
+  "line": 51,
+  "path": "BotConfig#botConfig/Button#remove",
+  "widget": "Button",
+  "base": "",
+  "id": "remove",
+  "props": {
+    "id": "remove",
+    "anchors.top": "prev.top",
+    "anchors.right": "parent.right",
+    "text": "Remove",
+    "width": "56",
+    "height": "18",
+    "text-offet": "0 2"
+  }
+}

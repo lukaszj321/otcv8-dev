@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_things\n  description: Contains things spr and dat\n  reloadable: false\n  sandboxed: true\n  scripts: [things]",
+  "file": "modules/game_things/things.otmod",
+  "description": "Contains things spr and dat"
+}

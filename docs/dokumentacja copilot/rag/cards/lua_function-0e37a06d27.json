@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onPlayerPositionChange",
+  "args": "creature, newPos, oldPos",
+  "file": "modules/game_battle/battle.lua"
+}

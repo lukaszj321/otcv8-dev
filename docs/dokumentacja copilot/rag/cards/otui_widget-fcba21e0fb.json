@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/hotkey.otui",
+  "line": 40,
+  "path": "MainWindow#assignHotkeyWindow/Button#buttonClear",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonClear",
+  "props": {
+    "id": "buttonClear",
+    "anchors.right": "prev.left",
+    "margin-right": "5",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "font": "cipsoftFont",
+    "text": "Clear"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 332,
+  "path": "HealerPanel",
+  "widget": "HealerPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "size": "510 275"
+  }
+}

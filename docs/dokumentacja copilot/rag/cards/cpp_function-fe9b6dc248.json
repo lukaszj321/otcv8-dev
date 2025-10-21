@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "handleError",
+  "return_type": "nan",
+  "args": "asio::error::timed_out",
+  "file": "src/framework/net/connection.cpp"
+}

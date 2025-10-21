@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGMActions",
+  "file": "modules/game_ruleviolation/ruleviolation.lua"
+}

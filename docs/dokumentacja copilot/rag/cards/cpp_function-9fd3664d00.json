@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSize",
+  "return_type": "void",
+  "args": "const TSize<T>& size",
+  "file": "src/framework/util/rect.h"
+}

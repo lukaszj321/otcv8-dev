@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getMarketCategories",
+  "return_type": "std::set<int>",
+  "args": "nan",
+  "file": "src/client/thingtypemanager.h"
+}

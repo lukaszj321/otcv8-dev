@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeThingColor",
+  "return_type": "void",
+  "args": "const ThingPtr& thing",
+  "file": "src/client/map.h"
+}

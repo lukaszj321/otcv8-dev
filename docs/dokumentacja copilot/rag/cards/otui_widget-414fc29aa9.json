@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.otui",
+  "line": 118,
+  "path": "PlayerListWindow/VerticalSeparator#verticalSep",
+  "widget": "VerticalSeparator",
+  "base": "",
+  "id": "verticalSep",
+  "props": {
+    "id": "verticalSep",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "separator.top",
+    "margin-bottom": "5"
+  }
+}

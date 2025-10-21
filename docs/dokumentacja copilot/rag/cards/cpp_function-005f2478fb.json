@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cb_tell",
+  "return_type": "static long",
+  "args": "void* source",
+  "file": "src/framework/sound/oggsoundfile.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "p = 0; p < n - 1; p++",
+  "file": "src/framework/util/crypt.cpp"
+}

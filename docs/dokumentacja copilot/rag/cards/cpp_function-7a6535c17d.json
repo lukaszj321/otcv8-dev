@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ToText",
+  "return_type": "TiXmlText*",
+  "args": "nan",
+  "file": "src/framework/xml/tinyxml.h"
+}

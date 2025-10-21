@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 175,
+  "path": "FlagWindow#flagWindow/Button#okButton",
+  "widget": "Button",
+  "base": "",
+  "id": "okButton",
+  "props": {
+    "id": "okButton",
+    "width": "64",
+    "anchors.right": "next.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "10"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 229,
+  "path": "SuppliesWindow/Button#increment",
+  "widget": "Button",
+  "base": "",
+  "id": "increment",
+  "props": {
+    "id": "increment",
+    "anchors.right": "items.right",
+    "text": "+",
+    "width": "50",
+    "tooltip": "increase all max supplies amount by average"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "m_health != health || m_maxHealth != maxHealth",
+  "file": "src/client/localplayer.cpp"
+}

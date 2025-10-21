@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_isboolean",
+  "return_type": "return",
+  "args": "L, index",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

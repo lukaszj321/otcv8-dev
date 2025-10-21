@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "writeAt",
+  "return_type": "template<typename T> void",
+  "args": "const std::string& childTag, const T& v",
+  "file": "src/framework/otml/otmlnode.h"
+}

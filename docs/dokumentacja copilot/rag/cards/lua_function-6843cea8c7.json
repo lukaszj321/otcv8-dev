@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onAddVip",
+  "args": "id, name, state, description, iconId, notify",
+  "file": "modules/game_viplist/viplist.lua"
+}

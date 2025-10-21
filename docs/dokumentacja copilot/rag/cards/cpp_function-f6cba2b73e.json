@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageHeight",
+  "return_type": "void",
+  "args": "int height",
+  "file": "src/framework/ui/uiwidget.h"
+}

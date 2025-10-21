@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 384,
+  "path": "AttackBotPanel/Button#addEntry",
+  "widget": "Button",
+  "base": "",
+  "id": "addEntry",
+  "props": {
+    "id": "addEntry",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "40 19",
+    "text-align": "center",
+    "text": "New",
+    "font": "cipsoftFont"
+  }
+}

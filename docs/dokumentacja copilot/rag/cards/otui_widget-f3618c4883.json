@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 32,
+  "path": "ConditionBoxPopupMenu",
+  "widget": "ConditionBoxPopupMenu",
+  "base": "ComboBoxPopupMenu",
+  "id": "",
+  "props": {}
+}

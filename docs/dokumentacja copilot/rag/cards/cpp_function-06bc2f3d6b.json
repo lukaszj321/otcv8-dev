@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "draw",
+  "return_type": "virtual void",
+  "args": "const Point& pos",
+  "file": "src/framework/graphics/drawqueue.h"
+}

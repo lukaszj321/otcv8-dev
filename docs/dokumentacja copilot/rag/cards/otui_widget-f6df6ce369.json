@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 112,
+  "path": "ComboTrigger#trigger/Label#leaderLabel2",
+  "widget": "Label",
+  "base": "",
+  "id": "leaderLabel2",
+  "props": {
+    "id": "leaderLabel2",
+    "anchors.left": "triggerLabel3.right",
+    "anchors.top": "triggerLabel3.top",
+    "text": "Leader:",
+    "margin-left": "32"
+  }
+}

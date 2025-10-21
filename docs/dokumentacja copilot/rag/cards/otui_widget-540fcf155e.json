@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/game.otui",
+  "line": 48,
+  "path": "OptionPanel/Label#walkFirstStepDelayLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "walkFirstStepDelayLabel",
+  "props": {
+    "id": "walkFirstStepDelayLabel",
+    "margin-top": "10",
+    "self": "setText(tr('Walk delay after first step: %s ms', value))",
+    "visible": "false"
+  }
+}

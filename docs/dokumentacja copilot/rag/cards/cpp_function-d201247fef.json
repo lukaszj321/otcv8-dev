@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAttackingCreature",
+  "return_type": "private: void",
+  "args": "const CreaturePtr& creature",
+  "file": "src/client/game.h"
+}

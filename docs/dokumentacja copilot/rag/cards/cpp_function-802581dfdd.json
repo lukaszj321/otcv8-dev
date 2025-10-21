@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendInspectNpcTrade",
+  "return_type": "void",
+  "args": "int itemId, int count",
+  "file": "src/client/protocolgamesend.cpp"
+}

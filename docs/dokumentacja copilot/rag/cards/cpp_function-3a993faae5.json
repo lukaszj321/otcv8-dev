@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::attack",
+  "return_type": "void",
+  "args": "CreaturePtr creature, bool cancel",
+  "file": "src/client/game.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 32,
+  "path": "MainWindow/Label#nameLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "nameLabel",
+  "props": {
+    "id": "nameLabel",
+    "text": "Name",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "color": "green",
+    "width": "180"
+  }
+}

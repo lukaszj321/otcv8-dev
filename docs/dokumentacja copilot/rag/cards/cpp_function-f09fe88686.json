@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setModule",
+  "return_type": "nan",
+  "args": "qrcode, left + dx, top + dy, true",
+  "file": "src/framework/util/qrcodegen.c"
+}

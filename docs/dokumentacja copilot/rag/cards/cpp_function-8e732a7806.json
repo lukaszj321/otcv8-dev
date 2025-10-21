@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendCloseRuleViolation",
+  "return_type": "void",
+  "args": "const std::string& reporter",
+  "file": "src/client/protocolgamesend.cpp"
+}

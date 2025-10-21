@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture::replace",
+  "return_type": "void",
+  "args": "const ImagePtr& image",
+  "file": "src/framework/graphics/texture.cpp"
+}

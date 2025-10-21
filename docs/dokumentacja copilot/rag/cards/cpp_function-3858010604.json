@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "HttpSession::on_read_header",
+  "return_type": "void",
+  "args": "const boost::system::error_code& ec, size_t bytes_transferred",
+  "file": "src/framework/http/session.cpp"
+}

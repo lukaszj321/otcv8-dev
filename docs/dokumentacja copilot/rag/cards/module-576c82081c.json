@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_bot\n  description: Advanced OTClientV8 Bot\n  author: otclient@otclient.ovh\n  sandboxed: true\n  scripts: [ bot ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_bot/bot.otmod",
+  "description": "Advanced OTClientV8 Bot"
+}

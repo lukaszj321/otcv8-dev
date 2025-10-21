@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 1,
+  "path": "MainWindow#editWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "editWindow",
+  "props": {
+    "id": "editWindow",
+    "size": "550 240"
+  }
+}

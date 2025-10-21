@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "OutputMessage:addPosition",
+  "args": "position",
+  "file": "modules/corelib/outputmessage.lua"
+}

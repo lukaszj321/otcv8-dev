@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/console.otui",
+  "line": 22,
+  "path": "OptionPanel/OptionCheckBox#showPrivateMessagesInConsole",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showPrivateMessagesInConsole",
+  "props": {
+    "id": "showPrivateMessagesInConsole"
+  }
+}

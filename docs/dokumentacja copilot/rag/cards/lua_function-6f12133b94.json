@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_keyboard.areKeysPressed",
+  "args": "keyComboDesc",
+  "file": "modules/corelib/keyboard.lua"
+}

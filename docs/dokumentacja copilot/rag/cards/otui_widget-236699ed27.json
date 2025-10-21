@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 138,
+  "path": "Groups/ToolTipLabel#title",
+  "widget": "ToolTipLabel",
+  "base": "",
+  "id": "title",
+  "props": {
+    "id": "title",
+    "anchors.top": "parent.top",
+    "text": "Groups",
+    "tooltip": "Players added in custom list will always be in scope"
+  }
+}

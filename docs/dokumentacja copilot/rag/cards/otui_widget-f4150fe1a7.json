@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 222,
+  "path": "ActivePreyPanel/FlatPanel#lockPrey",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "lockPrey",
+  "props": {
+    "id": "lockPrey",
+    "size": "160 20",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "anchors.left": "parent.left"
+  }
+}

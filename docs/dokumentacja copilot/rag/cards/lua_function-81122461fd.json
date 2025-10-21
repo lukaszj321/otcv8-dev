@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "createThingMenu",
+  "args": "menuPosition, lookThing, useThing, creatureThing",
+  "file": "modules/game_interface/gameinterface.lua"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 106,
+  "path": "FeaturePanel/BotSwitch#Feature2",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "Feature2",
+  "props": {
+    "id": "Feature2",
+    "anchors.top": "sep.bottom",
+    "anchors.left": "prev.right",
+    "margin-top": "5",
+    "margin-left": "5",
+    "text": "MWall info"
+  }
+}

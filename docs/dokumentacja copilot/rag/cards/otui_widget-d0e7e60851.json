@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_modaldialog/modaldialog.otui",
+  "line": 22,
+  "path": "ChoiceScrollBar#choiceScrollBar",
+  "widget": "ChoiceScrollBar",
+  "base": "VerticalScrollBar",
+  "id": "choiceScrollBar",
+  "props": {
+    "id": "choiceScrollBar",
+    "anchors.top": "choiceList.top",
+    "anchors.bottom": "choiceList.bottom",
+    "anchors.right": "choiceList.right",
+    "step": "14",
+    "pixels-scroll": "true",
+    "visible": "false"
+  }
+}

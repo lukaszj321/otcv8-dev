@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaL_error",
+  "return_type": "nan",
+  "args": "L, \"trying to access non-existent bits\"",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 385,
+  "path": "EQPanel/BotButton#cloneEq",
+  "widget": "BotButton",
+  "base": "",
+  "id": "cloneEq",
+  "props": {
+    "id": "cloneEq",
+    "anchors.top": "feet.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "15",
+    "text": "Clone Current EQ",
+    "font": "verdana-11px-rounded",
+    "tooltip": "Copy currently equipped and non-equipped items."
+  }
+}

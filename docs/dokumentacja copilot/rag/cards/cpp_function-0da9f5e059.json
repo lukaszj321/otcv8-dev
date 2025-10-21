@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "m_flags",
+  "return_type": "nan",
+  "args": "0",
+  "file": "src/client/tile.cpp"
+}

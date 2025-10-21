@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 270,
+  "path": "CreatureAndBonus/FlatPanel#bonus/UIWidget#icon",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "icon",
+  "props": {
+    "id": "icon",
+    "anchors.top": "parent.top",
+    "image-source": "/images/game/prey/prey_bignobonus",
+    "margin-top": "3"
+  }
+}

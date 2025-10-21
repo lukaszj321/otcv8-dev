@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Market.enableCreateOffer",
+  "args": "enable",
+  "file": "modules/game_market/market.lua"
+}

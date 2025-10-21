@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:onVisibilityChange",
+  "args": "visible",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

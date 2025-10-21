@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollArea:onMouseWheel",
+  "args": "mousePos, mouseWheel",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

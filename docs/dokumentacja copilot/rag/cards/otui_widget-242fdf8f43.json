@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 86,
+  "path": "MainWindow#communicationWindow/CheckBox#checkboxIgnorePrivateMessages",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "checkboxIgnorePrivateMessages",
+  "props": {
+    "id": "checkboxIgnorePrivateMessages",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "width": "180",
+    "margin-top": "5"
+  }
+}

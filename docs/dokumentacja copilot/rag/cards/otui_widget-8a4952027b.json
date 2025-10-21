@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 475,
+  "path": "EquipWindow/ListPanel#listPanel",
+  "widget": "ListPanel",
+  "base": "",
+  "id": "listPanel",
+  "props": {
+    "id": "listPanel",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "5",
+    "margin-left": "-2",
+    "visible": "false"
+  }
+}

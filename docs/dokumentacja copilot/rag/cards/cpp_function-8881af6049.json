@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "spawnProcess",
+  "return_type": "bool",
+  "args": "std::string process, const std::vector<std::string>& args",
+  "file": "src/framework/platform/platform.h"
+}

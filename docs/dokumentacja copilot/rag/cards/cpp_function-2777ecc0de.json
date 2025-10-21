@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setClip",
+  "return_type": "void",
+  "args": "size_t start, const Rect& clip",
+  "file": "src/framework/graphics/drawqueue.h"
+}

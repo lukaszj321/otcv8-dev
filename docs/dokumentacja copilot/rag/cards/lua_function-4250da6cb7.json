@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onExtendedJSONOpcode",
+  "args": "protocol, code, json_data",
+  "file": "modules/game_shop/shop.lua"
+}

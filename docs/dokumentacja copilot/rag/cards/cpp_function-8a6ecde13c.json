@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "X11Window::setMouseCursor",
+  "return_type": "void",
+  "args": "int cursorId",
+  "file": "src/framework/platform/x11window.cpp"
+}

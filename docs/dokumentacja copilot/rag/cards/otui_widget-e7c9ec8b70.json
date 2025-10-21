@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 12,
+  "path": "BossCreaturePanel/Label#name",
+  "widget": "Label",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "anchors.left": "creature.right",
+    "margin": "1",
+    "margin-left": "5",
+    "margin-top": "4",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "creature.verticalCenter",
+    "anchors.right": "parent.right",
+    "font": "verdana-11px-rounded",
+    "color": "#FFFFFF",
+    "text": "Duke Krule"
+  }
+}

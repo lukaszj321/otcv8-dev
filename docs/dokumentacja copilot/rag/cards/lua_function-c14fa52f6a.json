@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "displayErrorBox",
+  "args": "title, message",
+  "file": "modules/corelib/ui/uimessagebox.lua"
+}

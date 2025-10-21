@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCreature",
+  "return_type": "CreaturePtr",
+  "args": "const InputMessagePtr& msg, int type = 0",
+  "file": "src/client/protocolgame.h"
+}

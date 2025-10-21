@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 95,
+  "path": "MainWindow#npcWindow/FlatPanel#setupPanel",
+  "widget": "FlatPanel",
+  "base": "",
+  "id": "setupPanel",
+  "props": {
+    "id": "setupPanel",
+    "height": "105",
+    "enabled": "false",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "anchors.top": "prev.bottom",
+    "margin-top": "5",
+    "margin-right": "5",
+    "image-color": "#ffffff88"
+  }
+}

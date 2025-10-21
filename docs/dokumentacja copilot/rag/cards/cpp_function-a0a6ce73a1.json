@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCellSpacing",
+  "return_type": "void",
+  "args": "int spacing",
+  "file": "src/framework/ui/uigridlayout.h"
+}

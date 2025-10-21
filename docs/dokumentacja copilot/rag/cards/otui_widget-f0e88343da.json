@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 12,
+  "path": "StatsPanel/ProgressBar#mana",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "mana",
+  "props": {
+    "id": "mana",
+    "anchors.left": "states.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "states.top",
+    "anchors.bottom": "states.bottom",
+    "margin-left": "7",
+    "background-color": "#0060d5"
+  }
+}

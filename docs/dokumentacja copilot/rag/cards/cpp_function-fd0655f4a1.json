@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "CreatureManager::internalLoadCreatureBuffer",
+  "return_type": "void",
+  "args": "TiXmlElement* attrib, const CreatureTypePtr& m",
+  "file": "src/client/creatures.cpp"
+}

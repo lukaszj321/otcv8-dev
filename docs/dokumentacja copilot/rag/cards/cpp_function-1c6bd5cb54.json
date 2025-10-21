@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int i = 2; i < numLevels; i++",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

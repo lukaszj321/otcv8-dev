@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/looting.otui",
+  "line": 38,
+  "path": "TargetBotLootingPanel/Panel#maxDangerPanel/BotTextEdit#value",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "value",
+  "props": {
+    "id": "value",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "margin-right": "6",
+    "width": "80"
+  }
+}

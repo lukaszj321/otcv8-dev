@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "finderPenaltyAddHistory",
+  "return_type": "nan",
+  "args": "currentRunLength, runHistory",
+  "file": "src/framework/util/qrcodegen.c"
+}

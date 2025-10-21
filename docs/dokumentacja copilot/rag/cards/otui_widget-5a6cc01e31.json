@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 167,
+  "path": "MainWindow#communicationWindow/Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "height": "30"
+  }
+}

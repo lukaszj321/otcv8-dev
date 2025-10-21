@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onKeyText",
+  "return_type": "return",
+  "args": "keyText",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

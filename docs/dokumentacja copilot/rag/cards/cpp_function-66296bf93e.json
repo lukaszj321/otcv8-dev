@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "const auto& it : m_waypoints",
+  "file": "src/client/mapio.cpp"
+}

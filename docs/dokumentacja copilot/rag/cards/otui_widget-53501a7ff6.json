@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 110,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#packets",
+  "widget": "DebugText",
+  "base": "",
+  "id": "packets",
+  "props": {
+    "id": "packets",
+    "text": "-"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "processMouseAction",
+  "args": "menuPosition, mouseButton, autoWalkPos, lookThing, useThing, creatureThing, attackCreature, marking",
+  "file": "modules/game_interface/gameinterface.lua"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/offerhistory.otui",
+  "line": 47,
+  "path": "Panel/TableData#myHistoryTableData",
+  "widget": "TableData",
+  "base": "",
+  "id": "myHistoryTableData",
+  "props": {
+    "id": "myHistoryTableData",
+    "anchors.bottom": "myHistoryTable.bottom",
+    "anchors.left": "myHistoryTable.left",
+    "anchors.right": "myHistoryTable.right",
+    "margin-top": "2",
+    "vertical-scrollbar": "myHistoryTableScrollBar"
+  }
+}

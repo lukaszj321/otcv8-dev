@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 196,
+  "path": "AttackBotPanel/NexButton#nextCategory",
+  "widget": "NexButton",
+  "base": "",
+  "id": "nextCategory",
+  "props": {
+    "id": "nextCategory",
+    "anchors.left": "category.right",
+    "anchors.top": "entryList.bottom",
+    "margin-top": "8",
+    "margin-left": "2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTotalDuration",
+  "return_type": "ticks_t",
+  "args": "nan",
+  "file": "src/client/animator.h"
+}

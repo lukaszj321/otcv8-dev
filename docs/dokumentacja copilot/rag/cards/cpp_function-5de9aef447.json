@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "free_apng",
+  "return_type": "nan",
+  "args": "&apng",
+  "file": "src/framework/graphics/texturemanager.cpp"
+}

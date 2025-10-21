@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "clearForm",
+  "args": "",
+  "file": "modules/game_ruleviolation/ruleviolation.lua"
+}

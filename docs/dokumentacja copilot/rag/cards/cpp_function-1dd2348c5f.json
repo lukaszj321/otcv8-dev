@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setTextWrap",
+  "return_type": "void",
+  "args": "bool textWrap",
+  "file": "src/framework/ui/uiwidget.h"
+}

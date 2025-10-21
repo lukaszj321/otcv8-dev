@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/config.otui",
+  "line": 7,
+  "path": "BotConfig#botConfig/ComboBox#list",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "text-offset": "3 0",
+    "width": "130"
+  }
+}

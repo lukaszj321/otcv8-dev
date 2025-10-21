@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemoffers.otui",
+  "line": 90,
+  "path": "Panel/TableData#sellingTableData",
+  "widget": "TableData",
+  "base": "",
+  "id": "sellingTableData",
+  "props": {
+    "id": "sellingTableData",
+    "anchors.bottom": "sellingTable.bottom",
+    "anchors.left": "sellingTable.left",
+    "anchors.right": "sellingTable.right",
+    "margin-top": "2",
+    "vertical-scrollbar": "sellingTableScrollBar"
+  }
+}

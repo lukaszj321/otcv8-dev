@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "isOnTile",
+  "args": "id, p1, p2, p3",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua"
+}

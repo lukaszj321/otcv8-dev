@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "const std::string& modName : m_loadLaterModules",
+  "file": "src/framework/core/module.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendExtendedOpcode",
+  "return_type": "void",
+  "args": "uint8 opcode, const std::string& buffer",
+  "file": "src/client/protocolgamesend.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SoundSource::setBuffer",
+  "return_type": "void",
+  "args": "const SoundBufferPtr& buffer",
+  "file": "src/framework/sound/soundsource.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getSelectionEnd",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/framework/ui/uitextedit.h"
+}

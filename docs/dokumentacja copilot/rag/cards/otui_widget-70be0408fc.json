@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 267,
+  "path": "HoldConditions#Hold/TextEdit#HasteSpell",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "HasteSpell",
+  "props": {
+    "id": "HasteSpell",
+    "anchors.left": "prev.right",
+    "margin-left": "10",
+    "width": "100",
+    "font": "verdana-11px-rounded"
+  }
+}

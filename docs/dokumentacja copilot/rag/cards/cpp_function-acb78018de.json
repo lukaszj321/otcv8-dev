@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addLight",
+  "return_type": "return",
+  "args": "pos, light.color, light.intensity",
+  "file": "src/client/lightview.h"
+}

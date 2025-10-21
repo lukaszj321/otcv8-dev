@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/addvip.otui",
+  "line": 20,
+  "path": "MainWindow/HorizontalSeparator",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "10"
+  }
+}

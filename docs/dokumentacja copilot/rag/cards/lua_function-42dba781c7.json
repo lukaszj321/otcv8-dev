@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "reset",
+  "args": "delay",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/stand_lure.lua"
+}

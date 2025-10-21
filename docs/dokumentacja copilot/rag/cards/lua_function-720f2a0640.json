@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIWindow:onDragEnter",
+  "args": "mousePos",
+  "file": "modules/corelib/ui/uiwindow.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "m_startPhase >= -1 && m_startPhase < m_animationPhases",
+  "file": "src/client/animator.cpp"
+}

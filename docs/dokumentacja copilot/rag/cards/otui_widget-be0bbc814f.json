@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.otui",
+  "line": 91,
+  "path": "FeaturePanel/HorizontalSeparator#sep",
+  "widget": "HorizontalSeparator",
+  "base": "",
+  "id": "sep",
+  "props": {
+    "id": "sep",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "2"
+  }
+}

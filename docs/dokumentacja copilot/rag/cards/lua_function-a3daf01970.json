@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "destroyDialog",
+  "args": "",
+  "file": "modules/game_modaldialog/modaldialog.lua"
+}

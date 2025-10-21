@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISpinBox:onStyleApply",
+  "args": "styleName, styleNode",
+  "file": "modules/corelib/ui/uispinbox.lua"
+}

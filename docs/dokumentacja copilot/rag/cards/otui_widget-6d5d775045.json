@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 104,
+  "path": "UIWindow#terminalWindow/ResizeBorder#bottomResizeBorder",
+  "widget": "ResizeBorder",
+  "base": "",
+  "id": "bottomResizeBorder",
+  "props": {
+    "id": "bottomResizeBorder",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "enabled": "false"
+  }
+}

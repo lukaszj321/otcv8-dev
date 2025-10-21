@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lock",
+  "return_type": "std::lock_guard<std::mutex>",
+  "args": "m_mutex",
+  "file": "src/framework/input/mouse.cpp"
+}

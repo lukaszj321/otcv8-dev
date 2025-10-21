@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 67,
+  "path": "ItemPanel/UIWidget",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "max.left",
+    "anchors.bottom": "max.top",
+    "width": "75",
+    "text-align": "center",
+    "font": "verdana-11px-rounded",
+    "text": "Max",
+    "tooltip": "Amount of given supplies to purchase"
+  }
+}

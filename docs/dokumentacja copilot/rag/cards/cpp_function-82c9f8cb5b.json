@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Protocol::onLocalDisconnected",
+  "return_type": "void",
+  "args": "boost::system::error_code ec",
+  "file": "src/framework/net/protocol.cpp"
+}

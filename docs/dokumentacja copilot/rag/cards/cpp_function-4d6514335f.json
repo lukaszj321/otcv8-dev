@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "switch",
+  "return_type": "nan",
+  "args": "m_depthFunc",
+  "file": "src/framework/graphics/painter.cpp"
+}

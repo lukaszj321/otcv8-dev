@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "eglMakeCurrent",
+  "return_type": "nan",
+  "args": "m_eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT",
+  "file": "src/framework/platform/sdlwindow.cpp"
+}

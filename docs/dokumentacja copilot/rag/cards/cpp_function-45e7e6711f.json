@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setDescription",
+  "return_type": "void",
+  "args": "std::string desc",
+  "file": "src/client/item.h"
+}

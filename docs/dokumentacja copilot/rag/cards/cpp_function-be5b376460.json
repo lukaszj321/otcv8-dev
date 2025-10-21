@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "m_buffer",
+  "return_type": "nan",
+  "args": "new T[m_capacity]",
+  "file": "src/framework/util/databuffer.h"
+}

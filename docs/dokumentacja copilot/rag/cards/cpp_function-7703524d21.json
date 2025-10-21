@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "united",
+  "return_type": "TRect<T>",
+  "args": "const TRect<T> &r",
+  "file": "src/framework/util/rect.h"
+}

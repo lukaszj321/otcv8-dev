@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "demangle_name",
+  "return_type": "const char*",
+  "args": "const char* name",
+  "file": "src/framework/stdext/demangle.h"
+}

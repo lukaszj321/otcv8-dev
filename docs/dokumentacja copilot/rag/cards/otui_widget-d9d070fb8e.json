@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 129,
+  "path": "ComboTrigger#trigger/CheckBox#onCastToggle",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "onCastToggle",
+  "props": {
+    "id": "onCastToggle",
+    "anchors.left": "onCastLeader.right",
+    "anchors.top": "onCastLeader.top",
+    "margin-top": "1",
+    "margin-left": "5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Animator::setPhase",
+  "return_type": "void",
+  "args": "int phase",
+  "file": "src/client/animator.cpp"
+}

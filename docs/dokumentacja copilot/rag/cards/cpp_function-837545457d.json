@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "main",
+  "return_type": "int",
+  "args": "int argc, const char* argv[]",
+  "file": "src/main.cpp"
+}

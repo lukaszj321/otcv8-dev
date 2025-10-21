@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 89,
+  "path": "MissionLog/FlatLabel#missionDescription",
+  "widget": "FlatLabel",
+  "base": "",
+  "id": "missionDescription",
+  "props": {
+    "id": "missionDescription",
+    "anchors.top": "missionList.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "missionListScrollBar.right",
+    "anchors.bottom": "prev.top",
+    "background-color": "#363636",
+    "margin-bottom": "10",
+    "margin-top": "10",
+    "text-wrap": "true"
+  }
+}

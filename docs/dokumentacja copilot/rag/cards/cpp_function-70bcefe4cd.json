@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "printNode",
+  "return_type": "nan",
+  "args": "ret, node, 0, limit, pretty",
+  "file": "src/framework/util/stats.cpp"
+}

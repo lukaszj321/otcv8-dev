@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 120,
+  "path": "TargetSettings/Groups#groups",
+  "widget": "Groups",
+  "base": "",
+  "id": "groups",
+  "props": {
+    "id": "groups",
+    "anchors.top": "prev.bottom",
+    "margin-top": "8",
+    "anchors.left": "parent.left",
+    "margin-left": "9"
+  }
+}

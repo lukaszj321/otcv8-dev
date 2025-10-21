@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SetWindowPos",
+  "return_type": "nan",
+  "args": "m_window, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_FRAMECHANGED",
+  "file": "src/framework/platform/win32window.cpp"
+}

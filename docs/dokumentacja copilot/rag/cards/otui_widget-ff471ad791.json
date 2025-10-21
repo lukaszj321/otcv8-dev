@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 104,
+  "path": "ComboTrigger#trigger/Label#triggerLabel3",
+  "widget": "Label",
+  "base": "",
+  "id": "triggerLabel3",
+  "props": {
+    "id": "triggerLabel3",
+    "anchors.left": "triggerLabel2.left",
+    "anchors.top": "triggerLabel2.bottom",
+    "text": "On Cast",
+    "margin-top": "5",
+    "color": "#ffaa00"
+  }
+}

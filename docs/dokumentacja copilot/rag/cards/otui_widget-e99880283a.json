@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 223,
+  "path": "AttackBotPanel/SourceLabel#source",
+  "widget": "SourceLabel",
+  "base": "",
+  "id": "source",
+  "props": {
+    "id": "source",
+    "anchors.top": "category.bottom",
+    "anchors.left": "previousSource.right",
+    "margin-left": "3"
+  }
+}

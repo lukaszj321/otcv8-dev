@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 210,
+  "path": "SpellHealing/Button#MoveDown",
+  "widget": "Button",
+  "base": "",
+  "id": "MoveDown",
+  "props": {
+    "id": "MoveDown",
+    "anchors.right": "prev.left",
+    "anchors.bottom": "prev.bottom",
+    "margin-right": "5",
+    "text": "Move Down",
+    "size": "55 17",
+    "font": "cipsoftFont"
+  }
+}

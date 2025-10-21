@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "start",
+  "return_type": "void",
+  "args": "int maxConnections = 3",
+  "file": "src/framework/proxy/proxy_client.h"
+}

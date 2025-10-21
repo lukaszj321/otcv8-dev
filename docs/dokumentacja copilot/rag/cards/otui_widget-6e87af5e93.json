@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 2,
+  "path": "AttackComboBoxPopupMenuButton",
+  "widget": "AttackComboBoxPopupMenuButton",
+  "base": "ComboBoxPopupMenuButton",
+  "id": "",
+  "props": {}
+}

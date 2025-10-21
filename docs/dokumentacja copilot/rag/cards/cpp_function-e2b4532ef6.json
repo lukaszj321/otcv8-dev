@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int yi = -1; yi <= 1 && !newWalkingTile; ++yi",
+  "file": "src/client/creature.cpp"
+}

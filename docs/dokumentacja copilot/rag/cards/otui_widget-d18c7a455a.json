@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 37,
+  "path": "MainWindow#hotkeysWindow/VerticalScrollBar#currentHotkeysScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "currentHotkeysScrollBar",
+  "props": {
+    "id": "currentHotkeysScrollBar",
+    "height": "150",
+    "anchors.top": "prev.bottom",
+    "anchors.right": "parent.right",
+    "margin-top": "5",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

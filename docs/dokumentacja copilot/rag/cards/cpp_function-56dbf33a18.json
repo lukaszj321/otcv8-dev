@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setCategory",
+  "return_type": "void",
+  "args": "ThingCategory category",
+  "file": "src/client/outfit.h"
+}

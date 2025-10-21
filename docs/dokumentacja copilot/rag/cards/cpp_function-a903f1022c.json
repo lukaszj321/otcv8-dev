@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "in",
+  "return_type": "std::ifstream",
+  "args": "\"/proc/cpuinfo\"",
+  "file": "src/framework/platform/unixplatform.cpp"
+}

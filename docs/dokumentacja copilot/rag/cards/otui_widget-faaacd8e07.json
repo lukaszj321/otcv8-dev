@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 436,
+  "path": "SettingsPanel/TextEdit#profileName",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "profileName",
+  "props": {
+    "id": "profileName",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "margin-left": "20",
+    "margin-right": "20"
+  }
+}

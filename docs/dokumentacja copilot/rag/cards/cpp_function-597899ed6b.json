@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSpawnTime",
+  "return_type": "void",
+  "args": "int32 spawnTime",
+  "file": "src/client/creatures.h"
+}

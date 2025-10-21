@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.compare",
+  "args": "t, other",
+  "file": "modules/corelib/table.lua"
+}

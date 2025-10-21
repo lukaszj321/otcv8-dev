@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 129,
+  "path": "MainWindow#hotkeysWindow/CheckBox#sendAutomatically",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "sendAutomatically",
+  "props": {
+    "id": "sendAutomatically",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "enabled": "false",
+    "margin-top": "5"
+  }
+}

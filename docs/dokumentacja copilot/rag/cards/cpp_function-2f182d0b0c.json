@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glRenderbufferStorage",
+  "return_type": "nan",
+  "args": "GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, 64, 64",
+  "file": "src/framework/graphics/graphics.cpp"
+}

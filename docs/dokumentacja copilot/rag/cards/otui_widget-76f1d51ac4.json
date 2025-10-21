@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 79,
+  "path": "OptionPanel/Label#ambientLightLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "ambientLightLabel",
+  "props": {
+    "id": "ambientLightLabel",
+    "margin-top": "6",
+    "self": "setText(tr('Ambient light: %s%%', value))"
+  }
+}

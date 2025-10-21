@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSelectSellOffer",
+  "args": "table, selectedRow, previousSelectedRow",
+  "file": "modules/game_market/market.lua"
+}

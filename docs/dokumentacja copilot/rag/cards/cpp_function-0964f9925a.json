@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaException",
+  "return_type": "throw",
+  "args": "\"failed to call a member function because the passed object is nil\"",
+  "file": "src/framework/luaengine/luabinder.h"
+}

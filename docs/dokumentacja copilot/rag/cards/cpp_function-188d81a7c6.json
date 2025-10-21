@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlAttributeSet::Remove",
+  "return_type": "void",
+  "args": "TiXmlAttribute* removeMe",
+  "file": "src/framework/xml/tinyxml.cpp"
+}

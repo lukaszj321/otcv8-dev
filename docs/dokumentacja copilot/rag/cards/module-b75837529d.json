@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "corelib\n  description: Contains core lua classes, functions and constants used by other modules\n  author: OTClient team\n  website: https://github.com/edubart/otclient\n  reloadable: false\n\n  @onLoad: |\n    dofile",
+  "file": "modules/corelib/corelib.otmod",
+  "description": "Contains core lua classes, functions and constants used by other modules"
+}

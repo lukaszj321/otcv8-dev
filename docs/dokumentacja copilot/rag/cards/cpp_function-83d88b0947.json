@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBlendFunc",
+  "return_type": "case CompositionMode_Multiply:",
+  "args": "GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA",
+  "file": "src/framework/graphics/painter.cpp"
+}

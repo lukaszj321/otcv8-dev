@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "assert",
+  "return_type": "nan",
+  "args": "temp != NULL",
+  "file": "src/framework/util/qrcodegen.c"
+}

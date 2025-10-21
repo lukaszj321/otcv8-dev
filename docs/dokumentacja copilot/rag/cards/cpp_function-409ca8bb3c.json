@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "applyStyle",
+  "return_type": "void",
+  "args": "const OTMLNodePtr& styleNode",
+  "file": "src/framework/ui/uiverticallayout.h"
+}

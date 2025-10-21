@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/cavebot/editor.otui",
+  "line": 26,
+  "path": "CaveBotEditorPanel#cavebotEditor/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "text": "Double click on action from action list to edit it",
+    "text-align": "center",
+    "text-auto-resize": "true",
+    "text-wrap": "true",
+    "margin-top": "3",
+    "margin-left": "2",
+    "margin-right": "2"
+  }
+}

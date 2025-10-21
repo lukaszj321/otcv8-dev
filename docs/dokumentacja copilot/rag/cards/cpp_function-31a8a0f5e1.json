@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getGround",
+  "return_type": "ItemPtr",
+  "args": "nan",
+  "file": "src/client/tile.h"
+}

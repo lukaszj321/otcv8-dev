@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 101,
+  "path": "SpellHealing/SpellSourceBox#spellSource",
+  "widget": "SpellSourceBox",
+  "base": "",
+  "id": "spellSource",
+  "props": {
+    "id": "spellSource",
+    "anchors.top": "spellList.top",
+    "anchors.left": "spellList.right",
+    "margin-left": "80",
+    "width": "125",
+    "font": "verdana-11px-rounded"
+  }
+}

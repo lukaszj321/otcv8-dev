@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "restart",
+  "return_type": "void",
+  "args": "int shift = 0",
+  "file": "src/framework/stdext/time.h"
+}

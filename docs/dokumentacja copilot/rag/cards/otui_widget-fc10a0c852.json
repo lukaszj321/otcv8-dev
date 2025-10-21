@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 673,
+  "path": "PreyTracker#preyTracker/MiniWindowContents",
+  "widget": "MiniWindowContents",
+  "base": "",
+  "id": "",
+  "props": {
+    "padding-left": "5",
+    "padding-right": "5",
+    "padding-top": "5",
+    "layout": "verticalBox"
+  }
+}

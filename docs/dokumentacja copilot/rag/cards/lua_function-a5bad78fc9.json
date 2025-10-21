@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.size",
+  "args": "t",
+  "file": "modules/corelib/table.lua"
+}

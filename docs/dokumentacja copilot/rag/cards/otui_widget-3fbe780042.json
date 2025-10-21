@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/config.otui",
+  "line": 18,
+  "path": "BotConfig#botConfig/Button#switch",
+  "widget": "Button",
+  "base": "",
+  "id": "switch",
+  "props": {
+    "id": "switch",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-left": "5",
+    "text": "Off",
+    "color": "#FF0000"
+  }
+}

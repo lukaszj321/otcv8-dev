@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Protocol::xteaDecrypt",
+  "return_type": "bool",
+  "args": "const InputMessagePtr& inputMessage",
+  "file": "src/framework/net/protocol.cpp"
+}

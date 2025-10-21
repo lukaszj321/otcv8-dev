@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addFillCoords",
+  "return_type": "nan",
+  "args": "coordsBuffer, color",
+  "file": "src/framework/graphics/drawqueue.h"
+}

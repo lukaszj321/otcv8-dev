@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "logFunc",
+  "return_type": "void",
+  "args": "Fw::LogLevel level, const std::string& message, std::string prettyFunction",
+  "file": "src/framework/core/logger.h"
+}

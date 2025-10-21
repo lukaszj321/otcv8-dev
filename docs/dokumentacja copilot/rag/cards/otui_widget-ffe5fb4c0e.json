@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 113,
+  "path": "Panel#topbar/StatsPanel#stats",
+  "widget": "StatsPanel",
+  "base": "",
+  "id": "stats",
+  "props": {
+    "id": "stats"
+  }
+}

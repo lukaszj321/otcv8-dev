@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_textedit\n  description: Shows window which allows to edit text\n  author: OTClientV8\n  website: https://github.com/OTCv8/otclientv8\n  sandboxed: true\n  scripts: [ textedit ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_textedit/textedit.otmod",
+  "description": "Shows window which allows to edit text"
+}

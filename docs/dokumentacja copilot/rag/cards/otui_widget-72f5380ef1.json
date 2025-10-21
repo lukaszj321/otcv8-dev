@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/channelswindow.otui",
+  "line": 1,
+  "path": "ChannelListLabel",
+  "widget": "ChannelListLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "background-color": "#ffffff22",
+    "text-offset": "2 0",
+    "focusable": "true",
+    "color": "#ffffff"
+  }
+}

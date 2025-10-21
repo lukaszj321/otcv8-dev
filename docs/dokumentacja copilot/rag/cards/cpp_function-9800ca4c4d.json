@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Texture::generateSoftwareMipmaps",
+  "return_type": "* void",
+  "args": "std::vector<uint8> inPixels",
+  "file": "src/framework/graphics/image.cpp"
+}

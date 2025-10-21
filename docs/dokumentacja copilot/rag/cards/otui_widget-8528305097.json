@@ -1,0 +1,24 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_playertrade/tradewindow.otui",
+  "line": 45,
+  "path": "TradeWindow/MiniWindowContents/ScrollableFlatPanel#ownTradeContainer",
+  "widget": "ScrollableFlatPanel",
+  "base": "",
+  "id": "ownTradeContainer",
+  "props": {
+    "id": "ownTradeContainer",
+    "anchors.top": "ownTradeCountLabel.bottom",
+    "anchors.bottom": "acceptButton.top",
+    "anchors.left": "ownTradeCountLabel.left",
+    "anchors.right": "ownTradeCountLabel.right",
+    "margin-bottom": "3",
+    "padding": "2",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "34 34",
+    "flow": "true",
+    "cell-spacing": "1",
+    "vertical-scrollbar": "ownTradeScrollBar"
+  }
+}

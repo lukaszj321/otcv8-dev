@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 77,
+  "path": "OptionPanel/Panel/Label#leftPanelsLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "leftPanelsLabel",
+  "props": {
+    "width": "90",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "id": "leftPanelsLabel"
+  }
+}

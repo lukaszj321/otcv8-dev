@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.onDownloadProgress",
+  "args": "operationId, url, progress, speed",
+  "file": "modules/corelib/http.lua"
+}

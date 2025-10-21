@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 482,
+  "path": "PreyCreatureBox",
+  "widget": "PreyCreatureBox",
+  "base": "UICheckBox",
+  "id": "",
+  "props": {
+    "border-width": "1",
+    "border-color": "#ffffff",
+    "padding": "3"
+  }
+}

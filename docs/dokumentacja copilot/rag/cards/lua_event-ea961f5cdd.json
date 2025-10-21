@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onStyleApply",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

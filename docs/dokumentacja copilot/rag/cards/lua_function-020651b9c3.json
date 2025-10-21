@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIScrollArea:onChildFocusChange",
+  "args": "focusedChild, oldFocused, reason",
+  "file": "modules/corelib/ui/uiscrollarea.lua"
+}

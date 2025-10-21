@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/supplies.otui",
+  "line": 76,
+  "path": "ItemPanel/UIWidget",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "avg.left",
+    "anchors.bottom": "avg.top",
+    "width": "55",
+    "text-align": "center",
+    "font": "verdana-11px-rounded",
+    "text": "AVG"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "writeSequence",
+  "return_type": "void",
+  "args": "uint32_t sequence",
+  "file": "src/framework/net/outputmessage.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "WIN32Window::windowProc",
+  "return_type": "LRESULT",
+  "args": "HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam",
+  "file": "src/framework/platform/win32window.cpp"
+}

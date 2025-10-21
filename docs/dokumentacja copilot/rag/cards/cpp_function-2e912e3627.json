@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getOutfit",
+  "return_type": "Outfit",
+  "args": "nan",
+  "file": "src/client/creatures.h"
+}

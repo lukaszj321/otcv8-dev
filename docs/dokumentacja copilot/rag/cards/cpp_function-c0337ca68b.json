@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processCounterTrade",
+  "return_type": "void",
+  "args": "const std::string& name, const std::vector<ItemPtr>& items",
+  "file": "src/client/game.h"
+}

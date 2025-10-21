@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "next_char",
+  "args": "str, idx, set, negate",
+  "file": "modules/corelib/json.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 147,
+  "path": "MainWindow#shopWindow/Panel#infoPanel/Label#points",
+  "widget": "Label",
+  "base": "",
+  "id": "points",
+  "props": {
+    "id": "points",
+    "anchors.top": "parent.top",
+    "margin-top": "10",
+    "text": "-",
+    "text-auto-resize": "true"
+  }
+}

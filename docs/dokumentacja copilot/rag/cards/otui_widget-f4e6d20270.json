@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/updater/updater.otui",
+  "line": 22,
+  "path": "StaticMainWindow#updaterWindow/Label#downloadStatus",
+  "widget": "Label",
+  "base": "",
+  "id": "downloadStatus",
+  "props": {
+    "id": "downloadStatus",
+    "text-align": "center",
+    "text-auto-resize": "true",
+    "text-wrap": "true",
+    "visible": "false"
+  }
+}

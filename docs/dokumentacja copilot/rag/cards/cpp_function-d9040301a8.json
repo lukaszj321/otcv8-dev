@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream::seek",
+  "return_type": "void",
+  "args": "uint32 pos",
+  "file": "src/framework/core/filestream.cpp"
+}

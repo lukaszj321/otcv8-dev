@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 199,
+  "path": "MainWindow#spelllistWindow/Label#labelVocationFilter",
+  "widget": "Label",
+  "base": "",
+  "id": "labelVocationFilter",
+  "props": {
+    "id": "labelVocationFilter",
+    "anchors.top": "labelPremium.bottom",
+    "anchors.left": "spellList.right",
+    "width": "70",
+    "font": "verdana-11px-monochrome",
+    "margin-top": "30",
+    "margin-left": "20"
+  }
+}

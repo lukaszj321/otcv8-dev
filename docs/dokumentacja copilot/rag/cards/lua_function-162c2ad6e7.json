@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addTab",
+  "args": "name, panel, icon",
+  "file": "modules/client_options/options.lua"
+}

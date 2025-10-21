@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sendNewNewRuleViolation",
+  "return_type": "void",
+  "args": "int reason, int action, const std::string& characterName, const std::string& comment, const std::string& translation",
+  "file": "src/client/protocolgame.h"
+}

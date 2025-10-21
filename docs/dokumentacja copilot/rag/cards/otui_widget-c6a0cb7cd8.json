@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 8,
+  "path": "SkullWidget",
+  "widget": "SkullWidget",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "size": "13 13",
+    "margin-right": "2",
+    "anchors.right": "parent.right",
+    "image-source": "/images/game/skull_socket"
+  }
+}

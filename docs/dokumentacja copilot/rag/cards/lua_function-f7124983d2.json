@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "hotkeyCaptureOk",
+  "args": "assignWindow, keyCombo",
+  "file": "modules/game_hotkeys/hotkeys_manager.lua"
+}

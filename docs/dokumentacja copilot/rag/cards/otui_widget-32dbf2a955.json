@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 368,
+  "path": "HealBotSettingsPanel/FlatPanel#list/SettingCheckBox#Cooldown",
+  "widget": "SettingCheckBox",
+  "base": "",
+  "id": "Cooldown",
+  "props": {
+    "id": "Cooldown",
+    "text": "Check spell cooldowns",
+    "margin-top": "10"
+  }
+}

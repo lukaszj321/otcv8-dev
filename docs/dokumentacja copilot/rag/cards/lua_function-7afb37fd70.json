@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIGameMap:onTouchRelease",
+  "args": "mousePosition, mouseButton",
+  "file": "modules/game_interface/widgets/uigamemap.lua"
+}

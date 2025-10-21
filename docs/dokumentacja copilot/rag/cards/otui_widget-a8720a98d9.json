@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 62,
+  "path": "MainWindow#communicationWindow/Button#buttonIgnoreAdd",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonIgnoreAdd",
+  "props": {
+    "id": "buttonIgnoreAdd",
+    "width": "48",
+    "height": "20",
+    "margin-left": "5",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right"
+  }
+}

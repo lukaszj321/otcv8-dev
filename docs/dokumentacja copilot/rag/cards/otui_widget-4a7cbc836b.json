@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_topbar/topbar.otui",
+  "line": 67,
+  "path": "SkillPanel/UIWidget#shop",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "shop",
+  "props": {
+    "id": "shop",
+    "anchors.right": "parent.right",
+    "image-source": "/images/game/topbar/boost",
+    "size": "76 14",
+    "image-clip": "0 14 76 14"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_npctrade/npctrade.otui",
+  "line": 163,
+  "path": "MainWindow#npcWindow/FlatPanel#setupPanel/Label#capacityDesc",
+  "widget": "Label",
+  "base": "",
+  "id": "capacityDesc",
+  "props": {
+    "id": "capacityDesc",
+    "anchors.left": "parent.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "margin-left": "5",
+    "width": "85"
+  }
+}

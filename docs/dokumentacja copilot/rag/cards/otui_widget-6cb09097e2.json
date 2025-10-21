@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 377,
+  "path": "HoldConditions#Hold/UturaComboBox#UturaType",
+  "widget": "UturaComboBox",
+  "base": "",
+  "id": "UturaType",
+  "props": {
+    "id": "UturaType",
+    "anchors.left": "prev.right",
+    "margin-left": "10",
+    "width": "100",
+    "font": "verdana-11px-rounded"
+  }
+}

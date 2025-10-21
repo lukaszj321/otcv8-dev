@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:addFlag",
+  "args": "pos, icon, description, temporary",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 70,
+  "path": "OptionPanel/Label#backgroundFrameRateLabel/end",
+  "widget": "end",
+  "base": "",
+  "id": "",
+  "props": {
+    "self": "setText(tr('Game framerate limit: %s', text))"
+  }
+}

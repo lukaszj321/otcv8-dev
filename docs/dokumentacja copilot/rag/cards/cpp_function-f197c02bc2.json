@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call_fun_and_push_result",
+  "return_type": "nan",
+  "args": "const F& f, LuaInterface* lua, const Args&... args",
+  "file": "src/framework/luaengine/luabinder.h"
+}

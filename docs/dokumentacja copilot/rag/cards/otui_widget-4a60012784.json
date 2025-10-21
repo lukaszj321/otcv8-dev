@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 112,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#stamina/SkillPercentPanel",
+  "widget": "SkillPercentPanel",
+  "base": "",
+  "id": "",
+  "props": {}
+}

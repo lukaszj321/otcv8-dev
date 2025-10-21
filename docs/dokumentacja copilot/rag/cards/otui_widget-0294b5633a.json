@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.otui",
+  "line": 90,
+  "path": "tPanel/Button#add",
+  "widget": "Button",
+  "base": "",
+  "id": "add",
+  "props": {
+    "id": "add",
+    "text": "Add Player",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "font": "verdana-11px-rounded"
+  }
+}

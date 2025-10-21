@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 350,
+  "path": "AttackBotPanel/SpinBox#cooldown",
+  "widget": "SpinBox",
+  "base": "",
+  "id": "cooldown",
+  "props": {
+    "id": "cooldown",
+    "anchors.left": "prev.right",
+    "margin-left": "4",
+    "size": "60 20",
+    "minimum": "0",
+    "maximum": "999999",
+    "step": "100",
+    "value": "0",
+    "editable": "true",
+    "focusable": "true"
+  }
+}

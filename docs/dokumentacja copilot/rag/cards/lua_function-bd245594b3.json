@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISpinBox:getMinimum",
+  "args": "",
+  "file": "modules/corelib/ui/uispinbox.lua"
+}

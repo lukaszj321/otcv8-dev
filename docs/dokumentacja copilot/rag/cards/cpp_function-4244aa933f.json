@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Painter::drawTextureCoords",
+  "return_type": "void",
+  "args": "CoordsBuffer& coordsBuffer, const TexturePtr& texture, const std::vector<std::pair<int, Color>>* colors",
+  "file": "src/framework/graphics/painter.cpp"
+}

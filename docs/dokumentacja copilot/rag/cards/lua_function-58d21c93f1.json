@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onDragMove",
+  "args": "widget, pos, moved",
+  "file": "modules/game_console/console.lua"
+}

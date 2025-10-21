@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Spells.filterSpellsByGroups",
+  "args": "spells, groups",
+  "file": "modules/gamelib/spells.lua"
+}

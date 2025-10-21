@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botOnMissle",
+  "args": "missle",
+  "file": "modules/game_bot/bot.lua"
+}

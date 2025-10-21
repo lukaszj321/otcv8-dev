@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "wrapText",
+  "return_type": "void",
+  "args": "int maxWidth",
+  "file": "src/framework/graphics/cachedtext.h"
+}

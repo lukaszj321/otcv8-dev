@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getStaticSquareColor",
+  "return_type": "Color",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

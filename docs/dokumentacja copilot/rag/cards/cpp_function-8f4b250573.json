@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "luaL_argcheck",
+  "return_type": "nan",
+  "args": "L, 0 < w, farg + 1, \"width must be positive\"",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

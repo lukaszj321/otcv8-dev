@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Image::fromQRCode",
+  "return_type": "ImagePtr",
+  "args": "const std::string& code, int border",
+  "file": "src/framework/graphics/image.cpp"
+}

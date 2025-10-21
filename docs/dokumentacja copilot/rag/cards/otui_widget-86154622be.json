@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 1,
+  "path": "SupplyItem",
+  "widget": "SupplyItem",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "34"
+  }
+}

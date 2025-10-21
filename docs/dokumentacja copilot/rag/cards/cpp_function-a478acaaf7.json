@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRace",
+  "return_type": "void",
+  "args": "CreatureRace race",
+  "file": "src/client/creatures.h"
+}

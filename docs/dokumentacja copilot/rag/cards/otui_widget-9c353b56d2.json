@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 105,
+  "path": "MemberWidget",
+  "widget": "MemberWidget",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "85",
+    "margin-top": "3"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupMenu:setGameMenu",
+  "args": "state",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

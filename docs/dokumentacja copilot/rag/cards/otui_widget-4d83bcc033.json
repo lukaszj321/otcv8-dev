@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 107,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#stamina",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "stamina",
+  "props": {
+    "id": "stamina"
+  }
+}

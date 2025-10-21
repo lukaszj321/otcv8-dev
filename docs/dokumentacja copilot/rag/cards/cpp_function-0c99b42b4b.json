@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "newPos",
+  "return_type": "Point",
+  "args": "event.xconfigure.x, event.xconfigure.y",
+  "file": "src/framework/platform/x11window.cpp"
+}

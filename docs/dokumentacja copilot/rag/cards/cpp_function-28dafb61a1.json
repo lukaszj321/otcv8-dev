@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TextRender::drawText",
+  "return_type": "void",
+  "args": "const Rect& rect, const std::string& text, BitmapFontPtr font, const Color& color, Fw::AlignmentFlag align, bool shadow",
+  "file": "src/framework/graphics/textrender.cpp"
+}

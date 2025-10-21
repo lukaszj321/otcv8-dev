@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "args",
+  "return_type": "std::vector<std::string>",
+  "args": "argv, argv + argc",
+  "file": "src/main.cpp"
+}

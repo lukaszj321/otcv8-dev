@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::setLevel",
+  "return_type": "void",
+  "args": "double level, double levelPercent",
+  "file": "src/client/localplayer.cpp"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_unjustifiedpoints/unjustifiedpoints.otui",
+  "line": 61,
+  "path": "MiniWindow#unjustifiedPointsWindow/MiniWindowContents/SkullProgressBar#dayProgressBar",
+  "widget": "SkullProgressBar",
+  "base": "",
+  "id": "dayProgressBar",
+  "props": {
+    "id": "dayProgressBar",
+    "margin-top": "10"
+  }
+}

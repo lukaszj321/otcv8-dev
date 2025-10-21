@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int glyph = m_firstGlyph; glyph < 256; ++glyph",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

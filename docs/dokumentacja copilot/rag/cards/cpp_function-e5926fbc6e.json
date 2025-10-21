@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIAnchor::getHookedPoint",
+  "return_type": "int",
+  "args": "const UIWidgetPtr& hookedWidget, const UIWidgetPtr& parentWidget",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

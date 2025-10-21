@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glSwapInterval",
+  "return_type": "nan",
+  "args": "enable ? 1 : 0",
+  "file": "src/framework/platform/x11window.cpp"
+}

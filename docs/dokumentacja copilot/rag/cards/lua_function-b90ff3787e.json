@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "string:split",
+  "args": "delim",
+  "file": "modules/corelib/string.lua"
+}

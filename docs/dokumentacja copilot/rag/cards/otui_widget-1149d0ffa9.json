@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 1,
+  "path": "CategoryCheckBox",
+  "widget": "CategoryCheckBox",
+  "base": "CheckBox",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-rounded",
+    "margin-top": "3",
+    "color": "#98BF64"
+  }
+}

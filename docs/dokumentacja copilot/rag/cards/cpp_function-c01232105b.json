@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glDepthFunc",
+  "return_type": "case DepthFunc_EQUAL:",
+  "args": "GL_EQUAL",
+  "file": "src/framework/graphics/painter.cpp"
+}

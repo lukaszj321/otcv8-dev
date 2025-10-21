@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMoveableTabBar:getTab",
+  "args": "text",
+  "file": "modules/corelib/ui/uimovabletabbar.lua"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 275,
+  "path": "ClearImbue/Panel#time/FlatLabel#timeRemaining",
+  "widget": "FlatLabel",
+  "base": "",
+  "id": "timeRemaining",
+  "props": {
+    "id": "timeRemaining",
+    "size": "86 25",
+    "margin-bottom": "20",
+    "text-align": "center",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right"
+  }
+}

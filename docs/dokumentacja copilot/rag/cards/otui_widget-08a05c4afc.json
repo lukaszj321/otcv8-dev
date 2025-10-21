@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 275,
+  "path": "InputPanel/BotButton#add",
+  "widget": "BotButton",
+  "base": "",
+  "id": "add",
+  "props": {
+    "id": "add",
+    "anchors.bottom": "parent.bottom",
+    "margin-bottom": "10",
+    "text": "Add Rule"
+  }
+}

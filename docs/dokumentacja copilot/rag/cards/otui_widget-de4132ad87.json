@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/browse.otui",
+  "line": 150,
+  "path": "Panel/MarketButtonBox#filterSearchAll",
+  "widget": "MarketButtonBox",
+  "base": "",
+  "id": "filterSearchAll",
+  "props": {
+    "id": "filterSearchAll",
+    "anchors.left": "prev.right",
+    "anchors.right": "itemsContainer.right",
+    "margin-left": "3"
+  }
+}

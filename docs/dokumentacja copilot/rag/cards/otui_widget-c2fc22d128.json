@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.otui",
+  "line": 35,
+  "path": "DepositerPanel",
+  "widget": "DepositerPanel",
+  "base": "MainWindow",
+  "id": "",
+  "props": {
+    "size": "230 380"
+  }
+}

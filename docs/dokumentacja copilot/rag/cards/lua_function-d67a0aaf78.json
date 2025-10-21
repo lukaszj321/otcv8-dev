@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getMaxAmount",
+  "args": "",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

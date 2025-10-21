@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setInformationColor",
+  "return_type": "void",
+  "args": "const Color& color",
+  "file": "src/client/creature.h"
+}

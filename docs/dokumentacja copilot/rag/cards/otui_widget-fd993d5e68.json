@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 313,
+  "path": "MainAnalyzerWindow#MainAnalyzerWindow/MiniWindowContents/AnalyzerButton#ResetSession",
+  "widget": "AnalyzerButton",
+  "base": "",
+  "id": "ResetSession",
+  "props": {
+    "id": "ResetSession",
+    "text": "Reset Session",
+    "color": "#FF0000"
+  }
+}

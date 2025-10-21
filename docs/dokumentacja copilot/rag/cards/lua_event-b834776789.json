@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onExit",
+  "file": "modules/client/client.lua"
+}

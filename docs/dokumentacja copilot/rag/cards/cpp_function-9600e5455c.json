@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getItemSubType",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/client/uiitem.h"
+}

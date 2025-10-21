@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "math.isu16",
+  "args": "num",
+  "file": "modules/corelib/math.lua"
+}

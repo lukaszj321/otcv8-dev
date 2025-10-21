@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 277,
+  "path": "MainWindow#spelllistWindow/CheckBox#groupBoxHealing",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "groupBoxHealing",
+  "props": {
+    "id": "groupBoxHealing",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "width": "75"
+  }
+}

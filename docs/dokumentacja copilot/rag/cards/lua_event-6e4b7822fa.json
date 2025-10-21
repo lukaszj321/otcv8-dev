@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onKeyPress",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

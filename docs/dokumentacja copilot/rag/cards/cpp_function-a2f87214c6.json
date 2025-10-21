@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setText",
+  "return_type": "nan",
+  "args": "tmp2",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

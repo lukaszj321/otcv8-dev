@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 28,
+  "path": "ItemInformation",
+  "widget": "ItemInformation",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "100",
+    "border": "1 black",
+    "padding": "5"
+  }
+}

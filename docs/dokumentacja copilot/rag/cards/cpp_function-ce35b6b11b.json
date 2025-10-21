@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "inspectNpcTrade",
+  "return_type": "void",
+  "args": "const ItemPtr& item",
+  "file": "src/client/game.h"
+}

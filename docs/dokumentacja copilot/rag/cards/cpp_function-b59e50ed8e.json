@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "PHYSFS_init",
+  "return_type": "nan",
+  "args": "argv0",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

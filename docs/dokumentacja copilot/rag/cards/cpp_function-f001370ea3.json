@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseSpellGroupCooldown",
+  "return_type": "case Proto::GameServerSpellGroupDelay:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

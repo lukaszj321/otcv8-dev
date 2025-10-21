@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Bit.hasBit",
+  "args": "x, p",
+  "file": "modules/corelib/bitwise.lua"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 62,
+  "path": "SingleScrollItemPanel/HorizontalScrollBar#scroll",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "scroll",
+  "props": {
+    "id": "scroll",
+    "anchors.left": "title.left",
+    "anchors.right": "title.right",
+    "anchors.top": "title.bottom",
+    "margin-top": "2",
+    "minimum": "0",
+    "maximum": "100",
+    "step": "1"
+  }
+}

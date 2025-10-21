@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/object.otui",
+  "line": 25,
+  "path": "MainWindow#assignItemWindow/Panel#checks",
+  "widget": "Panel",
+  "base": "",
+  "id": "checks",
+  "props": {
+    "id": "checks",
+    "anchors.left": "prev.right",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "margin-left": "10",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 57,
+  "path": "MiniWindow#cooldownWindow/MiniWindowContents/SpellProgressRect#progressRectHealing",
+  "widget": "SpellProgressRect",
+  "base": "",
+  "id": "progressRectHealing",
+  "props": {
+    "id": "progressRectHealing",
+    "anchors.fill": "groupIconHealing"
+  }
+}

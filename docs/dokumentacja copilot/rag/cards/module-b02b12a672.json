@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_modaldialog\n  description: Show and process modal dialogs\n  author: Summ\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  dependencies: [ game_interface ]\n  scripts: [ modaldialog ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_modaldialog/modaldialog.otmod",
+  "description": "Show and process modal dialogs"
+}

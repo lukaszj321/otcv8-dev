@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 63,
+  "path": "MainWindow/CheckBox#checkBoxNotify",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "checkBoxNotify",
+  "props": {
+    "id": "checkBoxNotify",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "margin": "2 6"
+  }
+}

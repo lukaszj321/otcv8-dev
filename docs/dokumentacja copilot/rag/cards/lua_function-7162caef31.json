@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onImbuementWindow",
+  "args": "itemId, slots, activeSlots, imbuements, needItems",
+  "file": "modules/game_imbuing/imbuing.lua"
+}

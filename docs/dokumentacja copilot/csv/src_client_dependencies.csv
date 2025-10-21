@@ -1,0 +1,215 @@
+client_file,depends_on,note
+animatedtext.cpp,map.h,Używa `g_map` do usuwania obiektu `AnimatedText` po zakończeniu animacji.
+animatedtext.cpp,game.h,"Używa `g_game` do sprawdzania, czy funkcja `GameDiagonalAnimatedText` jest włączona."
+animatedtext.cpp,framework/core/clock.h,Używa `g_clock` do pomiaru czasu animacji.
+animatedtext.cpp,framework/core/eventdispatcher.h,Używa `g_dispatcher` do planowania usunięcia obiektu.
+animatedtext.cpp,framework/graphics/graphics.h,Używa `g_fonts` do zarządzania czcionkami.
+houses.h,declarations.h,"Definicje typów wskaźników, takich jak `HousePtr` i `TilePtr`."
+houses.h,tile.h,Używa obiektów `Tile` do określenia obszaru domu.
+houses.h,item.h,"Zarządza drzwiami, które są obiektami typu `Item`."
+houses.h,framework/luaengine/luaobject.h,Klasy są eksponowane do Lua.
+animatedtext.h,thing.h,Klasa bazowa.
+animatedtext.h,framework/graphics/fontmanager.h,Zarządzanie czcionkami.
+animatedtext.h,framework/core/timer.h,Pomiar czasu animacji.
+animatedtext.h,framework/graphics/cachedtext.h,Efektywne renderowanie tekstu.
+animator.h,declarations.h,Definicje typów.
+animator.h,framework/core/timer.h,Używane do pomiaru czasu i synchronizacji animacji.
+animator.cpp,framework/core/clock.h,Używa `g_clock` do synchronizacji animacji.
+animator.cpp,framework/core/filestream.h,Do operacji serializacji/deserializacji.
+client.cpp,game.h,Inicjalizuje i zamyka `g_game`.
+client.cpp,map.h,Inicjalizuje i zamyka `g_map`.
+client.cpp,minimap.h,Inicjalizuje i zamyka `g_minimap`.
+client.cpp,spritemanager.h,Pośrednio zarządza `g_sprites` poprzez `g_things`.
+client.cpp,healthbars.h,Inicjalizuje i zamyka `g_healthBars`.
+client.cpp,framework/core/modulemanager.h,Używane do zarządzania modułami.
+client.cpp,framework/graphics/shadermanager.h,Inicjalizuje i zamyka `g_shaders`.
+client.h,global.h,Zawiera podstawowe definicje i stałe używane w kliencie.
+container.cpp,item.h,Zarządza obiektami typu `Item`.
+container.cpp,framework/luaengine/luaobject.h,"Dziedziczy po `LuaObject`, aby umożliwić interakcję z Lua."
+creature.cpp,localplayer.h,Logika rysowania informacji o pasku many jest specyficzna dla lokalnego gracza.
+creature.cpp,game.h,Dostęp do globalnych ustawień gry i funkcji serwera.
+creature.cpp,lightview.h,Dodawanie dynamicznego światła emitowanego przez postać.
+creature.cpp,healthbars.h,Używa `g_healthBars` do pobierania niestandardowych teł dla pasków życia/many.
+creature.cpp,spritemanager.h,Używa `g_sprites` do pobierania rozmiaru sprite'ów.
+container.h,declarations.h,"Definicje typów, np. `ItemPtr`."
+container.h,item.h,Przechowuje obiekty `Item`.
+container.h,game.h,"Klasa `Game` jest przyjacielem, co pozwala jej wywoływać chronione metody `onOpen`, `onClose`, etc."
+creature.h,thing.h,Klasa bazowa.
+creature.h,outfit.h,Używa `Outfit` do zarządzania wyglądem.
+creature.h,tile.h,Interakcje z polami mapy.
+creature.h,mapview.h,Używana do rysowania w kontekście widoku mapy.
+creature.h,framework/ui/uiwidget.h,Dołączanie widżetów do postaci.
+creatures.h,creature.h,`CreatureType::cast()` tworzy obiekty `Creature`.
+declarations.h,global.h,Dołącza podstawowe definicje.
+creatures.cpp,map.h,Dodaje i usuwa stworzenia z mapy (`g_map`).
+creatures.cpp,creature.h,Tworzy instancje `Creature`.
+creatures.cpp,framework/xml/tinyxml.h,Używane do parsowania plików XML.
+creatures.cpp,framework/core/resourcemanager.h,Do odczytu plików z danymi.
+effect.cpp,map.h,Używa `g_map` do usunięcia efektu po zakończeniu animacji.
+effect.cpp,game.h,"Sprawdza, czy włączona jest funkcja `GameEnhancedAnimations`."
+effect.cpp,framework/core/eventdispatcher.h,Używa `g_dispatcher` do planowania usunięcia.
+effect.h,thing.h,Klasa bazowa.
+effect.h,framework/core/timer.h,Używa `Timer` do śledzenia postępu animacji.
+healthbars.cpp,framework/graphics/texturemanager.h,Używa `g_textures` do ładowania grafik.
+healthbars.cpp,creature.cpp,Logika rysowania informacji o postaci (`drawInformation`) używa `g_healthBars` do pobierania niestandardowych teł pasków.
+game.h,declarations.h,"Używa wielu zadeklarowanych typów (`ItemPtr`, `CreaturePtr`, etc.)."
+game.h,protocolgame.h,Ściśle powiązana z protokołem sieciowym.
+game.h,localplayer.h,Zarządza instancją `LocalPlayer`.
+game.h,container.h,Zarządza kolekcją otwartych kontenerów.
+healthbars.h,declarations.h,Podstawowe definicje.
+healthbars.h,framework/graphics/declarations.h,"Deklaracje typów graficznych, np. `TexturePtr`."
+houses.cpp,map.h,Interakcje z obiektami `Tile` (`tile->setFlag(...)`).
+houses.cpp,framework/core/resourcemanager.h,Do odczytu plików XML z danymi domów.
+item.cpp,thingtypemanager.h,Używa `g_things` do uzyskiwania informacji o typach przedmiotów.
+item.cpp,spritemanager.h,Używa `g_sprites` do pobierania danych o sprite'ach.
+item.cpp,game.h,Używa `g_game` do sprawdzania funkcji serwera (np. `GameNewFluids`).
+item.cpp,tile.h,"Interakcje z polem, na którym leży przedmiot (np. do określenia, jak zawiesić przedmiot)."
+itemtype.cpp,thingtypemanager.h,"Jest ściśle powiązana z `ThingTypeManager`, który zarządza wszystkimi typami przedmiotów i wywołuje `unserialize`."
+itemtype.cpp,game.h,"Używa `g_game` do sprawdzania wersji klienta, co wpływa na logikę parsowania."
+itemtype.cpp,framework/core/binarytree.h,Używa `BinaryTree` do odczytu danych z formatu OTB.
+item.h,thing.h,Klasa bazowa.
+item.h,itemtype.h,Każdy `Item` jest instancją jakiegoś `ItemType`.
+itemtype.h,framework/luaengine/luaobject.h,"Dziedziczy z `LuaObject`, aby być dostępnym z Lua."
+itemtype.h,framework/xml/tinyxml.h,Używane do parsowania dodatkowych danych z `items.xml`.
+lightview.cpp,spritemanager.h,Używa `g_sprites.spriteSize()` do obliczeń związanych z rozmiarami pól.
+lightview.cpp,framework/graphics/painter.h,Używa `g_painter` do rysowania finalnej tekstury światła.
+lightview.h,declarations.h,Definicje typów.
+lightview.h,thingtype.h,Używa struktury `Light` zdefiniowanej w `thingtype.h`.
+lightview.h,framework/graphics/drawqueue.h,Jest elementem kolejki rysowania.
+localplayer.cpp,game.h,Do komunikacji z serwerem i zatrzymywania akcji gry.
+localplayer.cpp,framework/core/eventdispatcher.h,Do planowania ponownych prób auto-walkingu.
+map.cpp,game.h,"Dostęp do stanu gry, np. funkcji serwera (`GameFeature`)."
+map.cpp,localplayer.h,Do centrowania kamery i aktualizacji pozycji gracza.
+map.cpp,tile.h,Zarządza obiektami `Tile`.
+map.cpp,mapview.h,Powiadamia `MapView` o zmianach.
+map.cpp,minimap.h,Aktualizuje minimapę przy zmianach na polach.
+luavaluecasts_client.h,framework/luaengine/declarations.h,Deklaracje funkcji z silnika Lua.
+luavaluecasts_client.h,luavaluecasts_client.cpp,Zawiera implementacje tych funkcji.
+mapio.cpp,game.h,"Używa `g_game` do sprawdzania funkcji serwera, które mogą wpływać na sposób parsowania."
+luavaluecasts_client.cpp,framework/luaengine/luainterface.h,Dostęp do funkcji `g_lua` do manipulacji stosem Lua.
+luavaluecasts_client.cpp,game.h,"Używa `g_game` do sprawdzania, które `GameFeature` są aktywne, co wpływa na to, które pola obiektu `Outfit` są serializowane/deserializowane (np. `GamePlayerMounts`)."
+luavaluecasts_client.cpp,luavaluecasts_client.h,Deklaracje tych funkcji.
+mapview.cpp,game.h,Dostęp do `g_game` w celu pobrania lokalnego gracza i sprawdzenia funkcji serwera.
+mapview.cpp,lightview.h,Tworzy i zarządza obiektem `LightView` do renderowania oświetlenia.
+mapview.cpp,framework/graphics/framebuffermanager.h,Używa buforów ramki do optymalizacji renderowania.
+mapview.h,declarations.h,"Definicje typów (`Position`, `CreaturePtr`)."
+mapview.h,lightview.h,Używa `LightView` do rysowania świateł.
+mapview.h,framework/luaengine/luaobject.h,Dziedziczy z `LuaObject`.
+minimap.h,declarations.h,Definicje typów.
+minimap.h,tile.h,`updateTile` pobiera dane z obiektu `Tile`.
+missile.cpp,map.h,Używa `g_map` do usunięcia pocisku po zakończeniu lotu.
+missile.cpp,spritemanager.h,Używa `g_sprites.spriteSize()` do skalowania przesunięcia.
+missile.cpp,framework/core/eventdispatcher.h,Używa `g_dispatcher` do planowania usunięcia.
+missile.h,thing.h,Klasa bazowa.
+missile.h,framework/core/timer.h,Używa `Timer` do animacji ruchu.
+outfit.cpp,game.h,"Sprawdza, które `GameFeature` są aktywne, aby decydować, które elementy ubioru rysować (np. wierzchowce, skrzydła)."
+outfit.cpp,thingtypemanager.h,"Używa `g_things` do pobierania `ThingType` dla ubioru, wierzchowca, skrzydeł, aury."
+outfit.cpp,spritemanager.h,Używa `g_sprites` do skalowania i pozycjonowania.
+outfit.cpp,framework/graphics/drawqueue.h,Dodaje niestandardowe elementy do kolejki rysowania.
+outfit.cpp,framework/graphics/shadermanager.h,Zarządza i używa shaderów do kolorowania i efektów.
+outfit.h,thingtypemanager.h,Używa `ThingCategory` i `ThingType`.
+outfit.h,framework/graphics/drawqueue.h,Dziedziczą z `DrawQueueItemTexturedRect`.
+player.cpp,player.h,Plik nagłówkowy dla tej implementacji.
+player.h,creature.h,Klasa bazowa.
+protocolcodes.cpp,protocolcodes.h,Deklaracje funkcji i enumów.
+protocolcodes.cpp,game.cpp,"`Game::setProtocolVersion` wywołuje `buildMessageModesMap`, aby zaktualizować mapowania po zmianie wersji protokołu."
+minimap.cpp,tile.h,Pobiera dane do aktualizacji minimapy z obiektów `Tile`.
+minimap.cpp,game.h,"Używa `g_game` do sprawdzania funkcji, np. `GameDontCacheFiles`."
+minimap.cpp,framework/graphics/...,"Używa klas `Image`, `Texture`, `Painter` do operacji graficznych."
+minimap.cpp,framework/core/resourcemanager.h,Do operacji na plikach.
+minimap.cpp,zlib.h,Do kompresji/dekompresji danych w formacie `.otmm`.
+position.h,const.h,Definicje `Otc::Direction` i `Otc::MAX_Z`.
+protocolcodes.h,global.h,Podstawowe definicje.
+protocolgame.cpp,game.h,"Ściśle współpracuje z `g_game`, informując go o stanie połączenia i przekazując przetworzone dane."
+protocolgame.cpp,framework/net/protocol.h,Dziedziczy z `Protocol` i wykorzystuje jego mechanizmy do obsługi połączenia TCP.
+protocolgame.h,declarations.h,"Definicje typów (`Position`, `CreaturePtr`, etc.)."
+protocolgame.h,protocolcodes.h,Używa kodów operacyjnych zdefiniowanych w tym pliku.
+protocolgame.h,framework/net/protocol.h,Klasa bazowa.
+spritemanager.cpp,game.h,"Używa `g_game` do sprawdzania `GameFeature`, które wpływają na format pliku `.spr`."
+spritemanager.cpp,framework/core/resourcemanager.h,Do operacji na plikach.
+spritemanager.cpp,framework/graphics/image.h,Zwraca obiekty `ImagePtr`.
+spritemanager.cpp,framework/util/crypt.h,Do deszyfrowania formatu OTV8.
+spritemanager.cpp,framework/util/pngunpacker.h,Do rozpakowywania plików `.cwm`.
+protocolgamesend.cpp,game.h,"Używa `g_game` do sprawdzania funkcji serwera (`GameFeature`), które determinują format wysyłanych pakietów."
+protocolgamesend.cpp,localplayer.h,Używa pozycji lokalnego gracza w niektórych pakietach (np. `sendTalk`).
+protocolgamesend.cpp,framework/util/crypt.h,Używa `g_crypt` do szyfrowania RSA.
+protocolgamesend.cpp,framework/platform/platform.h,Pobiera informacje o systemie do wysłania w pakiecie logowania.
+localplayer.h,player.h,Klasa bazowa.
+localplayer.h,walkmatrix.h,Używa `WalkMatrix` do śledzenia predykcji ruchu.
+towns.cpp,mapio.cpp,Menedżer `g_towns` jest wypełniany danymi podczas wczytywania mapy w formacie OTBM.
+spritemanager.h,framework/core/declarations.h,Podstawowe deklaracje.
+spritemanager.h,framework/graphics/declarations.h,Deklaracje typów graficznych.
+tile.cpp,map.h,Używa `g_map` do pobierania sąsiednich pól (np. przy korekcji zwłok).
+tile.cpp,game.h,Dostęp do `g_game` w celu sprawdzania `GameFeature`.
+tile.cpp,lightview.h,"Przekazuje `LightView` do metod rysujących obiekty, aby mogły dodać swoje światło."
+statictext.h,thing.h,Klasa bazowa.
+statictext.h,framework/graphics/cachedtext.h,Używa `CachedText` do efektywnego renderowania tekstu.
+statictext.h,framework/core/timer.h,Używane do zarządzania czasem życia wiadomości.
+uimapanchorlayout.cpp,uiminimap.h,"`UIPositionAnchor` rzutuje widżet-rodzica na `UIMinimap`, aby uzyskać dostęp do metody `getTileRect`."
+uimapanchorlayout.cpp,framework/ui/uiwidget.h,Współpracuje z widżetami.
+uimapanchorlayout.cpp,framework/ui/uianchorlayout.h,Rozszerza standardowy layout kotwic.
+thing.h,declarations.h,"Definicje typów, np. `TilePtr`."
+thing.h,thingtype.h,Każdy `Thing` ma swój `ThingType`.
+thing.h,framework/luaengine/luaobject.h,Klasa bazowa.
+uiitem.h,declarations.h,Definicje typów.
+uiitem.h,framework/ui/uiwidget.h,Klasa bazowa.
+uiitem.h,item.h,Przechowuje i rysuje obiekt `Item`.
+thing.cpp,map.h,Do pobierania `Tile`.
+thing.cpp,game.h,Do pobierania kontenerów.
+uimap.cpp,mapview.h,"`UIMap` jest ""opakowaniem"" dla `MapView`, przekazując mu zadania renderowania."
+uimap.cpp,framework/otml/otml.h,"Parsuje właściwości z plików OTML, takie jak `multifloor` czy `animated`."
+statictext.cpp,map.h,Używa `g_map` do usunięcia obiektu po zakończeniu.
+statictext.cpp,framework/core/eventdispatcher.h,Używa `g_dispatcher` do planowania aktualizacji.
+statictext.cpp,framework/graphics/fontmanager.h,Używa `g_fonts` do zarządzania czcionkami.
+uiitem.cpp,spritemanager.h,Używany przez `Item` do pobierania sprite'ów.
+uiitem.cpp,game.h,"Sprawdza `GameFeature`, np. `GameCountU16`."
+uiitem.cpp,framework/otml/otml.h,Do parsowania stylów.
+uiitem.cpp,framework/graphics/graphics.h,Do operacji rysowania.
+thingstype.h,thingtype.h,Zarządza obiektami `ThingType`.
+thingstype.h,framework/core/declarations.h,Podstawowe deklaracje.
+uigraph.h,framework/ui/uiwidget.h,Klasa bazowa.
+uicreature.h,declarations.h,Definicje typów.
+uicreature.h,framework/ui/uiwidget.h,Klasa bazowa.
+uicreature.h,creature.h,Przechowuje i rysuje obiekt `Creature`.
+thingtype.cpp,spritemanager.h,Używa `g_sprites` do pobierania obrazów pojedynczych sprite'ów.
+thingtype.cpp,game.h,"Sprawdza `GameFeature`, co wpływa na logikę deserializacji i animacji."
+thingtype.cpp,lightview.h,"Przekazuje `LightView` do dodawania światła, jeśli obiekt je emituje."
+thingtype.cpp,framework/graphics/...,"Intensywnie korzysta z klas `Texture`, `Image`, `Painter` i `DrawQueue`."
+towns.h,declarations.h,"Definicje typów, np. `TownPtr`, `Position`."
+thingtype.h,animator.h,Może posiadać `Animator` do zarządzania animacjami.
+thingtype.h,framework/graphics/...,"Używa `Texture`, `DrawQueue` do renderowania."
+thingtype.h,framework/luaengine/luaobject.h,Klasa bazowa.
+uicreature.cpp,spritemanager.h,Używane przez `Creature::drawOutfit`.
+uicreature.cpp,framework/otml/otml.h,Do parsowania stylów.
+uicreature.cpp,framework/graphics/drawqueue.h,Do dodawania operacji rysowania.
+uigraph.cpp,framework/graphics/drawqueue.h,Do rysowania linii i tekstu.
+uigraph.cpp,framework/otml/otml.h,Do parsowania stylów.
+uimap.h,mapview.h,Używa `MapView` do renderowania.
+uimap.h,tile.h,Metoda `getTile` zwraca obiekt `Tile`.
+uimap.h,framework/ui/uiwidget.h,Klasa bazowa.
+uiminimap.cpp,minimap.h,Używa `g_minimap` do renderowania danych.
+uiminimap.cpp,uimapanchorlayout.h,Posiada `UIMapAnchorLayout` do zarządzania przypiętymi widżetami.
+uiminimap.cpp,game.h,Dostęp do globalnych obiektów.
+uiprogressrect.cpp,framework/otml/otml.h,Do parsowania stylów.
+uiprogressrect.cpp,framework/graphics/graphics.h,Do operacji rysowania.
+uimapanchorlayout.h,framework/ui/uianchorlayout.h,Klasa bazowa.
+uimapanchorlayout.h,uiminimap.h,Layout jest przeznaczony do użycia z `UIMinimap`.
+uiminimap.h,declarations.h,Definicje typów.
+uiminimap.h,framework/ui/uiwidget.h,Klasa bazowa.
+uiprogressrect.h,declarations.h,Definicje typów.
+uiprogressrect.h,framework/ui/uiwidget.h,Klasa bazowa.
+uisprite.cpp,spritemanager.h,Używa `g_sprites` do pobierania obrazów sprite'ów.
+uisprite.cpp,framework/otml/otml.h,Do parsowania stylów.
+uisprite.cpp,framework/graphics/graphics.h,Do operacji rysowania i zarządzania teksturami.
+uisprite.h,declarations.h,Definicje typów.
+uisprite.h,framework/ui/uiwidget.h,Klasa bazowa.
+walkmatrix.h,position.h,Używa `Position` do operacji na współrzędnych.
+walkmatrix.h,localplayer.cpp,Obiekt `WalkMatrix` jest polem klasy `LocalPlayer` i jest używany w logice pre-walkingu.
+protocolgameparse.cpp,thingtypemanager.h,Używa `g_things` do weryfikacji ID przedmiotów i efektów.
+protocolgameparse.cpp,luavaluecasts_client.h,Używane do przekazywania złożonych obiektów do Lua.
+protocolgameparse.cpp,protocolcodes.h,Używa zdefiniowanych tam kodów operacyjnych.
+protocolgameparse.cpp,Core,"Zarządzanie aplikacją, pętlą główną, zdarzeniami (`EventDispatcher`), zasobami (`ResourceManager`), czasem (`Clock`)."
+protocolgameparse.cpp,Graphics,"Nisko-poziomowe renderowanie, zarządzanie teksturami (`TextureManager`), shaderami (`ShaderManager`), czcionkami (`FontManager`) i kolejką rysowania (`DrawQueue`)."
+protocolgameparse.cpp,UI,System interfejsu użytkownika oparty na widżetach (`UIWidget`) i stylach OTML.
+protocolgameparse.cpp,LuaEngine,"Integracja z silnikiem skryptowym Lua, umożliwiająca rozszerzanie logiki gry."
+protocolgameparse.cpp,Net,"Nisko-poziomowa obsługa połączeń sieciowych (`Protocol`, `Connection`)."

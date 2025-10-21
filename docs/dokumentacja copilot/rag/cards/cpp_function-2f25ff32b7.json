@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "IterateChildren",
+  "return_type": "const TiXmlNode*",
+  "args": "const char * value, const TiXmlNode* previous",
+  "file": "src/framework/xml/tinyxml.h"
+}

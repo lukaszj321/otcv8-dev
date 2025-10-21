@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "clear",
+  "return_type": "nan",
+  "args": "nan",
+  "file": "src/framework/otml/otmlnode.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "HTTP.get",
+  "args": "url, callback",
+  "file": "modules/corelib/http.lua"
+}

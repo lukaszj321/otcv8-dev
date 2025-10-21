@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bar",
+  "return_type": "HealthBarPtr",
+  "args": "new HealthBar",
+  "file": "src/client/healthbars.cpp"
+}

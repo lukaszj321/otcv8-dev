@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "auto house : m_houses",
+  "file": "src/client/houses.cpp"
+}

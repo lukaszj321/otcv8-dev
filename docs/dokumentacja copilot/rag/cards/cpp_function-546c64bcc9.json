@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLNode::removeChild",
+  "return_type": "bool",
+  "args": "const OTMLNodePtr& oldChild",
+  "file": "src/framework/otml/otmlnode.cpp"
+}

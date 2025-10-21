@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "b_shift",
+  "return_type": "return",
+  "args": "L, r, -i",
+  "file": "src/framework/luaengine/lbitlib.cpp"
+}

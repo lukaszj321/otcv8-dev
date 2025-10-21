@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::setBlessings",
+  "return_type": "void",
+  "args": "int blessings",
+  "file": "src/client/localplayer.cpp"
+}

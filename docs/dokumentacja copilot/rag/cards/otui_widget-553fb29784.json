@@ -1,0 +1,26 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_terminal/terminal.otui",
+  "line": 81,
+  "path": "UIWindow#terminalWindow/UITextEdit#commandTextEdit",
+  "widget": "UITextEdit",
+  "base": "",
+  "id": "commandTextEdit",
+  "props": {
+    "id": "commandTextEdit",
+    "background": "#aaaaaa11",
+    "border-color": "#aaaaaa88",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "commandSymbolLabel.right",
+    "anchors.right": "terminalScroll.left",
+    "margin-left": "1",
+    "padding-left": "2",
+    "font": "terminus-10px",
+    "selection-color": "black",
+    "selection-background-color": "white",
+    "border-width-left": "1",
+    "border-width-top": "1",
+    "multiline": "true",
+    "text-auto-submit": "true"
+  }
+}

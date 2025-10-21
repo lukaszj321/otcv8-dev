@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setRect",
+  "return_type": "bool",
+  "args": "const Rect& rect",
+  "file": "src/framework/ui/uiwidget.h"
+}

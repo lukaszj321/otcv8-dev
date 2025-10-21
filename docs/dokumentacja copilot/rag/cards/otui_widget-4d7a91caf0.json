@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 239,
+  "path": "ItemHealing/Label#whenItem",
+  "widget": "Label",
+  "base": "",
+  "id": "whenItem",
+  "props": {
+    "id": "whenItem",
+    "anchors.left": "itemList.right",
+    "text": "When",
+    "margin-left": "7",
+    "font": "verdana-11px-rounded"
+  }
+}

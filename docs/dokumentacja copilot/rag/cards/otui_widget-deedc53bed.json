@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/entergame.otui",
+  "line": 169,
+  "path": "EnterGameWindow#enterGame/Button",
+  "widget": "Button",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "margin-left": "50",
+    "margin-right": "50"
+  }
+}

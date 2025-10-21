@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UITextEdit::onTextAreaUpdate",
+  "return_type": "void",
+  "args": "const Point& offset, const Size& visibleSize, const Size& totalSize",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

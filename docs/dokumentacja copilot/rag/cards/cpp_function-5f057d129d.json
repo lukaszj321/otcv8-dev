@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBindTexture",
+  "return_type": "nan",
+  "args": "GL_TEXTURE_2D, activeTexture",
+  "file": "src/framework/graphics/painter.cpp"
+}

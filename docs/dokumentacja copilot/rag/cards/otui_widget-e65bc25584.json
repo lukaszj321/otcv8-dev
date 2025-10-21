@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.otui",
+  "line": 242,
+  "path": "AnalyzerProgressBar",
+  "widget": "AnalyzerProgressBar",
+  "base": "ProgressBar",
+  "id": "",
+  "props": {
+    "background-color": "green",
+    "height": "5",
+    "margin-top": "3",
+    "phantom": "false",
+    "margin-left": "3",
+    "margin-right": "3",
+    "border": "1 black"
+  }
+}

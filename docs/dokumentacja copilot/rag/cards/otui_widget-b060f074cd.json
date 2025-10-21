@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/audio.otui",
+  "line": 10,
+  "path": "OptionPanel/Label#musicSoundVolumeLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "musicSoundVolumeLabel",
+  "props": {
+    "id": "musicSoundVolumeLabel",
+    "margin-top": "6",
+    "self": "setText(tr('Music volume: %d', value))"
+  }
+}

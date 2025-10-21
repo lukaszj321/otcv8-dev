@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isLoadedFromArchive",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/framework/core/resourcemanager.h"
+}

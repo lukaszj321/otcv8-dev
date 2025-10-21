@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "GLEW_EXT_framebuffer_object && !GLEW_ARB_framebuffer_object",
+  "file": "src/framework/graphics/graphics.cpp"
+}

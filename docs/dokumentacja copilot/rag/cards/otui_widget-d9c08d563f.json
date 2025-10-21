@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 18,
+  "path": "SpellConditionBoxPopupMenuButton",
+  "widget": "SpellConditionBoxPopupMenuButton",
+  "base": "ComboBoxPopupMenuButton",
+  "id": "",
+  "props": {}
+}

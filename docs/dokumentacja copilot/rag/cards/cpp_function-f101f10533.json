@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glDisable",
+  "return_type": "case DepthFunc_None:",
+  "args": "GL_DEPTH_TEST",
+  "file": "src/framework/graphics/painter.cpp"
+}

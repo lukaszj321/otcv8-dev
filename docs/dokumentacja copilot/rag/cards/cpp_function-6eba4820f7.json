@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Container::onAddItems",
+  "return_type": "void",
+  "args": "const std::vector<ItemPtr>& items",
+  "file": "src/client/container.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::setHealth",
+  "return_type": "void",
+  "args": "double health, double maxHealth",
+  "file": "src/client/localplayer.cpp"
+}

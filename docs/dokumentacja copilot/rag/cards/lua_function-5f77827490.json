@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMiniWindow:onFocusChange",
+  "args": "focused",
+  "file": "modules/corelib/ui/uiminiwindow.lua"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 232,
+  "path": "ComboActions#actions/CheckBox#attackItemToggle",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "attackItemToggle",
+  "props": {
+    "id": "attackItemToggle",
+    "anchors.left": "prev.right",
+    "margin-left": "5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "isAsync",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/client/animator.h"
+}

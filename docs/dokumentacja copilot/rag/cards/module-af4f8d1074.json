@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_bugreport\n  description: Bug report interface (Ctrl+Z)\n  author: edubart\n  website: https://github.com/edubart/otclient\n  scripts: [ bugreport ]\n  sandboxed: true\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_bugreport/bugreport.otmod",
+  "description": "Bug report interface (Ctrl+Z)"
+}

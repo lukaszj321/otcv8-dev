@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "WebsocketSession::send",
+  "return_type": "void",
+  "args": "std::string data",
+  "file": "src/framework/http/websocket.cpp"
+}

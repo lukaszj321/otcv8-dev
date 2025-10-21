@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AdaptiveRenderer::getDebugInfo",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/core/adaptiverenderer.cpp"
+}

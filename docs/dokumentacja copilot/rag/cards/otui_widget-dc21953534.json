@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 292,
+  "path": "HoldConditions#Hold/TextEdit#UtanaCost",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "UtanaCost",
+  "props": {
+    "id": "UtanaCost",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "width": "40",
+    "font": "verdana-11px-rounded"
+  }
+}

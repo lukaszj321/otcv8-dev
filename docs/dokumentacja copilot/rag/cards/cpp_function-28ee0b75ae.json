@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTotalBits",
+  "return_type": "testable int",
+  "args": "const struct qrcodegen_Segment segs[], size_t len, int version",
+  "file": "src/framework/util/qrcodegen.c"
+}

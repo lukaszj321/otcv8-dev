@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/panels.otui",
+  "line": 181,
+  "path": "ItemAndSlotPanel",
+  "widget": "ItemAndSlotPanel",
+  "base": "Panel",
+  "id": "",
+  "props": {
+    "height": "40"
+  }
+}

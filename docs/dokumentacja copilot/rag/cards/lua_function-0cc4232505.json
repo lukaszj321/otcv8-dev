@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "table.selectivecopy",
+  "args": "t, keys",
+  "file": "modules/corelib/table.lua"
+}

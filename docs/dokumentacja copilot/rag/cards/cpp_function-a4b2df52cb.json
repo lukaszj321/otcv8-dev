@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_createtable",
+  "return_type": "nan",
+  "args": "L, narr, nrec",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

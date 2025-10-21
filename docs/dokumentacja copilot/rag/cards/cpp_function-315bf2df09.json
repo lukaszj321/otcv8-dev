@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "nextPhase < 0 || nextPhase >= m_animationPhases",
+  "file": "src/client/animator.cpp"
+}

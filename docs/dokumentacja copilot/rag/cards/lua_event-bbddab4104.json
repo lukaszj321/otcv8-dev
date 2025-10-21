@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onIgnoreCapacityChange",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

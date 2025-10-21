@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIGameMap:blockNextMouseRelease",
+  "args": "postAction",
+  "file": "modules/game_interface/widgets/uigamemap.lua"
+}

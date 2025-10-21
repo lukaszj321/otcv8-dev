@@ -1,0 +1,27 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/marketoffers/itemstats.otui",
+  "line": 30,
+  "path": "Panel/Table#buyStatsTable",
+  "widget": "Table",
+  "base": "",
+  "id": "buyStatsTable",
+  "props": {
+    "id": "buyStatsTable",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "margin-top": "6",
+    "margin-bottom": "5",
+    "margin-right": "6",
+    "height": "121",
+    "padding": "1",
+    "focusable": "false",
+    "background-color": "#222833",
+    "border-width": "1",
+    "border-color": "#191f27",
+    "table-data": "buyStatsTableData",
+    "row-style": "StatsTableRow",
+    "column-style": "StatsTableColumn"
+  }
+}

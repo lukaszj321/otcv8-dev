@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindUniformLocation",
+  "return_type": "nan",
+  "args": "CENTER_UNIFORM, \"u_Center\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

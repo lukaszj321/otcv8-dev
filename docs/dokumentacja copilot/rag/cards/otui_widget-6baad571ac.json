@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.otui",
+  "line": 306,
+  "path": "PlayerList/TextList#list",
+  "widget": "TextList",
+  "base": "",
+  "id": "list",
+  "props": {
+    "id": "list",
+    "anchors.fill": "parent",
+    "fit-children": "true",
+    "padding-top": "2",
+    "vertical-scrollbar": "listScrollBar"
+  }
+}

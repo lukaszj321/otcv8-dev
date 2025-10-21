@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onFreeCapacityChange",
+  "args": "player, freeCapacity",
+  "file": "modules/game_inventory/inventory.lua"
+}

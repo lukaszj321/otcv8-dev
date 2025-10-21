@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 227,
+  "path": "InputPanel/Label#mainLabel",
+  "widget": "Label",
+  "base": "",
+  "id": "mainLabel",
+  "props": {
+    "id": "mainLabel",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "10",
+    "text": "Equip selected items when:",
+    "text-align": "center",
+    "font": "verdana-11px-rounded",
+    "color": "#aeaeae"
+  }
+}

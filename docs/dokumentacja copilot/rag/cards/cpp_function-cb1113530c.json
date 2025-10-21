@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getNumRawDataModules",
+  "return_type": "testable int",
+  "args": "int ver",
+  "file": "src/framework/util/qrcodegen.c"
+}

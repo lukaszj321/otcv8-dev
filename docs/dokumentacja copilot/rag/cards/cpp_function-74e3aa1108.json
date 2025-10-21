@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseThingType",
+  "return_type": "bool",
+  "args": "const FileStreamPtr& fin, ThingType& thingType",
+  "file": "src/client/thingstype.h"
+}

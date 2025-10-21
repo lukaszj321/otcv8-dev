@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "createSoundSource",
+  "return_type": "private: SoundSourcePtr",
+  "args": "const std::string& filename",
+  "file": "src/framework/sound/soundmanager.h"
+}

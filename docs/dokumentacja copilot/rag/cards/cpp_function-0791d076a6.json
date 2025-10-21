@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FirstChildElement",
+  "return_type": "const TiXmlElement*",
+  "args": "const char * _value",
+  "file": "src/framework/xml/tinyxml.h"
+}

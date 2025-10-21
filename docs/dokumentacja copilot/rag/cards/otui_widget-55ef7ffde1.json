@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/edit.otui",
+  "line": 69,
+  "path": "MainWindow#editWindow/Panel#manager/Panel#upload/Button#submit",
+  "widget": "Button",
+  "base": "",
+  "id": "submit",
+  "props": {
+    "id": "submit",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "4",
+    "margin-left": "40",
+    "margin-right": "40"
+  }
+}

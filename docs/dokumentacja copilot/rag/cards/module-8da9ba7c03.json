@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_textwindow\n  description: Allow to edit text books and lists\n  author: edubart, BeniS\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  dependencies: [ game_interface ]\n  scripts: [ textwindow ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_textwindow/textwindow.otmod",
+  "description": "Allow to edit text books and lists"
+}

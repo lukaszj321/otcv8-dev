@@ -1,0 +1,22 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.otui",
+  "line": 285,
+  "path": "ItemHealing/TextList#itemList",
+  "widget": "TextList",
+  "base": "",
+  "id": "itemList",
+  "props": {
+    "id": "itemList",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "anchors.top": "parent.top",
+    "padding": "1",
+    "padding-top": "2",
+    "width": "270",
+    "margin-top": "10",
+    "margin-bottom": "7",
+    "margin-left": "8",
+    "vertical-scrollbar": "itemListScrollBar"
+  }
+}

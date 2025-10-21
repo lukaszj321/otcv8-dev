@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "to_power_of_two",
+  "return_type": "size_t",
+  "args": "size_t v",
+  "file": "src/framework/stdext/math.h"
+}

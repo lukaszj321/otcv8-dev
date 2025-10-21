@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/transfer.otui",
+  "line": 61,
+  "path": "MainWindow#transferWindow/Button#cancelButton",
+  "widget": "Button",
+  "base": "",
+  "id": "cancelButton",
+  "props": {
+    "id": "cancelButton",
+    "font": "cipsoftFont",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom",
+    "size": "45 21",
+    "margin-top": "15",
+    "margin-right": "5"
+  }
+}

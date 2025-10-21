@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int i = 0, x = 60, y = 30; i <= GRAPH_LAST; ++i",
+  "file": "src/framework/core/graphicalapplication.cpp"
+}

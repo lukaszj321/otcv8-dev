@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "MapView::lockFirstVisibleFloor",
+  "return_type": "void",
+  "args": "int firstVisibleFloor",
+  "file": "src/client/mapview.cpp"
+}

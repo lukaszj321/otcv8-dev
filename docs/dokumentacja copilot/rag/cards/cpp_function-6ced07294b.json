@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::updateOutfitColor",
+  "return_type": "void",
+  "args": "Color color, Color finalColor, Color delta, int duration",
+  "file": "src/client/creature.cpp"
+}

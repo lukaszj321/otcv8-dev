@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addSource",
+  "return_type": "void",
+  "args": "const SoundSourcePtr& source",
+  "file": "src/framework/sound/combinedsoundsource.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "call",
+  "return_type": "static int",
+  "args": "const Tuple& tuple, const F& f, LuaInterface* lua, const Args&... args",
+  "file": "src/framework/luaengine/luabinder.h"
+}

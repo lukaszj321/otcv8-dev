@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 5,
+  "path": "TextEditButtons#buttons/Button#ok",
+  "widget": "Button",
+  "base": "",
+  "id": "ok",
+  "props": {
+    "id": "ok",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "next.left",
+    "margin-right": "10",
+    "width": "60"
+  }
+}

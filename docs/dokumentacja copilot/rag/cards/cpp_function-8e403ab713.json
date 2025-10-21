@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTempPath",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/platform/platform.h"
+}

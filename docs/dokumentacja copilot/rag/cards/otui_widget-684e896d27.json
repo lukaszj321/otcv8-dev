@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.otui",
+  "line": 129,
+  "path": "FeaturePanel/BotSwitch#Feature5",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "Feature5",
+  "props": {
+    "id": "Feature5",
+    "anchors.bottom": "prev.bottom",
+    "anchors.left": "prev.right",
+    "margin-top": "3",
+    "margin-left": "5",
+    "text": "Broadcasts"
+  }
+}

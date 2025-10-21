@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIMinimap:onMousePress",
+  "args": "pos, button",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ends_with",
+  "return_type": "bool",
+  "args": "const std::string& str, const std::string& test",
+  "file": "src/framework/stdext/string.cpp"
+}

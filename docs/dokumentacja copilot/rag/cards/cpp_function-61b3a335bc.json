@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "useWith",
+  "return_type": "void",
+  "args": "const ItemPtr& fromThing, const ThingPtr& toThing, int subType = 0",
+  "file": "src/client/game.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "toObject",
+  "return_type": "LuaObjectPtr",
+  "args": "int index = -1",
+  "file": "src/framework/luaengine/luainterface.h"
+}

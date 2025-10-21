@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "progressUpdater",
+  "args": "value",
+  "file": "modules/updater/updater.lua"
+}

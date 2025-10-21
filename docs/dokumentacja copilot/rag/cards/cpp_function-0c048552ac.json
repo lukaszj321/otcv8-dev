@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "toupper",
+  "return_type": "void",
+  "args": "std::string& str",
+  "file": "src/framework/stdext/string.cpp"
+}

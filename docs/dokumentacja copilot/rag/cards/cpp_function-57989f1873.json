@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "nextWalkUpdate",
+  "return_type": "virtual void",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

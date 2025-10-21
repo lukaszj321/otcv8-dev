@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 218,
+  "path": "MainWindow#spelllistWindow/CheckBox#vocationBoxSorcerer",
+  "widget": "CheckBox",
+  "base": "",
+  "id": "vocationBoxSorcerer",
+  "props": {
+    "id": "vocationBoxSorcerer",
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "3",
+    "width": "75"
+  }
+}

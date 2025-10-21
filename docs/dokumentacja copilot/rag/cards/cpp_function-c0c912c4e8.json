@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseVipState",
+  "return_type": "case Proto::GameServerVipState:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

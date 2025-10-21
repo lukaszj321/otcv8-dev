@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_minimap/flagwindow.otui",
+  "line": 26,
+  "path": "FlagWindow#flagWindow",
+  "widget": "FlagWindow",
+  "base": "MainWindow",
+  "id": "flagWindow",
+  "props": {
+    "id": "flagWindow",
+    "size": "196 185"
+  }
+}

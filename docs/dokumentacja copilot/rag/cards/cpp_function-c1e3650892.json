@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCryptKey",
+  "return_type": "std::string",
+  "args": "bool useMachineUUID",
+  "file": "src/framework/util/crypt.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addTown",
+  "return_type": "void",
+  "args": "const TownPtr& town",
+  "file": "src/client/towns.h"
+}

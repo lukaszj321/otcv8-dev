@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMana",
+  "return_type": "void",
+  "args": "double mana, double maxMana",
+  "file": "src/client/localplayer.h"
+}

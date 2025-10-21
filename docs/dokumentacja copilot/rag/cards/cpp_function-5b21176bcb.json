@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int i=0; p[i] && i<*length; ++i",
+  "file": "src/framework/xml/tinyxml.h"
+}

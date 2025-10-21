@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "cancelMyOffer",
+  "args": "actionType",
+  "file": "modules/game_market/market.lua"
+}

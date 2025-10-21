@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onSearchTextChange",
+  "file": "modules/game_npctrade/npctrade.lua"
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onLog",
+  "file": "modules/updater/updater.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pop",
+  "return_type": "void",
+  "args": "int n = 1",
+  "file": "src/framework/luaengine/luainterface.h"
+}

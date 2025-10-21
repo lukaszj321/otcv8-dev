@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "option",
+  "return_type": "boost::asio::ip::tcp::no_delay",
+  "args": "true",
+  "file": "src/framework/net/connection.cpp"
+}

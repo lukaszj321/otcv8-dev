@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "send",
+  "args": "msg",
+  "file": "modules/game_market/marketprotocol.lua"
+}

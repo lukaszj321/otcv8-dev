@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "ec || bytes_transferred != 2",
+  "file": "src/framework/proxy/proxy_client.cpp"
+}

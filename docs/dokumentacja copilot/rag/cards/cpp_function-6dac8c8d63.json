@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setMaxFps",
+  "return_type": "void",
+  "args": "int maxFps",
+  "file": "src/framework/core/graphicalapplication.h"
+}

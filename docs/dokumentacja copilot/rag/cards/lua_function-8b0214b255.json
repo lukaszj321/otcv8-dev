@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UISpinBox:setValue",
+  "args": "value, dontSignal",
+  "file": "modules/corelib/ui/uispinbox.lua"
+}

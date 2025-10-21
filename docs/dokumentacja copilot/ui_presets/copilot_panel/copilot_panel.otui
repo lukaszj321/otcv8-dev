@@ -1,0 +1,36 @@
+CopilotPanel < Panel
+  size: 360 280
+  anchors.fill: parent
+  margin: 12
+  @on: true
+
+  Label
+    id: title
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 6
+    margin-left: 8
+    margin-right: 8
+    text: tr('Copilot Documentation Panel')
+    font: verdana-11px-monochrome
+    text-auto-resize: true
+
+  ScrollablePanel
+    id: body
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-top: 8
+    margin-left: 8
+    margin-right: 8
+    margin-bottom: 8
+    vertical-scrollbar: auto
+
+    RichTextLabel
+      id: content
+      anchors.fill: parent
+      text: tr('Witaj! To jest preset panelu dokumentacji.')
+      text-wrap: true
+      font: verdana-11px-monochrome

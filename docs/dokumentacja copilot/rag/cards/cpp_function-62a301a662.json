@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Java_com_otclientv8_OTClientV8_commitText",
+  "return_type": "JNIEXPORT void JNICALL",
+  "args": "JNIEnv* env, jobject obj, jstring text",
+  "file": "src/framework/platform/androidwindow.cpp"
+}

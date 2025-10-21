@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 156,
+  "path": "MainWindow#hotkeysWindow/Button#clearObjectButton",
+  "widget": "Button",
+  "base": "",
+  "id": "clearObjectButton",
+  "props": {
+    "id": "clearObjectButton",
+    "width": "128",
+    "enabled": "false",
+    "anchors.left": "prev.left",
+    "anchors.right": "prev.right",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2"
+  }
+}

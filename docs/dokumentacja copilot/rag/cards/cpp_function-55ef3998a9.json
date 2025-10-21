@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::getChildByIndex",
+  "return_type": "UIWidgetPtr",
+  "args": "int index",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

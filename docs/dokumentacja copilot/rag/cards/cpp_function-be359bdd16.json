@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlNode::Identify",
+  "return_type": "TiXmlNode*",
+  "args": "const char* p, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

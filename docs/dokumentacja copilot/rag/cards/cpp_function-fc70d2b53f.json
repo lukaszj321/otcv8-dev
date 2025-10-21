@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "write_IDATs",
+  "return_type": "void",
+  "args": "std::ostream& f, unsigned char* data, unsigned int length, unsigned int idat_size",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

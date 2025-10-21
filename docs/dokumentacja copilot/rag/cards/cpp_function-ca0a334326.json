@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Creature::setBaseSpeed",
+  "return_type": "void",
+  "args": "double baseSpeed",
+  "file": "src/client/creature.cpp"
+}

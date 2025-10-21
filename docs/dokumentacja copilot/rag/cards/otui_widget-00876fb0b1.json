@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 268,
+  "path": "ClearImbue/Panel#time",
+  "widget": "Panel",
+  "base": "",
+  "id": "time",
+  "props": {
+    "id": "time",
+    "width": "210",
+    "height": "90",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom"
+  }
+}

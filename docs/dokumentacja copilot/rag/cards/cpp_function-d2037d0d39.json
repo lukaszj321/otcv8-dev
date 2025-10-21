@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LocalPlayer::setStamina",
+  "return_type": "void",
+  "args": "double stamina",
+  "file": "src/client/localplayer.cpp"
+}

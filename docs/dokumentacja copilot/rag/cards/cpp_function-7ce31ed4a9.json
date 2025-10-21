@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "DrawQueue::draw",
+  "return_type": "void",
+  "args": "DrawType drawType",
+  "file": "src/framework/graphics/drawqueue.cpp"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "registerClassStaticFunction",
+  "return_type": "template<class C> void",
+  "args": "const std::string& functionName, const LuaCppFunction& function",
+  "file": "src/framework/luaengine/luainterface.h"
+}

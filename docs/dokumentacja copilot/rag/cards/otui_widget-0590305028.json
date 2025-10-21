@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 137,
+  "path": "QuestLogWindow#questLogWindow/Button#showButton",
+  "widget": "Button",
+  "base": "",
+  "id": "showButton",
+  "props": {
+    "id": "showButton",
+    "anchors.right": "prev.left",
+    "margin-right": "3",
+    "color": "#ffffff",
+    "size": "45 21",
+    "font": "cipsoftFont"
+  }
+}

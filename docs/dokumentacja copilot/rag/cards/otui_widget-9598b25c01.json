@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.otui",
+  "line": 258,
+  "path": "AttackBotPanel/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "prev.left",
+    "anchors.top": "prev.bottom",
+    "margin-top": "6",
+    "margin-left": "3",
+    "text-align": "center",
+    "text": "Mana%:",
+    "font": "verdana-11px-rounded"
+  }
+}

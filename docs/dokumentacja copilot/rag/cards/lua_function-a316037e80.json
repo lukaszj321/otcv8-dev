@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botGameEditText",
+  "args": "id, itemId, maxLength, text, writer, time",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "exitSignalHandler",
+  "return_type": "void",
+  "args": "int sig",
+  "file": "src/framework/core/application.cpp"
+}

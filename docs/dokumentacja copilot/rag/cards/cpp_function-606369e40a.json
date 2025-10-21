@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFixedSize",
+  "return_type": "void",
+  "args": "bool fixed",
+  "file": "src/framework/ui/uiwidget.h"
+}

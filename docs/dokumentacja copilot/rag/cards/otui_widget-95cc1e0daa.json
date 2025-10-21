@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 33,
+  "path": "MiniWindow#botWindow/MiniWindowContents/ComboBox#config",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "config",
+  "props": {
+    "id": "config",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "2",
+    "margin-left": "2",
+    "margin-right": "75",
+    "text-offset": "3 0"
+  }
+}

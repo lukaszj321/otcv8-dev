@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBlendEquation",
+  "return_type": "nan",
+  "args": "GL_FUNC_SUBTRACT",
+  "file": "src/framework/graphics/painter.cpp"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 149,
+  "path": "AnalyzerItemsPanel#List",
+  "widget": "AnalyzerItemsPanel",
+  "base": "Panel",
+  "id": "List",
+  "props": {
+    "id": "List",
+    "padding": "2",
+    "layout": "",
+    "type": "grid",
+    "cell-size": "33 33",
+    "cell-spacing": "1",
+    "num-columns": "5",
+    "fit-children": "true"
+  }
+}

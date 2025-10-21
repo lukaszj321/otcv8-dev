@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 35,
+  "path": "TextEditWindow#textedit/ComboBox#examples",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "examples",
+  "props": {
+    "id": "examples",
+    "margin-bottom": "5",
+    "visible": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "pthread_create",
+  "return_type": "nan",
+  "args": "&android_app->thread, &attr, android_app_entry, android_app",
+  "file": "src/android/android_native_app_glue.cpp"
+}

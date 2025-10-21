@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "valueAt",
+  "return_type": "T",
+  "args": "const std::string& childTag, const T& def",
+  "file": "src/framework/otml/otmlnode.h"
+}

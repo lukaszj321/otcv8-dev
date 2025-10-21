@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.otui",
+  "line": 71,
+  "path": "PriorityEntry",
+  "widget": "PriorityEntry",
+  "base": "ToolTipLabel",
+  "id": "",
+  "props": {
+    "background-color": "#00000055",
+    "text-offset": "18 1",
+    "focusable": "true",
+    "height": "16",
+    "font": "verdana-11px-rounded",
+    "text-align": "left"
+  }
+}

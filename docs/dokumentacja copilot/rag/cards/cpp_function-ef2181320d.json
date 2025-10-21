@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::exception",
+  "return_type": "throw",
+  "args": "\"rsa encryption failed\"",
+  "file": "src/framework/net/outputmessage.cpp"
+}

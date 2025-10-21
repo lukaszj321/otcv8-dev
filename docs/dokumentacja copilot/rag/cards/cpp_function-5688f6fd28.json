@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "uint16 i = 0; i < size; ++i",
+  "file": "src/client/protocolgameparse.cpp"
+}

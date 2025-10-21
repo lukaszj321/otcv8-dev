@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "hasDisplacement",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/client/thing.h"
+}

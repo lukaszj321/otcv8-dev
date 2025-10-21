@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::getWeakRef",
+  "return_type": "void",
+  "args": "int weakRef",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/bot.otui",
+  "line": 47,
+  "path": "MiniWindow#botWindow/MiniWindowContents/Button#editConfig",
+  "widget": "Button",
+  "base": "",
+  "id": "editConfig",
+  "props": {
+    "id": "editConfig",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "margin-left": "3",
+    "margin-right": "37"
+  }
+}

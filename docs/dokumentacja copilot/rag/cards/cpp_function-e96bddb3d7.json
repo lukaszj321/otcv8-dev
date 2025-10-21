@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAlignRight",
+  "return_type": "void",
+  "args": "bool aliginRight",
+  "file": "src/framework/ui/uihorizontallayout.h"
+}

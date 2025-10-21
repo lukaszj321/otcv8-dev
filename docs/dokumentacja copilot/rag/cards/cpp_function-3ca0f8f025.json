@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setId",
+  "return_type": "virtual void",
+  "args": "uint32 id",
+  "file": "src/client/thing.h"
+}

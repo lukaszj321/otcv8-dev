@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Parse",
+  "return_type": "virtual const char*",
+  "args": "const char* p, TiXmlParsingData* data = 0, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING",
+  "file": "src/framework/xml/tinyxml.h"
+}

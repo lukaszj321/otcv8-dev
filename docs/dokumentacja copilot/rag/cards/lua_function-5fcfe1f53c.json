@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setPingVisible",
+  "args": "enable",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

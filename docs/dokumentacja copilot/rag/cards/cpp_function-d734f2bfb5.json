@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "width",
+  "return_type": "T",
+  "args": "nan",
+  "file": "src/framework/util/rect.h"
+}

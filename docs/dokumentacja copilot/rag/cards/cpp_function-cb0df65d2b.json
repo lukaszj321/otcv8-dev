@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int j=1;j<=Q;++j",
+  "file": "src/framework/util/matrix.h"
+}

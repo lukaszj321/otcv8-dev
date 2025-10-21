@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 174,
+  "path": "MainWindow#spelllistWindow/SpellInfoValueLabel#labelCooldownValue",
+  "widget": "SpellInfoValueLabel",
+  "base": "",
+  "id": "labelCooldownValue",
+  "props": {
+    "id": "labelCooldownValue",
+    "anchors.left": "labelCooldown.right",
+    "anchors.top": "labelTypeValue.bottom"
+  }
+}

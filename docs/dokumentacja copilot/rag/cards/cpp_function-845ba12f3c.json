@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "VALIDATE",
+  "return_type": "nan",
+  "args": "cursor.col >= -1",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

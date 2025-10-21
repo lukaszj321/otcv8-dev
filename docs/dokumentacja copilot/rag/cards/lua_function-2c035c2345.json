@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "getShieldImagePathAndBlink",
+  "args": "shieldId",
+  "file": "modules/gamelib/creature.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "write_chunk",
+  "return_type": "nan",
+  "args": "f, \"IDAT\", data, ds",
+  "file": "src/framework/graphics/apngloader.cpp"
+}

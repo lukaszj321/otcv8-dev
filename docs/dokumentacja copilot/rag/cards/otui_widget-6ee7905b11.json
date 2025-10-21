@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/siolist.otui",
+  "line": 14,
+  "path": "VocationPanel/BotSwitch#ED",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "ED",
+  "props": {
+    "id": "ED",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.horizontalCenter",
+    "text": "Druids"
+  }
+}

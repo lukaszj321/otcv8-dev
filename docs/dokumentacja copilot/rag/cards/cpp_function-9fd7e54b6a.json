@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "BitmapFont::wrapText",
+  "return_type": "std::string",
+  "args": "const std::string& text, int maxWidth, std::vector<std::pair<int, Color>>* colors",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

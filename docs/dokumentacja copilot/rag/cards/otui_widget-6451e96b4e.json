@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/graphics.otui",
+  "line": 92,
+  "path": "OptionPanel/Label#tips",
+  "widget": "Label",
+  "base": "",
+  "id": "tips",
+  "props": {
+    "id": "tips",
+    "margin-top": "20",
+    "text-auto-resize": "true",
+    "text-align": "left",
+    "text-wrap": "true",
+    "visible": "false"
+  }
+}

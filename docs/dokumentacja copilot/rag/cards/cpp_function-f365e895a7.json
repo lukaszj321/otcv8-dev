@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ResourceManager::installDlls",
+  "return_type": "void",
+  "args": "std::filesystem::path dest",
+  "file": "src/framework/core/resourcemanager.cpp"
+}

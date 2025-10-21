@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/currentoffers.otui",
+  "line": 1,
+  "path": "OfferTableRow",
+  "widget": "OfferTableRow",
+  "base": "TableRow",
+  "id": "",
+  "props": {
+    "font": "verdana-11px-monochrome",
+    "color": "#cccccc",
+    "height": "15"
+  }
+}

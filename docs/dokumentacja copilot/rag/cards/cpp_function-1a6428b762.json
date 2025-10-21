@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_main",
+  "return_type": "extern void",
+  "args": "struct android_app* app",
+  "file": "src/android/android_native_app_glue.h"
+}

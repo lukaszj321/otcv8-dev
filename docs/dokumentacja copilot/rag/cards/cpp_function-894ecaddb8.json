@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "nan",
+  "args": "const OTMLDocumentPtr& doc, const std::string& error, int line = -1",
+  "file": "src/framework/otml/otmlexception.h"
+}

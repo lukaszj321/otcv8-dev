@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 144,
+  "path": "SioListWindow/HorizontalScrollBar#minMana",
+  "widget": "HorizontalScrollBar",
+  "base": "",
+  "id": "minMana",
+  "props": {
+    "id": "minMana",
+    "anchors.left": "spellName.left",
+    "anchors.right": "spellName.right",
+    "anchors.top": "manaInfo.bottom",
+    "margin-top": "2",
+    "minimum": "1",
+    "maximum": "100",
+    "step": "1"
+  }
+}

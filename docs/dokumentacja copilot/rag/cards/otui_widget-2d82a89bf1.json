@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 26,
+  "path": "SkillPercentPanel#percent",
+  "widget": "SkillPercentPanel",
+  "base": "ProgressBar",
+  "id": "percent",
+  "props": {
+    "id": "percent",
+    "background-color": "green",
+    "height": "5",
+    "margin-top": "15",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "phantom": "false"
+  }
+}

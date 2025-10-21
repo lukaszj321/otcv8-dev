@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::sendLookCreature",
+  "return_type": "void",
+  "args": "uint32 creatureId",
+  "file": "src/client/protocolgamesend.cpp"
+}

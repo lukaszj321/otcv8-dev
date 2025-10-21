@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 60,
+  "path": "ItemInformation/Panel#slots/Slot#slot0",
+  "widget": "Slot",
+  "base": "",
+  "id": "slot0",
+  "props": {
+    "id": "slot0",
+    "text-align": "center",
+    "anchors.left": "parent.left"
+  }
+}

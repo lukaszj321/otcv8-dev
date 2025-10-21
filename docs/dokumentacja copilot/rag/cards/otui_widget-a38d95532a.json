@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 86,
+  "path": "MemberWidget/ProgressBar#mana",
+  "widget": "ProgressBar",
+  "base": "",
+  "id": "mana",
+  "props": {
+    "id": "mana",
+    "anchors.left": "prev.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.bottom",
+    "height": "7",
+    "background-color": "#0000FF",
+    "phantom": "false"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "calculateGlyphsPositions",
+  "return_type": "nan",
+  "args": "text, Fw::AlignTopLeft, &size",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

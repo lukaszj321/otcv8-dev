@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 173,
+  "path": "MainWindow#communicationWindow/Panel/Panel",
+  "widget": "Panel",
+  "base": "",
+  "id": "",
+  "props": {
+    "size": "160 30"
+  }
+}

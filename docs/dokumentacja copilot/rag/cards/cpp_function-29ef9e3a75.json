@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIWidget::removeChild",
+  "return_type": "void",
+  "args": "UIWidgetPtr child",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

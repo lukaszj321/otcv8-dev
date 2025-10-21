@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "FileStream::startNode",
+  "return_type": "void",
+  "args": "uint8 n",
+  "file": "src/framework/core/filestream.cpp"
+}

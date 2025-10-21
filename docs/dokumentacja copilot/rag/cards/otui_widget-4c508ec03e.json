@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 438,
+  "path": "RerollButton/GoldLabel#price",
+  "widget": "GoldLabel",
+  "base": "",
+  "id": "price",
+  "props": {
+    "id": "price",
+    "anchors.top": "prev.bottom",
+    "margin-top": "2",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "parent.bottom"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 74,
+  "path": "MultilineTextEditWindow/TextEditButtons",
+  "widget": "TextEditButtons",
+  "base": "",
+  "id": "",
+  "props": {}
+}

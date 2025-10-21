@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "seconds",
+  "return_type": "float",
+  "args": "nan",
+  "file": "src/framework/core/clock.h"
+}

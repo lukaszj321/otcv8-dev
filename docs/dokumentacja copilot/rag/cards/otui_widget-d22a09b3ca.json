@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/sideactionbar.otui",
+  "line": 78,
+  "path": "TopSliders/Button#prev",
+  "widget": "Button",
+  "base": "",
+  "id": "prev",
+  "props": {
+    "id": "prev",
+    "anchors.fill": "parent",
+    "anchors.right": "parent.horizontalCenter",
+    "tooltip": "Move to the previous action button"
+  }
+}

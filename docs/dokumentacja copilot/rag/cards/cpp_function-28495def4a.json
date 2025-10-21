@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setVelocity",
+  "return_type": "void",
+  "args": "const Point& velocity",
+  "file": "src/framework/sound/combinedsoundsource.h"
+}

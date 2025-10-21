@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_stats/stats.otui",
+  "line": 41,
+  "path": "MainWindow#debugWindow/ScrollablePanel#debugPanel/DebugText#sleepTime",
+  "widget": "DebugText",
+  "base": "",
+  "id": "sleepTime",
+  "props": {
+    "id": "sleepTime",
+    "text": "-",
+    "anchors.top": "parent.top"
+  }
+}

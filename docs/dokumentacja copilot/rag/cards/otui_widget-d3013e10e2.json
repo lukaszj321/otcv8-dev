@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.otui",
+  "line": 26,
+  "path": "TargetBotCreatureEditorTextEdit/Label#text",
+  "widget": "Label",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "text-align": "center"
+  }
+}

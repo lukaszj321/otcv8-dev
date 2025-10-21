@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/general/amountwindow.otui",
+  "line": 1,
+  "path": "AmountWindow#amountWindow",
+  "widget": "AmountWindow",
+  "base": "MainWindow",
+  "id": "amountWindow",
+  "props": {
+    "id": "amountWindow",
+    "size": "270 90"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.otui",
+  "line": 126,
+  "path": "CureConditions#Cure/TextEdit#BurnCost",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "BurnCost",
+  "props": {
+    "id": "BurnCost",
+    "anchors.left": "prev.right",
+    "margin-left": "3",
+    "width": "40",
+    "font": "verdana-11px-rounded"
+  }
+}

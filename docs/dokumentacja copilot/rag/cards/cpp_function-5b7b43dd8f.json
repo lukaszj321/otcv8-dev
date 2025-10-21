@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSize",
+  "return_type": "void",
+  "args": "uint32 s",
+  "file": "src/client/houses.h"
+}

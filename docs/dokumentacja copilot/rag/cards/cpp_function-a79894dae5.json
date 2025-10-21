@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "callLuaField",
+  "return_type": "nan",
+  "args": "\"onCameraPositionChange\", position, oldPosition",
+  "file": "src/client/uiminimap.cpp"
+}

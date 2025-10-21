@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIMinimap::floorDown",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/client/uiminimap.cpp"
+}

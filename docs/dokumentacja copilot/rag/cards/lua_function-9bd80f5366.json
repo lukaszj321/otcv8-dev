@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "updateCooldown",
+  "args": "action",
+  "file": "modules/game_actionbar/actionbar.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "remove",
+  "return_type": "bool",
+  "args": "const Key& k",
+  "file": "src/framework/stdext/dynamic_storage.h"
+}

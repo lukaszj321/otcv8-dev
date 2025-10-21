@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindClassMemberField",
+  "return_type": "void",
+  "args": "const std::string& className, const std::string& fieldName, F1 FC::*getFunction, F2 FC::*setFunction",
+  "file": "src/framework/luaengine/luainterface.h"
+}

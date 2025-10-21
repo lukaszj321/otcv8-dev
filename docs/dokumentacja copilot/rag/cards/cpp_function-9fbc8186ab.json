@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "hasAttr",
+  "return_type": "bool",
+  "args": "ThingAttr attr",
+  "file": "src/client/thingtype.h"
+}

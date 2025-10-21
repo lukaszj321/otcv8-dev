@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_keyboard.isCtrlPressed",
+  "args": "",
+  "file": "modules/corelib/keyboard.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "const ThingPtr& thing : m_things",
+  "file": "src/client/tile.cpp"
+}

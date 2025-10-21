@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onFontChange",
+  "return_type": "nan",
+  "args": "fontName",
+  "file": "src/framework/ui/uiwidgettext.cpp"
+}

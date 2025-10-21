@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_skills/skills.otui",
+  "line": 58,
+  "path": "MiniWindow#skillWindow/MiniWindowContents/SkillButton#level",
+  "widget": "SkillButton",
+  "base": "",
+  "id": "level",
+  "props": {
+    "id": "level"
+  }
+}

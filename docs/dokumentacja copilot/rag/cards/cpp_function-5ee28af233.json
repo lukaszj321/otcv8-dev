@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "docHandle",
+  "return_type": "TiXmlHandle",
+  "args": "&document",
+  "file": "src/framework/xml/tinyxml.h"
+}

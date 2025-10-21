@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateDraggingWidget",
+  "return_type": "nan",
+  "args": "m_pressedWidget[Fw::MouseLeftButton], event.mousePos - event.mouseMoved",
+  "file": "src/framework/ui/uimanager.cpp"
+}

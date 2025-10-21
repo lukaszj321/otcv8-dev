@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getCreatures",
+  "return_type": "const std::vector<CreatureTypePtr>&",
+  "args": "nan",
+  "file": "src/client/creatures.h"
+}

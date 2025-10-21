@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "walk",
+  "return_type": "virtual void",
+  "args": "const Position& oldPos, const Position& newPos",
+  "file": "src/client/creature.h"
+}

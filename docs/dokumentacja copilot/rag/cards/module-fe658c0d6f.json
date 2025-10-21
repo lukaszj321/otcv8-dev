@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_profiles\n  description: Client profiles\n  author: Vithrax\n  website: discord_Vithrax#5814\n  autoload: true\n  reloadable: false\n  scripts: [ profiles ]\n  sandboxed: true\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_profiles/profiles.otmod",
+  "description": "Client profiles"
+}

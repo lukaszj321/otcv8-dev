@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDrop",
+  "file": "modules/game_containers/containers.lua"
+}

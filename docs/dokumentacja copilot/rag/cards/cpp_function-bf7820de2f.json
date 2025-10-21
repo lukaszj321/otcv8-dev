@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setBorderColor",
+  "return_type": "void",
+  "args": "const Color& color",
+  "file": "src/framework/ui/uiwidget.h"
+}

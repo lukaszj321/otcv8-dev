@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onRemoveAutomapFlag",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

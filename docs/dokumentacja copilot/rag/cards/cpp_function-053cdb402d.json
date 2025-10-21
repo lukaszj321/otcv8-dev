@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Item::createFromOtb",
+  "return_type": "ItemPtr",
+  "args": "int id",
+  "file": "src/client/item.cpp"
+}

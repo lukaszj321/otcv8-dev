@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/options.otui",
+  "line": 16,
+  "path": "MainWindow#optionsWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "optionsWindow",
+  "props": {
+    "id": "optionsWindow",
+    "size": "490 360"
+  }
+}

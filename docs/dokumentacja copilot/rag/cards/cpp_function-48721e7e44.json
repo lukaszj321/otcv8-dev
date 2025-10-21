@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setSoul",
+  "return_type": "void",
+  "args": "double soul",
+  "file": "src/client/localplayer.h"
+}

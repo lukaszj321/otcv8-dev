@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setTextHidden",
+  "return_type": "void",
+  "args": "bool hidden",
+  "file": "src/framework/ui/uitextedit.h"
+}

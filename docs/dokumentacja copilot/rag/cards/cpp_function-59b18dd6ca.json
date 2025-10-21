@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setImageBorderRight",
+  "return_type": "void",
+  "args": "int border",
+  "file": "src/framework/ui/uiwidget.h"
+}

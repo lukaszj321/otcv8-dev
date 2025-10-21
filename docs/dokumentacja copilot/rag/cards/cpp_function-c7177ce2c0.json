@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getField",
+  "return_type": "nan",
+  "args": "fieldKey",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_effects.fadeOut",
+  "args": "widget, time, elapsed",
+  "file": "modules/corelib/ui/effects.lua"
+}

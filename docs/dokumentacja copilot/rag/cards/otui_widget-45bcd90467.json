@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 201,
+  "path": "ComboActions#actions/TextEdit#attackSpell",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "attackSpell",
+  "props": {
+    "id": "attackSpell",
+    "anchors.left": "prev.right",
+    "anchors.top": "prev.top",
+    "anchors.right": "attackLeaderTarget.right",
+    "margin-left": "17",
+    "height": "15",
+    "width": "145",
+    "font": "cipsoftFont"
+  }
+}

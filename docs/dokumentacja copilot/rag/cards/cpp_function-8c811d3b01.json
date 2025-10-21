@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "createFromOtb",
+  "return_type": "static ItemPtr",
+  "args": "int id",
+  "file": "src/client/item.h"
+}

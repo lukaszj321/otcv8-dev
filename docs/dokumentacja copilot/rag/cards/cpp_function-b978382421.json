@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fin",
+  "return_type": "std::stringstream",
+  "args": "temp",
+  "file": "src/framework/graphics/image.cpp"
+}

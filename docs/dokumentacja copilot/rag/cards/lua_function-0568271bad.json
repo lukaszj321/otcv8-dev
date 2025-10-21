@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIInputBox:addComboBox",
+  "args": "labelText, ...",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::polymorphicPush",
+  "return_type": "int",
+  "args": "const T& v, const Args&... args",
+  "file": "src/framework/luaengine/luainterface.h"
+}

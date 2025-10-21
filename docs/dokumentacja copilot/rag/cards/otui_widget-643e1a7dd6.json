@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 144,
+  "path": "MainWindow#communicationWindow/Button#buttonWhitelistRemove",
+  "widget": "Button",
+  "base": "",
+  "id": "buttonWhitelistRemove",
+  "props": {
+    "id": "buttonWhitelistRemove",
+    "width": "64",
+    "height": "20",
+    "margin-left": "5",
+    "anchors.top": "prev.top",
+    "anchors.left": "prev.right"
+  }
+}

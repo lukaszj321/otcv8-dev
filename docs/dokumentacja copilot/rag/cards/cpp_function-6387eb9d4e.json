@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "at",
+  "return_type": "const char&",
+  "args": "size_type index",
+  "file": "src/framework/xml/tinystr.h"
+}

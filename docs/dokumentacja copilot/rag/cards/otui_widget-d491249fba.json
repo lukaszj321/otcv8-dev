@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 4,
+  "path": "SupplyItem/BotItem#item",
+  "widget": "BotItem",
+  "base": "",
+  "id": "item",
+  "props": {
+    "id": "item",
+    "size": "32 32",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "margin-top": "1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/combo.otui",
+  "line": 383,
+  "path": "ComboWindow/Button#toolsButton",
+  "widget": "Button",
+  "base": "",
+  "id": "toolsButton",
+  "props": {
+    "id": "toolsButton",
+    "font": "cipsoftFont",
+    "anchors.right": "closeButton.left",
+    "anchors.top": "closeButton.top",
+    "margin-right": "10",
+    "size": "45 21"
+  }
+}

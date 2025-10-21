@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "mapRect",
+  "return_type": "Rect",
+  "args": "0,0,w,h",
+  "file": "src/client/minimap.cpp"
+}

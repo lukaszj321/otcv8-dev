@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 100,
+  "path": "SuppliesWindow/Label",
+  "widget": "Label",
+  "base": "",
+  "id": "",
+  "props": {
+    "anchors.left": "sep.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "parent.top",
+    "margin-left": "10",
+    "margin-top": "3",
+    "text-align": "center",
+    "text": "Additional Conditions:"
+  }
+}

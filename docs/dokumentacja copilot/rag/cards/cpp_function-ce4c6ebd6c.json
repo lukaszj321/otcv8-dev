@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SaveFile",
+  "return_type": "bool",
+  "args": "const char * filename",
+  "file": "src/framework/xml/tinyxml.h"
+}

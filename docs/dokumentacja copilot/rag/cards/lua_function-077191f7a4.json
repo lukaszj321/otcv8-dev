@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Updater.error",
+  "args": "message",
+  "file": "modules/updater/updater.lua"
+}

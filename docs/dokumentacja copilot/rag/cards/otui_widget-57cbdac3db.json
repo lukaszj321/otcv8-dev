@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 449,
+  "path": "CardLabel/UIWidget#cards",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "cards",
+  "props": {
+    "id": "cards",
+    "anchors.right": "parent.right",
+    "image-source": "/images/game/prey/prey_wildcard",
+    "tooltip": "Prey Wildcards"
+  }
+}

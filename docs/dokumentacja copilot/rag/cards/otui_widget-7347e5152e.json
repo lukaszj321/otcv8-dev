@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 47,
+  "path": "OptionPanel/Panel/OptionCheckBox#actionbar1",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "actionbar1",
+  "props": {
+    "id": "actionbar1",
+    "width": "60"
+  }
+}

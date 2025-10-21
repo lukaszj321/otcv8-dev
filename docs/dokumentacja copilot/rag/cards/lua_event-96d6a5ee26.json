@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDeath",
+  "file": "modules/game_playerdeath/playerdeath.lua"
+}

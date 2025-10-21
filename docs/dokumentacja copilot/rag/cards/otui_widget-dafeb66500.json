@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/cavebot_1.3/cavebot/supply.otui",
+  "line": 46,
+  "path": "SupplyItem/Panel#fields/BotTextEdit#max",
+  "widget": "BotTextEdit",
+  "base": "",
+  "id": "max",
+  "props": {
+    "id": "max",
+    "anchors.top": "maxLabel.bottom",
+    "anchors.left": "maxLabel.left",
+    "anchors.right": "maxLabel.right",
+    "text-align": "center",
+    "text": "100"
+  }
+}

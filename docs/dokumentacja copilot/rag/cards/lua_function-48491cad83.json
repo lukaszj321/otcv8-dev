@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "g_keyboard.unbindKeyUp",
+  "args": "keyComboDesc, arg1, arg2",
+  "file": "modules/corelib/keyboard.lua"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_console/communicationwindow.otui",
+  "line": 128,
+  "path": "MainWindow#communicationWindow/TextEdit#whitelistNameEdit",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "whitelistNameEdit",
+  "props": {
+    "id": "whitelistNameEdit",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "prev.left",
+    "width": "110",
+    "margin-top": "5"
+  }
+}

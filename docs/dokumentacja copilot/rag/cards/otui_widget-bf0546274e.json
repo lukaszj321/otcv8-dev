@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_battle/battle.otui",
+  "line": 48,
+  "path": "MiniWindow#battleWindow/Panel#filterPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "filterPanel",
+  "props": {
+    "id": "filterPanel",
+    "margin-top": "26",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "miniwindowScrollBar.left",
+    "height": "45"
+  }
+}

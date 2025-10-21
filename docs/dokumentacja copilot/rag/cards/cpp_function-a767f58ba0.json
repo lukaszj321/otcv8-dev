@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "stdext::throw_exception",
+  "return_type": "nan",
+  "args": "\"cannot depend on itself\"",
+  "file": "src/framework/core/module.cpp"
+}

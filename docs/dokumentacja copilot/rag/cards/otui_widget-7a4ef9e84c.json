@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 143,
+  "path": "MainWindow#spelllistWindow/SpellInfoLabel#labelDescription",
+  "widget": "SpellInfoLabel",
+  "base": "",
+  "id": "labelDescription",
+  "props": {
+    "id": "labelDescription",
+    "anchors.left": "spellList.right",
+    "anchors.top": "labelPremium.bottom"
+  }
+}

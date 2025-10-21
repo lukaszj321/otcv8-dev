@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onWidgetHoverChange",
+  "file": "modules/corelib/ui/tooltip.lua"
+}

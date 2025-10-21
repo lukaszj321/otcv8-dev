@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "GetEntity",
+  "return_type": "static const char*",
+  "args": "const char* in, char* value, int* length, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

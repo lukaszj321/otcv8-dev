@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "blit",
+  "return_type": "void",
+  "args": "const Point& dest, const ImagePtr& other",
+  "file": "src/framework/graphics/image.h"
+}

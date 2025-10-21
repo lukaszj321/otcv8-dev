@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ip_to_string",
+  "return_type": "std::string",
+  "args": "uint32 ip",
+  "file": "src/framework/stdext/net.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 109,
+  "path": "CureConditions#Cure/Label#label4",
+  "widget": "Label",
+  "base": "",
+  "id": "label4",
+  "props": {
+    "id": "label4",
+    "anchors.left": "label3.left",
+    "anchors.top": "label3.bottom",
+    "margin-top": "10",
+    "text": "Burn",
+    "color": "#ffaa00",
+    "font": "verdana-11px-rounded"
+  }
+}

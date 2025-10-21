@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "retryAutoWalk",
+  "return_type": "bool",
+  "args": "nan",
+  "file": "src/client/localplayer.h"
+}

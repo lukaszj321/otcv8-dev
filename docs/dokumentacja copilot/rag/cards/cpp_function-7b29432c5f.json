@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "sigemptyset",
+  "return_type": "nan",
+  "args": "&sa.sa_mask",
+  "file": "src/framework/platform/unixcrashhandler.cpp"
+}

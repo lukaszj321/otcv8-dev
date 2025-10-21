@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Map::getSpectators",
+  "return_type": "std::vector<CreaturePtr>",
+  "args": "const Position& centerPos, bool multiFloor",
+  "file": "src/client/map.cpp"
+}

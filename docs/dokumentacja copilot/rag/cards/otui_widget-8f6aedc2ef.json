@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 89,
+  "path": "MainWindow#spelllistWindow/FilterButton#buttonFilterVocation",
+  "widget": "FilterButton",
+  "base": "",
+  "id": "buttonFilterVocation",
+  "props": {
+    "id": "buttonFilterVocation"
+  }
+}

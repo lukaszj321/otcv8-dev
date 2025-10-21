@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/options.otui",
+  "line": 32,
+  "path": "MainWindow#optionsWindow/Panel#optionsTabContent",
+  "widget": "Panel",
+  "base": "",
+  "id": "optionsTabContent",
+  "props": {
+    "id": "optionsTabContent",
+    "anchors.top": "optionsTabBar.top",
+    "anchors.left": "optionsTabBar.right",
+    "anchors.right": "parent.right",
+    "anchors.bottom": "optionsTabBar.bottom",
+    "margin-left": "10",
+    "margin-top": "3"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onWidgetKeyDown",
+  "file": "modules/corelib/keyboard.lua"
+}

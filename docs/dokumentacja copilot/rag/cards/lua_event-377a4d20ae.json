@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onSkullChange",
+  "file": "modules/gamelib/creature.lua"
+}

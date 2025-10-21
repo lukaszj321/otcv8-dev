@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setWidth",
+  "return_type": "void",
+  "args": "T w",
+  "file": "src/framework/util/size.h"
+}

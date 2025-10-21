@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onAutoWalkFail",
+  "file": "modules/game_textmessage/textmessage.lua"
+}

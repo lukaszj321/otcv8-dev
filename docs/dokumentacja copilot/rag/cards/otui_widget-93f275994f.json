@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.otui",
+  "line": 289,
+  "path": "ImpactAnalyzer#ImpactAnalyzerWindow",
+  "widget": "ImpactAnalyzer",
+  "base": "MiniWindow",
+  "id": "ImpactAnalyzerWindow",
+  "props": {
+    "id": "ImpactAnalyzerWindow",
+    "text": "Impact Analyzer",
+    "icon": "/images/topbuttons/analyzers"
+  }
+}

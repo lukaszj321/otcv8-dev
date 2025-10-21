@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 21,
+  "path": "GroupCooldownParticles",
+  "widget": "GroupCooldownParticles",
+  "base": "UIParticles",
+  "id": "",
+  "props": {
+    "effect": "groupcooldown-effect"
+  }
+}

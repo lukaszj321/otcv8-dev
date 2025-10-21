@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPos",
+  "return_type": "void",
+  "args": "const Position& pos",
+  "file": "src/client/towns.h"
+}

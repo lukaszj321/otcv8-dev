@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Platform::getMemoryUsage",
+  "return_type": "double",
+  "args": "nan",
+  "file": "src/framework/platform/unixplatform.cpp"
+}

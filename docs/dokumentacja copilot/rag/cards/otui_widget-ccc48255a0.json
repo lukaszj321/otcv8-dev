@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_entergame/characterlist.otui",
+  "line": 17,
+  "path": "CharacterWidget/Label#name",
+  "widget": "Label",
+  "base": "",
+  "id": "name",
+  "props": {
+    "id": "name",
+    "color": "#ffffff",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "font": "verdana-11px-monochrome",
+    "text-auto-resize": "true",
+    "background-color": "alpha",
+    "text-offset": "2 0"
+  }
+}

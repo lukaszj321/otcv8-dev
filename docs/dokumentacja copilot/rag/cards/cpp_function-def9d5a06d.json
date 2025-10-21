@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "appendText",
+  "return_type": "nan",
+  "args": "\" \"",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

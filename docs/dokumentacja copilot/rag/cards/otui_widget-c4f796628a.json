@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/interface.otui",
+  "line": 25,
+  "path": "OptionPanel/OptionCheckBox#classicView",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "classicView",
+  "props": {
+    "id": "classicView",
+    "margin-top": "5",
+    "visible": "false"
+  }
+}

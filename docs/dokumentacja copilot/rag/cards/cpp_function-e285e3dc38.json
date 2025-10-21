@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "ProtocolGame::parseCloseImbuementWindow",
+  "return_type": "void",
+  "args": "const InputMessagePtr&",
+  "file": "src/client/protocolgameparse.cpp"
+}

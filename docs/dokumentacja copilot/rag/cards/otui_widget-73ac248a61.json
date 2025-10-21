@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.otui",
+  "line": 157,
+  "path": "SpellHealing/Label#manaSpell",
+  "widget": "Label",
+  "base": "",
+  "id": "manaSpell",
+  "props": {
+    "id": "manaSpell",
+    "anchors.left": "castSpell.left",
+    "anchors.top": "castSpell.bottom",
+    "text": "Mana Cost:",
+    "margin-top": "8",
+    "font": "verdana-11px-rounded"
+  }
+}

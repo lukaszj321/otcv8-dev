@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_viplist/editvip.otui",
+  "line": 115,
+  "path": "MainWindow/UIWidget/IconButton#icon10",
+  "widget": "IconButton",
+  "base": "",
+  "id": "icon10",
+  "props": {
+    "id": "icon10",
+    "icon-clip": "120 0 12 12"
+  }
+}

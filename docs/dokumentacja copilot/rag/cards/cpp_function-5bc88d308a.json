@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "removeAnchor",
+  "return_type": "void",
+  "args": "Fw::AnchorEdge anchoredEdge",
+  "file": "src/framework/ui/uiwidget.h"
+}

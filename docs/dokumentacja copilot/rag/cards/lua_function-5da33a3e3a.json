@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "encode_string",
+  "args": "val",
+  "file": "modules/corelib/json.lua"
+}

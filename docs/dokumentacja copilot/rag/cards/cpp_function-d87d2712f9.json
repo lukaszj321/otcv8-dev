@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "TiXmlParsingData::Stamp",
+  "return_type": "void",
+  "args": "const char* now, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxmlparser.cpp"
+}

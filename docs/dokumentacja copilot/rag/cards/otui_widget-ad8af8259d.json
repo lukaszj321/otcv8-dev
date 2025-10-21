@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_textedit/textedit.otui",
+  "line": 20,
+  "path": "TextEditWindow#textedit",
+  "widget": "TextEditWindow",
+  "base": "MainWindow",
+  "id": "textedit",
+  "props": {
+    "id": "textedit",
+    "layout": "",
+    "type": "verticalBox",
+    "fit-children": "true"
+  }
+}

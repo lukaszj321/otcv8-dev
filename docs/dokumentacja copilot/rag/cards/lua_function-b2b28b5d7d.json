@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "terminate",
+  "args": "",
+  "file": "modules/game_itemselector/itemselector.lua"
+}

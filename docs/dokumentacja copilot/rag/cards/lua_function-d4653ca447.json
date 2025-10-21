@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "import",
+  "args": "table",
+  "file": "modules/corelib/util.lua"
+}

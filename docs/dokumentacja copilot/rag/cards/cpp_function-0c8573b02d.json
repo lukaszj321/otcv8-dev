@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Item::serializeItem",
+  "return_type": "void",
+  "args": "const OutputBinaryTreePtr& out",
+  "file": "src/client/item.cpp"
+}

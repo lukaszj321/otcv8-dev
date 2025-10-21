@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "message",
+  "args": "category, msg",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "update",
+  "return_type": "virtual void",
+  "args": "nan",
+  "file": "src/framework/graphics/texture.h"
+}

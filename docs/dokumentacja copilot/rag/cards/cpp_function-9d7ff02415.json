@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "for",
+  "return_type": "nan",
+  "args": "int l = 0; l < m_layers; ++l",
+  "file": "src/client/thingtype.cpp"
+}

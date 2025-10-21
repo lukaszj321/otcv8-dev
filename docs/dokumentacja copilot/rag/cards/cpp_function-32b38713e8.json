@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "useInventoryItem",
+  "return_type": "void",
+  "args": "int itemId, int subType = 0",
+  "file": "src/client/game.h"
+}

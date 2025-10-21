@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "StreamTo",
+  "return_type": "static bool",
+  "args": "std::istream * in, int character, TIXML_STRING * tag",
+  "file": "src/framework/xml/tinyxml.h"
+}

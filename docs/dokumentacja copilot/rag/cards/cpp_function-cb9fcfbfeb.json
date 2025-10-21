@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "exec_loop",
+  "return_type": "protected: void",
+  "args": "nan",
+  "file": "src/framework/core/asyncdispatcher.h"
+}

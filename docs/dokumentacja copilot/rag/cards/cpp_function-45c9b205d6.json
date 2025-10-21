@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cache",
+  "return_type": "Point",
+  "args": "uint64_t hash, const Size& size, bool& draw",
+  "file": "src/framework/graphics/atlas.h"
+}

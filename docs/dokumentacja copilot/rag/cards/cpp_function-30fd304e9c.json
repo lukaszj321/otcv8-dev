@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "WebsocketSession::on_resolve",
+  "return_type": "void",
+  "args": "const boost::system::error_code& ec, boost::asio::ip::tcp::resolver::iterator iterator",
+  "file": "src/framework/http/websocket.cpp"
+}

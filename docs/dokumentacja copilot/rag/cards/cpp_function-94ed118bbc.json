@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "packet",
+  "return_type": "std::ofstream",
+  "args": "\"packet.log\", std::ifstream::app",
+  "file": "src/client/protocolgameparse.cpp"
+}

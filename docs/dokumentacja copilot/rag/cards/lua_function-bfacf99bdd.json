@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "ProtocolGame.registerOpcode",
+  "args": "opcode, callback",
+  "file": "modules/gamelib/protocolgame.lua"
+}

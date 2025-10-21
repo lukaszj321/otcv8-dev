@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getItemCount",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/client/uiitem.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "internal_connect",
+  "return_type": "nan",
+  "args": "endpointIterator",
+  "file": "src/framework/net/connection.cpp"
+}

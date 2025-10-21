@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onDragLeave",
+  "file": "modules/gamelib/ui/uiminimap.lua"
+}

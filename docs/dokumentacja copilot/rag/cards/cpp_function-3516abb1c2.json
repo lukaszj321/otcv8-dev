@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "openDir",
+  "return_type": "bool",
+  "args": "std::string path, bool now = false",
+  "file": "src/framework/platform/platform.h"
+}

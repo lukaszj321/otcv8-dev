@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/equipper.otui",
+  "line": 40,
+  "path": "PreButton",
+  "widget": "PreButton",
+  "base": "PreviousButton",
+  "id": "",
+  "props": {
+    "background": "#363636",
+    "height": "15"
+  }
+}

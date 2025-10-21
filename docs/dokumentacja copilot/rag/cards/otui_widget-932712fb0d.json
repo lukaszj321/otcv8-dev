@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/ui/basic.otui",
+  "line": 58,
+  "path": "BotPanel/BotSmallScrollBar#botPanelScroll",
+  "widget": "BotSmallScrollBar",
+  "base": "",
+  "id": "botPanelScroll",
+  "props": {
+    "id": "botPanelScroll",
+    "anchors.top": "parent.top",
+    "anchors.bottom": "parent.bottom",
+    "anchors.right": "parent.right"
+  }
+}

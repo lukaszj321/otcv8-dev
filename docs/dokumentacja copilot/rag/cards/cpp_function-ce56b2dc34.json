@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addU16",
+  "return_type": "nan",
+  "args": "y",
+  "file": "src/framework/core/binarytree.cpp"
+}

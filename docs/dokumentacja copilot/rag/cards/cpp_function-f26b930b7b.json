@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAutoScroll",
+  "return_type": "void",
+  "args": "bool autoScroll",
+  "file": "src/framework/ui/uitextedit.h"
+}

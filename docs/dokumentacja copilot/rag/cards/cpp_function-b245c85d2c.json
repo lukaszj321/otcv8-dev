@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "boost::trim",
+  "return_type": "nan",
+  "args": "state",
+  "file": "src/framework/ui/uitranslator.cpp"
+}

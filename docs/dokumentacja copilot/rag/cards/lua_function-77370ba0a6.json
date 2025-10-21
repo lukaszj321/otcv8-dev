@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Player:hasState",
+  "args": "state, states",
+  "file": "modules/gamelib/player.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::getStackFunction",
+  "return_type": "void",
+  "args": "int level",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

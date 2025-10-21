@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "lua_error",
+  "return_type": "nan",
+  "args": "L",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

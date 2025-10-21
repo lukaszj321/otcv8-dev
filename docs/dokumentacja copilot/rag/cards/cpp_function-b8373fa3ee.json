@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "on_read",
+  "return_type": "return",
+  "args": "ec, 0",
+  "file": "src/framework/http/session.cpp"
+}

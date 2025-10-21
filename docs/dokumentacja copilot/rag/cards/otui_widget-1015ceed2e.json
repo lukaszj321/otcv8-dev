@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/spell.otui",
+  "line": 37,
+  "path": "MainWindow#assignSpellWindow/SpellPreview#preview",
+  "widget": "SpellPreview",
+  "base": "",
+  "id": "preview",
+  "props": {
+    "id": "preview",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "focusable": "false",
+    "background-color": "alpha"
+  }
+}

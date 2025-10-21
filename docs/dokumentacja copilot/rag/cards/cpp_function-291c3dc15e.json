@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processPredictiveWalkCancel",
+  "return_type": "void",
+  "args": "const Position& pos, Otc::Direction dir",
+  "file": "src/client/game.h"
+}

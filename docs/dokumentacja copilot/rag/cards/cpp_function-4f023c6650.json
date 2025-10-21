@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Print",
+  "return_type": "virtual void",
+  "args": "FILE* cfile, int depth",
+  "file": "src/framework/xml/tinyxml.h"
+}

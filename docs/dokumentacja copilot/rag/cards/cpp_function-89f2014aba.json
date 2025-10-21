@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseNode",
+  "return_type": "void",
+  "args": "const std::string& data",
+  "file": "src/framework/otml/otmlparser.h"
+}

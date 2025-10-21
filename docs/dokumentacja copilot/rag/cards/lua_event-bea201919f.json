@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGameUpdateNeeded",
+  "file": "modules/client_entergame/characterlist.lua"
+}

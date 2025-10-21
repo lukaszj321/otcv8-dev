@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getTile",
+  "return_type": "TilePtr",
+  "args": "const Point& mousePos",
+  "file": "src/client/uimap.h"
+}

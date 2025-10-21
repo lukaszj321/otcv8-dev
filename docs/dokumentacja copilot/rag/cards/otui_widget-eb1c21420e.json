@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 1,
+  "path": "SpellGroupIcon",
+  "widget": "SpellGroupIcon",
+  "base": "UIWidget",
+  "id": "",
+  "props": {
+    "size": "22 22",
+    "image-size": "22 22",
+    "image-source": "/images/game/spells/cooldowns",
+    "focusable": "false",
+    "margin-top": "3"
+  }
+}

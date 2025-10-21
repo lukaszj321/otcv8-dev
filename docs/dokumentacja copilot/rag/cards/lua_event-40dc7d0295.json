@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onCancel",
+  "file": "modules/corelib/ui/uimessagebox.lua"
+}

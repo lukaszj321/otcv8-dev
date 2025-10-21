@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_viplist\n  description: Manage vip list window\n  author: baxnie, edubart\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [ viplist ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_viplist/viplist.otmod",
+  "description": "Manage vip list window"
+}

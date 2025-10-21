@@ -1,0 +1,20 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_spelllist/spelllist.otui",
+  "line": 45,
+  "path": "MainWindow#spelllistWindow/TextList#spellList",
+  "widget": "TextList",
+  "base": "",
+  "id": "spellList",
+  "props": {
+    "id": "spellList",
+    "vertical-scrollbar": "spellsScrollBar",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "next.top",
+    "margin-bottom": "10",
+    "padding": "1",
+    "width": "210",
+    "focusable": "false"
+  }
+}

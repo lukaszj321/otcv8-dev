@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.otui",
+  "line": 62,
+  "path": "PushMaxWindow/TextEdit#hotkey",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "hotkey",
+  "props": {
+    "id": "hotkey",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "anchors.top": "label1.bottom",
+    "margin-top": "5",
+    "text-align": "center"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "hasFlag",
+  "return_type": "bool",
+  "args": "uint32 flag",
+  "file": "src/client/tile.h"
+}

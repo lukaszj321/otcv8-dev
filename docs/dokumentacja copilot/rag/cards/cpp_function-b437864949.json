@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "StreamIn",
+  "return_type": "virtual void",
+  "args": "std::istream * in, TIXML_STRING * tag",
+  "file": "src/framework/xml/tinyxml.h"
+}

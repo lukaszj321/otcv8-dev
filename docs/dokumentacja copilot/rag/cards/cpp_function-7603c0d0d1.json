@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "SkipWhiteSpace",
+  "return_type": "protected: static const char*",
+  "args": "const char*, TiXmlEncoding encoding",
+  "file": "src/framework/xml/tinyxml.h"
+}

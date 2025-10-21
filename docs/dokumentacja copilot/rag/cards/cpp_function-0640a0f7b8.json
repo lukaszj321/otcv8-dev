@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UIAnchorLayout::hasAnchors",
+  "return_type": "bool",
+  "args": "const UIWidgetPtr& anchoredWidget",
+  "file": "src/framework/ui/uianchorlayout.cpp"
+}

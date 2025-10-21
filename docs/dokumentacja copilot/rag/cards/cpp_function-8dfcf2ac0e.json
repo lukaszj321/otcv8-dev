@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OutputMessage::writeMessageSize",
+  "return_type": "void",
+  "args": "bool bigSize",
+  "file": "src/framework/net/outputmessage.cpp"
+}

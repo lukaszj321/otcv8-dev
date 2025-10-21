@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setLight",
+  "return_type": "void",
+  "args": "const Light& light",
+  "file": "src/client/creature.h"
+}

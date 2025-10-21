@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UICreatureButton:getCreature",
+  "args": "",
+  "file": "modules/gamelib/ui/uicreaturebutton.lua"
+}

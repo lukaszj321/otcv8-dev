@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 618,
+  "path": "AttackBotWindow/Button#settings",
+  "widget": "Button",
+  "base": "",
+  "id": "settings",
+  "props": {
+    "id": "settings",
+    "anchors.left": "parent.left",
+    "size": "50 21",
+    "font": "cipsoftFont",
+    "text": "Settings"
+  }
+}

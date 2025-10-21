@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parse",
+  "return_type": "return",
+  "args": "is, source",
+  "file": "src/framework/otml/otmldocument.cpp"
+}

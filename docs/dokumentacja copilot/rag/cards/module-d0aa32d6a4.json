@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "updater\n  description: Updates client\n  author: otclient@otclient.ovh\n  website: otclient.ovh\n  reloadable: false\n  scripts: [ updater ]\n  dependencies: [ client_locales, client_styles, client_textedit ]\n  @onUnload: Updater.terminate()\n  \n  load-later:\n    - client_background",
+  "file": "modules/updater/updater.otmod",
+  "description": "Updates client"
+}

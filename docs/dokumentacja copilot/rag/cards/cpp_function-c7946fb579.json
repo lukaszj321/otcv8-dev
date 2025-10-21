@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "std::swap",
+  "return_type": "nan",
+  "args": "start, end",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

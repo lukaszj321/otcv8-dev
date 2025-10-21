@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "decrypt",
+  "return_type": "std::string",
+  "args": "const std::string& encrypted_string",
+  "file": "src/framework/util/crypt.h"
+}

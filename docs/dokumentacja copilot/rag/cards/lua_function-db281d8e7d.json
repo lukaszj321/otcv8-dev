@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "setSortOrder",
+  "args": "state",
+  "file": "modules/game_battle/battle.lua"
+}

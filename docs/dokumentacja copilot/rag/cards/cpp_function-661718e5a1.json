@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "uploadPixels",
+  "return_type": "protected: void",
+  "args": "const ImagePtr& image, bool buildMipmaps = false, bool compress = false",
+  "file": "src/framework/graphics/texture.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseBlessDialog",
+  "return_type": "case Proto::GameServerBlessDialog:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

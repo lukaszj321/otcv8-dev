@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "tolower",
+  "return_type": "return",
+  "args": "v",
+  "file": "src/framework/xml/tinyxml.h"
+}

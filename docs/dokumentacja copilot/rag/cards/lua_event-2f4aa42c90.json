@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onAddItem",
+  "file": "modules/game_bot/bot.lua"
+}

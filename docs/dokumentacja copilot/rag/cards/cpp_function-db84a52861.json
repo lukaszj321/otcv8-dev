@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseExtendedOpcode",
+  "return_type": "case Proto::GameServerExtendedOpcode:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

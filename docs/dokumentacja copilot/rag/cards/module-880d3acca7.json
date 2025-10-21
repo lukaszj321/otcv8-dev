@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "game_containers\n  description: Manage containers\n  author: edubart, baxnie\n  website: https://github.com/edubart/otclient\n  sandboxed: true\n  scripts: [containers]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/game_containers/containers.otmod",
+  "description": "Manage containers"
+}

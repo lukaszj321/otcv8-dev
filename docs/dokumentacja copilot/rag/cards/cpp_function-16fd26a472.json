@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "!m_canceled && !m_executed && m_callback",
+  "file": "src/framework/core/event.cpp"
+}

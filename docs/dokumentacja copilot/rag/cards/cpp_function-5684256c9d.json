@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "writeFileContents",
+  "return_type": "bool",
+  "args": "const std::string& fileName, const std::string& data",
+  "file": "src/framework/core/resourcemanager.h"
+}

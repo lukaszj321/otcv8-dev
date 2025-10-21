@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "displayTextInputBox",
+  "args": "title, label, okCallback, cancelCallback",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

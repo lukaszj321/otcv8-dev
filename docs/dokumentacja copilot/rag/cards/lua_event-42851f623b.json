@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onGameEnd",
+  "file": "modules/game_modaldialog/modaldialog.lua"
+}

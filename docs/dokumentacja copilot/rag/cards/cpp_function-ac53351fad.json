@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getJumpOffset",
+  "return_type": "PointF",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "onSkillChange",
+  "args": "localPlayer, id, level, percent",
+  "file": "modules/game_topbar/topbar.lua"
+}

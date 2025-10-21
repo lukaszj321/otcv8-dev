@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIResizeBorder:getMaximum",
+  "args": "",
+  "file": "modules/corelib/ui/uiresizeborder.lua"
+}

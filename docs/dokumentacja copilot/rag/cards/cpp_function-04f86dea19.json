@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "enqueue",
+  "return_type": "void",
+  "args": "const std::string& filename, float fadetime = 0, float gain = 1.0f",
+  "file": "src/framework/sound/soundchannel.h"
+}

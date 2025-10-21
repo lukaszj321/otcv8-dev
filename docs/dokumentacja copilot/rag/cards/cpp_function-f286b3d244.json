@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::bindSingletonFunction",
+  "return_type": "void",
+  "args": "const std::string& className, const std::string& functionName, F C::*function, C *instance",
+  "file": "src/framework/luaengine/luainterface.h"
+}

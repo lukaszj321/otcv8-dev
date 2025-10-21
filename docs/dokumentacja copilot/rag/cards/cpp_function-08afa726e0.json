@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "s",
+  "return_type": "AutoStat",
+  "args": "this == &g_dispatcher ? STATS_MAIN : STATS_RENDER, \"PollDispatcher\"",
+  "file": "src/framework/core/eventdispatcher.cpp"
+}

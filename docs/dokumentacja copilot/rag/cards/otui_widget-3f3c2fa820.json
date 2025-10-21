@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 115,
+  "path": "SuppliesWindow/BotSwitch#SoftBoots",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "SoftBoots",
+  "props": {
+    "id": "SoftBoots",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "sep.right",
+    "anchors.right": "parent.right",
+    "margin-top": "5",
+    "margin-left": "10",
+    "text": "No Soft",
+    "tooltip": "Go refill if there's no more active soft boots."
+  }
+}

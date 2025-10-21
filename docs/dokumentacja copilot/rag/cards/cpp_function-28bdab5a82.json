@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "if",
+  "return_type": "nan",
+  "args": "!multilining || depth <= currentDepth",
+  "file": "src/framework/otml/otmlparser.cpp"
+}

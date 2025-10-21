@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "onRecv",
+  "return_type": "virtual void",
+  "args": "const InputMessagePtr& inputMessage",
+  "file": "src/framework/net/protocol.h"
+}

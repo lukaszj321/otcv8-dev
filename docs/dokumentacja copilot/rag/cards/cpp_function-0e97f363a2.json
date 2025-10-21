@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "swap",
+  "return_type": "packed_any&",
+  "args": "packed_any& rhs",
+  "file": "src/framework/stdext/packed_any.h"
+}

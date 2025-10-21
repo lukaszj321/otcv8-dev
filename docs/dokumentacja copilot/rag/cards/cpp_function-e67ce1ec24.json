@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "updateState",
+  "return_type": "nan",
+  "args": "Fw::DisabledState",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

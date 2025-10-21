@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "Spells.getSpellByIcon",
+  "args": "iconId",
+  "file": "modules/gamelib/spells.lua"
+}

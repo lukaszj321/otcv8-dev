@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 307,
+  "path": "MainWindow#imbuingWindow",
+  "widget": "MainWindow",
+  "base": "",
+  "id": "imbuingWindow",
+  "props": {
+    "id": "imbuingWindow",
+    "size": "550 430",
+    "background-color": "#AAAAAA"
+  }
+}

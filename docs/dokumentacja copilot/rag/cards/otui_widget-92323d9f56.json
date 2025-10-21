@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_hotkeys/hotkeys_manager.otui",
+  "line": 95,
+  "path": "MainWindow#hotkeysWindow/ComboBox#action",
+  "widget": "ComboBox",
+  "base": "",
+  "id": "action",
+  "props": {
+    "id": "action",
+    "anchors.left": "prev.right",
+    "anchors.right": "parent.right",
+    "anchors.top": "prev.top",
+    "margin-left": "5",
+    "margin-top": "-4",
+    "enabled": "false"
+  }
+}

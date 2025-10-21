@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::requestQuestLine",
+  "return_type": "void",
+  "args": "int questId",
+  "file": "src/client/game.cpp"
+}

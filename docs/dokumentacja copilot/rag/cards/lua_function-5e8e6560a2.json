@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIPopupMenu:onDestroy",
+  "args": "",
+  "file": "modules/corelib/ui/uipopupmenu.lua"
+}

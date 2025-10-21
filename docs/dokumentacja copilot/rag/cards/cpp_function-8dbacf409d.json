@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::buyItem",
+  "return_type": "void",
+  "args": "const ItemPtr& item, int amount, bool ignoreCapacity, bool buyWithBackpack",
+  "file": "src/client/game.cpp"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_actionbar/text.otui",
+  "line": 12,
+  "path": "MainWindow#assignTextWindow/TextEdit#text",
+  "widget": "TextEdit",
+  "base": "",
+  "id": "text",
+  "props": {
+    "id": "text",
+    "anchors.top": "prev.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "margin-top": "5"
+  }
+}

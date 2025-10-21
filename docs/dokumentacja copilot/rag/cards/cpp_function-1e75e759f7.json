@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "MessageBoxA",
+  "return_type": "nan",
+  "args": "NULL, \"Encryption complete\", \"Success\", 0",
+  "file": "src/main.cpp"
+}

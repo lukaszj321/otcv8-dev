@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "drawChildren",
+  "return_type": "nan",
+  "args": "visibleRect, drawPane",
+  "file": "src/framework/ui/uiwidget.cpp"
+}

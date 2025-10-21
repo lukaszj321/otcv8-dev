@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "m_onLog",
+  "return_type": "nan",
+  "args": "level, outmsg, now",
+  "file": "src/framework/core/logger.cpp"
+}

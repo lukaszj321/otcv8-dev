@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/supplies.otui",
+  "line": 90,
+  "path": "SuppliesWindow/VerticalSeparator#sep",
+  "widget": "VerticalSeparator",
+  "base": "",
+  "id": "sep",
+  "props": {
+    "id": "sep",
+    "anchors.top": "parent.top",
+    "anchors.right": "parent.right",
+    "margin-right": "140",
+    "anchors.bottom": "bottomSep.top",
+    "margin-bottom": "5",
+    "margin-left": "10",
+    "visible": "false"
+  }
+}

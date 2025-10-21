@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLNode::setTag",
+  "return_type": "void",
+  "args": "const std::string& tag",
+  "file": "src/framework/otml/otmlnode.cpp"
+}

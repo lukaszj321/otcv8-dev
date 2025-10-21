@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "appendBitsToBuffer",
+  "return_type": "testable void",
+  "args": "unsigned int val, int numBits, uint8_t buffer[], int *bitLen",
+  "file": "src/framework/util/qrcodegen.c"
+}

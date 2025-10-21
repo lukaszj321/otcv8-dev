@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UIInputBox:addCheckBox",
+  "args": "text, checked",
+  "file": "modules/corelib/ui/uiinputbox.lua"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getPhaseAt",
+  "return_type": "int",
+  "args": "Timer& timer, int lastPhase = 0",
+  "file": "src/client/animator.h"
+}

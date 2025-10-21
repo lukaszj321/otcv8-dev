@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "EnterGame.doLogin",
+  "args": "account, password, token, host",
+  "file": "modules/client_entergame/entergame.lua"
+}

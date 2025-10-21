@@ -1,0 +1,12 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_market/ui/myoffers/currentoffers.otui",
+  "line": 13,
+  "path": "OfferTableWarningColumn",
+  "widget": "OfferTableWarningColumn",
+  "base": "OfferTableColumn",
+  "id": "",
+  "props": {
+    "color": "#e03d3d"
+  }
+}

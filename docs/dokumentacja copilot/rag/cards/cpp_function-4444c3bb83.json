@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "android_app_create",
+  "return_type": "static struct android_app*",
+  "args": "ANativeActivity* activity, void* savedState, size_t savedStateSize",
+  "file": "src/android/android_native_app_glue.cpp"
+}

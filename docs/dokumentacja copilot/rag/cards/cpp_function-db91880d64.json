@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glBindFramebuffer",
+  "return_type": "nan",
+  "args": "GL_FRAMEBUFFER, m_fbo",
+  "file": "src/framework/graphics/framebuffer.cpp"
+}

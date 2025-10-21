@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/client_options/custom.otui",
+  "line": 31,
+  "path": "OptionPanel/OptionCheckBox#showHealthManaCircle",
+  "widget": "OptionCheckBox",
+  "base": "",
+  "id": "showHealthManaCircle",
+  "props": {
+    "id": "showHealthManaCircle",
+    "visible": "false"
+  }
+}

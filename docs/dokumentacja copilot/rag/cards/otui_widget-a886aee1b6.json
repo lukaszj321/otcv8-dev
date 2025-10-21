@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.otui",
+  "line": 180,
+  "path": "CureConditions#Cure/Label#label66",
+  "widget": "Label",
+  "base": "",
+  "id": "label66",
+  "props": {
+    "id": "label66",
+    "anchors.left": "prev.right",
+    "margin-left": "26",
+    "text": "Mana:",
+    "font": "verdana-11px-rounded"
+  }
+}

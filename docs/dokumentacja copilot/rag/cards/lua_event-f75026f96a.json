@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onClientVersionChange",
+  "file": "modules/game_features/features.lua"
+}

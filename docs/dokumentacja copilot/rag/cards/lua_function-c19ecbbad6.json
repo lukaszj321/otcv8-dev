@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "botContainerRemoveItem",
+  "args": "container, slot, item",
+  "file": "modules/game_bot/bot.lua"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_ruleviolation/ruleviolation.otui",
+  "line": 1,
+  "path": "RVListLabel",
+  "widget": "RVListLabel",
+  "base": "Label",
+  "id": "",
+  "props": {
+    "background-color": "#ffffff22",
+    "text-offset": "2 0",
+    "focusable": "true",
+    "color": "#ffffff"
+  }
+}

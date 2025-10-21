@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "cb_read",
+  "return_type": "private: static size_t",
+  "args": "void* ptr, size_t size, size_t nmemb, void* source",
+  "file": "src/framework/sound/oggsoundfile.h"
+}

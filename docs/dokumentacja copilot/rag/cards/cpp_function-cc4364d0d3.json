@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::clearImbuement",
+  "return_type": "void",
+  "args": "uint8_t slot",
+  "file": "src/client/game.cpp"
+}

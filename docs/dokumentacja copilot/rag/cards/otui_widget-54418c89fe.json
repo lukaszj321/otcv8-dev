@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_shop/shop.otui",
+  "line": 111,
+  "path": "ShopOfferCreature/UICreature#creature",
+  "widget": "UICreature",
+  "base": "",
+  "id": "creature",
+  "props": {
+    "id": "creature",
+    "anchors.top": "parent.top",
+    "anchors.left": "parent.left",
+    "anchors.bottom": "parent.bottom",
+    "margin-top": "4",
+    "margin-bottom": "4",
+    "margin-left": "2",
+    "size": "48 48"
+  }
+}

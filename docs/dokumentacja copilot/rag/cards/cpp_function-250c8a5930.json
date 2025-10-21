@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "typeid",
+  "return_type": "else return",
+  "args": "std::size_t",
+  "file": "src/framework/stdext/packed_any.h"
+}

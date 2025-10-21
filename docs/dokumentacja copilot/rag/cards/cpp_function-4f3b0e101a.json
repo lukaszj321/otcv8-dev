@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "glyphScreenCoords",
+  "return_type": "Rect",
+  "args": "glyphsPositions[i], m_glyphsSize[glyph]",
+  "file": "src/framework/graphics/bitmapfont.cpp"
+}

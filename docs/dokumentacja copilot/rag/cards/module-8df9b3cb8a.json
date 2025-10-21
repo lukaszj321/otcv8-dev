@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_mobile\n  description: Handles the mobile interface for smartphones\n  author: otclient@otclient.ovh\n  website: http://otclient.net\n  sandboxed: true\n  scripts: [ mobile ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_mobile/mobile.otmod",
+  "description": "Handles the mobile interface for smartphones"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client_stats\n  description: Showing and sending debug/stats informations\n  author: otclient@otclient.ovh\n  sandboxed: true\n  scripts: [ stats ]\n  dependencies: [ client_topmenu ]\n  @onLoad: init()\n  @onUnload: terminate()",
+  "file": "modules/client_stats/stats.otmod",
+  "description": "Showing and sending debug/stats informations"
+}

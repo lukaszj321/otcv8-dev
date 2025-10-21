@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "show",
+  "args": "",
+  "file": "modules/game_prey/prey.lua"
+}

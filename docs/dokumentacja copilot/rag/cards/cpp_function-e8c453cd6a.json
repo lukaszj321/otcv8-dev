@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "OTMLException",
+  "return_type": "throw",
+  "args": "node2, \"thing not found\"",
+  "file": "src/client/thingtypemanager.cpp"
+}

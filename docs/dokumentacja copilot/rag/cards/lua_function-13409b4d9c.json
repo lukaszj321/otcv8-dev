@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "processHistory",
+  "args": "data",
+  "file": "modules/game_shop/shop.lua"
+}

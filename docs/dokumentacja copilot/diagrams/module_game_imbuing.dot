@@ -1,0 +1,4 @@
+digraph G {
+  rankdir=LR;
+  "game_imbuing" [shape=box];
+}

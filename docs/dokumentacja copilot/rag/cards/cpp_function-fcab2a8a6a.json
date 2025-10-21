@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getDrawOffset",
+  "return_type": "Point",
+  "args": "nan",
+  "file": "src/client/creature.h"
+}

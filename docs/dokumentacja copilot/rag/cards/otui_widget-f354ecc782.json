@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/equipper.otui",
+  "line": 183,
+  "path": "ListPanel/VerticalScrollBar#listScrollBar",
+  "widget": "VerticalScrollBar",
+  "base": "",
+  "id": "listScrollBar",
+  "props": {
+    "id": "listScrollBar",
+    "anchors.top": "list.top",
+    "anchors.bottom": "list.bottom",
+    "anchors.right": "list.right",
+    "step": "14",
+    "pixels-scroll": "true"
+  }
+}

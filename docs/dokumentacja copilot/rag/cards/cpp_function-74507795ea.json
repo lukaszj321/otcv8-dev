@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "AnimatedText::drawText",
+  "return_type": "void",
+  "args": "const Point& dest, const Rect& visibleRect",
+  "file": "src/client/animatedtext.cpp"
+}

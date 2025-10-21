@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "append",
+  "return_type": "return",
+  "args": "&single, 1",
+  "file": "src/framework/xml/tinystr.h"
+}

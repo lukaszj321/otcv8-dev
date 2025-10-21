@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "getThing",
+  "return_type": "ThingPtr",
+  "args": "const Position& pos, int stackPos",
+  "file": "src/client/map.h"
+}

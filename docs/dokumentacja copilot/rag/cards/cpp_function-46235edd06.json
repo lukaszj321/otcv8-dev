@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::ref",
+  "return_type": "int",
+  "args": "nan",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

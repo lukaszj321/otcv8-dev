@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::luaObjectEqualEvent",
+  "return_type": "int",
+  "args": "LuaInterface* lua",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

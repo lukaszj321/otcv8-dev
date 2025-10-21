@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onStatesChange",
+  "file": "modules/game_bot/executor.lua"
+}

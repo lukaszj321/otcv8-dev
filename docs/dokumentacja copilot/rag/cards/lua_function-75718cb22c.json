@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "create",
+  "args": "currentOutfit, outfitList, mountList, wingList, auraList, shaderList, healthBarList, manaBarList",
+  "file": "modules/game_outfit/outfit.lua"
+}

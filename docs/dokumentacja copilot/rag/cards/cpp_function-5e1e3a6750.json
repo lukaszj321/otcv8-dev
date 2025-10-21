@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "fileChecksum",
+  "return_type": "std::string",
+  "args": "const std::string& path",
+  "file": "src/framework/core/resourcemanager.h"
+}

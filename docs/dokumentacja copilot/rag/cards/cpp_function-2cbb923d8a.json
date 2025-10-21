@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "bindAttributeLocation",
+  "return_type": "nan",
+  "args": "VERTEX_ATTR, \"a_Vertex\"",
+  "file": "src/framework/graphics/paintershaderprogram.cpp"
+}

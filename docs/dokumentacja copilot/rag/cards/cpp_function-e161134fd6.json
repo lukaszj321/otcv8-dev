@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "parseContainerAddItem",
+  "return_type": "case Proto::GameServerCreateContainer:",
+  "args": "msg",
+  "file": "src/client/protocolgameparse.cpp"
+}

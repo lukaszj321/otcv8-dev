@@ -1,0 +1,21 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_cooldown/cooldown.otui",
+  "line": 90,
+  "path": "MiniWindow#cooldownWindow/MiniWindowContents/Panel#cooldownPanel",
+  "widget": "Panel",
+  "base": "",
+  "id": "cooldownPanel",
+  "props": {
+    "id": "cooldownPanel",
+    "layout": "",
+    "type": "horizontalBox",
+    "height": "30",
+    "margin-top": "3",
+    "padding": "3",
+    "anchors.top": "groupIconSpecial.bottom",
+    "anchors.left": "parent.left",
+    "anchors.right": "parent.right",
+    "background-color": "#00000022"
+  }
+}

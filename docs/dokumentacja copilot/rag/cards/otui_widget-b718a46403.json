@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_prey/prey.otui",
+  "line": 604,
+  "path": "MainWindow#preyWindow/UIButton#openStore",
+  "widget": "UIButton",
+  "base": "",
+  "id": "openStore",
+  "props": {
+    "id": "openStore",
+    "anchors.left": "prev.right",
+    "margin-left": "10",
+    "size": "20 20",
+    "tooltip": "Go to the Store to get more Prey Wildcards!",
+    "image-source": "/images/topbuttons/shop",
+    "image-clip": "0 20 20 20",
+    "background-color": "#17354e"
+  }
+}

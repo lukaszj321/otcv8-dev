@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "findItemInContainers",
+  "return_type": "ItemPtr",
+  "args": "uint itemId, int subType",
+  "file": "src/client/game.h"
+}

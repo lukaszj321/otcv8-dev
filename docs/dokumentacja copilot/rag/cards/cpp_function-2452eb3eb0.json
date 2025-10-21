@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "create",
+  "return_type": "static ItemPtr",
+  "args": "int id, int countOrSubtype = 1",
+  "file": "src/client/item.h"
+}

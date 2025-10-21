@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "UITextEdit::getSelection",
+  "return_type": "std::string",
+  "args": "nan",
+  "file": "src/framework/ui/uitextedit.cpp"
+}

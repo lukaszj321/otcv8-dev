@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "name": "client\n  description: Initialize the client and setups its main window\n  author: edubart\n  website: https://github.com/edubart/otclient\n  reloadable: false\n  sandboxed: true\n  scripts: [ client ]\n  @onLoad: init()\n  @onUnload: terminate()\n\n  load-later:\n    - client_styles\n    - client_locales\n    - client_topmenu\n    - client_background\n    - client_textedit\n    - client_options\n    - client_entergame\n    - client_terminal\n    - client_stats\n    - client_feedback\n    - client_mobile",
+  "file": "modules/client/client.otmod",
+  "description": "Initialize the client and setups its main window"
+}

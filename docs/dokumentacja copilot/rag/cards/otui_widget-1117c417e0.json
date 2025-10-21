@@ -1,0 +1,16 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/siolist.otui",
+  "line": 21,
+  "path": "VocationPanel/BotSwitch#MS",
+  "widget": "BotSwitch",
+  "base": "",
+  "id": "MS",
+  "props": {
+    "id": "MS",
+    "anchors.bottom": "parent.bottom",
+    "anchors.left": "parent.horizontalCenter",
+    "anchors.right": "parent.right",
+    "text": "Sorcerers"
+  }
+}

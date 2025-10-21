@@ -1,0 +1,17 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.otui",
+  "line": 26,
+  "path": "AttackEntry/UIWidget#spell",
+  "widget": "UIWidget",
+  "base": "",
+  "id": "spell",
+  "props": {
+    "id": "spell",
+    "anchors.left": "enabled.right",
+    "size": "12 12",
+    "margin-left": "1",
+    "image-source": "/images/game/dangerous",
+    "background-color": "#00000055"
+  }
+}

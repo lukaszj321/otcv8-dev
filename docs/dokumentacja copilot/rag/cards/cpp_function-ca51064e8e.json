@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setAlpha",
+  "return_type": "void",
+  "args": "float a",
+  "file": "src/framework/util/color.h"
+}

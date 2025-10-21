@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "load_apng",
+  "return_type": "int",
+  "args": "std::stringstream& file, struct apng_data *apng",
+  "file": "src/framework/graphics/apngloader.h"
+}

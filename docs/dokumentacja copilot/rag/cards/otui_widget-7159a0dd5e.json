@@ -1,0 +1,13 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_questlog/questlogwindow.otui",
+  "line": 100,
+  "path": "QuestLogWindow#questLogWindow",
+  "widget": "QuestLogWindow",
+  "base": "MainWindow",
+  "id": "questLogWindow",
+  "props": {
+    "id": "questLogWindow",
+    "size": "330 350"
+  }
+}

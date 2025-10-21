@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setFont",
+  "return_type": "void",
+  "args": "const BitmapFontPtr& font",
+  "file": "src/framework/graphics/cachedtext.h"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Game::processChannelList",
+  "return_type": "void",
+  "args": "const std::vector<std::tuple<int, std::string> >& channelList",
+  "file": "src/client/game.cpp"
+}

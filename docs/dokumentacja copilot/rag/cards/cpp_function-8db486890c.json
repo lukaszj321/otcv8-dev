@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "LuaInterface::pushInteger",
+  "return_type": "void",
+  "args": "long v",
+  "file": "src/framework/luaengine/luainterface.cpp"
+}

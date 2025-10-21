@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "addRightToggleButton",
+  "args": "id, description, icon, callback, front, index",
+  "file": "modules/client_topmenu/topmenu.lua"
+}

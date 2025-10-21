@@ -1,0 +1,5 @@
+{
+  "type": "lua_event",
+  "event": "onSafeFightChange",
+  "file": "modules/game_inventory/inventory.lua"
+}

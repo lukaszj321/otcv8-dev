@@ -1,0 +1,19 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/combo.otui",
+  "line": 256,
+  "path": "BotServer#server/Label#labelX",
+  "widget": "Label",
+  "base": "",
+  "id": "labelX",
+  "props": {
+    "id": "labelX",
+    "anchors.left": "parent.left",
+    "anchors.top": "parent.top",
+    "text": "Leader:",
+    "height": "15",
+    "color": "#ffaa00",
+    "margin-left": "3",
+    "margin-top": "5"
+  }
+}

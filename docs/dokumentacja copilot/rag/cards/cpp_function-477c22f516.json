@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addLine",
+  "return_type": "void",
+  "args": "const std::vector<Point>& points, int width, const Color& color = Color::white",
+  "file": "src/framework/graphics/drawqueue.h"
+}

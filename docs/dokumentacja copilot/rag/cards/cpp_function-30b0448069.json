@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "processWalkId",
+  "return_type": "void",
+  "args": "uint32_t walkId",
+  "file": "src/client/game.h"
+}

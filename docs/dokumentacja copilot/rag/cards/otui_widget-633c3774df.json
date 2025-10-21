@@ -1,0 +1,14 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_imbuing/imbuing.otui",
+  "line": 256,
+  "path": "ClearImbue/Label#info",
+  "widget": "Label",
+  "base": "",
+  "id": "info",
+  "props": {
+    "id": "info",
+    "anchors.bottom": "prev.bottom",
+    "anchors.left": "parent.left"
+  }
+}

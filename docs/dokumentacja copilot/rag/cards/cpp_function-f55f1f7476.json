@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "addPaddingBytes",
+  "return_type": "void",
+  "args": "int bytes, uint8 byte = 0",
+  "file": "src/framework/net/outputmessage.h"
+}

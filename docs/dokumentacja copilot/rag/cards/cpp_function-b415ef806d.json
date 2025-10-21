@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Application::exit",
+  "return_type": "void",
+  "args": "nan",
+  "file": "src/framework/core/application.cpp"
+}

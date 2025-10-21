@@ -1,0 +1,6 @@
+{
+  "type": "lua_function",
+  "name": "UITable:setHeaderRowStyle",
+  "args": "style",
+  "file": "modules/corelib/ui/uitable.lua"
+}

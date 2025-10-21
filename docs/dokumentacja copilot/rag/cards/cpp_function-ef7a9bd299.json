@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "setPendingGame",
+  "return_type": "void",
+  "args": "bool pending",
+  "file": "src/client/localplayer.h"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "otui_widget",
+  "file": "modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.otui",
+  "line": 32,
+  "path": "PushMaxWindow/Label#label3",
+  "widget": "Label",
+  "base": "",
+  "id": "label3",
+  "props": {
+    "id": "label3",
+    "anchors.top": "delay.bottom",
+    "anchors.right": "parent.horizontalCenter",
+    "anchors.left": "parent.left",
+    "text-align": "center",
+    "text": "VS AntiPush",
+    "margin-top": "5"
+  }
+}

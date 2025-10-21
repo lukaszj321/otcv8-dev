@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "Crypt::setMachineUUID",
+  "return_type": "bool",
+  "args": "std::string uuidstr",
+  "file": "src/framework/util/crypt.cpp"
+}

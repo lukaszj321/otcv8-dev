@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "asEffect",
+  "return_type": "EffectPtr",
+  "args": "nan",
+  "file": "src/client/effect.h"
+}

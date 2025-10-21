@@ -1,0 +1,7 @@
+{
+  "type": "cpp_function",
+  "name": "path",
+  "return_type": "std::filesystem::path",
+  "args": "m_binaryPath",
+  "file": "src/framework/core/resourcemanager.cpp"
+}
