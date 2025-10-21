@@ -1025,7 +1025,7 @@ Module
 
 ---
 # npctrade.otui
-```otui
+```{code-block} text
 
 NPCOfferLabel < Label
 

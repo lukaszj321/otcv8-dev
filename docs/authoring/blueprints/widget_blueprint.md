@@ -16,7 +16,7 @@ Szablon do opisu **pojedynczego widgetu** (definicja i instancja).
 
 ## Definicja klasy
 
-```otui
+```{code-block} text
 SkillButton < UIButton
   # GEOMETRIA
   height: 21
@@ -34,7 +34,7 @@ SkillButton < UIButton
 
 ## Instancja w layoucie
 
-```otui
+```{code-block} text
 SkillButton
   id: skillsToggle
   text: tr('Skills')

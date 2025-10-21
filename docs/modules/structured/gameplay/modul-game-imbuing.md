@@ -601,7 +601,7 @@ Module
 
 ---
 # imbuing.otui
-```otui
+```{code-block} text
 
 Slot < Button
 

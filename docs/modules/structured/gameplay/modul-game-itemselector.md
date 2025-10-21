@@ -153,7 +153,7 @@ Module
 
 ---
 # itemselector.otui
-```otui
+```{code-block} text
 
 ItemSelectorWindow < MainWindow
 

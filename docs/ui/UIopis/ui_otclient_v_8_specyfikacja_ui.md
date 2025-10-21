@@ -200,7 +200,7 @@ Ten dokument definiuje **kanoniczne zasady projektowania UI OTClient v8** (OTUI/
 - Dozwolone znaki: łagodne ASCII + `#` (wyłącznie w kolorach), `-_:./<>()` itp. Wartości tekstowe w `!text` w pojedynczych cudzysłowach.
 
 Przykład minimalnego bloku zgodnego ze STRICT:
-```otui
+```{code-block} text
 Label
   id: info
   anchors.left: parent.left
@@ -231,7 +231,7 @@ Label
 - **Zalecenie**: stany modyfikują **styl** (kolory, `!text`, obraz), **nie** geometrię (anchors/size).
 
 Przykład:
-```otui
+```{code-block} text
 Button
   id: toggle
   width: 96
@@ -482,7 +482,7 @@ To **nazwa własna** dzieci, nie formalny „slot” klasy — pomaga w edytorze
 
 # 5.5 Blueprint OTUI (kanoniczny)
 
-```otui
+```{code-block} text
 MainWindow
   id: main
   size: 420 320
@@ -652,7 +652,7 @@ StaticMainWindow nie powinno mieć **innych okien** jako dzieci.<div id="ch-6-2"
 - **Stany**: zwykle na **dzieciach** (Button/ListRow), nie na samym `StaticMainWindow`.
 - **Fokus**: zapewnij fokus pierwszego sensownego dziecka; nawigacja klawiaturą w `@onSetup`.<div id="ch-6-5"></div>
 # 6.5 Blueprint OTUI (kanoniczny)
-```otui
+```{code-block} text
 StaticMainWindow
   id: staticMain
   size: 420 320
@@ -805,7 +805,7 @@ export function presetStaticMainWindow(): WidgetNode {
 - **Stany `$on/$!on`**: stosuj głównie do przycisków (np. podświetlenie aktywności), nie do geometrii okna.
 - **Fokus**: po otwarciu ustaw fokus na pierwszym sensownym dziecku (`content`).<div id="ch-7-5"></div>
 # 7.5 Blueprint OTUI (kanoniczny, STRICT)
-```otui
+```{code-block} text
 MiniWindow < MainWindow
   id: miniWindow
   size: 260 180
@@ -976,7 +976,7 @@ export function presetMiniWindow(): WidgetNode {
 
 # 8.5 Blueprint OTUI (kanoniczny, STRICT)
 
-```otui
+```{code-block} text
 ContainerWindow < MainWindow
   id: containerWindow
   size: 300 220
@@ -1168,7 +1168,7 @@ export function presetContainerWindow(): WidgetNode {
 <div id="ch-9-4"></div>
 
 # 9.4 Blueprint OTUI (STRICT)
-```otui
+```{code-block} text
 DialogWindow < MainWindow
   id: dialog
   size: 300 140
@@ -1332,7 +1332,7 @@ export function presetDialogWindow(): WidgetNode {
 
 # 10.4 Blueprint OTUI (STRICT)
 
-```otui
+```{code-block} text
 TitlebarWidget < UIWidget
   id: titlebar
   anchors.left: parent.left
@@ -1464,7 +1464,7 @@ Przyciski mogą mieć stany `$on/$!on` (toggle). Zdarzenia `@onClick`. Klawiszow
 <div id="ch-11-5"></div>
 
 # 11.5 Blueprint OTUI (STRICT)
-```otui
+```{code-block} text
 ToolbarWidget < UIWidget
   id: toolbar
   anchors.left: parent.left
@@ -1570,7 +1570,7 @@ Zwykle brak stanów na samym Panelu; stany stosuj na dzieciach. Zdarzenia klikal
 
 # 12.5 Blueprinty OTUI (STRICT)
 
-```otui
+```{code-block} text
 Panel
   id: panel
   anchors.left: parent.left
@@ -1600,7 +1600,7 @@ Panel
     background-color: alpha
 ```
 
-```otui
+```{code-block} text
 GroupBox < UIWidget
   id: group
   anchors.left: parent.left
@@ -1713,7 +1713,7 @@ Aktywna zakładka może mieć `$on`. Zdarzenie zmiany zakładki mapowane do kont
 <div id="ch-13-5"></div>
 # 13.5 Blueprinty OTUI (STRICT)
 
-```otui
+```{code-block} text
 TabBarWidget < UIWidget
   id: tabBar
   anchors.left: parent.left
@@ -1745,7 +1745,7 @@ TabBarWidget < UIWidget
     !text: tr('Tab 2')
 ```
 
-```otui
+```{code-block} text
 TabContent < UIWidget
   id: tabContent
   anchors.left: parent.left
@@ -1831,7 +1831,7 @@ Dopuszczalne są **dokładnie dwa panele** (np. `UIWidget`/`Panel`). Dodatkowe e
 # 14.5 Blueprinty OTUI (STRICT) – poziomy/pionowy
 
 **Poziomy (Left/Right)**
-```otui
+```{code-block} text
 Splitter < UIWidget
   id: split
   anchors.left: parent.left
@@ -1855,7 +1855,7 @@ Splitter < UIWidget
 ```
 
 **Pionowy (Top/Bottom)**
-```otui
+```{code-block} text
 Splitter < UIWidget
   id: splitV
   anchors.left: parent.left
@@ -1924,7 +1924,7 @@ Lewy panel: lista; prawy: szczegóły. Górny: log, dolny: konsola. Zapamiętywa
 - **Persystencja**: zapisuj **ratio** (0..1) lub **px** w ustawieniach modułu i odtwarzaj przy inicjalizacji.
 - **Blueprint grip (overlay, STRICT)**:
 
-```otui
+```{code-block} text
 UIWidget
   id: grip
   anchors.left: leftPane.right
@@ -1984,7 +1984,7 @@ Wewnątrz listy: tylko wiersze (`UIWidget`/custom row). Zakazane: okna, ScrollBa
 # 15.6 Blueprinty OTUI (STRICT)
 
 **Lista ze scrollem**
-```otui
+```{code-block} text
 UIWidget
   id: listContainer
   anchors.left: parent.left
@@ -1998,7 +1998,7 @@ UIWidget
 ```
 
 **Scroll**
-```otui
+```{code-block} text
 VerticalScrollBar
   id: scroll
   anchors.right: parent.right
@@ -2008,7 +2008,7 @@ VerticalScrollBar
 ```
 
 **Wiersz listy (uniwersalny)**
-```otui
+```{code-block} text
 ListRow < UIWidget
   id: row
   height: 16
@@ -2137,7 +2137,7 @@ Lista postaci (row = imię + poziom), lista logów (row z ikoną i timestampem).
 # 16.5 Blueprinty OTUI (STRICT)
 
 **Nagłówek sekcji**
-```otui
+```{code-block} text
 Label
   id: header
   anchors.left: parent.left
@@ -2148,7 +2148,7 @@ Label
 ```
 
 **Status wielowierszowy**
-```otui
+```{code-block} text
 Label
   id: status
   anchors.left: parent.left
@@ -2248,7 +2248,7 @@ Nagłówki w `titlebar` i w treści; statusy z `text-wrap: true`; komunikaty ost
 # 17.5 Blueprinty OTUI (STRICT)
 
 **Standardowy przycisk**
-```otui
+```{code-block} text
 Button
   id: ok
   width: 64
@@ -2256,7 +2256,7 @@ Button
 ```
 
 **Toggle (On/Off)**
-```otui
+```{code-block} text
 Button
   id: toggle
   width: 72
@@ -2272,7 +2272,7 @@ Button
 ```
 
 **Ikonowy (tytuł/toolbar)**
-```otui
+```{code-block} text
 Button
   id: closeBtn
   width: 16
@@ -2321,7 +2321,7 @@ Przyciski OK/Cancel w `footer`; ikonowe 16 px w `titlebar`; toggle dla filtrów 
 - **Skróty**: najczęstsze akcje zbinduj w `@onSetup`.
 
 **Przykład (STRICT)**
-```otui
+```{code-block} text
 Button
   id: action
   width: 64
@@ -2379,7 +2379,7 @@ Button
 
 # 18.5 Blueprinty OTUI (STRICT)
 **Kwadratowy CheckBox**
-```otui
+```{code-block} text
 CheckBox < UICheckBox
   id: accept
   size: 16 16
@@ -2405,7 +2405,7 @@ CheckBox < UICheckBox
 ```
 
 **RoundCheckBox (okrągły)**
-```otui
+```{code-block} text
 RoundCheckBox < CheckBox
   id: rcheck
   image-source: /images/ui/checkbox_round
@@ -2456,7 +2456,7 @@ Listy opcji w Panel/GroupBox; pierwszy element z mniejszym marginesem górnym (`
 
 **Przykład (STRICT)**
 
-```otui
+```{code-block} text
 CheckBox
   id: opt
   size: 16 16
@@ -2524,7 +2524,7 @@ CheckBox
 # 19.6 Blueprinty OTUI (STRICT)
 
 **TextEdit (placeholder)**
-```otui
+```{code-block} text
 TextEdit
   id: name
   anchors.left: parent.left
@@ -2536,7 +2536,7 @@ TextEdit
 ```
 
 **PasswordTextEdit**
-```otui
+```{code-block} text
 PasswordTextEdit
   id: password
   anchors.left: parent.left
@@ -2548,7 +2548,7 @@ PasswordTextEdit
 ```
 
 **MultilineTextEdit + VerticalScrollBar**
-```otui
+```{code-block} text
 MultilineTextEdit
   id: text
   anchors.top: scroll.top
@@ -2676,7 +2676,7 @@ Pole loginu z placeholderem i Password z maskowaniem; edytor logów z Multiline 
 
 # 20.5 Blueprint OTUI (STRICT)
 
-```otui
+```{code-block} text
 ComboBox
   id: combo
   anchors.left: parent.left
@@ -2748,7 +2748,7 @@ Selektor postaci; filtr w narzędziowym MiniWindow; zmiana dostępności (`$disa
 <div id="ch-21-4"></div>
 
 # 21.4 Blueprint OTUI (STRICT)
-```otui
+```{code-block} text
 ProgressBar
   id: progress
   anchors.left: parent.left
@@ -2821,7 +2821,7 @@ Status w `StaticMainWindow`; pasek ładowania w panelu z etykietą obok (`Label`
 # 22.4 Blueprinty OTUI (STRICT)
 
 **VerticalScrollBar**
-```otui
+```{code-block} text
 VerticalScrollBar
   id: scroll
   anchors.right: parent.right
@@ -2832,7 +2832,7 @@ VerticalScrollBar
 ```
 
 **HorizontalScrollBar**
-```otui
+```{code-block} text
 HorizontalScrollBar
   id: hscroll
   anchors.left: parent.left
@@ -2902,7 +2902,7 @@ Lista z wierszem 18 px → `step: 18`; edytor tekstu z delikatnym przewijaniem (
 <div id="ch-23-3"></div>
 
 # 23.3 Blueprint OTUI (STRICT)
-```otui
+```{code-block} text
 HorizontalSeparator
   id: sep
   anchors.left: parent.left
@@ -2972,7 +2972,7 @@ Separator pod nagłówkiem GroupBox; cienka linia w Toolbarze między grupami ak
 <div id="ch-24-4"></div>
 
 # 24.4 Blueprint OTUI (STRICT)
-```otui
+```{code-block} text
 StatusOverlay < UIWidget
   id: overlay
   anchors.fill: parent
@@ -3266,7 +3266,7 @@ W OTClient v8 UI jest ładowane kanonicznie z plików: `g_ui.displayUI('...')`. 
 # 29.1 Presety okien
 
 **Preset: MinimalMiniWindow**
-```otui
+```{code-block} text
 MiniWindow < MainWindow
   id: mini
   anchors.left: parent.left
@@ -3328,7 +3328,7 @@ MiniWindow < MainWindow
 ```
 
 **Preset: ContainerLootWindow**
-```otui
+```{code-block} text
 ContainerWindow < MainWindow
   id: loot
   anchors.left: parent.left
@@ -3409,7 +3409,7 @@ ContainerWindow < MainWindow
 ```
 
 **Preset: ConfirmDialog**
-```otui
+```{code-block} text
 DialogWindow < MainWindow
   id: confirm
   width: 300
@@ -3484,7 +3484,7 @@ DialogWindow < MainWindow
 # 29.2 Presety komponentów
 
 **TitlebarTool**
-```otui
+```{code-block} text
 TitlebarWidget < UIWidget
   id: titlebar
   anchors.left: parent.left
@@ -3519,7 +3519,7 @@ TitlebarWidget < UIWidget
 ```
 
 **ToolbarBasic**
-```otui
+```{code-block} text
 ToolbarWidget < UIWidget
   id: toolbar
   anchors.left: parent.left
@@ -3538,7 +3538,7 @@ ToolbarWidget < UIWidget
 ```
 
 **PanelForm**
-```otui
+```{code-block} text
 Panel
   id: form
   anchors.left: parent.left

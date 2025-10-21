@@ -1,5 +1,5 @@
 # Moduł: | Moduł: `game_market/ui/myoffers`
-```otui
+```{code-block} text
 
 OfferTableRow < TableRow
 
@@ -325,7 +325,7 @@ Panel
 
 ---
 # itemoffers.otui
-```otui
+```{code-block} text
 
 Panel
 
@@ -347,7 +347,7 @@ Panel
 
 ---
 # offerhistory.otui
-```otui
+```{code-block} text
 
 Panel
 

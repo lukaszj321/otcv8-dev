@@ -132,7 +132,7 @@ export function replaceLuaOtuiBlock(lua: string, name: string, newOtuiStrict: st
 
 **`toolbar_basic`**
 
-```otui
+```{code-block} text
 Toolbar
   id: tools
   size: 200 22
@@ -154,7 +154,7 @@ Toolbar
 
 **`titlebar_buttons_set`**
 
-```otui
+```{code-block} text
 Titlebar
   id: tb
   size: 200 20
@@ -177,7 +177,7 @@ Titlebar
 
 **`groupbox_form_basic`**
 
-```otui
+```{code-block} text
 GroupBox
   id: group
   size: 220 120
@@ -208,7 +208,7 @@ GroupBox
 
 **`tabbed_miniwindow`**
 
-```otui
+```{code-block} text
 MiniWindow < MainWindow
   id: mini
   size: 280 200
@@ -257,7 +257,7 @@ MiniWindow < MainWindow
 
 **`textlist_with_hscroll`**
 
-```otui
+```{code-block} text
 UIWidget
   id: wrap
   size: 240 120
@@ -279,7 +279,7 @@ UIWidget
 
 **`login_screen_basic`** (podgląd)
 
-```otui
+```{code-block} text
 StaticMainWindow
   id: smw_login
   size: 320 240

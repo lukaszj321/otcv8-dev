@@ -1,5 +1,5 @@
 # Moduł: | Moduł: `game_playerdeath`
-```otui
+```{code-block} text
 
 DeathWindow < MainWindow
 

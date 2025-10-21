@@ -1,5 +1,5 @@
 # Moduł: | Moduł: `game_bot/ui`
-```otui
+```{code-block} text
 
 BotButton < Button
 
@@ -153,7 +153,7 @@ SlotComboBox < ComboBox
 
 ---
 # config.otui
-```otui
+```{code-block} text
 
 BotConfig < Panel
 
@@ -263,7 +263,7 @@ BotConfig < Panel
 
 ---
 # container.otui
-```otui
+```{code-block} text
 
 BotContainer < Panel
 
@@ -303,7 +303,7 @@ BotContainer < Panel
 
 ---
 # icons.otui
-```otui
+```{code-block} text
 
 BotIcon < UIWidget
 
@@ -415,7 +415,7 @@ BotIcon < UIWidget
 
 ---
 # panels.otui
-```otui
+```{code-block} text
 
 DualScrollPanel < Panel
 

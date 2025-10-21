@@ -339,7 +339,7 @@ export function autofixAst(nodes: WidgetNode[]): { nodes: WidgetNode[]; changes:
 
 **BŁĘDNY OTUI**
 
-```otui
+```{code-block} text
 UIWidget
   id: box
   anchors.fill: parent
@@ -348,7 +348,7 @@ UIWidget
 
 **PO NAPRAWIE (autofix)**
 
-```otui
+```{code-block} text
 UIWidget
   id: box
   anchors.fill: parent
@@ -358,7 +358,7 @@ UIWidget
 
 **BŁĘDNY OTUI**
 
-```otui
+```{code-block} text
 Splitter
   id: split
   size: 300 160
@@ -370,7 +370,7 @@ Splitter
 
 **PO NAPRAWIE (manualnej)**
 
-```otui
+```{code-block} text
 Splitter
   id: split
   size: 300 160

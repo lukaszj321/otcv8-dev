@@ -719,7 +719,7 @@ end
 
 ---
 # characterlist.otui
-```otui
+```{code-block} text
 
 CharacterWidget < UIWidget
 
@@ -2049,7 +2049,7 @@ Module
 
 ---
 # entergame.otui
-```otui
+```{code-block} text
 
 EnterGameWindow
 
@@ -2377,7 +2377,7 @@ EnterGameWindow
 
 ---
 # waitinglist.otui
-```otui
+```{code-block} text
 
 MainWindow
 

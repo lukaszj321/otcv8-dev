@@ -1383,7 +1383,7 @@ Module
 
 ---
 # bot.otui
-```otui
+```{code-block} text
 
 BotTabBar < TabBar
 
@@ -1623,7 +1623,7 @@ MiniWindow
 
 ---
 # edit.otui
-```otui
+```{code-block} text
 
 MainWindow
 

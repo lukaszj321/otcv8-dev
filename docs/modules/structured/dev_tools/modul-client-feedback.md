@@ -227,7 +227,7 @@ Module
 
 ---
 # feedback.otui
-```otui
+```{code-block} text
 
 MainWindow
 

@@ -2436,7 +2436,7 @@ Module
 
 ---
 # market.otui
-```otui
+```{code-block} text
 
 MarketWindow < MainWindow
 

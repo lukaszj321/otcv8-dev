@@ -156,7 +156,7 @@ Mapa klipów dla 3 stanów (98×18):
 
 **Fragment OTUI (gotowiec):**
 
-```otui
+```{code-block} text
 TabBarButton < UIButton
   size: 17 18
   image-source: /images/ui/tabbutton_square
@@ -270,7 +270,7 @@ retro,images/ui/toggle.png,12,24,12,36,2,3,WARN,Dodano 3. stan (update OTUI)
 
 `styles/tabbar.otui` (fragment):
 
-```otui
+```{code-block} text
 Toggle < UIButton
   width: 12
   height: 12

@@ -257,7 +257,7 @@ Module
 
 ---
 # modaldialog.otui
-```otui
+```{code-block} text
 
 ChoiceListLabel < Label
 

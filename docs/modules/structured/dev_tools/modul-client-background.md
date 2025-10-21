@@ -103,7 +103,7 @@ Module
 
 ---
 # background.otui
-```otui
+```{code-block} text
 
 UIWidget
 

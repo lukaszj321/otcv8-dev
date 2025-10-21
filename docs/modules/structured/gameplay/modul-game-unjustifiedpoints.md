@@ -265,7 +265,7 @@ Module
 
 ---
 # unjustifiedpoints.otui
-```otui
+```{code-block} text
 
 SkullProgressBar < ProgressBar
 

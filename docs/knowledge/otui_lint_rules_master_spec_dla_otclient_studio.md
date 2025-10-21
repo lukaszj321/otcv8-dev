@@ -27,7 +27,7 @@
 - **Wykrywanie**: przeanalizuj listę `KV` w `Decl.body`; jeśli sekwencja kategorii zawiera inwersje (np. `STYLE` przed `GEOMETRY`), zgłoś problem.
 - **Auto‑fix**: stabilne sortowanie kluczy: najpierw wszystkie `GEOMETRY`, potem `STYLE`, potem `BEHAVIOR`. Zachowaj względną kolejność wewnątrz kategorii i przenieś komentarze razem z parą `KV`.
 - **Przykład**
-```otui
+```{code-block} text
 # BEFORE
 Window < UIWidget {
   text: "Hello"
@@ -52,7 +52,7 @@ Window < UIWidget {
 - **Wykrywanie**: `KV.key` ∈ STYLE ∧ `value.type == StringLiteral` ∧ `value.value` nie zaczyna się od `tr(`.
 - **Auto‑fix**: zamień `"Tekst"` → `tr("Tekst")`. Wyklucz klucze `id`, nazwy klas/stylów.
 - **Przykład**
-```otui
+```{code-block} text
 # BEFORE
 Label < UIWidget { text: "Start" }
 # AFTER
@@ -246,25 +246,25 @@ function normalizeBool(kv: KV): Edit[] {
 # 6) Test‑wektory (minimalny zestaw regresji)
 # 6.1 Kolejność pól
 **Wejście**
-```otui
+```{code-block} text
 W < UIWidget { text: "x" width: 1 id: a }
 ```
 **Oczekiwane**: pojedyncza diagnostyka `OTUI-001` + auto‑fix sortujący.
 # 6.2 `tr()` wrap
 **Wejście**
-```otui
+```{code-block} text
 L < UIWidget { text: "Start" id: start }
 ```
 **Oczekiwane**: `OTUI-002` z auto‑fix → `text: tr("Start")`.
 # 6.3 Zasób nie istnieje
 **Wejście**
-```otui
+```{code-block} text
 B < UIWidget { image: "images/missing.png" }
 ```
 **Oczekiwane**: `OTUI-004` (ERROR), propozycje fuzzy jeśli `images/button.png` istnieje.
 # 6.4 Duplikat `id`
 **Wejście**
-```otui
+```{code-block} text
 A < UIWidget { id: x }
 B < UIWidget { id: x }
 ```

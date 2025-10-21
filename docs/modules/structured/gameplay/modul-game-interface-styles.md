@@ -1,5 +1,5 @@
 # Moduł: | Moduł: `game_interface/styles`
-```otui
+```{code-block} text
 
 CountWindow < MainWindow
 

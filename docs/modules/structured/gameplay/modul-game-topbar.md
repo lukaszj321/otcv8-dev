@@ -887,7 +887,7 @@ Module
 
 ---
 # topbar.otui
-```otui
+```{code-block} text
 
 StatsPanel < Panel
 

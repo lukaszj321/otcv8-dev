@@ -3,7 +3,7 @@
 
     OTUI to deklaratywne layouty interfejsu użytkownika.
 # Przykład layoutu
-```otui
+```{code-block} text
 Panel
   id: main
   anchor: top left

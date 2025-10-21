@@ -287,7 +287,7 @@ Module
 
 ---
 # ruleviolation.otui
-```otui
+```{code-block} text
 
 RVListLabel < Label
 

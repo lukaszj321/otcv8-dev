@@ -235,7 +235,7 @@ Module
 
 **Fragment OTUI (link):**
 
-```otui
+```{code-block} text
 MiniWindow
   id: skillWindow
   !text: tr('Skills')

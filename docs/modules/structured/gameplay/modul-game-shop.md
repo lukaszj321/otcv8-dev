@@ -1133,7 +1133,7 @@ Module
 
 ---
 # shop.otui
-```otui
+```{code-block} text
 
 ShopCategory < Panel
 
@@ -1573,7 +1573,7 @@ MainWindow
 
 ---
 # transfer.otui
-```otui
+```{code-block} text
 
 MainWindow
 

@@ -1,5 +1,5 @@
 # Moduł: | Moduł: `client_options`
-```otui
+```{code-block} text
 
 OptionPanel
 
@@ -67,7 +67,7 @@ OptionPanel
 
 ---
 # console.otui
-```otui
+```{code-block} text
 
 OptionPanel
 
@@ -117,7 +117,7 @@ OptionPanel
 
 ---
 # custom.otui
-```otui
+```{code-block} text
 
 OptionPanel
 
@@ -323,7 +323,7 @@ OptionPanel
 
 ---
 # game.otui
-```otui
+```{code-block} text
 
 OptionPanel
 
@@ -575,7 +575,7 @@ OptionPanel
 
 ---
 # graphics.otui
-```otui
+```{code-block} text
 
 OptionPanel
 
@@ -751,7 +751,7 @@ OptionPanel
 
 ---
 # interface.otui
-```otui
+```{code-block} text
 
 OptionPanel
 
@@ -1855,7 +1855,7 @@ Module
 
 ---
 # options.otui
-```otui
+```{code-block} text
 
 OptionCheckBox < CheckBox
 

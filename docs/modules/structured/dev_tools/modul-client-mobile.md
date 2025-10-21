@@ -425,7 +425,7 @@ Module
 
 ---
 # mobile.otui
-```otui
+```{code-block} text
 
 UIWidget
 
