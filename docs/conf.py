@@ -194,6 +194,16 @@ linkcheck_workers = 5
 # nitpicky = True
 # nitpick_ignore = []
 
+# -- Copilot Docs integration --------------------------------------------------
+# Execute the snippet to integrate "dokumentacja copilot" section
+_copilot_snippet = DOCS_DIR / "dokumentacja copilot/sphinx/conf_copilot_snippet.py"
+if _copilot_snippet.exists():
+    try:
+        exec(open(_copilot_snippet, "r", encoding="utf-8").read())
+        print(f"[conf.py] ✓ Copilot Docs snippet loaded from: {_copilot_snippet.relative_to(DOCS_DIR)}")
+    except Exception as e:
+        print(f"[conf.py] ✗ Error loading Copilot Docs snippet: {e}")
+
 # -- Build hooks ---------------------------------------------------------------
 def setup(app):
     """Setup hook to dump effective Sphinx configuration for QA"""
