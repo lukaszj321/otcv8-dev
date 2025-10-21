@@ -45,6 +45,20 @@ jobs:
           print("✓ sphinx-design installed")
           PY
 
+      - name: Sync API docs into docs/api/external
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p docs/api/external/lua
+          # Copy API files if they exist in api/ directory
+          if [ -f api/otcv8-full-api.md ]; then 
+            cp -f api/otcv8-full-api.md docs/api/external/ || true
+          fi
+          if [ -f api/lua/luafunctions_client.md ]; then 
+            cp -f api/lua/luafunctions_client.md docs/api/external/lua/ || true
+          fi
+          echo "✓ API docs synced to docs/api/external/"
+
       - name: Generate authoring pages
         shell: bash
         run: |
