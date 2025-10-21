@@ -143,13 +143,11 @@ Ostrzeżenie
 #### Diagramy Mermaid
 
 ```markdown
-\```{mermaid}
+```{mermaid}
 %%{init: {'theme':'dark'}}%%
 flowchart LR
     A[Start] --> B[Process]
     B --> C[End]
-\```
-```
 
 ### Szablony i przykłady
 
