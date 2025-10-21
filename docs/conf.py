@@ -179,6 +179,21 @@ suppress_warnings = [
 # -- Todo ----------------------------------------------------------------------
 todo_include_todos = False
 
+# -- Linkcheck / Quality Control -----------------------------------------------
+# Configuration for sphinx-build -b linkcheck
+linkcheck_ignore = [
+    r'http://localhost:\d+/',
+    r'https://placehold\.co/.*',
+    r'.*\.local',
+]
+linkcheck_timeout = 10
+linkcheck_retries = 2
+linkcheck_workers = 5
+
+# Nitpicky mode (optional, can be enabled with -n flag)
+# nitpicky = True
+# nitpick_ignore = []
+
 # -- Build hooks ---------------------------------------------------------------
 def setup(app):
     """Setup hook to dump effective Sphinx configuration for QA"""
