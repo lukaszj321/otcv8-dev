@@ -217,15 +217,13 @@ Edit `docs/index.md`:
 Edit relevant `index.md` file and add to `{toctree}`:
 
 ```markdown
-\```{toctree}
+```{toctree}
 :maxdepth: 2
 :caption: Section Name
 
 page1
 page2
 new_page
-\```
-```
 
 ### Modify Theme Settings
 
