@@ -257,7 +257,7 @@ Module
 
 ---
 # textwindow.otui
-```otui
+```{code-block} text
 
 TextWindow < MainWindow
 

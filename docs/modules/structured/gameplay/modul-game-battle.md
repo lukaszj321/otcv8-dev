@@ -809,7 +809,7 @@ Module
 
 ---
 # battle.otui
-```otui
+```{code-block} text
 
 BattleIcon < UICheckBox
 
@@ -1071,7 +1071,7 @@ MiniWindow
 
 ---
 # battlebutton.otui
-```otui
+```{code-block} text
 
 BattleButton < CreatureButton
 

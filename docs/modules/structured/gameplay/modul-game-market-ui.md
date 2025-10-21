@@ -1,5 +1,5 @@
 # Moduł: | Moduł: `game_market/ui`
-```otui
+```{code-block} text
 
 Panel
 
@@ -335,7 +335,7 @@ Panel
 
 ---
 # myoffers.otui
-```otui
+```{code-block} text
 
 Panel
 

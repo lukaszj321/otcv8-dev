@@ -135,7 +135,7 @@ Bool        := "true" | "false"
 > Lista jest rozszerzalna per projekt (`otui-rules.json`).
 # 1.4 Przykład AST (OTUI)
 Wejście:
-```otui
+```{code-block} text
 MainWindow < UIWidget {
   id: main
   width: 300
@@ -404,7 +404,7 @@ Szkic wyjścia (skrócony):
 # 6) Test vectors (próbki wejścia/wyjścia)
 # 6.1 OTUI proste
 Wejście `main.otui`:
-```otui
+```{code-block} text
 Window < UIWidget {
   id: root
   width: 320

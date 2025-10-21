@@ -527,7 +527,7 @@ Module
 
 ---
 # questlogwindow.otui
-```otui
+```{code-block} text
 
 QuestTrackerLabel < Panel
 

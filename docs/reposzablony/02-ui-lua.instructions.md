@@ -37,7 +37,7 @@ UI.createWindow("MainWindow")
 ```
 
 ```{tab-item} OTUI
-```otui
+```{code-block} text
 MainWindow
   id: mainWindow
   anchors.fill: parent

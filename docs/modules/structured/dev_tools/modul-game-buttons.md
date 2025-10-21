@@ -115,7 +115,7 @@ Module
 
 ---
 # buttons.otui
-```otui
+```{code-block} text
 
 GameButtonsWindow
 

@@ -616,7 +616,7 @@ end
 
 ---
 # creature_editor.otui
-```otui
+```{code-block} text
 
 TargetBotCreatureEditorScrollBar < Panel
 
@@ -1528,7 +1528,7 @@ end)
 
 ---
 # looting.otui
-```otui
+```{code-block} text
 
 TargetBotLootingPanel < Panel
 
@@ -2178,7 +2178,7 @@ end
 
 ---
 # target.otui
-```otui
+```{code-block} text
 
 TargetBotEntry < Label
 

@@ -531,7 +531,7 @@ Module
 
 ---
 # updater.otui
-```otui
+```{code-block} text
 
 StaticMainWindow
 

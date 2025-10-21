@@ -85,7 +85,7 @@ Module
 
 ---
 # bugreport.otui
-```otui
+```{code-block} text
 
 BugReportWindow < MainWindow
 

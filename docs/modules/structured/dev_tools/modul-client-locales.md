@@ -337,7 +337,7 @@ Module
 
 ---
 # locales.otui
-```otui
+```{code-block} text
 
 LocalesMainLabel < Label
 

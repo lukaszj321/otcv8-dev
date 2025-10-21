@@ -1033,7 +1033,7 @@ Module
 
 ---
 # prey.otui
-```otui
+```{code-block} text
 
 LockedPreyPanel < Panel
 

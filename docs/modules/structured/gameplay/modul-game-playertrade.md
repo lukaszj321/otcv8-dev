@@ -165,7 +165,7 @@ Module
 
 ---
 # tradewindow.otui
-```otui
+```{code-block} text
 
 TradeWindow < MiniWindow
 

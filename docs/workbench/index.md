@@ -107,7 +107,7 @@ return MyModule
 
 ### Szablon OTUI Widget
 
-```lua
+```{code-block} text
 -- modules/my_module/my_widget.otui
 -- Podstawowy szablon widgetu OTUI
 

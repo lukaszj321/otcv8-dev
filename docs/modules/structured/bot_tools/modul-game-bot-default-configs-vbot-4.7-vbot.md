@@ -2347,7 +2347,7 @@ end)
 
 ---
 # AttackBot.otui
-```otui
+```{code-block} text
 
 AttackEntry < UIWidget
 
@@ -3815,7 +3815,7 @@ addSeparator()
 
 ---
 # BotServer.otui
-```otui
+```{code-block} text
 
 BotServerData < Panel
 
@@ -4597,7 +4597,7 @@ Panel
 
 ---
 # Conditions.otui
-```otui
+```{code-block} text
 
 UturaComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -9537,7 +9537,7 @@ end)
 
 ---
 # HealBot.otui
-```otui
+```{code-block} text
 
 SettingCheckBox < CheckBox
 
@@ -11323,7 +11323,7 @@ end
 
 ---
 # alarms.otui
-```otui
+```{code-block} text
 
 AlarmsWindow < MainWindow
 
@@ -14601,7 +14601,7 @@ end
 
 ---
 # analyzer.otui
-```otui
+```{code-block} text
 
 TrackerItem < Panel
 
@@ -16487,7 +16487,7 @@ end
 
 ---
 # combo.otui
-```otui
+```{code-block} text
 
 AttackComboBoxPopupMenu < ComboBoxPopupMenu
 
@@ -17591,7 +17591,7 @@ end
 
 ---
 # depositer_config.otui
-```otui
+```{code-block} text
 
 StashItem < Panel
 
@@ -18039,7 +18039,7 @@ end)
 
 ---
 # equipper.otui
-```otui
+```{code-block} text
 
 SlotBotItem < BotItem
 
@@ -20197,7 +20197,7 @@ end
 
 ---
 # extras.otui
-```otui
+```{code-block} text
 
 ExtrasScrollBar < Panel
 
@@ -25155,7 +25155,7 @@ end)
 
 ---
 # new_healer.otui
-```otui
+```{code-block} text
 
 CategoryCheckBox < CheckBox
 
@@ -26511,7 +26511,7 @@ end)
 
 ---
 # playerlist.otui
-```otui
+```{code-block} text
 
 PlayerLabel < UIWidget
 
@@ -27285,7 +27285,7 @@ end)
 
 ---
 # pushmax.otui
-```otui
+```{code-block} text
 
 PushMaxWindow < MainWindow
 
@@ -27697,7 +27697,7 @@ end
 
 ---
 # siolist.otui
-```otui
+```{code-block} text
 
 VocationPanel < Panel
 
@@ -28897,7 +28897,7 @@ end
 
 ---
 # supplies.otui
-```otui
+```{code-block} text
 
 ProfileLabel < UIWidget
 

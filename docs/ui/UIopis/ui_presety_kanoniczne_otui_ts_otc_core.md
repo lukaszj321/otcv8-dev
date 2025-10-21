@@ -55,7 +55,7 @@
 # A.1 MainWindow
 **OTUI**
 
-```otui
+```{code-block} text
 MainWindow
   id: main
   size: 320 220
@@ -84,7 +84,7 @@ export function presetMainWindow(): WidgetNode {
 # A.2 StaticMainWindow
 **OTUI**
 
-```otui
+```{code-block} text
 StaticMainWindow
   id: staticMain
   size: 320 220
@@ -113,7 +113,7 @@ export function presetStaticMainWindow(): WidgetNode {
 # A.3 MiniWindow
 **OTUI**
 
-```otui
+```{code-block} text
 MiniWindow < MainWindow
   id: mini
   size: 260 180
@@ -188,7 +188,7 @@ export function presetMiniWindow(): WidgetNode {
 # A.4 ContainerWindow
 **OTUI**
 
-```otui
+```{code-block} text
 ContainerWindow < MainWindow
   id: container
   size: 300 220
@@ -271,7 +271,7 @@ export function presetContainerWindow(): WidgetNode {
 # A.5 DialogWindow
 **OTUI**
 
-```otui
+```{code-block} text
 DialogWindow < MainWindow
   id: dialog
   size: 260 160
@@ -352,7 +352,7 @@ export function presetDialogWindow(): WidgetNode {
 # B.1 UIWidget (alias: Widget)
 **OTUI**
 
-```otui
+```{code-block} text
 UIWidget
   id: w
   size: 100 60
@@ -369,7 +369,7 @@ export function presetUIWidget(): WidgetNode {
 # B.2 Panel
 **OTUI**
 
-```otui
+```{code-block} text
 Panel
   id: panel
   anchors.fill: parent
@@ -386,7 +386,7 @@ export function presetPanel(): WidgetNode {
 # B.3 GroupBox
 **OTUI**
 
-```otui
+```{code-block} text
 GroupBox
   id: group
   size: 220 120
@@ -434,7 +434,7 @@ export function presetGroupBox(): WidgetNode {
 # B.4 Titlebar
 **OTUI**
 
-```otui
+```{code-block} text
 Titlebar
   id: tb
   size: 200 20
@@ -472,7 +472,7 @@ export function presetTitlebar(): WidgetNode {
 # B.5 Toolbar
 **OTUI**
 
-```otui
+```{code-block} text
 Toolbar
   id: tools
   size: 200 22
@@ -510,7 +510,7 @@ export function presetToolbar(): WidgetNode {
 # B.6 TabBar
 **OTUI**
 
-```otui
+```{code-block} text
 TabBar
   id: tabbar
   size: 220 22
@@ -544,7 +544,7 @@ export function presetTabBar(): WidgetNode {
 # B.7 TabWidget
 **OTUI**
 
-```otui
+```{code-block} text
 TabWidget
   id: tabcontent
   anchors.fill: parent
@@ -560,7 +560,7 @@ export function presetTabWidget(): WidgetNode {
 # B.8 Splitter (2 dzieci)
 **OTUI**
 
-```otui
+```{code-block} text
 Splitter
   id: split
   size: 300 160
@@ -597,7 +597,7 @@ export function presetSplitter(): WidgetNode {
 # B.9 HorizontalSeparator
 **OTUI**
 
-```otui
+```{code-block} text
 HorizontalSeparator
   id: hsep
   size: 200 2
@@ -613,7 +613,7 @@ export function presetHorizontalSeparator(): WidgetNode {
 # B.10 StatusOverlay
 **OTUI**
 
-```otui
+```{code-block} text
 StatusOverlay
   id: overlay
   size: 240 80
@@ -661,7 +661,7 @@ export function presetStatusOverlay(): WidgetNode {
 # C.1 Button
 **OTUI**
 
-```otui
+```{code-block} text
 Button
   id: btn
   width: 64
@@ -678,7 +678,7 @@ export function presetButton(): WidgetNode {
 # C.2 CheckBox
 **OTUI**
 
-```otui
+```{code-block} text
 CheckBox
   id: check
   width: 16
@@ -694,7 +694,7 @@ export function presetCheckBox(): WidgetNode {
 # C.2a RoundCheckBox (wariant CheckBox)
 **OTUI**
 
-```otui
+```{code-block} text
 CheckBox
   id: roundCheck
   width: 16
@@ -710,7 +710,7 @@ export function presetRoundCheckBox(): WidgetNode {
 # C.3 TextEdit
 **OTUI**
 
-```otui
+```{code-block} text
 TextEdit
   id: edit
   width: 120
@@ -726,7 +726,7 @@ export function presetTextEdit(): WidgetNode {
 # C.4 PasswordTextEdit
 **OTUI**
 
-```otui
+```{code-block} text
 PasswordTextEdit
   id: pass
   width: 120
@@ -742,7 +742,7 @@ export function presetPasswordTextEdit(): WidgetNode {
 # C.5 MultilineTextEdit (+ Scroll)
 **OTUI**
 
-```otui
+```{code-block} text
 UIWidget
   id: wrapMultiline
   size: 220 120
@@ -779,7 +779,7 @@ export function presetMultilineTextEdit(): WidgetNode {
 # C.6 ComboBox
 **OTUI**
 
-```otui
+```{code-block} text
 ComboBox
   id: combo
   width: 120
@@ -798,7 +798,7 @@ export function presetComboBox(): WidgetNode {
 # D.1 Label (alias: UILabel)
 **OTUI**
 
-```otui
+```{code-block} text
 Label
   id: label
   text-wrap: true
@@ -815,7 +815,7 @@ export function presetLabel(): WidgetNode {
 # D.2 TextList (+ Scroll)
 **OTUI**
 
-```otui
+```{code-block} text
 UIWidget
   id: wrapList
   size: 220 140
@@ -852,7 +852,7 @@ export function presetTextList(): WidgetNode {
 # D.3 ProgressBar
 **OTUI**
 
-```otui
+```{code-block} text
 ProgressBar
   id: progress
   size: 200 14
@@ -871,7 +871,7 @@ export function presetProgressBar(): WidgetNode {
 # E.1 VerticalScrollBar
 **OTUI**
 
-```otui
+```{code-block} text
 VerticalScrollBar
   id: vscroll
   height: 120
@@ -888,7 +888,7 @@ export function presetVerticalScrollBar(): WidgetNode {
 # E.2 HorizontalScrollBar
 **OTUI**
 
-```otui
+```{code-block} text
 HorizontalScrollBar
   id: hscroll
   width: 200

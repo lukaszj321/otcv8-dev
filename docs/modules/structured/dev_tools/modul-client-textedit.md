@@ -324,7 +324,7 @@ Module
 
 ---
 # textedit.otui
-```otui
+```{code-block} text
 
 TextEditButtons < Panel
 

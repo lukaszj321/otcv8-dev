@@ -35,7 +35,7 @@ description: Development tools (hot-reload + NDJSON log)
 
 ---
 # 3) `ui/dev.otui` (opcjonalny szkielet UI)
-```otui
+```{code-block} text
 DevWindow < UIWidget {
   id: devWindow
   width: 260

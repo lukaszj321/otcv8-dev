@@ -1,8 +1,10 @@
 # -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7.4.7, PyData 0.16.1) -----
 
 import os
+import json
 from pathlib import Path
 from importlib import import_module
+from collections.abc import Mapping, Sequence
 
 # -- Project -------------------------------------------------------------------
 project = "OTClient v8 — Developer Documentation"
@@ -205,56 +207,91 @@ if _copilot_snippet.exists():
         print(f"[conf.py] ✗ Error loading Copilot Docs snippet: {e}")
 
 # -- Build hooks ---------------------------------------------------------------
+def _json_safe(obj):
+    """Convert object to JSON-serializable form"""
+    if isinstance(obj, (str, int, float, bool)) or obj is None:
+        return obj
+    if isinstance(obj, Mapping):
+        return {str(k): _json_safe(v) for k, v in obj.items()}
+    if isinstance(obj, Sequence) and not isinstance(obj, (str, bytes, bytearray)):
+        return [_json_safe(x) for x in obj]
+    try:
+        return [_json_safe(x) for x in list(obj)]
+    except Exception:
+        return repr(obj)
+
 def setup(app):
     """Setup hook to dump effective Sphinx configuration for QA"""
-    import json
-    from pathlib import Path
     
     def dump_sphinx_env(app, exception):
         """Dump effective Sphinx environment after build"""
         if exception is not None:
             return
         
-        qa_dir = Path(app.srcdir) / "authoring" / "qa"
-        qa_dir.mkdir(parents=True, exist_ok=True)
-        
-        env_data = {
-            "extensions": app.extensions.keys() if hasattr(app, 'extensions') else list(app.config.extensions),
-            "myst_enable_extensions": list(app.config.myst_enable_extensions) if hasattr(app.config, 'myst_enable_extensions') else [],
-            "myst_fence_as_directive": list(app.config.myst_fence_as_directive) if hasattr(app.config, 'myst_fence_as_directive') else [],
-            "mermaid_output_format": getattr(app.config, 'mermaid_output_format', 'unknown'),
-            "mermaid_version": getattr(app.config, 'mermaid_version', 'unknown'),
-            "html_theme": getattr(app.config, 'html_theme', 'unknown'),
-        }
-        
-        # Check if mermaid directive is registered
-        if hasattr(app.registry, 'directives'):
-            env_data["mermaid_directive_registered"] = 'mermaid' in app.registry.directives
-        
-        # Get package versions
         try:
-            import sphinxcontrib.mermaid
-            env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, '__version__', 'unknown')
-        except Exception:
-            env_data["sphinxcontrib_mermaid_version"] = "not installed"
-        
-        try:
-            import myst_nb
-            env_data["myst_nb_version"] = getattr(myst_nb, '__version__', 'unknown')
-        except Exception:
-            env_data["myst_nb_version"] = "not installed"
-        
-        try:
-            import sphinx_design
-            env_data["sphinx_design_version"] = getattr(sphinx_design, '__version__', 'unknown')
-        except Exception:
-            env_data["sphinx_design_version"] = "not installed"
-        
-        output_file = qa_dir / "sphinx_env.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(env_data, f, indent=2, sort_keys=True)
-        
-        print(f"\n[conf.py] ✓ Sphinx environment dumped to: {output_file.relative_to(app.srcdir)}")
+            qa_dir = Path(app.srcdir) / "authoring" / "qa"
+            qa_dir.mkdir(parents=True, exist_ok=True)
+            
+            # Convert extensions to list safely
+            extensions_list = []
+            if hasattr(app, 'extensions'):
+                try:
+                    extensions_list = list(app.extensions.keys())
+                except Exception:
+                    extensions_list = list(app.config.extensions) if hasattr(app.config, 'extensions') else []
+            elif hasattr(app.config, 'extensions'):
+                extensions_list = list(app.config.extensions)
+            
+            env_data = {
+                "extensions": extensions_list,
+                "myst_enable_extensions": list(app.config.myst_enable_extensions) if hasattr(app.config, 'myst_enable_extensions') else [],
+                "myst_fence_as_directive": list(app.config.myst_fence_as_directive) if hasattr(app.config, 'myst_fence_as_directive') else [],
+                "mermaid_output_format": getattr(app.config, 'mermaid_output_format', 'unknown'),
+                "mermaid_version": getattr(app.config, 'mermaid_version', 'unknown'),
+                "html_theme": getattr(app.config, 'html_theme', 'unknown'),
+            }
+            
+            # Check if mermaid directive is registered
+            if hasattr(app.registry, 'directives'):
+                env_data["mermaid_directive_registered"] = 'mermaid' in app.registry.directives
+            
+            # Get package versions
+            try:
+                import sphinxcontrib.mermaid
+                env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, '__version__', 'unknown')
+            except Exception:
+                env_data["sphinxcontrib_mermaid_version"] = "not installed"
+            
+            try:
+                import myst_nb
+                env_data["myst_nb_version"] = getattr(myst_nb, '__version__', 'unknown')
+            except Exception:
+                env_data["myst_nb_version"] = "not installed"
+            
+            try:
+                import sphinx_design
+                env_data["sphinx_design_version"] = getattr(sphinx_design, '__version__', 'unknown')
+            except Exception:
+                env_data["sphinx_design_version"] = "not installed"
+            
+            # Use _json_safe to ensure all data is serializable
+            safe_data = _json_safe(env_data)
+            
+            output_file = qa_dir / "sphinx_env.json"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                json.dump(safe_data, f, indent=2, sort_keys=True)
+            
+            print(f"\n[conf.py] ✓ Sphinx environment dumped to: {output_file.relative_to(app.srcdir)}")
+            
+        except Exception as e:
+            # Don't interrupt the build - save diagnostics and continue
+            try:
+                error_file = Path(app.outdir) / "_sphinx_env_error.txt"
+                with open(error_file, 'w', encoding='utf-8') as f:
+                    f.write(f"{type(e).__name__}: {e}\n")
+                print(f"\n[conf.py] ✗ Error dumping Sphinx environment: {e}")
+            except Exception:
+                pass
     
     # Connect to build-finished event
     app.connect('build-finished', dump_sphinx_env)

@@ -136,7 +136,7 @@ end
 
 ### health_monitor.otui
 
-```lua
+```{code-block} text
 -- modules/game_health_monitor/health_monitor.otui
 HealthMonitorWindow < MainWindow
   id: healthMonitorWindow

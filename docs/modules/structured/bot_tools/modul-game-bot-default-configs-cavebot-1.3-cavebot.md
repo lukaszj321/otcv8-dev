@@ -872,7 +872,7 @@ end
 
 ---
 # cavebot.otui
-```otui
+```{code-block} text
 
 CaveBotAction < Label
 
@@ -1140,7 +1140,7 @@ end
 
 ---
 # config.otui
-```otui
+```{code-block} text
 
 CaveBotConfigPanel < Panel
 
@@ -1614,7 +1614,7 @@ end
 
 ---
 # editor.otui
-```otui
+```{code-block} text
 
 CaveBotEditorButton < Button
 
@@ -2140,7 +2140,7 @@ end
 
 ---
 # supply.otui
-```otui
+```{code-block} text
 
 SupplyItem < Panel
 

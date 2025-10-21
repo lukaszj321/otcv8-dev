@@ -429,7 +429,7 @@ Module
 
 ---
 # stats.otui
-```otui
+```{code-block} text
 
 DebugText < Label
 

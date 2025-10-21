@@ -853,7 +853,7 @@ Module
 
 ---
 # terminal.otui
-```otui
+```{code-block} text
 
 TerminalLabel < UILabel
 

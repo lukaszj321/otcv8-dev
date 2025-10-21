@@ -557,7 +557,7 @@ Module
 
 ---
 # healthinfo.otui
-```otui
+```{code-block} text
 
 HealthInfoWindow
 
