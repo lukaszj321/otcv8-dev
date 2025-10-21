@@ -104,12 +104,10 @@ Zwykły tekst z **pogrubieniem** i *kursywą*.
 1. Lista numerowana
 2. Drugi element
 
-\```python
+```python
 # Blok kodu
 def hello():
     print("Hello, OTClient v8!")
-\```
-```
 
 #### Dyrektywy Sphinx
 
