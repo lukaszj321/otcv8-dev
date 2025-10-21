@@ -88,15 +88,13 @@ Complete example with:
 Update `docs/workbench/index.md` toctree:
 
 ```markdown
-\```{toctree}
+```{toctree}
 :maxdepth: 2
 :hidden:
 
 template
 example_health_monitor
 example_my_module
-\```
-```
 
 ### 3. New Diagram
 
