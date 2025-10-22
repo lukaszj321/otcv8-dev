@@ -1,103 +1,12 @@
 ---
-title: Authoring (embedded)
+title: Authoring (Chapters)
 ---
 
-# Authoring - embedded
-
-Wszystkie rozdzialy z `docs/authoring/**` renderowane inline.
-
-:::{grid} 1 1 2 3
-:gutter: 2
-:::{grid-item-card} 01_core - Core
-:link: 01_core/index
-:link-type: doc
-:shadow: md
-01_core - Core - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 01_runtime - Runtime
-:link: 01_runtime/index
-:link-type: doc
-:shadow: md
-01_runtime - Runtime - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 02_events - Events
-:link: 02_events/index
-:link-type: doc
-:shadow: md
-02_events - Events - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 03_modules - Modules
-:link: 03_modules/index
-:link-type: doc
-:shadow: md
-03_modules - Modules - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 04_ui - Ui
-:link: 04_ui/index
-:link-type: doc
-:shadow: md
-04_ui - Ui - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 05_events - Events
-:link: 05_events/index
-:link-type: doc
-:shadow: md
-05_events - Events - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 05_network - Network
-:link: 05_network/index
-:link-type: doc
-:shadow: md
-05_network - Network - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 06_assets - Assets
-:link: 06_assets/index
-:link-type: doc
-:shadow: md
-06_assets - Assets - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 07_settings_crypto - Settings crypto
-:link: 07_settings_crypto/index
-:link-type: doc
-:shadow: md
-07_settings_crypto - Settings crypto - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 08_audio - Audio
-:link: 08_audio/index
-:link-type: doc
-:shadow: md
-08_audio - Audio - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 09_logging - Logging
-:link: 09_logging/index
-:link-type: doc
-:shadow: md
-09_logging - Logging - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 10_game_runtime - Game runtime
-:link: 10_game_runtime/index
-:link-type: doc
-:shadow: md
-10_game_runtime - Game runtime - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 11_data - Data
-:link: 11_data/index
-:link-type: doc
-:shadow: md
-11_data - Data - wbudowany podglad CSV i diagramow.
-:::
-:::{grid-item-card} 12_otmod - Otmod
-:link: 12_otmod/index
-:link-type: doc
-:shadow: md
-12_otmod - Otmod - wbudowany podglad CSV i diagramow.
-:::
-:::
+# Authoring (Chapters)
 
 ```{toctree}
-:caption: Rozdzialy
-:maxdepth: 1
-:titlesonly:
+:hidden:
+:maxdepth: 2
 01_core/index
 01_runtime/index
 02_events/index
@@ -112,15 +21,96 @@ Wszystkie rozdzialy z `docs/authoring/**` renderowane inline.
 10_game_runtime/index
 11_data/index
 12_otmod/index
-
+13_layouts/index
+14_android/index
+15_vc16/index
 analytics/summary
 qa/summary
 ```
 
-## Narzedzia
+:::{grid} 1 1 2 3
+:gutter: 2
 
-Zobacz: [Tools Documentation](../tools/index)
+:::{grid-item-card} 01 — Core
+:link: 01_core/index
+Podstawy klienta, framework, C++ i API.
+:::
 
-## RAG Manifest
+:::{grid-item-card} 02 — Events
+:link: 02_events/index
+System zdarzeń, strumienie, emitery.
+:::
 
-Zobacz: [Datasets](./datasets/index)
+:::{grid-item-card} 04 — UI (OTUI)
+:link: 04_ui/index
+Widżety, layouty, presety i style.
+:::
+
+:::{grid-item-card} 11 — Data
+:link: 11_data/index
+Assets, images, fonts, sounds, shaders.
+:::
+
+:::{grid-item-card} 12 — OTMOD
+:link: 12_otmod/index
+Moduły, pakiety, zależności.
+:::
+
+:::{grid-item-card} 13 — Layouts
+:link: 13_layouts/index
+Layouty, overrides, sprite grids.
+:::
+:::
+
+````{tabs}
+```{tab} Guide
+Struktura Authoring: każdy rozdział ma `datasets/` (CSV), `diagrams/` (Mermaid/Graphviz) i `examples/` z kodem.
+```
+
+```{tab} Reference
+Indeksy rozdziałów (patrz TOC). Krótkie opisy i odnośniki do API/typów, jeśli dotyczy.
+```
+
+```{tab} Examples
+**CSV**
+```{csv-table} Presety UI — przykład
+:header-rows: 1
+:file: 04_ui/datasets/ui_widgets.csv
+:widths: 20, 20, 20, 20, 20
+```
+
+**Mermaid**
+```{mermaid}
+flowchart LR
+  A[Authoring]-->B[Datasets]
+  A-->C[Diagrams]
+  A-->D[Code Examples]
+```
+
+**Graphviz**
+```{graphviz}
+digraph G { 
+  Authoring -> Datasets;
+  Authoring -> Diagrams;
+  Authoring -> Code;
+}
+```
+```
+````
+
+:::{card}
+**Quality gates**
+{badge}`lint ok,success` {badge}`examples ✓,info` {badge}`dark-mode todo,warning`
+:::
+
+```{dropdown} Quick tasks (Authoring)
+- [ ] `csv-table` renderuje nagłówki z datasets/
+- [ ] Mermaid/Graphviz w dark‑mode OK
+- [ ] „See also" prowadzi do UI/Events/Templates
+```
+
+:::{grid} 1 1 2 3
+:class-row: gap-2
+
+**See also:** {ref}`04_ui/index` · {ref}`02_events/index` · {ref}`11_data/index`
+:::
