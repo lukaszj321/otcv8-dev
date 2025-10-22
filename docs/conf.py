@@ -37,7 +37,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
     "sphinx.ext.duration",
-    "sphinx.ext.graphviz",          # Graphviz diagram support
+    "sphinx.ext.graphviz",
 ]
 
 # Critical extensions for Mermaid rendering - try to load, fail gracefully
