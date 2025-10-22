@@ -160,7 +160,7 @@ digraph G {
 
 :::{card}
 **Quality gates**
-{badge}`lint ok,success` {badge}`examples ✓,info` {badge}`dark-mode ✓,success`
+{badge}`lint OK,success` {badge}`examples ✓,info` {badge}`dark-mode ✓,success`
 :::
 
 ```{dropdown} Quick tasks (Authoring)
