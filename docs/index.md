@@ -122,7 +122,7 @@ workbench/index
 :maxdepth: 2
 :caption: Copilot Docs
 
-dokumentacja copilot/sphinx/index
+copilot/sphinx/index
 ```
 
 ```{toctree}

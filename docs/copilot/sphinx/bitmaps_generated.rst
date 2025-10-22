@@ -2,7 +2,7 @@ Wygenerowane bitmapy / atlasy
 =============================
 
 Ta sekcja dokumentuje produkty narzędzia: ``tools/gimp-bitmap-generator``.
-Po uruchomieniu generatora wyeksportuj listę wyników do CSV: ``docs/dokumentacja copilot/csv/bitmaps_generated.csv``
+Po uruchomieniu generatora wyeksportuj listę wyników do CSV: ``docs/copilot/csv/bitmaps_generated.csv``
 (z kolumnami: ``output_path``, ``width``, ``height``, ``source_set``, ``note``).
 
 .. csv-table:: bitmaps_generated.csv

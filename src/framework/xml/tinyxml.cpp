@@ -36,6 +36,7 @@ FILE* TiXmlFOpen( const char* filename, const char* mode );
 
 bool TiXmlBase::condenseWhiteSpace = true;
 
+// region file_open_example
 // Microsoft compiler security
 FILE* TiXmlFOpen( const char* filename, const char* mode )
 {
@@ -49,7 +50,9 @@ FILE* TiXmlFOpen( const char* filename, const char* mode )
         return fopen( filename, mode );
     #endif
 }
+// endregion file_open_example
 
+// region encode_string_example
 void TiXmlBase::EncodeString( const TIXML_STRING& str, TIXML_STRING* outString )
 {
     int i=0;
@@ -132,6 +135,7 @@ void TiXmlBase::EncodeString( const TIXML_STRING& str, TIXML_STRING* outString )
         }
     }
 }
+// endregion encode_string_example
 
 
 TiXmlNode::TiXmlNode( NodeType _type ) : TiXmlBase()

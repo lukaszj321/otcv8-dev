@@ -37,6 +37,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
     "sphinx.ext.duration",
+    "sphinx.ext.graphviz",          # Graphviz diagram support
 ]
 
 # Critical extensions for Mermaid rendering - try to load, fail gracefully
@@ -199,8 +200,8 @@ linkcheck_workers = 5
 # nitpick_ignore = []
 
 # -- Copilot Docs integration --------------------------------------------------
-# Execute the snippet to integrate "dokumentacja copilot" section
-_copilot_snippet = DOCS_DIR / "dokumentacja copilot/sphinx/conf_copilot_snippet.py"
+# Execute the snippet to integrate copilot section
+_copilot_snippet = DOCS_DIR / "copilot/sphinx/conf_copilot_snippet.py"
 if _copilot_snippet.exists():
     try:
         exec(open(_copilot_snippet, "r", encoding="utf-8").read())

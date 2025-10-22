@@ -2,7 +2,7 @@ Lua Bindings (repo, generator)
 ==============================
 
 Poniższa tabela jest zasilana **automatycznie** przez narzędzie z repo: ``tools/lua-binding-generator``.
-Po uruchomieniu generatora wyeksportuj dane do pliku CSV: ``docs/dokumentacja copilot/csv/lua_bindings_repo.csv``
+Po uruchomieniu generatora wyeksportuj dane do pliku CSV: ``docs/copilot/csv/lua_bindings_repo.csv``
 (z kolumnami: ``cpp_symbol``, ``lua_name``, ``file``, ``note``).
 
 .. csv-table:: lua_bindings_repo.csv
