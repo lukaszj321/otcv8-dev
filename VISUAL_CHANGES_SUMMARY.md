@@ -45,7 +45,7 @@
 Guide Tab:
 - Structure explanation
 - Dataset/diagram/examples purpose
-- Quality checklistы
+- Quality checklists
 - Dark mode requirements
 - Region-based literalinclude
 
