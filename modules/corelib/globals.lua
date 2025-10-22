@@ -11,6 +11,7 @@ G = G or {}
 
 -- @docfuncs @{
 
+-- region schedule_event_example
 function scheduleEvent(callback, delay)
   local desc = "lua"
   local info = debug.getinfo(2, "Sl")
@@ -22,6 +23,7 @@ function scheduleEvent(callback, delay)
   event._callback = callback
   return event
 end
+-- endregion schedule_event_example
 
 function addEvent(callback, front)
   local desc = "lua"
