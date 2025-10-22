@@ -116,6 +116,8 @@ html_theme_options = {
     "use_edit_page_button": True,
     "show_nav_level": 2,
     "navigation_with_keys": True,
+    "show_prev_next": True,
+    "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
         {
