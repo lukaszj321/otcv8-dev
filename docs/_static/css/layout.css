@@ -1,33 +1,27 @@
-/* --- Layout tuning for PyData theme --- */
-:root{
-  /* środek może być szeroki */
-  --pst-content-max-width: 1500px;
-  /* precyzyjnie sterujemy siatką kolumn */
-  --pst-sidebar-primary-width: 16rem;
-  --pst-sidebar-secondary-width: 18rem;
+/* Maksymalna szerokość treści + sensowne kolumny TOC */
+:root {
+  --pst-content-max-width: 1450px;       /* więcej miejsca na środek */
+  --pst-sidebar-primary-width: 280px;    /* lewy spis */
+  --pst-sidebar-secondary-width: 300px;  /* prawy spis */
 }
 
-/* lewy TOC: zawijanie + brak poziomego scrolla */
-.bd-sidebar-primary{ overflow-x: hidden; }
-.bd-sidebar-primary nav a{
-  white-space: normal;
+/* Ucinamy poziomy scroll w paskach bocznych i łamiemy długie etykiety */
+.bd-sidebar, .bd-toc {
+  overflow-x: hidden;
+}
+.bd-toc a, .bd-sidebar a {
   overflow-wrap: anywhere;
-  text-overflow: initial;
-}
-
-/* prawy TOC: jw. */
-.bd-sidebar-secondary{ overflow-x: hidden; }
-.bd-sidebar-secondary .bd-toc,
-.bd-sidebar-secondary .bd-toc nav{ overflow-x: hidden; max-width: 100%; }
-.bd-sidebar-secondary .bd-toc nav a{
+  word-break: break-word;
   white-space: normal;
-  overflow-wrap: anywhere;
-  text-overflow: initial;
 }
 
-/* treść bez sztucznych limitów szerokości kontenera artykułu */
-.bd-content, .bd-main .bd-content .bd-article-container{ max-width: none; }
+/* Karty/siatki niech nie wpychają bocznych marginesów */
+.bd-main .container, .bd-page-width {
+  max-width: var(--pst-content-max-width);
+}
 
-/* --- Mermaid --- */
-.bd-article .mermaid{ margin: 1rem 0; max-width: 100%; }
-.bd-article .mermaid svg{ display: block; max-width: 100%; height: auto; }
+/* Mermaid: żadnych niepotrzebnych wcięć i poziomych scrolli */
+.mermaid {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
