@@ -1,16 +1,49 @@
-:root { --pst-content-max-width: 1400px; }
+/* --- Layout tuning for PyData theme --- */
 
+/* Szerokość środkowej kolumny (treści) */
+:root {
+  --pst-content-max-width: 1400px;
+}
+
+/* Desktop: zwęż lewy/prawy sidebar, poszerz treść */
 @media (min-width: 1200px){
-  /* lewy */
-  .bd-sidebar-primary{ flex:0 0 15rem; max-width:15rem; }
-  /* prawy – szerszy + zawijanie tekstu, zero poziomego scrolla */
-  .bd-sidebar-secondary{ flex:0 0 18rem; max-width:18rem; }
-  .bd-sidebar-secondary .bd-toc{ overflow-x: hidden; }
+  /* Lewy sidebar (nawigacja) */
+  .bd-sidebar-primary{
+    width: 15rem;
+    flex: 0 0 15rem;
+    max-width: 15rem;
+  }
+
+  /* Prawy sidebar (TOC) — szerszy, bez poziomego scrolla, zawijanie długich linii */
+  .bd-sidebar-secondary{
+    width: 18rem;
+    flex: 0 0 18rem;
+    max-width: 18rem;
+  }
+  .bd-sidebar-secondary .bd-toc{
+    overflow-x: hidden;
+  }
   .bd-sidebar-secondary .bd-toc nav a{
-    white-space: normal;
-    overflow-wrap: anywhere;
+    white-space: normal;       /* pozwól zawijać */
+    overflow-wrap: anywhere;   /* łam nawet w środku słów/linków */
     text-overflow: initial;
   }
-  /* treść bez dodatkowych limitów */
-  .bd-content, .bd-main .bd-content .bd-article-container{ max-width:none; }
+
+  /* Treść bez dodatkowych limitów szerokości */
+  .bd-content,
+  .bd-main .bd-content .bd-article-container{
+    max-width: none;
+  }
+}
+
+/* --- Mermaid diagrams --- */
+/* Usuń „dziwne” wcięcia i pilnuj szerokości SVG */
+.bd-article .mermaid{
+  margin: 1rem 0;
+  max-width: 100%;
+}
+.bd-article .mermaid svg{
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
