@@ -1,0 +1,8 @@
+:root{
+  --pst-content-max-width: 1300px; /* szerokość środkowej kolumny */
+}
+@media (min-width: 1200px){
+  .bd-sidebar-primary{ width:16rem; flex:0 0 16rem; max-width:16rem; }   /* lewy */
+  .bd-sidebar-secondary{ width:14rem; flex:0 0 14rem; max-width:14rem; } /* prawy */
+  .bd-content, .bd-main .bd-content .bd-article-container{ max-width:none; }
+}
