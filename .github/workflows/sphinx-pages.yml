@@ -47,15 +47,17 @@ jobs:
       - name: Install Mermaid CLI (mmdc)
         run: npm i -g @mermaid-js/mermaid-cli@10.9.1
 
-      - name: Install headless browser deps for mmdc
+      - name: Install headless browser deps for mmdc (Ubuntu 24.04)
         run: |
           set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             libnss3 libatk1.0-0 libatk-bridge2.0-0 libx11-xcb1 \
             libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
-            libasound2 libpango-1.0-0 libpangocairo-1.0-0 \
-            libgtk-3-0
+            libpango-1.0-0 libpangocairo-1.0-0 libgtk-3-0 || true
+          # audio lib name changed on Noble; try t64 first, then legacy
+          sudo apt-get install -y --no-install-recommends libasound2t64 || \
+          sudo apt-get install -y --no-install-recommends libasound2 || true
       - name: Check mmdc
         run: mmdc -V
 
