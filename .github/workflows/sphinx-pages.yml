@@ -113,15 +113,24 @@ jobs:
           test -d docs/_build/doxygen/xml
           ls -1 docs/_build/doxygen/xml | head
 
-      # Lua API → LDoc (HTML copied via html_extra_path)
-      - name: Generate Lua docs (LDoc -> docs/_extra/ldoc)
+      # Lua API → LDoc (dwa oddzielne pakiety: modules i src) — lokalna instalacja + PATH
+      - name: Install LDoc (local) and add to PATH
+        run: |
+          set -euo pipefail
+          luarocks install --local ldoc
+          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
+          ldoc -V || true
+
+      - name: Generate Lua docs (modules & src)
         run: |
           set -euo pipefail
           mkdir -p docs/_extra
-          luarocks install --local ldoc || sudo luarocks install ldoc
-          ldoc -d docs/_extra/ldoc modules
+          # osobno: modules/
+          ldoc -d docs/_extra/ldoc-modules modules
+          # osobno: src/ (tylko .lua będą zindeksowane)
+          ldoc -d docs/_extra/ldoc-src src
 
-      # Build Sphinx (RAW Mermaid, pełny rebuild jednorazowo)
+      # Build Sphinx (RAW Mermaid)
       - name: Build Sphinx
         run: |
           set -euo pipefail
