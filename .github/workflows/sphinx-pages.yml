@@ -24,73 +24,41 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      PUPPETEER_CACHE_DIR: ~/.cache/puppeteer
     steps:
       - uses: actions/checkout@v4
 
-      # 0) Zmiany — sterują warunkami dla ciężkich kroków
-      - uses: dorny/paths-filter@v3
-        id: changes
-        with:
-          filters: |
-            cpp:
-              - 'src/**'
-              - 'Doxyfile'
-            lua:
-              - 'modules/**'
-            docs:
-              - 'docs/**'
-              - 'scripts/**'
-
-      # 1) Cache
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('docs/requirements.txt') }}-${{ hashFiles('docs/conf.py') }}
-          restore-keys: ${{ runner.os }}-pip-
-
-      - name: Cache npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-mermaid-cli-10.9.1
-          restore-keys: ${{ runner.os }}-npm-
-
-      - name: Cache Puppeteer Chromium
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/puppeteer
-          key: ${{ runner.os }}-puppeteer-10.9.1
-          restore-keys: ${{ runner.os }}-puppeteer-
-
-      - name: Cache Sphinx doctrees
-        uses: actions/cache@v4
-        with:
-          path: |
-            docs/_build/doctrees
-            docs/_build/.doctrees
-          key: ${{ runner.os }}-doctrees-${{ hashFiles('docs/conf.py') }}
-          restore-keys: ${{ runner.os }}-doctrees-
-
-      # 2) Python
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Python deps
+      # System deps (graphviz + doxygen + luarocks)
+      - name: Install system deps
         run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            graphviz fonts-dejavu-core doxygen luarocks
+          dot -V || true
+          doxygen -v || true
+          luarocks --version || true
+
+      # Python deps (Sphinx + extensions, incl. Breathe/Mermaid)
+      - name: Install doc dependencies
+        run: |
+          set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
           python - << 'PY'
           import sys, subprocess
           def ensure(spec):
-              try: __import__(spec.split("==")[0].split(">=")[0].replace("-","_"))
-              except Exception: subprocess.check_call([sys.executable,"-m","pip","install",spec])
+              try:
+                  __import__(spec.split("==")[0].split(">=")[0].replace("-", "_"))
+              except Exception:
+                  subprocess.check_call([sys.executable, "-m", "pip", "install", spec])
           ensure("Sphinx==8.2.3")
           ensure("pydata-sphinx-theme>=0.16.1")
-          ensure("myst-nb==1.3.0"); ensure("myst-parser>=3.0.1")
+          ensure("myst-nb==1.3.0")
+          ensure("myst-parser>=3.0.1")
           ensure("sphinxcontrib-mermaid>=0.9.2")
           ensure("breathe>=4.35.0")
           ensure("sphinx-sitemap==2.9.0")
@@ -99,97 +67,71 @@ jobs:
           ensure("sphinx-codeautolink>=0.17.5")
           ensure("sphinxext-opengraph>=0.13.0")
           ensure("sphinxcontrib-jquery>=4.1")
-          try: ensure("sphinx-favicon")
-          except Exception: pass
+          try:
+              ensure("sphinx-favicon")
+          except Exception:
+              pass
+          print("✓ dependencies ensured")
           PY
 
-      # 3) System deps (wspólne, jedna instalacja)
-      - name: Install system deps (graphviz + doxygen/luarocks on demand)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends graphviz fonts-dejavu-core
-          if [ "${{ steps.changes.outputs.cpp }}" = "true" ]; then
-            sudo apt-get install -y --no-install-recommends doxygen
-          fi
-          if [ "${{ steps.changes.outputs.lua }}" = "true" ]; then
-            sudo apt-get install -y --no-install-recommends luarocks
-          fi
-
-      # 4) Mermaid SVG (tylko gdy zmieniały się docs/scripts)
-      - uses: actions/setup-node@v4
-        if: steps.changes.outputs.docs == 'true'
-        with:
-          node-version: '20'
-
-      - name: Install Mermaid CLI (mmdc)
-        if: steps.changes.outputs.docs == 'true'
-        run: npm i -g @mermaid-js/mermaid-cli@10.9.1
-
-      - name: Install headless browser deps for mmdc (Ubuntu 24.04)
-        if: steps.changes.outputs.docs == 'true'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            libnss3 libatk1.0-0 libatk-bridge2.0-0 libx11-xcb1 \
-            libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
-            libpango-1.0-0 libpangocairo-1.0-0 libgtk-3-0 || true
-          sudo apt-get install -y --no-install-recommends libasound2t64 || \
-          sudo apt-get install -y --no-install-recommends libasound2 || true
-
-      - name: Check mmdc
-        if: steps.changes.outputs.docs == 'true'
-        run: mmdc -V
-
-      # 5) Konfiguracja Pages
-      - id: pages
+      - name: Configure Pages (base URL)
+        id: pages
         uses: actions/configure-pages@v5
 
-      # 6) (opcjonalnie) sync ręcznych plików API
+      # (opcjonalnie) sync ręcznych plików API
       - name: Sync external API docs
         run: |
+          set -euo pipefail
           mkdir -p docs/autoapi/external/lua
-          [ -f api/otcv8-full-api.md ] && cp -f api/otcv8-full-api.md docs/autoapi/external/ || true
-          [ -f api/lua/luafunctions_client.md ] && cp -f api/lua/luafunctions_client.md docs/autoapi/external/lua/ || true
+          if [ -f api/otcv8-full-api.md ]; then 
+            cp -f api/otcv8-full-api.md docs/autoapi/external/ || true
+          fi
+          if [ -f api/lua/luafunctions_client.md ]; then 
+            cp -f api/lua/luafunctions_client.md docs/autoapi/external/lua/ || true
+          fi
 
-      # 7) Autor/patch
+      # Autorskie generatory (jeśli są)
       - name: Generate authoring pages
         run: |
-          [ -f scripts/build_authoring_pages.py ] && python scripts/build_authoring_pages.py || true
+          set -euo pipefail
+          if [ -f scripts/build_authoring_pages.py ]; then python scripts/build_authoring_pages.py; fi
+
       - name: Patch Mermaid diagrams (click → facets)
         run: |
-          [ -f scripts/patch_diagrams_clicks.py ] && python scripts/patch_diagrams_clicks.py || true
+          set -euo pipefail
+          if [ -f scripts/patch_diagrams_clicks.py ]; then python scripts/patch_diagrams_clicks.py; fi
 
-      # 8) C++ → Doxygen (tylko gdy zmieniły się src/Doxyfile)
+      # C++ API → Doxygen XML (for Breathe)
       - name: Prepare Doxygen output dir
-        if: steps.changes.outputs.cpp == 'true'
         run: mkdir -p docs/_build/doxygen
 
       - name: Generate Doxygen XML
-        if: steps.changes.outputs.cpp == 'true'
         run: doxygen Doxyfile
 
       - name: Check Doxygen output
-        if: steps.changes.outputs.cpp == 'true'
         run: |
           test -d docs/_build/doxygen/xml
           ls -1 docs/_build/doxygen/xml | head
 
-      # 9) Lua → LDoc (tylko gdy zmieniły się modules)
+      # Lua API → LDoc (HTML copied via html_extra_path)
       - name: Generate Lua docs (LDoc -> docs/_extra/ldoc)
-        if: steps.changes.outputs.lua == 'true'
         run: |
+          set -euo pipefail
           mkdir -p docs/_extra
+          luarocks install --local ldoc || sudo luarocks install ldoc
           ldoc -d docs/_extra/ldoc modules
 
-      # 10) Build Sphinx (inkrementalnie + równolegle)
+      # Build Sphinx (RAW Mermaid, pełny rebuild jednorazowo)
       - name: Build Sphinx
         run: |
-          sphinx-build -j auto -b html docs docs/_build/html \
+          set -euo pipefail
+          sphinx-build -E -a -j auto -b html docs docs/_build/html \
+            -D mermaid_output_format=raw -D mermaid_version=10.9.1 \
             -D html_baseurl="${{ steps.pages.outputs.base_url }}"
           touch docs/_build/html/.nojekyll
 
-      # 11) Upload & Deploy
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_build/html
 
