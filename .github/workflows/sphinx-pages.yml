@@ -58,6 +58,7 @@ jobs:
           # audio lib name changed on Noble; try t64 first, then legacy
           sudo apt-get install -y --no-install-recommends libasound2t64 || \
           sudo apt-get install -y --no-install-recommends libasound2 || true
+
       - name: Check mmdc
         run: mmdc -V
 
@@ -106,7 +107,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      # Opcjonalny sync ręcznych plików API (jeśli używasz)
+      # Opcjonalny sync ręcznych plików API
       - name: Sync external API docs
         run: |
           set -euo pipefail
@@ -134,6 +135,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y doxygen
+
+      - name: Prepare Doxygen output dir
+        run: mkdir -p docs/_build/doxygen
 
       - name: Generate Doxygen XML
         run: doxygen Doxyfile
