@@ -1,40 +1,64 @@
 name: docs
+
 on:
   push:
     branches: [ master ]
     paths:
       - "docs/**"
-      - "api/**"
       - "src/**"
-      - ".github/workflows/docs.yml"
       - "Doxyfile"
+      - ".github/workflows/docs.yml"
   workflow_dispatch:
 
+concurrency:
+  group: "docs-pages"
+  cancel-in-progress: true
+
 env:
-  SPHINX_TOLERATE_ERRORS: "0"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PIP_NO_INPUT: "1"
+  # Ile równoległych workerów Sphinxa (auto = liczba rdzeni)
+  SPHINX_JOBS: "auto"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-python@v5
+      # wykrywamy zmiany w plikach konfiguracyjnych — tylko po to,
+      # by zrobić *pełny* rebuild gdy zmieni się conf.py / szablony / CSS
+      - name: Detect config/theme changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            conf:
+              - 'docs/conf.py'
+              - 'docs/_templates/**'
+              - 'docs/_static/**'
+
+      - name: Setup Python (+cache pip)
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install system deps (Doxygen + Graphviz)
-        run: |
-          set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
+          cache: 'pip'
+          cache-dependency-path: |
+            docs/requirements.txt
 
       - name: Install Python deps
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+          # Na wszelki wypadek — dociągnij krytyczne rozszerzenia (no-op gdy już są)
           python - << 'PY'
           import sys, subprocess
           def ensure(pkg):
@@ -42,39 +66,65 @@ jobs:
                   __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
               except Exception:
                   subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-          for p in [
-              "Sphinx>=7.0",
-              "pydata-sphinx-theme>=0.16.1",
-              "myst-nb>=1.0.0",
-              "sphinxcontrib-mermaid",
-              "sphinx-design>=0.6.1",
-              "breathe>=4.35.0",
-              "exhale>=0.3.7",
-          ]:
+          for p in ["breathe>=4.35.0", "exhale>=0.3.7", "sphinxcontrib-mermaid", "sphinx-design>=0.6.1"]:
               ensure(p)
-          print("✓ Python deps ready")
           PY
 
-      - name: Prepare Doxygen output dirs
-        run: |
-          mkdir -p docs/_build/doxygen/docs docs/_build/doxygen/xml
+      # Cache Doxygen XML — klucz zależy od Doxyfile i plików C++
+      - name: Cache Doxygen XML
+        id: cache_doxygen
+        uses: actions/cache@v4
+        with:
+          path: docs/_build/doxygen/xml
+          key: doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}
 
-      - name: Run Doxygen
+      # Tylko jeśli nie mamy cache — instalujemy doxygen/graphviz i generujemy XML
+      - name: Install Doxygen + Graphviz (only if needed)
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
+
+      - name: Prepare Doxygen dirs
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p docs/_build/doxygen/xml
+
+      - name: Run Doxygen (only if cache miss)
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
         run: |
           doxygen Doxyfile
           test -f docs/_build/doxygen/xml/index.xml && echo "✓ Doxygen XML ready"
 
+      # (opcjonalnie) cache Sphinx doctrees / jupyter_cache między biegami
+      # da zysk, gdy dotkniesz tylko CSS/tematu, ale treść nie ruszyła.
+      - name: Cache Sphinx artifacts
+        id: cache_sphinx
+        uses: actions/cache@v4
+        with:
+          path: |
+            docs/_build/.doctrees
+            docs/_build/.jupyter_cache
+          key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
+
+      # (jeśli używasz gen_auto_toc.py) — szybkie dorobienie brakujących indexów
       - name: Generate auto TOCs (indexes)
         run: |
-          python docs/_tools/gen_auto_toc.py docs/copilot/sphinx/code docs/autoapi || true
-
-      - name: Build Sphinx (HTML)
-        run: |
-          if [ "${{ env.SPHINX_TOLERATE_ERRORS }}" = "1" ]; then
-            sphinx-build -E -a -b html docs docs/_build/html || true
-          else
-            sphinx-build -E -a -b html docs docs/_build/html
+          if [ -f docs/_tools/gen_auto_toc.py ]; then \
+            python docs/_tools/gen_auto_toc.py docs/copilot/sphinx/code docs/autoapi || true; \
           fi
+
+      # Build Sphinx — równolegle (-j), bez wymuszania pełnego przebudowania
+      # pełny rebuild robimy *tylko* gdy zmieniły się conf/templatki/static
+      - name: Build docs (HTML)
+        env:
+          FULL_REBUILD: ${{ steps.changes.outputs.conf }}
+        run: |
+          EXTRA_OPTS=""
+          if [ "${FULL_REBUILD}" = "true" ]; then
+            EXTRA_OPTS="-E -a"
+          fi
+          sphinx-build -b html -j "${SPHINX_JOBS:-auto}" $EXTRA_OPTS docs docs/_build/html
           touch docs/_build/html/.nojekyll
 
       - name: Upload Pages artifact
@@ -84,13 +134,13 @@ jobs:
 
   deploy:
     needs: build
+    runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
