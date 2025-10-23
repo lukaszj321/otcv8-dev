@@ -1,4 +1,4 @@
-# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7.4.7, PyData 0.16.1) -----
+# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7/8, PyData >=0.16) ---------
 
 import os
 import json
@@ -8,16 +8,19 @@ from collections.abc import Mapping, Sequence
 
 # -- Project -------------------------------------------------------------------
 project = "OTClient v8 — Developer Documentation"
-author = "OTClient v8 contributors"
+author = "Dildo"
 language = "pl"
 
 # -- Paths ---------------------------------------------------------------------
 DOCS_DIR = Path(__file__).parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
+EXTRA_DIR = DOCS_DIR / "_extra"  # LDoc output lives here
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
+html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []  # LDoc HTML
 
 exclude_patterns = [
     "_build",
@@ -29,10 +32,9 @@ exclude_patterns = [
 ]
 
 # -- Extensions ----------------------------------------------------------------
-# Core extensions - always loaded
 extensions = [
-    "myst_nb",                      # MyST + notebooki (wykonanie wyłączone poniżej)
-    "sphinx.ext.autosectionlabel",  # zamiast pip-owego "sphinx-autosectionlabel"
+    "myst_nb",
+    "sphinx.ext.autosectionlabel",  # auto-id dla nagłówków
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
@@ -40,12 +42,12 @@ extensions = [
     "sphinx.ext.graphviz",
 ]
 
-# Critical extensions for Mermaid rendering - try to load, fail gracefully
+# Krytyczne (ładowane warunkowo)
 _critical_exts = [
-    "sphinxcontrib.mermaid",  # REQUIRED for Mermaid diagram rendering
-    "sphinx_design",          # REQUIRED for grid/card directives
+    "sphinxcontrib.mermaid",  # Mermaid diagrams
+    "sphinx_design",          # Grid/cards
+    "breathe",                # C++ (Doxygen -> Sphinx)
 ]
-
 for ext in _critical_exts:
     try:
         import_module(ext)
@@ -54,7 +56,7 @@ for ext in _critical_exts:
     except Exception as e:
         print(f"[conf.py] ✗ CRITICAL extension failed to load: {ext} ({e})")
 
-# Optional extensions — doładuj tylko jeśli są zainstalowane w CI
+# Opcjonalne (jeśli są zainstalowane)
 _optional_exts = [
     "sphinx_copybutton",
     "sphinx_sitemap",
@@ -64,7 +66,6 @@ _optional_exts = [
     "sphinxcontrib.jquery",
     "sphinx_hoverxref",
 ]
-
 for ext in list(_optional_exts):
     try:
         import_module(ext)
@@ -72,12 +73,12 @@ for ext in list(_optional_exts):
     except Exception:
         print(f"[conf.py] optional extension skipped: {ext}")
 
-# Bezpiecznik gdyby ktoś przez przypadek dodał myst_parser obok myst_nb
+# Bezpiecznik: nie ładuj myst_parser razem z myst_nb
 if "myst_nb" in extensions and "myst_parser" in extensions:
     extensions.remove("myst_parser")
 
 # -- MyST / Notebooks ----------------------------------------------------------
-nb_execution_mode = "off"          # nie wykonujemy komórek w CI
+nb_execution_mode = "off"
 nb_execution_timeout = 300
 
 myst_enable_extensions = [
@@ -91,18 +92,34 @@ myst_enable_extensions = [
     "smartquotes",
 ]
 myst_heading_anchors = 3
+myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
 
-# Treat certain fence types as directives (allows ```mermaid to be treated as {mermaid} directive)
-# myst-nb requires list/tuple/set format (not dict)
-myst_fence_as_directive = ["mermaid"]
-
-# Labelowanie nagłówków bez kolizji
+# Prefiksy sekcji (żądane)
 autosectionlabel_prefix_document = True
 
-# -- HTML / Theme --------------------------------------------------------------
-# Jeśli pydata-sphinx-theme nie jest zainstalowany, fallback do alabaster
+# -- Breathe (C++ via Doxygen) -------------------------------------------------
+breathe_projects = {}
+breathe_default_project = None
+if DOXY_XML.exists():
+    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+    breathe_default_project = "OTCv8 C++ API"
+else:
+    # ścieżka będzie aktualna po kroku "doxygen" w CI
+    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+    breathe_default_project = "OTCv8 C++ API"
+
+# -- Custom lexers for OTUI/OTMOD (silence warnings) ---------------------------
 try:
-    import pydata_sphinx_theme  # noqa: F401
+    from sphinx.highlighting import lexers
+    from pygments.lexers.data import YamlLexer, IniLexer
+    lexers["otui"] = YamlLexer()   # zbliżona składnia
+    lexers["otmod"] = IniLexer()
+except Exception as e:
+    print(f"[conf.py] (warn) custom lexers not set: {e}")
+
+# -- HTML / Theme --------------------------------------------------------------
+try:
+    import pydata_sphinx_theme  # noqa
     html_theme = "pydata_sphinx_theme"
 except Exception:
     print("[conf.py] pydata-sphinx-theme not available — falling back to 'alabaster'")
@@ -130,27 +147,24 @@ html_theme_options = {
     ],
 }
 
-# Publiczny URL dla sitemap/opengraph (zmień jeśli masz inny branch/URL)
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
-
 html_context = {
     "github_user": "lukaszj321",
     "github_repo": "otcv8-dev",
-    "github_version": "master",  # zmień na "main" jeśli używasz main
+    "github_version": "master",
     "doc_path": "docs",
 }
 
 # -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
-mermaid_version = "10.9.0"
-# CRITICAL: Use SVG format for server-side rendering (better for CI/Pages)
-# This generates actual SVG elements that don't require client-side JS
+# SVG = server-side via Mermaid CLI (mmdc) — konfiguracja w GitHub Actions
+mermaid_version = "10.9.1"
 mermaid_output_format = "svg"
+# init_js nie jest używane przy SVG, ale nie szkodzi gdy pozostanie:
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
-# ogp_image = html_baseurl + "_static/og.png"
 
 # -- Copybutton ----------------------------------------------------------------
 copybutton_prompt_is_regexp = True
@@ -158,7 +172,6 @@ copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
 
 # -- Hoverxref -----------------------------------------------------------------
-# (działa tylko jeśli zainstalowane; w przeciwnym razie zostanie pominięte powyżej)
 hoverxref_auto_ref = True
 hoverxref_domains = ["std"]
 hoverxref_default_type = "tooltip"
@@ -184,24 +197,14 @@ suppress_warnings = [
 # -- Todo ----------------------------------------------------------------------
 todo_include_todos = False
 
-# -- Linkcheck / Quality Control -----------------------------------------------
-# Configuration for sphinx-build -b linkcheck
-linkcheck_ignore = [
-    r'http://localhost:\d+/',
-    r'https://placehold\.co/.*',
-    r'.*\.local',
-]
+# -- Linkcheck -----------------------------------------------------------------
+linkcheck_ignore = [r'http://localhost:\d+/', r'https://placehold\.co/.*', r'.*\.local']
 linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# Nitpicky mode (optional, can be enabled with -n flag)
-# nitpicky = True
-# nitpick_ignore = []
-
 # -- Copilot Docs integration --------------------------------------------------
-# Execute the snippet to integrate copilot section
-_copilot_snippet = DOCS_DIR / "copilot/sphinx/conf_copilot_snippet.py"
+_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
 if _copilot_snippet.exists():
     try:
         exec(open(_copilot_snippet, "r", encoding="utf-8").read())
@@ -209,92 +212,77 @@ if _copilot_snippet.exists():
     except Exception as e:
         print(f"[conf.py] ✗ Error loading Copilot Docs snippet: {e}")
 
-# -- Build hooks ---------------------------------------------------------------
+# -- QA dump -------------------------------------------------------------------
 def _json_safe(obj):
-    """Convert object to JSON-serializable form"""
     if isinstance(obj, (str, int, float, bool)) or obj is None:
         return obj
     if isinstance(obj, Mapping):
         return {str(k): _json_safe(v) for k, v in obj.items()}
     if isinstance(obj, Sequence) and not isinstance(obj, (str, bytes, bytearray)):
-        return [_json_safe(x) for x in obj]
+        return [_json_safe(x) for x in seq] if (seq := list(obj)) else []
     try:
         return [_json_safe(x) for x in list(obj)]
     except Exception:
         return repr(obj)
 
 def setup(app):
-    """Setup hook to dump effective Sphinx configuration for QA"""
-    
     def dump_sphinx_env(app, exception):
-        """Dump effective Sphinx environment after build"""
         if exception is not None:
             return
-        
         try:
             qa_dir = Path(app.srcdir) / "authoring" / "qa"
             qa_dir.mkdir(parents=True, exist_ok=True)
-            
-            # Convert extensions to list safely
+
             extensions_list = []
-            if hasattr(app, 'extensions'):
+            if hasattr(app, "extensions"):
                 try:
                     extensions_list = list(app.extensions.keys())
                 except Exception:
-                    extensions_list = list(app.config.extensions) if hasattr(app.config, 'extensions') else []
-            elif hasattr(app.config, 'extensions'):
-                extensions_list = list(app.config.extensions)
-            
+                    extensions_list = list(app.config.extensions) if hasattr(app.config, "extensions") else []
+            elif hasattr(app.config, "extensions"):
+                extensions_list = list(app.config, "extensions")
+
             env_data = {
                 "extensions": extensions_list,
-                "myst_enable_extensions": list(app.config.myst_enable_extensions) if hasattr(app.config, 'myst_enable_extensions') else [],
-                "myst_fence_as_directive": list(app.config.myst_fence_as_directive) if hasattr(app.config, 'myst_fence_as_directive') else [],
-                "mermaid_output_format": getattr(app.config, 'mermaid_output_format', 'unknown'),
-                "mermaid_version": getattr(app.config, 'mermaid_version', 'unknown'),
-                "html_theme": getattr(app.config, 'html_theme', 'unknown'),
+                "myst_enable_extensions": list(getattr(app.config, "myst_enable_extensions", [])),
+                "myst_fence_as_directive": list(getattr(app.config, "myst_fence_as_directive", [])),
+                "mermaid_output_format": getattr(app.config, "mermaid_output_format", "unknown"),
+                "mermaid_version": getattr(app.config, "mermaid_version", "unknown"),
+                "html_theme": getattr(app.config, "html_theme", "unknown"),
+                "breathe_projects": getattr(app.config, "breathe_projects", {}),
+                "breathe_default_project": getattr(app.config, "breathe_default_project", None),
+                "extra_dir_exists": EXTRA_DIR.exists(),
+                "doxy_xml_exists": DOXY_XML.exists(),
             }
-            
-            # Check if mermaid directive is registered
-            if hasattr(app.registry, 'directives'):
-                env_data["mermaid_directive_registered"] = 'mermaid' in app.registry.directives
-            
-            # Get package versions
+
             try:
                 import sphinxcontrib.mermaid
-                env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, '__version__', 'unknown')
+                env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, "__version__", "unknown")
             except Exception:
                 env_data["sphinxcontrib_mermaid_version"] = "not installed"
-            
+
             try:
                 import myst_nb
-                env_data["myst_nb_version"] = getattr(myst_nb, '__version__', 'unknown')
+                env_data["myst_nb_version"] = getattr(myst_nb, "__version__", "unknown")
             except Exception:
                 env_data["myst_nb_version"] = "not installed"
-            
+
             try:
                 import sphinx_design
-                env_data["sphinx_design_version"] = getattr(sphinx_design, '__version__', 'unknown')
+                env_data["sphinx_design_version"] = getattr(sphinx_design, "__version__", "unknown")
             except Exception:
                 env_data["sphinx_design_version"] = "not installed"
-            
-            # Use _json_safe to ensure all data is serializable
-            safe_data = _json_safe(env_data)
-            
+
             output_file = qa_dir / "sphinx_env.json"
-            with open(output_file, 'w', encoding='utf-8') as f:
-                json.dump(safe_data, f, indent=2, sort_keys=True)
-            
+            with open(output_file, "w", encoding="utf-8") as f:
+                json.dump(_json_safe(env_data), f, indent=2, sort_keys=True)
             print(f"\n[conf.py] ✓ Sphinx environment dumped to: {output_file.relative_to(app.srcdir)}")
-            
         except Exception as e:
-            # Don't interrupt the build - save diagnostics and continue
             try:
                 error_file = Path(app.outdir) / "_sphinx_env_error.txt"
-                with open(error_file, 'w', encoding='utf-8') as f:
+                with open(error_file, "w", encoding="utf-8") as f:
                     f.write(f"{type(e).__name__}: {e}\n")
                 print(f"\n[conf.py] ✗ Error dumping Sphinx environment: {e}")
             except Exception:
                 pass
-    
-    # Connect to build-finished event
-    app.connect('build-finished', dump_sphinx_env)
+    app.connect("build-finished", dump_sphinx_env)
