@@ -94,19 +94,15 @@ myst_enable_extensions = [
 myst_heading_anchors = 3
 myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
 
-# Prefiksy sekcji (żądane)
+# Prefiksy sekcji (unikalne anchor-y)
 autosectionlabel_prefix_document = True
 
 # -- Breathe (C++ via Doxygen) -------------------------------------------------
 breathe_projects = {}
 breathe_default_project = None
-if DOXY_XML.exists():
-    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-    breathe_default_project = "OTCv8 C++ API"
-else:
-    # ścieżka będzie aktualna po kroku "doxygen" w CI
-    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-    breathe_default_project = "OTCv8 C++ API"
+# ścieżka stanie się istniejąca po kroku "doxygen" w CI
+breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+breathe_default_project = "OTCv8 C++ API"
 
 # -- Custom lexers for OTUI/OTMOD (silence warnings) ---------------------------
 try:
@@ -155,11 +151,10 @@ html_context = {
     "doc_path": "docs",
 }
 
-# -- Mermaid (sphinxcontrib-mermaid) -------------------------------------------
-# SVG = server-side via Mermaid CLI (mmdc) — konfiguracja w GitHub Actions
+# -- Mermaid (kliencki RAW) ----------------------------------------------------
+# Render w przeglądarce – brak Puppeteera/mmdc
 mermaid_version = "10.9.1"
-mermaid_output_format = "svg"
-# init_js nie jest używane przy SVG, ale nie szkodzi gdy pozostanie:
+mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
@@ -219,7 +214,7 @@ def _json_safe(obj):
     if isinstance(obj, Mapping):
         return {str(k): _json_safe(v) for k, v in obj.items()}
     if isinstance(obj, Sequence) and not isinstance(obj, (str, bytes, bytearray)):
-        return [_json_safe(x) for x in seq] if (seq := list(obj)) else []
+        return [_json_safe(x) for x in obj]
     try:
         return [_json_safe(x) for x in list(obj)]
     except Exception:
