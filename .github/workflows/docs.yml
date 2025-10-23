@@ -6,138 +6,98 @@ on:
       - "docs/**"
       - "api/**"
       - "src/**"
-      - "modules/**"
-      - "Doxyfile"
       - ".github/workflows/docs.yml"
+      - "Doxyfile"
   workflow_dispatch:
+
+env:
+  # Ustaw na "1", jeśli chcesz tymczasowo przepuścić build mimo błędów treści.
+  SPHINX_TOLERATE_ERRORS: "0"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 1 }
+        with:
+          fetch-depth: 1
 
       - uses: actions/setup-python@v5
-        with: { python-version: "3.11" }
+        with:
+          python-version: "3.11"
 
-      # system deps pod Doxygen/LDoc
-      - name: Install system deps
+      - name: Install system deps (Doxygen + Graphviz)
         run: |
+          set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            doxygen graphviz luarocks
-          doxygen -v || true
-          dot -V || true
-          luarocks --version || true
+          sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
 
-      - name: Install deps (pip)
+      - name: Install Python deps
         run: |
           python -m pip install --upgrade pip
-          pip install -r docs/requirements.txt
+          if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+          # Zapewnij krytyczne pakiety
           python - << 'PY'
-          import sys
-          for mod in ("sphinxcontrib.mermaid","myst_nb","sphinx_design","breathe"):
+          import sys, subprocess
+          def ensure(pkg):
               try:
-                  __import__(mod)
-                  print("✓", mod, "ok")
-              except Exception as e:
-                  print("✗ missing:", mod, e); sys.exit(1)
+                  __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
+              except Exception:
+                  subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+          for p in [
+              "Sphinx>=7.0",
+              "pydata-sphinx-theme>=0.16.1",
+              "myst-nb>=1.0.0",
+              "sphinxcontrib-mermaid",
+              "sphinx-design>=0.6.1",
+              "breathe>=4.35.0",
+              "exhale>=0.3.7",
+            ]:
+              ensure(p)
+          print("✓ Python deps ready")
           PY
 
-      # sanity fix – brakujących CSV + usunięcie błędnych '---' na początku dokumentów
-      - name: Preflight content fixes (CSV & leading transitions)
+      - name: Prepare Doxygen output dirs
         run: |
-          python - << 'PY'
-          import pathlib, re, os, csv
-          root = pathlib.Path("docs")
-          # 1) CSV placeholders: musi być nagłówek + min. 1 wiersz
-          need = [
-              "authoring/_instructions/datasets/summary.csv",
-              "authoring/_instructions/datasets/ui_widgets.csv",
-              "authoring/_instructions/datasets/ui_signals.csv",
-              "authoring/_instructions/datasets/rag_chunks.csv",
-              "authoring/_instructions/datasets/events_matrix.csv",
-          ]
-          for rel in need:
-              p = root / rel
-              p.parent.mkdir(parents=True, exist_ok=True)
-              if not p.exists() or p.stat().st_size == 0:
-                  with p.open("w", encoding="utf-8", newline="") as f:
-                      w = csv.writer(f)
-                      w.writerow(["col1","col2"])
-                      w.writerow(["TODO","placeholder"])
-                  print("created:", p)
-          # 2) Usuń wiodące i zduplikowane '---' (transition) na starcie plików
-          for ext in ("*.md","*.md.rst","*.rst"):
-              for path in root.rglob(ext):
-                  try:
-                      text = path.read_text(encoding="utf-8")
-                  except Exception: 
-                      continue
-                  # usuń wszystkie wiodące linie '---' / '***' / '___'
-                  new = re.sub(r"^(?:[ \t]*[-*_]{3,}[ \t]*\n)+", "", text, flags=re.MULTILINE)
-                  # zredukuj sąsiadujące przejścia do jednego i zostaw pustą linię
-                  new = re.sub(r"([ \t]*[-*_]{3,}[ \t]*\n){2,}", "---\n\n", new)
-                  if new != text:
-                      path.write_text(new, encoding="utf-8")
-                      print("patched transitions:", path)
-          PY
+          mkdir -p docs/_build/doxygen docs/_build/doxygen/xml
 
-      # Twoje dotychczasowe fixery
-      - name: Run content hygiene fixers
+      - name: Run Doxygen
         run: |
-          echo "=== Running Content Hygiene Tools ==="
+          doxygen Doxyfile
+          test -f docs/_build/doxygen/xml/index.xml && echo "✓ Doxygen XML ready"
+
+      - name: Generate auto TOCs (indexes)
+        run: |
+          # Skrypt dodany wcześniej do repo: docs/_tools/gen_auto_toc.py
+          python docs/_tools/gen_auto_toc.py docs/copilot/sphinx/code docs/autoapi || true
+
+      - name: Run content hygiene tools (optional)
+        run: |
           python3 docs/authoring/_tools/mermaid_force_directive.py || true
           python3 docs/authoring/_tools/mermaid_unescape_fix.py || true
           python3 docs/authoring/_tools/myst_dedent_fix.py || true
           python3 docs/authoring/_tools/frontmatter_fix.py || true
           python3 docs/authoring/_tools/mermaid_lint_fix.py || true
-          ./docs/authoring/_tools/qa_rerun.sh || true
 
-      # Doxygen → Breathe
-      - name: Generate Doxygen XML
+      - name: Build Sphinx (HTML)
         run: |
-          mkdir -p docs/_build/doxygen
-          doxygen Doxyfile
-          test -f docs/_build/doxygen/xml/index.xml
+          if [ "${{ env.SPHINX_TOLERATE_ERRORS }}" = "1" ]; then
+            sphinx-build -E -a -b html docs docs/_build/html || true
+          else
+            sphinx-build -E -a -b html docs docs/_build/html
+          fi
+          touch docs/_build/html/.nojekyll
 
-      # LDoc → Lua (src / modules, osobno)
-      - name: LDoc (local) + PATH
-        run: |
-          luarocks install --local ldoc
-          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
-      - name: Generate LDoc (modules & src)
-        run: |
-          mkdir -p docs/_extra
-          ldoc -d docs/_extra/ldoc-modules modules || true
-          ldoc -d docs/_extra/ldoc-src src || true
-
-      # Build Sphinx
-      - name: Build docs
-        run: |
-          python scripts/build_authoring_pages.py || true
-          if [ -f scripts/patch_diagrams_clicks.py ]; then python scripts/patch_diagrams_clicks.py; fi
-          sphinx-build -b html docs docs/_build/html
-
-      - name: Verify Mermaid rendering
-        run: |
-          echo "=== Verifying Mermaid Rendering ==="
-          python3 docs/authoring/_tools/verify_mermaid_rendering.py || echo "⚠ Verification found issues"
-
-      - name: Generate LIVE proofs
-        run: |
-          echo "=== Generating LIVE Proofs ==="
-          python3 docs/authoring/_tools/generate_live_proofs.py || true
-
-      - name: Upload pages
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_build/html
 
   deploy:
     needs: build
-    permissions: { pages: write, id-token: write }
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
