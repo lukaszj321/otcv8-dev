@@ -1,5 +1,10 @@
-# OTCv8 — Lua API
+# OTCv8 — Lua API katalog modules
 
 :::{admonition} Dokumentacja Lua
-Wygenerowana przez **LDoc**. Otwórz: {doc}`../_extra/ldoc/index.html`
+Generowana przez **LDoc** z `modules/`.
+
+- Lokalnie: `ldoc -d docs/_extra/ldoc modules`
+- W CI robimy to automatycznie.
+
+Otwórz: {doc}`../_extra/ldoc/index.html`
 :::
