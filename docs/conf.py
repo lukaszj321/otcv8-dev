@@ -100,9 +100,19 @@ autosectionlabel_prefix_document = True
 # -- Breathe (C++ via Doxygen) -------------------------------------------------
 breathe_projects = {}
 breathe_default_project = None
-# ścieżka stanie się istniejąca po kroku "doxygen" w CI
-breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-breathe_default_project = "OTCv8 C++ API"
+
+DOXY_INDEX = DOXY_XML / "index.xml"
+if DOXY_INDEX.exists():
+    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+    breathe_default_project = "OTCv8 C++ API"
+    print(f"[conf.py] ✓ Doxygen XML detected: {DOXY_INDEX}")
+else:
+    # Gdy brak XML, wyłącz Breathe i pomiń stronę C++
+    if "breathe" in extensions:
+        extensions.remove("breathe")
+    exclude_patterns += ["autoapi/cpp/**"]
+    print(f"[conf.py] ⚠ Doxygen XML not found ({DOXY_INDEX}). "
+          f"Disabling Breathe and excluding 'autoapi/cpp/**'.")
 
 # -- Custom lexers for OTUI/OTMOD (silence warnings) ---------------------------
 try:
@@ -123,20 +133,25 @@ except Exception:
 
 html_title = "OTClient v8 — Authoring & API"
 
+# CSS (kolejność ma znaczenie – ostatnie nadpisują wcześniejsze)
 html_css_files = []
 def _add_css(path: str):
     if (STATIC_DIR / path).exists():
         html_css_files.append(path)
 
-# Kolejność ma znaczenie – ostatnie nadpisują wcześniejsze
 for _p in [
     "tables.css",
     "tables-premium.css",
     "custom-dark-mermaid.css",
     "css/custom.css",
-    "css/layout.css",
+    "css/layout.css",  # szerokości kolumn / responsywność
 ]:
     _add_css(_p)
+
+# JS (inicjalizacja Mermaid po stronie klienta)
+html_js_files = []
+if (STATIC_DIR / "custom.js").exists():
+    html_js_files.append("custom.js")
 
 html_theme_options = {
     "use_edit_page_button": True,
@@ -151,7 +166,6 @@ html_theme_options = {
     ],
 }
 
-
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 html_context = {
     "github_user": "lukaszj321",
@@ -161,10 +175,10 @@ html_context = {
 }
 
 # -- Mermaid (kliencki RAW) ----------------------------------------------------
-# Render w przeglądarce – brak Puppeteera/mmdc
+# Render w przeglądarce – brak Puppeteera/mmdc w CI
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
-mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
+mermaid_init_js = ""  # inicjalizacja wykonana w _static/custom.js
 
 # -- OpenGraph / SEO -----------------------------------------------------------
 ogp_site_url = html_baseurl
@@ -237,14 +251,15 @@ def setup(app):
             qa_dir = Path(app.srcdir) / "authoring" / "qa"
             qa_dir.mkdir(parents=True, exist_ok=True)
 
+            # Bezpieczne pobranie listy rozszerzeń
             extensions_list = []
-            if hasattr(app, "extensions"):
-                try:
+            try:
+                if hasattr(app, "extensions"):
                     extensions_list = list(app.extensions.keys())
-                except Exception:
-                    extensions_list = list(app.config.extensions) if hasattr(app.config, "extensions") else []
-            elif hasattr(app.config, "extensions"):
-                extensions_list = list(app.config, "extensions")
+                elif hasattr(app.config, "extensions"):
+                    extensions_list = list(getattr(app.config, "extensions", []))
+            except Exception:
+                extensions_list = list(getattr(app.config, "extensions", []))
 
             env_data = {
                 "extensions": extensions_list,
@@ -256,7 +271,7 @@ def setup(app):
                 "breathe_projects": getattr(app.config, "breathe_projects", {}),
                 "breathe_default_project": getattr(app.config, "breathe_default_project", None),
                 "extra_dir_exists": EXTRA_DIR.exists(),
-                "doxy_xml_exists": DOXY_XML.exists(),
+                "doxy_xml_exists": (DOXY_XML / "index.xml").exists(),
             }
 
             try:
