@@ -98,7 +98,7 @@ flowchart TB
     style Core fill:#2d5a8c,stroke:#4a90e2,stroke-width:3px
     style Modules fill:#2d5a3c,stroke:#4ae24a,stroke-width:2px
     style UI fill:#5a2d8c,stroke:#904ae2,stroke-width:2px
-```
+````
 
 ## Struktura dokumentacji
 
@@ -115,6 +115,14 @@ ui/index
 authoring/index
 rag/index
 workbench/index
+```
+
+```{toctree}
+:hidden:
+:maxdepth: 2
+:caption: API (Auto)
+
+autoapi/index
 ```
 
 ```{toctree}
@@ -147,9 +155,9 @@ tools/index
 
 ## Dodatkowe zasoby
 
-- 🔗 **GitHub**: [lukaszj321/otcv8-dev](https://github.com/lukaszj321/otcv8-dev)
-- 📖 **Edit on GitHub**: Każda strona ma link do edycji
-- 🔍 **Wyszukiwarka**: Użyj pola wyszukiwania w górnym pasku
-- 🌓 **Motyw**: Przełącznik jasny/ciemny w prawym górnym rogu
+* 🔗 **GitHub**: [lukaszj321/otcv8-dev](https://github.com/lukaszj321/otcv8-dev)
+* 📖 **Edit on GitHub**: Każda strona ma link do edycji
+* 🔍 **Wyszukiwarka**: Użyj pola wyszukiwania w górnym pasku
+* 🌓 **Motyw**: Przełącznik jasny/ciemny w prawym górnym rogu
 
 ---
