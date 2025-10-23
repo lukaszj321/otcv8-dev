@@ -1,4 +1,4 @@
-// Tiny slider for the homepage
+// Tiny slider (zostawiam Twój)
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".simple-slider").forEach(slider => {
     const slides = slider.querySelectorAll(".slide");
@@ -12,26 +12,38 @@ document.addEventListener("DOMContentLoaded", () => {
       slides[idx].classList.add("active");
     }, interval);
   });
-});
 
-// Mermaid init + re-render on theme change / navigation
-(function () {
-  function ensureMermaid(cb) {
-    if (window.mermaid) return cb();
-    const s = document.createElement("script");
-    s.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
-    s.onload = cb;
-    document.head.appendChild(s);
-  }
-  function renderMermaid() {
+  // --- Mermaid: zamień PRE>CODE.language-mermaid na <div class="mermaid"> ---
+  // (naprawia przypadki, gdy blok był jako ```mermaid lub - co gorsza - ```bash)
+  if (window.mermaid) {
     try {
-      window.mermaid?.initialize({ startOnLoad: false, theme: "dark" });
-      const nodes = document.querySelectorAll("div.mermaid");
-      if (nodes.length) window.mermaid?.run({ nodes: nodes });
-    } catch (_) {}
+      // Inicjalizacja klienta (pasuje do conf.py -> mermaid_output_format="raw")
+      window.mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+
+      // 1) napraw „źle opisane” bloki mermaid (np. language-mermaid)
+      document.querySelectorAll('pre code.language-mermaid').forEach(code => {
+        const src = code.textContent.trim();
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = src;
+        code.closest('pre').replaceWith(div);
+      });
+
+      // 2) gdy ktoś wrzucił mermaida błędnie pod ```bash, ale treść wygląda na mermaid
+      document.querySelectorAll('pre code.language-bash, pre code.language-text').forEach(code => {
+        const txt = code.textContent.trim();
+        if (/^(sequenceDiagram|flowchart|classDiagram|erDiagram|gantt|graph\s+(TB|TD|LR|RL|BT))/m.test(txt)) {
+          const div = document.createElement('div');
+          div.className = 'mermaid';
+          div.textContent = txt;
+          code.closest('pre').replaceWith(div);
+        }
+      });
+
+      // 3) zrenderuj wszystkie .mermaid
+      window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    } catch (e) {
+      console.warn('Mermaid init failed:', e);
+    }
   }
-  const kick = () => ensureMermaid(renderMermaid);
-  document.addEventListener("DOMContentLoaded", kick);
-  document.addEventListener("pydata:toggle-theme", kick);
-  document.addEventListener("DOMContentSwitch", kick);
-})();
+});
