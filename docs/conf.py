@@ -15,8 +15,8 @@ language = "pl"
 DOCS_DIR = Path(__file__).parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"         # LDoc output (HTML) tutaj
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"  # Doxygen -> Breathe/Exhale
+EXTRA_DIR = DOCS_DIR / "_extra"         # LDoc HTML
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
@@ -81,25 +81,28 @@ myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
 autosectionlabel_prefix_document = True
 
 # -- Breathe / Exhale (C++ via Doxygen) ---------------------------------------
-# Breathe będzie czytał z DOXY_XML (utworzy to workflow).
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
 
-# Exhale wygeneruje drzewo toctree w docs/autoapi/cpp
+# WYMAGANE przez Exhale: doxygenStripFromPath
 exhale_args = {
     "containmentFolder": str(DOCS_DIR / "autoapi" / "cpp"),
     "rootFileName": "index.rst",
     "rootFileTitle": "OTCv8 C++ API",
     "createTreeView": True,
+    # Ścieżka, którą Exhale „wytnie” z początków plików Doxygen,
+    # żeby ścieżki w nawigacji były krótsze. Repo root:
+    "doxygenStripFromPath": str(DOCS_DIR.parent.resolve()),
 }
 primary_domain = "cpp"
 highlight_language = "cpp"
 
-# -- Custom lexers for OTUI/OTMOD (ciszej przy podglądzie) --------------------
+# -- Custom lexers for OTUI/OTMOD ---------------------------------------------
 try:
     from sphinx.highlighting import lexers
-    from pygments.lexers.data import YamlLexer, IniLexer
-    lexers["otui"] = YamlLexer()
+    from pygments.lexers.data import YamlLexer
+    from pygments.lexers.configs import IniLexer  # poprawiony import
+    lexers["otui"] = YamlLexer()   # zbliżona składnia
     lexers["otmod"] = IniLexer()
 except Exception as e:
     print(f"[conf.py] (warn) custom lexers not set: {e}")
@@ -151,9 +154,9 @@ html_context = {
     "doc_path": "docs",
 }
 
-# -- Mermaid (kliencki render, spójny z PyData) --------------------------------
+# -- Mermaid (render w przeglądarce) ------------------------------------------
 mermaid_version = "10.9.1"
-mermaid_output_format = "raw"  # render w przeglądarce
+mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
