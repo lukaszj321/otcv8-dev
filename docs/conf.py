@@ -1,4 +1,4 @@
-# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7/8, PyData >=0.16) ---------
+# -- OTClient v8 Dev Docs — Sphinx config -------------------------------------
 
 import os
 import json
@@ -13,14 +13,15 @@ language = "pl"
 
 # -- Paths ---------------------------------------------------------------------
 DOCS_DIR = Path(__file__).parent.resolve()
+REPO_ROOT = DOCS_DIR.parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"         # LDoc HTML
+EXTRA_DIR = DOCS_DIR / "_extra"              # LDoc output lives here
 DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
-html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []
+html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []  # LDoc HTML
 
 exclude_patterns = [
     "_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints",
@@ -47,14 +48,10 @@ for ext in ["sphinxcontrib.mermaid", "sphinx_design", "breathe", "exhale"]:
     except Exception as e:
         print(f"[conf.py] ✗ CRITICAL extension failed to load: {ext} ({e})")
 
-# Opcjonalne
+# Opcjonalne (jeśli są zainstalowane)
 for ext in [
-    "sphinx_copybutton",
-    "sphinx_sitemap",
-    "sphinxext.opengraph",
-    "sphinx_favicon",
-    "sphinx_codeautolink",
-    "sphinxcontrib.jquery",
+    "sphinx_copybutton", "sphinx_sitemap", "sphinxext.opengraph",
+    "sphinx_favicon", "sphinx_codeautolink", "sphinxcontrib.jquery",
     "sphinx_hoverxref",
 ]:
     try:
@@ -63,45 +60,50 @@ for ext in [
     except Exception:
         print(f"[conf.py] optional extension skipped: {ext}")
 
-# Nie ładuj myst_parser razem z myst_nb
+# Bezpiecznik: nie ładuj myst_parser razem z myst_nb
 if "myst_nb" in extensions and "myst_parser" in extensions:
     extensions.remove("myst_parser")
 
 # -- MyST / Notebooks ----------------------------------------------------------
 nb_execution_mode = "off"
 nb_execution_timeout = 300
+
 myst_enable_extensions = [
     "colon_fence", "deflist", "substitution", "linkify",
     "attrs_block", "attrs_inline", "tasklist", "smartquotes",
 ]
 myst_heading_anchors = 3
-myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
+# mapuje ```mermaid -> {mermaid}
+myst_fence_as_directive = ["mermaid"]
 
-# Prefiksy nagłówków (unikalne ID)
+# Unikalne anchor-y per dokument
 autosectionlabel_prefix_document = True
 
 # -- Breathe / Exhale (C++ via Doxygen) ---------------------------------------
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
 
-# WYMAGANE przez Exhale: doxygenStripFromPath
+# Exhale – generuje toctree z Doxygen XML
 exhale_args = {
+    # gdzie Exhale ma wygenerować drzewo stron
     "containmentFolder": str(DOCS_DIR / "autoapi" / "cpp"),
     "rootFileName": "index.rst",
     "rootFileTitle": "OTCv8 C++ API",
     "createTreeView": True,
-    # Ścieżka, którą Exhale „wytnie” z początków plików Doxygen,
-    # żeby ścieżki w nawigacji były krótsze. Repo root:
-    "doxygenStripFromPath": str(DOCS_DIR.parent.resolve()),
+    # klucz wymagany przez Exhale (poprawia czytelność ścieżek)
+    "doxygenStripFromPath": str(REPO_ROOT),
+    # doxygen uruchamiany w CI (workflow), więc tutaj False
+    "exhaleExecutesDoxygen": False,
 }
 primary_domain = "cpp"
 highlight_language = "cpp"
 
-# -- Custom lexers for OTUI/OTMOD ---------------------------------------------
+# -- Custom lexers for OTUI/OTMOD (cisza dla highlightingu) --------------------
 try:
     from sphinx.highlighting import lexers
+    # IniLexer przeniesiono do pygments.lexers.configs
+    from pygments.lexers.configs import IniLexer
     from pygments.lexers.data import YamlLexer
-    from pygments.lexers.configs import IniLexer  # poprawiony import
     lexers["otui"] = YamlLexer()   # zbliżona składnia
     lexers["otmod"] = IniLexer()
 except Exception as e:
@@ -117,31 +119,37 @@ except Exception:
 
 html_title = "OTClient v8 — Authoring & API"
 
-# CSS/JS (kolejność: ostatnie nadpisują wcześniejsze)
+# CSS
 html_css_files = []
 def _add_css(path: str):
     if (STATIC_DIR / path).exists():
         html_css_files.append(path)
-for _p in ["tables.css", "tables-premium.css", "custom-dark-mermaid.css",
-           "css/custom.css", "css/layout.css"]:
+
+# Kolejność ma znaczenie – ostatnie nadpisują wcześniejsze
+for _p in [
+    "tables.css",
+    "tables-premium.css",
+    "custom-dark-mermaid.css",
+    "css/custom.css",
+    "css/layout.css",   # <== nowe reguły layoutu
+]:
     _add_css(_p)
 
+# JS (musimy jawnie dodać custom.js)
 html_js_files = []
-def _add_js(path: str):
-    if (STATIC_DIR / path).exists():
-        html_js_files.append(path)
-for _j in ["custom.js", "css/canonical-fix.js"]:
-    _add_js(_j)
+if (STATIC_DIR / "custom.js").exists():
+    html_js_files.append("custom.js")
 
 html_theme_options = {
     "use_edit_page_button": True,
-    "show_nav_level": 2,
+    "show_nav_level": 2,                # rozwinięcie lewej nawigacji
     "navigation_with_keys": True,
     "show_prev_next": True,
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev",
+        {"name": "GitHub",
+         "url": "https://github.com/lukaszj321/otcv8-dev",
          "icon": "fa-brands fa-github", "type": "fontawesome"},
     ],
 }
@@ -154,9 +162,10 @@ html_context = {
     "doc_path": "docs",
 }
 
-# -- Mermaid (render w przeglądarce) ------------------------------------------
+# -- Mermaid (kliencki RAW) ----------------------------------------------------
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
+# motyw ustalimy CSS/JS; init bazowy:
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
@@ -226,10 +235,16 @@ def setup(app):
         try:
             qa_dir = Path(app.srcdir) / "authoring" / "qa"
             qa_dir.mkdir(parents=True, exist_ok=True)
-            try:
-                extensions_list = list(app.extensions.keys())
-            except Exception:
-                extensions_list = list(getattr(app.config, "extensions", []))
+
+            extensions_list = []
+            if hasattr(app, "extensions"):
+                try:
+                    extensions_list = list(app.extensions.keys())
+                except Exception:
+                    extensions_list = list(app.config.extensions) if hasattr(app.config, "extensions") else []
+            elif hasattr(app.config, "extensions"):
+                extensions_list = list(app.config, "extensions")
+
             env_data = {
                 "extensions": extensions_list,
                 "myst_enable_extensions": list(getattr(app.config, "myst_enable_extensions", [])),
@@ -242,21 +257,25 @@ def setup(app):
                 "extra_dir_exists": EXTRA_DIR.exists(),
                 "doxy_xml_exists": DOXY_XML.exists(),
             }
+
             try:
                 import sphinxcontrib.mermaid
                 env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, "__version__", "unknown")
             except Exception:
                 env_data["sphinxcontrib_mermaid_version"] = "not installed"
+
             try:
                 import myst_nb
                 env_data["myst_nb_version"] = getattr(myst_nb, "__version__", "unknown")
             except Exception:
                 env_data["myst_nb_version"] = "not installed"
+
             try:
                 import sphinx_design
                 env_data["sphinx_design_version"] = getattr(sphinx_design, "__version__", "unknown")
             except Exception:
                 env_data["sphinx_design_version"] = "not installed"
+
             output_file = qa_dir / "sphinx_env.json"
             with open(output_file, "w", encoding="utf-8") as f:
                 json.dump(_json_safe(env_data), f, indent=2, sort_keys=True)
