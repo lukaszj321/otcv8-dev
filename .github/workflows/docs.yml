@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 
 env:
-  # Ustaw na "1", jeśli chcesz tymczasowo przepuścić build mimo błędów treści.
   SPHINX_TOLERATE_ERRORS: "0"
 
 jobs:
@@ -36,7 +35,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Zapewnij krytyczne pakiety
           python - << 'PY'
           import sys, subprocess
           def ensure(pkg):
@@ -52,14 +50,14 @@ jobs:
               "sphinx-design>=0.6.1",
               "breathe>=4.35.0",
               "exhale>=0.3.7",
-            ]:
+          ]:
               ensure(p)
           print("✓ Python deps ready")
           PY
 
       - name: Prepare Doxygen output dirs
         run: |
-          mkdir -p docs/_build/doxygen docs/_build/doxygen/xml
+          mkdir -p docs/_build/doxygen/docs docs/_build/doxygen/xml
 
       - name: Run Doxygen
         run: |
@@ -68,16 +66,7 @@ jobs:
 
       - name: Generate auto TOCs (indexes)
         run: |
-          # Skrypt dodany wcześniej do repo: docs/_tools/gen_auto_toc.py
           python docs/_tools/gen_auto_toc.py docs/copilot/sphinx/code docs/autoapi || true
-
-      - name: Run content hygiene tools (optional)
-        run: |
-          python3 docs/authoring/_tools/mermaid_force_directive.py || true
-          python3 docs/authoring/_tools/mermaid_unescape_fix.py || true
-          python3 docs/authoring/_tools/myst_dedent_fix.py || true
-          python3 docs/authoring/_tools/frontmatter_fix.py || true
-          python3 docs/authoring/_tools/mermaid_lint_fix.py || true
 
       - name: Build Sphinx (HTML)
         run: |
