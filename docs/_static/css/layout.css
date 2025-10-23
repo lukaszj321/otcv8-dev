@@ -1,49 +1,33 @@
 /* --- Layout tuning for PyData theme --- */
-
-/* Szerokość środkowej kolumny (treści) */
-:root {
-  --pst-content-max-width: 1400px;
+:root{
+  /* środek może być szeroki */
+  --pst-content-max-width: 1500px;
+  /* precyzyjnie sterujemy siatką kolumn */
+  --pst-sidebar-primary-width: 16rem;
+  --pst-sidebar-secondary-width: 18rem;
 }
 
-/* Desktop: zwęż lewy/prawy sidebar, poszerz treść */
-@media (min-width: 1200px){
-  /* Lewy sidebar (nawigacja) */
-  .bd-sidebar-primary{
-    width: 15rem;
-    flex: 0 0 15rem;
-    max-width: 15rem;
-  }
-
-  /* Prawy sidebar (TOC) — szerszy, bez poziomego scrolla, zawijanie długich linii */
-  .bd-sidebar-secondary{
-    width: 18rem;
-    flex: 0 0 18rem;
-    max-width: 18rem;
-  }
-  .bd-sidebar-secondary .bd-toc{
-    overflow-x: hidden;
-  }
-  .bd-sidebar-secondary .bd-toc nav a{
-    white-space: normal;       /* pozwól zawijać */
-    overflow-wrap: anywhere;   /* łam nawet w środku słów/linków */
-    text-overflow: initial;
-  }
-
-  /* Treść bez dodatkowych limitów szerokości */
-  .bd-content,
-  .bd-main .bd-content .bd-article-container{
-    max-width: none;
-  }
+/* lewy TOC: zawijanie + brak poziomego scrolla */
+.bd-sidebar-primary{ overflow-x: hidden; }
+.bd-sidebar-primary nav a{
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: initial;
 }
 
-/* --- Mermaid diagrams --- */
-/* Usuń „dziwne” wcięcia i pilnuj szerokości SVG */
-.bd-article .mermaid{
-  margin: 1rem 0;
-  max-width: 100%;
+/* prawy TOC: jw. */
+.bd-sidebar-secondary{ overflow-x: hidden; }
+.bd-sidebar-secondary .bd-toc,
+.bd-sidebar-secondary .bd-toc nav{ overflow-x: hidden; max-width: 100%; }
+.bd-sidebar-secondary .bd-toc nav a{
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: initial;
 }
-.bd-article .mermaid svg{
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+
+/* treść bez sztucznych limitów szerokości kontenera artykułu */
+.bd-content, .bd-main .bd-content .bd-article-container{ max-width: none; }
+
+/* --- Mermaid --- */
+.bd-article .mermaid{ margin: 1rem 0; max-width: 100%; }
+.bd-article .mermaid svg{ display: block; max-width: 100%; height: auto; }
