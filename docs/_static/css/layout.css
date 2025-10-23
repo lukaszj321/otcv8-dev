@@ -1,27 +1,20 @@
-/* Maksymalna szerokość treści + sensowne kolumny TOC */
-:root {
-  --pst-content-max-width: 1450px;       /* więcej miejsca na środek */
-  --pst-sidebar-primary-width: 280px;    /* lewy spis */
-  --pst-sidebar-secondary-width: 300px;  /* prawy spis */
+/* --- SZEROKOŚCI KOLUMN / SIATKA --- */
+@media (min-width: 1200px) {
+  /* 230px lewy TOC, szeroki środek, 260px prawy TOC */
+  .bd-page {
+    grid-template-columns: 230px minmax(0, 1fr) 260px !important;
+  }
 }
-
-/* Ucinamy poziomy scroll w paskach bocznych i łamiemy długie etykiety */
-.bd-sidebar, .bd-toc {
-  overflow-x: hidden;
-}
-.bd-toc a, .bd-sidebar a {
-  overflow-wrap: anywhere;
+/* brak poziomego scrolla w sidebarach + łamanie długich labeli */
+.bd-sidebar-primary .sidebar-primary-items,
+.bd-sidebar-secondary .sidebar-secondary-items {
+  overflow-x: hidden !important;
   word-break: break-word;
-  white-space: normal;
 }
 
-/* Karty/siatki niech nie wpychają bocznych marginesów */
-.bd-main .container, .bd-page-width {
-  max-width: var(--pst-content-max-width);
-}
-
-/* Mermaid: żadnych niepotrzebnych wcięć i poziomych scrolli */
-.mermaid {
+/* --- MERMAID: bez lewego wcięcia, pełna szerokość --- */
+div.mermaid {
   margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
