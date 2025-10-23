@@ -12,4 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
       slides[idx].classList.add("active");
     }, interval);
   });
+
+  // Mermaid client-side render (for output_format="raw")
+  try {
+    if (window.mermaid && window.mermaid.initialize) {
+      window.mermaid.initialize({ startOnLoad: false, theme: "dark", securityLevel: "loose" });
+      window.mermaid.init(undefined, document.querySelectorAll(".mermaid"));
+    }
+  } catch (e) {
+    console.warn("Mermaid init failed:", e);
+  }
 });
