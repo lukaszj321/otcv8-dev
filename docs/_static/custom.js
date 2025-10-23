@@ -14,44 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/**
- * Mermaid fallback fixer:
- * Jeśli jakiś diagram trafił do HTML jako <pre><code> zamiast <div class="mermaid">,
- * to zamieniamy go w locie (po stronie przeglądarki).
- * Heurystyka: linia zaczyna się od 'graph ', 'sequenceDiagram', 'flowchart '
- * lub zawiera '%%{init:' z Mermaid init.
- */
-function tryFixMermaidCodeBlocks() {
-  const candidates = document.querySelectorAll('pre > code');
-  candidates.forEach(code => {
-    const raw = code.textContent.trim();
-    const looksLikeMermaid =
-      raw.startsWith('graph ') ||
-      raw.startsWith('flowchart ') ||
-      raw.startsWith('sequenceDiagram') ||
-      raw.startsWith('classDiagram') ||
-      raw.startsWith('stateDiagram') ||
-      raw.startsWith('erDiagram') ||
-      raw.includes('%%{init:');
-
-    if (!looksLikeMermaid) return;
-
-    // Zamiana <pre><code>...</code></pre> -> <div class="mermaid">...</div>
-    const pre = code.parentElement;
-    const mer = document.createElement('div');
-    mer.className = 'mermaid';
-    mer.textContent = raw;
-    pre.replaceWith(mer);
-  });
-
-  // re-render Mermaid (jeśli biblioteka już załadowana)
-  if (window.mermaid && typeof window.mermaid.init === 'function') {
-    try { window.mermaid.init(); } catch(e) { /* no-op */ }
+// Mermaid init + re-render on theme change / navigation
+(function () {
+  function ensureMermaid(cb) {
+    if (window.mermaid) return cb();
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
+    s.onload = cb;
+    document.head.appendChild(s);
   }
-}
-
-document.addEventListener('DOMContentLoaded', tryFixMermaidCodeBlocks);
-document.addEventListener('keydown', (ev) => {
-  // po szukaniu/nawigacji - czasem content się dogrywa: spróbuj ponownie
-  if (ev.key === 'Escape') tryFixMermaidCodeBlocks();
-});
+  function renderMermaid() {
+    try {
+      window.mermaid?.initialize({ startOnLoad: false, theme: "dark" });
+      const nodes = document.querySelectorAll("div.mermaid");
+      if (nodes.length) window.mermaid?.run({ nodes: nodes });
+    } catch (_) {}
+  }
+  const kick = () => ensureMermaid(renderMermaid);
+  document.addEventListener("DOMContentLoaded", kick);
+  document.addEventListener("pydata:toggle-theme", kick);
+  document.addEventListener("DOMContentSwitch", kick);
+})();
