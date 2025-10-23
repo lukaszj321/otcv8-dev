@@ -1,0 +1,13 @@
+# Doxygen config for OTCv8
+PROJECT_NAME       = "OTCv8"
+OUTPUT_DIRECTORY   = docs/_build/doxygen
+GENERATE_XML       = YES
+XML_OUTPUT         = xml
+RECURSIVE          = YES
+INPUT              = src
+FILE_PATTERNS      = *.h *.hpp *.hh *.cpp *.cc
+EXTRACT_ALL        = YES
+EXTRACT_PRIVATE    = NO
+QUIET              = YES
+JAVADOC_AUTOBRIEF  = YES
+WARN_IF_UNDOCUMENTED = NO
