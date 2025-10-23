@@ -1,10 +1,6 @@
-# OTCv8 — Lua API katalog modules
+# OTCv8 — Lua API automat
 
-:::{admonition} Dokumentacja Lua
-Generowana przez **LDoc** z `modules/`.
-
-- Lokalnie: `ldoc -d docs/_extra/ldoc modules`
-- W CI robimy to automatycznie.
-
-Otwórz: {doc}`../_extra/ldoc/index.html`
+:::{admonition} Dwie sekcje Lua, osobno dla katalogów
+- **Modules** → {doc}`../_extra/ldoc-modules/index`
+- **Src (Lua w src/)** → {doc}`../_extra/ldoc-src/index`
 :::
