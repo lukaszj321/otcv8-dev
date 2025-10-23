@@ -122,9 +122,21 @@ except Exception:
     html_theme = "alabaster"
 
 html_title = "OTClient v8 — Authoring & API"
+
 html_css_files = []
-if (STATIC_DIR / "tables-premium.css").exists():
-    html_css_files.append("tables-premium.css")
+def _add_css(path: str):
+    if (STATIC_DIR / path).exists():
+        html_css_files.append(path)
+
+# Kolejność ma znaczenie – ostatnie nadpisują wcześniejsze
+for _p in [
+    "tables.css",
+    "tables-premium.css",
+    "custom-dark-mermaid.css",
+    "css/custom.css",
+    "css/layout.css",
+]:
+    _add_css(_p)
 
 html_theme_options = {
     "use_edit_page_button": True,
@@ -134,14 +146,11 @@ html_theme_options = {
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {
-            "name": "GitHub",
-            "url": "https://github.com/lukaszj321/otcv8-dev",
-            "icon": "fa-brands fa-github",
-            "type": "fontawesome",
-        }
+        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev",
+         "icon": "fa-brands fa-github", "type": "fontawesome"},
     ],
 }
+
 
 html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
 html_context = {
