@@ -15,26 +15,22 @@ language = "pl"
 DOCS_DIR = Path(__file__).parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"  # LDoc output lives here
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
+EXTRA_DIR = DOCS_DIR / "_extra"         # LDoc output (HTML) tutaj
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"  # Doxygen -> Breathe/Exhale
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
-html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []  # LDoc HTML
+html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []
 
 exclude_patterns = [
-    "_build",
-    "Thumbs.db",
-    ".DS_Store",
-    "**/.ipynb_checkpoints",
-    ".venv",
-    "venv",
+    "_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints",
+    ".venv", "venv",
 ]
 
 # -- Extensions ----------------------------------------------------------------
 extensions = [
     "myst_nb",
-    "sphinx.ext.autosectionlabel",  # auto-id dla nagłówków
+    "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
@@ -43,12 +39,7 @@ extensions = [
 ]
 
 # Krytyczne (ładowane warunkowo)
-_critical_exts = [
-    "sphinxcontrib.mermaid",  # Mermaid diagrams
-    "sphinx_design",          # Grid/cards
-    "breathe",                # C++ (Doxygen -> Sphinx)
-]
-for ext in _critical_exts:
+for ext in ["sphinxcontrib.mermaid", "sphinx_design", "breathe", "exhale"]:
     try:
         import_module(ext)
         extensions.append(ext)
@@ -56,8 +47,8 @@ for ext in _critical_exts:
     except Exception as e:
         print(f"[conf.py] ✗ CRITICAL extension failed to load: {ext} ({e})")
 
-# Opcjonalne (jeśli są zainstalowane)
-_optional_exts = [
+# Opcjonalne
+for ext in [
     "sphinx_copybutton",
     "sphinx_sitemap",
     "sphinxext.opengraph",
@@ -65,60 +56,50 @@ _optional_exts = [
     "sphinx_codeautolink",
     "sphinxcontrib.jquery",
     "sphinx_hoverxref",
-]
-for ext in list(_optional_exts):
+]:
     try:
         import_module(ext)
         extensions.append(ext)
     except Exception:
         print(f"[conf.py] optional extension skipped: {ext}")
 
-# Bezpiecznik: nie ładuj myst_parser razem z myst_nb
+# Nie ładuj myst_parser razem z myst_nb
 if "myst_nb" in extensions and "myst_parser" in extensions:
     extensions.remove("myst_parser")
 
 # -- MyST / Notebooks ----------------------------------------------------------
 nb_execution_mode = "off"
 nb_execution_timeout = 300
-
 myst_enable_extensions = [
-    "colon_fence",
-    "deflist",
-    "substitution",
-    "linkify",
-    "attrs_block",
-    "attrs_inline",
-    "tasklist",
-    "smartquotes",
+    "colon_fence", "deflist", "substitution", "linkify",
+    "attrs_block", "attrs_inline", "tasklist", "smartquotes",
 ]
 myst_heading_anchors = 3
 myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
 
-# Prefiksy sekcji (unikalne anchor-y)
+# Prefiksy nagłówków (unikalne ID)
 autosectionlabel_prefix_document = True
 
-# -- Breathe (C++ via Doxygen) -------------------------------------------------
-breathe_projects = {}
-breathe_default_project = None
+# -- Breathe / Exhale (C++ via Doxygen) ---------------------------------------
+# Breathe będzie czytał z DOXY_XML (utworzy to workflow).
+breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
+breathe_default_project = "OTCv8 C++ API"
 
-DOXY_INDEX = DOXY_XML / "index.xml"
-if DOXY_INDEX.exists():
-    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-    breathe_default_project = "OTCv8 C++ API"
-    print(f"[conf.py] ✓ Doxygen XML detected: {DOXY_INDEX}")
-else:
-    # Gdy brak XML, wyłącz Breathe i pomiń stronę C++
-    if "breathe" in extensions:
-        extensions.remove("breathe")
-    exclude_patterns += ["autoapi/cpp/**"]
-    print(f"[conf.py] ⚠ Doxygen XML not found ({DOXY_INDEX}). "
-          f"Disabling Breathe and excluding 'autoapi/cpp/**'.")
+# Exhale wygeneruje drzewo toctree w docs/autoapi/cpp
+exhale_args = {
+    "containmentFolder": str(DOCS_DIR / "autoapi" / "cpp"),
+    "rootFileName": "index.rst",
+    "rootFileTitle": "OTCv8 C++ API",
+    "createTreeView": True,
+}
+primary_domain = "cpp"
+highlight_language = "cpp"
 
-# -- Custom lexers for OTUI/OTMOD (silence warnings) ---------------------------
+# -- Custom lexers for OTUI/OTMOD (ciszej przy podglądzie) --------------------
 try:
     from sphinx.highlighting import lexers
     from pygments.lexers.data import YamlLexer, IniLexer
-    lexers["otui"] = YamlLexer()   # zbliżona składnia
+    lexers["otui"] = YamlLexer()
     lexers["otmod"] = IniLexer()
 except Exception as e:
     print(f"[conf.py] (warn) custom lexers not set: {e}")
@@ -133,25 +114,21 @@ except Exception:
 
 html_title = "OTClient v8 — Authoring & API"
 
-# CSS (kolejność ma znaczenie – ostatnie nadpisują wcześniejsze)
+# CSS/JS (kolejność: ostatnie nadpisują wcześniejsze)
 html_css_files = []
 def _add_css(path: str):
     if (STATIC_DIR / path).exists():
         html_css_files.append(path)
-
-for _p in [
-    "tables.css",
-    "tables-premium.css",
-    "custom-dark-mermaid.css",
-    "css/custom.css",
-    "css/layout.css",  # szerokości kolumn / responsywność
-]:
+for _p in ["tables.css", "tables-premium.css", "custom-dark-mermaid.css",
+           "css/custom.css", "css/layout.css"]:
     _add_css(_p)
 
-# JS (inicjalizacja Mermaid po stronie klienta)
 html_js_files = []
-if (STATIC_DIR / "custom.js").exists():
-    html_js_files.append("custom.js")
+def _add_js(path: str):
+    if (STATIC_DIR / path).exists():
+        html_js_files.append(path)
+for _j in ["custom.js", "css/canonical-fix.js"]:
+    _add_js(_j)
 
 html_theme_options = {
     "use_edit_page_button": True,
@@ -174,11 +151,10 @@ html_context = {
     "doc_path": "docs",
 }
 
-# -- Mermaid (kliencki RAW) ----------------------------------------------------
-# Render w przeglądarce – brak Puppeteera/mmdc w CI
+# -- Mermaid (kliencki render, spójny z PyData) --------------------------------
 mermaid_version = "10.9.1"
-mermaid_output_format = "raw"
-mermaid_init_js = ""  # inicjalizacja wykonana w _static/custom.js
+mermaid_output_format = "raw"  # render w przeglądarce
+mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
 ogp_site_url = html_baseurl
@@ -207,10 +183,7 @@ if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
 # -- Warnings / porządek -------------------------------------------------------
-suppress_warnings = [
-    "myst.header",
-    "myst.nb.render",
-]
+suppress_warnings = ["myst.header", "myst.nb.render"]
 
 # -- Todo ----------------------------------------------------------------------
 todo_include_todos = False
@@ -250,17 +223,10 @@ def setup(app):
         try:
             qa_dir = Path(app.srcdir) / "authoring" / "qa"
             qa_dir.mkdir(parents=True, exist_ok=True)
-
-            # Bezpieczne pobranie listy rozszerzeń
-            extensions_list = []
             try:
-                if hasattr(app, "extensions"):
-                    extensions_list = list(app.extensions.keys())
-                elif hasattr(app.config, "extensions"):
-                    extensions_list = list(getattr(app.config, "extensions", []))
+                extensions_list = list(app.extensions.keys())
             except Exception:
                 extensions_list = list(getattr(app.config, "extensions", []))
-
             env_data = {
                 "extensions": extensions_list,
                 "myst_enable_extensions": list(getattr(app.config, "myst_enable_extensions", [])),
@@ -271,27 +237,23 @@ def setup(app):
                 "breathe_projects": getattr(app.config, "breathe_projects", {}),
                 "breathe_default_project": getattr(app.config, "breathe_default_project", None),
                 "extra_dir_exists": EXTRA_DIR.exists(),
-                "doxy_xml_exists": (DOXY_XML / "index.xml").exists(),
+                "doxy_xml_exists": DOXY_XML.exists(),
             }
-
             try:
                 import sphinxcontrib.mermaid
                 env_data["sphinxcontrib_mermaid_version"] = getattr(sphinxcontrib.mermaid, "__version__", "unknown")
             except Exception:
                 env_data["sphinxcontrib_mermaid_version"] = "not installed"
-
             try:
                 import myst_nb
                 env_data["myst_nb_version"] = getattr(myst_nb, "__version__", "unknown")
             except Exception:
                 env_data["myst_nb_version"] = "not installed"
-
             try:
                 import sphinx_design
                 env_data["sphinx_design_version"] = getattr(sphinx_design, "__version__", "unknown")
             except Exception:
                 env_data["sphinx_design_version"] = "not installed"
-
             output_file = qa_dir / "sphinx_env.json"
             with open(output_file, "w", encoding="utf-8") as f:
                 json.dump(_json_safe(env_data), f, indent=2, sort_keys=True)
