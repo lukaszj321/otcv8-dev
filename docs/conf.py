@@ -1,8 +1,8 @@
-# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 8.x, PyData) ---------------
-
+# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 8.x, PyData >=0.16) ---------
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 from importlib import import_module
 
@@ -32,23 +32,20 @@ exclude_patterns = [
     "venv",
 ]
 
-# Gdy masz jednocześnie index.md i index.rst w tym samym miejscu — wycisz warning:
-if (DOCS_DIR / "copilot" / "sphinx" / "index.rst").exists() and (DOCS_DIR / "copilot" / "sphinx" / "index.md").exists():
-    exclude_patterns.append("copilot/sphinx/index.rst")
-
 # ── Helpers ───────────────────────────────────────────────────────────────────
-extensions: list[str] = []
-
-def _add_ext(name: str) -> None:
+def _try_load(ext: str) -> bool:
+    """Append an extension if importable; log result."""
     try:
-        import_module(name.replace(":", "."))  # np. hoverxref.extension
-        extensions.append(name)
-        print(f"[conf.py] ✓ loaded: {name}")
+        import_module(ext)
+        extensions.append(ext)
+        print(f"[conf.py] ✓ loaded: {ext}")
+        return True
     except Exception as e:
-        print(f"[conf.py] ✗ missing: {name} ({e})")
+        print(f"[conf.py] ✗ missing: {ext} ({e})")
+        return False
 
-# ── Core / std extensions ─────────────────────────────────────────────────────
-for ext in [
+# ── Extensions (core) ─────────────────────────────────────────────────────────
+extensions: list[str] = [
     "myst_nb",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
@@ -60,21 +57,19 @@ for ext in [
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
-]:
-    _add_ext(ext)
+]
 
-# ── Key addons ────────────────────────────────────────────────────────────────
+for ext in extensions:
+    print(f"[conf.py] ✓ loaded: {ext}")
+
+# ── Extensions (optional / nice-to-have) ──────────────────────────────────────
+# Te będą załadowane, jeśli są zainstalowane (nie wywalą buildu)
 for ext in [
     "breathe",
     "exhale",
     "ablog",
     "sphinx_design",
     "sphinxcontrib.mermaid",
-]:
-    _add_ext(ext)
-
-# ── Optional addons (load if present) ─────────────────────────────────────────
-for ext in [
     "sphinx_copybutton",
     "sphinxext.opengraph",
     "sphinx_sitemap",
@@ -86,9 +81,24 @@ for ext in [
     "sphinxext.rediraffe",
     "sphinxcontrib.luadomain",
     "sphinxcontrib.jquery",
-    # UWAGA: autoapi dodamy warunkowo niżej, gdy mamy skonfigurowane katalogi
 ]:
-    _add_ext(ext)
+    _try_load(ext)
+
+# AutoAPI tylko na życzenie (np. ustaw w CI: AUTOAPI=1 i autoapi_dirs)
+if os.environ.get("AUTOAPI", "0") == "1":
+    if _try_load("autoapi.extension"):
+        # Minimalna konfiguracja — dopasuj do repo
+        autoapi_type = os.environ.get("AUTOAPI_TYPE", "python")  # python/cpp/etc.
+        autoapi_dirs = [
+            p for p in os.environ.get("AUTOAPI_DIRS", "").split(":") if p.strip()
+        ] or []
+        if not autoapi_dirs:
+            print("[conf.py] ! AUTOAPI włączone, ale brak AUTOAPI_DIRS — wyłączam.")
+            extensions.remove("autoapi.extension")
+
+# Nie ładuj myst_parser obok myst_nb
+if "myst_nb" in extensions and "myst_parser" in extensions:
+    extensions.remove("myst_parser")
 
 # ── MyST / notebooks ──────────────────────────────────────────────────────────
 nb_execution_mode = "off"
@@ -107,32 +117,37 @@ myst_enable_extensions = [
 myst_heading_anchors = 3
 myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
 
-# Unikalne kotwice na dokument
+# Ważne: wyłącz automatyczny HR dla przypisów (eliminuje część “transition”)
+myst_footnote_transition = False
+
+# Unikatowe kotwice per dokument
 autosectionlabel_prefix_document = True
 
-# ── Intersphinx ───────────────────────────────────────────────────────────────
-# W Sphinx 8 drugi element krotki to None (nie puste {})
+# ── Intersphinx (naprawione tuple) ────────────────────────────────────────────
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
-intersphinx_timeout = 5
 
-# ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
-breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
-breathe_default_project = "OTCv8 C++ API"
-
-exhale_args = {
-    "containmentFolder": "autoapi/cpp",
-    "rootFileName": "index.rst",
-    "rootFileTitle": "OTCv8 C++ API",
-    "createTreeView": True,
-    "exhaleExecutesDoxygen": False,         # Doxygen uruchamiany w CI
-    "doxygenStripFromPath": str(REPO_ROOT), # ładniejsze ścieżki
-    # "verboseBuild": True,
-}
-primary_domain = "cpp"
-highlight_language = "cpp"
+# ── Breathe / Exhale (C++) — tylko jeśli mamy Doxygen XML ────────────────────
+if "breathe" in extensions and "exhale" in extensions:
+    if DOXY_XML.exists() and (DOXY_XML / "index.xml").exists():
+        breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
+        breathe_default_project = "OTCv8 C++ API"
+        exhale_args = {
+            "containmentFolder": "autoapi/cpp",
+            "rootFileName": "index.rst",
+            "rootFileTitle": "OTCv8 C++ API",
+            "createTreeView": True,
+            "exhaleExecutesDoxygen": False,         # Doxygen uruchamiany w CI
+            "doxygenStripFromPath": str(REPO_ROOT),
+            # "verboseBuild": True,
+        }
+        primary_domain = "cpp"
+        highlight_language = "cpp"
+    else:
+        print("[conf.py] ! Brak Doxygen XML → pomijam Breathe/Exhale")
+        extensions = [e for e in extensions if e not in {"breathe", "exhale"}]
 
 # ── Custom lexers (fallback cicho) ────────────────────────────────────────────
 try:
@@ -145,14 +160,16 @@ except Exception as e:
 
 # ── HTML / Theme ──────────────────────────────────────────────────────────────
 try:
-    import pydata_sphinx_theme  # noqa
+    import pydata_sphinx_theme  # noqa: F401
     html_theme = "pydata_sphinx_theme"
+    print("[conf.py] ✓ using theme: pydata_sphinx_theme")
 except Exception:
     html_theme = "alabaster"
+    print("[conf.py] ✗ pydata_sphinx_theme not found — using 'alabaster'")
 
 html_title = "OTClient v8 — Authoring & API"
 
-# CSS — ładuj tylko istniejące
+# CSS (ładuj tylko jeśli pliki istnieją; kolejność → nadpisywanie)
 html_css_files: list[str] = []
 def _add_css(rel: str) -> None:
     if (STATIC_DIR / rel).exists():
@@ -167,7 +184,7 @@ for rel in [
 ]:
     _add_css(rel)
 
-# JS — ładuj tylko istniejące
+# JS (ładuj tylko jeśli pliki istnieją)
 html_js_files: list[str] = []
 def _add_js(rel: str) -> None:
     if (STATIC_DIR / rel).exists():
@@ -175,7 +192,7 @@ def _add_js(rel: str) -> None:
 
 for rel in [
     "custom.js",
-    "css/canonical-fix.js",  # jeśli plik leży w _static/css/
+    "css/canonical-fix.js",
 ]:
     _add_js(rel)
 
@@ -196,7 +213,9 @@ html_theme_options = {
     ],
 }
 
-html_baseurl = "https://lukaszj321.github.io/otcv8-dev/"
+html_baseurl = os.environ.get(
+    "HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/"
+)
 html_context = {
     "github_user": "lukaszj321",
     "github_repo": "otcv8-dev",
@@ -205,8 +224,8 @@ html_context = {
 }
 
 # ── Mermaid (client-side) ─────────────────────────────────────────────────────
-mermaid_version = "10.9.1"
-mermaid_output_format = "raw"
+mermaid_version = os.environ.get("MERMAID_VERSION", "10.9.1")
+mermaid_output_format = os.environ.get("MERMAID_OUTPUT", "raw")
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # ── OpenGraph / SEO ───────────────────────────────────────────────────────────
@@ -218,15 +237,11 @@ copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
 
-# ── Sitemap / Hoverxref / BibTeX (jeśli zainstalowane) ───────────────────────
+# ── Sitemap / Hoverxref (jeśli są) ────────────────────────────────────────────
 sitemap_url_scheme = "{link}"
-
 hoverxref_auto_ref = True
 hoverxref_domains = ["std"]
 hoverxref_default_type = "tooltip"
-# hoverxref_tooltip_api_host = "https://readthedocs.org"  # opcjonalnie
-
-bibtex_bibfiles = []  # dodaj pliki .bib jeśli używasz
 
 # ── Favicons ──────────────────────────────────────────────────────────────────
 favicons = []
@@ -239,53 +254,44 @@ suppress_warnings = ["myst.header", "myst.nb.render"]
 # ── Todo ──────────────────────────────────────────────────────────────────────
 todo_include_todos = False
 
-# ── Linkcheck (jeśli używasz) ─────────────────────────────────────────────────
-linkcheck_ignore = [r'http://localhost:\d+/', r'https://placehold\.co/.*', r'.*\.local']
+# ── Linkcheck (jeśli użyjesz) ────────────────────────────────────────────────
+linkcheck_ignore = [r"http://localhost:\d+/", r"https://placehold\.co/.*", r".*\.local"]
 linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── AutoAPI (ładuj TYLKO gdy skonfigurowane) ──────────────────────────────────
-# Ustaw w CI: AUTOAPI_DIRS="src:more_src" aby włączyć
-_AUTOAPI_DIRS_ENV = os.getenv("AUTOAPI_DIRS", "").strip()
-if _AUTOAPI_DIRS_ENV:
-    _dirs = [d for d in (p.strip() for p in _AUTOAPI_DIRS_ENV.split(":")) if d]
-    if _dirs:
-        _add_ext("autoapi.extension")
-        autoapi_type = "python"
-        autoapi_dirs = _dirs
-        autoapi_add_toctree_entry = False  # opcjonalnie
-        # autoapi_generate_api_docs = True
-        # autoapi_keep_files = False
-
-# ── Optional: Copilot snippet (bez fail; przekazujemy potrzebne zmienne) ─────
-def _exec_copilot_snippet(snippet_path: Path) -> None:
+# ── Opcjonalny snippet „Copilot” — bezpieczne środowisko ─────────────────────
+_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
+if _copilot_snippet.exists():
     try:
-        code = snippet_path.read_text(encoding="utf-8")
-        ns = {
-            # to, co snippet może chcieć modyfikować / czytać:
-            "extensions": extensions,
-            "html_theme_options": html_theme_options,
-            "html_css_files": html_css_files,
-            "html_js_files": html_js_files,
-            "html_context": html_context,
-            "html_title": html_title,
-            "html_theme": html_theme,
-        }
-        exec(compile(code, str(snippet_path), "exec"), ns, ns)
-        # synchronizacja zmian z conf.py:
-        for key in ["extensions", "html_theme_options", "html_css_files", "html_js_files", "html_context", "html_title", "html_theme"]:
-            if key in ns:
-                globals()[key] = ns[key]
+        _ctx = {"extensions": extensions, "html_theme_options": html_theme_options}
+        exec(_copilot_snippet.read_text(encoding="utf-8"), _ctx, _ctx)
+        # przejmij ewentualne zmiany ze snippeta
+        extensions = _ctx.get("extensions", extensions)
+        html_theme_options = _ctx.get("html_theme_options", html_theme_options)
         print("[conf.py] ✓ Copilot snippet loaded")
     except Exception as e:
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
 
-_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
-if _copilot_snippet.exists():
-    _exec_copilot_snippet(_copilot_snippet)
+# ── Tymczasowy detektor „transition” (poziome kreski) ────────────────────────
+# Zgłosi WARNING dla każdej linii `---`/`***`/`___` i ERROR gdy plik kończy się taką linią.
+import re
+_HR_RE = re.compile(r'^\s*(?:-{3,}|\*{3,}|_{3,})\s*$')
+
+def _scan_hr_nodes(app, docname, source):
+    text = source[0]
+    lines = text.splitlines()
+    bad_end = bool(lines and _HR_RE.match(lines[-1]))
+    for i, line in enumerate(lines, 1):
+        if _HR_RE.match(line):
+            app.logger.warning(f"[HR] {docname}:{i}: pozioma linia (możliwy 'transition')")
+    if bad_end:
+        # ERROR – zatrzyma build. Usuń poziomą linię na końcu pliku.
+        from docutils.utils import SystemMessage
+        raise SystemMessage(f"[HR-END] {docname}: plik KOŃCZY się poziomą linią — usuń ją.")
 
 # ── Minimal setup hook ────────────────────────────────────────────────────────
 def setup(app):  # noqa: D401
     """Lightweight Sphinx setup hook."""
+    app.connect("source-read", _scan_hr_nodes)
     return
