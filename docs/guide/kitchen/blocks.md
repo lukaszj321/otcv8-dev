@@ -2,12 +2,12 @@
 
 ## 1) Podstawowe zakładki
 
-
 :::{tab-set}
 :::{tab-item} Lua
+
 ```lua
 -- example
-
+````
 
 :::
 :::{tab-item} C++
@@ -19,14 +19,13 @@
 :::
 :::
 
-
-
----
+<hr/>
 
 ## 2) Zakładki z trzema językami
 
 :::{tab-set}
 :::{tab-item} Lua
+
 ```lua
 local function add(a, b)
   return a + b
@@ -55,15 +54,14 @@ print(add(2,3))
 :::
 :::
 
-
-
----
+<hr/>
 
 ## 3) `sync-group` (synchronizacja wyboru między zestawami)
 
 :::{tab-set}
 :sync-group: code-lang
 :::{tab-item} Lua
+
 ```lua
 -- lua code
 ```
@@ -96,15 +94,14 @@ print(add(2,3))
 :::
 :::
 
-
-
----
+<hr/>
 
 ## 4) Zakładki z domyślnie wybraną kartą
 
 :::{tab-set}
 :::{tab-item} Lua
 :selected:
+
 ```lua
 print("Lua selected by default")
 ```
@@ -119,20 +116,20 @@ print("Lua selected by default")
 :::
 :::
 
-
-
----
+<hr/>
 
 ## 5) Zakładki w kolumnach (przykład 2 kolumny)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **API**
 
 :::{tab-set}
 :::{tab-item} Lua
+
 ```lua
 -- api
 ```
@@ -170,10 +167,9 @@ print("Lua selected by default")
 :::
 
 :::
+:::
 
-
-
----
+<hr/>
 
 ## 6) Zakładki z klasami CSS
 
@@ -181,6 +177,7 @@ print("Lua selected by default")
 :class: my-tabs
 :::{tab-item} Lua
 :class: code-tab
+
 ```lua
 -- stylowane
 ```
@@ -196,14 +193,13 @@ print("Lua selected by default")
 :::
 :::
 
-
-
----
+<hr/>
 
 ## 7) Zakładki + admonition wewnątrz
 
 :::{tab-set}
 :::{tab-item} Lua
+
 ```lua
 print("ok")
 ```
