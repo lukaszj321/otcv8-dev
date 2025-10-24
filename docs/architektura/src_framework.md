@@ -8180,14 +8180,10 @@ graph TD
         TinyXML[TinyXML]
     end
 
-    Application --> Framework_Core
-    GraphicalApplication --> Framework_Graphics
-    GraphicalApplication --> Framework_UI
-    GraphicalApplication --> Framework_Platform
-    Application --> Framework_Lua
-    Application --> Framework_Net
-
-    Framework_Graphics --> OpenGL
+    %% zamiast krawędzi do subgrafów:
+    Application --> LuaInterface
+    Application --> Protocol
+    GraphicalApplication --> OpenGL
     Framework_Net --> BoostAsio
     Framework_Net --> BoostBeast
     Framework_Net --> OpenSSL
