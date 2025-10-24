@@ -46,7 +46,7 @@ Generowanie indeksów.
 :::
 :::
 
-````{tabs}
+
 ```{tab} Guide
 **Best practices + checklisty:**
 
@@ -85,15 +85,18 @@ Generowanie indeksów.
 ```
 
 ```{tab} Examples
+
 **CSV‑table (datasets)**
+```
 ```{csv-table} UI Signals — przykład z authoring
 :header-rows: 1
 :file: ../authoring/04_ui/datasets/signals.csv
 :widths: 20, 20, 30, 30
 ```
 
+
 **Mermaid — Sequence Diagram**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 sequenceDiagram
   participant User
@@ -105,7 +108,7 @@ sequenceDiagram
   App-->>User: Show UI
 ```
 
-**Graphviz — Component Architecture**
+**Graphviz — Component Architecture** 
 ```{graphviz}
 :align: center
 
@@ -168,9 +171,6 @@ digraph G {
 - JavaScript extensions via `html_js_files`
 - Mermaid version pinning: `mermaid_version = "10.9.0"`
 ```
-```
-````
-
 ## Sidebar & buttons
 
 Prawy TOC + „Show source" + „Edit this page" włączone globalnie.
