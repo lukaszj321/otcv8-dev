@@ -1,7 +1,5 @@
 # -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7/8, PyData >=0.16) ---------
 
-from __future__ import annotations
-
 import os
 import json
 from pathlib import Path
@@ -10,15 +8,17 @@ from collections.abc import Mapping, Sequence
 
 # -- Project -------------------------------------------------------------------
 project = "OTClient v8 — Developer Documentation"
-author = "OTClient v8 contributors"
+author = "Dildo"
 language = "pl"
 
 # -- Paths ---------------------------------------------------------------------
 DOCS_DIR = Path(__file__).parent.resolve()
+ROOT_DIR = DOCS_DIR.parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
 EXTRA_DIR = DOCS_DIR / "_extra"  # LDoc output lives here
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"  # Doxygen XML target (from workflow)
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
+DOXYFILE = ROOT_DIR / "Doxyfile"
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
@@ -49,7 +49,7 @@ _critical_exts = [
     "sphinxcontrib.mermaid",  # Mermaid diagrams
     "sphinx_design",          # Grid/cards
     "breathe",                # C++ (Doxygen -> Sphinx)
-    "exhale",                 # auto TOC dla Doxygen XML (C++)
+    "exhale",                 # Automatyczne RST z Doxygen (drzewo C++)
 ]
 for ext in _critical_exts:
     try:
@@ -100,30 +100,63 @@ myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
 # Prefiksy sekcji (unikalne anchor-y)
 autosectionlabel_prefix_document = True
 
-# -- Breathe (C++ via Doxygen) -------------------------------------------------
+# -- Breathe / Exhale (C++ via Doxygen) ----------------------------------------
 breathe_projects = {}
 breathe_default_project = None
-# (Ścieżka DOXY_XML będzie istnieć po kroku "doxygen" w CI.)
-breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-breathe_default_project = "OTCv8 C++ API"
 
-# -- Exhale (auto TOC dla C++) -------------------------------------------------
+# Jeśli XML już istnieje (np. po wcześniejszym kroku CI), podłączamy:
+if DOXY_XML.exists():
+    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+    breathe_default_project = "OTCv8 C++ API"
+else:
+    # Wciąż zarejestruj nazwę projektu; Exhale może sam odpalić Doxygen
+    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+    breathe_default_project = "OTCv8 C++ API"
+
+# Konfiguracja Exhale (wymaga doxygenStripFromPath)
 if "exhale" in extensions:
-    # strip root == repo root (docs/..)
-    REPO_ROOT = str((DOCS_DIR / "..").resolve())
+    # Bazowe argumenty Exhale
     exhale_args = {
-        "containmentFolder": "autoapi/cpp",
+        # Gdzie Exhale wygeneruje drzewo RST dla C++
+        "containmentFolder": str(DOCS_DIR / "autoapi" / "cpp"),
         "rootFileName": "index.rst",
-        "rootFileTitle": "OTCv8 C++ API",
+        "rootFileTitle": "C++ API (src)",
         "createTreeView": True,
-        "doxygenStripFromPath": REPO_ROOT,
-        # Mapa typów (opcjonalnie można dostosować):
-        "afterTitleDescription": "Dokumentacja C++ generowana z Doxygen (Breathe/Exhale).",
+        # Ważne: ścieżki przycinane w tytułach/ścieżkach
+        "doxygenStripFromPath": str(ROOT_DIR),
+        # Mniej hałasu
+        "verboseBuild": False,
     }
+
+    # Jeśli mamy Doxyfile — Exhale może sam wywołać Doxygen
+    if DOXYFILE.exists():
+        try:
+            content = DOXYFILE.read_text(encoding="utf-8")
+
+            def _set(k, v):
+                nonlocal content
+                # Ustaw/patchuj podstawowe klucze
+                import re
+                if re.search(rf"^{k}\s*=", content, flags=re.M):
+                    content = re.sub(rf"^{k}\s*=.*$", f"{k} = {v}", content, flags=re.M)
+                else:
+                    content += f"\n{k} = {v}\n"
+
+            # Gwarantujemy produkcję XML do docs/_build/doxygen/xml
+            _set("GENERATE_XML", "YES")
+            _set("OUTPUT_DIRECTORY", str((DOCS_DIR / "_build" / "doxygen").resolve()))
+            _set("XML_OUTPUT", "xml")
+
+            exhale_args["exhaleExecutesDoxygen"] = True
+            exhale_args["exhaleDoxygenStdin"] = content
+        except Exception as e:
+            print(f"[conf.py] (warn) Could not prepare Doxyfile for Exhale: {e}")
+
+    # Domeny i highlight pod C++
     primary_domain = "cpp"
     highlight_language = "cpp"
 
-# -- Custom lexers for OTUI/OTMOD (ciszej o ostrzeżeniach) --------------------
+# -- Custom lexers for OTUI/OTMOD (silence warnings) ---------------------------
 try:
     from sphinx.highlighting import lexers
     from pygments.lexers.data import YamlLexer
@@ -143,7 +176,7 @@ except Exception:
 
 html_title = "OTClient v8 — Authoring & API"
 
-# CSS / JS
+# CSS — kolejność ma znaczenie (ostatnie wygrywa)
 html_css_files = []
 def _add_css(path: str):
     if (STATIC_DIR / path).exists():
@@ -154,16 +187,19 @@ for _p in [
     "tables-premium.css",
     "custom-dark-mermaid.css",
     "css/custom.css",
-    "css/layout.css",
+    "css/layout.css",           # <-- szerokość kolumn, wrap linków, itp.
 ]:
     _add_css(_p)
 
+# JS — ładujemy custom.js (naprawa Mermaid po stronie klienta)
 html_js_files = []
 def _add_js(path: str):
     if (STATIC_DIR / path).exists():
         html_js_files.append(path)
 
-for _p in ["custom.js"]:
+for _p in [
+    "custom.js",                # <-- mermaid fixer + Twój slider
+]:
     _add_js(_p)
 
 html_theme_options = {
@@ -174,8 +210,12 @@ html_theme_options = {
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev",
-         "icon": "fa-brands fa-github", "type": "fontawesome"},
+        {
+            "name": "GitHub",
+            "url": "https://github.com/lukaszj321/otcv8-dev",
+            "icon": "fa-brands fa-github",
+            "type": "fontawesome",
+        },
     ],
 }
 
@@ -187,7 +227,8 @@ html_context = {
     "doc_path": "docs",
 }
 
-# -- Mermaid (client-side RAW) -------------------------------------------------
+# -- Mermaid (kliencki RAW) ----------------------------------------------------
+# Render w przeglądarce – bez puppeteera/mmdc; resztę robi custom.js
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
@@ -270,7 +311,7 @@ def setup(app):
                 except Exception:
                     extensions_list = list(app.config.extensions) if hasattr(app.config, "extensions") else []
             elif hasattr(app.config, "extensions"):
-                extensions_list = list(app.config, "extensions")
+                extensions_list = list(app.config.extensions)
 
             env_data = {
                 "extensions": extensions_list,
