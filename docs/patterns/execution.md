@@ -1,4 +1,3 @@
-
 ---
 title: Patterns — Execution Libraries
 ---
