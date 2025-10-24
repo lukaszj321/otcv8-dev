@@ -36,18 +36,18 @@ exclude_patterns = [
 if (DOCS_DIR / "copilot" / "sphinx" / "index.rst").exists() and (DOCS_DIR / "copilot" / "sphinx" / "index.md").exists():
     exclude_patterns.append("copilot/sphinx/index.rst")
 
-# ── Extensions (bezpieczne ładowanie) ─────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────────────
 extensions: list[str] = []
 
 def _add_ext(name: str) -> None:
     try:
-        import_module(name.replace(":", "."))  # e.g. hoverxref.extension
+        import_module(name.replace(":", "."))  # np. hoverxref.extension
         extensions.append(name)
         print(f"[conf.py] ✓ loaded: {name}")
     except Exception as e:
         print(f"[conf.py] ✗ missing: {name} ({e})")
 
-# Rdzeń
+# ── Core / std extensions ─────────────────────────────────────────────────────
 for ext in [
     "myst_nb",
     "sphinx.ext.autosectionlabel",
@@ -63,7 +63,7 @@ for ext in [
 ]:
     _add_ext(ext)
 
-# Kluczowe dodatki
+# ── Key addons ────────────────────────────────────────────────────────────────
 for ext in [
     "breathe",
     "exhale",
@@ -73,7 +73,7 @@ for ext in [
 ]:
     _add_ext(ext)
 
-# Opcjonalne (ładowane jeśli zainstalowane)
+# ── Optional addons (load if present) ─────────────────────────────────────────
 for ext in [
     "sphinx_copybutton",
     "sphinxext.opengraph",
@@ -86,13 +86,9 @@ for ext in [
     "sphinxext.rediraffe",
     "sphinxcontrib.luadomain",
     "sphinxcontrib.jquery",
-    "autoapi.extension",
+    # UWAGA: autoapi dodamy warunkowo niżej, gdy mamy skonfigurowane katalogi
 ]:
     _add_ext(ext)
-
-# Nie mieszaj myst_parser z myst_nb
-if "myst_nb" in extensions and "myst_parser" in extensions:
-    extensions.remove("myst_parser")
 
 # ── MyST / notebooks ──────────────────────────────────────────────────────────
 nb_execution_mode = "off"
@@ -114,7 +110,8 @@ myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
 # Unikalne kotwice na dokument
 autosectionlabel_prefix_document = True
 
-# ── Intersphinx (Sphinx 8: drugi element to None, NIE {}) ─────────────────────
+# ── Intersphinx ───────────────────────────────────────────────────────────────
+# W Sphinx 8 drugi element krotki to None (nie puste {})
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
@@ -248,23 +245,38 @@ linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── AutoAPI (jeśli będziesz dokumentował Python) ─────────────────────────────
-# autoapi_type = "python"
-# autoapi_dirs = [str(REPO_ROOT / "src")]
+# ── AutoAPI (ładuj TYLKO gdy skonfigurowane) ──────────────────────────────────
+# Ustaw w CI: AUTOAPI_DIRS="src:more_src" aby włączyć
+_AUTOAPI_DIRS_ENV = os.getenv("AUTOAPI_DIRS", "").strip()
+if _AUTOAPI_DIRS_ENV:
+    _dirs = [d for d in (p.strip() for p in _AUTOAPI_DIRS_ENV.split(":")) if d]
+    if _dirs:
+        _add_ext("autoapi.extension")
+        autoapi_type = "python"
+        autoapi_dirs = _dirs
+        autoapi_add_toctree_entry = False  # opcjonalnie
+        # autoapi_generate_api_docs = True
+        # autoapi_keep_files = False
 
-# ── Rediraffe (jeśli używasz przekierowań) ───────────────────────────────────
-# rediraffe_redirects = {"old/page.html": "new/page.html"}
-
-# ── Optional: Copilot snippet (bez fail; z propagacją 'extensions') ───────────
+# ── Optional: Copilot snippet (bez fail; przekazujemy potrzebne zmienne) ─────
 def _exec_copilot_snippet(snippet_path: Path) -> None:
     try:
         code = snippet_path.read_text(encoding="utf-8")
-        ns = {"extensions": extensions}
+        ns = {
+            # to, co snippet może chcieć modyfikować / czytać:
+            "extensions": extensions,
+            "html_theme_options": html_theme_options,
+            "html_css_files": html_css_files,
+            "html_js_files": html_js_files,
+            "html_context": html_context,
+            "html_title": html_title,
+            "html_theme": html_theme,
+        }
         exec(compile(code, str(snippet_path), "exec"), ns, ns)
-        # jeżeli snippet zrobił: extensions += ["..."] albo przypisał nową listę,
-        # to zsynchronizuj z naszą konfiguracją:
-        if isinstance(ns.get("extensions"), list) and ns["extensions"] is not extensions:
-            extensions[:] = ns["extensions"]
+        # synchronizacja zmian z conf.py:
+        for key in ["extensions", "html_theme_options", "html_css_files", "html_js_files", "html_context", "html_title", "html_theme"]:
+            if key in ns:
+                globals()[key] = ns[key]
         print("[conf.py] ✓ Copilot snippet loaded")
     except Exception as e:
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
