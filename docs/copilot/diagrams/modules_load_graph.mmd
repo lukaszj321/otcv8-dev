@@ -1,4 +1,4 @@
-%%{init: {"theme":"dark", "flowchart": {"curve": "basis"}}}%%
+%%{init: {"theme":"dark"}}%%
 graph TD
     %% ===================================================================
     %% DEFINICJE STYLÓW
@@ -6,52 +6,85 @@ graph TD
     classDef orchestrator fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold;
     classDef module fill:#4B0082,color:#fff,stroke:#9932CC;
     classDef finalState fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:2px,font-weight:bold;
-    classDef subgraphStyle fill:#1a1a1a,stroke:#888,stroke-dasharray: 5 5;
+    classDef subgraphStyle fill:#1a1a1a,stroke:#555;
+    classDef invisible stroke-width:0px,color:#1a1a1a;
 
     %% ===================================================================
-    %% STRUKTURA DIAGRAMU
+    %% STRUKTURA GŁÓWNA - PIONOWY KRĘGOSŁUP
     %% ===================================================================
-
     Start("🚀 Application Start") --> client("1. Core Client");
+    client --> client_entergame_init("2. Enter Game Logic");
+    client_entergame_init --> game_interface("3. Game Interface");
+    game_interface --> Ready("✅ Client Ready");
 
-    client --> Phase1_Modules["Phase 1: Pre-Game Modules"];
-    
-    subgraph Phase1_Modules
+    %% ===================================================================
+    %% FAZA 1 - MODUŁY PRE-GAME (po prawej stronie)
+    %% ===================================================================
+    subgraph Phase1 [Phase 1: Pre-Game Modules]
         client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
     end
-    
-    Phase1_Modules --> client_entergame_init("2. Enter Game Logic");
+    client -- "ładuje" --> Phase1;
 
-    client_entergame_init --> Phase2_Game_Data["Phase 2: Game Data"];
-
-    subgraph Phase2_Game_Data
+    %% ===================================================================
+    %% FAZA 2 - DANE GRY (po prawej stronie)
+    %% ===================================================================
+    subgraph Phase2 [Phase 2: Game Data]
         game_things & game_features;
     end
-    
-    Phase2_Game_Data --> game_interface("3. Game Interface");
+    client_entergame_init -- "ładuje" --> Phase2;
 
-    game_interface --> Phase3_UI_Modules["Phase 3: All Game UI Modules"];
-
-    subgraph Phase3_UI_Modules
-        game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills & game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade & game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog & game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_profiles & game_actionbar & game_prey & game_imbuing & game_stats_ui[game_stats] & game_shaders & game_bot;
+    %% ===================================================================
+    %% FAZA 3 - MODUŁY UI (po prawej stronie, zagnieżdżone)
+    %% ===================================================================
+    subgraph Phase3 [Phase 3: Game UI Modules]
+        subgraph Player_Info
+            game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount;
+        end
+        subgraph Item_Management
+            game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade;
+        end
+        subgraph Interaction_Controls
+            game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
+        end
+        subgraph Gameplay_Systems
+             game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
+        end
     end
-
-    Phase3_UI_Modules --> Ready("✅ Client Ready to Play");
-
+    %% Łączymy interfejs z konkretnymi grupami wewnątrz Fazy 3
+    game_interface -- "ładuje" --> Player_Info;
+    game_interface -- "ładuje" --> Item_Management;
+    game_interface -- "ładuje" --> Interaction_Controls;
+    game_interface -- "ładuje" --> Gameplay_Systems;
+    
+    %% ===================================================================
+    %% PROCES UPDATERA (po lewej stronie)
+    %% ===================================================================
     subgraph Updater_Utility
         updater_init("Initialize Updater");
-        client_locales --> updater_init;
-        client_styles --> updater_init;
-        client_textedit --> updater_init;
         updater_init -- loads --> client_background;
     end
+    %% Połączenia zależności z modułów Fazy 1
+    client_locales --> updater_init;
+    client_styles --> updater_init;
+    client_textedit --> updater_init;
 
+    %% ===================================================================
+    %% KONTROLA UKŁADU - NIEWIDOCZNE POŁĄCZENIA
+    %% To jest "magia", która zmusza graf do ułożenia się w poziomie
+    %% ===================================================================
+    subgraph невидимка [ ]
+      Updater_Utility ~~~ client ~~~ Phase1
+      client_entergame_init ~~~ Phase2
+      game_interface ~~~ Phase3
+    end
+    class невидимка invisible;
+    
     %% ===================================================================
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
     class client,client_entergame_init,game_interface orchestrator;
     class Ready finalState;
-    class Phase1_Modules,Phase2_Game_Data,Phase3_UI_Modules,Updater_Utility subgraphStyle;
+    class Phase1,Phase2,Phase3,Updater_Utility,Player_Info,Item_Management,Interaction_Controls,Gameplay_Systems subgraphStyle;
     class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
     class game_things,game_features,updater_init module;
-    class game_buttons,game_hotkeys,game_questlog,game_textmessage,game_console,game_outfit,game_healthinfo,game_skills,game_inventory,game_containers,game_viplist,game_battle,game_minimap,game_npctrade,game_textwindow,game_playertrade,game_bugreport,game_playerdeath,game_playermount,game_ruleviolation,game_market,game_spelllist,game_cooldown,game_modaldialog,game_unjustifiedpoints,game_walking,game_shop,game_itemselector,client_profiles,game_actionbar,game_prey,game_imbuing,game_stats_ui,game_shaders,game_bot module;
+    class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount,game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle,game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown module;
