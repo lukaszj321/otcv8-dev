@@ -94,7 +94,6 @@ Generowanie indeksów.
 :::{grid-item}
 **Kod**
 
-```md
 :::{tab-set}
 :::{tab-item} Guide
 **Best practices + checklisty:**
@@ -297,7 +296,6 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 :::{grid-item}
 **Kod**
 
-```md
 ```{dropdown} Quick tasks (Guide)
 - [x] Dark‑mode przykładów OK (Mermaid/Graphviz)
 - [x] `copybutton` na blokach kodu działa
