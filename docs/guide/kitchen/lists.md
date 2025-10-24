@@ -1,21 +1,23 @@
 # Listy
 
+<hr/>
+
 ## 1) Podstawowe listy
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
-
-```md
+````md
 - A
 - B
   - B.1
 
 1. jeden
 2. dwa
-```
+`````
 
 :::
 
@@ -32,13 +34,15 @@
    :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 2) Lista mieszana (punktowana + numerowana)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -63,13 +67,15 @@
   :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 3) Lista zadań (task-list)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -91,13 +97,15 @@
   :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 4) Lista definicji (definition list)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -123,13 +131,15 @@ Termin B
 :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 5) Lista w admonition
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -156,13 +166,15 @@ Termin B
   :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 6) Dwie kolumny z listami (sphinx-design)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -170,10 +182,10 @@ Termin B
 ```md
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Checklist**
-
 - [x] Build lokalny
 - [x] Lint
 - [ ] Deploy
@@ -181,7 +193,6 @@ Termin B
 
 :::{grid-item}
 **Kroki**
-
 1. `make clean`
 2. `make html`
 3. publikacja
@@ -197,6 +208,7 @@ Termin B
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Checklist**
@@ -217,12 +229,16 @@ Termin B
 :::
 :::
 
----
+:::
+:::
+
+<hr/>
 
 ## 7) Zagnieżdżenia wielopoziomowe
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -249,13 +265,15 @@ Termin B
         :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 8) Elementy z wieloma akapitami
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -281,13 +299,15 @@ Termin B
   :::
 
 :::
+:::
 
----
+<hr/>
 
 ## 9) Listy w zakładkach (tabs)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -327,3 +347,6 @@ Termin B
   :::
   :::
   :::
+
+:::
+:::
