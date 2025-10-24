@@ -77,7 +77,6 @@ Build Android, JNI, ABI, manifesty.
 :::
 :::
 
-````{tabs}
 ```{tab} Guide
 **Struktura Authoring:** każdy rozdział zawiera:
 - `datasets/` — dane strukturalne (CSV) do walidacji i analiz
@@ -112,7 +111,7 @@ Build Android, JNI, ABI, manifesty.
 ```
 
 **Mermaid Diagram — Flow**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart LR
   A[Authoring]-->B[Datasets]
@@ -155,8 +154,6 @@ digraph G {
 :start-after: -- region schedule_event_example
 :end-before: -- endregion schedule_event_example
 ```
-```
-````
 
 :::{card}
 **Quality gates**
