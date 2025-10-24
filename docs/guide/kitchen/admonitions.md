@@ -37,7 +37,7 @@ Zbyt agresywne cache może powodować **stare** artefakty. Wyczyść `_build/` i
 :::
 
 :::{caution} Ostrożnie
-Nie mieszaj składni `mermaid z `{mermaid} w jednym pliku – wybierz **jedną**.
+Nie mieszaj składni ``mermaid` z ``{mermaid}` w jednym pliku – wybierz **jedną**.
 :::
 
 :::{attention} Zwróć uwagę
