@@ -3,51 +3,76 @@ graph TD
     %% ===================================================================
     %% DEFINICJE STYLÓW
     %% ===================================================================
-    classDef startEnd fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
-    classDef majorStep fill:#006400,color:#fff,stroke:#228B22,stroke-width:2px;
-    classDef moduleBatch fill:#4B0082,color:#fff,stroke:#8A2BE2;
-    classDef utility fill:#614a00,color:#fff,stroke:#a68333;
+    classDef sequenceStart fill:#003366,color:#fff,stroke:#007bff,stroke-width:3px,font-weight:bold;
+    classDef majorStep fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:2px;
+    classDef module fill:#4B0082,color:#fff,stroke:#9932CC;
+    classDef finalState fill:#550000,color:#fff,stroke:#ff4444,stroke-width:3px,font-weight:bold;
+    classDef subgraphStyle fill:#222,stroke:#888,stroke-dasharray: 5 5;
 
     %% ===================================================================
-    %% STRUKTURA DIAGRAMU - SEKWENCJA ŁADOWANIA
+    %% STRUKTURA DIAGRAMU - PRECYZYJNA SEKWENCJA ŁADOWANIA
     %% ===================================================================
 
-    Start("🚀 Application Start") --> client("1. Initialize Core Client");
+    Start("🚀 Application Start"):::sequenceStart;
 
-    client --> LoadPreGame["2. Load Pre-Game & Common Modules"];
+    Start --> client("1. Initialize Core Client"):::majorStep;
 
-    subgraph " "
+    subgraph "Phase 1: Pre-Game Modules (triggered by 'client')"
         direction LR
-        LoadPreGame -- "loads" --> Batch1(client_styles, client_locales, client_topmenu, etc.);
+        client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_entergame & client_terminal & client_stats & client_feedback & client_mobile;
     end
-    
-    Batch1 --> client_entergame("3. Initialize Enter Game");
+    class Phase1:Pre-Game_Modules_(triggered_by_'client') subgraphStyle;
 
-    client_entergame --> LoadGameLogic["4. Load Game Data"];
-    
-    subgraph " "
+
+    client_entergame --> client_entergame_init("2. Initialize Enter Game"):::majorStep;
+
+    subgraph "Phase 2: Game Data (triggered by 'client_entergame')"
         direction LR
-        LoadGameLogic -- "loads" --> Batch2(game_things, game_features);
+        client_entergame_init -- loads --> game_things & game_features;
     end
+    class Phase2:Game_Data_(triggered_by_'client_entergame') subgraphStyle;
 
-    Batch2 --> game_interface("5. Initialize Game Interface");
-
-    game_interface --> LoadGameUI["6. Load All In-Game UI Modules"];
     
-    subgraph " "
-        LoadGameUI -- "loads" --> Batch3("...30+ UI modules like<br/>game_inventory, game_battle, etc.");
+    game_features --> game_interface("3. Initialize Game Interface"):::majorStep;
+
+    subgraph "Phase 3: Game UI Modules (triggered by 'game_interface')"
+        direction TB
+        subgraph " "
+            game_interface -- loads --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills;
+        end
+        subgraph " "
+            game_interface -- " " --> game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade;
+        end
+        subgraph " "
+            game_interface -- " " --> game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog;
+        end
+        subgraph " "
+             game_interface -- " " --> game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_profiles & game_actionbar & game_prey & game_imbuing;
+        end
+        subgraph " "
+            game_interface -- " " --> game_stats_ui[game_stats] & game_shaders & game_bot;
+        end
     end
+    class Phase3:Game_UI_Modules_(triggered_by_'game_interface') subgraphStyle;
 
-    Batch3 --> Ready("✅ Ready to Play");
-    
-    %% Równoległy proces - Updater
-    LoadPreGame --> updater("Utility: Initialize Updater");
-    updater --> Ready;
+    game_bot --> Ready("✅ Client Ready to Play"):::finalState;
+
+    %% Definicja równoległego procesu Updatgera, który ma swoje własne zależności
+    subgraph "Parallel Utility: Updater"
+        direction TD
+        %% Updater czeka na załadowanie swoich zależności z Fazy 1
+        client_locales --> updater_init("Initialize Updater");
+        client_styles --> updater_init;
+        client_textedit --> updater_init;
+
+        updater_init -- loads --> client_background;
+    end
+    class Parallel_Utility:Updater subgraphStyle;
 
     %% ===================================================================
-    %% PRZYPISANIE STYLÓW
+    %% PRZYPISANIE STYLÓW DO WĘZŁÓW
     %% ===================================================================
-    class Start,Ready startEnd;
-    class client,client_entergame,game_interface majorStep;
-    class LoadPreGame,LoadGameLogic,LoadGameUI moduleBatch;
-    class updater utility;
+    class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
+    class game_things,game_features module;
+    class updater_init module;
+    class game_buttons,game_hotkeys,game_questlog,game_textmessage,game_console,game_outfit,game_healthinfo,game_skills,game_inventory,game_containers,game_viplist,game_battle,game_minimap,game_npctrade,game_textwindow,game_playertrade,game_bugreport,game_playerdeath,game_playermount,game_ruleviolation,game_market,game_spelllist,game_cooldown,game_modaldialog,game_unjustifiedpoints,game_walking,game_shop,game_itemselector,client_profiles,game_actionbar,game_prey,game_imbuing,game_stats_ui,game_shaders,game_bot module;
