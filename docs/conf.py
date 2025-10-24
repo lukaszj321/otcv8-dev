@@ -1,4 +1,6 @@
-# -- OTClient v8 Dev Docs — Sphinx config -------------------------------------
+# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7/8, PyData >=0.16) ---------
+
+from __future__ import annotations
 
 import os
 import json
@@ -8,30 +10,33 @@ from collections.abc import Mapping, Sequence
 
 # -- Project -------------------------------------------------------------------
 project = "OTClient v8 — Developer Documentation"
-author = "Dildo"
+author = "OTClient v8 contributors"
 language = "pl"
 
 # -- Paths ---------------------------------------------------------------------
 DOCS_DIR = Path(__file__).parent.resolve()
-REPO_ROOT = DOCS_DIR.parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"              # LDoc output lives here
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
+EXTRA_DIR = DOCS_DIR / "_extra"  # LDoc output lives here
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"  # Doxygen XML target (from workflow)
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
 html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []  # LDoc HTML
 
 exclude_patterns = [
-    "_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints",
-    ".venv", "venv",
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "**/.ipynb_checkpoints",
+    ".venv",
+    "venv",
 ]
 
 # -- Extensions ----------------------------------------------------------------
 extensions = [
     "myst_nb",
-    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.autosectionlabel",  # auto-id dla nagłówków
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
@@ -40,7 +45,13 @@ extensions = [
 ]
 
 # Krytyczne (ładowane warunkowo)
-for ext in ["sphinxcontrib.mermaid", "sphinx_design", "breathe", "exhale"]:
+_critical_exts = [
+    "sphinxcontrib.mermaid",  # Mermaid diagrams
+    "sphinx_design",          # Grid/cards
+    "breathe",                # C++ (Doxygen -> Sphinx)
+    "exhale",                 # auto TOC dla Doxygen XML (C++)
+]
+for ext in _critical_exts:
     try:
         import_module(ext)
         extensions.append(ext)
@@ -49,11 +60,16 @@ for ext in ["sphinxcontrib.mermaid", "sphinx_design", "breathe", "exhale"]:
         print(f"[conf.py] ✗ CRITICAL extension failed to load: {ext} ({e})")
 
 # Opcjonalne (jeśli są zainstalowane)
-for ext in [
-    "sphinx_copybutton", "sphinx_sitemap", "sphinxext.opengraph",
-    "sphinx_favicon", "sphinx_codeautolink", "sphinxcontrib.jquery",
+_optional_exts = [
+    "sphinx_copybutton",
+    "sphinx_sitemap",
+    "sphinxext.opengraph",
+    "sphinx_favicon",
+    "sphinx_codeautolink",
+    "sphinxcontrib.jquery",
     "sphinx_hoverxref",
-]:
+]
+for ext in list(_optional_exts):
     try:
         import_module(ext)
         extensions.append(ext)
@@ -69,41 +85,49 @@ nb_execution_mode = "off"
 nb_execution_timeout = 300
 
 myst_enable_extensions = [
-    "colon_fence", "deflist", "substitution", "linkify",
-    "attrs_block", "attrs_inline", "tasklist", "smartquotes",
+    "colon_fence",
+    "deflist",
+    "substitution",
+    "linkify",
+    "attrs_block",
+    "attrs_inline",
+    "tasklist",
+    "smartquotes",
 ]
 myst_heading_anchors = 3
-# mapuje ```mermaid -> {mermaid}
-myst_fence_as_directive = ["mermaid"]
+myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
 
-# Unikalne anchor-y per dokument
+# Prefiksy sekcji (unikalne anchor-y)
 autosectionlabel_prefix_document = True
 
-# -- Breathe / Exhale (C++ via Doxygen) ---------------------------------------
-breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
+# -- Breathe (C++ via Doxygen) -------------------------------------------------
+breathe_projects = {}
+breathe_default_project = None
+# (Ścieżka DOXY_XML będzie istnieć po kroku "doxygen" w CI.)
+breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
 breathe_default_project = "OTCv8 C++ API"
 
-# Exhale – generuje toctree z Doxygen XML
-exhale_args = {
-    # gdzie Exhale ma wygenerować drzewo stron
-    "containmentFolder": str(DOCS_DIR / "autoapi" / "cpp"),
-    "rootFileName": "index.rst",
-    "rootFileTitle": "OTCv8 C++ API",
-    "createTreeView": True,
-    # klucz wymagany przez Exhale (poprawia czytelność ścieżek)
-    "doxygenStripFromPath": str(REPO_ROOT),
-    # doxygen uruchamiany w CI (workflow), więc tutaj False
-    "exhaleExecutesDoxygen": False,
-}
-primary_domain = "cpp"
-highlight_language = "cpp"
+# -- Exhale (auto TOC dla C++) -------------------------------------------------
+if "exhale" in extensions:
+    # strip root == repo root (docs/..)
+    REPO_ROOT = str((DOCS_DIR / "..").resolve())
+    exhale_args = {
+        "containmentFolder": "autoapi/cpp",
+        "rootFileName": "index.rst",
+        "rootFileTitle": "OTCv8 C++ API",
+        "createTreeView": True,
+        "doxygenStripFromPath": REPO_ROOT,
+        # Mapa typów (opcjonalnie można dostosować):
+        "afterTitleDescription": "Dokumentacja C++ generowana z Doxygen (Breathe/Exhale).",
+    }
+    primary_domain = "cpp"
+    highlight_language = "cpp"
 
-# -- Custom lexers for OTUI/OTMOD (cisza dla highlightingu) --------------------
+# -- Custom lexers for OTUI/OTMOD (ciszej o ostrzeżeniach) --------------------
 try:
     from sphinx.highlighting import lexers
-    # IniLexer przeniesiono do pygments.lexers.configs
-    from pygments.lexers.configs import IniLexer
     from pygments.lexers.data import YamlLexer
+    from pygments.lexers.configs import IniLexer
     lexers["otui"] = YamlLexer()   # zbliżona składnia
     lexers["otmod"] = IniLexer()
 except Exception as e:
@@ -119,37 +143,38 @@ except Exception:
 
 html_title = "OTClient v8 — Authoring & API"
 
-# CSS
+# CSS / JS
 html_css_files = []
 def _add_css(path: str):
     if (STATIC_DIR / path).exists():
         html_css_files.append(path)
 
-# Kolejność ma znaczenie – ostatnie nadpisują wcześniejsze
 for _p in [
     "tables.css",
     "tables-premium.css",
     "custom-dark-mermaid.css",
     "css/custom.css",
-    "css/layout.css",   # <== nowe reguły layoutu
+    "css/layout.css",
 ]:
     _add_css(_p)
 
-# JS (musimy jawnie dodać custom.js)
 html_js_files = []
-if (STATIC_DIR / "custom.js").exists():
-    html_js_files.append("custom.js")
+def _add_js(path: str):
+    if (STATIC_DIR / path).exists():
+        html_js_files.append(path)
+
+for _p in ["custom.js"]:
+    _add_js(_p)
 
 html_theme_options = {
     "use_edit_page_button": True,
-    "show_nav_level": 2,                # rozwinięcie lewej nawigacji
+    "show_nav_level": 2,
     "navigation_with_keys": True,
     "show_prev_next": True,
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {"name": "GitHub",
-         "url": "https://github.com/lukaszj321/otcv8-dev",
+        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev",
          "icon": "fa-brands fa-github", "type": "fontawesome"},
     ],
 }
@@ -162,10 +187,9 @@ html_context = {
     "doc_path": "docs",
 }
 
-# -- Mermaid (kliencki RAW) ----------------------------------------------------
+# -- Mermaid (client-side RAW) -------------------------------------------------
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
-# motyw ustalimy CSS/JS; init bazowy:
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
 # -- OpenGraph / SEO -----------------------------------------------------------
@@ -195,7 +219,10 @@ if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
 # -- Warnings / porządek -------------------------------------------------------
-suppress_warnings = ["myst.header", "myst.nb.render"]
+suppress_warnings = [
+    "myst.header",
+    "myst.nb.render",
+]
 
 # -- Todo ----------------------------------------------------------------------
 todo_include_todos = False
