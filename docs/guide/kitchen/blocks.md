@@ -1,4 +1,4 @@
-# Bloki i zakładki — przykłady
+# Bloki i zakładki
 
 ## 1) Podstawowe zakładki
 
@@ -21,8 +21,9 @@
 
 ````
 
-## 2) Zakładki z trzema językami
+---
 
+## 2) Zakładki z trzema językami
 ```md
 :::{tab-set}
 :::{tab-item} Lua
@@ -56,8 +57,9 @@ print(add(2,3))
 
 ````
 
-## 3) `sync-group` (synchronizacja wyboru między zestawami)
+---
 
+## 3) `sync-group` (synchronizacja wyboru między zestawami)
 ```md
 :::{tab-set}
 :sync-group: code-lang
@@ -96,8 +98,9 @@ print(add(2,3))
 
 ````
 
-## 4) Zakładki z domyślnie wybraną kartą
+---
 
+## 4) Zakładki z domyślnie wybraną kartą
 ```md
 :::{tab-set}
 :::{tab-item} Lua
@@ -118,8 +121,9 @@ print("Lua selected by default")
 
 ````
 
-## 5) Zakładki w kolumnach (przykład 2 kolumny)
+---
 
+## 5) Zakładki w kolumnach (przykład 2 kolumny)
 ```md
 :::{grid} 1 1 2 2
 :gutter: 3
@@ -142,7 +146,6 @@ print("Lua selected by default")
 
 :::
 :::
-
 :::
 
 :::{grid-item}
@@ -164,15 +167,15 @@ print("Lua selected by default")
 
 :::
 :::
-
 :::
 
 :::
 
 ````
 
-## 6) Zakładki z klasami CSS
+---
 
+## 6) Zakładki z klasami CSS
 ```md
 :::{tab-set}
 :class: my-tabs
@@ -195,8 +198,9 @@ print("Lua selected by default")
 
 ````
 
-## 7) Zakładki + admonition wewnątrz
+---
 
+## 7) Zakładki + admonition wewnątrz
 ```md
 :::{tab-set}
 :::{tab-item} Lua
@@ -217,3 +221,6 @@ int main(){ std::cout << "ok"; }
 
 :::
 :::
+
+```
+```
