@@ -91,10 +91,25 @@ Dokumentacja używa **MyST** (Markedly Structured Text) – rozszerzonego Markdo
 
 #### Podstawowy przykład
 
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod (Markdown)**
+
 ```markdown
 # Nagłówek H1
 
 ## Nagłówek H2
+
+### Nagłówek H3
+
+#### Nagłówek H4
+
+##### Nagłówek H5
+
+###### Nagłówek H6
 
 Zwykły tekst z **pogrubieniem** i *kursywą*.
 
@@ -104,6 +119,33 @@ Zwykły tekst z **pogrubieniem** i *kursywą*.
 1. Lista numerowana
 2. Drugi element
 ```
+
+:::
+
+:::{grid-item}
+**Podgląd (render)**
+
+# Nagłówek H1
+
+## Nagłówek H2
+
+### Nagłówek H3
+
+#### Nagłówek H4
+
+##### Nagłówek H5
+
+###### Nagłówek H6
+
+Zwykły tekst z **pogrubieniem** i *kursywą*.
+
+* Lista punktowana
+* Drugi element
+
+1. Lista numerowana
+2. Drugi element
+:::
+:::
 
 Blok kodu
 
