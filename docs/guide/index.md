@@ -274,7 +274,7 @@ html_theme_options = {
     "show_prev_next": True,
     "navigation_with_keys": True,
 }
-
+```
 
 
 :::
@@ -304,7 +304,7 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 - [x] Tabs przełączają się poprawnie
 - [x] CSV tables mają nagłówki
 - [x] Literalinclude używa regionów (nie linii)
-
+```
 
 
 :::
@@ -320,7 +320,7 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 - [x] Tabs przełączają się poprawnie
 - [x] CSV tables mają nagłówki
 - [x] Literalinclude używa regionów (nie linii)
-
+```
 
 :::
 
