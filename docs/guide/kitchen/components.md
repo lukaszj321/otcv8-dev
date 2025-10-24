@@ -8,23 +8,23 @@
 
 > Działają automatycznie po ustawieniu w `conf.py` (`html_context` + `html_theme_options`). Poniżej **przycisk ręczny** jako alternatywa.
 
-````md
+
 ```{button-link} https://github.com/ORG/REPO/edit/master/docs/path/to/file.md
 :color: primary
 :outline:
 :expand:
 Edytuj tę stronę na GitHubie
-````
+```
 
-````
+
 
 ---
 
 ## Badge (etykieta)
-```md
+
 ```{badge} Stable
 :color: success
-````
+```
 
 ```{badge} Experimental
 :color: warning
@@ -34,30 +34,29 @@ Edytuj tę stronę na GitHubie
 :color: danger
 ```
 
-````
+
 
 ---
 
 ## Dropdown / Details (rozwijane bloki)
-```md
+
 ```{dropdown} Zobacz więcej (dropdown)
 :open:
 Tu treść rozwijana, może zawierać listy, kod, itp.
-````
+```
 
-````
 
-```md
+
+
 ```{details} Szczegóły (details)
 HTML5 `<details>` kompatybilne z motywem.
-````
+```
 
-````
 
 ---
 
 ## Karty (cards) — 3 kolumny
-```md
+
 :::{grid} 1 1 2 3
 :gutter: 3
 
@@ -80,32 +79,32 @@ Auto‑API i odwołania.
 :::
 
 :::
-````
+
 
 ---
 
 ## Przyciski akcji (CTA)
 
-````md
+
 ```{button-link} ../install
 :color: primary
 :shadow:
 Zainstaluj teraz
-````
+```
 
 ```{button-link} ../changelog
 :color: secondary
 Zobacz zmiany
 ```
 
-````
+
 
 ---
 
 ## Ikony w tekście (emoji lub SVG)
-```md
+
 **GitHub** :octocat:  · **Info** ℹ️  · **Uwaga** ⚠️
-````
+
 
 > Wersja stricte SVG: osadź `<svg>` (PyData wspiera inline HTML).
 
@@ -113,11 +112,11 @@ Zobacz zmiany
 
 ## Tabele porównawcze (design + klasy)
 
-````md
+
 ```{list-table} Porównanie wariantów
 :header-rows: 1
 :class: sd-table sd-width-100
-
+```
 * - Wariant
   - Opis
   - Akcja
@@ -127,19 +126,17 @@ Zobacz zmiany
 * - Pro
   - Więcej funkcji i wsparcie
   - ```{button-link} ../buy/pro\n:color: success\nKup Pro\n```
-````
 
-````
 
 ---
 
 ## Zakładki (tabs) z kodem
-```md
+
 :::{tab-set}
 :::{tab-item} Bash
 ```bash
 pip install -r requirements.txt
-````
+```
 
 :::
 :::{tab-item} PowerShell
@@ -151,23 +148,22 @@ pip install -r requirements.txt
 :::
 :::
 
-````
 
 ---
 
 ## Alerty (admonitions) stylowane
-```md
+
 :::{admonition} Uwaga — build
 :class: warning sd-font-weight-bold
 Może potrwać dłużej w CI.
 :::
-````
+
 
 ---
 
 ## Osadzony HTML (web‑component / raw HTML)
 
-```md
+
 <div class="sd-shadow-sm sd-rounded-2 sd-p-2 sd-bg-muted">
   <details>
     <summary>Kliknij, by rozwinąć</summary>
@@ -180,20 +176,19 @@ Może potrwać dłużej w CI.
 
 ## Sticky TOC / przyklejany blok (styl przez klasę)
 
-```md
+
 :::{admonition} Szybka nawigacja
 :class: sd-sticky sd-top-4 sd-shadow-sm
 - [:ref:`genindex`]
 - [:ref:`modindex`]
 - [:ref:`search`]
 :::
-```
 
 ---
 
 ## Sekcja hero (nagłówek z CTA)
 
-````md
+
 :::{grid} 1 1 2 2
 :gutter: 3
 
@@ -205,7 +200,7 @@ Krótki opis projektu i linki startowe.
 :color: primary
 :expand:
 Zacznij teraz
-````
+```
 
 :::
 
@@ -220,11 +215,11 @@ flowchart LR
 
 :::
 
-````
+
 
 ---
 
 ## Stopka z linkami (inline refs)
-```md
+
 — [:ref:`genindex`] · [:ref:`modindex`] · [:ref:`search`]
-````
+
