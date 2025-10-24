@@ -2,12 +2,12 @@
 
 ## 1) Podstawowe zakładki
 
-````md
+
 :::{tab-set}
 :::{tab-item} Lua
 ```lua
 -- example
-````
+
 
 :::
 :::{tab-item} C++
@@ -19,12 +19,12 @@
 :::
 :::
 
-````
+
 
 ---
 
 ## 2) Zakładki z trzema językami
-```md
+
 :::{tab-set}
 :::{tab-item} Lua
 ```lua
@@ -32,7 +32,7 @@ local function add(a, b)
   return a + b
 end
 print(add(2,3))
-````
+```
 
 :::
 :::{tab-item} C++
@@ -55,18 +55,18 @@ print(add(2,3))
 :::
 :::
 
-````
+
 
 ---
 
 ## 3) `sync-group` (synchronizacja wyboru między zestawami)
-```md
+
 :::{tab-set}
 :sync-group: code-lang
 :::{tab-item} Lua
 ```lua
 -- lua code
-````
+```
 
 :::
 :::{tab-item} C++
@@ -96,18 +96,18 @@ print(add(2,3))
 :::
 :::
 
-````
+
 
 ---
 
 ## 4) Zakładki z domyślnie wybraną kartą
-```md
+
 :::{tab-set}
 :::{tab-item} Lua
 :selected:
 ```lua
 print("Lua selected by default")
-````
+```
 
 :::
 :::{tab-item} C++
@@ -119,12 +119,12 @@ print("Lua selected by default")
 :::
 :::
 
-````
+
 
 ---
 
 ## 5) Zakładki w kolumnach (przykład 2 kolumny)
-```md
+
 :::{grid} 1 1 2 2
 :gutter: 3
 
@@ -135,7 +135,7 @@ print("Lua selected by default")
 :::{tab-item} Lua
 ```lua
 -- api
-````
+```
 
 :::
 :::{tab-item} Python
@@ -171,19 +171,19 @@ print("Lua selected by default")
 
 :::
 
-````
+
 
 ---
 
 ## 6) Zakładki z klasami CSS
-```md
+
 :::{tab-set}
 :class: my-tabs
 :::{tab-item} Lua
 :class: code-tab
 ```lua
 -- stylowane
-````
+```
 
 :::
 :::{tab-item} C++
@@ -196,17 +196,17 @@ print("Lua selected by default")
 :::
 :::
 
-````
+
 
 ---
 
 ## 7) Zakładki + admonition wewnątrz
-```md
+
 :::{tab-set}
 :::{tab-item} Lua
 ```lua
 print("ok")
-````
+```
 
 :::{note}
 To samo w C++ na drugiej karcie.
@@ -221,6 +221,3 @@ int main(){ std::cout << "ok"; }
 
 :::
 :::
-
-```
-```
