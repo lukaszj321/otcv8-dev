@@ -175,7 +175,7 @@ digraph G {
 :::
 :::
 
-````
+
 :::
 
 :::{grid-item}
@@ -225,7 +225,7 @@ digraph G {
 :header-rows: 1
 :file: ../authoring/04_ui/datasets/signals.csv
 :widths: 20, 20, 30, 30
-````
+
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
@@ -266,7 +266,7 @@ digraph G {
 :::{grid-item}
 **Kod**
 
-````md
+
 Prawy TOC + „Show source" + „Edit this page" włączone globalnie.
 
 ```python
@@ -275,9 +275,9 @@ html_theme_options = {
     "show_prev_next": True,
     "navigation_with_keys": True,
 }
-````
 
-````
+
+
 :::
 
 :::{grid-item}
@@ -306,9 +306,9 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 - [x] Tabs przełączają się poprawnie
 - [x] CSV tables mają nagłówki
 - [x] Literalinclude używa regionów (nie linii)
-````
 
-````
+
+
 :::
 
 :::{grid-item}
@@ -322,7 +322,7 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 - [x] Tabs przełączają się poprawnie
 - [x] CSV tables mają nagłówki
 - [x] Literalinclude używa regionów (nie linii)
-````
+
 
 :::
 
