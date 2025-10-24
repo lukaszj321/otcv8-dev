@@ -1,72 +1,74 @@
-%%{init: {"theme":"dark", "flowchart": {"curve": "basis"}}}%%
 graph TD
-    %% ===================================================================
-    %% DEFINICJE STYLÓW
-    %% ===================================================================
-    classDef sequenceStart fill:#003366,color:#fff,stroke:#007bff,stroke-width:3px,font-weight:bold;
-    classDef majorStep fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:2px;
-    classDef module fill:#4B0082,color:#fff,stroke:#9932CC;
-    classDef finalState fill:#550000,color:#fff,stroke:#ff4444,stroke-width:3px,font-weight:bold;
-    classDef subgraphStyle fill:#222,stroke:#888,stroke-dasharray: 5 5;
-
-    %% ===================================================================
-    %% STRUKTURA DIAGRAMU - PRECYZYJNA SEKWENCJA ŁADOWANIA
-    %% ===================================================================
-
-    Start("🚀 Application Start"):::sequenceStart;
-
-    Start --> client("1. Initialize Core Client"):::majorStep;
+    Start("🚀 Application Start");
+    Start --> client("1. Initialize Core Client");
 
     subgraph Phase_1_Pre-Game_Modules
-        direction LR
-        client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_entergame & client_terminal & client_stats & client_feedback & client_mobile;
+        client -- loads --> client_styles;
+        client -- loads --> client_locales;
+        client -- loads --> client_topmenu;
+        client -- loads --> client_background;
+        client -- loads --> client_textedit;
+        client -- loads --> client_options;
+        client -- loads --> client_entergame;
+        client -- loads --> client_terminal;
+        client -- loads --> client_stats;
+        client -- loads --> client_feedback;
+        client -- loads --> client_mobile;
     end
     
-    client_entergame --> client_entergame_init("2. Initialize Enter Game"):::majorStep;
+    client_entergame --> client_entergame_init("2. Initialize Enter Game");
 
     subgraph Phase_2_Game_Data
-        direction LR
-        client_entergame_init -- loads --> game_things & game_features;
+        client_entergame_init -- loads --> game_things;
+        client_entergame_init -- loads --> game_features;
     end
     
-    game_features --> game_interface("3. Initialize Game Interface"):::majorStep;
+    game_features --> game_interface("3. Initialize Game Interface");
 
     subgraph Phase_3_Game_UI_Modules
-        direction TB
-        subgraph s3_1
-            game_interface -- loads --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills;
-        end
-        subgraph s3_2
-            game_interface -- " " --> game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade;
-        end
-        subgraph s3_3
-            game_interface -- " " --> game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog;
-        end
-        subgraph s3_4
-             game_interface -- " " --> game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_profiles & game_actionbar & game_prey & game_imbuing;
-        end
-        subgraph s3_5
-            game_interface -- " " --> game_stats_ui[game_stats] & game_shaders & game_bot;
-        end
+        game_interface -- loads --> game_buttons;
+        game_interface -- loads --> game_hotkeys;
+        game_interface -- loads --> game_questlog;
+        game_interface -- loads --> game_textmessage;
+        game_interface -- loads --> game_console;
+        game_interface -- loads --> game_outfit;
+        game_interface -- loads --> game_healthinfo;
+        game_interface -- loads --> game_skills;
+        game_interface -- loads --> game_inventory;
+        game_interface -- loads --> game_containers;
+        game_interface -- loads --> game_viplist;
+        game_interface -- loads --> game_battle;
+        game_interface -- loads --> game_minimap;
+        game_interface -- loads --> game_npctrade;
+        game_interface -- loads --> game_textwindow;
+        game_interface -- loads --> game_playertrade;
+        game_interface -- loads --> game_bugreport;
+        game_interface -- loads --> game_playerdeath;
+        game_interface -- loads --> game_playermount;
+        game_interface -- loads --> game_ruleviolation;
+        game_interface -- loads --> game_market;
+        game_interface -- loads --> game_spelllist;
+        game_interface -- loads --> game_cooldown;
+        game_interface -- loads --> game_modaldialog;
+        game_interface -- loads --> game_unjustifiedpoints;
+        game_interface -- loads --> game_walking;
+        game_interface -- loads --> game_shop;
+        game_interface -- loads --> game_itemselector;
+        game_interface -- loads --> client_profiles;
+        game_interface -- loads --> game_actionbar;
+        game_interface -- loads --> game_prey;
+        game_interface -- loads --> game_imbuing;
+        game_interface -- loads --> game_stats_ui[game_stats];
+        game_interface -- loads --> game_shaders;
+        game_interface -- loads --> game_bot;
     end
 
-    game_bot --> Ready("✅ Client Ready to Play"):::finalState;
+    game_bot --> Ready("✅ Client Ready to Play");
 
     subgraph Parallel_Utility_Updater
-        direction TD
-        client_locales --> updater_init("Initialize Updater");
+        updater_init("Initialize Updater");
+        client_locales --> updater_init;
         client_styles --> updater_init;
         client_textedit --> updater_init;
         updater_init -- loads --> client_background;
     end
-
-    %% ===================================================================
-    %% PRZYPISANIE STYLÓW
-    %% ===================================================================
-    
-    class Phase_1_Pre-Game_Modules,Phase_2_Game_Data,Phase_3_Game_UI_Modules,Parallel_Utility_Updater subgraphStyle;
-
-    class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
-    class game_things,game_features module;
-    class updater_init module;
-    class game_buttons,game_hotkeys,game_questlog,game_textmessage,game_console,game_outfit,game_healthinfo,game_skills,game_inventory,game_containers,game_viplist,game_battle,game_minimap,game_npctrade,game_textwindow,game_playertrade,game_bugreport,game_playerdeath,game_playermount,game_ruleviolation,game_market,game_spelllist,game_cooldown,game_modaldialog,game_unjustifiedpoints,game_walking,game_shop,game_itemselector,client_profiles,game_actionbar,game_prey,game_imbuing,game_stats_ui,game_shaders,game_bot module;
