@@ -8102,93 +8102,98 @@ Główna metoda aktualizacji layoutu.
 ```mermaid
 graph TD
     subgraph Aplikacja
-        Application --dziedziczy-→ GraphicalApplication
-        Application --dziedziczy-→ ConsoleApplication
-        GraphicalApplication -→ PlatformWindow
-        GraphicalApplication -→ UIManager
-        GraphicalApplication -→ Graphics
-        GraphicalApplication -→ SoundManager
+        Application -- dziedziczy --> GraphicalApplication
+        Application -- dziedziczy --> ConsoleApplication
+        GraphicalApplication --> PlatformWindow
+        GraphicalApplication --> UIManager
+        GraphicalApplication --> Graphics
+        GraphicalApplication --> SoundManager
     end
 
     subgraph Framework_Core
-        Application -→ EventDispatcher
-        Application -→ ModuleManager
-        Application -→ ResourceManager
-        Application -→ ConfigManager
-        Application -→ Logger
-        EventDispatcher -→ Event
-        Event --dziedziczy-→ ScheduledEvent
-        Clock & Timer
+        Application --> EventDispatcher
+        Application --> ModuleManager
+        Application --> ResourceManager
+        Application --> ConfigManager
+        Application --> Logger
+        EventDispatcher --> Event
+        Event -- dziedziczy --> ScheduledEvent
+        Clock[Clock]
+        Timer[Timer]
     end
 
     subgraph Framework_UI
-        UIManager -→ UIWidget
-        UIWidget -→ UILayout
-        UILayout --dziedziczy-→ UIAnchorLayout
-        UILayout --dziedziczy-→ UIBoxLayout
-        UIBoxLayout --dziedziczy-→ UIHorizontalLayout
-        UIBoxLayout --dziedziczy-→ UIVerticalLayout
-        UIWidget -→ BitmapFont
-        UIWidget -→ Painter
+        UIManager --> UIWidget
+        UIWidget --> UILayout
+        UILayout -- dziedziczy --> UIAnchorLayout
+        UILayout -- dziedziczy --> UIBoxLayout
+        UIBoxLayout -- dziedziczy --> UIHorizontalLayout
+        UIBoxLayout -- dziedziczy --> UIVerticalLayout
+        UIWidget --> BitmapFont
+        UIWidget --> Painter
     end
 
     subgraph Framework_Graphics
-        Graphics -→ Painter
-        Graphics -→ TextureManager
-        Graphics -→ FrameBufferManager
-        Graphics -→ ShaderManager
-        Painter -→ ShaderProgram
-        TextureManager -→ Texture
-        Texture --dziedziczy-→ AnimatedTexture
-        Texture -→ Image
+        Graphics --> Painter
+        Graphics --> TextureManager
+        Graphics --> FrameBufferManager
+        Graphics --> ShaderManager
+        Painter --> ShaderProgram
+        TextureManager --> Texture
+        Texture -- dziedziczy --> AnimatedTexture
+        Texture --> Image
     end
 
     subgraph Framework_Platform
-        PlatformWindow --implementuje-→ WIN32Window
-        PlatformWindow --implementuje-→ X11Window
-        PlatformWindow --implementuje-→ AndroidWindow
-        PlatformWindow --implementuje-→ SDLWindow
-        Platform
+        PlatformWindow -- implementuje --> WIN32Window
+        PlatformWindow -- implementuje --> X11Window
+        PlatformWindow -- implementuje --> AndroidWindow
+        PlatformWindow -- implementuje --> SDLWindow
+        Platform[Platform]
     end
 
     subgraph Framework_Lua
-        LuaInterface -→ LuaObject
-        LuaInterface -→ luabinder
-        UIWidget --dziedziczy-→ LuaObject
-        Protocol --dziedziczy-→ LuaObject
+        LuaInterface --> LuaObject
+        LuaInterface --> luabinder
+        UIWidget -- dziedziczy --> LuaObject
+        Protocol -- dziedziczy --> LuaObject
     end
 
     subgraph Framework_Net
-        Protocol -→ Connection
-        Protocol -→ InputMessage & OutputMessage
-        ProxyManager -→ Proxy & Session
-        Connection & Proxy & Session -→ Boost.Asio
+        Protocol --> Connection
+        Protocol --> InputMessage
+        Protocol --> OutputMessage
+        ProxyManager --> Proxy
+        ProxyManager --> Session
     end
 
-    subgraph Zależności_Zewnętrzne
-        Boost.Asio
-        Boost.Beast
-        Boost.Process
-        OpenGL/GLES/GLEW
-        OpenAL
-        Lua/LuaJIT
-        PhysFS
-        ZLIB
-        OpenSSL
-        TinyXML
+    subgraph Zaleznosci_Zewnetrzne
+        BoostAsio[Boost.Asio]
+        BoostBeast[Boost.Beast]
+        BoostProcess[Boost.Process]
+        OpenGL[OpenGL/GLES/GLEW]
+        OpenAL[OpenAL]
+        LuaJIT[Lua/LuaJIT]
+        PhysFS[PhysFS]
+        ZLIB[ZLIB]
+        OpenSSL[OpenSSL]
+        TinyXML[TinyXML]
     end
 
-    Application -→ Framework_Core
-    GraphicalApplication -→ Framework_Graphics
-    GraphicalApplication -→ Framework_UI
-    GraphicalApplication -→ Framework_Platform
-    Application -→ Framework_Lua
-    Application -→ Framework_Net
+    Application --> Framework_Core
+    GraphicalApplication --> Framework_Graphics
+    GraphicalApplication --> Framework_UI
+    GraphicalApplication --> Framework_Platform
+    Application --> Framework_Lua
+    Application --> Framework_Net
 
-    Framework_Graphics -→ OpenGL/GLES/GLEW
-    Framework_Net -→ Zależności_Zewnętrzne
-    ResourceManager -→ PhysFS
+    Framework_Graphics --> OpenGL
+    Framework_Net --> BoostAsio
+    Framework_Net --> BoostBeast
+    Framework_Net --> OpenSSL
+    ResourceManager --> PhysFS
 ```
+
 # 🧱 Architektura systemu
 System `otclient` jest zbudowany w oparciu o architekturę modułową i warstwową, która oddziela rdzeń frameworka od logiki specyficznej dla klienta gry.
 # Warstwy
