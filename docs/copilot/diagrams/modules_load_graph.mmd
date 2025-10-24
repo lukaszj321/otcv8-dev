@@ -17,42 +17,42 @@ graph TD
 
     Start --> client("1. Initialize Core Client"):::majorStep;
 
-    subgraph Phase1 ["Phase 1: Pre-Game Modules (triggered by 'client')"]
+    subgraph Phase_1_Pre-Game_Modules
         direction LR
         client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_entergame & client_terminal & client_stats & client_feedback & client_mobile;
     end
     
     client_entergame --> client_entergame_init("2. Initialize Enter Game"):::majorStep;
 
-    subgraph Phase2 ["Phase 2: Game Data (triggered by 'client_entergame')"]
+    subgraph Phase_2_Game_Data
         direction LR
         client_entergame_init -- loads --> game_things & game_features;
     end
     
     game_features --> game_interface("3. Initialize Game Interface"):::majorStep;
 
-    subgraph Phase3 ["Phase 3: Game UI Modules (triggered by 'game_interface')"]
+    subgraph Phase_3_Game_UI_Modules
         direction TB
-        subgraph s3_1 [" "]
+        subgraph s3_1
             game_interface -- loads --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills;
         end
-        subgraph s3_2 [" "]
+        subgraph s3_2
             game_interface -- " " --> game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade;
         end
-        subgraph s3_3 [" "]
+        subgraph s3_3
             game_interface -- " " --> game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog;
         end
-        subgraph s3_4 [" "]
+        subgraph s3_4
              game_interface -- " " --> game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_profiles & game_actionbar & game_prey & game_imbuing;
         end
-        subgraph s3_5 [" "]
+        subgraph s3_5
             game_interface -- " " --> game_stats_ui[game_stats] & game_shaders & game_bot;
         end
     end
 
     game_bot --> Ready("✅ Client Ready to Play"):::finalState;
 
-    subgraph UpdaterSubgraph ["Parallel Utility: Updater"]
+    subgraph Parallel_Utility_Updater
         direction TD
         client_locales --> updater_init("Initialize Updater");
         client_styles --> updater_init;
@@ -64,7 +64,7 @@ graph TD
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
     
-    class Phase1,Phase2,Phase3,UpdaterSubgraph subgraphStyle;
+    class Phase_1_Pre-Game_Modules,Phase_2_Game_Data,Phase_3_Game_UI_Modules,Parallel_Utility_Updater subgraphStyle;
 
     class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
     class game_things,game_features module;
