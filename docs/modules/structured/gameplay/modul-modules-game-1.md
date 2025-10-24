@@ -30,4 +30,3 @@
 > Ten modu pochodzi z: modules/modules_game_1.md
 
 ### Zaimportowana tre (legacy)
----
