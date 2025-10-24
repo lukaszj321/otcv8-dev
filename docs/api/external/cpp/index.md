@@ -5,6 +5,7 @@
 :glob:
 :titlesonly:
 
+*.rst
 *.md
 ```
 
