@@ -5,7 +5,7 @@
 *.md text working-tree-encoding=UTF-8
 
 # --- Specjalnie: autogen pełnego API (pewny UTF-8 + LF) ---
-docs/api/otcv8-full-api.md text working-tree-encoding=UTF-8 eol=lf
+docs/autoapi/otcv8-full-api.md text working-tree-encoding=UTF-8 eol=lf
 
 # --- YAML / konfiguracje ---
 *.yml text eol=lf
