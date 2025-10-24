@@ -1,23 +1,22 @@
 # -- OTClient v8 Dev Docs — Sphinx config (Sphinx 8.x, PyData >=0.16) ---------
-
 from __future__ import annotations
 
 import os
 from pathlib import Path
 from importlib import import_module
 
-# ── Project ────────────────────────────────────────────────────────────────────
+# ── Projekt ───────────────────────────────────────────────────────────────────
 project = "OTClient v8 — Developer Documentation"
 author = "Dildo"
 language = "pl"
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
+# ── Ścieżki ───────────────────────────────────────────────────────────────────
 DOCS_DIR = Path(__file__).parent.resolve()
 REPO_ROOT = DOCS_DIR.parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"                       # LDoc HTML mirror
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"    # must contain index.xml
+EXTRA_DIR = DOCS_DIR / "_extra"                        # np. mirror LDoc HTML
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"     # musi zawierać index.xml
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
@@ -32,47 +31,60 @@ exclude_patterns = [
     "venv",
 ]
 
-# ── Extensions ────────────────────────────────────────────────────────────────
-extensions = [
-    "myst_nb",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.githubpages",
-    "sphinx.ext.todo",
-    "sphinx.ext.ifconfig",
-    "sphinx.ext.duration",
-    "sphinx.ext.graphviz",
-]
+# ── Helper do bezpiecznego ładowania rozszerzeń ───────────────────────────────
+extensions: list[str] = []
 
-# Critical (load if installed)
-for ext in ["sphinxcontrib.mermaid", "sphinx_design", "breathe", "exhale"]:
+def _try_load(ext: str, strict: bool = False) -> None:
     try:
         import_module(ext)
         extensions.append(ext)
         print(f"[conf.py] ✓ loaded: {ext}")
     except Exception as e:
-        print(f"[conf.py] ✗ missing: {ext} ({e})")
+        msg = f"[conf.py] ✗ missing: {ext} ({e})"
+        if strict:
+            raise
+        print(msg)
 
-# Optional
-for ext in [
-    "sphinx_copybutton",
-    "sphinx_sitemap",
-    "sphinxext.opengraph",
-    "sphinx_favicon",
-    "sphinx_codeautolink",
-    "sphinxcontrib.jquery",
-]:
-    try:
-        import_module(ext)
-        extensions.append(ext)
-    except Exception:
-        pass
+# ── Rdzeń/standard ────────────────────────────────────────────────────────────
+_try_load("myst_nb", strict=True)  # MyST + notebooki
+_try_load("sphinx.ext.autosectionlabel")
+_try_load("sphinx.ext.githubpages")
+_try_load("sphinx.ext.todo")
+_try_load("sphinx.ext.ifconfig")
+_try_load("sphinx.ext.duration")
+_try_load("sphinx.ext.graphviz")
+_try_load("sphinx.ext.napoleon")
+_try_load("sphinx.ext.viewcode")
+_try_load("sphinx.ext.intersphinx")
+_try_load("sphinx.ext.mathjax")
 
-# Don’t load myst_parser alongside myst_nb
+# ── Doxygen / C++ API ─────────────────────────────────────────────────────────
+_try_load("breathe")
+_try_load("exhale")
+
+# ── Blog / UX / SEO / extras ─────────────────────────────────────────────────
+_try_load("ablog")
+_try_load("sphinx_design")
+_try_load("sphinxcontrib.mermaid")
+_try_load("sphinx_copybutton")
+_try_load("sphinxext.opengraph")
+_try_load("sphinx_sitemap")
+_try_load("sphinx_favicon")
+_try_load("sphinx_codeautolink")
+_try_load("hoverxref.extension")           # hoverxref
+_try_load("sphinx_last_updated_by_git")
+_try_load("sphinxcontrib.bibtex")
+_try_load("sphinxext.rediraffe")
+_try_load("sphinxcontrib.luadomain")
+_try_load("sphinxcontrib.jquery")          # nie zaszkodzi, przydaje się z ablog
+_try_load("autoapi.extension")             # tylko jeśli chcesz AutoAPI (Python)
+
+# Nie ładuj myst_parser obok myst_nb
 if "myst_nb" in extensions and "myst_parser" in extensions:
     extensions.remove("myst_parser")
 
-# ── MyST / notebooks ──────────────────────────────────────────────────────────
-nb_execution_mode = "off"
+# ── MyST / Notebooki ──────────────────────────────────────────────────────────
+nb_execution_mode = "off"          # szybkie buildy; zmień na "auto" gdy potrzeba
 nb_execution_timeout = 300
 
 myst_enable_extensions = [
@@ -84,52 +96,53 @@ myst_enable_extensions = [
     "attrs_inline",
     "tasklist",
     "smartquotes",
+    "dollarmath",
+    "fieldlist",
 ]
-myst_heading_anchors = 3
+myst_heading_anchors = 6
 myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
+myst_url_schemes = ["http", "https", "mailto", "tel"]
 
-# Unique anchors per document
+# Unikalne kotwice nagłówków (eliminuje duplikaty)
 autosectionlabel_prefix_document = True
 
-# ── Breathe (C++) ─────────────────────────────────────────────────────────────
-# Doxygen XML is produced in CI into docs/_build/doxygen/xml
+# ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
+# Doxygen XML produkowany w CI do docs/_build/doxygen/xml
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
 
-# ── Exhale (C++ tree generator) ───────────────────────────────────────────────
-# Exhale writes RST into docs/autoapi/cpp/ at build time
+# Exhale generuje drzewo RST w docs/autoapi/cpp/
 exhale_args = {
     "containmentFolder": "autoapi/cpp",
     "rootFileName": "index.rst",
     "rootFileTitle": "OTCv8 C++ API",
     "createTreeView": True,
-    "exhaleExecutesDoxygen": False,                 # Doxygen runs in CI
-    "doxygenStripFromPath": str(REPO_ROOT),         # nicer paths in output
+    "exhaleExecutesDoxygen": False,              # Doxygen uruchamiasz w CI
+    "doxygenStripFromPath": str(REPO_ROOT),
     # "verboseBuild": True,
 }
 primary_domain = "cpp"
 highlight_language = "cpp"
 
-# ── Custom lexers (quiet fallback) ────────────────────────────────────────────
+# ── Własne lexery (ciche fallbacki) ───────────────────────────────────────────
 try:
     from sphinx.highlighting import lexers
-    # Good-enough stand-ins; avoid hard dependency on specific Pygments classes
     from pygments.lexers import get_lexer_by_name
     lexers["otui"] = get_lexer_by_name("yaml")
     lexers["otmod"] = get_lexer_by_name("ini")
 except Exception as e:
     print(f"[conf.py] (warn) custom lexers not set: {e}")
 
-# ── HTML / Theme ──────────────────────────────────────────────────────────────
+# ── Motyw / HTML ──────────────────────────────────────────────────────────────
 try:
-    import pydata_sphinx_theme  # noqa
+    import pydata_sphinx_theme  # noqa: F401
     html_theme = "pydata_sphinx_theme"
 except Exception:
     html_theme = "alabaster"
 
 html_title = "OTClient v8 — Authoring & API"
 
-# CSS (load if files exist, order matters: later overrides earlier)
+# Dodatkowe CSS/JS (ładuj tylko, jeśli pliki istnieją)
 html_css_files: list[str] = []
 def _add_css(rel: str) -> None:
     if (STATIC_DIR / rel).exists():
@@ -144,7 +157,6 @@ for rel in [
 ]:
     _add_css(rel)
 
-# JS (load if files exist)
 html_js_files: list[str] = []
 def _add_js(rel: str) -> None:
     if (STATIC_DIR / rel).exists():
@@ -152,7 +164,7 @@ def _add_js(rel: str) -> None:
 
 for rel in [
     "custom.js",
-    "css/canonical-fix.js",  # u Ciebie ten plik leży w _static/css/
+    "css/canonical-fix.js",  # u Ciebie ten plik jest w _static/css/
 ]:
     _add_js(rel)
 
@@ -182,22 +194,47 @@ html_context = {
 }
 
 # ── Mermaid (client-side) ─────────────────────────────────────────────────────
-# Render raw in browser (no mmdc/puppeteer)
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
-# ── OpenGraph / SEO ───────────────────────────────────────────────────────────
+# ── OpenGraph / SEO / Sitemap ────────────────────────────────────────────────
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
+sitemap_url_scheme = "{link}"
+
+# ── ABlog (odblokowuje .. post::) ────────────────────────────────────────────
+blog_title = "Blog"
+blog_baseurl = html_baseurl
+blog_path = "posts"
+blog_post_pattern = "posts/*"
+blog_feed_fulltext = True
+blog_feed_archives = True
+post_auto_excerpt = 1
+
+# Dodatkowe sidebary ABlog (jeśli chcesz)
+html_sidebars = {
+    "posts/**": [
+        "ablog/categories.html",
+        "ablog/tagcloud.html",
+        "ablog/archives.html",
+        "ablog/recentposts.html",
+        "ablog/postcard.html",
+    ],
+    "blog/**": [
+        "ablog/categories.html",
+        "ablog/tagcloud.html",
+        "ablog/archives.html",
+        "ablog/recentposts.html",
+    ],
+}
 
 # ── Copybutton ────────────────────────────────────────────────────────────────
 copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
 
-# ── Sitemap / Hoverxref (if installed) ────────────────────────────────────────
-sitemap_url_scheme = "{link}"
+# ── Hoverxref ─────────────────────────────────────────────────────────────────
 hoverxref_auto_ref = True
 hoverxref_domains = ["std"]
 hoverxref_default_type = "tooltip"
@@ -207,28 +244,62 @@ favicons = []
 if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
-# ── Warnings / Hygiene ────────────────────────────────────────────────────────
-suppress_warnings = ["myst.header", "myst.nb.render"]
+# ── BibTeX (ładuj tylko, gdy pliki istnieją) ─────────────────────────────────
+if (DOCS_DIR / "refs.bib").exists():
+    bibtex_bibfiles = ["refs.bib"]
+else:
+    bibtex_bibfiles = []
+
+# ── Intersphinx ───────────────────────────────────────────────────────────────
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", {}),
+}
+
+# ── Codeautolink ──────────────────────────────────────────────────────────────
+codeautolink_concat_default = True
+
+# ── Graphviz ──────────────────────────────────────────────────────────────────
+graphviz_output_format = "svg"
+
+# ── Podświetlanie / Pygments ─────────────────────────────────────────────────
+pygments_style = "default"
+pygments_dark_style = "native"
 
 # ── Todo ──────────────────────────────────────────────────────────────────────
 todo_include_todos = False
 
-# ── Linkcheck (if used) ───────────────────────────────────────────────────────
-linkcheck_ignore = [r'http://localhost:\d+/', r'https://placehold\.co/.*', r'.*\.local']
+# ── Linkcheck (jeśli używasz) ────────────────────────────────────────────────
+linkcheck_ignore = [
+    r"http://localhost:\d+/",
+    r"https://placehold\.co/.*",
+    r".*\.local",
+]
 linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── Optional: Copilot snippet (no fail) ───────────────────────────────────────
-_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
-if _copilot_snippet.exists():
-    try:
-        exec(_copilot_snippet.read_text(encoding="utf-8"), {}, {})
-        print(f"[conf.py] ✓ Copilot snippet loaded")
-    except Exception as e:
-        print(f"[conf.py] ✗ Copilot snippet error: {e}")
+# ── Rediraffe (przekierowania) ────────────────────────────────────────────────
+rediraffe_redirects = {
+    # "stary/plik.rst": "nowy/plik.rst",
+}
 
-# ── Minimal setup hook (kept simple on purpose) ───────────────────────────────
+# ── Ostrzeżenia / Higiena builda ─────────────────────────────────────────────
+suppress_warnings = [
+    "myst.header",
+    "myst.nb.render",
+    "toc.not_readable",
+    "design.grid",   # wycisza 'The parent of a "grid-item" should be a "grid-row"'
+]
+
+# ── Domeny / języki ──────────────────────────────────────────────────────────
+primary_domain = "cpp"
+highlight_language = "cpp"
+
+# ── AutoAPI (domyślnie nie skanuje nic) ──────────────────────────────────────
+autoapi_type = "python"
+autoapi_dirs: list[str] = []  # dodaj ścieżki gdy zechcesz generować API z Pythona
+
+# ── Minimalny setup hook ──────────────────────────────────────────────────────
 def setup(app):  # noqa: D401
-    """Lightweight Sphinx setup hook."""
+    """Lekki hook Sphinx."""
     return
