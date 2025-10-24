@@ -1,10 +1,15 @@
-graph TD
-    subgraph "Core Client"
+graph LR
+    %% Definicja stylów dla kluczowych węzłów
+    style client fill:#cde4ff,stroke:#5a8ac9,stroke-width:2px
+    style client_entergame fill:#cde4ff,stroke:#5a8ac9,stroke-width:2px
+    style game_interface fill:#ffd6cc,stroke:#c97b5a,stroke-width:2px
+    style updater fill:#e5ccff,stroke:#965ac9,stroke-width:2px
+
+    subgraph "1. Start"
         client
-        client_entergame
     end
 
-    subgraph "Client Modules"
+    subgraph "2. Pre-Game Modules"
         client_styles
         client_locales
         client_topmenu
@@ -16,14 +21,18 @@ graph TD
         client_feedback
         client_mobile
     end
-
-    subgraph "Game Logic"
-      game_interface
-      game_things
-      game_features
+    
+    subgraph "3. Enter Game Logic"
+        client_entergame --> game_interface
+        client_entergame -- "load-later" --> game_things & game_features
     end
 
-    subgraph "Game UI Modules"
+    subgraph "4. In-Game Interface"
+        game_interface
+    end
+
+    subgraph "5. Game UI Modules (ładowane przez game_interface)"
+        direction LR
         game_buttons
         game_hotkeys
         game_inventory
@@ -62,63 +71,15 @@ graph TD
     end
     
     subgraph "Utilities"
-      updater
+        updater
     end
 
-    %% Definicja zależności
-    client -- "load-later" --> client_styles
-    client -- "load-later" --> client_locales
-    client -- "load-later" --> client_topmenu
-    client -- "load-later" --> client_background
-    client -- "load-later" --> client_textedit
-    client -- "load-later" --> client_options
-    client -- "load-later" --> client_entergame
-    client -- "load-later" --> client_terminal
-    client -- "load-later" --> client_stats
-    client -- "load-later" --> client_feedback
-    client -- "load-later" --> client_mobile
+    %% Główne zależności
+    client -- "load-later" --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame
 
-    client_entergame -- "load-later" --> game_things
-    client_entergame -- "load-later" --> game_features
+    %% Ogromna lista zależności dla game_interface (teraz jako jedna linia)
+    game_interface -- "load-later" --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills & game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade & game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog & game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_textedit & client_profiles & game_actionbar & game_prey & game_imbuing & game_stats_ui & game_shaders & game_bot
 
-    game_interface -- "load-later" --> game_buttons
-    game_interface -- "load-later" --> game_hotkeys
-    game_interface -- "load-later" --> game_questlog
-    game_interface -- "load-later" --> game_textmessage
-    game_interface -- "load-later" --> game_console
-    game_interface -- "load-later" --> game_outfit
-    game_interface -- "load-later" --> game_healthinfo
-    game_interface -- "load-later" --> game_skills
-    game_interface -- "load-later" --> game_inventory
-    game_interface -- "load-later" --> game_containers
-    game_interface -- "load-later" --> game_viplist
-    game_interface -- "load-later" --> game_battle
-    game_interface -- "load-later" --> game_minimap
-    game_interface -- "load-later" --> game_npctrade
-    game_interface -- "load-later" --> game_textwindow
-    game_interface -- "load-later" --> game_playertrade
-    game_interface -- "load-later" --> game_bugreport
-    game_interface -- "load-later" --> game_playerdeath
-    game_interface -- "load-later" --> game_playermount
-    game_interface -- "load-later" --> game_ruleviolation
-    game_interface -- "load-later" --> game_market
-    game_interface -- "load-later" --> game_spelllist
-    game_interface -- "load-later" --> game_cooldown
-    game_interface -- "load-later" --> game_modaldialog
-    game_interface -- "load-later" --> game_unjustifiedpoints
-    game_interface -- "load-later" --> game_walking
-    game_interface -- "load-later" --> game_shop
-    game_interface -- "load-later" --> game_itemselector
-    game_interface -- "load-later" --> client_textedit
-    game_interface -- "load-later" --> client_profiles
-    game_interface -- "load-later" --> game_actionbar
-    game_interface -- "load-later" --> game_prey
-    game_interface -- "load-later" --> game_imbuing
-    game_interface -- "load-later" --> game_stats_ui
-    game_interface -- "load-later" --> game_shaders
-    game_interface -- "load-later" --> game_bot
-
-    updater -- "dependency" --> client_locales
-    updater -- "dependency" --> client_styles
-    updater -- "dependency" --> client_textedit
+    %% Zależności updatgera
+    updater -- "dependency" --> client_locales & client_styles & client_textedit
     updater -- "load-later" --> client_background
