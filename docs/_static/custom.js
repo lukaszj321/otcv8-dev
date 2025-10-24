@@ -1,4 +1,4 @@
-// Tiny slider (zostawiam Twój)
+// --- slider z Twojej wersji ---
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".simple-slider").forEach(slider => {
     const slides = slider.querySelectorAll(".slide");
@@ -12,38 +12,41 @@ document.addEventListener("DOMContentLoaded", () => {
       slides[idx].classList.add("active");
     }, interval);
   });
+});
 
-  // --- Mermaid: zamień PRE>CODE.language-mermaid na <div class="mermaid"> ---
-  // (naprawia przypadki, gdy blok był jako ```mermaid lub - co gorsza - ```bash)
-  if (window.mermaid) {
+// --- FIX: zamień błędnie wstawione bloki kodu na <div class="mermaid"> i wyrenderuj ---
+(function fixMermaidBlocks() {
+  function looksLikeMermaid(text) {
+    const s = text.trimStart();
+    return (
+      s.startsWith("graph ") ||
+      s.startsWith("sequenceDiagram") ||
+      s.startsWith("classDiagram") ||
+      s.startsWith("stateDiagram") ||
+      s.startsWith("erDiagram") ||
+      s.startsWith("gantt")
+    );
+  }
+
+  // 1) zamiana <pre><code>...</code></pre> -> <div class="mermaid">...</div>
+  document.querySelectorAll("pre > code").forEach(code => {
+    const txt = code.textContent || "";
+    if (!looksLikeMermaid(txt)) return;
+
+    const pre = code.parentElement;
+    const div = document.createElement("div");
+    div.className = "mermaid";
+    // Usuń wiodące wcięcia (częsty powód „dziwnego wcięcia”)
+    div.textContent = txt.replace(/^\s{4,}/gm, "");
+    pre.replaceWith(div);
+  });
+
+  // 2) ponowna inicjalizacja mermaid (render po podmianie DOM)
+  if (window.mermaid && typeof window.mermaid.init === "function") {
     try {
-      // Inicjalizacja klienta (pasuje do conf.py -> mermaid_output_format="raw")
-      window.mermaid.initialize({ startOnLoad: true, theme: 'dark' });
-
-      // 1) napraw „źle opisane” bloki mermaid (np. language-mermaid)
-      document.querySelectorAll('pre code.language-mermaid').forEach(code => {
-        const src = code.textContent.trim();
-        const div = document.createElement('div');
-        div.className = 'mermaid';
-        div.textContent = src;
-        code.closest('pre').replaceWith(div);
-      });
-
-      // 2) gdy ktoś wrzucił mermaida błędnie pod ```bash, ale treść wygląda na mermaid
-      document.querySelectorAll('pre code.language-bash, pre code.language-text').forEach(code => {
-        const txt = code.textContent.trim();
-        if (/^(sequenceDiagram|flowchart|classDiagram|erDiagram|gantt|graph\s+(TB|TD|LR|RL|BT))/m.test(txt)) {
-          const div = document.createElement('div');
-          div.className = 'mermaid';
-          div.textContent = txt;
-          code.closest('pre').replaceWith(div);
-        }
-      });
-
-      // 3) zrenderuj wszystkie .mermaid
-      window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+      window.mermaid.init(undefined, document.querySelectorAll(".mermaid"));
     } catch (e) {
-      console.warn('Mermaid init failed:', e);
+      console.warn("Mermaid init error:", e);
     }
   }
-});
+})();
