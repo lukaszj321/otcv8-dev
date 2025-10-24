@@ -1,1 +1,53 @@
+%%{init: {"theme":"dark", "flowchart": {"curve": "basis"}}}%%
 graph TD
+    %% ===================================================================
+    %% DEFINICJE STYLÓW
+    %% ===================================================================
+    classDef startEnd fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
+    classDef majorStep fill:#006400,color:#fff,stroke:#228B22,stroke-width:2px;
+    classDef moduleBatch fill:#4B0082,color:#fff,stroke:#8A2BE2;
+    classDef utility fill:#614a00,color:#fff,stroke:#a68333;
+
+    %% ===================================================================
+    %% STRUKTURA DIAGRAMU - SEKWENCJA ŁADOWANIA
+    %% ===================================================================
+
+    Start("🚀 Application Start") --> client("1. Initialize Core Client");
+
+    client --> LoadPreGame["2. Load Pre-Game & Common Modules"];
+
+    subgraph " "
+        direction LR
+        LoadPreGame -- "loads" --> Batch1(client_styles, client_locales, client_topmenu, etc.);
+    end
+    
+    Batch1 --> client_entergame("3. Initialize Enter Game");
+
+    client_entergame --> LoadGameLogic["4. Load Game Data"];
+    
+    subgraph " "
+        direction LR
+        LoadGameLogic -- "loads" --> Batch2(game_things, game_features);
+    end
+
+    Batch2 --> game_interface("5. Initialize Game Interface");
+
+    game_interface --> LoadGameUI["6. Load All In-Game UI Modules"];
+    
+    subgraph " "
+        LoadGameUI -- "loads" --> Batch3("...30+ UI modules like<br/>game_inventory, game_battle, etc.");
+    end
+
+    Batch3 --> Ready("✅ Ready to Play");
+    
+    %% Równoległy proces - Updater
+    LoadPreGame --> updater("Utility: Initialize Updater");
+    updater --> Ready;
+
+    %% ===================================================================
+    %% PRZYPISANIE STYLÓW
+    %% ===================================================================
+    class Start,Ready startEnd;
+    class client,client_entergame,game_interface majorStep;
+    class LoadPreGame,LoadGameLogic,LoadGameUI moduleBatch;
+    class updater utility;
