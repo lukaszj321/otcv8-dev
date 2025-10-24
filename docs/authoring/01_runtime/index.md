@@ -69,7 +69,7 @@ title: 01_runtime - Runtime
 *Facet:* [`01_runtime.architecture`](#facet-01_runtime.architecture)
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Runtime
         E0[Runtime Metrics]
@@ -114,7 +114,7 @@ click DispatcherArchitecture "./index.html#facet-01_runtime.dispatcher_architect
 *Facet:* [`01_runtime.flow`](#facet-01_runtime.flow)
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Runtime] --> B[Data Collection]
     B --> C[Processing]
@@ -177,7 +177,7 @@ click Overview "./index.html#facet-01_runtime.overview" "Open overview"
 *Facet:* [`01_runtime.runtime_flow`](#facet-01_runtime.runtime_flow)
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   RuntimeFlow[01_runtime:runtime_flow] --> Data[Datasets]
   Data --> Page[Index]
