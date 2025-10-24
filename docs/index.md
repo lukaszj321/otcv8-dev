@@ -73,7 +73,6 @@ To *nie jest* alternatywny klient ani osobny interpreter — vBot działa *wewn�
 :link: overview/getting_started
 :link-type: doc
 :shadow: md
-
 Wprowadzenie do projektu, instalacja i pierwsze kroki
 :::
 
@@ -81,7 +80,6 @@ Wprowadzenie do projektu, instalacja i pierwsze kroki
 :link: api/index
 :link-type: doc
 :shadow: md
-
 Kompletna dokumentacja API (Lua/C++), funkcje i interfejsy
 :::
 
@@ -89,7 +87,6 @@ Kompletna dokumentacja API (Lua/C++), funkcje i interfejsy
 :link: modules/index
 :link-type: doc
 :shadow: md
-
 Dokumentacja modułów Lua, struktura i przykłady użycia
 :::
 
@@ -97,7 +94,6 @@ Dokumentacja modułów Lua, struktura i przykłady użycia
 :link: ui/index
 :link-type: doc
 :shadow: md
-
 System interfejsu użytkownika, widżety i style
 :::
 
@@ -105,7 +101,6 @@ System interfejsu użytkownika, widżety i style
 :link: authoring/index
 :link-type: doc
 :shadow: md
-
 Przewodniki tworzenia dokumentacji i rozdziały techniczne
 :::
 
@@ -113,7 +108,6 @@ Przewodniki tworzenia dokumentacji i rozdziały techniczne
 :link: rag/index
 :link-type: doc
 :shadow: md
-
 Wyszukiwarka semantyczna i indeks RAG
 :::
 
@@ -121,7 +115,6 @@ Wyszukiwarka semantyczna i indeks RAG
 :link: workbench/index
 :link-type: doc
 :shadow: md
-
 Szablony skryptów, checklisty i narzędzia deweloperskie
 :::
 
@@ -129,16 +122,14 @@ Szablony skryptów, checklisty i narzędzia deweloperskie
 :link: dashboard/index
 :link-type: doc
 :shadow: md
-
 Portal deweloperski z przeglądem projektu
 :::
-
 :::
 
 ## Architektura systemu
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryTextColor":"#ddd","lineColor":"#9aa0a6"}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 flowchart TB
     Core[OTCv8 Core C++] --> Events[System zdarzeń]
     Core --> Modules[Moduły Lua]
@@ -153,7 +144,7 @@ flowchart TB
     style Core fill:#2d5a8c,stroke:#4a90e2,stroke-width:3px
     style Modules fill:#2d5a3c,stroke:#4ae24a,stroke-width:2px
     style UI fill:#5a2d8c,stroke:#904ae2,stroke-width:2px
-```
+````
 
 ## Struktura dokumentacji
 
@@ -211,16 +202,13 @@ cpp/index
 lua/index
 data/index
 tools/index
-reference/index
-
 examples/csv
 examples/diagrams
 ```
 
 ## Status modułów
 
-```{csv-table}
-Przegląd modułów
+```{csv-table} Przegląd modułów
 :header: "Nazwa", "Opis", "Status"
 :file: _data/modules.csv
 :widths: 20, 60, 20
