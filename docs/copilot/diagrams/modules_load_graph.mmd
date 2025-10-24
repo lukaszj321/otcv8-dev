@@ -17,21 +17,21 @@ graph TD
 
     Start --> client("1. Initialize Core Client"):::majorStep;
 
-    subgraph Phase1 [Phase 1: Pre-Game Modules (triggered by 'client')]
+    subgraph Phase1 ["Phase 1: Pre-Game Modules (triggered by 'client')"]
         direction LR
         client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_entergame & client_terminal & client_stats & client_feedback & client_mobile;
     end
     
     client_entergame --> client_entergame_init("2. Initialize Enter Game"):::majorStep;
 
-    subgraph Phase2 [Phase 2: Game Data (triggered by 'client_entergame')]
+    subgraph Phase2 ["Phase 2: Game Data (triggered by 'client_entergame')"]
         direction LR
         client_entergame_init -- loads --> game_things & game_features;
     end
     
     game_features --> game_interface("3. Initialize Game Interface"):::majorStep;
 
-    subgraph Phase3 [Phase 3: Game UI Modules (triggered by 'game_interface')]
+    subgraph Phase3 ["Phase 3: Game UI Modules (triggered by 'game_interface')"]
         direction TB
         subgraph " "
             game_interface -- loads --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills;
@@ -52,7 +52,7 @@ graph TD
 
     game_bot --> Ready("✅ Client Ready to Play"):::finalState;
 
-    subgraph UpdaterSubgraph [Parallel Utility: Updater]
+    subgraph UpdaterSubgraph ["Parallel Utility: Updater"]
         direction TD
         client_locales --> updater_init("Initialize Updater");
         client_styles --> updater_init;
