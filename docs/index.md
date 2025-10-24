@@ -98,12 +98,11 @@ flowchart TB
     style Core fill:#2d5a8c,stroke:#4a90e2,stroke-width:3px
     style Modules fill:#2d5a3c,stroke:#4ae24a,stroke-width:2px
     style UI fill:#5a2d8c,stroke:#904ae2,stroke-width:2px
-````
+```
 
 ## Struktura dokumentacji
 
 ```{toctree}
-:hidden:
 :maxdepth: 2
 :caption: Główne sekcje
 
@@ -118,7 +117,6 @@ workbench/index
 ```
 
 ```{toctree}
-:hidden:
 :maxdepth: 2
 :caption: API (Auto)
 
@@ -126,7 +124,6 @@ autoapi/index
 ```
 
 ```{toctree}
-:hidden:
 :maxdepth: 2
 :caption: Copilot Docs
 
@@ -134,7 +131,6 @@ copilot/sphinx/index
 ```
 
 ```{toctree}
-:hidden:
 :maxdepth: 1
 :caption: Zasoby
 
