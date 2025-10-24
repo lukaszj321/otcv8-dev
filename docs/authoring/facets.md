@@ -1,4 +1,3 @@
-
 ---
 title: Facets — global index
 ---
