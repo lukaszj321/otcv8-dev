@@ -69,8 +69,7 @@ Zwykły akapit z **bold** i *italic*.
 
 1. jeden
 2. dwa
-   :::
-
+:::
 :::
 
 ---
@@ -119,12 +118,12 @@ Ważny komunikat.
 :::{grid-item}
 **Kod**
 
-````md
+
 :::{tab-set}
 :::{tab-item} Lua
 ```lua
 print("hello")
-````
+```
 
 :::
 :::{tab-item} C++
@@ -136,7 +135,7 @@ std::cout << "hello";
 :::
 :::
 
-````
+
 :::
 
 :::{grid-item}
@@ -146,7 +145,7 @@ std::cout << "hello";
 :::{tab-item} Lua
 ```lua
 print("hello")
-````
+```
 
 :::
 :::{tab-item} C++
@@ -169,14 +168,14 @@ std::cout << "hello";
 :::{grid-item}
 **Kod**
 
-````md
+
 ```mermaid
 flowchart LR
   A[Start] --> B[Process]
   B --> C[End]
-````
+```
 
-````
+
 :::
 
 :::{grid-item}
@@ -186,7 +185,7 @@ flowchart LR
 flowchart LR
   A[Start] --> B[Process]
   B --> C[End]
-````
+```
 
 :::
 
@@ -202,14 +201,14 @@ flowchart LR
 :::{grid-item}
 **Kod**
 
-````md
+
 ```{sidebar} Sidebar
 Użyteczne linki.
-````
+```
 
 Akapit obok sidebara.
 
-````
+
 :::
 
 :::{grid-item}
@@ -217,7 +216,7 @@ Akapit obok sidebara.
 
 ```{sidebar} Sidebar
 Użyteczne linki.
-````
+```
 
 Akapit obok sidebara.
 :::
@@ -234,16 +233,16 @@ Akapit obok sidebara.
 :::{grid-item}
 **Kod**
 
-````md
+
 ```{csv-table} Minimalny przykład
 :header-rows: 1
 :widths: 30 70
 Name,Description
 "/v1/login","Authenticate user"
 "/v1/profile","Get profile"
-````
+```
 
-````
+
 :::
 
 :::{grid-item}
@@ -255,7 +254,7 @@ Name,Description
 Name,Description
 "/v1/login","Authenticate user"
 "/v1/profile","Get profile"
-````
+```
 
 :::
 
