@@ -1,11 +1,13 @@
 # Diagramy (Mermaid)
 
 (diagram-overview)=
+
 ## Przegląd architektury
 
 Ten dokument zawiera kluczowe diagramy ilustrujące architekturę i przepływy w OTClientV8.
 
 (diagram-main-architecture)=
+
 ## Główna architektura systemu
 
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
@@ -20,7 +22,7 @@ flowchart TB
 
 ---
 
-```{mermaid}
+```mermaid
 flowchart TD
   A[Core Engine C++] --> B(Event System)
   A --> C(Module Loader)
@@ -48,9 +50,10 @@ flowchart TB
 ```
 
 (diagram-module-lifecycle)=
+
 ## Cykl życia modułu
 
-```{mermaid}
+```mermaid
 stateDiagram-v2
     [*] --> Unloaded
     Unloaded --> Loading: load()
@@ -66,9 +69,10 @@ stateDiagram-v2
 ```
 
 (diagram-event-flow)=
+
 ## Przepływ zdarzeń
 
-```{mermaid}
+```mermaid
 sequenceDiagram
     participant Game as Game Engine
     participant EventSys as Event System
@@ -85,9 +89,10 @@ sequenceDiagram
 ```
 
 (diagram-network-stack)=
+
 ## Stos sieciowy
 
-```{mermaid}
+```mermaid
 flowchart LR
     subgraph Client
         A[Application Layer] --> B[Protocol Handler]
@@ -111,9 +116,10 @@ flowchart LR
 ```
 
 (diagram-ui-hierarchy)=
+
 ## Hierarchia UI
 
-```{mermaid}
+```mermaid
 graph TD
     Root[Root Widget] --> MainWindow[Main Window]
     Root --> TopMenu[Top Menu Bar]
@@ -134,9 +140,10 @@ graph TD
 ```
 
 (diagram-asset-pipeline)=
+
 ## Pipeline assetów
 
-```{mermaid}
+```mermaid
 flowchart TD
     A[Raw Assets] --> B{Asset Type?}
     B -->|Image| C[Texture Loader]
@@ -159,11 +166,8 @@ flowchart TD
     style L fill:#2196f3
 ```
 
-:::tip
-Wszystkie diagramy są renderowane dynamicznie przez Mermaid i można je kopiować jako kod źródłowy.
-:::
-
 (see-also-diagrams)=
+
 ## Zobacz też
 
 * [Architektura Core](../chapters/01_specyfikacja.md)
