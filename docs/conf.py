@@ -32,6 +32,10 @@ exclude_patterns = [
     "venv",
 ]
 
+# Gdy masz jednocześnie index.md i index.rst w tym samym miejscu — wycisz warning:
+if (DOCS_DIR / "copilot" / "sphinx" / "index.rst").exists() and (DOCS_DIR / "copilot" / "sphinx" / "index.md").exists():
+    exclude_patterns.append("copilot/sphinx/index.rst")
+
 # ── Extensions (bezpieczne ładowanie) ─────────────────────────────────────────
 extensions: list[str] = []
 
@@ -223,8 +227,7 @@ sitemap_url_scheme = "{link}"
 hoverxref_auto_ref = True
 hoverxref_domains = ["std"]
 hoverxref_default_type = "tooltip"
-# (opcjonalnie możesz jawnie ustawić host API by uciszyć niektóre warningi)
-# hoverxref_tooltip_api_host = "https://readthedocs.org"
+# hoverxref_tooltip_api_host = "https://readthedocs.org"  # opcjonalnie
 
 bibtex_bibfiles = []  # dodaj pliki .bib jeśli używasz
 
@@ -252,14 +255,23 @@ linkcheck_workers = 5
 # ── Rediraffe (jeśli używasz przekierowań) ───────────────────────────────────
 # rediraffe_redirects = {"old/page.html": "new/page.html"}
 
-# ── Optional: Copilot snippet (bez fail) ─────────────────────────────────────
-_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
-if _copilot_snippet.exists():
+# ── Optional: Copilot snippet (bez fail; z propagacją 'extensions') ───────────
+def _exec_copilot_snippet(snippet_path: Path) -> None:
     try:
-        exec(_copilot_snippet.read_text(encoding="utf-8"), {}, {})
+        code = snippet_path.read_text(encoding="utf-8")
+        ns = {"extensions": extensions}
+        exec(compile(code, str(snippet_path), "exec"), ns, ns)
+        # jeżeli snippet zrobił: extensions += ["..."] albo przypisał nową listę,
+        # to zsynchronizuj z naszą konfiguracją:
+        if isinstance(ns.get("extensions"), list) and ns["extensions"] is not extensions:
+            extensions[:] = ns["extensions"]
         print("[conf.py] ✓ Copilot snippet loaded")
     except Exception as e:
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
+
+_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
+if _copilot_snippet.exists():
+    _exec_copilot_snippet(_copilot_snippet)
 
 # ── Minimal setup hook ────────────────────────────────────────────────────────
 def setup(app):  # noqa: D401
