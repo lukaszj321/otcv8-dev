@@ -57,7 +57,6 @@ graph TD
         client_locales --> updater_init("Initialize Updater");
         client_styles --> updater_init;
         client_textedit --> updater_init;
-
         updater_init -- loads --> client_background;
     end
 
@@ -65,10 +64,8 @@ graph TD
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
     
-    %% Przypisanie stylu do subgrafów za pomocą ich czystych ID
     class Phase1,Phase2,Phase3,UpdaterSubgraph subgraphStyle;
 
-    %% Przypisanie stylu do węzłów
     class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
     class game_things,game_features module;
     class updater_init module;
