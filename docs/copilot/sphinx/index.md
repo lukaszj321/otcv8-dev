@@ -26,8 +26,7 @@ Mapy zależności, drzewa modułów.
 :::
 :::
 
-````{tabs}
-```{tab} Guide
+
 **DEV‑SCAN pipeline:** gdzie lądują artefakty i jak są linkowane w Sphinx (PyData sidebar + search).
 
 **Workflow:**
@@ -41,9 +40,8 @@ Mapy zależności, drzewa modułów.
 - [ ] Cross-linki działają
 - [ ] Search index zawiera nowe symbole
 - [ ] Dark mode aktywny dla diagramów
-```
 
-```{tab} Reference
+
 **Generatory:** formaty wyjściowe, reguły parsowania, ograniczenia.
 
 **Dopiąć cross‑referencje:**
@@ -57,9 +55,9 @@ Mapy zależności, drzewa modułów.
 - Cross-reference builder
 - Search index generator
 - Diagram renderer (Mermaid/Graphviz)
-```
 
-```{tab} Examples
+
+
 **Literalinclude — C++ (with regions)**
 ```{literalinclude} ../../../src/framework/xml/tinyxml.cpp
 :language: cpp
@@ -75,7 +73,7 @@ Mapy zależności, drzewa modułów.
 ```
 
 **Mermaid — Code Structure**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
   A[Source Code] --> B[Scanner]
@@ -106,8 +104,6 @@ digraph G {
   "Index Builder" -> "Sphinx Integration";
 }
 ```
-```
-````
 
 :::{card}
 **Quality gates**
