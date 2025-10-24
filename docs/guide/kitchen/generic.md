@@ -1,5 +1,262 @@
 # Generic: sidebary i kod
 
-````{sidebar} Sidebar
+> Wymagane: `sphinx_design` + `myst_enable_extensions = ["colon_fence"]`.
+
+---
+
+## Nagłówki
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+```md
+# H1
+
+## H2
+
+### H3
+
+Zwykły akapit z **bold** i *italic*.
+```
+
+:::
+
+:::{grid-item}
+**Efekt**
+
+# H1
+
+## H2
+
+### H3
+
+Zwykły akapit z **bold** i *italic*.
+:::
+
+:::
+
+---
+
+## Listy
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+```md
+- A
+- B
+  - B.1
+
+1. jeden
+2. dwa
+```
+
+:::
+
+:::{grid-item}
+**Efekt**
+
+* A
+* B
+
+  * B.1
+
+1. jeden
+2. dwa
+   :::
+
+:::
+
+---
+
+## Admonitions
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+```md
+:::{note} Info
+Prosta notka.
+:::
+
+:::{warning} Uwaga
+Ważny komunikat.
+:::
+```
+
+:::
+
+:::{grid-item}
+**Efekt**
+
+:::{note} Info
+Prosta notka.
+:::
+
+:::{warning} Uwaga
+Ważny komunikat.
+:::
+:::
+
+:::
+
+---
+
+## Zakładki (tabs)
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+````md
+:::{tab-set}
+:::{tab-item} Lua
+```lua
+print("hello")
+````
+
+:::
+:::{tab-item} C++
+
+```cpp
+std::cout << "hello";
+```
+
+:::
+:::
+
+````
+:::
+
+:::{grid-item}
+**Efekt**
+
+:::{tab-set}
+:::{tab-item} Lua
+```lua
+print("hello")
+````
+
+:::
+:::{tab-item} C++
+
+```cpp
+std::cout << "hello";
+```
+
+:::
+:::
+:::
+
+---
+
+## Mermaid
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+````md
+```mermaid
+flowchart LR
+  A[Start] --> B[Process]
+  B --> C[End]
+````
+
+````
+:::
+
+:::{grid-item}
+**Efekt**
+
+```mermaid
+flowchart LR
+  A[Start] --> B[Process]
+  B --> C[End]
+````
+
+:::
+
+:::
+
+---
+
+## Sidebar
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+````md
+```{sidebar} Sidebar
 Użyteczne linki.
 ````
+
+Akapit obok sidebara.
+
+````
+:::
+
+:::{grid-item}
+**Efekt**
+
+```{sidebar} Sidebar
+Użyteczne linki.
+````
+
+Akapit obok sidebara.
+:::
+
+:::
+
+---
+
+## CSV Table (inline)
+
+:::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item}
+**Kod**
+
+````md
+```{csv-table} Minimalny przykład
+:header-rows: 1
+:widths: 30 70
+Name,Description
+"/v1/login","Authenticate user"
+"/v1/profile","Get profile"
+````
+
+````
+:::
+
+:::{grid-item}
+**Efekt**
+
+```{csv-table} Minimalny przykład
+:header-rows: 1
+:widths: 30 70
+Name,Description
+"/v1/login","Authenticate user"
+"/v1/profile","Get profile"
+````
+
+:::
+
+:::
