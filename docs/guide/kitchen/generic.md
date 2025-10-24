@@ -2,12 +2,13 @@
 
 > Wymagane: `sphinx_design` + `myst_enable_extensions = ["colon_fence"]`.
 
----
+<hr/>
 
 ## Nagłówki
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -20,7 +21,7 @@
 ### H3
 
 Zwykły akapit z **bold** i *italic*.
-```
+````
 
 :::
 
@@ -37,13 +38,15 @@ Zwykły akapit z **bold** i *italic*.
 :::
 
 :::
+:::
 
----
+<hr/>
 
 ## Listy
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -69,15 +72,17 @@ Zwykły akapit z **bold** i *italic*.
 
 1. jeden
 2. dwa
-:::
-:::
+   :::
+   :::
+   :::
 
----
+<hr/>
 
 ## Admonitions
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
@@ -105,36 +110,33 @@ Prosta notka.
 Ważny komunikat.
 :::
 :::
-
 :::
 
----
+<hr/>
 
 ## Zakładki (tabs)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
 
-
+````md
 :::{tab-set}
 :::{tab-item} Lua
 ```lua
 print("hello")
 ```
-
 :::
 :::{tab-item} C++
-
 ```cpp
 std::cout << "hello";
 ```
-
 :::
 :::
-
+````
 
 :::
 
@@ -143,6 +145,7 @@ std::cout << "hello";
 
 :::{tab-set}
 :::{tab-item} Lua
+
 ```lua
 print("hello")
 ```
@@ -157,24 +160,26 @@ std::cout << "hello";
 :::
 :::
 :::
+:::
 
----
+<hr/>
 
 ## Mermaid
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
 
-
+````md
 ```mermaid
 flowchart LR
   A[Start] --> B[Process]
   B --> C[End]
 ```
-
+````
 
 :::
 
@@ -188,26 +193,27 @@ flowchart LR
 ```
 
 :::
-
+:::
 :::
 
----
+<hr/>
 
 ## Sidebar
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
 
-
+````md
 ```{sidebar} Sidebar
 Użyteczne linki.
 ```
 
 Akapit obok sidebara.
-
+````
 
 :::
 
@@ -220,20 +226,21 @@ Użyteczne linki.
 
 Akapit obok sidebara.
 :::
-
+:::
 :::
 
----
+<hr/>
 
 ## CSV Table (inline)
 
 :::{grid} 1 1 2 2
 :gutter: 3
+:::{grid-row}
 
 :::{grid-item}
 **Kod**
 
-
+````md
 ```{csv-table} Minimalny przykład
 :header-rows: 1
 :widths: 30 70
@@ -241,7 +248,7 @@ Name,Description
 "/v1/login","Authenticate user"
 "/v1/profile","Get profile"
 ```
-
+````
 
 :::
 
@@ -257,5 +264,6 @@ Name,Description
 ```
 
 :::
-
 :::
+:::
+
