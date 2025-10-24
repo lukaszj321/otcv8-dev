@@ -1,72 +1,61 @@
-graph TD
-    Start("🚀 Application Start");
-    Start --> client("1. Initialize Core Client");
+graph LR
+    Start("🚀 Application Start") --> client("1. Initialize Core Client");
 
     subgraph Phase_1_Pre-Game_Modules
-        client -- loads --> client_styles;
-        client -- loads --> client_locales;
-        client -- loads --> client_topmenu;
-        client -- loads --> client_background;
-        client -- loads --> client_textedit;
-        client -- loads --> client_options;
-        client -- loads --> client_entergame;
-        client -- loads --> client_terminal;
-        client -- loads --> client_stats;
-        client -- loads --> client_feedback;
-        client -- loads --> client_mobile;
+        client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
     end
     
-    client_entergame --> client_entergame_init("2. Initialize Enter Game");
+    client --> Phase_1_Pre-Game_Modules;
+
+    Phase_1_Pre-Game_Modules --> client_entergame_init("2. Initialize Enter Game");
 
     subgraph Phase_2_Game_Data
-        client_entergame_init -- loads --> game_things;
-        client_entergame_init -- loads --> game_features;
-    end
-    
-    game_features --> game_interface("3. Initialize Game Interface");
-
-    subgraph Phase_3_Game_UI_Modules
-        game_interface -- loads --> game_buttons;
-        game_interface -- loads --> game_hotkeys;
-        game_interface -- loads --> game_questlog;
-        game_interface -- loads --> game_textmessage;
-        game_interface -- loads --> game_console;
-        game_interface -- loads --> game_outfit;
-        game_interface -- loads --> game_healthinfo;
-        game_interface -- loads --> game_skills;
-        game_interface -- loads --> game_inventory;
-        game_interface -- loads --> game_containers;
-        game_interface -- loads --> game_viplist;
-        game_interface -- loads --> game_battle;
-        game_interface -- loads --> game_minimap;
-        game_interface -- loads --> game_npctrade;
-        game_interface -- loads --> game_textwindow;
-        game_interface -- loads --> game_playertrade;
-        game_interface -- loads --> game_bugreport;
-        game_interface -- loads --> game_playerdeath;
-        game_interface -- loads --> game_playermount;
-        game_interface -- loads --> game_ruleviolation;
-        game_interface -- loads --> game_market;
-        game_interface -- loads --> game_spelllist;
-        game_interface -- loads --> game_cooldown;
-        game_interface -- loads --> game_modaldialog;
-        game_interface -- loads --> game_unjustifiedpoints;
-        game_interface -- loads --> game_walking;
-        game_interface -- loads --> game_shop;
-        game_interface -- loads --> game_itemselector;
-        game_interface -- loads --> client_profiles;
-        game_interface -- loads --> game_actionbar;
-        game_interface -- loads --> game_prey;
-        game_interface -- loads --> game_imbuing;
-        game_interface -- loads --> game_stats_ui[game_stats];
-        game_interface -- loads --> game_shaders;
-        game_interface -- loads --> game_bot;
+        client_entergame_init -- loads --> game_things & game_features;
     end
 
-    game_bot --> Ready("✅ Client Ready to Play");
+    client_entergame_init --> Phase_2_Game_Data;
+
+    Phase_2_Game_Data --> game_interface("3. Initialize Game Interface");
+
+    subgraph Phase_3_All_UI_Modules
+        %% Tutaj tworzymy zagnieżdżone grupy dla lepszej organizacji wizualnej
+        subgraph Player_Info
+            game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount;
+        end
+        subgraph Item_Management
+            game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector;
+        end
+        subgraph Interaction_Controls
+            game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
+        end
+        subgraph Gameplay_Systems
+             game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
+        end
+        subgraph Windows_Dialogs
+            game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles;
+        end
+        subgraph Communication
+            game_console & game_textmessage & game_bugreport & game_ruleviolation;
+        end
+        subgraph Advanced_Misc
+            game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints;
+        end
+    end
+
+    %% Zgrupowane połączenia dla czytelności
+    game_interface -- "loads player UI" --> Player_Info;
+    game_interface -- "loads item UI" --> Item_Management;
+    game_interface -- "loads controls" --> Interaction_Controls;
+    game_interface -- "loads systems UI" --> Gameplay_Systems;
+    game_interface -- "loads windows" --> Windows_Dialogs;
+    game_interface -- "loads comms UI" --> Communication;
+    game_interface -- "loads advanced" --> Advanced_Misc;
+
+    Phase_3_All_UI_Modules --> Ready("✅ Client Ready to Play");
 
     subgraph Parallel_Utility_Updater
         updater_init("Initialize Updater");
+        %% Połączenia z modułów z Fazy 1
         client_locales --> updater_init;
         client_styles --> updater_init;
         client_textedit --> updater_init;
