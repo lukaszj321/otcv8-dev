@@ -17,25 +17,21 @@ graph TD
 
     Start --> client("1. Initialize Core Client"):::majorStep;
 
-    subgraph "Phase 1: Pre-Game Modules (triggered by 'client')"
+    subgraph Phase1 [Phase 1: Pre-Game Modules (triggered by 'client')]
         direction LR
         client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_entergame & client_terminal & client_stats & client_feedback & client_mobile;
     end
-    class Phase1:Pre-Game_Modules_(triggered_by_'client') subgraphStyle;
-
-
+    
     client_entergame --> client_entergame_init("2. Initialize Enter Game"):::majorStep;
 
-    subgraph "Phase 2: Game Data (triggered by 'client_entergame')"
+    subgraph Phase2 [Phase 2: Game Data (triggered by 'client_entergame')]
         direction LR
         client_entergame_init -- loads --> game_things & game_features;
     end
-    class Phase2:Game_Data_(triggered_by_'client_entergame') subgraphStyle;
-
     
     game_features --> game_interface("3. Initialize Game Interface"):::majorStep;
 
-    subgraph "Phase 3: Game UI Modules (triggered by 'game_interface')"
+    subgraph Phase3 [Phase 3: Game UI Modules (triggered by 'game_interface')]
         direction TB
         subgraph " "
             game_interface -- loads --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills;
@@ -53,25 +49,26 @@ graph TD
             game_interface -- " " --> game_stats_ui[game_stats] & game_shaders & game_bot;
         end
     end
-    class Phase3:Game_UI_Modules_(triggered_by_'game_interface') subgraphStyle;
 
     game_bot --> Ready("✅ Client Ready to Play"):::finalState;
 
-    %% Definicja równoległego procesu Updatgera, który ma swoje własne zależności
-    subgraph "Parallel Utility: Updater"
+    subgraph UpdaterSubgraph [Parallel Utility: Updater]
         direction TD
-        %% Updater czeka na załadowanie swoich zależności z Fazy 1
         client_locales --> updater_init("Initialize Updater");
         client_styles --> updater_init;
         client_textedit --> updater_init;
 
         updater_init -- loads --> client_background;
     end
-    class Parallel_Utility:Updater subgraphStyle;
 
     %% ===================================================================
-    %% PRZYPISANIE STYLÓW DO WĘZŁÓW
+    %% PRZYPISANIE STYLÓW
     %% ===================================================================
+    
+    %% Przypisanie stylu do subgrafów za pomocą ich czystych ID
+    class Phase1,Phase2,Phase3,UpdaterSubgraph subgraphStyle;
+
+    %% Przypisanie stylu do węzłów
     class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
     class game_things,game_features module;
     class updater_init module;
