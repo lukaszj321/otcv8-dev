@@ -1,29 +1,61 @@
-graph LR
-    Start("🚀 Application Start") --> client("1. Initialize Core Client");
+%%{init: {"theme":"dark", "flowchart": {"curve": "stepBefore"}}}%%
+graph TD
+    %% ===================================================================
+    %% DEFINICJE STYLÓW - HIERARCHIA WIZUALNA
+    %% ===================================================================
+    classDef orchestrator fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:3px,font-weight:bold,font-size:16px;
+    classDef module_group fill:#222,stroke:#888,stroke-dasharray: 5 5;
+    classDef module_leaf fill:#4B0082,color:#fff,stroke:#9932CC;
+    classDef final_state fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:3px,font-weight:bold;
+    classDef utility fill:#614a00,color:#fff,stroke:#a68333;
 
-    subgraph Phase_1_Pre-Game_Modules
-        client -- loads --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
-    end
+    %% ===================================================================
+    %% GŁÓWNY KRĘGOSŁUP APLIKACJI
+    %% Niewidoczne linki (~~~) tworzą centralną, pionową oś.
+    %% ===================================================================
+    Start("🚀 Application Start")
+    Start --> client("client");
     
-    client --> Phase_1_Pre-Game_Modules;
-
-    Phase_1_Pre-Game_Modules --> client_entergame_init("2. Initialize Enter Game");
-
-    subgraph Phase_2_Game_Data
-        client_entergame_init -- loads --> game_things & game_features;
+    subgraph G_Spine [ ]
+        direction TB
+        client ~~~ client_entergame("client_entergame");
+        client_entergame ~~~ game_interface("game_interface");
     end
+    style G_Spine fill:none,stroke:none
 
-    client_entergame_init --> Phase_2_Game_Data;
+    %% ===================================================================
+    %% FAZA 1: PRE-GAME BURST (wyzwalane przez 'client')
+    %% ===================================================================
+    subgraph G_PreGame [Phase 1: Pre-Game & Common Modules]
+        direction TB
+        subgraph " "
+            client_styles & client_locales & client_textedit & client_background;
+        end
+        subgraph " "
+            client_options & client_terminal & client_stats & client_feedback & client_mobile;
+        end
+    end
+    client -- "loads" --> G_PreGame;
 
-    Phase_2_Game_Data --> game_interface("3. Initialize Game Interface");
-
-    subgraph Phase_3_All_UI_Modules
-        %% Tutaj tworzymy zagnieżdżone grupy dla lepszej organizacji wizualnej
+    %% ===================================================================
+    %% FAZA 2: GAME DATA (wyzwalane przez 'client_entergame')
+    %% ===================================================================
+    subgraph G_GameData [Phase 2: Game Data]
+        direction TB
+        game_things & game_features;
+    end
+    client_entergame -- "loads" --> G_GameData;
+    
+    %% ===================================================================
+    %% FAZA 3: IN-GAME EXPLOSION (wyzwalane przez 'game_interface')
+    %% ===================================================================
+    subgraph G_GameUI [Phase 3: Game UI Modules]
+        direction TB
         subgraph Player_Info
             game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount;
         end
         subgraph Item_Management
-            game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector;
+            game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade;
         end
         subgraph Interaction_Controls
             game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
@@ -37,27 +69,28 @@ graph LR
         subgraph Communication
             game_console & game_textmessage & game_bugreport & game_ruleviolation;
         end
-        subgraph Advanced_Misc
-            game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints;
-        end
     end
+    game_interface -- "loads" --> G_GameUI;
 
-    %% Zgrupowane połączenia dla czytelności
-    game_interface -- "loads player UI" --> Player_Info;
-    game_interface -- "loads item UI" --> Item_Management;
-    game_interface -- "loads controls" --> Interaction_Controls;
-    game_interface -- "loads systems UI" --> Gameplay_Systems;
-    game_interface -- "loads windows" --> Windows_Dialogs;
-    game_interface -- "loads comms UI" --> Communication;
-    game_interface -- "loads advanced" --> Advanced_Misc;
-
-    Phase_3_All_UI_Modules --> Ready("✅ Client Ready to Play");
-
-    subgraph Parallel_Utility_Updater
-        updater_init("Initialize Updater");
-        %% Połączenia z modułów z Fazy 1
+    %% ===================================================================
+    %% PROCESY POBOCZNE I STAN KOŃCOWY
+    %% ===================================================================
+    subgraph G_Updater [Utility: Updater]
+        direction TD
+        updater_init("Initialize");
         client_locales --> updater_init;
         client_styles --> updater_init;
-        client_textedit --> updater_init;
-        updater_init -- loads --> client_background;
+        updater_init -- "needs" --> client_background;
     end
+
+    G_GameUI --> Ready("✅ Client Ready"):::final_state;
+    G_Updater -.-> Ready;
+
+    %% ===================================================================
+    %% PRZYPISANIE STYLÓW DO ELEMENTÓW
+    %% ===================================================================
+    class client,client_entergame,game_interface orchestrator;
+    class G_PreGame,G_GameData,G_GameUI,G_Updater module_group;
+    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile module_leaf;
+    class game_things,game_features,game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount,game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle,game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown,game_viplist,game_minimap,game_modaldialog,game_textwindow,client_profiles,game_console,game_textmessage,game_bugreport,game_ruleviolation module_leaf;
+    class updater_init utility;
