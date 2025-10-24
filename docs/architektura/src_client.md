@@ -2578,45 +2578,45 @@ Poniższy diagram przedstawia główne zależności i przepływ informacji międ
 
 ```mermaid
 graph TD
-    subgraph "Aplikacja i UI"
-        Client[Client] -→|inicjalizuje| Game
-        Client -→|inicjalizuje| Map
-        Client -→|inicjalizuje| ThingTypeManager
-        UIMap[UIMap] -→|renderuje| MapView
-        MapView -→|odczytuje dane| Map
-        UICreature[UICreature] -→|wyświetla| Creature
-        UIItem[UIItem] -→|wyświetla| Item
+    subgraph Aplikacja i UI
+        Client[Client] -->|inicjalizuje| Game
+        Client -->|inicjalizuje| Map
+        Client -->|inicjalizuje| ThingTypeManager
+        UIMap[UIMap] -->|renderuje| MapView
+        MapView -->|odczytuje dane| Map
+        UICreature[UICreature] -->|wyświetla| Creature
+        UIItem[UIItem] -->|wyświetla| Item
     end
 
-    subgraph "Logika Gry"
-        Game[Game] -→|wysyła akcje| ProtocolGame
-        Game -→|zarządza| LocalPlayer
-        Game -→|zarządza| Map
-        LocalPlayer[LocalPlayer] -→|dziedziczy| Player
-        Player -→|dziedziczy| Creature
-        Creature -→|dziedziczy| Thing
-        Item -→|dziedziczy| Thing
-        Thing -→|ma| ThingType
+    subgraph Logika Gry
+        Game[Game] -->|wysyła akcje| ProtocolGame
+        Game -->|zarządza| LocalPlayer
+        Game -->|zarządza| Map
+        LocalPlayer[LocalPlayer] -->|dziedziczy| Player
+        Player -->|dziedziczy| Creature
+        Creature -->|dziedziczy| Thing
+        Item -->|dziedziczy| Thing
+        Thing -->|ma| ThingType
     end
 
-    subgraph "Sieć"
-        ProtocolGame[ProtocolGame] -→|parsuje pakiety| Game
-        ProtocolGame -→|wysyła pakiety| TCPSocket
+    subgraph Sieć
+        ProtocolGame[ProtocolGame] -->|parsuje pakiety| Game
+        ProtocolGame -->|wysyła pakiety| TCPSocket
     end
 
-    subgraph "Dane i Zasoby"
-        ThingTypeManager[ThingTypeManager] -→|wczytuje| DAT["things.dat"]
-        ThingTypeManager -→|wczytuje| OTB["items.otb"]
-        SpriteManager[SpriteManager] -→|wczytuje| SPR["sprites.spr"]
-        Map -→|wczytuje| OTBM["map.otbm"]
-        Minimap -→|wczytuje| OTMM["minimap.otmm"]
-        ThingType -→|używa| SpriteManager
+    subgraph Dane i Zasoby
+        ThingTypeManager[ThingTypeManager] -->|wczytuje| DAT["things.dat"]
+        ThingTypeManager -->|wczytuje| OTB["items.otb"]
+        SpriteManager[SpriteManager] -->|wczytuje| SPR["sprites.spr"]
+        Map -->|wczytuje| OTBM["map.otbm"]
+        Minimap -->|wczytuje| OTMM["minimap.otmm"]
+        ThingType -->|używa| SpriteManager
     end
 
-    MapView -→ Creature
-    MapView -→ Item
-    Map -→ Tile
-    Tile -→ Thing
+    MapView --> Creature
+    MapView --> Item
+    Map --> Tile
+    Tile --> Thing
 ```
 
 **Opis zależności:**
