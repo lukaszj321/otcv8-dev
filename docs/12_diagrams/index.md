@@ -1,6 +1,6 @@
 # Diagramy (Mermaid)
 
-```{mermaid}
+```mermaid
 flowchart TD
   A[Start] --> B{Czy asset jest w cache?}
   B -- Tak --> C[Użyj z cache]
