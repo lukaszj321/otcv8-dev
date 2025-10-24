@@ -1,6 +1,7 @@
 # -- OTClient v8 Dev Docs — Sphinx config (Sphinx 7/8, PyData >=0.16) ---------
 
 import os
+import re
 import json
 from pathlib import Path
 from importlib import import_module
@@ -36,7 +37,7 @@ exclude_patterns = [
 # -- Extensions ----------------------------------------------------------------
 extensions = [
     "myst_nb",
-    "sphinx.ext.autosectionlabel",  # auto-id dla nagłówków
+    "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
     "sphinx.ext.ifconfig",
@@ -96,67 +97,59 @@ myst_enable_extensions = [
 ]
 myst_heading_anchors = 3
 myst_fence_as_directive = ["mermaid"]  # ```mermaid => {mermaid}
-
-# Prefiksy sekcji (unikalne anchor-y)
-autosectionlabel_prefix_document = True
+autosectionlabel_prefix_document = True  # unikalne anchory
 
 # -- Breathe / Exhale (C++ via Doxygen) ----------------------------------------
 breathe_projects = {}
 breathe_default_project = None
+breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
+breathe_default_project = "OTCv8 C++ API"
 
-# Jeśli XML już istnieje (np. po wcześniejszym kroku CI), podłączamy:
-if DOXY_XML.exists():
-    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-    breathe_default_project = "OTCv8 C++ API"
-else:
-    # Wciąż zarejestruj nazwę projektu; Exhale może sam odpalić Doxygen
-    breathe_projects["OTCv8 C++ API"] = str(DOXY_XML)
-    breathe_default_project = "OTCv8 C++ API"
+def _patch_doxyfile_text(text: str) -> str:
+    """Wymuś GENERATE_XML=YES i ścieżki XML -> docs/_build/doxygen/xml."""
+    def set_or_add(k: str, v: str) -> None:
+        nonlocal text
+        if re.search(rf"(?m)^{re.escape(k)}\s*=", text):
+            text = re.sub(rf"(?m)^{re.escape(k)}\s*=.*$", f"{k} = {v}", text)
+        else:
+            text += f"\n{k} = {v}\n"
 
-# Konfiguracja Exhale (wymaga doxygenStripFromPath)
+    set_or_add("GENERATE_XML", "YES")
+    out_dir = (DOCS_DIR / "_build" / "doxygen").resolve()
+    set_or_add("OUTPUT_DIRECTORY", str(out_dir))
+    set_or_add("XML_OUTPUT", "xml")
+    return text
+
 if "exhale" in extensions:
-    # Bazowe argumenty Exhale
     exhale_args = {
-        # Gdzie Exhale wygeneruje drzewo RST dla C++
         "containmentFolder": str(DOCS_DIR / "autoapi" / "cpp"),
         "rootFileName": "index.rst",
         "rootFileTitle": "C++ API (src)",
         "createTreeView": True,
-        # Ważne: ścieżki przycinane w tytułach/ścieżkach
         "doxygenStripFromPath": str(ROOT_DIR),
-        # Mniej hałasu
         "verboseBuild": False,
     }
 
-    # Jeśli mamy Doxyfile — Exhale może sam wywołać Doxygen
-    if DOXYFILE.exists():
-        try:
-            content = DOXYFILE.read_text(encoding="utf-8")
+    # Jeśli XML już jest (cache/oddzielny krok) — nie uruchamiamy Doxygen.
+    if DOXY_XML.exists():
+        exhale_args["exhaleExecutesDoxygen"] = False
+    else:
+        # Brak XML – jeśli mamy Doxyfile, Exhale sam odpali Doxygen z wstrzykniętym stdin.
+        if DOXYFILE.exists():
+            try:
+                raw = DOXYFILE.read_text(encoding="utf-8")
+                exhale_args["exhaleExecutesDoxygen"] = True
+                exhale_args["exhaleDoxygenStdin"] = _patch_doxyfile_text(raw)
+            except Exception as e:
+                print(f"[conf.py] (warn) Could not prepare Doxyfile for Exhale: {e}")
+                exhale_args["exhaleExecutesDoxygen"] = False
+        else:
+            exhale_args["exhaleExecutesDoxygen"] = False
 
-            def _set(k, v):
-                nonlocal content
-                # Ustaw/patchuj podstawowe klucze
-                import re
-                if re.search(rf"^{k}\s*=", content, flags=re.M):
-                    content = re.sub(rf"^{k}\s*=.*$", f"{k} = {v}", content, flags=re.M)
-                else:
-                    content += f"\n{k} = {v}\n"
-
-            # Gwarantujemy produkcję XML do docs/_build/doxygen/xml
-            _set("GENERATE_XML", "YES")
-            _set("OUTPUT_DIRECTORY", str((DOCS_DIR / "_build" / "doxygen").resolve()))
-            _set("XML_OUTPUT", "xml")
-
-            exhale_args["exhaleExecutesDoxygen"] = True
-            exhale_args["exhaleDoxygenStdin"] = content
-        except Exception as e:
-            print(f"[conf.py] (warn) Could not prepare Doxyfile for Exhale: {e}")
-
-    # Domeny i highlight pod C++
     primary_domain = "cpp"
     highlight_language = "cpp"
 
-# -- Custom lexers for OTUI/OTMOD (silence warnings) ---------------------------
+# -- Custom lexers for OTUI/OTMOD ----------------------------------------------
 try:
     from sphinx.highlighting import lexers
     from pygments.lexers.data import YamlLexer
@@ -187,18 +180,18 @@ for _p in [
     "tables-premium.css",
     "custom-dark-mermaid.css",
     "css/custom.css",
-    "css/layout.css",           # <-- szerokość kolumn, wrap linków, itp.
+    "css/layout.css",           # <-- szerokość kolumn, zawijanie linków
 ]:
     _add_css(_p)
 
-# JS — ładujemy custom.js (naprawa Mermaid po stronie klienta)
+# JS — ładujemy custom.js (Mermaid fixer + ewentualne skrypty)
 html_js_files = []
 def _add_js(path: str):
     if (STATIC_DIR / path).exists():
         html_js_files.append(path)
 
 for _p in [
-    "custom.js",                # <-- mermaid fixer + Twój slider
+    "custom.js",
 ]:
     _add_js(_p)
 
@@ -228,7 +221,6 @@ html_context = {
 }
 
 # -- Mermaid (kliencki RAW) ----------------------------------------------------
-# Render w przeglądarce – bez puppeteera/mmdc; resztę robi custom.js
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
