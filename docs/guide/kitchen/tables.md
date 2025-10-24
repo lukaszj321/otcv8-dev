@@ -1,4 +1,4 @@
-# Tabele (CSV) — gotowce
+# Tabele (CSV)
 
 > Pliki CSV trzymaj w `_data/` (lub podobnie) i odwołuj się ścieżką **względną** względem pliku `.md`.
 
