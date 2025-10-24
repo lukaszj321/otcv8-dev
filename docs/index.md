@@ -220,5 +220,3 @@ examples/diagrams
 * 📖 **Edit on GitHub**: Każda strona ma link do edycji
 * 🔍 **Wyszukiwarka**: Użyj pola wyszukiwania w górnym pasku
 * 🌓 **Motyw**: Przełącznik jasny/ciemny w prawym górnym rogu
-
----
