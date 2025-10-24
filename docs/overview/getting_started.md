@@ -103,11 +103,15 @@ Zwykły tekst z **pogrubieniem** i *kursywą*.
 
 1. Lista numerowana
 2. Drugi element
+```
+
+Blok kodu
 
 ```python
 # Blok kodu
 def hello():
     print("Hello, OTClient v8!")
+```
 
 #### Dyrektywy Sphinx
 
@@ -142,12 +146,12 @@ Ostrzeżenie
 
 #### Diagramy Mermaid
 
-```markdown
 ```{mermaid}
-%%{init: {'theme':'dark'}}%%
+%%{init: {"theme":"dark"}}%%
 flowchart LR
-    A[Start] --> B[Process]
-    B --> C[End]
+A[Start] --> B[Process]
+B --> C[End]
+```
 
 ### Szablony i przykłady
 
