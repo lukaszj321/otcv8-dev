@@ -4,7 +4,7 @@ title: Guide & Components
 
 # Guide & Components
 
-Praktyczne elementy PyData + sphinx‑design w układzie **kod po lewej / efekt po prawej**.
+Praktyczne elementy PyData + sphinx-design w układzie **kod po lewej / efekt po prawej**.
 
 ```{toctree}
 :maxdepth: 2
@@ -16,15 +16,16 @@ kitchen/lists
 kitchen/generic
 kitchen/components
 kitchen/indices
-```
+````
 
----
+<hr/>
 
-## Kitchen‑sink in practice — karty nawigacyjne
+## Kitchen-sink in practice — karty nawigacyjne
 
 :::{grid} 1 1 2 2
 :gutter: 3
 
+:::{grid-row}
 :::{grid-item}
 **Kod**
 
@@ -32,6 +33,7 @@ kitchen/indices
 :::{grid} 1 1 2 2
 :gutter: 2
 
+:::{grid-row}
 :::{grid-item-card} Admonitions
 :link: kitchen/admonitions
 Notatki, ostrzeżenia, tips.
@@ -52,16 +54,17 @@ CSV-table i inne.
 Generowanie indeksów.
 :::
 :::
+:::
 ```
 
 :::
-
 :::{grid-item}
 **Efekt**
 
 :::{grid} 1 1 2 2
 :gutter: 2
 
+:::{grid-row}
 :::{grid-item-card} Admonitions
 :link: kitchen/admonitions
 Notatki, ostrzeżenia, tips.
@@ -83,17 +86,21 @@ Generowanie indeksów.
 :::
 :::
 :::
+:::
+:::
 
----
+<hr/>
 
 ## Tabs — Guide / Reference / Examples
 
 :::{grid} 1 1 2 2
 :gutter: 3
 
+:::{grid-row}
 :::{grid-item}
 **Kod**
 
+````md
 :::{tab-set}
 :::{tab-item} Guide
 **Best practices + checklisty:**
@@ -133,8 +140,7 @@ Generowanie indeksów.
 :::
 
 :::{tab-item} Examples
-**CSV‑table (datasets)**
-```
+**CSV-table (datasets)**
 
 ```{csv-table} UI Signals — przykład z authoring
 :header-rows: 1
@@ -170,10 +176,9 @@ digraph G {
   "MyST Markdown" -> "CSV Tables";
 }
 ```
-
 :::
 :::
-
+````
 
 :::
 
@@ -184,39 +189,43 @@ digraph G {
 :::{tab-item} Guide
 **Best practices + checklisty:**
 
-- Używaj grid-item-card dla navigation
-- Tabs (Guide/Reference/Examples) dla struktury treści
-- Dropdowns dla checklistów i zadań
-- Mermaid/Graphviz z dark mode init
-- CSV-table dla danych tabelarycznych
-- Literalinclude z regionami dla kodu
+* Używaj grid-item-card dla navigation
+* Tabs (Guide/Reference/Examples) dla struktury treści
+* Dropdowns dla checklistów i zadań
+* Mermaid/Graphviz z dark mode init
+* CSV-table dla danych tabelarycznych
+* Literalinclude z regionami dla kodu
 
 **Workflow:**
+
 1. Projektuj strukturę (grid + tabs)
 2. Dodaj content w każdym tab
 3. Osadź przykłady (CSV/kod/diagramy)
 4. Zweryfikuj dark mode i responsywność
-:::
+   :::
 
 :::{tab-item} Reference
 **Dostępne komponenty:**
-- **sphinx-design:** grid, card, tabs, dropdown, badge
-- **myst-nb:** MyST Markdown z Jupyter
-- **sphinxcontrib-mermaid:** Mermaid diagrams
-- **sphinx.ext.graphviz:** Graphviz diagrams
-- **sphinx-copybutton:** Copy button na blokach kodu
+
+* **sphinx-design:** grid, card, tabs, dropdown, badge
+* **myst-nb:** MyST Markdown z Jupyter
+* **sphinxcontrib-mermaid:** Mermaid diagrams
+* **sphinx.ext.graphviz:** Graphviz diagrams
+* **sphinx-copybutton:** Copy button na blokach kodu
 
 **Konfiguracja (conf.py):**
-- `secondary_sidebar_items`: page-toc, sourcelink, edit-this-page
-- `mermaid_output_format`: svg (lepszy dla CI)
-- `mermaid_init_js`: dark theme
-- `html_theme_options`: PyData theme config
+
+* `secondary_sidebar_items`: page-toc, sourcelink, edit-this-page
+* `mermaid_output_format`: svg (lepszy dla CI)
+* `mermaid_init_js`: dark theme
+* `html_theme_options`: PyData theme config
 
 **Linki do indeksów:**
-- {ref}`authoring/index`
-- {ref}`copilot/sphinx/index`
-- {ref}`authoring/04_ui/index`
-:::
+
+* {ref}`authoring/index`
+* {ref}`copilot/sphinx/index`
+* {ref}`authoring/04_ui/index`
+  :::
 
 :::{tab-item} Examples
 
@@ -224,7 +233,7 @@ digraph G {
 :header-rows: 1
 :file: ../authoring/04_ui/datasets/signals.csv
 :widths: 20, 20, 30, 30
-
+```
 
 ```mermaid
 %%{init: {"theme":"dark"}}%%
@@ -254,19 +263,19 @@ digraph G {
 :::
 :::
 :::
+:::
+:::
 
----
+<hr/>
 
 ## Sidebar & buttons (PyData)
 
 :::{grid} 1 1 2 2
 :gutter: 3
 
+:::{grid-row}
 :::{grid-item}
 **Kod**
-
-
-Prawy TOC + „Show source" + „Edit this page" włączone globalnie.
 
 ```python
 html_theme_options = {
@@ -276,7 +285,6 @@ html_theme_options = {
 }
 ```
 
-
 :::
 
 :::{grid-item}
@@ -284,20 +292,22 @@ html_theme_options = {
 
 Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 :::
-
+:::
 :::
 
----
+<hr/>
 
 ## Dark mode verification — dropdown checklist
+
 :::{grid} 1 1 2 2
 :gutter: 3
 
+:::{grid-row}
 :::{grid-item}
 **Kod**
 
 ```{dropdown} Quick tasks (Guide)
-- [x] Dark‑mode przykładów OK (Mermaid/Graphviz)
+- [x] Dark-mode przykładów OK (Mermaid/Graphviz)
 - [x] `copybutton` na blokach kodu działa
 - [x] „See also" spójny z Authoring/Copilot Docs
 - [x] Grid cards renderują się responsywnie
@@ -305,7 +315,6 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 - [x] CSV tables mają nagłówki
 - [x] Literalinclude używa regionów (nie linii)
 ```
-
 
 :::
 
@@ -313,7 +322,7 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 **Efekt**
 
 ```{dropdown} Quick tasks (Guide)
-- [x] Dark‑mode przykładów OK (Mermaid/Graphviz)
+- [x] Dark-mode przykładów OK (Mermaid/Graphviz)
 - [x] `copybutton` na blokach kodu działa
 - [x] „See also" spójny z Authoring/Copilot Docs
 - [x] Grid cards renderują się responsywnie
@@ -323,16 +332,17 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 ```
 
 :::
-
+:::
 :::
 
----
+<hr/>
 
 ## See also — karty z linkami
 
 :::{grid} 1 1 2 3
 :gutter: 3
 
+:::{grid-row}
 :::{grid-item-card} Authoring
 :link: authoring/index
 :link-type: ref
@@ -347,5 +357,5 @@ Prawy TOC + „Show source" + „Edit this page" aktywne (według motywu).
 :link: authoring/04_ui/index
 :link-type: ref
 :::
-
+:::
 :::
