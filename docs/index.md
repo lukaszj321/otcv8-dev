@@ -32,7 +32,6 @@ API klienta udostępnia *globalne obiekty/menedżery* (np. UI, okno, zasoby, gra
 - `g_resources` — pliki, zasoby, pakiety,
 - `g_game` — stan połączenia/protokołu gry, player, map events,
 
-**Pełna lista globali:** **UNKNOWN** (upewnij się w swojej wersji w `luafunctionscpp.md`/`OTClient_data_documentation_FULL.md`).
 :::
 
 :::{admonition} Moduły i sandbox
@@ -202,6 +201,12 @@ cpp/index
 lua/index
 data/index
 tools/index
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: examples
+
 examples/csv
 examples/diagrams
 ```
