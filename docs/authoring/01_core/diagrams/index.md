@@ -3,9 +3,9 @@
 
 ## Diagrams
 
-```{mermaid}
 :caption: Architecture
 
+```mermaid
 graph LR
     subgraph Core API
         E0[Classes]
@@ -16,9 +16,9 @@ graph LR
     end
 ```
 
-```{mermaid}
 :caption: Flow
 
+```mermaid
 graph TD
     A[Core API] --> B[Data Collection]
     B --> C[Processing]
@@ -33,9 +33,10 @@ graph TD
 
 ## Diagrams
 
-```{mermaid}
 :caption: Architecture
 
+
+```mermaid
 graph LR
     subgraph Core API
         E0[Classes]
@@ -46,9 +47,9 @@ graph LR
     end
 ```
 
-```{mermaid}
 :caption: Flow
 
+```mermaid
 graph TD
     A[Core API] --> B[Data Collection]
     B --> C[Processing]
@@ -63,9 +64,10 @@ graph TD
 
 ## Diagrams
 
-```{mermaid}
 :caption: Architecture
 
+
+```mermaid
 graph LR
     subgraph Core API
         E0[Classes]
@@ -76,9 +78,9 @@ graph LR
     end
 ```
 
-```{mermaid}
 :caption: Flow
 
+```mermaid
 graph TD
     A[Core API] --> B[Data Collection]
     B --> C[Processing]
