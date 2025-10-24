@@ -33,19 +33,19 @@ graph TD
 
     subgraph Phase3 ["Phase 3: Game UI Modules (triggered by 'game_interface')"]
         direction TB
-        subgraph " "
+        subgraph s3_1 [" "]
             game_interface -- loads --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills;
         end
-        subgraph " "
+        subgraph s3_2 [" "]
             game_interface -- " " --> game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade;
         end
-        subgraph " "
+        subgraph s3_3 [" "]
             game_interface -- " " --> game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog;
         end
-        subgraph " "
+        subgraph s3_4 [" "]
              game_interface -- " " --> game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_profiles & game_actionbar & game_prey & game_imbuing;
         end
-        subgraph " "
+        subgraph s3_5 [" "]
             game_interface -- " " --> game_stats_ui[game_stats] & game_shaders & game_bot;
         end
     end
