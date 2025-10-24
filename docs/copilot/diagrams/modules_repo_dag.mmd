@@ -1,86 +1,113 @@
-%%{init: {"theme":"dark"}}%%
+%%{init: {"theme":"dark", "flowchart": {"curve": "basis"}}}%%
 graph LR
-    %% Definicja stylów dla kluczowych węzłów
-    style client fill:#cde4ff,stroke:#5a8ac9,stroke-width:2px
-    style client_entergame fill:#cde4ff,stroke:#5a8ac9,stroke-width:2px
-    style game_interface fill:#ffd6cc,stroke:#c97b5a,stroke-width:2px
-    style updater fill:#e5ccff,stroke:#965ac9,stroke-width:2px
+    %% ===================================================================
+    %% DEFINICJE STYLÓW (KLAS)
+    %% Tutaj tworzymy "szablony" wyglądu dla różnych typów modułów.
+    %% ===================================================================
+    classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
+    classDef pregame fill:#5b005b,color:#fff,stroke:#ad66ad;
+    classDef gameui fill:#00504b,color:#fff,stroke:#33b3a9;
+    classDef gamedata fill:#792e00,color:#fff,stroke:#c26d39;
+    classDef utils fill:#614a00,color:#fff,stroke:#a68333;
+    
+    %% Style dla kategorii modułów UI
+    classDef ui_player fill:#1f78b4,color:#fff,stroke:#a6cee3;
+    classDef ui_items fill:#33a02c,color:#fff,stroke:#b2df8a;
+    classDef ui_comms fill:#e31a1c,color:#fff,stroke:#fb9a99;
+    classDef ui_systems fill:#ff7f00,color:#fff,stroke:#fdbf6f;
+    classDef ui_windows fill:#6a3d9a,color:#fff,stroke:#cab2d6;
 
-    subgraph "1. Start"
-        client
-    end
-
-    subgraph "2. Pre-Game Modules"
-        client_styles
-        client_locales
-        client_topmenu
-        client_background
-        client_textedit
-        client_options
-        client_terminal
-        client_stats
-        client_feedback
-        client_mobile
+    %% ===================================================================
+    %% STRUKTURA DIAGRAMU (WĘZŁY I GRUPY)
+    %% ===================================================================
+    subgraph "1. Core"
+        direction LR
+        client --> client_entergame;
     end
     
-    subgraph "3. Enter Game Logic"
-        client_entergame --> game_interface
-        client_entergame -- "load-later" --> game_things & game_features
+    subgraph "2. Pre-Game & Common Modules"
+        direction TB
+        subgraph " "
+            client_styles & client_locales & client_textedit & client_background;
+        end
+        subgraph " "
+            client_options & client_terminal & client_stats & client_feedback & client_mobile;
+        end
     end
-
-    subgraph "4. In-Game Interface"
-        game_interface
-    end
-
-    subgraph "5. Game UI Modules (ładowane przez game_interface)"
+    
+    subgraph "3. Game Logic"
         direction LR
-        game_buttons
-        game_hotkeys
-        game_inventory
-        game_console
-        game_battle
-        game_minimap
-        game_shop
-        game_questlog
-        game_textmessage
-        game_outfit
-        game_healthinfo
-        game_skills
-        game_containers
-        game_viplist
-        game_npctrade
-        game_textwindow
-        game_playertrade
-        game_bugreport
-        game_playerdeath
-        game_playermount
-        game_ruleviolation
-        game_market
-        game_spelllist
-        game_cooldown
-        game_modaldialog
-        game_unjustifiedpoints
-        game_walking
-        game_itemselector
-        client_profiles
-        game_actionbar
-        game_prey
-        game_imbuing
-        game_stats_ui[game_stats]
-        game_shaders
-        game_bot
+        client_entergame --> game_interface;
+        subgraph "Data Modules"
+            game_things & game_features;
+        end
+    end
+
+    subgraph "4. Game UI Modules (ładowane przez game_interface)"
+        direction TB
+        subgraph "Player Info"
+            game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount;
+        end
+        subgraph "Item Management"
+            game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector;
+        end
+        subgraph "Interaction & Controls"
+            game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
+        end
+        subgraph "Gameplay Systems"
+             game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
+        end
+        subgraph "Windows & Dialogs"
+            game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles;
+        end
+        subgraph "Communication"
+            game_console & game_textmessage & game_bugreport & game_ruleviolation;
+        end
+        subgraph "Advanced/Misc"
+            game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints;
+        end
     end
     
     subgraph "Utilities"
         updater
     end
 
-    %% Główne zależności
-    client -- "load-later" --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame
+    %% ===================================================================
+    %% DEFINICJE POŁĄCZEŃ
+    %% ===================================================================
+    
+    %% Połączenia dla 'client'
+    client -- "loads" --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
+    
+    %% Połączenia dla 'client_entergame'
+    client_entergame -- "loads" --> game_features & game_things;
+    
+    %% Połączenia dla 'game_interface' - pogrupowane tematycznie dla czytelności
+    game_interface -- "loads" --> game_healthinfo & game_skills & game_stats_ui & game_outfit & game_playermount;
+    game_interface -- " " --> game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector;
+    game_interface -- " " --> game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
+    game_interface -- " " --> game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
+    game_interface -- " " --> game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles;
+    game_interface -- " " --> game_console & game_textmessage & game_bugreport & game_ruleviolation;
+    game_interface -- " " --> game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints;
 
-    %% Ogromna lista zależności dla game_interface (teraz jako jedna linia)
-    game_interface -- "load-later" --> game_buttons & game_hotkeys & game_questlog & game_textmessage & game_console & game_outfit & game_healthinfo & game_skills & game_inventory & game_containers & game_viplist & game_battle & game_minimap & game_npctrade & game_textwindow & game_playertrade & game_bugreport & game_playerdeath & game_playermount & game_ruleviolation & game_market & game_spelllist & game_cooldown & game_modaldialog & game_unjustifiedpoints & game_walking & game_shop & game_itemselector & client_textedit & client_profiles & game_actionbar & game_prey & game_imbuing & game_stats_ui & game_shaders & game_bot
+    %% Połączenia dla 'updater'
+    updater -- "depends on" --> client_locales & client_styles & client_textedit;
+    updater -- "loads" --> client_background;
 
-    %% Zależności updatgera
-    updater -- "dependency" --> client_locales & client_styles & client_textedit
-    updater -- "load-later" --> client_background
+    %% ===================================================================
+    %% PRZYPISANIE STYLÓW DO WĘZŁÓW
+    %% Łączymy zdefiniowane wyżej klasy z konkretnymi modułami.
+    %% ===================================================================
+    class client,client_entergame,game_interface core;
+    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile pregame;
+    class game_things,game_features gamedata;
+    class updater utils;
+
+    class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount ui_player;
+    class game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_itemselector ui_items;
+    class game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle ui_player;
+    class game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown ui_systems;
+    class game_viplist,game_minimap,game_modaldialog,game_textwindow,client_profiles ui_windows;
+    class game_console,game_textmessage,game_bugreport,game_ruleviolation ui_comms;
+    class game_shaders,game_bot,game_playerdeath,game_unjustifiedpoints ui_systems;
