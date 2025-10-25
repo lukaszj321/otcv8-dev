@@ -1,7 +1,7 @@
 %%{init: {"theme":"dark"}}%%
 graph TD
     %% ===================================================================
-    %% DEFINICJE STYLÓW - HIERARCHIA WIZUALNA
+    %% DEFINICJE STYLÓW
     %% ===================================================================
     classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold;
     classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC;
@@ -9,6 +9,7 @@ graph TD
     classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9;
     classDef utility fill:#614a00,color:#fff,stroke:#a68333;
     classDef container fill:#222,stroke:#888,stroke-dasharray: 5 5;
+    classDef note fill:#333,color:#aaa,stroke:#555;
 
     %% ===================================================================
     %% WARSTWA 1: RDZEŃ APLIKACJI
@@ -42,8 +43,10 @@ graph TD
     subgraph Świat_Gry
         game_interface;
 
-        subgraph Moduły_UI_(zależą_od_game_interface)
-            direction LR
+        subgraph Moduly_UI
+            %% Ten węzeł zastępuje problematyczny tytuł
+            note["(zależą od game_interface)"];
+            
             subgraph Player_Info
                 direction TB
                 game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit;
@@ -57,7 +60,7 @@ graph TD
                 game_buttons & game_hotkeys & game_actionbar & game_battle;
             end
         end
-        game_interface -- "jest wymagany przez" --> Moduły_UI_(zależą_od_game_interface);
+        game_interface -- "jest wymagany przez" --> Moduly_UI;
     end
     client_entergame -- "uruchamia" --> game_interface;
 
@@ -77,4 +80,5 @@ graph TD
     class client_entergame,game_features,game_things game_logic;
     class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_inventory,game_containers,game_shop,game_market,game_buttons,game_hotkeys,game_actionbar,game_battle game_ui;
     class updater utility;
-    class Warstwa_Rdzenia,Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Świat_Gry,Utilities,Moduły_UI_(zależą_od_game_interface) container;
+    class Warstwa_Rdzenia,Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Świat_Gry,Utilities,Moduly_UI container;
+    class note note;
