@@ -1,14 +1,4 @@
-%%{init: {
-    "theme":"dark", 
-    "flowchart": {
-        "curve": "basis",
-        "nodeSpacing": 120,
-        "rankSpacing": 90
-    },
-    "themeVariables": {
-        "fontSize": "20px"
-    }
-}}%%
+%%{init: {"theme":"dark", "flowchart": {"curve": "basis"}}}%%
 graph TD
 
 %% ===================================================================
@@ -29,12 +19,12 @@ classDef ui_windows fill:#6a3d9a,color:#fff,stroke:#cab2d6;
 %% ===================================================================
 subgraph " "
     direction LR
-    client("1. Client Start")
-    updater("Updater")
+    client["&nbsp; &nbsp; 1. Client Start &nbsp; &nbsp;"]
+    updater["&nbsp; &nbsp; Updater &nbsp; &nbsp;"]
 end
 
 client -- "Ładuje" --> PreGameModules
-client -- "Wchodzi do gry" --> client_entergame("2. Enter Game")
+client -- "Wchodzi do gry" --> client_entergame["&nbsp; &nbsp; 2. Enter Game &nbsp; &nbsp;"]
 
 %% ===================================================================
 %% MODUŁY PRE-GAME
@@ -43,18 +33,18 @@ subgraph PreGameModules["Moduły Pre-Game i Wspólne"]
     direction LR
     subgraph "Podstawowe"
         direction TB
-        client_styles("Styles")
-        client_locales("Locales")
-        client_textedit("TextEdit")
+        client_styles["&nbsp; &nbsp; Styles &nbsp; &nbsp;"]
+        client_locales["&nbsp; &nbsp; Locales &nbsp; &nbsp;"]
+        client_textedit["&nbsp; &nbsp; TextEdit &nbsp; &nbsp;"]
     end
     subgraph "Narzędzia i Opcje"
         direction TB
-        client_options("Options")
-        client_terminal("Terminal")
-        client_stats("Stats")
-        client_feedback("Feedback")
-        client_mobile("Mobile")
-        client_background("Background")
+        client_options["&nbsp; &nbsp; Options &nbsp; &nbsp;"]
+        client_terminal["&nbsp; &nbsp; Terminal &nbsp; &nbsp;"]
+        client_stats["&nbsp; &nbsp; Stats &nbsp; &nbsp;"]
+        client_feedback["&nbsp; &nbsp; Feedback &nbsp; &nbsp;"]
+        client_mobile["&nbsp; &nbsp; Mobile &nbsp; &nbsp;"]
+        client_background["&nbsp; &nbsp; Background &nbsp; &nbsp;"]
     end
 end
 
@@ -64,11 +54,11 @@ end
 client_entergame --> GameDataModules
 subgraph GameDataModules["3. Dane Gry"]
     direction LR
-    game_things("Game Things")
-    game_features("Game Features")
+    game_things["&nbsp; &nbsp; Game Things &nbsp; &nbsp;"]
+    game_features["&nbsp; &nbsp; Game Features &nbsp; &nbsp;"]
 end
 
-GameDataModules --> game_interface("4. Game Interface")
+GameDataModules --> game_interface["&nbsp; &nbsp; 4. Game Interface &nbsp; &nbsp;"]
 
 %% ===================================================================
 %% MODUŁY INTERFEJSU UŻYTKOWNIKA (UI)
@@ -80,26 +70,26 @@ subgraph GameUIModules["5. Moduły Interfejsu Użytkownika (UI)"]
     
     subgraph "Player Info & Control"
         direction TB
-        game_healthinfo; game_skills; game_stats_ui[game_stats]; game_outfit; game_playermount
-        game_buttons; game_hotkeys; game_actionbar; game_walking; game_battle
+        game_healthinfo["&nbsp; game_healthinfo &nbsp;"]; game_skills["&nbsp; game_skills &nbsp;"]; game_stats_ui["&nbsp; game_stats &nbsp;"]; game_outfit["&nbsp; game_outfit &nbsp;"]; game_playermount["&nbsp; game_playermount &nbsp;"]
+        game_buttons["&nbsp; game_buttons &nbsp;"]; game_hotkeys["&nbsp; game_hotkeys &nbsp;"]; game_actionbar["&nbsp; game_actionbar &nbsp;"]; game_walking["&nbsp; game_walking &nbsp;"]; game_battle["&nbsp; game_battle &nbsp;"]
     end
     
     subgraph "Item Management"
         direction TB
-        game_inventory; game_containers; game_shop; game_market
-        game_npctrade; game_playertrade; game_itemselector
+        game_inventory["&nbsp; game_inventory &nbsp;"]; game_containers["&nbsp; game_containers &nbsp;"]; game_shop["&nbsp; game_shop &nbsp;"]; game_market["&nbsp; game_market &nbsp;"]
+        game_npctrade["&nbsp; game_npctrade &nbsp;"]; game_playertrade["&nbsp; game_playertrade &nbsp;"]; game_itemselector["&nbsp; game_itemselector &nbsp;"]
     end
 
     subgraph "Gameplay Systems"
         direction TB
-        game_questlog; game_prey; game_imbuing; game_spelllist; game_cooldown
-        game_shaders; game_bot; game_playerdeath; game_unjustifiedpoints
+        game_questlog["&nbsp; game_questlog &nbsp;"]; game_prey["&nbsp; game_prey &nbsp;"]; game_imbuing["&nbsp; game_imbuing &nbsp;"]; game_spelllist["&nbsp; game_spelllist &nbsp;"]; game_cooldown["&nbsp; game_cooldown &nbsp;"]
+        game_shaders["&nbsp; game_shaders &nbsp;"]; game_bot["&nbsp; game_bot &nbsp;"]; game_playerdeath["&nbsp; game_playerdeath &nbsp;"]; game_unjustifiedpoints["&nbsp; game_unjustifiedpoints &nbsp;"]
     end
 
     subgraph "Windows & Communication"
         direction TB
-        game_viplist; game_minimap; game_modaldialog; game_textwindow; client_profiles
-        game_console; game_textmessage; game_bugreport; game_ruleviolation
+        game_viplist["&nbsp; game_viplist &nbsp;"]; game_minimap["&nbsp; game_minimap &nbsp;"]; game_modaldialog["&nbsp; game_modaldialog &nbsp;"]; game_textwindow["&nbsp; game_textwindow &nbsp;"]; client_profiles["&nbsp; client_profiles &nbsp;"]
+        game_console["&nbsp; game_console &nbsp;"]; game_textmessage["&nbsp; game_textmessage &nbsp;"]; game_bugreport["&nbsp; game_bugreport &nbsp;"]; game_ruleviolation["&nbsp; game_ruleviolation &nbsp;"]
     end
 end
 
