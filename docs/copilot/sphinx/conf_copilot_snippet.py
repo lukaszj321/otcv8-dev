@@ -1,42 +1,12 @@
-# --- Copilot Docs snippet (append to your conf.py) ---
-from pathlib import Path
-
-# 1) Upewnij się, że mamy wymagane rozszerzenia/opsje motywu
-extensions = list(sorted(set(globals().get("extensions", []) + ["sphinx.ext.graphviz"])))
-html_theme_options = dict(globals().get("html_theme_options", {}) or {})
-
-# 2) Link w nawigacji PyData (używamy external_links – wspierane przez pydata-sphinx-theme)
-ext_links = list(html_theme_options.get("external_links", []))
-copilot_link = {"name": "Copilot Docs", "url": "copilot/index.html"}  # poprawna ścieżka
-if not any(x.get("url") == copilot_link["url"] for x in ext_links):
-    ext_links.append(copilot_link)
-html_theme_options["external_links"] = ext_links
-
-# 3) KLUCZOWE: rejestruj pliki (nie katalog) jako zależności dla sekcji "copilot"
-DOCS_DIR = Path(__file__).parent.resolve()
-DIAGRAMS_DIR = DOCS_DIR / "copilot" / "diagrams"
-
-# Jeśli chcesz filtrować typy plików, ustaw suffixy, np. {".md", ".mmd", ".mermaid", ".dot", ".gv", ".png", ".svg"}
-_ACCEPT_SUFFIXES = None  # None = bierz wszystkie pliki
-
-def _iter_diagram_files():
-    if not DIAGRAMS_DIR.exists():
-        return
-    for p in DIAGRAMS_DIR.rglob("*"):
-        if p.is_file():
-            if _ACCEPT_SUFFIXES is None or p.suffix.lower() in _ACCEPT_SUFFIXES:
-                yield p
-
-def _add_copilot_diagram_deps(app, docname, source):
-    # Podpina zależności do wszystkich stron zaczynających się od "copilot"
-    if not docname.startswith("copilot"):
-        return
-    for p in _iter_diagram_files():
-        rel = p.relative_to(DOCS_DIR)
-        # WAŻNE: przekazujemy ŚCIEŻKĘ DO PLIKU, nie katalog
-        app.env.note_dependency(str(rel))
+# safe Copilot add-on for PyData / Sphinx 8
+def _add_nav_link(app, config):
+    opts = dict(config.html_theme_options or {})
+    nav = list(opts.get("navbar_links", []))
+    if not any(isinstance(x, dict) and x.get("url") == "copilot/index.html" for x in nav):
+        nav.append({"name": "Copilot Docs", "url": "copilot/index.html", "internal": True})
+    opts["navbar_links"] = nav
+    config.html_theme_options = opts
 
 def setup(app):
-    app.connect("source-read", _add_copilot_diagram_deps)
-    return {"parallel_read_safe": True, "parallel_write_safe": True}
-# --- end ---
+    # ZERO odwołań do nieistniejących eventów (Sphinx 8)
+    app.connect("config-inited", _add_nav_link, priority=200)
