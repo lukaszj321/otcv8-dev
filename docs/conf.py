@@ -32,7 +32,6 @@ exclude_patterns = [
 ]
 
 # ── Extensions (stabilny zestaw, bez custom patchy) ───────────────────────────
-# UWAGA: bez autoapi.extension (kiedyś krzyczało o autoapi_dirs)
 extensions: list[str] = [
     # MyST + notebooki
     "myst_nb",
@@ -62,7 +61,7 @@ extensions: list[str] = [
     "hoverxref.extension",
     "sphinx_last_updated_by_git",
     "sphinxext.rediraffe",
-    # blog (możesz nie używać, ale jest bezpieczne)
+    # blog (opcjonalnie)
     "ablog",
 ]
 
@@ -86,10 +85,11 @@ myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
 # Unikalne kotwice per dokument
 autosectionlabel_prefix_document = True
 
-# ── Intersphinx (bez pustych wartości) ────────────────────────────────────────
+# ── Intersphinx (DRY i zgodne ze Sphinx 8) ────────────────────────────────────
+# Drugi element krotki MUSI być None lub ścieżką do objects.inv (nie {}).
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", {}),
-    "sphinx": ("https://www.sphinx-doc.org/en/master", {}),
+    "python": ("https://docs.python.org/3", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
 
 # ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
@@ -152,7 +152,6 @@ html_theme_options = {
             "type": "fontawesome",
         },
     ],
-    # możesz dodać link do Copilot Docs (PyData ignoruje nieznane opcje – bezpieczne)
     "navbar_links": [
         {"name": "Copilot Docs", "url": "dokumentacja%20copilot/index.html", "internal": True}
     ],
@@ -183,7 +182,6 @@ copybutton_only_copy_prompt_lines = False
 # ── Sitemap / Hoverxref ───────────────────────────────────────────────────────
 sitemap_url_scheme = "{link}"
 
-# HOVERNREF: ucisz „unknown typ (ref)” i podobne
 hoverxref_default_type = "tooltip"
 hoverxref_auto_ref = True
 hoverxref_domains = ["std", "py", "cpp"]
@@ -202,7 +200,7 @@ hoverxref_role_types = {
     "attr": "tooltip",
     "exc": "tooltip",
     "obj": "tooltip",
-    # cpp (jeśli używasz odnośników z domain:cpp)
+    # cpp
     "t": "tooltip",
 }
 
@@ -215,7 +213,7 @@ if (STATIC_DIR / "favicon.ico").exists():
 suppress_warnings = [
     "myst.header",
     "myst.nb.render",
-    "design.grid",  # np. gdy grid-item poza grid-row — nie zrywa buildu
+    "design.grid",
 ]
 nitpicky = False
 
@@ -232,12 +230,9 @@ linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── sphinx-last-updated-by-git (bez wywracania buildu) ────────────────────────
-# Jeżeli masz nieśledzone pliki w docs/ (np. copilot/diagrams),
-# poniższe sprawia, że rozszerzenie użyje daty buildu jako fallback,
-# zamiast rzucać wyjątek.
+# ── sphinx-last-updated-by-git ────────────────────────────────────────────────
 git_last_updated_timezone = "UTC"
-git_last_updated_fallback = True  # wtyczka weźmie datę buildu, jeśli brak w git
+git_last_updated_fallback = True
 
 # ── Code autolink (bez agresywności) ──────────────────────────────────────────
 codeautolink_autodoc_inject = False
@@ -253,5 +248,5 @@ if _copilot_snippet.exists():
 
 # ── Minimal setup hook ────────────────────────────────────────────────────────
 def setup(app):  # noqa: D401
-    """Lightweight Sphinx setup hook (nie podpina żadnych custom eventów)."""
+    """Lightweight Sphinx setup hook (bez custom eventów)."""
     return
