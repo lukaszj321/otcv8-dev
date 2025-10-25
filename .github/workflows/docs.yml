@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: docs-pages
+  group: "docs-pages"
   cancel-in-progress: true
 
 env:
@@ -33,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Mark repo as safe
+      - name: Mark repo as safe (for git-based extensions)
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Detect config/theme changes
@@ -50,60 +50,56 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: pip
+          cache: "pip"
           cache-dependency-path: |
             docs/requirements.txt
 
       - name: Install Python deps
         run: |
+          set -e
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          python - << 'PY'
-          import sys, subprocess
-          def ensure(pkg):
-              try:
-                  __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
-              except Exception:
-                  subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-          for p in ["breathe>=4.35.0", "exhale>=0.3.7", "sphinxcontrib-mermaid", "sphinx-design>=0.6.1"]:
-              ensure(p)
-          PY
+          # Do-instaluj krytyczne rozszerzenia (nic się nie stanie, jeśli już są)
+          pip install \
+            "breathe>=4.35.0" \
+            "exhale>=0.3.7" \
+            sphinxcontrib-mermaid \
+            "sphinx-design>=0.6.1" \
+            "sphinx-last-updated-by-git>=0.3.8"
 
-# --- FIX dla 'diagrams': rozwiń katalog na pliki, bez omijania
+      # Naprawa błędu: end of git log ... unhandled files: {b'diagrams}
+      # Doklejamy do conf_copilot_snippet.py handler, który rozwija katalog 'docs/copilot/diagrams' do plików.
       - name: Patch copilot snippet (expand dir deps)
         run: |
           set -e
           SNIP="docs/copilot/sphinx/conf_copilot_snippet.py"
           if [ -f "$SNIP" ]; then
-            # Store the Python patch in a shell variable to avoid YAML syntax confusion
-            PY_PATCH=$(cat <<'EOF'
-# --- CI patch: expand directory dependencies to files (fix for sphinx-last-updated-by-git)
-try:
-    import os
-    def _ci_expand_dir_deps(app, env):
-        base = os.path.join(env.srcdir, "copilot", "diagrams")
-        if os.path.isdir(base):
-            for root, _, files in os.walk(base):
-                for fname in files:
-                    rel = os.path.relpath(os.path.join(root, fname), env.srcdir)
-                    try:
-                        env.note_dependency(rel)
-                    except Exception:
-                        pass
-    try:
-        _old_setup = setup   # type: ignore # noqa
-    except NameError:
-        def _old_setup(app):  # type: ignore
-            return
-    def setup(app):  # type: ignore
-        _old_setup(app)
-        app.connect("env-before-read-docs", _ci_expand_dir_deps)
-except Exception:
-    pass
-EOF
-            )
-            # Append the patch from the variable to the target file
-            echo "$PY_PATCH" >> "$SNIP"
+            {
+              echo ''
+              echo '# --- CI patch: expand directory dependencies to files (fix for sphinx-last-updated-by-git)'
+              echo 'try:'
+              echo '    import os'
+              echo '    def _ci_expand_dir_deps(app, env):'
+              echo '        base = os.path.join(env.srcdir, "copilot", "diagrams")'
+              echo '        if os.path.isdir(base):'
+              echo '            for root, _, files in os.walk(base):'
+              echo '                for fname in files:'
+              echo '                    rel = os.path.relpath(os.path.join(root, fname), env.srcdir)'
+              echo '                    try:'
+              echo '                        env.note_dependency(rel)'
+              echo '                    except Exception:'
+              echo '                        pass'
+              echo '    try:'
+              echo '        _old_setup = setup'
+              echo '    except NameError:'
+              echo '        def _old_setup(app):'
+              echo '            return'
+              echo '    def setup(app):'
+              echo '        _old_setup(app)'
+              echo '        app.connect("env-before-read-docs", _ci_expand_dir_deps)'
+              echo 'except Exception:'
+              echo '    pass'
+            } >> "$SNIP"
             echo "Patched $SNIP"
           else
             echo "No copilot snippet found, skipping patch."
@@ -113,7 +109,7 @@ EOF
         run: |
           if [ -d docs/copilot/diagrams ]; then
             if ! git ls-files --error-unmatch docs/copilot/diagrams >/dev/null 2>&1; then
-              echo "::warning ::'docs/copilot/diagrams' nie zawiera śledzonych plików. Dodaj i zacommituj pliki."
+              echo "::warning ::'docs/copilot/diagrams' nie zawiera śledzonych plików. Dodaj i zacommituj pliki (git add docs/copilot/diagrams/**)."
             fi
           fi
 
@@ -122,7 +118,7 @@ EOF
         uses: actions/cache@v4
         with:
           path: docs/_build/doxygen/xml
-          key: doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}
+          key: "doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}"
 
       - name: Install Doxygen + Graphviz (only if needed)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
@@ -147,7 +143,7 @@ EOF
           path: |
             docs/_build/.doctrees
             docs/_build/.jupyter_cache
-          key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
+          key: "sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}"
 
       - name: Generate auto TOCs (indexes)
         run: |
