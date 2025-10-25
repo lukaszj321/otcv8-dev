@@ -2,7 +2,7 @@
 graph TD
 
 %% ===================================================================
-%% DEFINICJE STYLÓW (KLAS)
+%% DEFINICJE STYLÓW
 %% ===================================================================
 classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
 classDef pregame fill:#5b005b,color:#fff,stroke:#ad66ad;
@@ -15,7 +15,7 @@ classDef ui_systems fill:#ff7f00,color:#fff,stroke:#fdbf6f;
 classDef ui_windows fill:#6a3d9a,color:#fff,stroke:#cab2d6;
 
 %% ===================================================================
-%% GŁÓWNY PRZEPŁYW APLIKACJI
+%% GŁÓWNY PRZEPŁYW
 %% ===================================================================
 subgraph " "
     direction LR
@@ -33,23 +33,17 @@ subgraph PreGameModules["Moduły Pre-Game i Wspólne"]
     direction LR
     subgraph "Podstawowe"
         direction TB
-        client_styles("Styles")
-        client_locales("Locales")
-        client_textedit("TextEdit")
+        client_styles("Styles"); client_locales("Locales"); client_textedit("TextEdit")
     end
     subgraph "Narzędzia i Opcje"
         direction TB
-        client_options("Options")
-        client_terminal("Terminal")
-        client_stats("Stats")
-        client_feedback("Feedback")
-        client_mobile("Mobile")
-        client_background("Background")
+        client_options("Options"); client_terminal("Terminal"); client_stats("Stats")
+        client_feedback("Feedback"); client_mobile("Mobile"); client_background("Background")
     end
 end
 
 %% ===================================================================
-%% LOGIKA I DANE GRY
+%% DANE GRY
 %% ===================================================================
 client_entergame --> GameDataModules
 subgraph GameDataModules["3. Dane Gry"]
@@ -61,11 +55,11 @@ end
 GameDataModules --> game_interface("4. Game Interface")
 
 %% ===================================================================
-%% MODUŁY INTERFEJSU UŻYTKOWNIKA (UI)
+%% MODUŁY UI - USUNIĘTO NAWIASY Z TYTUŁU
 %% ===================================================================
 game_interface -- "Inicjalizuje wszystkie moduły UI" --> GameUIModules
 
-subgraph GameUIModules["5. Moduły Interfejsu Użytkownika (UI)"]
+subgraph GameUIModules["5. Moduły Interfejsu Użytkownika UI"]
     direction LR
     
     subgraph "Player Info & Control"
@@ -94,13 +88,13 @@ subgraph GameUIModules["5. Moduły Interfejsu Użytkownika (UI)"]
 end
 
 %% ===================================================================
-%% ZALEŻNOŚCI NARZĘDZI ZEWNĘTRZNYCH
+%% ZALEŻNOŚCI NARZĘDZI
 %% ===================================================================
 updater -- "Zależy od" --> client_locales & client_styles & client_textedit
 updater -- "Ładuje" --> client_background
 
 %% ===================================================================
-%% PRZYPISANIE STYLÓW DO WĘZŁÓW
+%% PRZYPISANIE STYLÓW
 %% ===================================================================
 class client,client_entergame,game_interface core;
 class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile pregame;
