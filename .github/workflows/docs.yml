@@ -26,6 +26,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 60  # Increase timeout for large documentation builds
     permissions:
       contents: read
       pages: write
