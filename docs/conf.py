@@ -58,7 +58,7 @@ exclude_patterns = [
 # ── Extensions ────────────────────────────────────────────────────────────────
 extensions: list[str] = [
     # Podstawowe
-    "myst_nb",
+    "myst_nb",  # myst_nb automatycznie ładuje myst_parser, nie dodajemy go osobno
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
@@ -90,7 +90,7 @@ for ext in [
     "sphinxext.opengraph",
     "sphinx_sitemap",
     "sphinx_favicon",
-    "sphinx_codeautolink",  # <-- POPRAWIONA LITERÓWKA
+    "sphinx_codeautolink", # Poprawiona literówka
     "hoverxref.extension",
     "sphinxext.rediraffe",
     "sphinxcontrib.jquery",
