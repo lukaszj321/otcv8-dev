@@ -54,7 +54,7 @@ extensions = [
 ]
 
 # Exclude patterns to avoid duplicate C++ declarations
-exclude_patterns = [
+exclude_patterns = globals().get("exclude_patterns", []) + [
     "autoapi/cpp/*",
     "api/cpp/*",
 ]
