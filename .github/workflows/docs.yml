@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: "docs-pages"
+  group: docs-pages
   cancel-in-progress: true
 
 env:
@@ -41,9 +41,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: |
-            docs/requirements.txt
+          cache: pip
+          cache-dependency-path: docs/requirements.txt
 
       - name: Install system deps (doxygen, graphviz)
         run: |
@@ -55,26 +54,28 @@ jobs:
           python -m pip install --upgrade pip wheel setuptools
           pip install -r docs/requirements.txt
 
-      - name: Create fallback index.md if missing
+      - name: Create fallback docs/index.md if missing
         shell: bash
         run: |
           if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
             mkdir -p docs
-            cat > docs/index.md <<EOF
----
-title: OTClient v8 — Developer Documentation
----
-
-# OTClient v8 — Developer Documentation
-
-```{toctree}
-:maxdepth: 2
-:caption: Spis treści
-:hidden:
-
-guide/index
-authoring/index
-copilot/sphinx/index
+            {
+              echo '---'
+              echo 'title: OTClient v8 — Developer Documentation'
+              echo '---'
+              echo
+              echo '# OTClient v8 — Developer Documentation'
+              echo
+              echo '```{toctree}'
+              echo ':maxdepth: 2'
+              echo ':caption: Spis treści'
+              echo ':hidden:'
+              echo
+              echo 'guide/index'
+              echo 'authoring/index'
+              echo 'copilot/sphinx/index'
+              echo '```'
+            } > docs/index.md
             echo "[index-fallback] created docs/index.md"
           fi
 
