@@ -8,8 +8,6 @@ classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
 classDef pregame fill:#5b005b,color:#fff,stroke:#ad66ad;
 classDef gamedata fill:#792e00,color:#fff,stroke:#c26d39;
 classDef utils fill:#614a00,color:#fff,stroke:#a68333;
-
-%% Style dla kategorii modułów UI
 classDef ui_player fill:#1f78b4,color:#fff,stroke:#a6cee3;
 classDef ui_items fill:#33a02c,color:#fff,stroke:#b2df8a;
 classDef ui_comms fill:#e31a1c,color:#fff,stroke:#fb9a99;
@@ -27,7 +25,6 @@ end
 
 client -- "Ładuje" --> PreGameModules
 client -- "Wchodzi do gry" --> client_entergame("2. Enter Game")
-
 
 %% ===================================================================
 %% MODUŁY PRE-GAME
@@ -56,6 +53,7 @@ end
 %% ===================================================================
 client_entergame --> GameDataModules
 subgraph GameDataModules[3. Dane Gry]
+    direction LR
     game_things("Game Things")
     game_features("Game Features")
 end
@@ -69,56 +67,25 @@ game_interface -- "Inicjalizuje wszystkie moduły UI" --> GameUIModules
 
 subgraph GameUIModules[5. Moduły Interfejsu Użytkownika (UI)]
     direction LR
-
     subgraph "Player Info & Control"
         direction TB
-        game_healthinfo
-        game_skills
-        game_stats_ui[game_stats]
-        game_outfit
-        game_playermount
-        game_buttons
-        game_hotkeys
-        game_actionbar
-        game_walking
-        game_battle
+        game_healthinfo; game_skills; game_stats_ui[game_stats]; game_outfit; game_playermount;
+        game_buttons; game_hotkeys; game_actionbar; game_walking; game_battle;
     end
-
     subgraph "Item Management"
         direction TB
-        game_inventory
-        game_containers
-        game_shop
-        game_market
-        game_npctrade
-        game_playertrade
-        game_itemselector
+        game_inventory; game_containers; game_shop; game_market; 
+        game_npctrade; game_playertrade; game_itemselector;
     end
-
     subgraph "Gameplay Systems"
         direction TB
-        game_questlog
-        game_prey
-        game_imbuing
-        game_spelllist
-        game_cooldown
-        game_shaders
-        game_bot
-        game_playerdeath
-        game_unjustifiedpoints
+        game_questlog; game_prey; game_imbuing; game_spelllist; game_cooldown;
+        game_shaders; game_bot; game_playerdeath; game_unjustifiedpoints;
     end
-
     subgraph "Windows & Communication"
         direction TB
-        game_viplist
-        game_minimap
-        game_modaldialog
-        game_textwindow
-        client_profiles
-        game_console
-        game_textmessage
-        game_bugreport
-        game_ruleviolation
+        game_viplist; game_minimap; game_modaldialog; game_textwindow; client_profiles;
+        game_console; game_textmessage; game_bugreport; game_ruleviolation;
     end
 end
 
@@ -135,7 +102,6 @@ class client,client_entergame,game_interface core;
 class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile pregame;
 class game_things,game_features gamedata;
 class updater utils;
-
 class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount,game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle ui_player;
 class game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_itemselector ui_items;
 class game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown,game_shaders,game_bot,game_playerdeath,game_unjustifiedpoints ui_systems;
