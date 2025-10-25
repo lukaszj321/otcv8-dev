@@ -50,6 +50,13 @@ extensions = [
     "hoverxref.extension",
     "sphinx_last_updated_by_git",
     "sphinxext.rediraffe",
+    "ablog",
+]
+
+# Exclude patterns to avoid duplicate C++ declarations
+exclude_patterns = globals().get("exclude_patterns", []) + [
+    "autoapi/cpp/*",
+    "api/cpp/*",
 ]
 
 # Jeśli istnieje Doxygen XML – włącz breathe/exhale

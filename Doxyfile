@@ -11,3 +11,6 @@ EXTRACT_PRIVATE    = NO
 QUIET              = YES
 JAVADOC_AUTOBRIEF  = YES
 WARN_IF_UNDOCUMENTED = NO
+# Ignore JNI macros to prevent parsing errors in doxygen
+PREDEFINED         = JNIEXPORT= \
+                     JNICALL=
