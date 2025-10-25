@@ -81,6 +81,7 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
 }
+intersphinx_timeout = 10  # Reduce timeout to avoid hanging on network issues
 
 # hoverxref – zdefiniuj typy, żeby nie pluł ostrzeżeniami
 hoverxref_role_types = {
@@ -120,7 +121,7 @@ def _sanitize_dependencies(env) -> int:
                 continue
             newset.add(p)
         if newset != items:
-            deps[docname] = newset
+            deps[docname] = list(newset)  # Convert to list to avoid set comparison issues
             changed += 1
     return changed
 
