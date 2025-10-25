@@ -256,7 +256,84 @@ if _copilot_snippet.exists():
     except Exception as e:
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
 
-# ── Minimal setup hook ────────────────────────────────────────────────────────
-def setup(app):  # noqa: D401
-    """Lightweight Sphinx setup hook."""
+# --- Copilot Docs integration (robust) ---------------------------------------
+# 1) dopnij potrzebne rozszerzenia (bez duplikatów)
+if "sphinx.ext.graphviz" not in extensions:
+    extensions.append("sphinx.ext.graphviz")
+
+# 2) bezpieczna modyfikacja opcji motywu (PyData)
+html_theme_options = dict(globals().get("html_theme_options", {}) or {})
+_navbar_links = list(html_theme_options.get("navbar_links", []))
+# Użyj _zdekodowanej_ ścieżki bez spacji/encodowania:
+_copilot_url = "copilot/index.html"
+if not any((isinstance(x, dict) and x.get("url") == _copilot_url) for x in _navbar_links):
+    _navbar_links.append({"name": "Copilot Docs", "url": _copilot_url, "internal": True})
+html_theme_options["navbar_links"] = _navbar_links
+globals()["html_theme_options"] = html_theme_options  # zapisz z powrotem
+
+# 3) Zgłaszanie *tylko śledzonych* plików z docs/copilot/diagrams jako zależności
+from pathlib import Path
+import subprocess
+
+COPILOT_DIR = Path(__file__).parent / "copilot"
+COPILOT_DIAGRAMS = COPILOT_DIR / "diagrams"
+DOCS_DIR = Path(__file__).parent.resolve()
+REPO_ROOT = DOCS_DIR.parent.resolve()
+
+# rozszerzenia plików, które mają wpływać na „last updated”
+_DIAGRAM_GLOBS = ("*.svg", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp",
+                  "*.pdf", "*.mmd", "*.mermaid", "*.gv", "*.dot", "*.drawio")
+
+def _git_tracked_under(path: Path) -> list[Path]:
+    """
+    Zwraca listę plików śledzonych przez Git pod podanym katalogiem.
+    Gdy git nieosiągalny (np. lokalny build z ZIPa), wraca do zwykłego rglob,
+    ale i tak filtruje tylko pliki (żadnych katalogów).
+    """
+    try:
+        res = subprocess.run(
+            ["git", "-C", str(REPO_ROOT), "ls-files", "-z", str(path)],
+            check=True, capture_output=True
+        )
+        raw = res.stdout.split(b"\x00")
+        files = []
+        for b in raw:
+            if not b:
+                continue
+            p = (REPO_ROOT / b.decode("utf-8")).resolve()
+            if p.is_file():
+                files.append(p)
+        return files
+    except Exception as e:
+        print(f"[conf.py] (warn) git ls-files failed: {e}")
+        # fallback – bierzemy tylko istniejące pliki
+        return [p for pat in _DIAGRAM_GLOBS for p in path.rglob(pat) if p.is_file()]
+
+def _note_copilot_diagram_deps(app):
+    """Zgłasza pliki z copilot/diagrams jako dependencies (tylko śledzone przez Git)."""
+    if not COPILOT_DIAGRAMS.exists():
+        return
+    tracked = _git_tracked_under(COPILOT_DIAGRAMS)
+
+    # dodatkowe filtrowanie po wzorcach, żeby nie wrzucać śmieci
+    allow = set()
+    suffixes = {ext.lower().lstrip("*") for ext in _DIAGRAM_GLOBS}
+    for p in tracked:
+        if p.suffix.lower() in suffixes:
+            allow.add(p)
+
+    for p in sorted(allow):
+        try:
+            rel_to_docs = p.relative_to(DOCS_DIR)
+        except ValueError:
+            # jeżeli plik jest poza docs/, Sphinx oczekuje ścieżki względnej względem źródeł
+            # pomijamy takie pliki – i tak nie wpływają na stronę „copilot”
+            continue
+        # najważniejsze: *plik*, nie katalog
+        app.env.note_dependency(str(rel_to_docs))
+
+def setup(app):
+    # zarejestruj callback wcześnie, zanim „sphinx_last_updated_by_git” policzy czasy
+    app.connect("env-before-read-docs", lambda app, env, docnames: _note_copilot_diagram_deps(app))
     return
+# --- end Copilot Docs integration --------------------------------------------
