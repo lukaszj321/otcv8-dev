@@ -19,13 +19,11 @@ classDef ui_windows fill:#6a3d9a,color:#fff,stroke:#cab2d6;
 %% ===================================================================
 %% GŁÓWNY PRZEPŁYW APLIKACJI
 %% ===================================================================
-
 subgraph " "
     direction LR
     client("1. Client Start")
     updater("Updater")
 end
-
 
 client -- "Ładuje" --> PreGameModules
 client -- "Wchodzi do gry" --> client_entergame("2. Enter Game")
@@ -74,28 +72,55 @@ subgraph GameUIModules[5. Moduły Interfejsu Użytkownika (UI)]
 
     subgraph "Player Info & Control"
         direction TB
-        game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount
-        game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle
+        game_healthinfo
+        game_skills
+        game_stats_ui[game_stats]
+        game_outfit
+        game_playermount
+        game_buttons
+        game_hotkeys
+        game_actionbar
+        game_walking
+        game_battle
     end
 
     subgraph "Item Management"
         direction TB
-        game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector
+        game_inventory
+        game_containers
+        game_shop
+        game_market
+        game_npctrade
+        game_playertrade
+        game_itemselector
     end
 
     subgraph "Gameplay Systems"
         direction TB
-        game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown
-        game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints
+        game_questlog
+        game_prey
+        game_imbuing
+        game_spelllist
+        game_cooldown
+        game_shaders
+        game_bot
+        game_playerdeath
+        game_unjustifiedpoints
     end
 
     subgraph "Windows & Communication"
         direction TB
-        game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles
-        game_console & game_textmessage & game_bugreport & game_ruleviolation
+        game_viplist
+        game_minimap
+        game_modaldialog
+        game_textwindow
+        client_profiles
+        game_console
+        game_textmessage
+        game_bugreport
+        game_ruleviolation
     end
 end
-
 
 %% ===================================================================
 %% ZALEŻNOŚCI NARZĘDZI ZEWNĘTRZNYCH
@@ -110,6 +135,7 @@ class client,client_entergame,game_interface core;
 class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile pregame;
 class game_things,game_features gamedata;
 class updater utils;
+
 class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount,game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle ui_player;
 class game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_itemselector ui_items;
 class game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown,game_shaders,game_bot,game_playerdeath,game_unjustifiedpoints ui_systems;
