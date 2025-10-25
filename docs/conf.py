@@ -1,36 +1,63 @@
-# -- OTClient v8 Dev Docs — Sphinx config -------------------------------------
+# -- OTClient v8 Dev Docs — Sphinx config (Sphinx 8.x) ------------------------
 from __future__ import annotations
 
-import os, sys
+import os
 from pathlib import Path
+from importlib import import_module
 
 # ── Project ────────────────────────────────────────────────────────────────────
 project = "OTClient v8 — Developer Documentation"
 author = "Dildo"
 language = "pl"
 
+# ── Root doc / parsers / intersphinx / hoverxref ──────────────────────────────
+# (naprawia błędy z master doc + intersphinx)
+root_doc = "index"       # Sphinx 8+
+master_doc = root_doc    # dla zgodności z rozszerzeniami
+
+# Obsługuj .rst i .md
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",
+}
+
+# Stabilne, niepuste inventory (ważne: drugi element to None, nie {})
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
+}
+
+# hoverxref – zdefiniowane style dla :ref: itd., żeby nie pluło ostrzeżeniami
+hoverxref_role_types = {
+    "ref": "tooltip",
+    "doc": "tooltip",
+    "mod": "tooltip",
+}
+
 # ── Paths ─────────────────────────────────────────────────────────────────────
 DOCS_DIR = Path(__file__).parent.resolve()
 REPO_ROOT = DOCS_DIR.parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"                       # np. mirror LDoc
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"    # powinno zawierać index.xml
+EXTRA_DIR = DOCS_DIR / "_extra"                        # np. mirror LDoc
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"     # musi zawierać index.xml
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
 html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []
 
 exclude_patterns = [
-    "_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints", ".venv", "venv",
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "**/.ipynb_checkpoints",
+    ".venv",
+    "venv",
 ]
 
-# ── Root document (twardy fix) ────────────────────────────────────────────────
-root_doc = "index"
-master_doc = root_doc  # alias kompatybilności
-
 # ── Extensions ────────────────────────────────────────────────────────────────
-extensions = [
+extensions: list[str] = [
+    # Podstawowe
     "myst_nb",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
@@ -42,71 +69,90 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
-    "breathe",
-    "exhale",
-    "sphinx_design",
-    "sphinxcontrib.mermaid",
+]
+
+# “Best-effort” doładowanie rozszerzeń: ładowane tylko jeśli są zainstalowane
+def _try(ext: str, as_name: str | None = None) -> None:
+    try:
+        import_module(ext)
+        extensions.append(as_name or ext)
+        print(f"[conf.py] ✓ loaded: {as_name or ext}")
+    except Exception as e:
+        print(f"[conf.py] ✗ missing: {ext} ({e})")
+
+# Krytyczne dla layoutu / C++
+for ext in ["breathe", "exhale", "sphinx_design", "sphinxcontrib.mermaid"]:
+    _try(ext)
+
+# Dodatkowe (jeśli są w reqs, to się załadują)
+for ext in [
     "sphinx_copybutton",
     "sphinxext.opengraph",
     "sphinx_sitemap",
     "sphinx_favicon",
     "sphinx_codeautolink",
-    "sphinxcontrib.jquery",
     "hoverxref.extension",
-    "sphinx_last_updated_by_git",
     "sphinxext.rediraffe",
-    "ablog",
-]
+    "sphinxcontrib.jquery",
+    # NIE ładujemy bibtex bez skonfigurowanych plików .bib
+    # "sphinxcontrib.bibtex",
+]:
+    _try(ext)
 
 # ── MyST / notebooks ──────────────────────────────────────────────────────────
 nb_execution_mode = "off"
 nb_execution_timeout = 300
+
 myst_enable_extensions = [
-    "colon_fence", "deflist", "substitution", "linkify",
-    "attrs_block", "attrs_inline", "tasklist", "smartquotes",
+    "colon_fence",
+    "deflist",
+    "substitution",
+    "linkify",
+    "attrs_block",
+    "attrs_inline",
+    "tasklist",
+    "smartquotes",
 ]
 myst_heading_anchors = 3
-myst_fence_as_directive = ["mermaid"]
+myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
+
+# Unikalne anchory per dokument
 autosectionlabel_prefix_document = True
 
-# ── Intersphinx ───────────────────────────────────────────────────────────────
-intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
-}
-
-# ── Breathe / Exhale ──────────────────────────────────────────────────────────
+# ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
+
 exhale_args = {
     "containmentFolder": "autoapi/cpp",
     "rootFileName": "index.rst",
     "rootFileTitle": "OTCv8 C++ API",
     "createTreeView": True,
-    "exhaleExecutesDoxygen": False,
+    "exhaleExecutesDoxygen": False,      # doxygen uruchamiany w CI
     "doxygenStripFromPath": str(REPO_ROOT),
 }
+
 primary_domain = "cpp"
 highlight_language = "cpp"
+
+# ── Custom lexers (fallback na wbudowane) ─────────────────────────────────────
+try:
+    from sphinx.highlighting import lexers
+    from pygments.lexers import get_lexer_by_name
+    lexers["otui"] = get_lexer_by_name("yaml")
+    lexers["otmod"] = get_lexer_by_name("ini")
+except Exception as e:
+    print(f"[conf.py] (warn) custom lexers not set: {e}")
 
 # ── HTML / Theme ──────────────────────────────────────────────────────────────
 try:
     import pydata_sphinx_theme  # noqa
     html_theme = "pydata_sphinx_theme"
+    print("[conf.py] ✓ using theme: pydata_sphinx_theme")
 except Exception:
     html_theme = "alabaster"
 
 html_title = "OTClient v8 — Authoring & API"
-
-html_css_files: list[str] = []
-for rel in ["tables.css", "tables-premium.css", "custom-dark-mermaid.css", "css/custom.css", "css/layout.css"]:
-    if (STATIC_DIR / rel).exists():
-        html_css_files.append(rel)
-
-html_js_files: list[str] = []
-for rel in ["custom.js", "css/canonical-fix.js"]:
-    if (STATIC_DIR / rel).exists():
-        html_js_files.append(rel)
 
 html_theme_options = {
     "use_edit_page_button": True,
@@ -116,102 +162,89 @@ html_theme_options = {
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev", "icon": "fa-brands fa-github", "type": "fontawesome"},
-    ],
-    "navbar_links": [
-        {"name": "Copilot Docs", "url": "dokumentacja%20copilot/index.html", "internal": True}
+        {
+            "name": "GitHub",
+            "url": "https://github.com/lukaszj321/otcv8-dev",
+            "icon": "fa-brands fa-github",
+            "type": "fontawesome",
+        },
     ],
 }
 
-html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/")
-html_context = {"github_user": "lukaszj321", "github_repo": "otcv8-dev", "github_version": "master", "doc_path": "docs"}
+html_baseurl = os.getenv("SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/")
+html_context = {
+    "github_user": "lukaszj321",
+    "github_repo": "otcv8-dev",
+    "github_version": "master",
+    "doc_path": "docs",
+}
 
-# ── Mermaid ───────────────────────────────────────────────────────────────────
-mermaid_version = os.environ.get("SPHINX_MERMAID_VERSION", "10.9.1")
-mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
+# CSS (ładuj tylko jeśli istnieją — kolejność: późniejsze nadpisują wcześniejsze)
+html_css_files: list[str] = []
+def _add_css(rel: str) -> None:
+    if (STATIC_DIR / rel).exists():
+        html_css_files.append(rel)
+
+for rel in [
+    "tables.css",
+    "tables-premium.css",
+    "custom-dark-mermaid.css",
+    "css/custom.css",
+    "css/layout.css",
+]:
+    _add_css(rel)
+
+# JS (ładuj tylko jeśli istnieją)
+html_js_files: list[str] = []
+def _add_js(rel: str) -> None:
+    if (STATIC_DIR / rel).exists():
+        html_js_files.append(rel)
+
+for rel in [
+    "custom.js",
+    "css/canonical-fix.js",
+]:
+    _add_js(rel)
+
+# ── Mermaid (client-side) ─────────────────────────────────────────────────────
+mermaid_version = os.getenv("SPHINX_MERMAID_VERSION", "10.9.1")
+mermaid_output_format = os.getenv("SPHINX_MERMAID_OUT", "raw")  # raw/svg
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
-# ── OpenGraph / Copybutton / Sitemap / Hoverxref ──────────────────────────────
+# ── OpenGraph / SEO ───────────────────────────────────────────────────────────
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
+
+# ── Copybutton ────────────────────────────────────────────────────────────────
 copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
+
+# ── Sitemap / Hoverxref (jeśli załadowane) ────────────────────────────────────
 sitemap_url_scheme = "{link}"
-
-hoverxref_default_type = "tooltip"
 hoverxref_auto_ref = True
-hoverxref_domains = ["std", "py", "cpp"]
-hoverxref_role_types = {
-    "ref": "tooltip", "doc": "tooltip", "term": "tooltip", "download": "tooltip", "numref": "tooltip",
-    "mod": "tooltip", "class": "tooltip", "meth": "tooltip", "func": "tooltip", "attr": "tooltip",
-    "exc": "tooltip", "obj": "tooltip",
-    "t": "tooltip",
-}
+hoverxref_domains = ["std"]
+hoverxref_default_type = "tooltip"
 
-# ── Favicons / Warnings / Hygiene ─────────────────────────────────────────────
+# ── Favicons ──────────────────────────────────────────────────────────────────
 favicons = []
 if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
-suppress_warnings = ["myst.header", "myst.nb.render", "design.grid"]
-nitpicky = False
+# ── Warnings / Hygiene ────────────────────────────────────────────────────────
+suppress_warnings = ["myst.header", "myst.nb.render"]
 
-# ── Todo / Linkcheck ──────────────────────────────────────────────────────────
+# ── Todo ──────────────────────────────────────────────────────────────────────
 todo_include_todos = False
-linkcheck_ignore = [r"http://localhost:\d+/", r"https://placehold\.co/.*", r".*\.local"]
+
+# ── Linkcheck ─────────────────────────────────────────────────────────────────
+linkcheck_ignore = [r'http://localhost:\d+/', r'https://placehold\.co/.*', r'.*\.local']
 linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── sphinx-last-updated-by-git ────────────────────────────────────────────────
-git_last_updated_timezone = "UTC"
-git_last_updated_fallback = True
-
-# ── Code autolink ─────────────────────────────────────────────────────────────
-codeautolink_autodoc_inject = False
-
-# ── Opcjonalny snippet Copilot (własna przestrzeń nazw) ───────────────────────
-_copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
-if _copilot_snippet.exists():
-    try:
-        _ns: dict = {}
-        exec(_copilot_snippet.read_text(encoding="utf-8"), _ns, _ns)
-        for k in ("extensions", "html_theme_options", "intersphinx_mapping"):
-            if k in _ns:
-                globals()[k] = _ns[k]
-        print("[conf.py] ✓ Copilot snippet loaded")
-    except Exception as e:
-        print(f"[conf.py] ✗ Copilot snippet error: {e}")
-
-# ── Normalizacja po snippecie ─────────────────────────────────────────────────
-# 1) intersphinx: {} → None
-try:
-    _imap = globals().get("intersphinx_mapping", {})
-    if isinstance(_imap, dict):
-        fixed = False
-        for k, v in list(_imap.items()):
-            if isinstance(v, (list, tuple)) and len(v) >= 2:
-                url, inv = v[0], v[1]
-                if inv in ({}, "", [], ()):
-                    _imap[k] = (url, None)
-                    fixed = True
-        if fixed:
-            print("[conf.py] ✎ normalized intersphinx_mapping ({} → None)")
-    globals()["intersphinx_mapping"] = _imap
-except Exception as e:
-    print(f"[conf.py] ✗ intersphinx normalize error: {e}")
-
-# 2) root_doc: nigdy ścieżka ani z rozszerzeniem
-try:
-    rd = globals().get("root_doc", "index")
-    if os.path.isabs(rd) or rd.endswith((".rst", ".md")) or "/" in rd or "\\" in rd:
-        rd = "index"
-    globals()["root_doc"] = rd
-    globals()["master_doc"] = rd
-except Exception as e:
-    print(f"[conf.py] ✗ root_doc normalize error: {e}")
-
-# ── Minimal setup (bez podpinania eventów) ────────────────────────────────────
-def setup(app):
+# ── Minimal setup hook (nic nie podpinamy do eventów Sphinxa) ────────────────
+def setup(app):  # noqa: D401
+    """Lightweight Sphinx setup hook (no custom events)."""
+    print("[conf.py] ✓ conf loaded")
     return
