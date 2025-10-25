@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import os
-import subprocess
 from pathlib import Path
 from importlib import import_module
 
@@ -32,7 +31,6 @@ exclude_patterns = [
 
 # ── Extensions ────────────────────────────────────────────────────────────────
 def _load(ext: str) -> bool:
-    """Spróbuj załadować rozszerzenie; wypisz status."""
     try:
         import_module(ext)
         extensions.append(ext)
@@ -61,24 +59,24 @@ for ext in [
 
 # C++ toolchain
 _loaded_breathe = _load("breathe")
-_loaded_exhale = _load("exhale")
+_loaded_exhale  = _load("exhale")
 
-# Dodatki UI/SEO
-_load("ablog")
-_load("sphinx_design")
-_load("sphinxcontrib.mermaid")
-_load("sphinx_copybutton")
-_load("sphinxext.opengraph")
-_load("sphinx_sitemap")
-_load("sphinx_favicon")
-_load("sphinx_codeautolink")
-_load("hoverxref.extension")
-_load("sphinx_last_updated_by_git")
-_load("sphinxext.rediraffe")
-_load("sphinxcontrib.jquery")
-
-# Uwaga: celowo NIE ładuję 'sphinxcontrib.bibtex' i 'autoapi.extension'
-#       (oba wcześniej powodowały obowiązkowe ustawienia).
+# UI / SEO / dodatki (tylko jeśli są zainstalowane)
+for ext in [
+    "ablog",
+    "sphinx_design",
+    "sphinxcontrib.mermaid",
+    "sphinx_copybutton",
+    "sphinxext.opengraph",
+    "sphinx_sitemap",
+    "sphinx_favicon",
+    "sphinx_codeautolink",
+    "hoverxref.extension",
+    "sphinx_last_updated_by_git",
+    "sphinxcontrib.jquery",
+    "sphinxext.rediraffe",
+]:
+    _load(ext)
 
 # ── Intersphinx ───────────────────────────────────────────────────────────────
 intersphinx_mapping = {
@@ -115,8 +113,8 @@ if _loaded_exhale:
         "rootFileName": "index.rst",
         "rootFileTitle": "OTCv8 C++ API",
         "createTreeView": True,
-        "exhaleExecutesDoxygen": False,         # Doxygen odpalany w CI
-        "doxygenStripFromPath": str(REPO_ROOT), # ładniejsze ścieżki
+        "exhaleExecutesDoxygen": False,                 # Doxygen w CI
+        "doxygenStripFromPath": str(REPO_ROOT),         # ładniejsze ścieżki
         # "verboseBuild": True,
     }
 primary_domain = "cpp"
@@ -182,7 +180,7 @@ def _add_js(rel: str) -> None:
 for rel in ["custom.js", "css/canonical-fix.js"]:
     _add_js(rel)
 
-# ── Mermaid (client-side) ─────────────────────────────────────────────────────
+# ── Mermaid ───────────────────────────────────────────────────────────────────
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
@@ -196,7 +194,7 @@ copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
 
-# ── Sitemap / Hoverxref (bezpieczne minimum) ─────────────────────────────────
+# ── Sitemap / Hoverxref ───────────────────────────────────────────────────────
 sitemap_url_scheme = "{link}"
 hoverxref_auto_ref = True
 hoverxref_domains = ["std"]
@@ -208,12 +206,6 @@ suppress_warnings = ["myst.header", "myst.nb.render"]
 # ── Todo ──────────────────────────────────────────────────────────────────────
 todo_include_todos = False
 
-# ── Linkcheck (jeśli kiedyś użyjesz -b linkcheck) ────────────────────────────
-linkcheck_ignore = [r"http://localhost:\d+/", r"https://placehold\.co/.*", r".*\.local"]
-linkcheck_timeout = 10
-linkcheck_retries = 2
-linkcheck_workers = 5
-
 # ── Navbar: dodaj „Copilot Docs” (bez duplikatów) ────────────────────────────
 def _on_config_inited(app, config):
     opts = dict(config.html_theme_options or {})
@@ -223,11 +215,11 @@ def _on_config_inited(app, config):
     opts["navbar_links"] = links
     config.html_theme_options = opts
 
-# ── KRYTYCZNE: sanitizacja dependencies zanim ruszy sphinx_last_updated_by_git
+# ── Sanityzacja dependencies przed 'sphinx_last_updated_by_git' ──────────────
 def _sanitize_dependencies(app, env, *args, **kwargs):
     """
-    Usuń z dependencies wpisy, które nie są plikami (np. 'copilot/diagrams').
-    Dzięki temu 'git log <dep>' nie poleci na katalogach / nieistniejących ścieżkach.
+    Usuń z env.dependencies wpisy, które nie są plikami (np. katalogi jak 'copilot/diagrams')
+    albo ścieżki nieistniejące. Powstrzymuje crashe w rozszerzeniach odpalających `git log`.
     """
     deps = getattr(env, "dependencies", None) or getattr(env, "_dependencies", None)
     if not deps:
@@ -242,22 +234,26 @@ def _sanitize_dependencies(app, env, *args, **kwargs):
             if p.is_file():
                 new_items.append(dep)
                 continue
-            # spróbuj zinterpretować relatywnie do katalogu dokumentu
             p2 = (base_dir / dep)
             if p2.is_file():
                 new_items.append(str(p2.relative_to(root)))
                 continue
-            # jeśli to katalog / nie istnieje — wywal
-            removed += 1
+            removed += 1  # katalog / brak pliku
         deps[docname] = sorted(new_items)
     if removed:
         print(f"[conf.py] sanitized dependencies: removed {removed} non-files")
 
+# ── setup() ───────────────────────────────────────────────────────────────────
 def setup(app):
-    # dodaj link do navbaru wcześnie
+    # 👉 rejestrujemy „alias” eventu, którego szuka jakieś rozszerzenie (Sphinx 8.x go nie ma)
+    try:
+        app.add_event("env-after-read-docs")
+    except Exception:
+        pass
+
+    # link w navbarze, zanim cokolwiek zacznie renderować theme
     app.connect("config-inited", _on_config_inited, priority=200)
-    # posprzątaj dependencies PRZED „last_updated_by_git”
+
+    # posprzątaj dependencies PRZED rozszerzeniami bazującymi na git log
     app.connect("env-check-consistency", _sanitize_dependencies, priority=100)
     app.connect("env-updated", _sanitize_dependencies, priority=100)
-
-# ── KONIEC --------------------------------------------------------------------
