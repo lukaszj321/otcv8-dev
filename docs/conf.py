@@ -1,113 +1,155 @@
-# ----------------------- HARDEN: MyST, diagrams, warnings -----------------------
-import os, glob
+from __future__ import annotations
+import os
+import re
 from pathlib import Path
 
-# 1) Rejestracja parsera MyST dla .md + autolabelki nagłówków
-extensions = list(dict.fromkeys(globals().get("extensions", []) + [
-    "myst_parser",
-    "sphinx.ext.autosectionlabel",
-]))
+project = "OTClient v8 — Developer Documentation"
+author = "OTCv8"
+language = "pl"
+
+# Źródła: RST + MyST (Markdown)
 source_suffix = {
     ".rst": "restructuredtext",
     ".md": "myst",
 }
-autosectionlabel_prefix_document = True
-autosectionlabel_maxdepth = 6
 
-# 2) MyST: nie próbuj robić cross-refów z linków MD (eliminuje myst.xref_missing)
-myst_enable_extensions = list(dict.fromkeys(
-    globals().get("myst_enable_extensions", []) + [
-        "colon_fence", "deflist", "attrs_block", "attrs_inline",
-        "linkify", "tasklist", "substitution",
-    ]
-))
-myst_heading_anchors = 6
-# kluczowe: traktuj wszystkie linki MD jako zwykłe URL-e, nie "xref"
-myst_all_links_external = True
+# Motyw
+html_theme = "pydata_sphinx_theme"
+html_static_path = ["_static"]
+templates_path = ["_templates"]
 
-# 3) html_baseurl z ENV (fallback na Pages)
-html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", globals().get("html_baseurl", "https://lukaszj321.github.io/otcv8-dev"))
+# BaseURL (CLI ma pierwszeństwo, ale dajemy fallback z ENV)
+html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "")
 
-# 4) Skopiuj wszystkie katalogi "diagrams" do outputu (żeby ../diagrams/*.mmd były dostępne)
-SRC_DIR = Path(__file__).parent
-extra_paths = []
-for d in glob.glob(str(SRC_DIR / "**/diagrams"), recursive=True):
-    rel = os.path.relpath(d, SRC_DIR)
-    if rel and not any(rel.startswith(p) for p in ("_build", "_static", "_templates")):
-        extra_paths.append(rel)
+extensions = [
+    # MyST (Markdown)
+    "myst_parser",
 
-html_extra_path = list(dict.fromkeys(globals().get("html_extra_path", []) + extra_paths))
+    # Sphinx core
+    "sphinx.ext.githubpages",
+    "sphinx.ext.todo",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.duration",
+    "sphinx.ext.graphviz",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.intersphinx",
 
-# 5) Wycisz ostrzeżenia „undefined label” i „myst.xref_missing” – i tak nie są krytyczne
-suppress_warnings = list(dict.fromkeys(
-    globals().get("suppress_warnings", []) + [
-        "ref.ref",
-        "myst.xref_missing",
-    ]
-))
+    # Dodatki
+    "sphinxcontrib.mermaid",
+    "sphinx_design",
+    "sphinx_copybutton",
+    "sphinxext.opengraph",
+    "sphinx_sitemap",
+    "sphinx_favicon",
+    "sphinx_codeautolink",
+    "sphinxcontrib.jquery",
+    "hoverxref.extension",
+    "sphinx_last_updated_by_git",
+    "sphinxext.rediraffe",
+]
 
-# 6) hoverxref – zdefiniuj typ dla :ref:, żeby nie pluł „unknown typ (ref)”
+# Jeśli istnieje Doxygen XML – włącz breathe/exhale
+_DOXY_XML = Path(__file__).resolve().parent / "_build" / "doxygen" / "xml"
+if _DOXY_XML.exists():
+    extensions += ["breathe", "exhale"]
+    breathe_default_project = "OTCv8 C++ API"
+    breathe_projects = {breathe_default_project: str(_DOXY_XML)}
+    exhale_args = {
+        "containmentFolder": str(Path("api") / "cpp"),
+        "rootFileName": "index.rst",
+        "rootFileTitle": "C++ API",
+        "doxygenStripFromPath": str(Path(__file__).resolve().parent.parent),
+        "createTreeView": True,
+        "exhaleExecutesDoxygen": False,
+        "verboseBuild": False,
+    }
+
+# MyST – to czego używasz (tabs, admonitions, listy itd.)
+myst_enable_extensions = [
+    "colon_fence",
+    "linkify",
+    "attrs_block",
+    "attrs_inline",
+    "substitution",
+    "tasklist",
+    "deflist",
+]
+
+# InterSphinx – poprawne: drugi element to None
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
+}
+
+# hoverxref – zdefiniuj typy, żeby nie pluł ostrzeżeniami
 hoverxref_role_types = {
     "ref": "tooltip",
+    "mod": "tooltip",
     "doc": "tooltip",
-    **globals().get("hoverxref_role_types", {})
 }
 
-# 7) intersphinx – ustaw poprawne mapy (bez pustych `{}`)
-extensions = list(dict.fromkeys(extensions + ["sphinx.ext.intersphinx"]))
-intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
-    **globals().get("intersphinx_mapping", {})
-}
+# Sitemap
+sitemap_url_scheme = "{link}"
 
-# 8) mermaid – wersja/render z ENV (zgodne z workflow)
+# Codeautolink
+codeautolink_autodoc_inject = False
+
+# Mermaid
 mermaid_version = os.environ.get("SPHINX_MERMAID_VERSION", "10.9.1")
 mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
 
-# ----------------------- FIX: sphinx_last_updated_by_git & deps cleanup ----------
-def _strip_bad_deps(app, env):
-    """
-    Zanim uruchomi się obcy handler 'env-updated' (np. z sphinx_last_updated_by_git),
-    usuń z env.dependencies wpisy typu '.../diagrams' (same katalogi) oraz dziwne ścieżki
-    bez rozszerzeń, które powodują 'unhandled files: {b"diagrams"}'.
-    """
+# Nie wywalaj buildu na brakujących celach MyST (masz dużo linków między MD)
+suppress_warnings = ["myst.xref_missing"]
+
+# ----------------- Fix 1: czyść złe dependencies (git) -----------------
+def _sanitize_dependencies(env) -> int:
+    import os
+    changed = 0
+    deps = getattr(env, "dependencies", {})
+    for docname, items in list(deps.items()):
+        newset = set()
+        for p in items:
+            if isinstance(p, bytes):
+                p = p.decode("utf-8", "ignore")
+            p = str(p).strip()
+            if not p:
+                continue
+            # wywal katalogi i ścieżki bez rozszerzenia (np. 'diagrams')
+            if p.endswith("/") or os.path.splitext(p)[1] == "":
+                continue
+            newset.add(p)
+        if newset != items:
+            deps[docname] = newset
+            changed += 1
+    return changed
+
+def _pre_git_filter(app, env):
     try:
-        deps = env.dependencies
-    except Exception:
+        _sanitize_dependencies(env)
+    except Exception as e:
+        app.logger.warning(f"[conf.py] dependency sanitize failed: {e}")
+
+# ----------------- Fix 2: puste bloki Breathe (.. doxygenenum::) ------
+_DOXY_EMPTY_BLOCK_RE = re.compile(
+    r"(?ms)^\.\.\s+doxygen(?:enum|class|struct|union|function)\s*::\s*$\n"
+    r"(?:^[ \t]*:[a-zA-Z0-9_-]+:.*\n)*"
+)
+
+def _fix_breathe_empty_blocks(app, docname, source):
+    s = source[0]
+    if ".. doxygen" not in s:
         return
-    cleaned = {}
-    for docname, paths in deps.items():
-        keep = set()
-        for p in paths:
-            ps = p.decode("utf-8") if isinstance(p, (bytes, bytearray)) else str(p)
-            # wywal katalogi "diagrams" i ogólnie gołe nazwy bez kropki (rozszerzenia)
-            base = os.path.basename(ps.rstrip("/"))
-            if base == "diagrams":
-                continue
-            if "." not in os.path.basename(ps):
-                continue
-            keep.add(ps)
-        cleaned[docname] = keep
-    env.dependencies = cleaned
+    def _repl(_m):
+        return ".. note:: (pominięto pustą dyrektywę wygenerowaną przez Exhale)\n\n"
+    ns, nsubs = _DOXY_EMPTY_BLOCK_RE.subn(_repl, s)
+    if nsubs:
+        source[0] = ns
+        app.logger.info(f"[conf.py] fixed {nsubs} empty doxygen* blocks in {docname}")
 
+# ----------------- hooki -----------------
 def setup(app):
-    # uruchom nasz cleanup PRZED innymi (niska wartość = wysoki priorytet wywołania)
-    try:
-        app.connect("env-updated", _strip_bad_deps, priority=0)
-    except TypeError:
-        # starsze Sphinx bez parametru priority
-        app.connect("env-updated", _strip_bad_deps)
-
-# ----------------------- THEME navbar (link do Copilot Docs) --------------------
-try:
-    extensions = list(dict.fromkeys(extensions + ["sphinx.ext.graphviz"]))
-    html_theme_options = dict(globals().get("html_theme_options", {}) or {})
-    navbar_links = list(html_theme_options.get("navbar_links", []))
-    # nie duplikuj
-    if not any((isinstance(x, dict) and x.get("url") == "dokumentacja%20copilot/index.html") for x in navbar_links):
-        navbar_links.append({"name": "Copilot Docs", "url": "dokumentacja%20copilot/index.html", "internal": True})
-    html_theme_options["navbar_links"] = navbar_links
-except Exception:
-    pass
-# --------------------------------------------------------------------------------
+    # uruchom porządkowanie PRZED last_updated_by_git (niższy priorytet = wcześniej)
+    app.connect("env-updated", _pre_git_filter, priority=100)
+    # podmień puste bloki Breathe zaraz po wczytaniu źródła
+    app.connect("source-read", _fix_breathe_empty_blocks, priority=500)
