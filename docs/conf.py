@@ -2,6 +2,9 @@ from __future__ import annotations
 import os
 import re
 from pathlib import Path
+from sphinx.util import logging as sphinx_logging
+
+logger = sphinx_logging.getLogger(__name__)
 
 project = "OTClient v8 — Developer Documentation"
 author = "OTCv8"
@@ -107,10 +110,12 @@ suppress_warnings = ["myst.xref_missing"]
 def _sanitize_dependencies(env) -> int:
     import os
     changed = 0
-    deps = getattr(env, "dependencies", {})
+    deps = getattr(env, "dependencies", {}) or {}
     for docname, items in list(deps.items()):
+        # Ensure items is iterable/list
+        items_list = list(items) if items is not None else []
         newset = set()
-        for p in items:
+        for p in items_list:
             if isinstance(p, bytes):
                 p = p.decode("utf-8", "ignore")
             p = str(p).strip()
@@ -120,8 +125,9 @@ def _sanitize_dependencies(env) -> int:
             if p.endswith("/") or os.path.splitext(p)[1] == "":
                 continue
             newset.add(p)
-        if newset != items:
-            deps[docname] = list(newset)  # Convert to list to avoid set comparison issues
+        # Porównanie jako zbiory (kolejność nieistotna)
+        if set(newset) != set(items_list):
+            deps[docname] = list(newset)
             changed += 1
     return changed
 
@@ -129,7 +135,7 @@ def _pre_git_filter(app, env):
     try:
         _sanitize_dependencies(env)
     except Exception as e:
-        app.logger.warning(f"[conf.py] dependency sanitize failed: {e}")
+        logger.warning(f"[conf.py] dependency sanitize failed: {e}")
 
 # ----------------- Fix 2: puste bloki Breathe (.. doxygenenum::) ------
 _DOXY_EMPTY_BLOCK_RE = re.compile(
@@ -146,7 +152,7 @@ def _fix_breathe_empty_blocks(app, docname, source):
     ns, nsubs = _DOXY_EMPTY_BLOCK_RE.subn(_repl, s)
     if nsubs:
         source[0] = ns
-        app.logger.info(f"[conf.py] fixed {nsubs} empty doxygen* blocks in {docname}")
+        logger.info(f"[conf.py] fixed {nsubs} empty doxygen* blocks in {docname}")
 
 # ----------------- hooki -----------------
 def setup(app):
