@@ -119,7 +119,7 @@ jobs:
               for p in base.glob("*.csv"):
                   txt = p.read_text(encoding="utf-8")
                   txt = txt.replace("|", r"\|")
-                  txt = re.sub(r'(?<=\\w)_(?=\\W|$)', r'\\_', txt)
+                  txt = re.sub(r'(?<=\w)_(?=\W|$)', r'\_', txt)
                   p.write_text(txt, encoding="utf-8")
                   print(f"[csv-fix] sanitized {p}")
           PY
@@ -132,10 +132,8 @@ jobs:
           p = Path("docs/copilot/sphinx/src_code.rst")
           if p.exists():
               t = p.read_text(encoding="utf-8")
-              # ucieknij pojedyncze gwiazdki, zostaw **pogrubienie**
-              t = re.sub(r'(?<!\\*)(\\*)(?=\\S)(?:(?!\\*\\*)\\*)(?!\\*)', lambda m: r'\\*' if m.group(0) == '*' else m.group(0), t)
-              # prostsza, bezpieczniejsza wersja: zamień pojedyncze * nie będące częścią ** **
-              t = re.sub(r'(?<!\\*)\\*(?!\\*)', r'\\*', t)
+              # ucieknij pojedyncze * (nie **)
+              t = re.sub(r'(?<!\*)\*(?!\*)', r'\*', t)
               p.write_text(t, encoding="utf-8")
               print(f"[rst-fix] sanitized {p}")
           PY
