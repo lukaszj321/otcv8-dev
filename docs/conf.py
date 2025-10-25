@@ -5,7 +5,11 @@ import os
 from pathlib import Path
 from importlib import import_module
 
-# ── Project ────────────────────────────────────────────────────────────────────
+# ── Flags (czytane z env) ─────────────────────────────────────────────────────
+OTC_SKIP_CPP = os.getenv("OTC_SKIP_CPP") == "1"   # pomiń C++ API (breathe/exhale)
+OTC_LIGHT    = os.getenv("OTC_LIGHT") == "1"      # pomiń wolne rozszerzenia
+
+# ── Project ───────────────────────────────────────────────────────────────────
 project = "OTClient v8 — Developer Documentation"
 author = "Dildo"
 language = "pl"
@@ -28,8 +32,10 @@ exclude_patterns = [
     ".venv",
     "venv",
 ]
+if OTC_SKIP_CPP:
+    exclude_patterns += ["autoapi/cpp/**"]
 
-# ── Extensions ────────────────────────────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────────────
 def _load(ext: str) -> bool:
     try:
         import_module(ext)
@@ -41,7 +47,8 @@ def _load(ext: str) -> bool:
         return False
 
 extensions: list[str] = []
-# Core
+
+# ── Core ──────────────────────────────────────────────────────────────────────
 for ext in [
     "myst_nb",
     "sphinx.ext.autosectionlabel",
@@ -54,26 +61,37 @@ for ext in [
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
+    "sphinxcontrib.jquery",
 ]:
     _load(ext)
 
-# C++ toolchain
-_loaded_breathe = _load("breathe")
-_loaded_exhale  = _load("exhale")
+# ── C++ toolchain (warunkowo) ─────────────────────────────────────────────────
+if not OTC_SKIP_CPP:
+    _loaded_breathe = _load("breathe")
+    _loaded_exhale  = _load("exhale")
+else:
+    _loaded_breathe = _loaded_exhale = False
+    print("[conf.py] ⇢ OTC_SKIP_CPP=1 → pomijam breathe/exhale i autoapi/cpp")
 
-# UI / SEO / dodatki (tylko jeśli są zainstalowane)
+# ── UI/SEO dodatki (LIGHT pomija wolne) ───────────────────────────────────────
+if not OTC_LIGHT:
+    for ext in [
+        "ablog",
+        "sphinxext.opengraph",
+        "sphinx_sitemap",
+        "sphinx_favicon",
+        "hoverxref.extension",
+    ]:
+        _load(ext)
+else:
+    print("[conf.py] ⇢ OTC_LIGHT=1 → pomijam ablog/ogp/sitemap/hoverxref/favicons")
+
+# Zawsze przydatne, umiarkowanie lekkie
 for ext in [
-    "ablog",
     "sphinx_design",
     "sphinxcontrib.mermaid",
     "sphinx_copybutton",
-    "sphinxext.opengraph",
-    "sphinx_sitemap",
-    "sphinx_favicon",
     "sphinx_codeautolink",
-    "hoverxref.extension",
-    "sphinx_last_updated_by_git",
-    "sphinxcontrib.jquery",
     "sphinxext.rediraffe",
 ]:
     _load(ext)
@@ -87,7 +105,6 @@ intersphinx_mapping = {
 # ── MyST / notebooks ──────────────────────────────────────────────────────────
 nb_execution_mode = "off"
 nb_execution_timeout = 300
-
 myst_enable_extensions = [
     "colon_fence",
     "deflist",
@@ -99,7 +116,7 @@ myst_enable_extensions = [
     "smartquotes",
 ]
 myst_heading_anchors = 3
-myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
+myst_fence_as_directive = ["mermaid"]
 autosectionlabel_prefix_document = True
 
 # ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
@@ -114,8 +131,7 @@ if _loaded_exhale:
         "rootFileTitle": "OTCv8 C++ API",
         "createTreeView": True,
         "exhaleExecutesDoxygen": False,                 # Doxygen w CI
-        "doxygenStripFromPath": str(REPO_ROOT),         # ładniejsze ścieżki
-        # "verboseBuild": True,
+        "doxygenStripFromPath": str(REPO_ROOT),
     }
 primary_domain = "cpp"
 highlight_language = "cpp"
@@ -129,7 +145,7 @@ try:
 except Exception as e:
     print(f"[conf.py] (warn) custom lexers not set: {e}")
 
-# ── HTML / Theme ──────────────────────────────────────────────────────────────
+# ── Theme ─────────────────────────────────────────────────────────────────────
 try:
     import pydata_sphinx_theme  # noqa
     html_theme = "pydata_sphinx_theme"
@@ -164,46 +180,34 @@ html_context = {
     "doc_path": "docs",
 }
 
-# CSS — załaduj tylko istniejące
+# CSS/JS ładowane tylko jeśli istnieją
 html_css_files: list[str] = []
-def _add_css(rel: str) -> None:
+for rel in ["tables.css", "tables-premium.css", "custom-dark-mermaid.css", "css/custom.css", "css/layout.css"]:
     if (STATIC_DIR / rel).exists():
         html_css_files.append(rel)
-for rel in ["tables.css", "tables-premium.css", "custom-dark-mermaid.css", "css/custom.css", "css/layout.css"]:
-    _add_css(rel)
 
-# JS — załaduj tylko istniejące
 html_js_files: list[str] = []
-def _add_js(rel: str) -> None:
+for rel in ["custom.js", "css/canonical-fix.js"]:
     if (STATIC_DIR / rel).exists():
         html_js_files.append(rel)
-for rel in ["custom.js", "css/canonical-fix.js"]:
-    _add_js(rel)
 
 # ── Mermaid ───────────────────────────────────────────────────────────────────
 mermaid_version = "10.9.1"
 mermaid_output_format = "raw"
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
-# ── OpenGraph / SEO ───────────────────────────────────────────────────────────
+# ── OpenGraph/Sitemap/Hoverxref (część może być pominięta w LIGHT) ───────────
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
+sitemap_url_scheme = "{link}"
 
 # ── Copybutton ────────────────────────────────────────────────────────────────
 copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
 
-# ── Sitemap / Hoverxref ───────────────────────────────────────────────────────
-sitemap_url_scheme = "{link}"
-hoverxref_auto_ref = True
-hoverxref_domains = ["std"]
-hoverxref_default_type = "tooltip"
-
-# ── Warnings / Hygiene ────────────────────────────────────────────────────────
+# ── Warnings / Todo ───────────────────────────────────────────────────────────
 suppress_warnings = ["myst.header", "myst.nb.render"]
-
-# ── Todo ──────────────────────────────────────────────────────────────────────
 todo_include_todos = False
 
 # ── Navbar: dodaj „Copilot Docs” (bez duplikatów) ────────────────────────────
@@ -215,12 +219,8 @@ def _on_config_inited(app, config):
     opts["navbar_links"] = links
     config.html_theme_options = opts
 
-# ── Sanityzacja dependencies przed 'sphinx_last_updated_by_git' ──────────────
+# ── Sanityzacja dependencies (naprawa git timestamps crash) ───────────────────
 def _sanitize_dependencies(app, env, *args, **kwargs):
-    """
-    Usuń z env.dependencies wpisy, które nie są plikami (np. katalogi jak 'copilot/diagrams')
-    albo ścieżki nieistniejące. Powstrzymuje crashe w rozszerzeniach odpalających `git log`.
-    """
     deps = getattr(env, "dependencies", None) or getattr(env, "_dependencies", None)
     if not deps:
         return
@@ -245,15 +245,12 @@ def _sanitize_dependencies(app, env, *args, **kwargs):
 
 # ── setup() ───────────────────────────────────────────────────────────────────
 def setup(app):
-    # 👉 rejestrujemy „alias” eventu, którego szuka jakieś rozszerzenie (Sphinx 8.x go nie ma)
+    # alias eventu, którego może szukać stare rozszerzenie
     try:
         app.add_event("env-after-read-docs")
     except Exception:
         pass
 
-    # link w navbarze, zanim cokolwiek zacznie renderować theme
     app.connect("config-inited", _on_config_inited, priority=200)
-
-    # posprzątaj dependencies PRZED rozszerzeniami bazującymi na git log
     app.connect("env-check-consistency", _sanitize_dependencies, priority=100)
     app.connect("env-updated", _sanitize_dependencies, priority=100)
