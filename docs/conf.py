@@ -46,7 +46,7 @@ extensions = [
     "sphinx_codeautolink",
     "sphinxcontrib.jquery",
     "sphinx_last_updated_by_git",
-    "sphinxext_rediraffe",
+    "sphinxext.rediraffe",
 ]
 
 # --- MyST ---
