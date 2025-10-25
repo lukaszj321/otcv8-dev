@@ -24,3 +24,6 @@ sphinxext-rediraffe==0.3.0
 # Doxygen bridge (tylko gdy używasz)
 breathe>=4.36.0
 exhale==0.3.7
+
+# ABlog for blog functionality
+ablog>=0.11.0
