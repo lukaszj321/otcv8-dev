@@ -69,13 +69,14 @@ jobs:
               ensure(p)
           PY
 
-      # --- FIX dla 'diagrams': rozwiń katalog na pliki, bez omijania
+# --- FIX dla 'diagrams': rozwiń katalog na pliki, bez omijania
       - name: Patch copilot snippet (expand dir deps)
         run: |
           set -e
           SNIP="docs/copilot/sphinx/conf_copilot_snippet.py"
           if [ -f "$SNIP" ]; then
-            cat >> "$SNIP" <<'PY'
+            # Store the Python patch in a shell variable to avoid YAML syntax confusion
+            PY_PATCH=$(cat <<'EOF'
 # --- CI patch: expand directory dependencies to files (fix for sphinx-last-updated-by-git)
 try:
     import os
@@ -99,7 +100,10 @@ try:
         app.connect("env-before-read-docs", _ci_expand_dir_deps)
 except Exception:
     pass
-PY
+EOF
+)
+            # Append the patch from the variable to the target file
+            echo "$PY_PATCH" >> "$SNIP"
             echo "Patched $SNIP"
           else
             echo "No copilot snippet found, skipping patch."
