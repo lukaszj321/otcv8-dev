@@ -1,28 +1,24 @@
-# --- Core ---
-sphinx>=8.2,<9
-pydata-sphinx-theme>=0.16
+sphinx==8.2.3
+pydata-sphinx-theme==0.16.1
 
-# --- Markdown (MyST) ---
-myst-parser>=4.0.0,<5
-linkify-it-py>=2.0
+# MARKDOWN (MyST)
+myst-parser==4.0.1
 
-# --- C++ API (Doxygen → Breathe/Exhale) ---
-breathe>=4.36.0
+# Popularne rozszerzenia (zgodne z Sphinx 8)
+sphinxcontrib-mermaid==1.0.0
+sphinx-design==0.6.1
+sphinx-copybutton==0.5.2
+sphinxext-opengraph==0.13.0
+sphinx-favicon==1.0.1
+sphinx-sitemap==2.9.0
+sphinx-codeautolink==0.17.5
+sphinxcontrib-jquery==4.1
+
+# C++ API (Breathe/Exhale)
+breathe==4.36.0
 exhale==0.3.7
 
-# --- Sphinx extensions / UX ---
-sphinx-design>=0.6.1
-sphinxcontrib-mermaid>=0.9
-sphinx-copybutton>=0.5.2
-sphinxext-opengraph>=0.13.0
-sphinx-favicon>=1.0.1
-sphinx-sitemap>=2.9.0
-sphinx-codeautolink>=0.15.0
-sphinxcontrib-jquery>=4.1
-sphinx-last-updated-by-git
-sphinxext-rediraffe
-
-# (opcjonalne – NIE instaluj, jeśli nie używasz)
-# ablog>=0.11.12
-# sphinxcontrib-bibtex
-# sphinx-hoverxref>=1.4.2,<1.5
+# Opcjonalne, ale często używane:
+ablog==0.11.12
+sphinxext-rediraffe==0.3.0
+sphinx-last-updated-by-git==0.3.8
