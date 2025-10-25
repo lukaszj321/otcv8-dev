@@ -1,5 +1,5 @@
 %%{init: {"theme":"dark"}}%%
-graph TD
+graph LR
     %% ===================================================================
     %% DEFINICJE STYLÓW - HIERARCHIA WIZUALNA
     %% ===================================================================
@@ -24,7 +24,7 @@ graph TD
     %% ===================================================================
     
     subgraph Warstwa_Modułów_Klienta
-        direction LR
+        %% BRAK 'direction'. Układ poziomy jest domyślny dla 'graph LR'
         client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
     end
 
@@ -33,7 +33,7 @@ graph TD
     end
     
     subgraph Warstwa_Logiki_Gry
-        direction TD
+        %% BRAK 'direction'. Układ pionowy jest wymuszony przez jawne połączenie.
         client_entergame;
         subgraph Dane_Gry
             game_things & game_features;
@@ -42,10 +42,10 @@ graph TD
     end
 
     subgraph Świat_Gry
-        direction TD
+        %% BRAK 'direction'. Układ pionowy jest wymuszony przez jawne połączenie.
         game_interface;
         subgraph Moduły_UI
-            direction LR
+            %% Zagnieżdżone grupy dla czytelności.
             subgraph Player_Info
                 game_healthinfo & game_skills & game_stats_ui[game_stats];
             end
@@ -67,7 +67,6 @@ graph TD
     
     %% ===================================================================
     %% KONTROLA UKŁADU - ROZMIESZCZENIE PLANET
-    %% Ta niewidzialna struktura tworzy siatkę i pozycjonuje elementy.
     %% ===================================================================
     subgraph невидимка [ ]
       Warstwa_Modułów_Klienta ~~~ client ~~~ Utilities
