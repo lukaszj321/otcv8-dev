@@ -58,34 +58,24 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          python - <<'PY'
-import sys, subprocess
-def ensure(pkg):
-    try:
-        __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
-    except Exception:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-for p in [
-    "pydata-sphinx-theme>=0.15",
-    "myst-nb>=1.0",
-    "sphinxcontrib-mermaid>=0.9",
-    "sphinx-design>=0.6.1",
-    "breathe>=4.35.0",
-    "exhale>=0.3.7",
-    "sphinx-copybutton",
-    "sphinxext-opengraph",
-    "sphinx-sitemap>=2.6.0",
-    "sphinx-favicon",
-    "sphinx-codeautolink>=0.15.0",
-    "hoverxref>=1.4.2,<1.5",
-    "sphinx-last-updated-by-git",
-    "sphinxext-rediraffe",
-    "sphinxcontrib-bibtex",
-    "sphinxcontrib-jquery",
-]:
-    ensure(p)
-print("✓ ensured core Sphinx extensions")
-PY
+          # najważniejsze rozszerzenia wprost (bez heredoców)
+          pip install \
+            pydata-sphinx-theme>=0.15 \
+            myst-nb>=1.0 \
+            sphinxcontrib-mermaid>=0.9 \
+            sphinx-design>=0.6.1 \
+            breathe>=4.35.0 \
+            exhale>=0.3.7 \
+            sphinx-copybutton \
+            sphinxext-opengraph \
+            sphinx-sitemap>=2.6.0 \
+            sphinx-favicon \
+            sphinx-codeautolink>=0.15.0 \
+            "hoverxref>=1.4.2,<1.5" \
+            sphinx-last-updated-by-git \
+            sphinxext-rediraffe \
+            sphinxcontrib-bibtex \
+            sphinxcontrib-jquery
 
       - name: Cache Doxygen XML
         id: cache_doxygen
@@ -102,8 +92,7 @@ PY
 
       - name: Prepare Doxygen dirs
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p docs/_build/doxygen/xml
+        run: mkdir -p docs/_build/doxygen/xml
 
       - name: Run Doxygen (if cache miss)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
@@ -112,11 +101,9 @@ PY
           test -f docs/_build/doxygen/xml/index.xml && echo "✓ Doxygen XML ready"
 
       - name: Ensure Sphinx dirs exist
-        run: |
-          mkdir -p docs/_static docs/_templates docs/_build/.jupyter_cache docs/_build/.doctrees
+        run: mkdir -p docs/_static docs/_templates docs/_build/.jupyter_cache docs/_build/.doctrees
 
       - name: Create fallback index.md (only if missing)
-        shell: bash
         run: |
           if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
             printf '%s\n' \
@@ -135,7 +122,7 @@ PY
 'authoring/index' \
 'copilot/sphinx/index' \
 '```' \
-            > docs/index.md
+> docs/index.md
             echo "[index-fallback] created docs/index.md"
           fi
 
