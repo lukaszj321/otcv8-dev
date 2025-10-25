@@ -59,7 +59,6 @@ jobs:
           set -e
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Do-install critical Sphinx extras (no-op if already present)
           pip install \
             "breathe>=4.35.0" \
             "exhale>=0.3.7" \
@@ -67,24 +66,25 @@ jobs:
             sphinxcontrib-mermaid \
             "sphinx-last-updated-by-git>=0.3.8"
 
-      # --- KLUCZOWY FIX ---
-      # Jeśli w docs/copilot/diagrams są pliki nie-commitowane (albo sam katalog),
-      # zrób lokalny commit, żeby `git log` miał historię i rozszerzenie nie crashowało.
-      - name: Ensure diagrams are tracked for `git log` (local commit, no push)
+      # === KLUCZOWY FIX: zapewnij historię gita dla docs/copilot/diagrams ===
+      - name: Ensure git history for docs/copilot/diagrams
         run: |
           set -e
           if [ -d docs/copilot/diagrams ]; then
+            # jeśli katalog pusty -> utwórz placeholder
+            if [ "$(find docs/copilot/diagrams -type f | wc -l)" -eq 0 ]; then
+              echo "# keep to provide git history" > docs/copilot/diagrams/.keep
+            fi
             git config user.email "ci@users.noreply.github.com"
             git config user.name "GitHub Actions"
-            # Wymuś dodanie nawet jeśli coś jest w .gitignore
-            git add -f docs/copilot/diagrams || true
-            # Commit tylko jeśli są zmiany do commita
+            # dodaj nawet gdy .gitignore blokuje
+            git add -f docs/copilot/diagrams
             if git status --porcelain docs/copilot/diagrams | grep -q .; then
-              git commit -m "ci: temp track diagrams for docs build" || true
-              echo "Temporary local commit created for diagrams."
-            else
-              echo "No changes to commit under docs/copilot/diagrams."
+              git commit -m "ci: track diagrams assets for docs build" || true
             fi
+            # sanity-check: to musi zwrócić ostatni commit
+            git -C docs/copilot log -1 -- diagrams >/dev/null
+            echo "git log OK for docs/copilot/diagrams"
           else
             echo "No docs/copilot/diagrams directory; skipping."
           fi
@@ -94,7 +94,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: docs/_build/doxygen/xml
-          key: "doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}"
+          key: doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}
 
       - name: Install Doxygen + Graphviz (only if needed)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
@@ -119,7 +119,7 @@ jobs:
           path: |
             docs/_build/.doctrees
             docs/_build/.jupyter_cache
-          key: "sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}"
+          key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
 
       - name: Generate auto TOCs (indexes)
         run: |
