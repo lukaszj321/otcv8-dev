@@ -1,12 +1,18 @@
-# safe Copilot add-on for PyData / Sphinx 8
-def _add_nav_link(app, config):
-    opts = dict(config.html_theme_options or {})
-    nav = list(opts.get("navbar_links", []))
-    if not any(isinstance(x, dict) and x.get("url") == "copilot/index.html" for x in nav):
-        nav.append({"name": "Copilot Docs", "url": "copilot/index.html", "internal": True})
-    opts["navbar_links"] = nav
-    config.html_theme_options = opts
+# -- Copilot addon for Sphinx --------------------------------------------------
+# Ten plik może dopinać własne linki w navbarze itd., ale NIE psuje intersphinx.
 
-def setup(app):
-    # ZERO odwołań do nieistniejących eventów (Sphinx 8)
-    app.connect("config-inited", _add_nav_link, priority=200)
+# Jeśli ustawiasz intersphinx tutaj, używaj None zamiast {}:
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
+}
+
+# Przykład: dopięcie linku do navbaru PyData
+html_theme_options = {
+    "navbar_links": [
+        {"name": "Copilot Docs", "url": "dokumentacja%20copilot/index.html", "internal": True}
+    ]
+}
+
+# Upewnij się, że graphviz będzie dostępny (bez rejestrowania żadnych eventów)
+extensions = ["sphinx.ext.graphviz"]
