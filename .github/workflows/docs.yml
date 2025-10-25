@@ -26,7 +26,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # Increase timeout for large documentation builds
     permissions:
       contents: read
       pages: write
@@ -53,14 +52,12 @@ jobs:
 
       - name: Install Python deps
         run: |
-          set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
           pip install -r docs/requirements.txt
 
-      - name: Fallback index.md (only if missing)
+      - name: Create fallback index.md if missing
         shell: bash
         run: |
-          set -euo pipefail
           if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
             mkdir -p docs
             printf '%s\n' \
@@ -84,7 +81,6 @@ jobs:
 
       - name: Build Sphinx (HTML)
         run: |
-          set -euo pipefail
           sphinx-build -E -a -j "${SPHINX_JOBS:-auto}" -b html docs docs/_build/html \
             -D mermaid_output_format="${SPHINX_MERMAID_OUT}" \
             -D mermaid_version="${SPHINX_MERMAID_VERSION}" \
