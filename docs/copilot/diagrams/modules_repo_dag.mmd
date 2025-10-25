@@ -33,12 +33,18 @@ subgraph PreGameModules[Moduły Pre-Game i Wspólne]
     direction LR
     subgraph "Podstawowe"
         direction TB
-        client_styles("Styles"); client_locales("Locales"); client_textedit("TextEdit")
+        client_styles("Styles")
+        client_locales("Locales")
+        client_textedit("TextEdit")
     end
     subgraph "Narzędzia i Opcje"
         direction TB
-        client_options("Options"); client_terminal("Terminal"); client_stats("Stats")
-        client_feedback("Feedback"); client_mobile("Mobile"); client_background("Background")
+        client_options("Options")
+        client_terminal("Terminal")
+        client_stats("Stats")
+        client_feedback("Feedback")
+        client_mobile("Mobile")
+        client_background("Background")
     end
 end
 
@@ -59,9 +65,12 @@ GameDataModules --> game_interface("4. Game Interface")
 %% ===================================================================
 game_interface -- "Inicjalizuje wszystkie moduły UI" --> GameUIModules
 
+%% ===================================================================
+%% TA SEKCJA ZOSTAŁA NAPRAWIONA
+%% ===================================================================
 subgraph GameUIModules[5. Moduły Interfejsu Użytkownika (UI)]
     direction LR
-    
+
     subgraph "Player Info & Control"
         direction TB
         game_healthinfo; game_skills; game_stats_ui[game_stats]; game_outfit; game_playermount
