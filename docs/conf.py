@@ -1,9 +1,8 @@
 # -- OTClient v8 Dev Docs — Sphinx config -------------------------------------
 from __future__ import annotations
 
-import os
+import os, sys
 from pathlib import Path
-from importlib import import_module
 
 # ── Project ────────────────────────────────────────────────────────────────────
 project = "OTClient v8 — Developer Documentation"
@@ -23,19 +22,16 @@ html_static_path = ["_static"] if STATIC_DIR.exists() else []
 html_extra_path = ["_extra"] if EXTRA_DIR.exists() else []
 
 exclude_patterns = [
-    "_build",
-    "Thumbs.db",
-    ".DS_Store",
-    "**/.ipynb_checkpoints",
-    ".venv",
-    "venv",
+    "_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints", ".venv", "venv",
 ]
 
+# ── Root document (twardy fix) ────────────────────────────────────────────────
+root_doc = "index"
+master_doc = root_doc  # alias kompatybilności
+
 # ── Extensions ────────────────────────────────────────────────────────────────
-extensions: list[str] = [
-    # MyST + notebooki
+extensions = [
     "myst_nb",
-    # core
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
@@ -46,10 +42,8 @@ extensions: list[str] = [
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
-    # C++ API
     "breathe",
     "exhale",
-    # UI/SEO
     "sphinx_design",
     "sphinxcontrib.mermaid",
     "sphinx_copybutton",
@@ -61,52 +55,43 @@ extensions: list[str] = [
     "hoverxref.extension",
     "sphinx_last_updated_by_git",
     "sphinxext.rediraffe",
-    # blog (opcjonalnie)
     "ablog",
 ]
 
 # ── MyST / notebooks ──────────────────────────────────────────────────────────
 nb_execution_mode = "off"
 nb_execution_timeout = 300
-
 myst_enable_extensions = [
-    "colon_fence",
-    "deflist",
-    "substitution",
-    "linkify",
-    "attrs_block",
-    "attrs_inline",
-    "tasklist",
-    "smartquotes",
+    "colon_fence", "deflist", "substitution", "linkify",
+    "attrs_block", "attrs_inline", "tasklist", "smartquotes",
 ]
 myst_heading_anchors = 3
-myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
+myst_fence_as_directive = ["mermaid"]
 autosectionlabel_prefix_document = True
 
-# ── Intersphinx (ważne: None, nie {}) ────────────────────────────────────────
+# ── Intersphinx ───────────────────────────────────────────────────────────────
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
 }
 
-# ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
+# ── Breathe / Exhale ──────────────────────────────────────────────────────────
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
-
 exhale_args = {
     "containmentFolder": "autoapi/cpp",
     "rootFileName": "index.rst",
     "rootFileTitle": "OTCv8 C++ API",
     "createTreeView": True,
-    "exhaleExecutesDoxygen": False,          # Doxygen odpalasz w CI
-    "doxygenStripFromPath": str(REPO_ROOT),  # krótsze ścieżki w output
+    "exhaleExecutesDoxygen": False,
+    "doxygenStripFromPath": str(REPO_ROOT),
 }
 primary_domain = "cpp"
 highlight_language = "cpp"
 
 # ── HTML / Theme ──────────────────────────────────────────────────────────────
 try:
-    import pydata_sphinx_theme  # noqa:F401
+    import pydata_sphinx_theme  # noqa
     html_theme = "pydata_sphinx_theme"
 except Exception:
     html_theme = "alabaster"
@@ -114,21 +99,12 @@ except Exception:
 html_title = "OTClient v8 — Authoring & API"
 
 html_css_files: list[str] = []
-for rel in [
-    "tables.css",
-    "tables-premium.css",
-    "custom-dark-mermaid.css",
-    "css/custom.css",
-    "css/layout.css",
-]:
+for rel in ["tables.css", "tables-premium.css", "custom-dark-mermaid.css", "css/custom.css", "css/layout.css"]:
     if (STATIC_DIR / rel).exists():
         html_css_files.append(rel)
 
 html_js_files: list[str] = []
-for rel in [
-    "custom.js",
-    "css/canonical-fix.js",
-]:
+for rel in ["custom.js", "css/canonical-fix.js"]:
     if (STATIC_DIR / rel).exists():
         html_js_files.append(rel)
 
@@ -140,12 +116,7 @@ html_theme_options = {
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {
-            "name": "GitHub",
-            "url": "https://github.com/lukaszj321/otcv8-dev",
-            "icon": "fa-brands fa-github",
-            "type": "fontawesome",
-        },
+        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev", "icon": "fa-brands fa-github", "type": "fontawesome"},
     ],
     "navbar_links": [
         {"name": "Copilot Docs", "url": "dokumentacja%20copilot/index.html", "internal": True}
@@ -153,65 +124,41 @@ html_theme_options = {
 }
 
 html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/")
-html_context = {
-    "github_user": "lukaszj321",
-    "github_repo": "otcv8-dev",
-    "github_version": "master",
-    "doc_path": "docs",
-}
+html_context = {"github_user": "lukaszj321", "github_repo": "otcv8-dev", "github_version": "master", "doc_path": "docs"}
 
-# ── Mermaid (client-side) ─────────────────────────────────────────────────────
+# ── Mermaid ───────────────────────────────────────────────────────────────────
 mermaid_version = os.environ.get("SPHINX_MERMAID_VERSION", "10.9.1")
 mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
-# ── OpenGraph / SEO ───────────────────────────────────────────────────────────
+# ── OpenGraph / Copybutton / Sitemap / Hoverxref ──────────────────────────────
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
-
-# ── Copybutton ────────────────────────────────────────────────────────────────
 copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
-
-# ── Sitemap / Hoverxref ───────────────────────────────────────────────────────
 sitemap_url_scheme = "{link}"
 
 hoverxref_default_type = "tooltip"
 hoverxref_auto_ref = True
 hoverxref_domains = ["std", "py", "cpp"]
 hoverxref_role_types = {
-    # std
-    "ref": "tooltip",
-    "doc": "tooltip",
-    "term": "tooltip",
-    "download": "tooltip",
-    "numref": "tooltip",
-    # python
-    "mod": "tooltip",
-    "class": "tooltip",
-    "meth": "tooltip",
-    "func": "tooltip",
-    "attr": "tooltip",
-    "exc": "tooltip",
-    "obj": "tooltip",
-    # cpp
+    "ref": "tooltip", "doc": "tooltip", "term": "tooltip", "download": "tooltip", "numref": "tooltip",
+    "mod": "tooltip", "class": "tooltip", "meth": "tooltip", "func": "tooltip", "attr": "tooltip",
+    "exc": "tooltip", "obj": "tooltip",
     "t": "tooltip",
 }
 
-# ── Favicons ──────────────────────────────────────────────────────────────────
+# ── Favicons / Warnings / Hygiene ─────────────────────────────────────────────
 favicons = []
 if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
-# ── Warnings / Hygiene ────────────────────────────────────────────────────────
 suppress_warnings = ["myst.header", "myst.nb.render", "design.grid"]
 nitpicky = False
 
-# ── Todo ──────────────────────────────────────────────────────────────────────
+# ── Todo / Linkcheck ──────────────────────────────────────────────────────────
 todo_include_todos = False
-
-# ── Linkcheck (opcjonalnie) ──────────────────────────────────────────────────
 linkcheck_ignore = [r"http://localhost:\d+/", r"https://placehold\.co/.*", r".*\.local"]
 linkcheck_timeout = 10
 linkcheck_retries = 2
@@ -224,22 +171,21 @@ git_last_updated_fallback = True
 # ── Code autolink ─────────────────────────────────────────────────────────────
 codeautolink_autodoc_inject = False
 
-# ── Optional: Copilot snippet (load) ─────────────────────────────────────────
+# ── Opcjonalny snippet Copilot (własna przestrzeń nazw) ───────────────────────
 _copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
 if _copilot_snippet.exists():
     try:
-        # wczytujemy w osobnej przestrzeni nazw, żeby łatwiej kontrolować efekty
         _ns: dict = {}
         exec(_copilot_snippet.read_text(encoding="utf-8"), _ns, _ns)
-        # przenieś tylko jawnie do globals jeśli potrzeba
-        for k, v in _ns.items():
-            if k in ("extensions", "html_theme_options", "intersphinx_mapping"):
-                globals()[k] = v
+        for k in ("extensions", "html_theme_options", "intersphinx_mapping"):
+            if k in _ns:
+                globals()[k] = _ns[k]
         print("[conf.py] ✓ Copilot snippet loaded")
     except Exception as e:
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
 
-# ── TWARDY FIX po snippecie: {} → None w intersphinx ─────────────────────────
+# ── Normalizacja po snippecie ─────────────────────────────────────────────────
+# 1) intersphinx: {} → None
 try:
     _imap = globals().get("intersphinx_mapping", {})
     if isinstance(_imap, dict):
@@ -256,7 +202,16 @@ try:
 except Exception as e:
     print(f"[conf.py] ✗ intersphinx normalize error: {e}")
 
-# ── Minimal setup hook ────────────────────────────────────────────────────────
-def setup(app):  # noqa: D401
-    """Lightweight Sphinx setup (no custom events)."""
+# 2) root_doc: nigdy ścieżka ani z rozszerzeniem
+try:
+    rd = globals().get("root_doc", "index")
+    if os.path.isabs(rd) or rd.endswith((".rst", ".md")) or "/" in rd or "\\" in rd:
+        rd = "index"
+    globals()["root_doc"] = rd
+    globals()["master_doc"] = rd
+except Exception as e:
+    print(f"[conf.py] ✗ root_doc normalize error: {e}")
+
+# ── Minimal setup (bez podpinania eventów) ────────────────────────────────────
+def setup(app):
     return
