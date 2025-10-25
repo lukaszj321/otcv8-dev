@@ -58,6 +58,7 @@ exclude_patterns = [
 # ── Extensions ────────────────────────────────────────────────────────────────
 extensions: list[str] = [
     # Podstawowe
+    "myst_parser",  # <-- POPRAWKA 1: Dodany parser dla plików .md
     "myst_nb",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
@@ -90,7 +91,7 @@ for ext in [
     "sphinxext.opengraph",
     "sphinx_sitemap",
     "sphinx_favicon",
-    "sphinx_codeautolink",
+    "sphinx_codeautolatink",
     "hoverxref.extension",
     "sphinxext.rediraffe",
     "sphinxcontrib.jquery",
@@ -122,6 +123,10 @@ autosectionlabel_prefix_document = True
 # ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
+
+# <-- POPRAWKA 2: Ignoruj pliki biblioteki TinyXML, które powodują błędy
+# Ta opcja należy do sphinx-autoapi, z którego korzysta Exhale.
+autoapi_ignore = ["*/tinyxml.h", "*/tinyxml2.h", "*/tinyxml*.cpp"]
 
 exhale_args = {
     "containmentFolder": "autoapi/cpp",
