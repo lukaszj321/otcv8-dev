@@ -23,17 +23,62 @@ exclude_patterns = [
     "_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints", ".venv", "venv"
 ]
 
-# ── MyST / Markdown ─────────────────────────────────────────────────────────
-# GASI: "Source parser for markdown not registered"
-source_suffix = {
-    ".rst": "restructuredtext",
-    ".md": "myst",
-}
+# ── Markdown (MyST) ────────────────────────────────────────────────────────
+# Wymuś myst_parser i usuń myst_nb, jeśli pojawił się wcześniej
+extensions: list[str] = []
 
-# myst-nb (bez wykonywania notebooków w CI)
-nb_execution_mode = "off"
-nb_execution_timeout = 300
+def _ensure(ext: str):
+    try:
+        import_module(ext.replace("-", "_"))
+        extensions.append(ext)
+        print(f"[conf.py] ✓ loaded: {ext}")
+    except Exception as e:
+        print(f"[conf.py] ✗ missing: {ext} ({e})")
 
+# Parser Markdown
+_ensure("myst_parser")
+
+# Rejestracja rozszerzeń
+for ext in [
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.githubpages",
+    "sphinx.ext.todo",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.duration",
+    "sphinx.ext.graphviz",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.intersphinx",
+    "breathe",
+    "exhale",
+    "sphinx_design",
+    "sphinxcontrib.mermaid",
+    "sphinx_copybutton",
+    "sphinxext.opengraph",
+    "sphinx_sitemap",
+    "sphinx_favicon",
+    "sphinx_codeautolink",
+    "sphinxcontrib.jquery",
+    "sphinx_last_updated_by_git",
+    "sphinxext.rediraffe",
+]:
+    _ensure(ext)
+
+# jeśli ktoś dodał myst_nb gdzieś indziej – usuń, żeby nie mieszał parserów
+if "myst_nb" in extensions:
+    extensions.remove("myst_nb")
+    print("[conf.py] – removed myst_nb to avoid parser conflicts")
+
+# Rejestracja sufiksów źródeł (ustaw tylko, gdy myst_parser jest dostępny)
+try:
+    import myst_parser  # noqa: F401
+    source_suffix = {".rst": "restructuredtext", ".md": "myst"}
+except Exception:
+    source_suffix = {".rst": "restructuredtext"}
+    print("[conf.py] ! myst_parser not installed; .md will be ignored")
+
+# MyST konfiguracja (bez notebooków)
 myst_enable_extensions = [
     "colon_fence",
     "deflist",
@@ -45,39 +90,6 @@ myst_enable_extensions = [
     "smartquotes",
 ]
 myst_heading_anchors = 3
-myst_fence_as_directive = ["mermaid"]  # ```mermaid -> {mermaid}
-
-# ── Rozszerzenia ────────────────────────────────────────────────────────────
-extensions = [
-    # Markdown / notebooks
-    "myst_nb",
-
-    # core
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.githubpages",
-    "sphinx.ext.todo",
-    "sphinx.ext.ifconfig",
-    "sphinx.ext.duration",
-    "sphinx.ext.graphviz",
-    "sphinx.ext.viewcode",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.mathjax",
-
-    # C++ API
-    "breathe",
-    "exhale",
-
-    # UI / dodatki
-    "sphinx_design",
-    "sphinxcontrib.mermaid",
-    "sphinx_copybutton",
-    "sphinxext.opengraph",
-    "sphinx_sitemap",
-    "sphinx_favicon",
-    "sphinx_codeautolink",
-    "sphinxcontrib.jquery",
-    "sphinx_last_updated_by_git",
-]
 
 autosectionlabel_prefix_document = True
 
@@ -100,6 +112,7 @@ highlight_language = "cpp"
 try:
     import_module("pydata_sphinx_theme")
     html_theme = "pydata_sphinx_theme"
+    print("[conf.py] ✓ using theme: pydata_sphinx_theme")
 except Exception:
     html_theme = "alabaster"
 
@@ -121,7 +134,9 @@ html_theme_options = {
     ],
 }
 
-html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/")
+html_baseurl = os.environ.get(
+    "SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/"
+)
 sitemap_url_scheme = "{link}"
 
 # ── Mermaid (klient) ────────────────────────────────────────────────────────
@@ -139,30 +154,37 @@ favicons = []
 if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
-# ── Ostrzeżenia ─────────────────────────────────────────────────────────────
-suppress_warnings = ["myst.header", "myst.nb.render"]
+# ── InterSphinx ─────────────────────────────────────────────────────────────
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
+}
 
-# ── HOTFIX Exhale: puste dyrektywy zabijają build ───────────────────────────
-_EMPTY_DOXY = re.compile(
-    r"(?m)^\.\.\s+(doxygenenum|doxygenfunction|doxygenclass|doxygenstruct|"
-    r"doxygenvariable|doxygenunion)\s*::\s*$"
+# ── Ostrzeżenia ─────────────────────────────────────────────────────────────
+suppress_warnings = ["myst.header"]
+
+# ── HOTFIX: usuń *całe* puste bloki .. doxygen*:: łącznie z opcjami ─────────
+# Przykład do usunięcia:
+#   .. doxygenenum::
+#      :project: OTCv8 C++ API
+#      :no-link:
+# (bez żadnego argumentu po ::)
+_RE_EMPTY_DOXY_BLOCK = re.compile(
+    r"""
+    (?mxs)                                  # flags: multiline, verbose, dotall
+    ^[ \t]*\.\.\s+doxygen(?:enum|function|class|struct|variable|union)\s*::\s*  # dyrektywa bez argumentu
+    (?:\n[ \t]*:[^\n]*?)*                    # 0+ wierszy opcji typu ':option: value'
+    (?:\n[ \t]*)?                            # opcjonalny pusty wiersz końcowy
+    """,
 )
 
-def _fix_exhale_blank_directives(app, env, docnames):
-    """Podmień puste dyrektywy Exhale zanim Sphinx zacznie je czytać."""
-    base = DOCS_DIR / "autoapi" / "cpp"
-    if not base.exists():
+def _strip_blank_doxygen(app, docname, source):
+    if not docname.startswith("autoapi/cpp/"):
         return
-    for p in base.rglob("*.rst"):
-        txt = p.read_text(encoding="utf-8")
-        if not _EMPTY_DOXY.search(txt):
-            continue
-        fixed = _EMPTY_DOXY.sub(
-            ".. note:: (pominięto pustą dyrektywę wygenerowaną przez Exhale)", txt
-        )
-        if fixed != txt:
-            p.write_text(fixed, encoding="utf-8")
+    txt = source[0]
+    new = _RE_EMPTY_DOXY_BLOCK.sub("", txt)
+    if new != txt:
+        source[0] = new
 
 def setup(app):
-    # Upewnij się, że Exhale zdążył wygenerować RST → wtedy patchujemy
-    app.connect("env-before-read-docs", _fix_exhale_blank_directives)
+    app.connect("source-read", _strip_blank_doxygen)
