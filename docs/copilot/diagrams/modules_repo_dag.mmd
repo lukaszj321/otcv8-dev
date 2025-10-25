@@ -1,43 +1,39 @@
-%%{init: {"theme":"dark"}}%%
+%%{init: {"theme":"dark", "flowchart": {"curve": "stepBefore"}}}%%
 graph TD
     %% ===================================================================
-    %% DEFINICJE STYLÓW
+    %% DEFINICje STYLÓW - HIERARCHIA WIZUALNA
     %% ===================================================================
-    classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold,font-size:16px;
-    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC;
-    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39;
-    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9;
-    classDef utility fill:#614a00,color:#fff,stroke:#a68333;
-    classDef container fill:#222,stroke:#888,stroke-dasharray: 5 5;
+    classDef orchestrator fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold,font-size:14px;
+    classDef module_group fill:#222,stroke:#888,stroke-dasharray: 5 5;
+    classDef pregame_module fill:#5b005b,color:#fff,stroke:#ad66ad;
+    classDef gamedata_module fill:#792e00,color:#fff,stroke:#c26d39;
+    classDef gameui_module fill:#00504b,color:#fff,stroke:#33b3a9;
+    classDef utility_module fill:#614a00,color:#fff,stroke:#a68333;
+    classDef final_state fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:2px,font-weight:bold;
 
     %% ===================================================================
-    %% GŁÓWNY PRZEPŁYW ARCHITEKTONICZNY
+    %% GŁÓWNA OŚ PROCESU I STREFY
     %% ===================================================================
-
-    subgraph Rdzeń_Aplikacji
-        client;
-    end
     
-    subgraph Moduły_Wspólne_i_Narzędzia
+    Start("🚀 Application Start") --> client("1. Core Client Init");
+
+    subgraph Pre_Game_Zone [Pre-Game & Common Modules]
         subgraph Utilities
             updater;
         end
-        subgraph Moduły_Pre_Game
-            client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
+        subgraph PreGame_Modules
+            client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
         end
     end
-
-    subgraph Logika_Gry
-        client_entergame;
-        subgraph Dane_Gry
+    
+    client --> client_entergame_init("2. Enter Game Init");
+    client_entergame_init --> game_interface("3. Game Interface Init");
+    
+    subgraph In_Game_Zone [In-Game Modules]
+        subgraph Game_Data
             game_things & game_features;
         end
-        client_entergame --> Dane_Gry;
-    end
-
-    subgraph Świat_Gry
-        game_interface;
-        subgraph Moduły_UI
+        subgraph Game_UI_Modules
             subgraph Player_Info
                 game_healthinfo & game_skills & game_stats_ui[game_stats];
             end
@@ -45,26 +41,26 @@ graph TD
                 game_inventory & game_containers & game_shop;
             end
         end
-        game_interface -- "wymaga" --> Moduły_UI;
     end
-
+    
+    game_interface --> Ready("✅ Client Ready");
+    
     %% ===================================================================
-    %% POŁĄCZENIA MIĘDZY GŁÓWNYMI BLOKAMI
+    %% POŁĄCZENIA - DEFINIOWANIE PRZEPŁYWU
     %% ===================================================================
-    client -- "wykorzystuje" --> Moduły_Pre_Game;
-    client -- "uruchamia" --> client_entergame;
-    client_entergame -- "tworzy" --> game_interface;
+    client -- "ładuje" --> Pre_Game_Zone;
+    client_entergame_init -- "ładuje" --> In_Game_Zone;
     
     %% Zależności updatgera
     updater -- "zależy od" --> client_locales & client_styles & client_textedit;
 
     %% ===================================================================
-    %% PRZYPISANIE STYLÓW
+    %% PRZYPISANIE STYLÓW DO ELEMENTÓW
     %% ===================================================================
-    class client core;
-    class Rdzeń_Aplikacji,Moduły_Wspólne_i_Narzędzia,Logika_Gry,Świat_Gry,Utilities,Moduły_Pre_Game,Dane_Gry,Moduły_UI,Player_Info,Item_Management container;
-    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile client_module;
-    class client_entergame,game_things,game_features game_logic;
-    class game_interface game_logic;
-    class game_healthinfo,game_skills,game_stats_ui,game_inventory,game_containers,game_shop game_ui;
-    class updater utility;
+    class client,client_entergame_init,game_interface orchestrator;
+    class Ready final_state;
+    class Pre_Game_Zone,In_Game_Zone,Utilities,PreGame_Modules,Game_Data,Game_UI_Modules,Player_Info,Item_Management module_group;
+    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile,client_entergame pregame_module;
+    class game_things,game_features gamedata_module;
+    class game_healthinfo,game_skills,game_stats_ui,game_inventory,game_containers,game_shop gameui_module;
+    class updater utility_module;
