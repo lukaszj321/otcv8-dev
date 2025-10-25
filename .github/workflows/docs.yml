@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: docs-pages
+  group: "docs-pages"
   cancel-in-progress: true
 
 env:
@@ -41,11 +41,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: pip
+          cache: "pip"
           cache-dependency-path: |
             docs/requirements.txt
 
-      - name: Install system deps (doxygen/graphviz)
+      - name: Install system deps (doxygen, graphviz)
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
@@ -54,57 +54,34 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
-          # Wymuszone, spójne wersje zgodne ze Sphinx 8
-          cat > /tmp/requirements.lock <<'REQ'
-          sphinx==8.2.3
-          pydata-sphinx-theme==0.16.1
-          myst-parser==4.0.1
-          sphinxcontrib-mermaid==1.0.0
-          sphinx-design==0.6.1
-          sphinx-copybutton==0.5.2
-          sphinxext-opengraph==0.13.0
-          sphinx-favicon==1.0.1
-          sphinx-sitemap==2.9.0
-          sphinx-codeautolink==0.17.5
-          sphinxcontrib-jquery==4.1
-          breathe==4.36.0
-          exhale==0.3.7
-          # opcjonalne, ale często używane:
-          ablog==0.11.12
-          sphinxext-rediraffe==0.3.0
-          sphinx-last-updated-by-git==0.3.8
-          REQ
-          pip install -r /tmp/requirements.lock
-          # Dodatkowo, jeśli masz własny docs/requirements.txt – doinstaluj (nie popsuje pinów powyżej)
-          if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt || true; fi
-          echo "✓ deps installed"
+          pip install -r docs/requirements.txt
 
-      - name: Create fallback index.md (if missing)
+      - name: Fallback index.md (only if missing)
+        shell: bash
         run: |
           set -euo pipefail
           if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
             mkdir -p docs
-            cat > docs/index.md <<'MD'
-            ---
-            title: OTClient v8 — Developer Documentation
-            ---
-
-            # OTClient v8 — Developer Documentation
-
-            ```{toctree}
-            :maxdepth: 2
-            :caption: Spis treści
-            :hidden:
-
-            guide/index
-            authoring/index
-            copilot/sphinx/index
-            ```
-            MD
+            printf '%s\n' \
+'---' \
+'title: OTClient v8 — Developer Documentation' \
+'---' \
+'' \
+'# OTClient v8 — Developer Documentation' \
+'' \
+'```{toctree}' \
+':maxdepth: 2' \
+':caption: Spis treści' \
+':hidden:' \
+'' \
+'guide/index' \
+'authoring/index' \
+'copilot/sphinx/index' \
+'```' > docs/index.md
             echo "[index-fallback] created docs/index.md"
           fi
 
-      - name: Build docs (HTML)
+      - name: Build Sphinx (HTML)
         run: |
           set -euo pipefail
           sphinx-build -E -a -j "${SPHINX_JOBS:-auto}" -b html docs docs/_build/html \
