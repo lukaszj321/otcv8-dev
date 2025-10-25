@@ -132,7 +132,6 @@ jobs:
           p = Path("docs/copilot/sphinx/src_code.rst")
           if p.exists():
               t = p.read_text(encoding="utf-8")
-              # ucieknij pojedyncze * (nie **)
               t = re.sub(r'(?<!\*)\*(?!\*)', r'\*', t)
               p.write_text(t, encoding="utf-8")
               print(f"[rst-fix] sanitized {p}")
@@ -140,26 +139,32 @@ jobs:
 
       - name: Ensure root index exists (index.md fallback)
         run: |
-          if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
-            cat > docs/index.md <<'MD'
-            ---
-            title: OTClient v8 — Developer Documentation
-            ---
+          python - << 'PY'
+          import pathlib
+          p1 = pathlib.Path("docs/index.rst")
+          p2 = pathlib.Path("docs/index.md")
+          if not p1.exists() and not p2.exists():
+              p2.parent.mkdir(parents=True, exist_ok=True)
+              p2.write_text("""---
+    title: OTClient v8 — Developer Documentation
+    ---
 
-            # OTClient v8 — Developer Documentation
+    # OTClient v8 — Developer Documentation
 
-            ```{toctree}
-            :maxdepth: 2
-            :caption: Spis treści
-            :hidden:
+    ```{toctree}
+    :maxdepth: 2
+    :caption: Spis treści
+    :hidden:
 
-            guide/index
-            authoring/index
-            copilot/sphinx/index
-            ```
-            MD
-            echo "[index-fallback] created docs/index.md"
-          fi
+    guide/index
+    authoring/index
+    copilot/sphinx/index
+    ```
+    """, encoding="utf-8")
+              print("[index-fallback] created docs/index.md")
+          else:
+              print("[index-fallback] not needed")
+          PY
 
       - name: Build docs (HTML)
         env:
