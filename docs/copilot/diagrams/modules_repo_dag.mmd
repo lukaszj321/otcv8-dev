@@ -2,11 +2,10 @@
 graph TD
 
 %% ===================================================================
-%% DEFINICJE STYLÓW (KLAS) - Bez zmian, są bardzo dobre!
+%% DEFINICJE STYLÓW (KLAS)
 %% ===================================================================
 classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
 classDef pregame fill:#5b005b,color:#fff,stroke:#ad66ad;
-classDef gameui fill:#00504b,color:#fff,stroke:#33b3a9;
 classDef gamedata fill:#792e00,color:#fff,stroke:#c26d39;
 classDef utils fill:#614a00,color:#fff,stroke:#a68333;
 
@@ -33,10 +32,9 @@ client -- "Wchodzi do gry" --> client_entergame("2. Enter Game")
 
 
 %% ===================================================================
-%% MODUŁY PRE-GAME (ładowane przed wejściem do świata gry)
+%% MODUŁY PRE-GAME
 %% ===================================================================
-subgraph " " [Moduły Pre-Game i Wspólne]
-    id: PreGameModules
+subgraph PreGameModules[Moduły Pre-Game i Wspólne]
     direction LR
     subgraph "Podstawowe"
         direction TB
@@ -59,8 +57,7 @@ end
 %% LOGIKA I DANE GRY
 %% ===================================================================
 client_entergame --> GameDataModules
-subgraph " " [3. Dane Gry]
-    id: GameDataModules
+subgraph GameDataModules[3. Dane Gry]
     game_things("Game Things")
     game_features("Game Features")
 end
@@ -69,63 +66,33 @@ GameDataModules --> game_interface("4. Game Interface")
 
 %% ===================================================================
 %% MODUŁY INTERFEJSU UŻYTKOWNIKA (UI)
-%% Zamiast 30 strzałek, jedna główna pokazuje, że interfejs zarządza wszystkimi modułami UI
 %% ===================================================================
 game_interface -- "Inicjalizuje wszystkie moduły UI" --> GameUIModules
 
-subgraph " " [5. Moduły Interfejsu Użytkownika (UI)]
-    id: GameUIModules
+subgraph GameUIModules[5. Moduły Interfejsu Użytkownika (UI)]
     direction LR
 
     subgraph "Player Info & Control"
         direction TB
-        game_healthinfo
-        game_skills
-        game_stats_ui[game_stats]
-        game_outfit
-        game_playermount
-        game_buttons
-        game_hotkeys
-        game_actionbar
-        game_walking
-        game_battle
+        game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount
+        game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle
     end
 
     subgraph "Item Management"
         direction TB
-        game_inventory
-        game_containers
-        game_shop
-        game_market
-        game_npctrade
-        game_playertrade
-        game_itemselector
+        game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector
     end
 
     subgraph "Gameplay Systems"
         direction TB
-        game_questlog
-        game_prey
-        game_imbuing
-        game_spelllist
-        game_cooldown
-        game_shaders
-        game_bot
-        game_playerdeath
-        game_unjustifiedpoints
+        game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown
+        game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints
     end
 
     subgraph "Windows & Communication"
         direction TB
-        game_viplist
-        game_minimap
-        game_modaldialog
-        game_textwindow
-        client_profiles
-        game_console
-        game_textmessage
-        game_bugreport
-        game_ruleviolation
+        game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles
+        game_console & game_textmessage & game_bugreport & game_ruleviolation
     end
 end
 
@@ -137,17 +104,14 @@ updater -- "Zależy od" --> client_locales & client_styles & client_textedit
 updater -- "Ładuje" --> client_background
 
 %% ===================================================================
-%% PRZYPISANIE STYLÓW DO WĘZŁÓW (bez zmian)
+%% PRZYPISANIE STYLÓW DO WĘZŁÓW
 %% ===================================================================
 class client,client_entergame,game_interface core;
 class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile pregame;
 class game_things,game_features gamedata;
 class updater utils;
-
-class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount ui_player;
+class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount,game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle ui_player;
 class game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_itemselector ui_items;
-class game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle ui_player;
-class game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown ui_systems;
+class game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown,game_shaders,game_bot,game_playerdeath,game_unjustifiedpoints ui_systems;
 class game_viplist,game_minimap,game_modaldialog,game_textwindow,client_profiles ui_windows;
 class game_console,game_textmessage,game_bugreport,game_ruleviolation ui_comms;
-class game_shaders,game_bot,game_playerdeath,game_unjustifiedpoints ui_systems;
