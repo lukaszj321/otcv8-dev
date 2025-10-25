@@ -28,7 +28,7 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout (full history)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -59,58 +59,34 @@ jobs:
           set -e
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Do-instaluj krytyczne rozszerzenia (nic się nie stanie, jeśli już są)
+          # Do-install critical Sphinx extras (no-op if already present)
           pip install \
             "breathe>=4.35.0" \
             "exhale>=0.3.7" \
-            sphinxcontrib-mermaid \
             "sphinx-design>=0.6.1" \
+            sphinxcontrib-mermaid \
             "sphinx-last-updated-by-git>=0.3.8"
 
-      # Naprawa błędu: end of git log ... unhandled files: {b'diagrams}
-      # Doklejamy do conf_copilot_snippet.py handler, który rozwija katalog 'docs/copilot/diagrams' do plików.
-      - name: Patch copilot snippet (expand dir deps)
+      # --- KLUCZOWY FIX ---
+      # Jeśli w docs/copilot/diagrams są pliki nie-commitowane (albo sam katalog),
+      # zrób lokalny commit, żeby `git log` miał historię i rozszerzenie nie crashowało.
+      - name: Ensure diagrams are tracked for `git log` (local commit, no push)
         run: |
           set -e
-          SNIP="docs/copilot/sphinx/conf_copilot_snippet.py"
-          if [ -f "$SNIP" ]; then
-            {
-              echo ''
-              echo '# --- CI patch: expand directory dependencies to files (fix for sphinx-last-updated-by-git)'
-              echo 'try:'
-              echo '    import os'
-              echo '    def _ci_expand_dir_deps(app, env):'
-              echo '        base = os.path.join(env.srcdir, "copilot", "diagrams")'
-              echo '        if os.path.isdir(base):'
-              echo '            for root, _, files in os.walk(base):'
-              echo '                for fname in files:'
-              echo '                    rel = os.path.relpath(os.path.join(root, fname), env.srcdir)'
-              echo '                    try:'
-              echo '                        env.note_dependency(rel)'
-              echo '                    except Exception:'
-              echo '                        pass'
-              echo '    try:'
-              echo '        _old_setup = setup'
-              echo '    except NameError:'
-              echo '        def _old_setup(app):'
-              echo '            return'
-              echo '    def setup(app):'
-              echo '        _old_setup(app)'
-              echo '        app.connect("env-before-read-docs", _ci_expand_dir_deps)'
-              echo 'except Exception:'
-              echo '    pass'
-            } >> "$SNIP"
-            echo "Patched $SNIP"
-          else
-            echo "No copilot snippet found, skipping patch."
-          fi
-
-      - name: Warn if diagrams not tracked
-        run: |
           if [ -d docs/copilot/diagrams ]; then
-            if ! git ls-files --error-unmatch docs/copilot/diagrams >/dev/null 2>&1; then
-              echo "::warning ::'docs/copilot/diagrams' nie zawiera śledzonych plików. Dodaj i zacommituj pliki (git add docs/copilot/diagrams/**)."
+            git config user.email "ci@users.noreply.github.com"
+            git config user.name "GitHub Actions"
+            # Wymuś dodanie nawet jeśli coś jest w .gitignore
+            git add -f docs/copilot/diagrams || true
+            # Commit tylko jeśli są zmiany do commita
+            if git status --porcelain docs/copilot/diagrams | grep -q .; then
+              git commit -m "ci: temp track diagrams for docs build" || true
+              echo "Temporary local commit created for diagrams."
+            else
+              echo "No changes to commit under docs/copilot/diagrams."
             fi
+          else
+            echo "No docs/copilot/diagrams directory; skipping."
           fi
 
       - name: Cache Doxygen XML
