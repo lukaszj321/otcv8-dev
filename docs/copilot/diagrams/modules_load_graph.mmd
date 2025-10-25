@@ -1,87 +1,66 @@
-%%{init: {"theme":"dark"}}%%
-graph LR
+%%{init: {"theme":"dark", "flowchart": {"curve": "stepBefore"}}}%%
+graph TD
     %% ===================================================================
-    %% DEFINICJE STYLÓW - HIERARCHIA WIZUALNA
+    %% DEFINICje STYLÓW - HIERARCHIA WIZUALNA
     %% ===================================================================
-    classDef sun fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:3px,font-weight:bold,font-size:18px;
-    classDef planet fill:#222,stroke:#888,stroke-dasharray: 5 5;
-    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC;
-    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39;
-    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9;
-    classDef utility fill:#614a00,color:#fff,stroke:#a68333;
-    classDef invisible stroke-width:0px,color:#1a1a1a;
+    classDef orchestrator fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold,font-size:14px;
+    classDef module_group fill:#222,stroke:#888,stroke-dasharray: 5 5;
+    classDef pregame_module fill:#5b005b,color:#fff,stroke:#ad66ad;
+    classDef gamedata_module fill:#792e00,color:#fff,stroke:#c26d39;
+    classDef gameui_module fill:#00504b,color:#fff,stroke:#33b3a9;
+    classDef utility_module fill:#614a00,color:#fff,stroke:#a68333;
+    classDef final_state fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:2px,font-weight:bold;
 
     %% ===================================================================
-    %% SŁOŃCE - CENTRALNY PUNKT ARCHITEKTURY
-    %% ===================================================================
-    subgraph central_node [ ]
-      client;
-    end
-    style central_node fill:none,stroke:none
-
-    %% ===================================================================
-    %% PLANETY - GŁÓWNE STREFY ODPOWIEDZIALNOŚCI
+    %% GŁÓWNA OŚ PROCESU I STREFY
     %% ===================================================================
     
-    subgraph Warstwa_Modułów_Klienta
-        %% BRAK 'direction'. Układ poziomy jest domyślny dla 'graph LR'
-        client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
-    end
+    Start("🚀 Application Start") --> client("1. Core Client Init");
 
-    subgraph Utilities
-        updater;
+    subgraph Pre_Game_Zone [Pre-Game & Common Modules]
+        subgraph Utilities
+            updater;
+        end
+        subgraph PreGame_Modules
+            client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
+        end
     end
     
-    subgraph Warstwa_Logiki_Gry
-        %% BRAK 'direction'. Układ pionowy jest wymuszony przez jawne połączenie.
-        client_entergame;
-        subgraph Dane_Gry
+    client --> client_entergame_init("2. Enter Game Init");
+    client_entergame_init --> game_interface("3. Game Interface Init");
+    
+    subgraph In_Game_Zone [In-Game Modules]
+        subgraph Game_Data
             game_things & game_features;
         end
-        client_entergame --> Dane_Gry;
-    end
-
-    subgraph Świat_Gry
-        %% BRAK 'direction'. Układ pionowy jest wymuszony przez jawne połączenie.
-        game_interface;
-        subgraph Moduły_UI
-            %% Zagnieżdżone grupy dla czytelności.
+        subgraph Game_UI_Modules
             subgraph Player_Info
                 game_healthinfo & game_skills & game_stats_ui[game_stats];
             end
-
             subgraph Item_Management
                 game_inventory & game_containers & game_shop;
             end
         end
-        game_interface -- "wymaga" --> Moduły_UI;
     end
-
-    %% ===================================================================
-    %% POŁĄCZENIA - PRZEPŁYW MOCY
-    %% ===================================================================
-    client -- "wykorzystuje ◀" --> Warstwa_Modułów_Klienta;
-    client -- "uruchamia ▶" --> Warstwa_Logiki_Gry;
-    client_entergame -- "tworzy 💥" --> Świat_Gry;
-    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
+    
+    game_interface --> Ready("✅ Client Ready");
     
     %% ===================================================================
-    %% KONTROLA UKŁADU - ROZMIESZCZENIE PLANET
+    %% POŁĄCZENIA - DEFINIOWANIE PRZEPŁYWU
     %% ===================================================================
-    subgraph невидимка [ ]
-      Warstwa_Modułów_Klienta ~~~ client ~~~ Utilities
-      client ~~~ Warstwa_Logiki_Gry
-      Warstwa_Logiki_Gry ~~~ Świat_Gry
-    end
-    class невидимка invisible;
+    client -- "ładuje" --> Pre_Game_Zone;
+    client_entergame_init -- "ładuje" --> In_Game_Zone;
+    
+    %% Zależności updatgera
+    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
 
     %% ===================================================================
-    %% PRZYPISANIE STYLÓW
+    %% PRZYPISANIE STYLÓW DO ELEMENTÓW
     %% ===================================================================
-    class client sun;
-    class Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Utilities,Świat_Gry,Dane_Gry,Moduły_UI,Player_Info,Item_Management planet;
-    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile client_module;
-    class client_entergame,game_things,game_features game_logic;
-    class game_interface game_logic;
-    class game_healthinfo,game_skills,game_stats_ui,game_inventory,game_containers,game_shop game_ui;
-    class updater utility;
+    class client,client_entergame_init,game_interface orchestrator;
+    class Ready final_state;
+    class Pre_Game_Zone,In_Game_Zone,Utilities,PreGame_Modules,Game_Data,Game_UI_Modules,Player_Info,Item_Management module_group;
+    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile,client_entergame pregame_module;
+    class game_things,game_features gamedata_module;
+    class game_healthinfo,game_skills,game_stats_ui,game_inventory,game_containers,game_shop gameui_module;
+    class updater utility_module;
