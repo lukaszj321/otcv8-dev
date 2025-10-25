@@ -125,6 +125,45 @@ _DOXY_BLANK_RE = re.compile(
     r"(?ms)^\.\.\s+doxygen(?:enum|function|typedef|define|var|class|struct|union|namespace|file)::\s*\n\s*:project:[^\n]+\n"
 )
 
+# --- fix for sphinx_last_updated_by_git + Sphinx 8 ---
+# Upewnij się, że MyST jest zarejestrowany jako parser .md
+extensions = list(dict.fromkeys(globals().get("extensions", []) + [
+    "myst_parser",
+    "sphinx_last_updated_by_git",
+]))
+
+# Parsery źródeł: .rst i .md (MyST)
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "myst",
+}
+
+# Minimalny zestaw rozszerzeń MyST używany w Twoich plikach
+myst_enable_extensions = list(dict.fromkeys(
+    globals().get("myst_enable_extensions", []) + [
+        "colon_fence", "deflist", "attrs_block", "attrs_inline",
+        "linkify", "tasklist", "substitution",
+    ]
+))
+
+# 1) Nie chodź po zależnościach, jeśli dany plik nie jest śledzony przez Gita
+git_untracked_check_dependencies = False
+
+# 2) Wyklucz katalog z diagramami z obliczania timestampów (źródła i dependency)
+git_exclude_patterns = list(dict.fromkeys(
+    globals().get("git_exclude_patterns", []) + [
+        "copilot/diagrams", "copilot/diagrams/**"
+    ]
+))
+
+# (Bezpiecznik, tylko ostrzeżenia – nie błąd – jeśli Sphinx poda brakujące dependency)
+suppress_warnings = list(dict.fromkeys(
+    globals().get("suppress_warnings", []) + [
+        "git.dependency_not_found",
+    ]
+))
+# --- end fix ---
+
 def _strip_exhale_blanks(app, docname, source):
     # tylko autoapi/cpp (tam Exhale wrzuca RST)
     if not docname.startswith("autoapi/"):
