@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: "docs-pages"
+  group: docs-pages
   cancel-in-progress: true
 
 env:
@@ -25,24 +25,18 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
     permissions:
       contents: read
       pages: write
       id-token: write
 
     steps:
-      - name: Checkout (full history for git timestamps)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Ensure docs dirs exist
-        run: |
-          mkdir -p docs/_static docs/_templates docs/_extra
-          mkdir -p docs/_build/doxygen/xml
-
-      - name: Detect config/theme changes (for full rebuild)
+      - name: Detect config/theme changes
         id: changes
         uses: dorny/paths-filter@v3
         with:
@@ -52,11 +46,11 @@ jobs:
               - 'docs/_templates/**'
               - 'docs/_static/**'
 
-      - name: Setup Python (3.11) + pip cache
+      - name: Setup Python (with pip cache)
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
+          cache: pip
           cache-dependency-path: |
             docs/requirements.txt
 
@@ -64,23 +58,34 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          python - << 'PY'
-          import sys, subprocess, importlib
-          def ensure(pkg, mod=None):
-              mod = mod or pkg.split("==")[0].split(">=")[0].replace("-", "_")
-              try:
-                  importlib.import_module(mod)
-              except Exception:
-                  subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-          for p in [
-              "breathe>=4.35.0",
-              "exhale>=0.3.7",
-              "sphinx-design>=0.6.1",
-              "sphinxcontrib-mermaid",
-              "pydata-sphinx-theme",
-          ]:
-              ensure(p)
-          PY
+          python - <<'PY'
+import sys, subprocess
+def ensure(pkg):
+    try:
+        __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
+    except Exception:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+for p in [
+    "pydata-sphinx-theme>=0.15",
+    "myst-nb>=1.0",
+    "sphinxcontrib-mermaid>=0.9",
+    "sphinx-design>=0.6.1",
+    "breathe>=4.35.0",
+    "exhale>=0.3.7",
+    "sphinx-copybutton",
+    "sphinxext-opengraph",
+    "sphinx-sitemap>=2.6.0",
+    "sphinx-favicon",
+    "sphinx-codeautolink>=0.15.0",
+    "hoverxref>=1.4.2,<1.5",
+    "sphinx-last-updated-by-git",
+    "sphinxext-rediraffe",
+    "sphinxcontrib-bibtex",
+    "sphinxcontrib-jquery",
+]:
+    ensure(p)
+print("✓ ensured core Sphinx extensions")
+PY
 
       - name: Cache Doxygen XML
         id: cache_doxygen
@@ -89,17 +94,50 @@ jobs:
           path: docs/_build/doxygen/xml
           key: doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}
 
-      - name: Install Doxygen + Graphviz (if cache miss)
+      - name: Install Doxygen + Graphviz (if needed)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
+
+      - name: Prepare Doxygen dirs
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p docs/_build/doxygen/xml
 
       - name: Run Doxygen (if cache miss)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
         run: |
           doxygen Doxyfile
           test -f docs/_build/doxygen/xml/index.xml && echo "✓ Doxygen XML ready"
+
+      - name: Ensure Sphinx dirs exist
+        run: |
+          mkdir -p docs/_static docs/_templates docs/_build/.jupyter_cache docs/_build/.doctrees
+
+      - name: Create fallback index.md (only if missing)
+        shell: bash
+        run: |
+          if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
+            printf '%s\n' \
+'---' \
+'title: OTClient v8 — Developer Documentation' \
+'---' \
+'' \
+'# OTClient v8 — Developer Documentation' \
+'' \
+'```{toctree}' \
+':maxdepth: 2' \
+':caption: Spis treści' \
+':hidden:' \
+'' \
+'guide/index' \
+'authoring/index' \
+'copilot/sphinx/index' \
+'```' \
+            > docs/index.md
+            echo "[index-fallback] created docs/index.md"
+          fi
 
       - name: Cache Sphinx artifacts
         id: cache_sphinx
@@ -110,65 +148,10 @@ jobs:
             docs/_build/.jupyter_cache
           key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
 
-      - name: Sanitize CSV (escape | and trailing _)
-        run: |
-          python - << 'PY'
-          import re, pathlib
-          base = pathlib.Path("docs/copilot/csv")
-          if base.exists():
-              for p in base.glob("*.csv"):
-                  txt = p.read_text(encoding="utf-8")
-                  txt = txt.replace("|", r"\|")
-                  txt = re.sub(r'(?<=\w)_(?=\W|$)', r'\_', txt)
-                  p.write_text(txt, encoding="utf-8")
-                  print(f"[csv-fix] sanitized {p}")
-          PY
-
-      - name: Fix inline * in src_code.rst (unmatched emphasis)
-        run: |
-          python - << 'PY'
-          from pathlib import Path
-          import re
-          p = Path("docs/copilot/sphinx/src_code.rst")
-          if p.exists():
-              t = p.read_text(encoding="utf-8")
-              t = re.sub(r'(?<!\*)\*(?!\*)', r'\*', t)
-              p.write_text(t, encoding="utf-8")
-              print(f"[rst-fix] sanitized {p}")
-          PY
-
-      - name: Ensure root index exists (index.md fallback)
-        run: |
-          python - << 'PY'
-          import pathlib
-          p1 = pathlib.Path("docs/index.rst")
-          p2 = pathlib.Path("docs/index.md")
-          if not p1.exists() and not p2.exists():
-              p2.parent.mkdir(parents=True, exist_ok=True)
-              p2.write_text("""---
-    title: OTClient v8 — Developer Documentation
-    ---
-
-    # OTClient v8 — Developer Documentation
-
-    ```{toctree}
-    :maxdepth: 2
-    :caption: Spis treści
-    :hidden:
-
-    guide/index
-    authoring/index
-    copilot/sphinx/index
-    ```
-    """, encoding="utf-8")
-              print("[index-fallback] created docs/index.md")
-          else:
-              print("[index-fallback] not needed")
-          PY
-
       - name: Build docs (HTML)
         env:
           FULL_REBUILD: ${{ steps.changes.outputs.conf }}
+          GITHUB_PAGES: "true"
         run: |
           set -euo pipefail
           EXTRA_OPTS=""
@@ -176,7 +159,8 @@ jobs:
             EXTRA_OPTS="-E -a"
           fi
           sphinx-build -b html -j "${SPHINX_JOBS:-auto}" $EXTRA_OPTS docs docs/_build/html \
-            -D mermaid_output_format="${SPHINX_MERMAID_OUT}" -D mermaid_version="${SPHINX_MERMAID_VERSION}" \
+            -D mermaid_output_format=${SPHINX_MERMAID_OUT} \
+            -D mermaid_version=${SPHINX_MERMAID_VERSION} \
             -D html_baseurl="${SPHINX_HTML_BASEURL}"
           touch docs/_build/html/.nojekyll
 
