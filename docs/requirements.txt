@@ -1,11 +1,9 @@
-# system: sudo apt-get install -y doxygen graphviz
-
 # --- Core ---
 sphinx>=8.2,<9
-pydata-sphinx-theme>=0.15
+pydata-sphinx-theme>=0.16
 
 # --- Markdown (MyST) ---
-myst-parser==3.0.1
+myst-parser>=4.0.0,<5
 linkify-it-py>=2.0
 
 # --- C++ API (Doxygen → Breathe/Exhale) ---
@@ -24,11 +22,7 @@ sphinxcontrib-jquery>=4.1
 sphinx-last-updated-by-git
 sphinxext-rediraffe
 
-# --- (opcjonalne, NIE wymagane do buildu) ---
+# (opcjonalne – NIE instaluj, jeśli nie używasz)
 # ablog>=0.11.12
 # sphinxcontrib-bibtex
 # sphinx-hoverxref>=1.4.2,<1.5
-# sphinx-autoapi
-# sphinx-autobuild
-# matplotlib>=3.8
-# pandas>=2.2.0
