@@ -51,7 +51,6 @@ jobs:
               - 'docs/conf.py'
               - 'docs/_templates/**'
               - 'docs/_static/**'
-              - 'docs/copilot/sphinx/conf_copilot_snippet.py'
 
       - name: Setup Python (3.11) + pip cache
         uses: actions/setup-python@v5
@@ -65,7 +64,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          # Bezpiecznik: dociągnij krytyczne rozszerzenia jeśli nie ma
           python - << 'PY'
           import sys, subprocess, importlib
           def ensure(pkg, mod=None):
@@ -110,9 +108,9 @@ jobs:
           path: |
             docs/_build/.doctrees
             docs/_build/.jupyter_cache
-          key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**', 'docs/copilot/sphinx/conf_copilot_snippet.py') }}
+          key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
 
-      - name: Sanityzuj CSV (ucieczka | oraz końcowych _)
+      - name: Sanitize CSV (escape | and trailing _)
         run: |
           python - << 'PY'
           import re, pathlib
@@ -120,13 +118,50 @@ jobs:
           if base.exists():
               for p in base.glob("*.csv"):
                   txt = p.read_text(encoding="utf-8")
-                  # 1) ucieczka rurek, by nie powstało |substitution|
                   txt = txt.replace("|", r"\|")
-                  # 2) ucieczka podkreślenia na końcu tokenu: 'rep_' -> 'rep\_'
-                  txt = re.sub(r'(?<=\w)_(?=\W|$)', r'\\_', txt)
+                  txt = re.sub(r'(?<=\\w)_(?=\\W|$)', r'\\_', txt)
                   p.write_text(txt, encoding="utf-8")
                   print(f"[csv-fix] sanitized {p}")
           PY
+
+      - name: Fix inline * in src_code.rst (unmatched emphasis)
+        run: |
+          python - << 'PY'
+          from pathlib import Path
+          import re
+          p = Path("docs/copilot/sphinx/src_code.rst")
+          if p.exists():
+              t = p.read_text(encoding="utf-8")
+              # ucieknij pojedyncze gwiazdki, zostaw **pogrubienie**
+              t = re.sub(r'(?<!\\*)(\\*)(?=\\S)(?:(?!\\*\\*)\\*)(?!\\*)', lambda m: r'\\*' if m.group(0) == '*' else m.group(0), t)
+              # prostsza, bezpieczniejsza wersja: zamień pojedyncze * nie będące częścią ** **
+              t = re.sub(r'(?<!\\*)\\*(?!\\*)', r'\\*', t)
+              p.write_text(t, encoding="utf-8")
+              print(f"[rst-fix] sanitized {p}")
+          PY
+
+      - name: Ensure root index exists (index.md fallback)
+        run: |
+          if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
+            cat > docs/index.md <<'MD'
+            ---
+            title: OTClient v8 — Developer Documentation
+            ---
+
+            # OTClient v8 — Developer Documentation
+
+            ```{toctree}
+            :maxdepth: 2
+            :caption: Spis treści
+            :hidden:
+
+            guide/index
+            authoring/index
+            copilot/sphinx/index
+            ```
+            MD
+            echo "[index-fallback] created docs/index.md"
+          fi
 
       - name: Build docs (HTML)
         env:
