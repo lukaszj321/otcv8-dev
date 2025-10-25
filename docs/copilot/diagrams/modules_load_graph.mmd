@@ -16,22 +16,23 @@ graph LR
     %% ===================================================================
 
     subgraph Strefa_Modułów_Klienta [Moduły Klienta i Narzędzia]
-        direction TD
+        %% BRAK 'direction'. Układ pionowy wymuszony przez połączenie.
         subgraph Utilities
             updater;
         end
         subgraph Moduły_Wspólne
             client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
         end
+        Utilities --> Moduły_Wspólne;
     end
 
     subgraph Strefa_Rdzenia [Rdzeń Aplikacji]
-        direction TD
+        %% BRAK 'direction'.
         client;
     end
     
     subgraph Strefa_Logiki_Gry [Logika Gry]
-        direction TD
+        %% BRAK 'direction'. Układ pionowy wymuszony przez połączenie.
         client_entergame;
         subgraph Dane_Gry
             game_things & game_features;
@@ -40,10 +41,10 @@ graph LR
     end
 
     subgraph Strefa_Interfejsu_Gry [Interfejs Gry i jego Moduły]
-        direction TD
+        %% BRAK 'direction'. Układ pionowy wymuszony przez połączenie.
         game_interface;
         subgraph Moduły_UI
-            direction LR
+            %% Zagnieżdżone grupy dla czytelności.
             subgraph Player_Info
                 game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit;
             end
@@ -59,7 +60,6 @@ graph LR
 
     %% ===================================================================
     %% KONTROLA UKŁADU - TWORZENIE POZIOMYCH "TORÓW"
-    %% Ta niewidzialna struktura zmusza strefy do ułożenia się w poziomie.
     %% ===================================================================
     subgraph невидимка [ ]
       Strefa_Modułów_Klienta ~~~ Strefa_Rdzenia ~~~ Strefa_Logiki_Gry ~~~ Strefa_Interfejsu_Gry;
