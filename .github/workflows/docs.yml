@@ -75,8 +75,8 @@ jobs:
           set -e
           SNIP="docs/copilot/sphinx/conf_copilot_snippet.py"
           if [ -f "$SNIP" ]; then
-            # Append the Python patch directly to the target file using a heredoc
-            cat >> "$SNIP" <<'EOF'
+            # Store the Python patch in a shell variable to avoid YAML syntax confusion
+            PY_PATCH=$(cat <<'EOF'
 # --- CI patch: expand directory dependencies to files (fix for sphinx-last-updated-by-git)
 try:
     import os
@@ -101,6 +101,9 @@ try:
 except Exception:
     pass
 EOF
+            )
+            # Append the patch from the variable to the target file
+            echo "$PY_PATCH" >> "$SNIP"
             echo "Patched $SNIP"
           else
             echo "No copilot snippet found, skipping patch."
