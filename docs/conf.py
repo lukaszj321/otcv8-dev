@@ -73,12 +73,12 @@ for ext in [
     except Exception:
         pass
 
-# Nie ładujemy bibtex/autoapi (wymagają dodatkowych ustawień)
+# NIE ładujemy tych dwóch (wymagają dodatkowych opcji):
 for maybe in ("autoapi.extension", "sphinxcontrib.bibtex"):
     if maybe in extensions:
         extensions.remove(maybe)
 
-# Nie ładujemy myst_parser razem z myst_nb
+# myst_nb zamiast myst_parser
 if "myst_nb" in extensions and "myst_parser" in extensions:
     extensions.remove("myst_parser")
 
@@ -214,25 +214,27 @@ GIT_DEPS_EXCLUDE = (
 )
 
 def _patch_env_dependency_filter(app, env, docnames):
-    """Event: env-before-read-docs (Sphinx 8 passes app, env, docnames).
-    Podmieniamy env.note_dependency, by nie rejestrować ciężkich ścieżek."""
+    """Sphinx 8: event env-before-read-docs => (app, env, docnames).
+    Patchujemy env.note_dependency tak, by filtrował ciężkie ścieżki."""
     orig = getattr(env, "note_dependency", None)
     if not callable(orig):
         print("[conf.py] note_dependency not available; skip patch")
         return
 
-    def _filtered(dep: str):
-        dep = (dep or "").replace("\\", "/").lstrip("./")
+    def _filtered(dep):
+        # <-- KLUCZOWA POPRAWKA: zawsze konwertuj do str zanim użyjesz .replace()
+        dep = str(dep or "")
+        dep_n = dep.replace("\\", "/").lstrip("./")
         for p in GIT_DEPS_EXCLUDE:
-            if dep == p or dep.startswith(p + "/"):
+            if dep_n == p or dep_n.startswith(p + "/"):
                 return  # pomijamy
-        return orig(dep)
+        return orig(dep_n)
 
     env.note_dependency = _filtered
     print("[conf.py] patched env.note_dependency (filter heavy deps)")
 
 def _sanitize_dependencies(app, env, *args, **kwargs):
-    """Dodatkowe sprzątanie env.dependencies, zanim wtyczka liczy git timestamps."""
+    """Sprzątanie env.dependencies zanim wtyczka liczy git timestamps."""
     deps = getattr(env, "dependencies", None) or getattr(env, "_dependencies", None)
     if not deps:
         return
@@ -244,7 +246,7 @@ def _sanitize_dependencies(app, env, *args, **kwargs):
             if not dep:
                 removed += 1
                 continue
-            dep_n = dep.replace("\\", "/").lstrip("./")
+            dep_n = str(dep).replace("\\", "/").lstrip("./")
             if any(dep_n == p or dep_n.startswith(p + "/") for p in GIT_DEPS_EXCLUDE):
                 removed += 1
                 continue
