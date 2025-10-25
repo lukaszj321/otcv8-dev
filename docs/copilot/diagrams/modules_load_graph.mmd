@@ -42,7 +42,7 @@ graph TD
     subgraph Świat_Gry
         game_interface;
 
-        subgraph Moduły_UI "(zależą od game_interface)"
+        subgraph Moduły_UI_(zależą_od_game_interface)
             direction LR
             subgraph Player_Info
                 direction TB
@@ -57,8 +57,7 @@ graph TD
                 game_buttons & game_hotkeys & game_actionbar & game_battle;
             end
         end
-        %% Jedno czyste połączenie pokazujące zależność
-        game_interface -- "jest wymagany przez" --> Moduły_UI;
+        game_interface -- "jest wymagany przez" --> Moduły_UI_(zależą_od_game_interface);
     end
     client_entergame -- "uruchamia" --> game_interface;
 
@@ -68,16 +67,14 @@ graph TD
     subgraph Utilities
         updater
     end
-    %% Zależności updatgera od modułów z Warstwy 2
     updater -- "zależy od" --> client_locales & client_styles & client_textedit;
     
     %% ===================================================================
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
-    class client core;
+    class client,game_interface core;
     class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile client_module;
     class client_entergame,game_features,game_things game_logic;
-    class game_interface core;
     class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_inventory,game_containers,game_shop,game_market,game_buttons,game_hotkeys,game_actionbar,game_battle game_ui;
     class updater utility;
-    class Warstwa_Rdzenia,Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Świat_Gry,Utilities,Moduły_UI container;
+    class Warstwa_Rdzenia,Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Świat_Gry,Utilities,Moduły_UI_(zależą_od_game_interface) container;
