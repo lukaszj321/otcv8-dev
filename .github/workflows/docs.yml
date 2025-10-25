@@ -18,24 +18,31 @@ env:
   PIP_DISABLE_PIP_VERSION_CHECK: "1"
   PIP_NO_INPUT: "1"
   SPHINX_JOBS: "auto"
-  # przyspieszenie last_updated_by_git (limit zależności per dokument)
-  OTC_GIT_DEPS_MAX: "64"
+  SPHINX_HTML_BASEURL: "https://lukaszj321.github.io/otcv8-dev"
+  SPHINX_MERMAID_VERSION: "10.9.1"
+  SPHINX_MERMAID_OUT: "raw"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     permissions:
       contents: read
       pages: write
       id-token: write
 
     steps:
-      - name: Checkout
+      - name: Checkout (full history for git timestamps)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Detect config/static/templates changes
+      - name: Ensure docs dirs exist
+        run: |
+          mkdir -p docs/_static docs/_templates docs/_extra
+          mkdir -p docs/_build/doxygen/xml
+
+      - name: Detect config/theme changes (for full rebuild)
         id: changes
         uses: dorny/paths-filter@v3
         with:
@@ -44,12 +51,13 @@ jobs:
               - 'docs/conf.py'
               - 'docs/_templates/**'
               - 'docs/_static/**'
+              - 'docs/copilot/sphinx/conf_copilot_snippet.py'
 
-      - name: Setup Python
+      - name: Setup Python (3.11) + pip cache
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: 'pip'
+          cache: "pip"
           cache-dependency-path: |
             docs/requirements.txt
 
@@ -57,14 +65,22 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+          # Bezpiecznik: dociągnij krytyczne rozszerzenia jeśli nie ma
           python - << 'PY'
-          import sys, subprocess
-          def ensure(pkg):
+          import sys, subprocess, importlib
+          def ensure(pkg, mod=None):
+              mod = mod or pkg.split("==")[0].split(">=")[0].replace("-", "_")
               try:
-                  __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
+                  importlib.import_module(mod)
               except Exception:
                   subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-          for p in ["breathe>=4.35.0","exhale>=0.3.7","sphinxcontrib-mermaid","sphinx-design>=0.6.1","pydata-sphinx-theme>=0.15"]:
+          for p in [
+              "breathe>=4.35.0",
+              "exhale>=0.3.7",
+              "sphinx-design>=0.6.1",
+              "sphinxcontrib-mermaid",
+              "pydata-sphinx-theme",
+          ]:
               ensure(p)
           PY
 
@@ -75,16 +91,11 @@ jobs:
           path: docs/_build/doxygen/xml
           key: doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}
 
-      - name: Install Doxygen + Graphviz (if needed)
+      - name: Install Doxygen + Graphviz (if cache miss)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
-
-      - name: Prepare Doxygen dirs
-        if: steps.cache_doxygen.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p docs/_build/doxygen/xml
 
       - name: Run Doxygen (if cache miss)
         if: steps.cache_doxygen.outputs.cache-hit != 'true'
@@ -92,13 +103,30 @@ jobs:
           doxygen Doxyfile
           test -f docs/_build/doxygen/xml/index.xml && echo "✓ Doxygen XML ready"
 
-      - name: Cache Sphinx doctrees
+      - name: Cache Sphinx artifacts
+        id: cache_sphinx
         uses: actions/cache@v4
         with:
           path: |
             docs/_build/.doctrees
             docs/_build/.jupyter_cache
-          key: doctrees-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
+          key: sphinx-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**', 'docs/copilot/sphinx/conf_copilot_snippet.py') }}
+
+      - name: Sanityzuj CSV (ucieczka | oraz końcowych _)
+        run: |
+          python - << 'PY'
+          import re, pathlib
+          base = pathlib.Path("docs/copilot/csv")
+          if base.exists():
+              for p in base.glob("*.csv"):
+                  txt = p.read_text(encoding="utf-8")
+                  # 1) ucieczka rurek, by nie powstało |substitution|
+                  txt = txt.replace("|", r"\|")
+                  # 2) ucieczka podkreślenia na końcu tokenu: 'rep_' -> 'rep\_'
+                  txt = re.sub(r'(?<=\w)_(?=\W|$)', r'\\_', txt)
+                  p.write_text(txt, encoding="utf-8")
+                  print(f"[csv-fix] sanitized {p}")
+          PY
 
       - name: Build docs (HTML)
         env:
@@ -110,8 +138,8 @@ jobs:
             EXTRA_OPTS="-E -a"
           fi
           sphinx-build -b html -j "${SPHINX_JOBS:-auto}" $EXTRA_OPTS docs docs/_build/html \
-            -D mermaid_output_format=raw -D mermaid_version=10.9.1 \
-            -D html_baseurl="https://lukaszj321.github.io/otcv8-dev"
+            -D mermaid_output_format="${SPHINX_MERMAID_OUT}" -D mermaid_version="${SPHINX_MERMAID_VERSION}" \
+            -D html_baseurl="${SPHINX_HTML_BASEURL}"
           touch docs/_build/html/.nojekyll
 
       - name: Upload Pages artifact
