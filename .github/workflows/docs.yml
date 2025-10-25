@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       # wykrywamy zmiany w plikach konfiguracyjnych — tylko po to,
       # by zrobić *pełny* rebuild gdy zmieni się conf.py / szablony / CSS
