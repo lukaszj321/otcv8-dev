@@ -1,8 +1,8 @@
 %%{init: {"theme":"dark", "flowchart": {"curve": "basis"}}}%%
-graph LR
+graph TD
+
 %% ===================================================================
-%% DEFINICJE STYLÓW (KLAS)
-%% Tutaj tworzymy "szablony" wyglądu dla różnych typów modułów.
+%% DEFINICJE STYLÓW (KLAS) - Bez zmian, są bardzo dobre!
 %% ===================================================================
 classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px;
 classDef pregame fill:#5b005b,color:#fff,stroke:#ad66ad;
@@ -10,11 +10,6 @@ classDef gameui fill:#00504b,color:#fff,stroke:#33b3a9;
 classDef gamedata fill:#792e00,color:#fff,stroke:#c26d39;
 classDef utils fill:#614a00,color:#fff,stroke:#a68333;
 
-code
-Code
-download
-content_copy
-expand_less
 %% Style dla kategorii modułów UI
 classDef ui_player fill:#1f78b4,color:#fff,stroke:#a6cee3;
 classDef ui_items fill:#33a02c,color:#fff,stroke:#b2df8a;
@@ -23,86 +18,126 @@ classDef ui_systems fill:#ff7f00,color:#fff,stroke:#fdbf6f;
 classDef ui_windows fill:#6a3d9a,color:#fff,stroke:#cab2d6;
 
 %% ===================================================================
-%% STRUKTURA DIAGRAMU (WĘZŁY I GRUPY)
+%% GŁÓWNY PRZEPŁYW APLIKACJI
 %% ===================================================================
-subgraph "1. Core"
-direction LR
-client --> client_entergame;
-end
 
-subgraph "2. Pre-Game & Common Modules"
-direction TB
 subgraph " "
-client_styles & client_locales & client_textedit & client_background;
-end
-subgraph " "
-client_options & client_terminal & client_stats & client_feedback & client_mobile;
-end
+    direction LR
+    client("1. Client Start")
+    updater("Updater")
 end
 
-subgraph "3. Game Logic"
-direction LR
-client_entergame --> game_interface;
-subgraph "Data Modules"
-game_things & game_features;
-end
-end
 
-subgraph "4. Game UI Modules (ładowane przez game_interface)"
-direction TB
-subgraph "Player Info"
-game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount;
-end
-subgraph "Item Management"
-game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector;
-end
-subgraph "Interaction & Controls"
-game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
-end
-subgraph "Gameplay Systems"
-game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
-end
-subgraph "Windows & Dialogs"
-game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles;
-end
-subgraph "Communication"
-game_console & game_textmessage & game_bugreport & game_ruleviolation;
-end
-subgraph "Advanced/Misc"
-game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints;
-end
-end
+client -- "Ładuje" --> PreGameModules
+client -- "Wchodzi do gry" --> client_entergame("2. Enter Game")
 
-subgraph "Utilities"
-updater
+
+%% ===================================================================
+%% MODUŁY PRE-GAME (ładowane przed wejściem do świata gry)
+%% ===================================================================
+subgraph " " [Moduły Pre-Game i Wspólne]
+    id: PreGameModules
+    direction LR
+    subgraph "Podstawowe"
+        direction TB
+        client_styles("Styles")
+        client_locales("Locales")
+        client_textedit("TextEdit")
+    end
+    subgraph "Narzędzia i Opcje"
+        direction TB
+        client_options("Options")
+        client_terminal("Terminal")
+        client_stats("Stats")
+        client_feedback("Feedback")
+        client_mobile("Mobile")
+        client_background("Background")
+    end
 end
 
 %% ===================================================================
-%% DEFINICJE POŁĄCZEŃ
+%% LOGIKA I DANE GRY
 %% ===================================================================
+client_entergame --> GameDataModules
+subgraph " " [3. Dane Gry]
+    id: GameDataModules
+    game_things("Game Things")
+    game_features("Game Features")
+end
 
-%% Połączenia dla 'client'
-client -- "loads" --> client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
-
-%% Połączenia dla 'client_entergame'
-client_entergame -- "loads" --> game_features & game_things;
-
-%% Połączenia dla 'game_interface' - pogrupowane tematycznie dla czytelności
-game_interface -- "loads" --> game_healthinfo & game_skills & game_stats_ui & game_outfit & game_playermount;
-game_interface -- " " --> game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade & game_itemselector;
-game_interface -- " " --> game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
-game_interface -- " " --> game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
-game_interface -- " " --> game_viplist & game_minimap & game_modaldialog & game_textwindow & client_profiles;
-game_interface -- " " --> game_console & game_textmessage & game_bugreport & game_ruleviolation;
-game_interface -- " " --> game_shaders & game_bot & game_playerdeath & game_unjustifiedpoints;
-
-%% Połączenia dla 'updater'
-updater -- "depends on" --> client_locales & client_styles & client_textedit;
-updater -- "loads" --> client_background;
+GameDataModules --> game_interface("4. Game Interface")
 
 %% ===================================================================
-%% PRZYPISANIE STYLÓW DO WĘZŁÓW
-%% Łączymy zdefiniowane wyżej klasy z konkretnymi modułami.
+%% MODUŁY INTERFEJSU UŻYTKOWNIKA (UI)
+%% Zamiast 30 strzałek, jedna główna pokazuje, że interfejs zarządza wszystkimi modułami UI
+%% ===================================================================
+game_interface -- "Inicjalizuje wszystkie moduły UI" --> GameUIModules
+
+subgraph " " [5. Moduły Interfejsu Użytkownika (UI)]
+    id: GameUIModules
+    direction LR
+
+    subgraph "Player Info & Control"
+        direction TB
+        game_healthinfo
+        game_skills
+        game_stats_ui[game_stats]
+        game_outfit
+        game_playermount
+        game_buttons
+        game_hotkeys
+        game_actionbar
+        game_walking
+        game_battle
+    end
+
+    subgraph "Item Management"
+        direction TB
+        game_inventory
+        game_containers
+        game_shop
+        game_market
+        game_npctrade
+        game_playertrade
+        game_itemselector
+    end
+
+    subgraph "Gameplay Systems"
+        direction TB
+        game_questlog
+        game_prey
+        game_imbuing
+        game_spelllist
+        game_cooldown
+        game_shaders
+        game_bot
+        game_playerdeath
+        game_unjustifiedpoints
+    end
+
+    subgraph "Windows & Communication"
+        direction TB
+        game_viplist
+        game_minimap
+        game_modaldialog
+        game_textwindow
+        client_profiles
+        game_console
+        game_textmessage
+        game_bugreport
+        game_ruleviolation
+    end
+end
+
+
+%% ===================================================================
+%% ZALEŻNOŚCI NARZĘDZI ZEWNĘTRZNYCH
+%% ===================================================================
+updater -- "Zależy od" --> client_locales & client_styles & client_textedit
+updater -- "Ładuje" --> client_background
+
+%% ===================================================================
+%% PRZYPISANIE STYLÓW DO WĘZŁÓW (bez zmian)
 %% ===================================================================
 class client,client_entergame,game_interface core;
 class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile pregame;
