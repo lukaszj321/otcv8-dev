@@ -1,90 +1,83 @@
 %%{init: {"theme":"dark"}}%%
 graph TD
     %% ===================================================================
-    %% DEFINICJE STYLÓW
+    %% DEFINICJE STYLÓW - HIERARCHIA WIZUALNA
     %% ===================================================================
-    classDef orchestrator fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold;
-    classDef module fill:#4B0082,color:#fff,stroke:#9932CC;
-    classDef finalState fill:#006400,color:#fff,stroke:#2E8B57,stroke-width:2px,font-weight:bold;
-    classDef subgraphStyle fill:#1a1a1a,stroke:#555;
-    classDef invisible stroke-width:0px,color:#1a1a1a;
+    classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold;
+    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC;
+    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39;
+    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9;
+    classDef utility fill:#614a00,color:#fff,stroke:#a68333;
+    classDef container fill:#222,stroke:#888,stroke-dasharray: 5 5;
 
     %% ===================================================================
-    %% STRUKTURA GŁÓWNA - PIONOWY KRĘGOSŁUP
+    %% WARSTWA 1: RDZEŃ APLIKACJI
     %% ===================================================================
-    Start("🚀 Application Start") --> client("1. Core Client");
-    client --> client_entergame_init("2. Enter Game Logic");
-    client_entergame_init --> game_interface("3. Game Interface");
-    game_interface --> Ready("✅ Client Ready");
-
-    %% ===================================================================
-    %% FAZA 1 - MODUŁY PRE-GAME (po prawej stronie)
-    %% ===================================================================
-    subgraph Phase1 [Phase 1: Pre-Game Modules]
-        client_styles & client_locales & client_topmenu & client_background & client_textedit & client_options & client_terminal & client_stats & client_feedback & client_mobile & client_entergame;
+    subgraph Warstwa_Rdzenia
+        client;
     end
-    client -- "ładuje" --> Phase1;
 
     %% ===================================================================
-    %% FAZA 2 - DANE GRY (po prawej stronie)
+    %% WARSTWA 2: MODUŁY KLIENTA
     %% ===================================================================
-    subgraph Phase2 [Phase 2: Game Data]
-        game_things & game_features;
+    subgraph Warstwa_Modułów_Klienta
+        direction LR
+        client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
     end
-    client_entergame_init -- "ładuje" --> Phase2;
+    client -- "zależy od" --> Warstwa_Modułów_Klienta;
 
     %% ===================================================================
-    %% FAZA 3 - MODUŁY UI (po prawej stronie, zagnieżdżone)
+    %% WARSTWA 3: LOGIKA GRY (POMOST)
     %% ===================================================================
-    subgraph Phase3 [Phase 3: Game UI Modules]
-        subgraph Player_Info
-            game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit & game_playermount;
+    subgraph Warstwa_Logiki_Gry
+        direction LR
+        client_entergame & game_features & game_things;
+    end
+    client -- "zależy od" --> client_entergame;
+    client_entergame -- "zależy od" --> game_features & game_things;
+
+    %% ===================================================================
+    %% WARSTWA 4: ŚWIAT GRY (GŁÓWNY KONTENER)
+    %% ===================================================================
+    subgraph Świat_Gry
+        game_interface;
+
+        subgraph Moduły_UI "(zależą od game_interface)"
+            direction LR
+            subgraph Player_Info
+                direction TB
+                game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit;
+            end
+            subgraph Item_Management
+                direction TB
+                game_inventory & game_containers & game_shop & game_market;
+            end
+            subgraph Interaction
+                direction TB
+                game_buttons & game_hotkeys & game_actionbar & game_battle;
+            end
         end
-        subgraph Item_Management
-            game_inventory & game_containers & game_shop & game_market & game_npctrade & game_playertrade;
-        end
-        subgraph Interaction_Controls
-            game_buttons & game_hotkeys & game_actionbar & game_walking & game_battle;
-        end
-        subgraph Gameplay_Systems
-             game_questlog & game_prey & game_imbuing & game_spelllist & game_cooldown;
-        end
+        %% Jedno czyste połączenie pokazujące zależność
+        game_interface -- "jest wymagany przez" --> Moduły_UI;
     end
-    %% Łączymy interfejs z konkretnymi grupami wewnątrz Fazy 3
-    game_interface -- "ładuje" --> Player_Info;
-    game_interface -- "ładuje" --> Item_Management;
-    game_interface -- "ładuje" --> Interaction_Controls;
-    game_interface -- "ładuje" --> Gameplay_Systems;
-    
-    %% ===================================================================
-    %% PROCES UPDATERA (po lewej stronie)
-    %% ===================================================================
-    subgraph Updater_Utility
-        updater_init("Initialize Updater");
-        updater_init -- loads --> client_background;
-    end
-    %% Połączenia zależności z modułów Fazy 1
-    client_locales --> updater_init;
-    client_styles --> updater_init;
-    client_textedit --> updater_init;
+    client_entergame -- "uruchamia" --> game_interface;
 
     %% ===================================================================
-    %% KONTROLA UKŁADU - NIEWIDOCZNE POŁĄCZENIA
-    %% To jest "magia", która zmusza graf do ułożenia się w poziomie
+    %% MODUŁY POMOCNICZE (UTILITIES)
     %% ===================================================================
-    subgraph невидимка [ ]
-      Updater_Utility ~~~ client ~~~ Phase1
-      client_entergame_init ~~~ Phase2
-      game_interface ~~~ Phase3
+    subgraph Utilities
+        updater
     end
-    class невидимка invisible;
+    %% Zależności updatgera od modułów z Warstwy 2
+    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
     
     %% ===================================================================
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
-    class client,client_entergame_init,game_interface orchestrator;
-    class Ready finalState;
-    class Phase1,Phase2,Phase3,Updater_Utility,Player_Info,Item_Management,Interaction_Controls,Gameplay_Systems subgraphStyle;
-    class client_styles,client_locales,client_topmenu,client_background,client_textedit,client_options,client_entergame,client_terminal,client_stats,client_feedback,client_mobile module;
-    class game_things,game_features,updater_init module;
-    class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_playermount,game_inventory,game_containers,game_shop,game_market,game_npctrade,game_playertrade,game_buttons,game_hotkeys,game_actionbar,game_walking,game_battle,game_questlog,game_prey,game_imbuing,game_spelllist,game_cooldown module;
+    class client core;
+    class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile client_module;
+    class client_entergame,game_features,game_things game_logic;
+    class game_interface core;
+    class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_inventory,game_containers,game_shop,game_market,game_buttons,game_hotkeys,game_actionbar,game_battle game_ui;
+    class updater utility;
+    class Warstwa_Rdzenia,Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Świat_Gry,Utilities,Moduły_UI container;
