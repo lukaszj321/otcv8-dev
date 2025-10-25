@@ -60,22 +60,21 @@ jobs:
         run: |
           if [ ! -f docs/index.rst ] && [ ! -f docs/index.md ]; then
             mkdir -p docs
-            printf '%s\n' \
-'---' \
-'title: OTClient v8 — Developer Documentation' \
-'---' \
-'' \
-'# OTClient v8 — Developer Documentation' \
-'' \
-'```{toctree}' \
-':maxdepth: 2' \
-':caption: Spis treści' \
-':hidden:' \
-'' \
-'guide/index' \
-'authoring/index' \
-'copilot/sphinx/index' \
-'```' > docs/index.md
+            cat > docs/index.md <<EOF
+---
+title: OTClient v8 — Developer Documentation
+---
+
+# OTClient v8 — Developer Documentation
+
+```{toctree}
+:maxdepth: 2
+:caption: Spis treści
+:hidden:
+
+guide/index
+authoring/index
+copilot/sphinx/index
             echo "[index-fallback] created docs/index.md"
           fi
 
