@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import os
-import sys
 import subprocess
 from pathlib import Path
 from importlib import import_module
@@ -60,7 +59,7 @@ for ext in [
 ]:
     _load(ext)
 
-# C++ toolchain (opcjonalnie, ale krytyczne dla API)
+# C++ toolchain
 _loaded_breathe = _load("breathe")
 _loaded_exhale = _load("exhale")
 
@@ -78,10 +77,10 @@ _load("sphinx_last_updated_by_git")
 _load("sphinxext.rediraffe")
 _load("sphinxcontrib.jquery")
 
-# NIE ładujemy sphinxcontrib.bibtex (wymaga bibtex_bibfiles)
-# NIE ładujemy autoapi.extension (miałeś błąd z autoapi_dirs)
+# Uwaga: celowo NIE ładuję 'sphinxcontrib.bibtex' i 'autoapi.extension'
+#       (oba wcześniej powodowały obowiązkowe ustawienia).
 
-# ── Intersphinx (Sphinx 8 wymaga None, nie `{}`) ─────────────────────────────
+# ── Intersphinx ───────────────────────────────────────────────────────────────
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
@@ -158,7 +157,6 @@ html_theme_options = {
             "type": "fontawesome",
         },
     ],
-    # opcjonalnie: "navbar_links": []  # uzupełnimy niżej w setup()
 }
 
 html_context = {
@@ -216,66 +214,20 @@ linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── FIX: Copilot/diagrams + sphinx_last_updated_by_git ────────────────────────
-COPILOT_DIAGRAMS = DOCS_DIR / "copilot" / "diagrams"
-# jakie rozszerzenia traktujemy jako „pliki” diagramów
-_DIAGRAM_PATTERNS = (
-    "*.svg","*.png","*.jpg","*.jpeg","*.gif","*.webp",
-    "*.pdf","*.mmd","*.mermaid","*.gv","*.dot","*.drawio"
-)
-
-def _git_tracked_files(base: Path) -> list[Path]:
-    """Pliki śledzone przez Git w `base` (fallback: rglob)."""
-    try:
-        rel = base.relative_to(REPO_ROOT)
-        res = subprocess.run(
-            ["git", "-C", str(REPO_ROOT), "ls-files", "-z", str(rel)],
-            check=True, capture_output=True,
-        )
-        out = res.stdout.split(b"\x00")
-        files: list[Path] = []
-        for b in out:
-            if not b:
-                continue
-            p = (REPO_ROOT / b.decode("utf-8")).resolve()
-            if p.is_file():
-                files.append(p)
-        return files
-    except Exception as e:
-        print(f"[conf.py] (warn) git ls-files failed: {e}")
-        files: list[Path] = []
-        for pat in _DIAGRAM_PATTERNS:
-            files.extend(base.rglob(pat))
-        return [p for p in files if p.is_file()]
-
+# ── Navbar: dodaj „Copilot Docs” (bez duplikatów) ────────────────────────────
 def _on_config_inited(app, config):
-    """Dorzuca link 'Copilot Docs' do navbaru PyData."""
     opts = dict(config.html_theme_options or {})
     links = list(opts.get("navbar_links", []))
-    # unikaj duplikatów
     if not any(isinstance(x, dict) and x.get("url") in ("copilot/index.html", "dokumentacja%20copilot/index.html") for x in links):
         links.append({"name": "Copilot Docs", "url": "copilot/index.html", "internal": True})
     opts["navbar_links"] = links
     config.html_theme_options = opts
 
-def _note_diagram_deps(app, env, docnames):
-    """Zgłoś *konkretne pliki* z copilot/diagrams jako dependencies."""
-    if not COPILOT_DIAGRAMS.exists():
-        return
-    allow_suffix = {Path(p).suffix.lower() for p in _DIAGRAM_PATTERNS}
-    for p in _git_tracked_files(COPILOT_DIAGRAMS):
-        if p.suffix.lower() not in allow_suffix:
-            continue
-        try:
-            rel = p.relative_to(DOCS_DIR)  # Sphinx chce ścieżki rel. do DOCS_DIR
-        except ValueError:
-            continue
-        env.note_dependency(str(rel))
-
-def _sanitize_dependencies(app, env):
+# ── KRYTYCZNE: sanitizacja dependencies zanim ruszy sphinx_last_updated_by_git
+def _sanitize_dependencies(app, env, *args, **kwargs):
     """
-    Usuń z dependencies wpisy, które nie są plikami (np. sam katalog 'diagrams').
-    Dzięki temu sphinx_last_updated_by_git nie wyłoży się na `git log diagrams`.
+    Usuń z dependencies wpisy, które nie są plikami (np. 'copilot/diagrams').
+    Dzięki temu 'git log <dep>' nie poleci na katalogach / nieistniejących ścieżkach.
     """
     deps = getattr(env, "dependencies", None) or getattr(env, "_dependencies", None)
     if not deps:
@@ -283,30 +235,29 @@ def _sanitize_dependencies(app, env):
     root = Path(env.srcdir)
     removed = 0
     for docname, items in list(deps.items()):
-        unique: list[str] = []
+        base_dir = root / docname.rsplit("/", 1)[0] if "/" in docname else root
+        new_items: list[str] = []
         for dep in set(items):
             p = (root / dep)
             if p.is_file():
-                unique.append(dep)
-            else:
-                # Spróbuj rozwiązać względnie do katalogu dokumentu
-                if "/" in docname:
-                    base = root / docname.rsplit("/", 1)[0]
-                    maybe = base / dep
-                    if maybe.is_file():
-                        unique.append(str(maybe.relative_to(root)))
-                        continue
-                removed += 1
-        deps[docname] = sorted(unique)
+                new_items.append(dep)
+                continue
+            # spróbuj zinterpretować relatywnie do katalogu dokumentu
+            p2 = (base_dir / dep)
+            if p2.is_file():
+                new_items.append(str(p2.relative_to(root)))
+                continue
+            # jeśli to katalog / nie istnieje — wywal
+            removed += 1
+        deps[docname] = sorted(new_items)
     if removed:
         print(f"[conf.py] sanitized dependencies: removed {removed} non-files")
 
 def setup(app):
-    # navbar link dodajemy wcześnie
+    # dodaj link do navbaru wcześnie
     app.connect("config-inited", _on_config_inited, priority=200)
-    # zarejestruj zależności plikowe z diagrams zanim liczone będą czasy commitów
-    app.connect("env-before-read-docs", _note_diagram_deps, priority=200)
-    # posprzątaj błędne dependencies zanim odpali 'env-updated' (git timestamps)
-    app.connect("env-after-read-docs", _sanitize_dependencies, priority=200)
+    # posprzątaj dependencies PRZED „last_updated_by_git”
+    app.connect("env-check-consistency", _sanitize_dependencies, priority=100)
+    app.connect("env-updated", _sanitize_dependencies, priority=100)
 
 # ── KONIEC --------------------------------------------------------------------
