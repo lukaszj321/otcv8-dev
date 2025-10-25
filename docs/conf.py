@@ -73,11 +73,12 @@ for ext in [
     except Exception:
         pass
 
-# nie ładujemy bibtex/autoapi, bo wymagają dodatkowych ustawień
+# Nie ładujemy bibtex/autoapi (wymagają dodatkowych ustawień)
 for maybe in ("autoapi.extension", "sphinxcontrib.bibtex"):
     if maybe in extensions:
         extensions.remove(maybe)
 
+# Nie ładujemy myst_parser razem z myst_nb
 if "myst_nb" in extensions and "myst_parser" in extensions:
     extensions.remove("myst_parser")
 
@@ -204,9 +205,7 @@ if _copilot_snippet.exists():
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
 
 # ── HOT-FIX: przyspieszenie sphinx_last_updated_by_git bez wyłączania go ─────
-# cel: ograniczyć/wyczyścić dependencies ZANIM plugin zacznie liczyć czasy Gita
 GIT_DEPS_MAX = int(os.getenv("OTC_GIT_DEPS_MAX", "64"))
-# katalogi, których nie dodajemy jako „dependencies” (strony nadal się budują!)
 GIT_DEPS_EXCLUDE = (
     "copilot/diagrams",
     "copilot/sphinx/src_code",
@@ -214,15 +213,16 @@ GIT_DEPS_EXCLUDE = (
     "_images", "_static", "_build",
 )
 
-def _patch_env_dependency_filter(app, docnames):
-    """Uruchamia się PRZED czytaniem źródeł. Podmieniamy note_dependency,
-    żeby nie rejestrować ciężkich ścieżek w env.dependencies."""
-    env = app.builder.env
-    orig = env.note_dependency
+def _patch_env_dependency_filter(app, env, docnames):
+    """Event: env-before-read-docs (Sphinx 8 passes app, env, docnames).
+    Podmieniamy env.note_dependency, by nie rejestrować ciężkich ścieżek."""
+    orig = getattr(env, "note_dependency", None)
+    if not callable(orig):
+        print("[conf.py] note_dependency not available; skip patch")
+        return
 
-    def _filtered(dep):
-        # normalizacja względna
-        dep = dep.replace("\\", "/").lstrip("./")
+    def _filtered(dep: str):
+        dep = (dep or "").replace("\\", "/").lstrip("./")
         for p in GIT_DEPS_EXCLUDE:
             if dep == p or dep.startswith(p + "/"):
                 return  # pomijamy
@@ -232,7 +232,7 @@ def _patch_env_dependency_filter(app, docnames):
     print("[conf.py] patched env.note_dependency (filter heavy deps)")
 
 def _sanitize_dependencies(app, env, *args, **kwargs):
-    """Dodatkowe sprzątanie PO wczytaniu, ale PRZED wyliczeniem timestampów."""
+    """Dodatkowe sprzątanie env.dependencies, zanim wtyczka liczy git timestamps."""
     deps = getattr(env, "dependencies", None) or getattr(env, "_dependencies", None)
     if not deps:
         return
@@ -274,9 +274,9 @@ def _add_nav_link(app, config):
     config.html_theme_options = opts
 
 def setup(app):
-    # 1) PRZED czytaniem źródeł — patch note_dependency (ważne: bardzo niski priorytet ⇒ wcześniej)
+    # 1) PRZED czytaniem źródeł — patch note_dependency
     app.connect("env-before-read-docs", _patch_env_dependency_filter, priority=0)
-    # 2) PO wczytaniu — dodatkowe czyszczenie dependencies, ciągle PRZED pluginem (priority 0 < 500)
+    # 2) PO wczytaniu — sanitizacja dependencies, PRZED git timestamps
     app.connect("env-updated", _sanitize_dependencies, priority=0)
     # 3) link do Copilota w navbarze
     app.connect("config-inited", _add_nav_link, priority=200)
