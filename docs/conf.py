@@ -15,8 +15,8 @@ DOCS_DIR = Path(__file__).parent.resolve()
 REPO_ROOT = DOCS_DIR.parent.resolve()
 STATIC_DIR = DOCS_DIR / "_static"
 TEMPLATES_DIR = DOCS_DIR / "_templates"
-EXTRA_DIR = DOCS_DIR / "_extra"                      # opcjonalne (np. mirror LDoc)
-DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"   # index.xml tu musi trafić
+EXTRA_DIR = DOCS_DIR / "_extra"                       # np. mirror LDoc
+DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"    # powinno zawierać index.xml
 
 templates_path = ["_templates"] if TEMPLATES_DIR.exists() else []
 html_static_path = ["_static"] if STATIC_DIR.exists() else []
@@ -31,9 +31,12 @@ exclude_patterns = [
     "venv",
 ]
 
-# ── Extensions ────────────────────────────────────────────────────────────────
+# ── Extensions (stabilny zestaw, bez custom patchy) ───────────────────────────
+# UWAGA: bez autoapi.extension (kiedyś krzyczało o autoapi_dirs)
 extensions: list[str] = [
+    # MyST + notebooki
     "myst_nb",
+    # core
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
     "sphinx.ext.todo",
@@ -44,109 +47,95 @@ extensions: list[str] = [
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
-]
-
-# Krytyczne / cięższe (ładowane tylko jeśli zainstalowane)
-for ext in ["breathe", "exhale", "sphinx_design", "sphinxcontrib.mermaid"]:
-    try:
-        import_module(ext)
-        extensions.append(ext)
-        print(f"[conf.py] ✓ loaded: {ext}")
-    except Exception as e:
-        print(f"[conf.py] ✗ missing: {ext} ({e})")
-
-# Opcjonalne „nice to have”
-for ext in [
-    "ablog",
+    # C++ API
+    "breathe",
+    "exhale",
+    # UI/SEO
+    "sphinx_design",
+    "sphinxcontrib.mermaid",
     "sphinx_copybutton",
     "sphinxext.opengraph",
     "sphinx_sitemap",
     "sphinx_favicon",
     "sphinx_codeautolink",
+    "sphinxcontrib.jquery",
     "hoverxref.extension",
     "sphinx_last_updated_by_git",
     "sphinxext.rediraffe",
-    "sphinxcontrib.jquery",
-]:
-    try:
-        import_module(ext)
-        extensions.append(ext)
-        print(f"[conf.py] ✓ loaded: {ext}")
-    except Exception:
-        pass
-
-# NIE ładujemy tych (potrzebują osobnej konfiguracji)
-for maybe in ("autoapi.extension", "sphinxcontrib.bibtex"):
-    if maybe in extensions:
-        extensions.remove(maybe)
-
-# myst_nb zamiast myst_parser
-if "myst_nb" in extensions and "myst_parser" in extensions:
-    extensions.remove("myst_parser")
-
-# ── InterSphinx ───────────────────────────────────────────────────────────────
-intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
-}
+    # blog (możesz nie używać, ale jest bezpieczne)
+    "ablog",
+]
 
 # ── MyST / notebooks ──────────────────────────────────────────────────────────
 nb_execution_mode = "off"
 nb_execution_timeout = 300
+
 myst_enable_extensions = [
-    "colon_fence", "deflist", "substitution", "linkify",
-    "attrs_block", "attrs_inline", "tasklist", "smartquotes",
+    "colon_fence",
+    "deflist",
+    "substitution",
+    "linkify",
+    "attrs_block",
+    "attrs_inline",
+    "tasklist",
+    "smartquotes",
 ]
 myst_heading_anchors = 3
-myst_fence_as_directive = ["mermaid"]
+myst_fence_as_directive = ["mermaid"]  # ```mermaid → {mermaid}
+
+# Unikalne kotwice per dokument
 autosectionlabel_prefix_document = True
 
-# ── Breathe / Exhale ─────────────────────────────────────────────────────────
+# ── Intersphinx (bez pustych wartości) ────────────────────────────────────────
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", {}),
+    "sphinx": ("https://www.sphinx-doc.org/en/master", {}),
+}
+
+# ── Breathe / Exhale (C++) ────────────────────────────────────────────────────
 breathe_projects = {"OTCv8 C++ API": str(DOXY_XML)}
 breathe_default_project = "OTCv8 C++ API"
+
 exhale_args = {
     "containmentFolder": "autoapi/cpp",
     "rootFileName": "index.rst",
     "rootFileTitle": "OTCv8 C++ API",
     "createTreeView": True,
-    "exhaleExecutesDoxygen": False,
-    "doxygenStripFromPath": str(REPO_ROOT),
+    "exhaleExecutesDoxygen": False,          # Doxygen odpalasz w CI
+    "doxygenStripFromPath": str(REPO_ROOT),  # krótsze ścieżki w output
+    # "verboseBuild": True,
 }
 primary_domain = "cpp"
 highlight_language = "cpp"
 
-# ── Pygments fallback lexers ──────────────────────────────────────────────────
+# ── HTML / Theme ──────────────────────────────────────────────────────────────
 try:
-    from sphinx.highlighting import lexers
-    from pygments.lexers import get_lexer_by_name
-    lexers["otui"] = get_lexer_by_name("yaml")
-    lexers["otmod"] = get_lexer_by_name("ini")
-except Exception as e:
-    print(f"[conf.py] (warn) custom lexers not set: {e}")
-
-# ── Theme / HTML ──────────────────────────────────────────────────────────────
-try:
-    import pydata_sphinx_theme  # noqa
+    import pydata_sphinx_theme  # noqa:F401
     html_theme = "pydata_sphinx_theme"
-    print("[conf.py] ✓ using theme: pydata_sphinx_theme")
 except Exception:
     html_theme = "alabaster"
 
 html_title = "OTClient v8 — Authoring & API"
 
+# Doładuj tylko istniejące CSS/JS (żeby nie śmiecić warningami)
 html_css_files: list[str] = []
-def _add_css(rel: str) -> None:
+for rel in [
+    "tables.css",
+    "tables-premium.css",
+    "custom-dark-mermaid.css",
+    "css/custom.css",
+    "css/layout.css",
+]:
     if (STATIC_DIR / rel).exists():
         html_css_files.append(rel)
-for rel in ["tables.css","tables-premium.css","custom-dark-mermaid.css","css/custom.css","css/layout.css"]:
-    _add_css(rel)
 
 html_js_files: list[str] = []
-def _add_js(rel: str) -> None:
+for rel in [
+    "custom.js",
+    "css/canonical-fix.js",  # jeżeli masz ten plik w _static/css/
+]:
     if (STATIC_DIR / rel).exists():
         html_js_files.append(rel)
-for rel in ["custom.js", "css/canonical-fix.js"]:
-    _add_js(rel)
 
 html_theme_options = {
     "use_edit_page_button": True,
@@ -156,12 +145,20 @@ html_theme_options = {
     "secondary_sidebar_items": ["page-toc", "sourcelink", "edit-this-page"],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "icon_links": [
-        {"name": "GitHub", "url": "https://github.com/lukaszj321/otcv8-dev", "icon": "fa-brands fa-github", "type": "fontawesome"},
+        {
+            "name": "GitHub",
+            "url": "https://github.com/lukaszj321/otcv8-dev",
+            "icon": "fa-brands fa-github",
+            "type": "fontawesome",
+        },
     ],
-    "navbar_links": [],
+    # możesz dodać link do Copilot Docs (PyData ignoruje nieznane opcje – bezpieczne)
+    "navbar_links": [
+        {"name": "Copilot Docs", "url": "dokumentacja%20copilot/index.html", "internal": True}
+    ],
 }
 
-html_baseurl = os.getenv("HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/")
+html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev/")
 html_context = {
     "github_user": "lukaszj321",
     "github_repo": "otcv8-dev",
@@ -169,100 +166,92 @@ html_context = {
     "doc_path": "docs",
 }
 
-# ── Mermaid ──────────────────────────────────────────────────────────────────
-mermaid_version = os.getenv("MERMAID_VERSION", "10.9.1")
-mermaid_output_format = os.getenv("MERMAID_OUTPUT", "raw")
+# ── Mermaid (client-side) ─────────────────────────────────────────────────────
+mermaid_version = os.environ.get("SPHINX_MERMAID_VERSION", "10.9.1")
+mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
 mermaid_init_js = "mermaid.initialize({startOnLoad:true, theme:'dark'});"
 
-# ── OpenGraph / Copybutton / Sitemap / Hoverxref ─────────────────────────────
+# ── OpenGraph / SEO ───────────────────────────────────────────────────────────
 ogp_site_url = html_baseurl
 ogp_site_name = "OTClient v8 Dev Docs"
+
+# ── Copybutton ────────────────────────────────────────────────────────────────
 copybutton_prompt_is_regexp = True
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_only_copy_prompt_lines = False
-sitemap_url_scheme = "{link}"
-hoverxref_auto_ref = True
-hoverxref_domains = ["std"]
-hoverxref_default_type = "tooltip"
 
+# ── Sitemap / Hoverxref ───────────────────────────────────────────────────────
+sitemap_url_scheme = "{link}"
+
+# HOVERNREF: ucisz „unknown typ (ref)” i podobne
+hoverxref_default_type = "tooltip"
+hoverxref_auto_ref = True
+hoverxref_domains = ["std", "py", "cpp"]
+hoverxref_role_types = {
+    # std
+    "ref": "tooltip",
+    "doc": "tooltip",
+    "term": "tooltip",
+    "download": "tooltip",
+    "numref": "tooltip",
+    # python
+    "mod": "tooltip",
+    "class": "tooltip",
+    "meth": "tooltip",
+    "func": "tooltip",
+    "attr": "tooltip",
+    "exc": "tooltip",
+    "obj": "tooltip",
+    # cpp (jeśli używasz odnośników z domain:cpp)
+    "t": "tooltip",
+}
+
+# ── Favicons ──────────────────────────────────────────────────────────────────
 favicons = []
 if (STATIC_DIR / "favicon.ico").exists():
     favicons.append({"rel": "icon", "href": "favicon.ico"})
 
-suppress_warnings = ["myst.header", "myst.nb.render"]
+# ── Warnings / Hygiene ────────────────────────────────────────────────────────
+suppress_warnings = [
+    "myst.header",
+    "myst.nb.render",
+    "design.grid",  # np. gdy grid-item poza grid-row — nie zrywa buildu
+]
+nitpicky = False
+
+# ── Todo ──────────────────────────────────────────────────────────────────────
 todo_include_todos = False
 
-linkcheck_ignore = [r'http://localhost:\d+/', r'https://placehold\.co/.*', r'.*\.local']
+# ── Linkcheck (opcjonalnie) ──────────────────────────────────────────────────
+linkcheck_ignore = [
+    r"http://localhost:\d+/",
+    r"https://placehold\.co/.*",
+    r".*\.local",
+]
 linkcheck_timeout = 10
 linkcheck_retries = 2
 linkcheck_workers = 5
 
-# ── (opcjonalne) Copilot snippet ─────────────────────────────────────────────
+# ── sphinx-last-updated-by-git (bez wywracania buildu) ────────────────────────
+# Jeżeli masz nieśledzone pliki w docs/ (np. copilot/diagrams),
+# poniższe sprawia, że rozszerzenie użyje daty buildu jako fallback,
+# zamiast rzucać wyjątek.
+git_last_updated_timezone = "UTC"
+git_last_updated_fallback = True  # wtyczka weźmie datę buildu, jeśli brak w git
+
+# ── Code autolink (bez agresywności) ──────────────────────────────────────────
+codeautolink_autodoc_inject = False
+
+# ── Optional: Copilot snippet (bez błędów jeśli brak) ────────────────────────
 _copilot_snippet = DOCS_DIR / "copilot" / "sphinx" / "conf_copilot_snippet.py"
 if _copilot_snippet.exists():
     try:
         exec(_copilot_snippet.read_text(encoding="utf-8"), {}, {})
-        print(f"[conf.py] ✓ Copilot snippet loaded")
+        print("[conf.py] ✓ Copilot snippet loaded")
     except Exception as e:
         print(f"[conf.py] ✗ Copilot snippet error: {e}")
 
-# ── HOT-FIX dla sphinx_last_updated_by_git: czyścimy dependencies  ───────────
-GIT_DEPS_MAX = int(os.getenv("OTC_GIT_DEPS_MAX", "64"))
-GIT_DEPS_EXCLUDE = (
-    "copilot/diagrams",
-    "copilot/sphinx/src_code",
-    "autoapi/cpp",
-    "_images", "_static", "_build",
-)
-
-def _sanitize_dependencies(app, env, *args, **kwargs):
-    """
-    Usuwa ciężkie / problematyczne wpisy z env.dependencies zanim
-    sphinx_last_updated_by_git zacznie liczyć timestampy (hook 'env-updated').
-    """
-    deps = getattr(env, "dependencies", None) or getattr(env, "_dependencies", None)
-    if not deps:
-        return
-    root = Path(env.srcdir).resolve()
-    removed, trimmed = 0, 0
-    for docname, items in list(deps.items()):
-        cleaned = []
-        for dep in set(items or []):
-            if not dep:
-                removed += 1
-                continue
-            dep_n = str(dep).replace("\\", "/").lstrip("./")
-            # wytnij całe katalogi typu copilot/diagrams itd.
-            if any(dep_n == p or dep_n.startswith(p + "/") for p in GIT_DEPS_EXCLUDE):
-                removed += 1
-                continue
-            p_abs = (root / dep_n).resolve()
-            if p_abs.is_file():
-                try:
-                    cleaned.append(str(p_abs.relative_to(root)))
-                except Exception:
-                    cleaned.append(dep_n)
-            else:
-                removed += 1
-        if len(cleaned) > GIT_DEPS_MAX:
-            cleaned = sorted(cleaned)[:GIT_DEPS_MAX]
-            trimmed += 1
-        deps[docname] = sorted(cleaned)
-    msg = f"[conf.py] deps sanitized: removed={removed}"
-    if trimmed:
-        msg += f", trimmed_docs={trimmed} (max={GIT_DEPS_MAX})"
-    print(msg)
-
-def _add_nav_link(app, config):
-    opts = dict(config.html_theme_options or {})
-    nav = list(opts.get("navbar_links", []))
-    if not any(isinstance(x, dict) and x.get("url") in ("copilot/index.html","dokumentacja%20copilot/index.html") for x in nav):
-        nav.append({"name": "Copilot Docs", "url": "copilot/index.html", "internal": True})
-    opts["navbar_links"] = nav
-    config.html_theme_options = opts
-
-def setup(app):
-    # PO wczytaniu środowiska, PRZED last_updated_by_git (niższy priorytet = wcześniej)
-    app.connect("env-updated", _sanitize_dependencies, priority=100)
-    # kosmetyka navbaru
-    app.connect("config-inited", _add_nav_link, priority=200)
+# ── Minimal setup hook ────────────────────────────────────────────────────────
+def setup(app):  # noqa: D401
+    """Lightweight Sphinx setup hook (nie podpina żadnych custom eventów)."""
+    return
