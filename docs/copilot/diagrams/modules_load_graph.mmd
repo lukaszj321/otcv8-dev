@@ -1,84 +1,88 @@
 %%{init: {"theme":"dark"}}%%
-graph TD
+graph LR
     %% ===================================================================
-    %% DEFINICJE STYLÓW
+    %% DEFINICJE STYLÓW - WIĘKSZE I BARDZIEJ CZYTELNE
     %% ===================================================================
-    classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold;
-    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC;
-    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39;
-    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9;
+    classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold,font-size:14px;
+    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC,font-size:12px;
+    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39,font-size:14px;
+    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9,font-size:12px;
     classDef utility fill:#614a00,color:#fff,stroke:#a68333;
     classDef container fill:#222,stroke:#888,stroke-dasharray: 5 5;
-    classDef note fill:#333,color:#aaa,stroke:#555;
+    classDef invisible stroke-width:0px,color:#1a1a1a;
 
     %% ===================================================================
-    %% WARSTWA 1: RDZEŃ APLIKACJI
+    %% GŁÓWNE STREFY ARCHITEKTONICZNE
     %% ===================================================================
-    subgraph Warstwa_Rdzenia
+
+    subgraph Strefa_Modułów_Klienta [Moduły Klienta i Narzędzia]
+        direction TD
+        subgraph Utilities
+            updater;
+        end
+        subgraph Moduły_Wspólne
+            client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
+        end
+    end
+
+    subgraph Strefa_Rdzenia [Rdzeń Aplikacji]
+        direction TD
         client;
     end
-
-    %% ===================================================================
-    %% WARSTWA 2: MODUŁY KLIENTA
-    %% ===================================================================
-    subgraph Warstwa_Modułów_Klienta
-        direction LR
-        client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
+    
+    subgraph Strefa_Logiki_Gry [Logika Gry]
+        direction TD
+        client_entergame;
+        subgraph Dane_Gry
+            game_things & game_features;
+        end
+        client_entergame --> Dane_Gry;
     end
-    client -- "zależy od" --> Warstwa_Modułów_Klienta;
 
-    %% ===================================================================
-    %% WARSTWA 3: LOGIKA GRY (POMOST)
-    %% ===================================================================
-    subgraph Warstwa_Logiki_Gry
-        direction LR
-        client_entergame & game_features & game_things;
-    end
-    client -- "zależy od" --> client_entergame;
-    client_entergame -- "zależy od" --> game_features & game_things;
-
-    %% ===================================================================
-    %% WARSTWA 4: ŚWIAT GRY (GŁÓWNY KONTENER)
-    %% ===================================================================
-    subgraph Świat_Gry
+    subgraph Strefa_Interfejsu_Gry [Interfejs Gry i jego Moduły]
+        direction TD
         game_interface;
-
-        subgraph Moduly_UI
-            %% Ten węzeł zastępuje problematyczny tytuł
-            note["(zależą od game_interface)"];
-            
+        subgraph Moduły_UI
+            direction LR
             subgraph Player_Info
-                direction TB
                 game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit;
             end
             subgraph Item_Management
-                direction TB
                 game_inventory & game_containers & game_shop & game_market;
             end
             subgraph Interaction
-                direction TB
                 game_buttons & game_hotkeys & game_actionbar & game_battle;
             end
         end
-        game_interface -- "jest wymagany przez" --> Moduly_UI;
+        game_interface -- "wymaga modułów UI" --> Moduły_UI;
     end
-    client_entergame -- "uruchamia" --> game_interface;
 
     %% ===================================================================
-    %% MODUŁY POMOCNICZE (UTILITIES)
+    %% KONTROLA UKŁADU - TWORZENIE POZIOMYCH "TORÓW"
+    %% Ta niewidzialna struktura zmusza strefy do ułożenia się w poziomie.
     %% ===================================================================
-    subgraph Utilities
-        updater
+    subgraph невидимка [ ]
+      Strefa_Modułów_Klienta ~~~ Strefa_Rdzenia ~~~ Strefa_Logiki_Gry ~~~ Strefa_Interfejsu_Gry;
     end
-    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
+    class невидимка invisible;
+
+    %% ===================================================================
+    %% GŁÓWNE POŁĄCZENIA MIĘDZY STREFAMI
+    %% ===================================================================
+    Strefa_Rdzenia -- "wykorzystuje" --> Strefa_Modułów_Klienta;
+    Strefa_Rdzenia -- "uruchamia" --> Strefa_Logiki_Gry;
+    Strefa_Logiki_Gry -- "uruchamia" --> Strefa_Interfejsu_Gry;
     
+    %% Zależności updatgera
+    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
+
     %% ===================================================================
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
     class client,game_interface core;
+    class client_entergame game_logic;
     class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile client_module;
-    class client_entergame,game_features,game_things game_logic;
+    class game_things,game_features game_logic;
     class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_inventory,game_containers,game_shop,game_market,game_buttons,game_hotkeys,game_actionbar,game_battle game_ui;
     class updater utility;
-    class Warstwa_Rdzenia,Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Świat_Gry,Utilities,Moduly_UI container;
-    class note note;
+    class Strefa_Rdzenia,Strefa_Modułów_Klienta,Strefa_Logiki_Gry,Strefa_Interfejsu_Gry,Utilities,Moduły_Wspólne,Dane_Gry,Moduły_UI,Player_Info,Item_Management,Interaction container;
