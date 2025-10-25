@@ -1,38 +1,39 @@
 %%{init: {"theme":"dark"}}%%
-graph LR
+graph TD
     %% ===================================================================
-    %% DEFINICJE STYLÓW - WIĘKSZE I BARDZIEJ CZYTELNE
+    %% DEFINICJE STYLÓW - HIERARCHIA WIZUALNA
     %% ===================================================================
-    classDef core fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:2px,font-weight:bold,font-size:14px;
-    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC,font-size:12px;
-    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39,font-size:14px;
-    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9,font-size:12px;
+    classDef sun fill:#004a99,color:#fff,stroke:#3399ff,stroke-width:3px,font-weight:bold,font-size:18px;
+    classDef planet fill:#222,stroke:#888,stroke-dasharray: 5 5;
+    classDef client_module fill:#4B0082,color:#fff,stroke:#9932CC;
+    classDef game_logic fill:#792e00,color:#fff,stroke:#c26d39;
+    classDef game_ui fill:#00504b,color:#fff,stroke:#33b3a9;
     classDef utility fill:#614a00,color:#fff,stroke:#a68333;
-    classDef container fill:#222,stroke:#888,stroke-dasharray: 5 5;
     classDef invisible stroke-width:0px,color:#1a1a1a;
 
     %% ===================================================================
-    %% GŁÓWNE STREFY ARCHITEKTONICZNE
+    %% SŁOŃCE - CENTRALNY PUNKT ARCHITEKTURY
     %% ===================================================================
+    subgraph central_node [ ]
+      client;
+    end
+    style central_node fill:none,stroke:none
 
-    subgraph Strefa_Modułów_Klienta [Moduły Klienta i Narzędzia]
-        %% BRAK 'direction'. Układ pionowy wymuszony przez połączenie.
-        subgraph Utilities
-            updater;
-        end
-        subgraph Moduły_Wspólne
-            client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
-        end
-        Utilities --> Moduły_Wspólne;
+    %% ===================================================================
+    %% PLANETY - GŁÓWNE STREFY ODPOWIEDZIALNOŚCI
+    %% ===================================================================
+    
+    subgraph Warstwa_Modułów_Klienta
+        direction LR
+        client_styles & client_locales & client_textedit & client_background & client_options & client_terminal & client_stats & client_feedback & client_mobile;
     end
 
-    subgraph Strefa_Rdzenia [Rdzeń Aplikacji]
-        %% BRAK 'direction'.
-        client;
+    subgraph Utilities
+        updater;
     end
     
-    subgraph Strefa_Logiki_Gry [Logika Gry]
-        %% BRAK 'direction'. Układ pionowy wymuszony przez połączenie.
+    subgraph Warstwa_Logiki_Gry
+        direction TD
         client_entergame;
         subgraph Dane_Gry
             game_things & game_features;
@@ -40,49 +41,48 @@ graph LR
         client_entergame --> Dane_Gry;
     end
 
-    subgraph Strefa_Interfejsu_Gry [Interfejs Gry i jego Moduły]
-        %% BRAK 'direction'. Układ pionowy wymuszony przez połączenie.
+    subgraph Świat_Gry
+        direction TD
         game_interface;
         subgraph Moduły_UI
-            %% Zagnieżdżone grupy dla czytelności.
+            direction LR
             subgraph Player_Info
-                game_healthinfo & game_skills & game_stats_ui[game_stats] & game_outfit;
+                game_healthinfo & game_skills & game_stats_ui[game_stats];
             end
+
             subgraph Item_Management
-                game_inventory & game_containers & game_shop & game_market;
-            end
-            subgraph Interaction
-                game_buttons & game_hotkeys & game_actionbar & game_battle;
+                game_inventory & game_containers & game_shop;
             end
         end
-        game_interface -- "wymaga modułów UI" --> Moduły_UI;
+        game_interface -- "wymaga" --> Moduły_UI;
     end
 
     %% ===================================================================
-    %% KONTROLA UKŁADU - TWORZENIE POZIOMYCH "TORÓW"
+    %% POŁĄCZENIA - PRZEPŁYW MOCY
+    %% ===================================================================
+    client -- "wykorzystuje ◀" --> Warstwa_Modułów_Klienta;
+    client -- "uruchamia ▶" --> Warstwa_Logiki_Gry;
+    client_entergame -- "tworzy 💥" --> Świat_Gry;
+    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
+    
+    %% ===================================================================
+    %% KONTROLA UKŁADU - ROZMIESZCZENIE PLANET
+    %% Ta niewidzialna struktura tworzy siatkę i pozycjonuje elementy.
     %% ===================================================================
     subgraph невидимка [ ]
-      Strefa_Modułów_Klienta ~~~ Strefa_Rdzenia ~~~ Strefa_Logiki_Gry ~~~ Strefa_Interfejsu_Gry;
+      Warstwa_Modułów_Klienta ~~~ client ~~~ Utilities
+      client ~~~ Warstwa_Logiki_Gry
+      Warstwa_Logiki_Gry ~~~ Świat_Gry
     end
     class невидимка invisible;
 
     %% ===================================================================
-    %% GŁÓWNE POŁĄCZENIA MIĘDZY STREFAMI
-    %% ===================================================================
-    Strefa_Rdzenia -- "wykorzystuje" --> Strefa_Modułów_Klienta;
-    Strefa_Rdzenia -- "uruchamia" --> Strefa_Logiki_Gry;
-    Strefa_Logiki_Gry -- "uruchamia" --> Strefa_Interfejsu_Gry;
-    
-    %% Zależności updatgera
-    updater -- "zależy od" --> client_locales & client_styles & client_textedit;
-
-    %% ===================================================================
     %% PRZYPISANIE STYLÓW
     %% ===================================================================
-    class client,game_interface core;
-    class client_entergame game_logic;
+    class client sun;
+    class Warstwa_Modułów_Klienta,Warstwa_Logiki_Gry,Utilities,Świat_Gry,Dane_Gry,Moduły_UI,Player_Info,Item_Management planet;
     class client_styles,client_locales,client_textedit,client_background,client_options,client_terminal,client_stats,client_feedback,client_mobile client_module;
-    class game_things,game_features game_logic;
-    class game_healthinfo,game_skills,game_stats_ui,game_outfit,game_inventory,game_containers,game_shop,game_market,game_buttons,game_hotkeys,game_actionbar,game_battle game_ui;
+    class client_entergame,game_things,game_features game_logic;
+    class game_interface game_logic;
+    class game_healthinfo,game_skills,game_stats_ui,game_inventory,game_containers,game_shop game_ui;
     class updater utility;
-    class Strefa_Rdzenia,Strefa_Modułów_Klienta,Strefa_Logiki_Gry,Strefa_Interfejsu_Gry,Utilities,Moduły_Wspólne,Dane_Gry,Moduły_UI,Player_Info,Item_Management,Interaction container;
