@@ -29,7 +29,7 @@ client -- "Wchodzi do gry" --> client_entergame("2. Enter Game")
 %% ===================================================================
 %% MODUŁY PRE-GAME
 %% ===================================================================
-subgraph PreGameModules[Moduły Pre-Game i Wspólne]
+subgraph PreGameModules["Moduły Pre-Game i Wspólne"]
     direction LR
     subgraph "Podstawowe"
         direction TB
@@ -52,7 +52,7 @@ end
 %% LOGIKA I DANE GRY
 %% ===================================================================
 client_entergame --> GameDataModules
-subgraph GameDataModules[3. Dane Gry]
+subgraph GameDataModules["3. Dane Gry"]
     direction LR
     game_things("Game Things")
     game_features("Game Features")
@@ -65,12 +65,9 @@ GameDataModules --> game_interface("4. Game Interface")
 %% ===================================================================
 game_interface -- "Inicjalizuje wszystkie moduły UI" --> GameUIModules
 
-%% ===================================================================
-%% TA SEKCJA ZOSTAŁA NAPRAWIONA
-%% ===================================================================
-subgraph GameUIModules[5. Moduły Interfejsu Użytkownika (UI)]
+subgraph GameUIModules["5. Moduły Interfejsu Użytkownika (UI)"]
     direction LR
-
+    
     subgraph "Player Info & Control"
         direction TB
         game_healthinfo; game_skills; game_stats_ui[game_stats]; game_outfit; game_playermount
