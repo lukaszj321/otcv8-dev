@@ -11,13 +11,15 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: docs-pages
+  group: "docs-pages"
   cancel-in-progress: true
 
 env:
   PIP_DISABLE_PIP_VERSION_CHECK: "1"
   PIP_NO_INPUT: "1"
   SPHINX_JOBS: "auto"
+  # przyspieszenie last_updated_by_git (limit zależności per dokument)
+  OTC_GIT_DEPS_MAX: "64"
 
 jobs:
   build:
@@ -33,39 +35,37 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Detect changes
+      - name: Detect config/static/templates changes
         id: changes
         uses: dorny/paths-filter@v3
         with:
           filters: |
-            cpp:
-              - 'src/**'
-              - 'Doxyfile'
             conf:
               - 'docs/conf.py'
               - 'docs/_templates/**'
               - 'docs/_static/**'
-            docs:
-              - 'docs/**'
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: pip
-          cache-dependency-path: docs/requirements.txt
+          cache: 'pip'
+          cache-dependency-path: |
+            docs/requirements.txt
 
       - name: Install Python deps
         run: |
           python -m pip install --upgrade pip
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
-          python - <<'PY'
+          python - << 'PY'
           import sys, subprocess
-          for p in ["breathe>=4.35.0","exhale>=0.3.7","sphinx-design>=0.6.1","sphinxcontrib-mermaid"]:
+          def ensure(pkg):
               try:
-                  __import__(p.split("==")[0].split(">=")[0].replace("-", "_"))
+                  __import__(pkg.split("==")[0].split(">=")[0].replace("-", "_"))
               except Exception:
-                  subprocess.check_call([sys.executable, "-m", "pip", "install", p])
+                  subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+          for p in ["breathe>=4.35.0","exhale>=0.3.7","sphinxcontrib-mermaid","sphinx-design>=0.6.1","pydata-sphinx-theme>=0.15"]:
+              ensure(p)
           PY
 
       - name: Cache Doxygen XML
@@ -75,39 +75,36 @@ jobs:
           path: docs/_build/doxygen/xml
           key: doxygen-${{ runner.os }}-${{ hashFiles('Doxyfile', 'src/**/*.h', 'src/**/*.hpp', 'src/**/*.hh', 'src/**/*.cpp', 'src/**/*.cc') }}
 
-      - name: Install Doxygen + Graphviz
-        if: steps.changes.outputs.cpp == 'true' && steps.cache_doxygen.outputs.cache-hit != 'true'
+      - name: Install Doxygen + Graphviz (if needed)
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends doxygen graphviz fonts-dejavu-core
 
       - name: Prepare Doxygen dirs
-        if: steps.changes.outputs.cpp == 'true' && steps.cache_doxygen.outputs.cache-hit != 'true'
-        run: mkdir -p docs/_build/doxygen/xml
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p docs/_build/doxygen/xml
 
-      - name: Run Doxygen
-        if: steps.changes.outputs.cpp == 'true' && steps.cache_doxygen.outputs.cache-hit != 'true'
+      - name: Run Doxygen (if cache miss)
+        if: steps.cache_doxygen.outputs.cache-hit != 'true'
         run: |
           doxygen Doxyfile
           test -f docs/_build/doxygen/xml/index.xml && echo "✓ Doxygen XML ready"
 
-      - name: Cache Exhale RST
-        id: cache_exhale
+      - name: Cache Sphinx doctrees
         uses: actions/cache@v4
         with:
-          path: docs/autoapi/cpp
-          key: exhale-${{ runner.os }}-${{ hashFiles('docs/_build/doxygen/xml/index.xml') }}
+          path: |
+            docs/_build/.doctrees
+            docs/_build/.jupyter_cache
+          key: doctrees-${{ runner.os }}-${{ hashFiles('docs/conf.py', 'docs/**/*.md', 'docs/**/*.rst', 'docs/**/*.ipynb', 'docs/_static/**', 'docs/_templates/**') }}
 
       - name: Build docs (HTML)
         env:
           FULL_REBUILD: ${{ steps.changes.outputs.conf }}
         run: |
           set -euo pipefail
-          # Szybki build jeśli nie tykaliśmy C++
-          if [ "${{ steps.changes.outputs.cpp }}" != "true" ]; then
-            export OTC_SKIP_CPP=1
-            export OTC_LIGHT=1
-          fi
           EXTRA_OPTS=""
           if [ "${FULL_REBUILD}" = "true" ]; then
             EXTRA_OPTS="-E -a"
