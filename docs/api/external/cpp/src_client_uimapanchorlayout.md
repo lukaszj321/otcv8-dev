@@ -94,10 +94,7 @@ public: UIPositionAnchor(Fw::AnchorEdge anchoredEdge, const Position& hookedPosi
 |------|------|-------------|
 | `Fw::AnchorEdge` | `anchoredEdge` | - |
 | `const Position&` | `hookedPosition` | - |
-| `Fw::AnchorEdge hookedEdge) : UIAnchor(` | `anchoredEdge` | - |
-| `std::string()` | - | - |
-| `hookedEdge)` | - | - |
-| `m_hookedPosition(` | `hookedPosition` | - |
+| `Fw::AnchorEdge` | `hookedEdge` | - |
 
 **Returns:**
 - `public:`
