@@ -59,9 +59,9 @@ return std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `x) + "` | - | - |
-| `" + std::to_string(y) + "` | - | - |
-| `" + std::to_string(` | `z` | - |
+| `int` | `x` | - |
+| `int` | `y` | - |
+| `int` | `z` | - |
 
 **Returns:**
 - `return`
