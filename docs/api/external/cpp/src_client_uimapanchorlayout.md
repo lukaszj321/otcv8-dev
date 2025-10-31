@@ -133,7 +133,7 @@ public: UIMapAnchorLayout(UIWidgetPtr parentWidget) : UIAnchorLayout(parentWidge
 
 | Type | Name | Description |
 |------|------|-------------|
-| `UIWidgetPtr parentWidget) : UIAnchorLayout(` | `parentWidget` | - |
+| `UIWidgetPtr` | `parentWidget` | - |
 
 **Returns:**
 - `public:`
