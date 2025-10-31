@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: UIProgressRect();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (drawself)=
