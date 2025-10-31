@@ -108,8 +108,7 @@ void replaceSprites(std::map<uint32_t, ImagePtr>& replacements, std::string file
 
 | Type | Name | Description |
 |------|------|-------------|
-| `std::map&lt;` | `uint32_t` | - |
-| `ImagePtr&gt;&` | `replacements` | - |
+| `std::map<uint32_t, ImagePtr>&` | `replacements` | - |
 | `std::string` | `fileName` | - |
 
 ---
