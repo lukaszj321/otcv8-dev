@@ -97,7 +97,7 @@ int32_t get(const Position& pos2);
 
 ---
 
-(clear)=
+(clear-void)=
 ## `clear`
 
 **Signature:**
