@@ -1,6 +1,6 @@
 # OTCv8 - Pełne API (auto)
 
-Wygenerowano: 2025-10-13T00:19:18.137Z
+Wygenerowano: 2025-10-31T23:33:30.302Z
 
 > Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.
 
@@ -288,8 +288,9 @@ Wygenerowano: 2025-10-13T00:19:18.137Z
 _brak_
 
 ### 1.3. Moduły (eksporty)
-- **docs/reposzablony/_shared/lua/docio.lua**
+- **docs/authoring/_shared/lua/docio.lua**
   - `docio.append(path, content)`
+  - `docio.fileSize(path)`
   - `docio.isoTimestamp()`
   - `docio.needsRotation(path)`
   - `docio.readAll(path)`
@@ -297,6 +298,231 @@ _brak_
   - `docio.writeAll(path, content)`
   - `docio.writeCSV(path, headers, rows)`
   - `docio.writeNDJSON(path, records)`
+- **docs/copilot/source_mirror/modules/modules/client_textedit/textedit.lua**
+  - `text.onTextChange(widget, text)`
+- **docs/copilot/source_mirror/modules/modules/corelib/util.lua**
+  - `class.getClassName()`
+  - `class.internalCreate()`
+  - `derived.getClassName()`
+  - `derived.internalCreate()`
+- **docs/copilot/source_mirror/modules/modules/game_actionbar/actionbar.lua**
+  - `text.onTextChange(self, text)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua**
+  - `settings.onClick()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua**
+  - `settings.onClick(widget)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua**
+  - `friends.onClick(widget)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua**
+  - `text.onTextChange(widget, newText)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua**
+  - `settings.onClick()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua**
+  - `settings.onClick(widget)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua**
+  - `friends.onClick(widget)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/executor.lua**
+  - `context.dofile(file)`
+  - `context.error(text)`
+  - `context.getDistanceBetween(p1, p2)`
+  - `context.info(text)`
+  - `context.load(str)`
+  - `context.warn(text)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/callbacks.lua**
+  - `context.callback(callbackType, callback)`
+  - `context.listen(name, callback)`
+  - `context.onAddItem(callback)`
+  - `context.onAddThing(callback)`
+  - `context.onAnimatedText(callback)`
+  - `context.onAttackingCreatureChange(callback)`
+  - `context.onChannelEvent(callback)`
+  - `context.onChannelList(callback)`
+  - `context.onCloseChannel(callback)`
+  - `context.onContainerClose(callback)`
+  - `context.onContainerOpen(callback)`
+  - `context.onContainerUpdateItem(callback)`
+  - `context.onCreatureAppear(callback)`
+  - `context.onCreatureDisappear(callback)`
+  - `context.onCreatureHealthPercentChange(callback)`
+  - `context.onCreaturePositionChange(callback)`
+  - `context.onGameEditText(callback)`
+  - `context.onGroupSpellCooldown(callback)`
+  - `context.onImbuementWindow(callback)`
+  - `context.onInventoryChange(callback)`
+  - `context.onKeyDown(callback)`
+  - `context.onKeyPress(callback)`
+  - `context.onKeyUp(callback)`
+  - `context.onLoginAdvice(callback)`
+  - `context.onManaChange(callback)`
+  - `context.onMissle(callback)`
+  - `context.onModalDialog(callback)`
+  - `context.onOpenChannel(callback)`
+  - `context.onPlayerHealthChange(callback)`
+  - `context.onPlayerInventoryChange(callback)`
+  - `context.onPlayerPositionChange(callback)`
+  - `context.onRemoveItem(callback)`
+  - `context.onRemoveThing(callback)`
+  - `context.onSpellCooldown(callback)`
+  - `context.onStatesChange(callback)`
+  - `context.onStaticText(callback)`
+  - `context.onTalk(callback)`
+  - `context.onTextMessage(callback)`
+  - `context.onTurn(callback)`
+  - `context.onUse(callback)`
+  - `context.onUseWith(callback)`
+  - `context.onWalk(callback)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/icon.lua**
+  - `context.addIcon(id, options, callback)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/main.lua**
+  - `context.delay(duration)`
+  - `context.hotkey(keys, name, callback, parent, single)`
+  - `context.macro(timeout, name, hotkey, callback, parent)`
+  - `context.schedule(timeout, callback)`
+  - `context.singlehotkey(keys, name, callback, parent)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/map.lua**
+  - `context.autoWalk(destination, maxDist, params)`
+  - `context.canShoot(pos, distance)`
+  - `context.findAllPaths(start, maxDist, params)`
+  - `context.findPath(startPos, destPos, maxDist, params)`
+  - `context.getCreatureById(id, multifloor)`
+  - `context.getCreatureByName(name, multifloor)`
+  - `context.getMapView()`
+  - `context.getPlayerByName(name, multifloor)`
+  - `context.getSpectators(param1, param2)`
+  - `context.getTileUnderCursor()`
+  - `context.isTrapped(creature)`
+  - `context.translateAllPathsToPath(paths, destPos)`
+  - `context.zoomIn()`
+  - `context.zoomOut()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/player_conditions.lua**
+  - `context.canLogout()`
+  - `context.hasCondition(condition)`
+  - `context.hasHaste()`
+  - `context.hasManaShield()`
+  - `context.hasPartyBuff()`
+  - `context.hasPz()`
+  - `context.hasPzBlock()`
+  - `context.hasPzLock()`
+  - `context.hasSwords()`
+  - `context.isBleeding()`
+  - `context.isBurning()`
+  - `context.isCursed()`
+  - `context.isDazzled()`
+  - `context.isDrowning()`
+  - `context.isDrunk()`
+  - `context.isEnergized()`
+  - `context.isFreezing()`
+  - `context.isHungry()`
+  - `context.isInFight()`
+  - `context.isInProtectionZone()`
+  - `context.isInPz()`
+  - `context.isParalyzed()`
+  - `context.isPoisioned()`
+  - `context.isPzBlocked()`
+  - `context.isPzLocked()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/player_inventory.lua**
+  - `context.getAmmo()`
+  - `context.getBack()`
+  - `context.getBody()`
+  - `context.getContainer(index)`
+  - `context.getContainers()`
+  - `context.getFeet()`
+  - `context.getFinger()`
+  - `context.getHead()`
+  - `context.getInventoryItem(slot)`
+  - `context.getLeft()`
+  - `context.getLeg()`
+  - `context.getNeck()`
+  - `context.getPurse()`
+  - `context.getRight()`
+  - `context.moveToSlot(item, slot, count)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/player.lua**
+  - `context.bless()`
+  - `context.blesses()`
+  - `context.blessings()`
+  - `context.cap()`
+  - `context.capmax()`
+  - `context.direction()`
+  - `context.exp()`
+  - `context.findItem(itemId, subType)`
+  - `context.freecap()`
+  - `context.getChannelId(name)`
+  - `context.getChannels()`
+  - `context.hp()`
+  - `context.hpmax()`
+  - `context.hppercent()`
+  - `context.level()`
+  - `context.lvl()`
+  - `context.magic()`
+  - `context.mana()`
+  - `context.manamax()`
+  - `context.manapercent()`
+  - `context.maxcap()`
+  - `context.maxhp()`
+  - `context.maxmana()`
+  - `context.mlev()`
+  - `context.mlevel()`
+  - `context.name()`
+  - `context.outfit()`
+  - `context.pos()`
+  - `context.posx()`
+  - `context.posy()`
+  - `context.posz()`
+  - `context.saySpell(text, lastSpellTimeout)`
+  - `context.setOutfit(outfit)`
+  - `context.setSpeed(value)`
+  - `context.setSpellTimeout()`
+  - `context.skull()`
+  - `context.soul()`
+  - `context.speed()`
+  - `context.stamina()`
+  - `context.talkChannel(channel, text)`
+  - `context.talkNpc(text)`
+  - `context.talkPrivate(receiver, text)`
+  - `context.turn(dir)`
+  - `context.use(thing, subtype)`
+  - `context.useRune(itemid, target, lastSpellTimeout)`
+  - `context.usewith(thing, target, subtype)`
+  - `context.voc()`
+  - `context.vocation()`
+  - `context.walk(dir)`
+  - `context.yell(text)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/script_loader.lua**
+  - `context.loadRemoteScript(url, onLoadCallback)`
+  - `context.loadScript(path, onLoadCallback)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/sound.lua**
+  - `context.getSoundChannel()`
+  - `context.playAlarm()`
+  - `context.playSound(file)`
+  - `context.stopSound()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/test.lua**
+  - `context.test()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/tools.lua**
+  - `context.decode(text)`
+  - `context.displayGeneralBox(title, message, buttons, onEnterCallback, onEscapeCallback)`
+  - `context.doScreenshot(filename)`
+  - `context.encode(data, indent)`
+  - `context.getVersion()`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/ui_elements.lua**
+  - `text.onTextChange(widget, text)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/functions/ui_legacy.lua**
+  - `context._addHotkeySwitch(name, keys, parent)`
+  - `context._addMacroSwitch(name, keys, parent)`
+  - `context.addButton(id, text, onClickCallback, parent)`
+  - `context.addLabel(id, text, parent)`
+  - `context.addSeparator(id, parent)`
+  - `context.addSwitch(id, text, onClickCallback, parent)`
+  - `context.addTab(name)`
+  - `context.addTextEdit(id, text, onTextChangeCallback, parent)`
+  - `context.createWidget(name, parent)`
+  - `context.importStyle(otml)`
+  - `context.setDefaultTab(name)`
+  - `context.setupUI(otml, parent)`
+- **docs/copilot/source_mirror/modules/modules/game_bot/panels/healing.lua**
+  - `text.onTextChange(widget, text)`
+- **docs/copilot/ui_presets/copilot_panel/copilot_panel.lua**
+  - `M.hide()`
+  - `M.show(parent)`
 - **modules/client_textedit/textedit.lua**
   - `text.onTextChange(widget, text)`
 - **modules/corelib/util.lua**
@@ -570,6 +796,7 @@ _brak_
 - `append()`
 - `applyMessagePrefixies()`
 - `arabicToRoman()`
+- `as_lf()`
 - `assert()`
 - `assignHotkey()`
 - `assignItem()`
@@ -729,6 +956,7 @@ _brak_
 - `createTrade()`
 - `createTransferWindow()`
 - `createWindow()`
+- `csv_escape()`
 - `cycleEvent()`
 - `damageHour()`
 - `date()`
@@ -754,6 +982,7 @@ _brak_
 - `difftime()`
 - `direction()`
 - `directory()`
+- `dirname()`
 - `dirtostring()`
 - `disable()`
 - `disableChat()`
@@ -802,6 +1031,7 @@ _brak_
 - `enable()`
 - `enableChat()`
 - `enableWSAD()`
+- `enc()`
 - `encode()`
 - `encode_nil()`
 - `encode_number()`
@@ -851,6 +1081,7 @@ _brak_
 - `findItemOnGround()`
 - `findItemsInArray()`
 - `findkey()`
+- `first()`
 - `flash()`
 - `float()`
 - `floor()`
@@ -864,6 +1095,7 @@ _brak_
 - `format_thousand()`
 - `formatCurrency()`
 - `formatStr()`
+- `found()`
 - `freecap()`
 - `frexp()`
 - `friendHealerAction()`
@@ -1090,7 +1322,9 @@ _brak_
 - `lose()`
 - `lower()`
 - `ls()`
+- `lua()`
 - `lvl()`
+- `machinge()`
 - `macro()`
 - `macros()`
 - `maintainDropTable()`
@@ -1101,6 +1335,7 @@ _brak_
 - `mana()`
 - `manageQuiver()`
 - `manapercent()`
+- `map()`
 - `markChild()`
 - `markStart()`
 - `match()`
@@ -1115,6 +1350,7 @@ _brak_
 - `millis()`
 - `min()`
 - `minimize()`
+- `mkdir_p()`
 - `mod()`
 - `modPos()`
 - `module_loader()`
@@ -1284,7 +1520,6 @@ _brak_
 - `report()`
 - `reportStats()`
 - `rePosition()`
-- `require()`
 - `resendWait()`
 - `reset()`
 - `resetCache()`
@@ -1303,7 +1538,6 @@ _brak_
 - `reverse()`
 - `reverseTable()`
 - `rotate()`
-- `rotation()`
 - `round()`
 - `rpairs()`
 - `run()`
@@ -1568,10 +1802,12 @@ _brak_
 - `value()`
 - `values()`
 - `vBotConfigSave()`
+- `version()`
 - `voc()`
 - `void()`
 - `wait()`
 - `walk()`
+- `walking()`
 - `warn()`
 - `warning()`
 - `wasteHour()`
@@ -1869,20 +2105,46 @@ _brak_
 ## 3. WebSocket / JSON
 
 ### 3.1. Typy wiadomości (wykryte)
+- `affects`
+- `any`
 - `array`
+- `asset`
 - `boolean`
 - `commonjs`
+- `consumes`
+- `cpp_function`
+- `dataset`
+- `driven_by`
+- `emits`
 - `git`
 - `github`
+- `grid`
+- `handled_by`
+- `handles`
+- `horizontalBox`
+- `influences`
 - `integer`
+- `logs`
+- `lua_event`
+- `lua_function`
 - `MIT`
 - `module`
 - `object`
+- `observes`
 - `opencollective`
 - `OpenCollective`
+- `otui_widget`
+- `provides`
+- `renders`
+- `secures`
 - `string`
+- `syncs`
+- `syncs_with`
 - `time-permitting`
+- `used_by`
+- `uses`
 - `value`
+- `verticalBox`
 
 ### 3.2. Schematy JSON ($id → plik)
 - `https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json` → `node_modules/markdownlint/schema/markdownlint-config-schema-strict.json`

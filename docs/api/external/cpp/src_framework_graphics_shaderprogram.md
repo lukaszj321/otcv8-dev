@@ -1,149 +1,843 @@
+---
+title: "src/framework/graphics/shaderprogram.h"
+source_file: "src/framework/graphics/shaderprogram.h"
+generated_at: "2025-10-31T23:33:30.343Z"
+doc_type: "cpp_api"
+---
+
 # src/framework/graphics/shaderprogram.h
 
+(shaderprogram)=
+## `ShaderProgram`
+
+**Signature:**
 ```cpp
 public: ShaderProgram(const std::string& name);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const std::string&` | `name` | - |
+
+**Returns:**
+- `public:`
+
+---
+
+(create)=
+## `create`
+
+**Signature:**
 ```cpp
 static PainterShaderProgramPtr create(const std::string& name, const std::string& vertexShader, const std::string& fragmentShader, bool colorMatrix = false);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const std::string&` | `name` | - |
+| `const std::string&` | `vertexShader` | - |
+| `const std::string&` | `fragmentShader` | - |
+| `bool colorMatrix =` | `false` | - |
+
+**Returns:**
+- `static PainterShaderProgramPtr`
+
+---
+
+(addshader)=
+## `addShader`
+
+**Signature:**
 ```cpp
 bool addShader(const ShaderPtr& shader);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const ShaderPtr&` | `shader` | - |
+
+**Returns:**
+- `bool`
+
+---
+
+(addshaderfromsourcecode)=
+## `addShaderFromSourceCode`
+
+**Signature:**
 ```cpp
 bool addShaderFromSourceCode(Shader::ShaderType shaderType, const std::string& sourceCode);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `Shader::ShaderType` | `shaderType` | - |
+| `const std::string&` | `sourceCode` | - |
+
+**Returns:**
+- `bool`
+
+---
+
+(addshaderfromsourcefile)=
+## `addShaderFromSourceFile`
+
+**Signature:**
 ```cpp
 bool addShaderFromSourceFile(Shader::ShaderType shaderType, const std::string& sourceFile);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `Shader::ShaderType` | `shaderType` | - |
+| `const std::string&` | `sourceFile` | - |
+
+**Returns:**
+- `bool`
+
+---
+
+(removeshader)=
+## `removeShader`
+
+**Signature:**
 ```cpp
 void removeShader(const ShaderPtr& shader);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const ShaderPtr&` | `shader` | - |
+
+---
+
+(removeallshaders)=
+## `removeAllShaders`
+
+**Signature:**
 ```cpp
 void removeAllShaders();
 ```
+
+---
+
+(link)=
+## `link`
+
+**Signature:**
 ```cpp
 virtual bool link();
 ```
+
+**Returns:**
+- `virtual bool`
+
+---
+
+(bind)=
+## `bind`
+
+**Signature:**
 ```cpp
 bool bind();
 ```
+
+**Returns:**
+- `bool`
+
+---
+
+(release)=
+## `release`
+
+**Signature:**
 ```cpp
 static void release();
 ```
+
+**Returns:**
+- `static void`
+
+---
+
+(log)=
+## `log`
+
+**Signature:**
 ```cpp
 std::string log();
 ```
+
+**Returns:**
+- `std::string`
+
+---
+
+(getattributelocation)=
+## `getAttributeLocation`
+
+**Signature:**
 ```cpp
 int getAttributeLocation(const char* name);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+
+**Returns:**
+- `int`
+
+---
+
+(bindattributelocation)=
+## `bindAttributeLocation`
+
+**Signature:**
 ```cpp
 void bindAttributeLocation(int location, const char* name);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const char*` | `name` | - |
+
+---
+
+(binduniformlocation)=
+## `bindUniformLocation`
+
+**Signature:**
 ```cpp
 void bindUniformLocation(int location, const char* name);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const char*` | `name` | - |
+
+---
+
+(disableattributearray)=
+## `disableAttributeArray`
+
+**Signature:**
 ```cpp
 static void disableAttributeArray(int location);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+
+**Returns:**
+- `static void`
+
+---
+
+(enableattributearray)=
+## `enableAttributeArray`
+
+**Signature:**
 ```cpp
 static void enableAttributeArray(int location);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+
+**Returns:**
+- `static void`
+
+---
+
+(disableattributearray)=
+## `disableAttributeArray`
+
+**Signature:**
 ```cpp
 void disableAttributeArray(const char* name);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+
+---
+
+(enableattributearray)=
+## `enableAttributeArray`
+
+**Signature:**
 ```cpp
 void enableAttributeArray(const char* name);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+
+---
+
+(setattributearray)=
+## `setAttributeArray`
+
+**Signature:**
 ```cpp
 void setAttributeArray(int location, const float* values, int size, int stride = 0);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const float*` | `values` | - |
+| `int` | `size` | - |
+| `int stride = 0` | - | - |
+
+---
+
+(setattributevalue)=
+## `setAttributeValue`
+
+**Signature:**
 ```cpp
 void setAttributeValue(int location, float value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `value` | - |
+
+---
+
+(setattributevalue)=
+## `setAttributeValue`
+
+**Signature:**
 ```cpp
 void setAttributeValue(int location, float x, float y);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+
+---
+
+(setattributevalue)=
+## `setAttributeValue`
+
+**Signature:**
 ```cpp
 void setAttributeValue(int location, float x, float y, float z);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+| `float` | `z` | - |
+
+---
+
+(setattributearray)=
+## `setAttributeArray`
+
+**Signature:**
 ```cpp
 void setAttributeArray(const char* name, const float* values, int size, int stride = 0);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `const float*` | `values` | - |
+| `int` | `size` | - |
+| `int stride = 0` | - | - |
+
+---
+
+(setattributevalue)=
+## `setAttributeValue`
+
+**Signature:**
 ```cpp
 void setAttributeValue(const char* name, float value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `value` | - |
+
+---
+
+(setattributevalue)=
+## `setAttributeValue`
+
+**Signature:**
 ```cpp
 void setAttributeValue(const char* name, float x, float y);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+
+---
+
+(setattributevalue)=
+## `setAttributeValue`
+
+**Signature:**
 ```cpp
 void setAttributeValue(const char* name, float x, float y, float z);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+| `float` | `z` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, const Color& color);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const Color&` | `color` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, int value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `int` | `value` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, float value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `value` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, float x, float y);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, float x, float y, float z);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+| `float` | `z` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, float x, float y, float z, float w);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+| `float` | `z` | - |
+| `float` | `w` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, const Matrix2& mat);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const Matrix2&` | `mat` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, const Matrix3& mat);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const Matrix3&` | `mat` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, const Matrix4& mat);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `const Matrix4&` | `mat` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(int location, int count, const int* value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `int` | `location` | - |
+| `int` | `count` | - |
+| `const int*` | `value` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, const Color& color);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `const Color&` | `color` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, int value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `int` | `value` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, float value);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `value` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, float x, float y);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, float x, float y, float z);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+| `float` | `z` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, float x, float y, float z, float w);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `float` | `x` | - |
+| `float` | `y` | - |
+| `float` | `z` | - |
+| `float` | `w` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, const Matrix2& mat);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `const Matrix2&` | `mat` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, const Matrix3& mat);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `const Matrix3&` | `mat` | - |
+
+---
+
+(setuniformvalue)=
+## `setUniformValue`
+
+**Signature:**
 ```cpp
 void setUniformValue(const char* name, const Matrix4& mat);
 ```
+
+**Parameters:**
+
+| Type | Name | Description |
+|------|------|-------------|
+| `const char*` | `name` | - |
+| `const Matrix4&` | `mat` | - |
+
+---
+
+(islinked)=
+## `isLinked`
+
+**Signature:**
 ```cpp
 bool isLinked();
 ```
+
+**Returns:**
+- `bool`
+
+---
+
+(getprogramid)=
+## `getProgramId`
+
+**Signature:**
 ```cpp
 uint getProgramId();
 ```
+
+**Returns:**
+- `uint`
+
+---
+
+(getshaders)=
+## `getShaders`
+
+**Signature:**
 ```cpp
 ShaderList getShaders();
 ```
+
+**Returns:**
+- `ShaderList`
+
+---
+
+(getname)=
+## `getName`
+
+**Signature:**
 ```cpp
 std::string getName();
 ```
+
+**Returns:**
+- `std::string`
+
+---
