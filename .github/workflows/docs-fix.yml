@@ -25,22 +25,30 @@ jobs:
       - name: Install deps (pip)
         run: |
           python -m pip install --upgrade pip
-          pip install myst-parser sphinxcontrib-mermaid
+          pip install sphinx myst-parser sphinxcontrib-mermaid
       - name: Run fix scripts
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_FIXER_TOKEN }}
         run: |
-          # przykładowe uruchomienia w trybie apply
           python3 tools/fix_tabs.py --apply || true
           python3 tools/convert_mermaid_fences.py --apply || true
           python3 tools/convert_problematic_cpp_fences.py --apply || true
           python3 docs/scripts/find_and_stub_missing_docs.py --apply || true
           python3 docs/scripts/dedupe_anchors.py --apply || true
           python3 docs/scripts/cleanup_scripts_tools.py --apply || true
-          node scripts/extract-api.mjs
-      - name: Build docs
+          node scripts/extract-api.mjs || true
+      - name: Build docs (sphinx-build)
         run: |
-          make -C docs html
+          SRC=$(python3 - <<'PY'
+from pathlib import Path
+p = next(Path('docs').rglob('conf.py'), None)
+print(p.parent.as_posix() if p else 'docs')
+PY
+)
+          echo "Using Sphinx source directory: $SRC"
+          python3 -m pip install --upgrade pip
+          pip install sphinx myst-parser sphinxcontrib-mermaid
+          python3 -m sphinx -b html "$SRC" docs/_build/html
       - name: Commit & Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_FIXER_TOKEN }}
