@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/win32window.h"
 source_file: "src/framework/platform/win32window.h"
-generated_at: "2025-11-01T08:19:49.461Z"
+generated_at: "2025-11-01T08:45:15.316Z"
 doc_type: "cpp_api"
 ---
 

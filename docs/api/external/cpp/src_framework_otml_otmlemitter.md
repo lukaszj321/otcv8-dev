@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlemitter.h"
 source_file: "src/framework/otml/otmlemitter.h"
-generated_at: "2025-11-01T08:19:49.457Z"
+generated_at: "2025-11-01T08:45:15.313Z"
 doc_type: "cpp_api"
 ---
 

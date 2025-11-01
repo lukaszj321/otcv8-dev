@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luaobject.h"
 source_file: "src/framework/luaengine/luaobject.h"
-generated_at: "2025-11-01T08:19:49.452Z"
+generated_at: "2025-11-01T08:45:15.310Z"
 doc_type: "cpp_api"
 ---
 

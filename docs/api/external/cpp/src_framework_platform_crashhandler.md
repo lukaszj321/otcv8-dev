@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/crashhandler.h"
 source_file: "src/framework/platform/crashhandler.h"
-generated_at: "2025-11-01T08:19:49.459Z"
+generated_at: "2025-11-01T08:45:15.315Z"
 doc_type: "cpp_api"
 ---
 

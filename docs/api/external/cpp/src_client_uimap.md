@@ -1,7 +1,7 @@
 ---
 title: "src/client/uimap.h"
 source_file: "src/client/uimap.h"
-generated_at: "2025-11-01T08:19:49.430Z"
+generated_at: "2025-11-01T08:45:15.291Z"
 doc_type: "cpp_api"
 ---
 

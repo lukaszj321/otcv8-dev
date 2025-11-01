@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/lbitlib.h"
 source_file: "src/framework/luaengine/lbitlib.h"
-generated_at: "2025-11-01T08:19:49.450Z"
+generated_at: "2025-11-01T08:45:15.308Z"
 doc_type: "cpp_api"
 ---
 

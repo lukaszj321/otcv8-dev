@@ -1,7 +1,7 @@
 ---
 title: "src/client/healthbars.h"
 source_file: "src/client/healthbars.h"
-generated_at: "2025-11-01T08:19:49.416Z"
+generated_at: "2025-11-01T08:45:15.279Z"
 doc_type: "cpp_api"
 ---
 

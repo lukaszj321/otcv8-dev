@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/hardwarebuffer.h"
 source_file: "src/framework/graphics/hardwarebuffer.h"
-generated_at: "2025-11-01T08:19:49.444Z"
+generated_at: "2025-11-01T08:45:15.303Z"
 doc_type: "cpp_api"
 ---
 

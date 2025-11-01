@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/outputmessage.h"
 source_file: "src/framework/net/outputmessage.h"
-generated_at: "2025-11-01T08:19:49.455Z"
+generated_at: "2025-11-01T08:45:15.312Z"
 doc_type: "cpp_api"
 ---
 

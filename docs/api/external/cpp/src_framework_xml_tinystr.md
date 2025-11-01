@@ -1,7 +1,7 @@
 ---
 title: "src/framework/xml/tinystr.h"
 source_file: "src/framework/xml/tinystr.h"
-generated_at: "2025-11-01T08:19:49.479Z"
+generated_at: "2025-11-01T08:45:15.332Z"
 doc_type: "cpp_api"
 ---
 

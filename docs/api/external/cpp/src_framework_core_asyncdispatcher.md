@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/asyncdispatcher.h"
 source_file: "src/framework/core/asyncdispatcher.h"
-generated_at: "2025-11-01T08:19:49.433Z"
+generated_at: "2025-11-01T08:45:15.293Z"
 doc_type: "cpp_api"
 ---
 

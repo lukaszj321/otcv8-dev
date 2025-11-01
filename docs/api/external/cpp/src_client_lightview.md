@@ -1,7 +1,7 @@
 ---
 title: "src/client/lightview.h"
 source_file: "src/client/lightview.h"
-generated_at: "2025-11-01T08:19:49.418Z"
+generated_at: "2025-11-01T08:45:15.280Z"
 doc_type: "cpp_api"
 ---
 

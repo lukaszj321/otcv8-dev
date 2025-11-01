@@ -1,7 +1,7 @@
 ---
 title: "src/client/mapview.h"
 source_file: "src/client/mapview.h"
-generated_at: "2025-11-01T08:19:49.420Z"
+generated_at: "2025-11-01T08:45:15.282Z"
 doc_type: "cpp_api"
 ---
 

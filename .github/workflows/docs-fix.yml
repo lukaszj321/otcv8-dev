@@ -48,7 +48,7 @@ jobs:
           SRC=$(python3 -c "from pathlib import Path; p=next(Path('docs').rglob('conf.py'), None); print(p.parent.as_posix() if p else 'docs')")
           echo "Using Sphinx source directory: $SRC"
           python3 -m pip install --upgrade pip
-          pip install sphinx myst-parser sphinxcontrib-mermaid
+          pip install -r requirements-docs.txt
           python3 -m sphinx -b html "$SRC" docs/_build/html
 
       - name: Commit & Push changes
@@ -72,4 +72,4 @@ jobs:
           title: "chore(docs): split C++ per-header, improved extract-api, add doc maintenance scripts and placeholders"
           body: |
             Automated docs maintenance run. See workflow logs for details.
-          base: main
+          base: master

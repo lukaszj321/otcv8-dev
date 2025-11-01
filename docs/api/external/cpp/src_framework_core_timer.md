@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/timer.h"
 source_file: "src/framework/core/timer.h"
-generated_at: "2025-11-01T08:19:49.438Z"
+generated_at: "2025-11-01T08:45:15.298Z"
 doc_type: "cpp_api"
 ---
 
