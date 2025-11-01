@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uiverticallayout.h"
 source_file: "src/framework/ui/uiverticallayout.h"
-generated_at: "2025-11-01T06:09:06.209Z"
+generated_at: "2025-11-01T08:19:49.473Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/size.h"
 source_file: "src/framework/util/size.h"
-generated_at: "2025-11-01T06:09:06.214Z"
+generated_at: "2025-11-01T08:19:49.478Z"
 doc_type: "cpp_api"
 ---
 

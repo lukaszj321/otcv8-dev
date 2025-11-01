@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/clock.h"
 source_file: "src/framework/core/clock.h"
-generated_at: "2025-11-01T06:09:06.177Z"
+generated_at: "2025-11-01T08:19:49.433Z"
 doc_type: "cpp_api"
 ---
 
