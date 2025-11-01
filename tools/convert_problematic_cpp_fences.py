@@ -18,7 +18,7 @@ import sys
 import re
 import shutil
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 
 
 def find_docs_root() -> Path:
