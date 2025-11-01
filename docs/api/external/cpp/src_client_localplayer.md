@@ -1,7 +1,7 @@
 ---
 title: "src/client/localplayer.h"
 source_file: "src/client/localplayer.h"
-generated_at: "2025-11-01T06:09:06.163Z"
+generated_at: "2025-11-01T08:19:49.418Z"
 doc_type: "cpp_api"
 ---
 

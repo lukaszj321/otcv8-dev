@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/sdlwindow.h"
 source_file: "src/framework/platform/sdlwindow.h"
-generated_at: "2025-11-01T06:09:06.199Z"
+generated_at: "2025-11-01T08:19:49.460Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luaexception.h"
 source_file: "src/framework/luaengine/luaexception.h"
-generated_at: "2025-11-01T06:09:06.191Z"
+generated_at: "2025-11-01T08:19:49.451Z"
 doc_type: "cpp_api"
 ---
 

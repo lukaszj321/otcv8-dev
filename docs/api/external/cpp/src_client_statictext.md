@@ -1,7 +1,7 @@
 ---
 title: "src/client/statictext.h"
 source_file: "src/client/statictext.h"
-generated_at: "2025-11-01T06:09:06.170Z"
+generated_at: "2025-11-01T08:19:49.426Z"
 doc_type: "cpp_api"
 ---
 

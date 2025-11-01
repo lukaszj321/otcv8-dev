@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlnode.h"
 source_file: "src/framework/otml/otmlnode.h"
-generated_at: "2025-11-01T06:09:06.197Z"
+generated_at: "2025-11-01T08:19:49.457Z"
 doc_type: "cpp_api"
 ---
 
