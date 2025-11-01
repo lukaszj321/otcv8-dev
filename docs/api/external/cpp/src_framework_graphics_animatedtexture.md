@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/animatedtexture.h"
 source_file: "src/framework/graphics/animatedtexture.h"
-generated_at: "2025-10-31T23:33:30.337Z"
+generated_at: "2025-11-01T00:11:49.037Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,16 +17,13 @@ public: AnimatedTexture(const Size& size, std::vector<ImagePtr> frames, std::vec
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Size&` | `size` | - |
-| `std::vector&lt;ImagePtr&gt;` | `frames` | - |
-| `std::vector&lt;int&gt;` | `framesDelay` | - |
-| `bool buildMipmaps =` | `false` | - |
-| `bool compress =` | `false` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Size&` | `size` |  | - |
+| `std::vector&lt;ImagePtr&gt;` | `frames` |  | - |
+| `std::vector&lt;int&gt;` | `framesDelay` |  | - |
+| `bool` | `buildMipmaps` | `false` | - |
+| `bool` | `compress` | `false` | - |
 
 ---
 
@@ -49,7 +46,7 @@ protected: virtual bool buildHardwareMipmaps();
 ```
 
 **Returns:**
-- `protected: virtual bool`
+- `bool`
 
 ---
 
@@ -67,9 +64,6 @@ virtual void setSmooth(bool smooth);
 |------|------|-------------|
 | `bool` | `smooth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setrepeat)=
@@ -85,9 +79,6 @@ virtual void setRepeat(bool repeat);
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | `repeat` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -116,6 +107,6 @@ virtual bool isAnimatedTexture();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---

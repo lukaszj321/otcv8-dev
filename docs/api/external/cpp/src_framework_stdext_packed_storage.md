@@ -1,63 +1,11 @@
 ---
 title: "src/framework/stdext/packed_storage.h"
 source_file: "src/framework/stdext/packed_storage.h"
-generated_at: "2025-10-31T23:33:30.361Z"
+generated_at: "2025-11-01T00:11:49.063Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/stdext/packed_storage.h
-
-(packed_any_castt)=
-## `packed_any_cast<T>`
-
-**Signature:**
-```cpp
-return packed_any_cast<T>(m_values[i].value);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `m_values[i].` | `value` | - |
-
-**Returns:**
-- `return`
-
----
-
-(t)=
-## `T`
-
-**Signature:**
-```cpp
-return T();
-```
-
-**Returns:**
-- `return`
-
----
-
-(packed_storage)=
-## `packed_storage`
-
-**Signature:**
-```cpp
-public: packed_storage() : m_values(nullptr), m_size(0);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : m_values(nullptr)` | - | - |
-| `m_size(0` | - | - |
-
-**Returns:**
-- `public:`
-
----
 
 (set)=
 ## `set`

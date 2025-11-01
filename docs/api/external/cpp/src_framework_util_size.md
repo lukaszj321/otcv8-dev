@@ -1,31 +1,11 @@
 ---
 title: "src/framework/util/size.h"
 source_file: "src/framework/util/size.h"
-generated_at: "2025-10-31T23:33:30.370Z"
+generated_at: "2025-11-01T00:11:49.072Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/util/size.h
-
-(tsize)=
-## `TSize`
-
-**Signature:**
-```cpp
-public: TSize() : wd(-1), ht(-1);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : wd(-1)` | - | - |
-| `ht(-1` | - | - |
-
-**Returns:**
-- `public:`
-
----
 
 (topoint)=
 ## `toPoint`
@@ -147,7 +127,7 @@ TSize<T> operator*(const TSize<T>& other);
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator*`
 
 **Signature:**
@@ -166,7 +146,7 @@ TSize<T> operator*(const float v);
 
 ---
 
-(operator)=
+(operator-2)=
 ## `operator<`
 
 **Signature:**
@@ -178,14 +158,14 @@ bool operator<(const TSize<T>&other);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TSize&lt;T&gt;&` | `other` | - |
+| `const TSize&lt;T&gt;&other` | - | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(operator)=
+(operator-3)=
 ## `operator>`
 
 **Signature:**
@@ -197,7 +177,7 @@ bool operator>(const TSize<T>&other);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TSize&lt;T&gt;&` | `other` | - |
+| `const TSize&lt;T&gt;&other` | - | - |
 
 **Returns:**
 - `bool`
@@ -259,7 +239,7 @@ void scale(const TSize<T>& s, Fw::AspectRatioMode mode);
 
 ---
 
-(scale)=
+(scale-1)=
 ## `scale`
 
 **Signature:**
@@ -290,7 +270,7 @@ float ratio();
 
 ---
 
-(operator)=
+(operator-4)=
 ## `operator<<`
 
 **Signature:**
@@ -310,7 +290,7 @@ std::ostream& operator<<(std::ostream& out, const TSize<T>& size);
 
 ---
 
-(operator)=
+(operator-5)=
 ## `operator>>`
 
 **Signature:**

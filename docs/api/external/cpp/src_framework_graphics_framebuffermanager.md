@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/framebuffermanager.h"
 source_file: "src/framework/graphics/framebuffermanager.h"
-generated_at: "2025-10-31T23:33:30.341Z"
+generated_at: "2025-11-01T00:11:49.041Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -50,9 +47,9 @@ FrameBufferPtr createFrameBuffer(bool withDepth = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool withDepth =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `withDepth` | `false` | - |
 
 **Returns:**
 - `FrameBufferPtr`

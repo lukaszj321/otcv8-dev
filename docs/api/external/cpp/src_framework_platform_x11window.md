@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/x11window.h"
 source_file: "src/framework/platform/x11window.h"
-generated_at: "2025-10-31T23:33:30.354Z"
+generated_at: "2025-11-01T00:11:49.056Z"
 doc_type: "cpp_api"
 ---
 
@@ -102,7 +102,7 @@ bool isExtensionSupported(const char *ext);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `ext` | - |
+| `const char *ext` | - | - |
 
 **Returns:**
 - `bool`
@@ -116,9 +116,6 @@ bool isExtensionSupported(const char *ext);
 ```cpp
 public: X11Window();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -447,6 +444,6 @@ protected: int internalLoadMouseCursor(const ImagePtr& image, const Point& hotSp
 | `const Point&` | `hotSpot` | - |
 
 **Returns:**
-- `protected: int`
+- `int`
 
 ---

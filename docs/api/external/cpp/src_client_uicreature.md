@@ -1,7 +1,7 @@
 ---
 title: "src/client/uicreature.h"
 source_file: "src/client/uicreature.h"
-generated_at: "2025-10-31T23:33:30.330Z"
+generated_at: "2025-11-01T00:11:49.029Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: void drawSelf(Fw::DrawPane drawPane);
 | Type | Name | Description |
 |------|------|-------------|
 | `Fw::DrawPane` | `drawPane` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -72,9 +69,6 @@ protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& st
 |------|------|-------------|
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/net.h"
 source_file: "src/framework/stdext/net.h"
-generated_at: "2025-10-31T23:33:30.360Z"
+generated_at: "2025-11-01T00:11:49.063Z"
 doc_type: "cpp_api"
 ---
 

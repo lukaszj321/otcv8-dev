@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/math.h"
 source_file: "src/framework/stdext/math.h"
-generated_at: "2025-10-31T23:33:30.360Z"
+generated_at: "2025-11-01T00:11:49.062Z"
 doc_type: "cpp_api"
 ---
 
@@ -19,7 +19,7 @@ uint32_t adler32(const uint8_t *buffer, size_t size);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uint8_t *` | `buffer` | - |
+| `const uint8_t *buffer` | - | - |
 | `size_t` | `size` | - |
 
 **Returns:**
@@ -47,7 +47,7 @@ long random_range(long min, long max);
 
 ---
 
-(random_range)=
+(random_range-1)=
 ## `random_range`
 
 **Signature:**
@@ -101,7 +101,7 @@ inline bool is_power_of_two(size_t v);
 | `size_t` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
@@ -120,7 +120,7 @@ inline size_t to_power_of_two(size_t v);
 | `size_t` | `v` | - |
 
 **Returns:**
-- `inline size_t`
+- `size_t`
 
 ---
 
@@ -136,10 +136,10 @@ inline uint16_t readULE16(const uchar *addr);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uchar *` | `addr` | - |
+| `const uchar *addr` | - | - |
 
 **Returns:**
-- `inline uint16_t`
+- `uint16_t`
 
 ---
 
@@ -155,10 +155,10 @@ inline uint32_t readULE32(const uchar *addr);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uchar *` | `addr` | - |
+| `const uchar *addr` | - | - |
 
 **Returns:**
-- `inline uint32_t`
+- `uint32_t`
 
 ---
 
@@ -174,10 +174,10 @@ inline uint64_t readULE64(const uchar *addr);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uchar *` | `addr` | - |
+| `const uchar *addr` | - | - |
 
 **Returns:**
-- `inline uint64_t`
+- `uint64_t`
 
 ---
 
@@ -193,11 +193,8 @@ inline void writeULE16(uchar *addr, uint16_t value);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uchar *` | `addr` | - |
+| `uchar *addr` | - | - |
 | `uint16_t` | `value` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -213,11 +210,8 @@ inline void writeULE32(uchar *addr, uint32_t value);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uchar *` | `addr` | - |
+| `uchar *addr` | - | - |
 | `uint32_t` | `value` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -233,11 +227,8 @@ inline void writeULE64(uchar *addr, uint64_t value);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uchar *` | `addr` | - |
+| `uchar *addr` | - | - |
 | `uint64_t` | `value` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -253,10 +244,10 @@ inline int16_t readSLE16(const uchar *addr);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uchar *` | `addr` | - |
+| `const uchar *addr` | - | - |
 
 **Returns:**
-- `inline int16_t`
+- `int16_t`
 
 ---
 
@@ -272,10 +263,10 @@ inline int32_t readSLE32(const uchar *addr);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uchar *` | `addr` | - |
+| `const uchar *addr` | - | - |
 
 **Returns:**
-- `inline int32_t`
+- `int32_t`
 
 ---
 
@@ -291,10 +282,10 @@ inline int64_t readSLE64(const uchar *addr);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const uchar *` | `addr` | - |
+| `const uchar *addr` | - | - |
 
 **Returns:**
-- `inline int64_t`
+- `int64_t`
 
 ---
 
@@ -310,11 +301,8 @@ inline void writeSLE16(uchar *addr, int16_t value);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uchar *` | `addr` | - |
+| `uchar *addr` | - | - |
 | `int16_t` | `value` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -330,11 +318,8 @@ inline void writeSLE32(uchar *addr, int32_t value);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uchar *` | `addr` | - |
+| `uchar *addr` | - | - |
 | `int32_t` | `value` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -350,11 +335,8 @@ inline void writeSLE64(uchar *addr, int64_t value);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uchar *` | `addr` | - |
+| `uchar *addr` | - | - |
 | `int64_t` | `value` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 

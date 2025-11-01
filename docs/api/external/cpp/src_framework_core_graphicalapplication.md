@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/graphicalapplication.h"
 source_file: "src/framework/core/graphicalapplication.h"
-generated_at: "2025-10-31T23:33:30.335Z"
+generated_at: "2025-11-01T00:11:49.035Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: void init(std::vector<std::string>& args);
 | Type | Name | Description |
 |------|------|-------------|
 | `std::vector&lt;std::string&gt;&` | `args` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -183,9 +180,6 @@ protected: void resize(const Size& size);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Size&` | `size` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

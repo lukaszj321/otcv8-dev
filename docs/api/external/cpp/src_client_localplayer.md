@@ -1,7 +1,7 @@
 ---
 title: "src/client/localplayer.h"
 source_file: "src/client/localplayer.h"
-generated_at: "2025-10-31T23:33:30.321Z"
+generated_at: "2025-11-01T00:11:49.019Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: LocalPlayer();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (lockwalk)=
@@ -30,9 +27,9 @@ void lockWalk(int millis = 200);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int millis = 200` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `millis` | `200` | - |
 
 ---
 
@@ -56,10 +53,10 @@ bool autoWalk(Position destination, bool retry = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Position` | `destination` | - |
-| `bool retry =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Position` | `destination` |  | - |
+| `bool` | `retry` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -76,10 +73,10 @@ bool canWalk(Otc::Direction direction, bool ignoreLock = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Otc::Direction` | `direction` | - |
-| `bool ignoreLock =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Otc::Direction` | `direction` |  | - |
+| `bool` | `ignoreLock` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -459,9 +456,9 @@ void cancelWalk(Otc::Direction direction = Otc::InvalidDirection);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Otc::Direction direction = Otc::` | `InvalidDirection` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Otc::Direction` | `direction` | `Otc::InvalidDirection` | - |
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/combinedsoundsource.h"
 source_file: "src/framework/sound/combinedsoundsource.h"
-generated_at: "2025-10-31T23:33:30.355Z"
+generated_at: "2025-11-01T00:11:49.058Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: CombinedSoundSource();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -218,9 +215,6 @@ void setFading(FadeState state, float fadetime);
 ```cpp
 protected: virtual void update();
 ```
-
-**Returns:**
-- `protected: virtual void`
 
 ---
 

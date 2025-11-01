@@ -1,59 +1,11 @@
 ---
 title: "src/framework/util/color.h"
 source_file: "src/framework/util/color.h"
-generated_at: "2025-10-31T23:33:30.367Z"
+generated_at: "2025-11-01T00:11:49.069Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/util/color.h
-
-(color)=
-## `Color`
-
-**Signature:**
-```cpp
-return Color(m_r, m_g, m_b, m_a * opacity);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `m_r` | - |
-| `` | `m_g` | - |
-| `` | `m_b` | - |
-| `m_a *` | `opacity` | - |
-
-**Returns:**
-- `return`
-
----
-
-(color)=
-## `Color`
-
-**Signature:**
-```cpp
-return Color(std::min<float>(1.0f, m_r + other.m_r), std::min<float>(1.0f, m_g + other.m_g), std::min<float>(1.0f, m_b + other.m_b), std::min<float>(1.0f, m_a + other.m_a));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `std::min&lt;float&gt;(1.0` | `f` | - |
-| `m_r + other.m_r)` | - | - |
-| `std::min&lt;float&gt;(1.0` | `f` | - |
-| `m_g + other.m_g)` | - | - |
-| `std::min&lt;float&gt;(1.0` | `f` | - |
-| `m_b + other.m_b)` | - | - |
-| `std::min&lt;float&gt;(1.0` | `f` | - |
-| `m_a + other.m_a)` | - | - |
-
-**Returns:**
-- `return`
-
----
 
 (tohex)=
 ## `toHex`
@@ -65,48 +17,6 @@ std::string toHex();
 
 **Returns:**
 - `std::string`
-
----
-
-(color)=
-## `Color`
-
-**Signature:**
-```cpp
-return Color(0, 0, 0);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `0` | - | - |
-| `0` | - | - |
-| `0` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(color)=
-## `Color`
-
-**Signature:**
-```cpp
-return Color(r, g, b);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `r` | - |
-| `` | `g` | - |
-| `` | `b` | - |
-
-**Returns:**
-- `return`
 
 ---
 
@@ -125,7 +35,7 @@ static Color getOutfitColor(int color);
 | `int` | `color` | - |
 
 **Returns:**
-- `static Color`
+- `Color`
 
 ---
 
@@ -145,28 +55,6 @@ out << dec << setfill(' ');
 
 **Returns:**
 - `out &lt;&lt; dec &lt;&lt;`
-
----
-
-(color)=
-## `Color`
-
-**Signature:**
-```cpp
-public: Color() : m_r(1.0f), m_g(1.0f), m_b(1.0f), m_a(1.0f);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : m_r(1.0f)` | - | - |
-| `m_g(1.0f)` | - | - |
-| `m_b(1.0f)` | - | - |
-| `m_a(1.0` | `f` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -338,7 +226,7 @@ void setAlpha(int a);
 
 ---
 
-(setred)=
+(setred-1)=
 ## `setRed`
 
 **Signature:**
@@ -354,7 +242,7 @@ void setRed(float r);
 
 ---
 
-(setgreen)=
+(setgreen-1)=
 ## `setGreen`
 
 **Signature:**
@@ -370,7 +258,7 @@ void setGreen(float g);
 
 ---
 
-(setblue)=
+(setblue-1)=
 ## `setBlue`
 
 **Signature:**
@@ -386,7 +274,7 @@ void setBlue(float b);
 
 ---
 
-(setalpha)=
+(setalpha-1)=
 ## `setAlpha`
 
 **Signature:**
@@ -412,16 +300,16 @@ void setRGBA(uint8 r, uint8 g, uint8 b, uint8 a = 0xFF);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `uint8` | `r` | - |
-| `uint8` | `g` | - |
-| `uint8` | `b` | - |
-| `uint8 a = 0` | `xFF` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `uint8` | `r` |  | - |
+| `uint8` | `g` |  | - |
+| `uint8` | `b` |  | - |
+| `uint8` | `a` | `0xFF` | - |
 
 ---
 
-(setrgba)=
+(setrgba-1)=
 ## `setRGBA`
 
 **Signature:**
@@ -490,7 +378,7 @@ static uint8 to8bit(const Color& color);
 | `const Color&` | `color` | - |
 
 **Returns:**
-- `static uint8`
+- `uint8`
 
 ---
 
@@ -509,11 +397,11 @@ static Color from8bit(int color);
 | `int` | `color` | - |
 
 **Returns:**
-- `static Color`
+- `Color`
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator<<`
 
 **Signature:**
@@ -529,11 +417,11 @@ inline std::ostream& operator<<(std::ostream& out, const Color& color);
 | `const Color&` | `color` | - |
 
 **Returns:**
-- `inline std::ostream&`
+- `std::ostream&`
 
 ---
 
-(operator)=
+(operator-2)=
 ## `operator>>`
 
 **Signature:**
@@ -549,6 +437,6 @@ inline std::istream& operator>>(std::istream& in, Color& color);
 | `Color&` | `color` | - |
 
 **Returns:**
-- `inline std::istream&`
+- `std::istream&`
 
 ---

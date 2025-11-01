@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/rect.h"
 source_file: "src/framework/util/rect.h"
-generated_at: "2025-10-31T23:33:30.369Z"
+generated_at: "2025-11-01T00:11:49.071Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,16 +17,16 @@ else if(align == Fw::AlignTopRight) moveTopRight(r.topRight());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignTopRight) moveTopRight(r.topRight()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignTopRight) moveTopRight(r.topRight()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-1)=
 ## `if`
 
 **Signature:**
@@ -36,16 +36,16 @@ else if(align == Fw::AlignTopCenter) moveTopCenter(r.topCenter());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignTopCenter) moveTopCenter(r.topCenter()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignTopCenter) moveTopCenter(r.topCenter()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-2)=
 ## `if`
 
 **Signature:**
@@ -55,16 +55,16 @@ else if(align == Fw::AlignBottomLeft) moveBottomLeft(r.bottomLeft());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignBottomLeft) moveBottomLeft(r.bottomLeft()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignBottomLeft) moveBottomLeft(r.bottomLeft()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-3)=
 ## `if`
 
 **Signature:**
@@ -74,16 +74,16 @@ else if(align == Fw::AlignBottomRight) moveBottomRight(r.bottomRight());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignBottomRight) moveBottomRight(r.bottomRight()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignBottomRight) moveBottomRight(r.bottomRight()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-4)=
 ## `if`
 
 **Signature:**
@@ -93,16 +93,16 @@ else if(align == Fw::AlignBottomCenter) moveBottomCenter(r.bottomCenter());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignBottomCenter) moveBottomCenter(r.bottomCenter()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignBottomCenter) moveBottomCenter(r.bottomCenter()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-5)=
 ## `if`
 
 **Signature:**
@@ -112,16 +112,16 @@ else if(align == Fw::AlignLeftCenter) moveCenterLeft(r.centerLeft());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignLeftCenter) moveCenterLeft(r.centerLeft()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignLeftCenter) moveCenterLeft(r.centerLeft()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-6)=
 ## `if`
 
 **Signature:**
@@ -131,16 +131,16 @@ else if(align == Fw::AlignCenter) moveCenter(r.center());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignCenter) moveCenter(r.center()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignCenter) moveCenter(r.center()` | - |
 
 **Returns:**
 - `else`
 
 ---
 
-(if)=
+(if-7)=
 ## `if`
 
 **Signature:**
@@ -150,34 +150,12 @@ else if(align == Fw::AlignRightCenter) moveCenterRight(r.centerRight());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `align == Fw::AlignRightCenter) moveCenterRight(r.centerRight()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `align` | - | `= Fw::AlignRightCenter) moveCenterRight(r.centerRight()` | - |
 
 **Returns:**
 - `else`
-
----
-
-(trect)=
-## `TRect`
-
-**Signature:**
-```cpp
-public: TRect() : x1(0), y1(0), x2(-1), y2(-1);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : x1(0)` | - | - |
-| `y1(0)` | - | - |
-| `x2(-1)` | - | - |
-| `y2(-1` | - | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -229,7 +207,7 @@ inline T left();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -242,7 +220,7 @@ inline T top();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -255,7 +233,7 @@ inline T right();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -268,7 +246,7 @@ inline T bottom();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -281,7 +259,7 @@ inline T horizontalCenter();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -294,7 +272,7 @@ inline T verticalCenter();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -307,7 +285,7 @@ inline T x();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -320,7 +298,7 @@ inline T y();
 ```
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -582,7 +560,7 @@ void setTopLeft(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -598,7 +576,7 @@ void setBottomRight(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -614,7 +592,7 @@ void setTopRight(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -630,7 +608,7 @@ void setBottomLeft(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -803,7 +781,7 @@ void expand(T top, T right, T bottom, T left);
 
 ---
 
-(expand)=
+(expand-1)=
 ## `expand`
 
 **Signature:**
@@ -836,7 +814,7 @@ void translate(T x, T y);
 
 ---
 
-(translate)=
+(translate-1)=
 ## `translate`
 
 **Signature:**
@@ -848,7 +826,7 @@ void translate(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -868,7 +846,7 @@ void resize(const TSize<T>& size);
 
 ---
 
-(resize)=
+(resize-1)=
 ## `resize`
 
 **Signature:**
@@ -902,7 +880,7 @@ void move(T x, T y);
 
 ---
 
-(move)=
+(move-1)=
 ## `move`
 
 **Signature:**
@@ -914,7 +892,7 @@ void move(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -994,7 +972,7 @@ void moveTopLeft(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1010,7 +988,7 @@ void moveBottomRight(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1026,7 +1004,7 @@ void moveTopRight(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1042,7 +1020,7 @@ void moveBottomLeft(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1058,7 +1036,7 @@ void moveTopCenter(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1074,7 +1052,7 @@ void moveBottomCenter(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1090,7 +1068,7 @@ void moveCenterLeft(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1106,7 +1084,7 @@ void moveCenterRight(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1130,7 +1108,7 @@ TRect<T> translated(int x, int y);
 
 ---
 
-(translated)=
+(translated-1)=
 ## `translated`
 
 **Signature:**
@@ -1142,7 +1120,7 @@ TRect<T> translated(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 **Returns:**
 - `TRect&lt;T&gt;`
@@ -1180,7 +1158,7 @@ void moveCenter(const TPoint<T> &p);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
+| `const TPoint&lt;T&gt; &p` | - | - |
 
 ---
 
@@ -1226,17 +1204,17 @@ bool contains(const TPoint<T> &p, bool insideOnly = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const TPoint&lt;T&gt; &` | `p` | - |
-| `bool insideOnly =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const TPoint&lt;T&gt; &p` | - |  | - |
+| `bool` | `insideOnly` | `false` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(contains)=
+(contains-1)=
 ## `contains`
 
 **Signature:**
@@ -1246,10 +1224,10 @@ bool contains(const TRect<T> &r, bool insideOnly = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const TRect&lt;T&gt; &` | `r` | - |
-| `bool insideOnly =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const TRect&lt;T&gt; &r` | - |  | - |
+| `bool` | `insideOnly` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -1268,7 +1246,7 @@ bool intersects(const TRect<T> &r);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TRect&lt;T&gt; &` | `r` | - |
+| `const TRect&lt;T&gt; &r` | - | - |
 
 **Returns:**
 - `bool`
@@ -1287,7 +1265,7 @@ TRect<T> united(const TRect<T> &r);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TRect&lt;T&gt; &` | `r` | - |
+| `const TRect&lt;T&gt; &r` | - | - |
 
 **Returns:**
 - `TRect&lt;T&gt;`
@@ -1306,7 +1284,7 @@ TRect<T> intersection(const TRect<T> &r);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TRect&lt;T&gt; &` | `r` | - |
+| `const TRect&lt;T&gt; &r` | - | - |
 
 **Returns:**
 - `TRect&lt;T&gt;`
@@ -1325,7 +1303,7 @@ void bind(const TRect<T> &r);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TRect&lt;T&gt; &` | `r` | - |
+| `const TRect&lt;T&gt; &r` | - | - |
 
 ---
 
@@ -1341,7 +1319,7 @@ void alignIn(const TRect<T> &r, Fw::AlignmentFlag align);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const TRect&lt;T&gt; &` | `r` | - |
+| `const TRect&lt;T&gt; &r` | - | - |
 | `Fw::AlignmentFlag` | `align` | - |
 
 ---
@@ -1365,7 +1343,7 @@ TRect<T> operator*(float num);
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator<<`
 
 **Signature:**
@@ -1385,7 +1363,7 @@ std::ostream& operator<<(std::ostream& out, const TRect<T>& rect);
 
 ---
 
-(operator)=
+(operator-2)=
 ## `operator>>`
 
 **Signature:**

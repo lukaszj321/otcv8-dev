@@ -1,7 +1,7 @@
 ---
 title: "src/android/android_native_app_glue.h"
 source_file: "src/android/android_native_app_glue.h"
-generated_at: "2025-10-31T23:33:30.315Z"
+generated_at: "2025-11-01T00:11:49.013Z"
 doc_type: "cpp_api"
 ---
 

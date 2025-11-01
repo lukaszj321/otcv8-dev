@@ -1,32 +1,11 @@
 ---
 title: "src/framework/util/databuffer.h"
 source_file: "src/framework/util/databuffer.h"
-generated_at: "2025-10-31T23:33:30.368Z"
+generated_at: "2025-11-01T00:11:49.070Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/util/databuffer.h
-
-(databuffer)=
-## `DataBuffer`
-
-**Signature:**
-```cpp
-public: DataBuffer(uint res = 64) : m_size(0), m_capacity(res), m_buffer(new T[m_capacity]);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `uint res = 64) : m_size(0)` | - | - |
-| `m_capacity(res)` | - | - |
-| `m_buffer(new T[m_capacity]` | - | - |
-
-**Returns:**
-- `public:`
-
----
 
 (reset)=
 ## `reset`
@@ -35,9 +14,6 @@ public: DataBuffer(uint res = 64) : m_size(0), m_capacity(res), m_buffer(new T[m
 ```cpp
 inline void reset();
 ```
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -48,9 +24,6 @@ inline void reset();
 ```cpp
 inline void clear();
 ```
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -63,7 +36,7 @@ inline bool empty();
 ```
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
@@ -76,7 +49,7 @@ inline uint size();
 ```
 
 **Returns:**
-- `inline uint`
+- `uint`
 
 ---
 
@@ -95,7 +68,7 @@ inline const T& at(uint i);
 | `uint` | `i` | - |
 
 **Returns:**
-- `inline const T&`
+- `const T&`
 
 ---
 
@@ -108,7 +81,7 @@ inline const T& last();
 ```
 
 **Returns:**
-- `inline const T&`
+- `const T&`
 
 ---
 
@@ -121,7 +94,7 @@ inline const T& first();
 ```
 
 **Returns:**
-- `inline const T&`
+- `const T&`
 
 ---
 
@@ -139,9 +112,6 @@ inline void reserve(uint n);
 |------|------|-------------|
 | `uint` | `n` | - |
 
-**Returns:**
-- `inline void`
-
 ---
 
 (resize)=
@@ -154,13 +124,10 @@ inline void resize(uint n, T def = T());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `uint` | `n` | - |
-| `T def = T()` | - | - |
-
-**Returns:**
-- `inline void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `uint` | `n` |  | - |
+| `T` | `def` | `T()` | - |
 
 ---
 
@@ -174,13 +141,10 @@ inline void grow(uint n, bool precise = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `uint` | `n` | - |
-| `bool precise =` | `false` | - |
-
-**Returns:**
-- `inline void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `uint` | `n` |  | - |
+| `bool` | `precise` | `false` | - |
 
 ---
 
@@ -197,8 +161,5 @@ inline void add(const T& v);
 | Type | Name | Description |
 |------|------|-------------|
 | `const T&` | `v` | - |
-
-**Returns:**
-- `inline void`
 
 ---

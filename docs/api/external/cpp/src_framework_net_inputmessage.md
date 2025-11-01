@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/inputmessage.h"
 source_file: "src/framework/net/inputmessage.h"
-generated_at: "2025-10-31T23:33:30.349Z"
+generated_at: "2025-11-01T00:11:49.051Z"
 doc_type: "cpp_api"
 ---
 
@@ -128,9 +128,6 @@ bool decryptRsa(int size);
 protected: void reset();
 ```
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (fillbuffer)=
@@ -145,7 +142,7 @@ void fillBuffer(uint8 *buffer, uint32 size);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `uint8 *` | `buffer` | - |
+| `uint8 *buffer` | - | - |
 | `uint32` | `size` | - |
 
 ---
@@ -204,7 +201,7 @@ private: bool canRead(int bytes);
 | `int` | `bytes` | - |
 
 **Returns:**
-- `private: bool`
+- `bool`
 
 ---
 

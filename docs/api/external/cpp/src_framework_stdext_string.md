@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/string.h"
 source_file: "src/framework/stdext/string.h"
-generated_at: "2025-10-31T23:33:30.362Z"
+generated_at: "2025-11-01T00:11:49.064Z"
 doc_type: "cpp_api"
 ---
 
@@ -82,7 +82,7 @@ std::string dec_to_hex(uint32_t num);
 
 ---
 
-(dec_to_hex)=
+(dec_to_hex-1)=
 ## `dec_to_hex`
 
 **Signature:**
@@ -423,10 +423,10 @@ std::vector<std::string> split(const std::string& str, const std::string& separa
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `str` | - |
-| `const std::string& separators = " "` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `str` |  | - |
+| `const std::string&` | `separators` | `" "` | - |
 
 **Returns:**
 - `std::vector&lt;std::string&gt;`
@@ -481,17 +481,17 @@ template<typename T> T from_string(const std::string& str, T def = T());
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `str` | - |
-| `T def = T()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `str` |  | - |
+| `T` | `def` | `T()` | - |
 
 **Returns:**
 - `template&lt;typename T&gt; T`
 
 ---
 
-(split)=
+(split-1)=
 ## `split`
 
 **Signature:**
@@ -501,10 +501,10 @@ std::vector<T> split(const std::string& str, const std::string& separators = " "
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `str` | - |
-| `const std::string& separators = " "` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `str` |  | - |
+| `const std::string&` | `separators` | `" "` | - |
 
 **Returns:**
 - `std::vector&lt;T&gt;`

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/oggsoundfile.h"
 source_file: "src/framework/sound/oggsoundfile.h"
-generated_at: "2025-10-31T23:33:30.356Z"
+generated_at: "2025-11-01T00:11:49.058Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: OggSoundFile(const FileStreamPtr& fileStream);
 | Type | Name | Description |
 |------|------|-------------|
 | `const FileStreamPtr&` | `fileStream` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -51,7 +48,7 @@ int read(void *buffer, int bufferSize);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `void *` | `buffer` | - |
+| `void *buffer` | - | - |
 | `int` | `bufferSize` | - |
 
 **Returns:**
@@ -87,7 +84,7 @@ private: static size_t cb_read(void* ptr, size_t size, size_t nmemb, void* sourc
 | `void*` | `source` | - |
 
 **Returns:**
-- `private: static size_t`
+- `size_t`
 
 ---
 
@@ -108,7 +105,7 @@ static int cb_seek(void* source, ogg_int64_t offset, int whence);
 | `int` | `whence` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -127,7 +124,7 @@ static int cb_close(void* source);
 | `void*` | `source` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -146,6 +143,6 @@ static long cb_tell(void* source);
 | `void*` | `source` | - |
 
 **Returns:**
-- `static long`
+- `long`
 
 ---

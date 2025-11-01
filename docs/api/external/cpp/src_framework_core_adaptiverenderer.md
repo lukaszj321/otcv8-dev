@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/adaptiverenderer.h"
 source_file: "src/framework/core/adaptiverenderer.h"
-generated_at: "2025-10-31T23:33:30.332Z"
+generated_at: "2025-11-01T00:11:49.032Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void newFrame();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 

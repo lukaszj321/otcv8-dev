@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlemitter.h"
 source_file: "src/framework/otml/otmlemitter.h"
-generated_at: "2025-10-31T23:33:30.351Z"
+generated_at: "2025-11-01T00:11:49.053Z"
 doc_type: "cpp_api"
 ---
 
@@ -19,12 +19,12 @@ static std::string emitNode(const OTMLNodePtr& node, int currentDepth = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const OTMLNodePtr&` | `node` | - |
-| `int currentDepth = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const OTMLNodePtr&` | `node` |  | - |
+| `int` | `currentDepth` | `-1` | - |
 
 **Returns:**
-- `static std::string`
+- `std::string`
 
 ---

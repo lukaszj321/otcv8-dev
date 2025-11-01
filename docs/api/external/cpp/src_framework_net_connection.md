@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/connection.h"
 source_file: "src/framework/net/connection.h"
-generated_at: "2025-10-31T23:33:30.349Z"
+generated_at: "2025-11-01T00:11:49.051Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: Connection();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (poll)=
@@ -28,9 +25,6 @@ public: Connection();
 static void poll();
 ```
 
-**Returns:**
-- `static void`
-
 ---
 
 (terminate)=
@@ -40,9 +34,6 @@ static void poll();
 ```cpp
 static void terminate();
 ```
-
-**Returns:**
-- `static void`
 
 ---
 
@@ -167,9 +158,6 @@ protected: void internal_connect(asio::ip::basic_resolver<asio::ip::tcp>::iterat
 | Type | Name | Description |
 |------|------|-------------|
 | `asio::ip::basic_resolver&lt;asio::ip::tcp&gt;::iterator` | `endpointIterator` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luaexception.h"
 source_file: "src/framework/luaengine/luaexception.h"
-generated_at: "2025-10-31T23:33:30.347Z"
+generated_at: "2025-11-01T00:11:49.048Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,13 +17,10 @@ public: LuaException(const std::string& error, int traceLevel = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `error` | - |
-| `int traceLevel = -1` | - | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `error` |  | - |
+| `int` | `traceLevel` | `-1` | - |
 
 ---
 
@@ -54,13 +51,10 @@ public: LuaBadNumberOfArgumentsException(int expected = -1, int got = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int expected = -1` | - | - |
-| `int got = -1` | - | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `expected` | `-1` | - |
+| `int` | `got` | `-1` | - |
 
 ---
 
@@ -79,9 +73,6 @@ public: LuaBadValueCastException(const std::string& luaTypeName, const std::stri
 | `const std::string&` | `luaTypeName` | - |
 | `const std::string&` | `cppTypeName` | - |
 
-**Returns:**
-- `public:`
-
 ---
 
 (what)=
@@ -99,19 +90,16 @@ virtual const char* what() const throw();
 | `) const throw(` | - | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
-(luaexception)=
+(luaexception-1)=
 ## `LuaException`
 
 **Signature:**
 ```cpp
 protected: LuaException();
 ```
-
-**Returns:**
-- `protected:`
 
 ---

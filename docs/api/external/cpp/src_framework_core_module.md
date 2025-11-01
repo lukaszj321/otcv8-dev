@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/module.h"
 source_file: "src/framework/core/module.h"
-generated_at: "2025-10-31T23:33:30.336Z"
+generated_at: "2025-11-01T00:11:49.036Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: Module(const std::string& name);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `name` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -85,10 +82,10 @@ bool hasDependency(const std::string& name, bool recursive = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `name` | - |
-| `bool recursive =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `name` |  | - |
+| `bool` | `recursive` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -107,7 +104,7 @@ int getSandbox(LuaInterface *lua);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `LuaInterface *` | `lua` | - |
+| `LuaInterface *lua` | - | - |
 
 **Returns:**
 - `int`
@@ -127,9 +124,6 @@ protected: void discover(const OTMLNodePtr& moduleNode);
 | Type | Name | Description |
 |------|------|-------------|
 | `const OTMLNodePtr&` | `moduleNode` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

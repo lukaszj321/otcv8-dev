@@ -1,7 +1,7 @@
 ---
 title: "src/framework/proxy/proxy_client.h"
 source_file: "src/framework/proxy/proxy_client.h"
-generated_at: "2025-10-31T23:33:30.355Z"
+generated_at: "2025-11-01T00:11:49.057Z"
 doc_type: "cpp_api"
 ---
 
@@ -99,12 +99,9 @@ private: void check(const boost::system::error_code& ec = boost::system::error_c
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const boost::system::error_code& ec = boost::system::error_code()` | - | - |
-
-**Returns:**
-- `private: void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const boost::system::error_code&` | `ec` | `boost::system::error_code()` | - |
 
 ---
 
@@ -215,7 +212,7 @@ void onSent(const boost::system::error_code& ec, std::size_t bytes_transferred);
 
 ---
 
-(start)=
+(start-1)=
 ## `start`
 
 **Signature:**
@@ -225,13 +222,13 @@ void start(int maxConnections = 3);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int maxConnections = 3` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `maxConnections` | `3` | - |
 
 ---
 
-(terminate)=
+(terminate-1)=
 ## `terminate`
 
 **Signature:**
@@ -241,13 +238,13 @@ void terminate(boost::system::error_code ec = boost::asio::error::eof);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `boost::system::error_code ec = boost::asio::error::` | `eof` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `boost::system::error_code` | `ec` | `boost::asio::error::eof` | - |
 
 ---
 
-(onpacket)=
+(onpacket-1)=
 ## `onPacket`
 
 **Signature:**
@@ -281,7 +278,7 @@ void onProxyPacket(uint32_t packetId, uint32_t lastRecivedPacketId, const ProxyP
 
 ---
 
-(check)=
+(check-1)=
 ## `check`
 
 **Signature:**
@@ -294,9 +291,6 @@ private: void check(const boost::system::error_code& ec);
 | Type | Name | Description |
 |------|------|-------------|
 | `const boost::system::error_code&` | `ec` | - |
-
-**Returns:**
-- `private: void`
 
 ---
 
@@ -320,7 +314,7 @@ void readTibia12Header();
 
 ---
 
-(readheader)=
+(readheader-1)=
 ## `readHeader`
 
 **Signature:**
@@ -330,7 +324,7 @@ void readHeader();
 
 ---
 
-(onheader)=
+(onheader-1)=
 ## `onHeader`
 
 **Signature:**
@@ -364,7 +358,7 @@ void onBody(const boost::system::error_code& ec, std::size_t bytes_transferred);
 
 ---
 
-(onsent)=
+(onsent-1)=
 ## `onSent`
 
 **Signature:**
@@ -378,32 +372,6 @@ void onSent(const boost::system::error_code& ec, std::size_t bytes_transferred);
 |------|------|-------------|
 | `const boost::system::error_code&` | `ec` | - |
 | `std::size_t` | `bytes_transferred` | - |
-
----
-
-(proxy)=
-## `Proxy`
-
-**Signature:**
-```cpp
-public: Proxy(boost::asio::io_context& io, const std::string& host, uint16_t port, int priority) : m_io(io), m_timer(io), m_socket(io), m_resolver(io), m_state(STATE_NOT_CONNECTED);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `boost::asio::io_context&` | `io` | - |
-| `const std::string&` | `host` | - |
-| `uint16_t` | `port` | - |
-| `int priority) : m_io(io)` | - | - |
-| `m_timer(io)` | - | - |
-| `m_socket(io)` | - | - |
-| `m_resolver(io)` | - | - |
-| `m_state(` | `STATE_NOT_CONNECTED` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -495,29 +463,6 @@ bool isActive();
 
 **Returns:**
 - `bool`
-
----
-
-(session)=
-## `Session`
-
-**Signature:**
-```cpp
-public: Session(boost::asio::io_context& io, boost::asio::ip::tcp::socket socket, int port) : m_io(io), m_timer(io), m_socket(std::move(socket));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `boost::asio::io_context&` | `io` | - |
-| `boost::asio::ip::tcp::socket` | `socket` | - |
-| `int port) : m_io(io)` | - | - |
-| `m_timer(io)` | - | - |
-| `m_socket(std::move(socket)` | - | - |
-
-**Returns:**
-- `public:`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/input/mouse.h"
 source_file: "src/framework/input/mouse.h"
-generated_at: "2025-10-31T23:33:30.346Z"
+generated_at: "2025-11-01T00:11:49.047Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 

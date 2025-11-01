@@ -1,7 +1,7 @@
 ---
 title: "src/framework/http/http.h"
 source_file: "src/framework/http/http.h"
-generated_at: "2025-10-31T23:33:30.345Z"
+generated_at: "2025-11-01T00:11:49.046Z"
 doc_type: "cpp_api"
 ---
 
@@ -37,10 +37,10 @@ int get(const std::string& url, int timeout = 5);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `url` | - |
-| `int timeout = 5` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `url` |  | - |
+| `int` | `timeout` | `5` | - |
 
 **Returns:**
 - `int`
@@ -57,12 +57,12 @@ int post(const std::string& url, const std::string& data, int timeout = 5, bool 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `url` | - |
-| `const std::string&` | `data` | - |
-| `int timeout = 5` | - | - |
-| `bool isJson =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `url` |  | - |
+| `const std::string&` | `data` |  | - |
+| `int` | `timeout` | `5` | - |
+| `bool` | `isJson` | `false` | - |
 
 **Returns:**
 - `int`
@@ -79,11 +79,11 @@ int download(const std::string& url, std::string path, int timeout = 5);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `url` | - |
-| `std::string` | `path` | - |
-| `int timeout = 5` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `url` |  | - |
+| `std::string` | `path` |  | - |
+| `int` | `timeout` | `5` | - |
 
 **Returns:**
 - `int`
@@ -100,10 +100,10 @@ int ws(const std::string& url, int timeout = 5);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `url` | - |
-| `int timeout = 5` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `url` |  | - |
+| `int` | `timeout` | `5` | - |
 
 **Returns:**
 - `int`
@@ -165,26 +165,6 @@ bool cancel(int id);
 
 **Returns:**
 - `bool`
-
----
-
-(http)=
-## `Http`
-
-**Signature:**
-```cpp
-public: Http() : m_ios(), m_guard(boost::asio::make_work_guard(m_ios));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : m_ios()` | - | - |
-| `m_guard(boost::asio::make_work_guard(m_ios)` | - | - |
-
-**Returns:**
-- `public:`
 
 ---
 

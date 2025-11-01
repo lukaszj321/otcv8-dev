@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/soundmanager.h"
 source_file: "src/framework/sound/soundmanager.h"
-generated_at: "2025-10-31T23:33:30.357Z"
+generated_at: "2025-11-01T00:11:49.059Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -92,11 +89,11 @@ SoundSourcePtr play(std::string filename, float fadetime = 0, float gain = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string` | `filename` | - |
-| `float fadetime = 0` | - | - |
-| `float gain = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string` | `filename` |  | - |
+| `float` | `fadetime` | `0` | - |
+| `float` | `gain` | `0` | - |
 
 **Returns:**
 - `SoundSourcePtr`
@@ -166,7 +163,7 @@ private: SoundSourcePtr createSoundSource(const std::string& filename);
 | `const std::string&` | `filename` | - |
 
 **Returns:**
-- `private: SoundSourcePtr`
+- `SoundSourcePtr`
 
 ---
 

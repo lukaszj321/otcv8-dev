@@ -1,96 +1,11 @@
 ---
 title: "src/framework/stdext/format.h"
 source_file: "src/framework/stdext/format.h"
-generated_at: "2025-10-31T23:33:30.360Z"
+generated_at: "2025-11-01T00:11:49.062Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/stdext/format.h
-
-(_snprintf)=
-## `_snprintf`
-
-**Signature:**
-```cpp
-return _snprintf(s, maxlen, format, args...);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `s` | - |
-| `` | `maxlen` | - |
-| `` | `format` | - |
-| `args...` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(snprintf)=
-## `snprintf`
-
-**Signature:**
-```cpp
-return snprintf(s, maxlen, format, args...);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `s` | - |
-| `` | `maxlen` | - |
-| `` | `format` | - |
-| `args...` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(expand_snprintfstdtuple_sizedecltype)=
-## `expand_snprintf<std::tuple_size<decltype`
-
-**Signature:**
-```cpp
-return expand_snprintf<std::tuple_size<decltype(tuple)>::value>::call(s, maxlen, format, tuple);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `tuple)&gt;::value&gt;::call(` | `s` | - |
-| `` | `maxlen` | - |
-| `` | `format` | - |
-| `` | `tuple` | - |
-
-**Returns:**
-- `return`
-
----
-
-(strlen)=
-## `strlen`
-
-**Signature:**
-```cpp
-return strlen(s);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `s` | - |
-
-**Returns:**
-- `return`
-
----
 
 (buffer)=
 ## `buffer`
@@ -129,7 +44,7 @@ void print_ostream(std::ostringstream& stream, const T& last);
 
 ---
 
-(print_ostream)=
+(print_ostream-1)=
 ## `print_ostream`
 
 **Signature:**
@@ -175,18 +90,18 @@ static int call(char *s, size_t maxlen, const char *format, const Tuple& tuple, 
 
 | Type | Name | Description |
 |------|------|-------------|
-| `char *` | `s` | - |
+| `char *s` | - | - |
 | `size_t` | `maxlen` | - |
-| `const char *` | `format` | - |
+| `const char *format` | - | - |
 | `const Tuple&` | `tuple` | - |
 | `const Args&...` | `args` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
-(call)=
+(call-1)=
 ## `call`
 
 **Signature:**
@@ -198,14 +113,14 @@ static int call(char *s, size_t maxlen, const char *format, const Tuple& tuple, 
 
 | Type | Name | Description |
 |------|------|-------------|
-| `char *` | `s` | - |
+| `char *s` | - | - |
 | `size_t` | `maxlen` | - |
-| `const char *` | `format` | - |
+| `const char *format` | - | - |
 | `const Tuple&` | `tuple` | - |
 | `const Args&...` | `args` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -221,9 +136,9 @@ int snprintf(char *s, size_t maxlen, const char *format, const Args&... args);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `char *` | `s` | - |
+| `char *s` | - | - |
 | `size_t` | `maxlen` | - |
-| `const char *` | `format` | - |
+| `const char *format` | - | - |
 | `const Args&...` | `args` | - |
 
 **Returns:**
@@ -231,7 +146,7 @@ int snprintf(char *s, size_t maxlen, const char *format, const Args&... args);
 
 ---
 
-(snprintf)=
+(snprintf-1)=
 ## `snprintf`
 
 **Signature:**
@@ -243,12 +158,12 @@ inline int snprintf(char *s, size_t maxlen, const char *format);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `char *` | `s` | - |
+| `char *s` | - | - |
 | `size_t` | `maxlen` | - |
-| `const char *` | `format` | - |
+| `const char *format` | - | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
@@ -261,11 +176,11 @@ inline std::string format();
 ```
 
 **Returns:**
-- `inline std::string`
+- `std::string`
 
 ---
 
-(format)=
+(format-1)=
 ## `format`
 
 **Signature:**
@@ -280,11 +195,11 @@ inline std::string format(const std::string& format);
 | `const std::string&` | `format` | - |
 
 **Returns:**
-- `inline std::string`
+- `std::string`
 
 ---
 
-(format)=
+(format-2)=
 ## `format`
 
 **Signature:**

@@ -1,7 +1,7 @@
 ---
 title: "src/client/thingtype.h"
 source_file: "src/client/thingtype.h"
-generated_at: "2025-10-31T23:33:30.328Z"
+generated_at: "2025-11-01T00:11:49.027Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: ThingType();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -108,7 +105,7 @@ void replaceSprites(std::map<uint32_t, ImagePtr>& replacements, std::string file
 
 | Type | Name | Description |
 |------|------|-------------|
-| `std::map<uint32_t, ImagePtr>&` | `replacements` | - |
+| `std::map&lt;uint32_t, ImagePtr&gt;&` | `replacements` | - |
 | `std::string` | `fileName` | - |
 
 ---
@@ -123,23 +120,23 @@ DrawQueueItem* draw(const Point& dest, int layer, int xPattern, int yPattern, in
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `int` | `layer` | - |
-| `int` | `xPattern` | - |
-| `int` | `yPattern` | - |
-| `int` | `zPattern` | - |
-| `int` | `animationPhase` | - |
-| `Color color = Color::` | `white` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `int` | `layer` |  | - |
+| `int` | `xPattern` |  | - |
+| `int` | `yPattern` |  | - |
+| `int` | `zPattern` |  | - |
+| `int` | `animationPhase` |  | - |
+| `Color` | `color` | `Color::white` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 **Returns:**
 - `DrawQueueItem*`
 
 ---
 
-(draw)=
+(draw-1)=
 ## `draw`
 
 **Signature:**
@@ -149,15 +146,15 @@ DrawQueueItem* draw(const Rect& dest, int layer, int xPattern, int yPattern, int
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `int` | `layer` | - |
-| `int` | `xPattern` | - |
-| `int` | `yPattern` | - |
-| `int` | `zPattern` | - |
-| `int` | `animationPhase` | - |
-| `Color color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `int` | `layer` |  | - |
+| `int` | `xPattern` |  | - |
+| `int` | `yPattern` |  | - |
+| `int` | `zPattern` |  | - |
+| `int` | `animationPhase` |  | - |
+| `Color` | `color` | `Color::white` | - |
 
 **Returns:**
 - `DrawQueueItem*`
@@ -174,16 +171,16 @@ std::shared_ptr<DrawOutfitParams> drawOutfit(const Point& dest, int maskLayer, i
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `int` | `maskLayer` | - |
-| `int` | `xPattern` | - |
-| `int` | `yPattern` | - |
-| `int` | `zPattern` | - |
-| `int` | `animationPhase` | - |
-| `Color color = Color::` | `white` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `int` | `maskLayer` |  | - |
+| `int` | `xPattern` |  | - |
+| `int` | `yPattern` |  | - |
+| `int` | `zPattern` |  | - |
+| `int` | `animationPhase` |  | - |
+| `Color` | `color` | `Color::white` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 **Returns:**
 - `std::shared_ptr&lt;DrawOutfitParams&gt;`
@@ -224,21 +221,21 @@ void drawWithShader(const Point& dest, int layer, int xPattern, int yPattern, in
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `int` | `layer` | - |
-| `int` | `xPattern` | - |
-| `int` | `yPattern` | - |
-| `int` | `zPattern` | - |
-| `int` | `animationPhase` | - |
-| `const std::string&` | `shader` | - |
-| `Color color = Color::` | `white` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `int` | `layer` |  | - |
+| `int` | `xPattern` |  | - |
+| `int` | `yPattern` |  | - |
+| `int` | `zPattern` |  | - |
+| `int` | `animationPhase` |  | - |
+| `const std::string&` | `shader` |  | - |
+| `Color` | `color` | `Color::white` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
-(drawwithshader)=
+(drawwithshader-1)=
 ## `drawWithShader`
 
 **Signature:**
@@ -248,16 +245,16 @@ void drawWithShader(const Rect& dest, int layer, int xPattern, int yPattern, int
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `int` | `layer` | - |
-| `int` | `xPattern` | - |
-| `int` | `yPattern` | - |
-| `int` | `zPattern` | - |
-| `int` | `animationPhase` | - |
-| `const std::string&` | `shader` | - |
-| `Color color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `int` | `layer` |  | - |
+| `int` | `xPattern` |  | - |
+| `int` | `yPattern` |  | - |
+| `int` | `zPattern` |  | - |
+| `int` | `animationPhase` |  | - |
+| `const std::string&` | `shader` |  | - |
+| `Color` | `color` | `Color::white` | - |
 
 ---
 
@@ -271,13 +268,13 @@ int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int layer = 0` | - | - |
-| `int xPattern = 0` | - | - |
-| `int yPattern = 0` | - | - |
-| `int zPattern = 0` | - | - |
-| `int animationPhase = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `layer` | `0` | - |
+| `int` | `xPattern` | `0` | - |
+| `int` | `yPattern` | `0` | - |
+| `int` | `zPattern` | `0` | - |
+| `int` | `animationPhase` | `0` | - |
 
 **Returns:**
 - `int`
@@ -315,7 +312,7 @@ private: const TexturePtr& getTexture(int animationPhase);
 | `int` | `animationPhase` | - |
 
 **Returns:**
-- `private: const TexturePtr&`
+- `const TexturePtr&`
 
 ---
 

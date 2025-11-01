@@ -1,7 +1,7 @@
 ---
 title: "src/client/tile.h"
 source_file: "src/client/tile.h"
-generated_at: "2025-10-31T23:33:30.329Z"
+generated_at: "2025-11-01T00:11:49.028Z"
 doc_type: "cpp_api"
 ---
 
@@ -27,10 +27,10 @@ void drawGround(const Point& dest, LightView* lightView = nullptr);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
@@ -44,10 +44,10 @@ void drawBottom(const Point& dest, LightView* lightView = nullptr);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
@@ -61,10 +61,10 @@ void drawCreatures(const Point& dest, LightView* lightView = nullptr);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
@@ -78,10 +78,10 @@ void drawTop(const Point& dest, LightView* lightView = nullptr);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
@@ -124,9 +124,6 @@ void drawWidget(Point dest);
 ```cpp
 public: void clean();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -497,9 +494,9 @@ bool isWalkable(bool ignoreCreatures = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool ignoreCreatures =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `ignoreCreatures` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -672,9 +669,9 @@ bool limitsFloorsView(bool isFreeView = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool isFreeView =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `isFreeView` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -717,9 +714,9 @@ bool hasElevation(int elevation = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `elevation` | Default: `1` |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `elevation` | `1` | - |
 
 **Returns:**
 - `bool`
@@ -828,9 +825,6 @@ bool canShoot(int distance);
 ```cpp
 private: void checkTranslucentLight();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

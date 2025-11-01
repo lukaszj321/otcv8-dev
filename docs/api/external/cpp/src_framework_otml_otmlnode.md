@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlnode.h"
 source_file: "src/framework/otml/otmlnode.h"
-generated_at: "2025-10-31T23:33:30.352Z"
+generated_at: "2025-11-01T00:11:49.054Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,17 +17,17 @@ static OTMLNodePtr create(std::string tag = "", bool unique = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string tag = ""` | - | - |
-| `bool unique =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string` | `tag` | `""` | - |
+| `bool` | `unique` | `false` | - |
 
 **Returns:**
-- `static OTMLNodePtr`
+- `OTMLNodePtr`
 
 ---
 
-(create)=
+(create-1)=
 ## `create`
 
 **Signature:**
@@ -43,7 +43,7 @@ static OTMLNodePtr create(std::string tag, std::string value);
 | `std::string` | `value` | - |
 
 **Returns:**
-- `static OTMLNodePtr`
+- `OTMLNodePtr`
 
 ---
 
@@ -294,7 +294,7 @@ virtual std::string emit();
 ```
 
 **Returns:**
-- `virtual std::string`
+- `std::string`
 
 ---
 
@@ -312,7 +312,7 @@ throw OTMLException(asOTMLNode(), stdext::format("failed to cast node value '%s'
 |------|------|-------------|
 | `asOTMLNode()` | - | - |
 | `stdext::format("failed to cast node value '%s' to type '%s'"` | - | - |
-| `` | `m_value` | - |
+| `m_value` | - | - |
 | `stdext::demangle_type&lt;T&gt;())` | - | - |
 
 **Returns:**
@@ -443,7 +443,7 @@ bool hasChildAt(const std::string& childTag);
 
 ---
 
-(getindex)=
+(getindex-1)=
 ## `getIndex`
 
 **Signature:**
@@ -559,26 +559,6 @@ OTMLNodePtr asOTMLNode();
 
 ---
 
-(otmlnode)=
-## `OTMLNode`
-
-**Signature:**
-```cpp
-protected: OTMLNode() : m_unique(false), m_null(false);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : m_unique(false)` | - | - |
-| `m_null(` | `false` | - |
-
-**Returns:**
-- `protected:`
-
----
-
 (otmlnodevaluestdstring)=
 ## `OTMLNode::value<std::string>`
 
@@ -624,7 +604,7 @@ template<typename T> T OTMLNode::valueAt(const std::string& childTag);
 
 ---
 
-(otmlnodevalueat)=
+(otmlnodevalueat-1)=
 ## `OTMLNode::valueAt`
 
 **Signature:**

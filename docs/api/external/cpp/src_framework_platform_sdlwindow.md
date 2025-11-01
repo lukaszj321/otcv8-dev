@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/sdlwindow.h"
 source_file: "src/framework/platform/sdlwindow.h"
-generated_at: "2025-10-31T23:33:30.354Z"
+generated_at: "2025-11-01T00:11:49.056Z"
 doc_type: "cpp_api"
 ---
 
@@ -84,9 +84,6 @@ void internalConnectGLContext();
 ```cpp
 public: SDLWindow();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 

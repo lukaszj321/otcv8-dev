@@ -1,7 +1,7 @@
 ---
 title: "src/client/animator.h"
 source_file: "src/client/animator.h"
-generated_at: "2025-10-31T23:33:30.316Z"
+generated_at: "2025-11-01T00:11:49.014Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Animator();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -92,10 +89,10 @@ int getPhaseAt(Timer& timer, int lastPhase = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Timer&` | `timer` | - |
-| `int lastPhase = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Timer&` | `timer` |  | - |
+| `int` | `lastPhase` | `0` | - |
 
 **Returns:**
 - `int`
@@ -147,7 +144,7 @@ private: int getPingPongPhase();
 ```
 
 **Returns:**
-- `private: int`
+- `int`
 
 ---
 

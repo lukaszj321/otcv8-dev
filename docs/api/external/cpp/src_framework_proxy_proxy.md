@@ -1,7 +1,7 @@
 ---
 title: "src/framework/proxy/proxy.h"
 source_file: "src/framework/proxy/proxy.h"
-generated_at: "2025-10-31T23:33:30.355Z"
+generated_at: "2025-11-01T00:11:49.057Z"
 doc_type: "cpp_api"
 ---
 
@@ -149,26 +149,6 @@ int getPing();
 
 **Returns:**
 - `int`
-
----
-
-(proxymanager)=
-## `ProxyManager`
-
-**Signature:**
-```cpp
-public: ProxyManager() : m_io(), m_guard(boost::asio::make_work_guard(m_io));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : m_io()` | - | - |
-| `m_guard(boost::asio::make_work_guard(m_io)` | - | - |
-
-**Returns:**
-- `public:`
 
 ---
 

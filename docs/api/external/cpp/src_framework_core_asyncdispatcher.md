@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/asyncdispatcher.h"
 source_file: "src/framework/core/asyncdispatcher.h"
-generated_at: "2025-10-31T23:33:30.332Z"
+generated_at: "2025-11-01T00:11:49.032Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -62,33 +59,14 @@ std::lock_guard<std::mutex> lock(m_mutex);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `m_mutex` | - |
+| `m_mutex` | - | - |
 
 **Returns:**
 - `std::lock_guard&lt;std::mutex&gt;`
 
 ---
 
-(stdinvoke_resultftype)=
-## `std::invoke_result<F>::type>`
-
-**Signature:**
-```cpp
-return std::shared_future<typename std::invoke_result<F>::type>(prom->get_future());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `prom-&gt;get_future()` | - | - |
-
-**Returns:**
-- `return std::shared_future&lt;typename`
-
----
-
-(lock)=
+(lock-1)=
 ## `lock`
 
 **Signature:**
@@ -100,7 +78,7 @@ std::lock_guard<std::mutex> lock(m_mutex);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `m_mutex` | - |
+| `m_mutex` | - | - |
 
 **Returns:**
 - `std::lock_guard&lt;std::mutex&gt;`
@@ -114,9 +92,6 @@ std::lock_guard<std::mutex> lock(m_mutex);
 ```cpp
 protected: void exec_loop();
 ```
-
-**Returns:**
-- `protected: void`
 
 ---
 

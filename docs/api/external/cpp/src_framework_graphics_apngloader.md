@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/apngloader.h"
 source_file: "src/framework/graphics/apngloader.h"
-generated_at: "2025-10-31T23:33:30.337Z"
+generated_at: "2025-11-01T00:11:49.038Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,7 +20,7 @@ int load_apng(std::stringstream& file, struct apng_data *apng);
 | Type | Name | Description |
 |------|------|-------------|
 | `std::stringstream&` | `file` | - |
-| `struct apng_data *` | `apng` | - |
+| `struct apng_data *apng` | - | - |
 
 **Returns:**
 - `int`
@@ -43,7 +43,7 @@ void save_png(std::stringstream& file, unsigned int width, unsigned int height, 
 | `unsigned int` | `width` | - |
 | `unsigned int` | `height` | - |
 | `int` | `channels` | - |
-| `unsigned char *` | `pixels` | - |
+| `unsigned char *pixels` | - | - |
 
 ---
 
@@ -59,6 +59,6 @@ void free_apng(struct apng_data *apng);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `struct apng_data *` | `apng` | - |
+| `struct apng_data *apng` | - | - |
 
 ---

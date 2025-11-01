@@ -1,7 +1,7 @@
 ---
 title: "src/client/thingtypemanager.h"
 source_file: "src/client/thingtypemanager.h"
-generated_at: "2025-10-31T23:33:30.329Z"
+generated_at: "2025-11-01T00:11:49.028Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -123,7 +120,7 @@ void parseItemType(uint16 id, TiXmlElement *elem);
 | Type | Name | Description |
 |------|------|-------------|
 | `uint16` | `id` | - |
-| `TiXmlElement *` | `elem` | - |
+| `TiXmlElement *elem` | - | - |
 
 ---
 

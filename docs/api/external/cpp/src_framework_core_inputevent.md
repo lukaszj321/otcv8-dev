@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/inputevent.h"
 source_file: "src/framework/core/inputevent.h"
-generated_at: "2025-10-31T23:33:30.335Z"
+generated_at: "2025-11-01T00:11:49.035Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,8 +17,8 @@ void reset(Fw::InputEventType eventType = Fw::NoInputEvent);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Fw::InputEventType eventType = Fw::` | `NoInputEvent` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Fw::InputEventType` | `eventType` | `Fw::NoInputEvent` | - |
 
 ---

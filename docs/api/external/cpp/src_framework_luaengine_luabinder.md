@@ -1,71 +1,12 @@
 ---
 title: "src/framework/luaengine/luabinder.h"
 source_file: "src/framework/luaengine/luabinder.h"
-generated_at: "2025-10-31T23:33:30.346Z"
+generated_at: "2025-11-01T00:11:49.047Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/luaengine/luabinder.h
 
-(call_fun_and_push_resultret)=
-## `call_fun_and_push_result<Ret>`
-
-**Signature:**
-```cpp
-return call_fun_and_push_result<Ret>(f, lua, args...);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `f` | - |
-| `` | `lua` | - |
-| `args...` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(bind_lambda_funfcall)=
-## `bind_lambda_fun<F>::call`
-
-**Signature:**
-```cpp
-return bind_lambda_fun<F>::call(f);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `f` | - |
-
-**Returns:**
-- `return`
-
----
-
-(bind_fun)=
-## `bind_fun`
-
-**Signature:**
-```cpp
-return bind_fun(std::function<Ret(Args...)>(f));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `std::function&lt;Ret(Args...)&gt;(f)` | - | - |
-
-**Returns:**
-- `return`
-
----
-
 (luaexception)=
 ## `LuaException`
 
@@ -85,27 +26,7 @@ throw LuaException("failed to call a member function because the passed object i
 
 ---
 
-(mf)=
-## `mf`
-
-**Signature:**
-```cpp
-return mf(obj.get(), args...);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `obj.get()` | - | - |
-| `args...` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(luaexception)=
+(luaexception-1)=
 ## `LuaException`
 
 **Signature:**
@@ -124,26 +45,6 @@ throw LuaException("failed to call a member function because the passed object i
 
 ---
 
-(mf)=
-## `mf`
-
-**Signature:**
-```cpp
-return mf(obj, lua);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `obj` | - |
-| `` | `lua` | - |
-
-**Returns:**
-- `return`
-
----
-
 (call)=
 ## `call`
 
@@ -159,12 +60,9 @@ static void call(Tuple& tuple, LuaInterface* lua);
 | `Tuple&` | `tuple` | - |
 | `LuaInterface*` | `lua` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(call)=
+(call-1)=
 ## `call`
 
 **Signature:**
@@ -179,12 +77,9 @@ static void call(Tuple& tuple, LuaInterface* lua);
 | `Tuple&` | `tuple` | - |
 | `LuaInterface*` | `lua` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(call)=
+(call-2)=
 ## `call`
 
 **Signature:**
@@ -202,11 +97,11 @@ static int call(const Tuple& tuple, const F& f, LuaInterface* lua, const Args&..
 | `const Args&...` | `args` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
-(call)=
+(call-3)=
 ## `call`
 
 **Signature:**
@@ -224,7 +119,7 @@ static int call(const Tuple& tuple, const F& f, LuaInterface* lua, const Args&..
 | `const Args&...` | `args` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -266,11 +161,11 @@ inline LuaCppFunction bind_fun(const std::function<int(LuaInterface*)>& f);
 | `const std::function&lt;int(LuaInterface*)&gt;&` | `f` | - |
 
 **Returns:**
-- `inline LuaCppFunction`
+- `LuaCppFunction`
 
 ---
 
-(bind_fun)=
+(bind_fun-1)=
 ## `bind_fun`
 
 Bind a std::function
@@ -291,7 +186,7 @@ LuaCppFunction bind_fun(const std::function<Ret(Args...)>& f);
 
 ---
 
-(call)=
+(call-4)=
 ## `call`
 
 **Signature:**
@@ -306,7 +201,7 @@ static LuaCppFunction call(const Lambda& f);
 | `const Lambda&` | `f` | - |
 
 **Returns:**
-- `static LuaCppFunction`
+- `LuaCppFunction`
 
 ---
 
@@ -322,15 +217,14 @@ typename std::enable_if<std::is_constructible<decltype(&Lambda::operator())>::va
 
 | Type | Name | Description |
 |------|------|-------------|
-| `&Lambda::operator())&gt;::` | `value` | - |
-| `LuaCppFunction&gt;::type bind_fun(const Lambda&` | `f` | - |
+| `&Lambda::operator())&gt;::value, LuaCppFunction&gt;::type bind_fun(const Lambda&` | `f` | - |
 
 **Returns:**
 - `typename`
 
 ---
 
-(bind_fun)=
+(bind_fun-2)=
 ## `bind_fun`
 
 Convert to C++ functions pointers to std::function then bind
@@ -387,14 +281,14 @@ LuaCppFunction bind_singleton_mem_fun(Ret (FC::*f)(Args...), C *instance);
 | Type | Name | Description |
 |------|------|-------------|
 | `Ret (FC::*f)(Args...)` | - | - |
-| `C *` | `instance` | - |
+| `C *instance` | - | - |
 
 **Returns:**
 - `LuaCppFunction`
 
 ---
 
-(bind_mem_fun)=
+(bind_mem_fun-1)=
 ## `bind_mem_fun`
 
 Bind customized member functions

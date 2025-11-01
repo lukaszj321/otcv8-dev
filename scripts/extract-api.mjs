@@ -202,6 +202,15 @@ for (const f of hFiles) {
   const defRe = /(^|\n)\s*(?:template\s*<[^>]+>\s*)*([A-Za-z_][A-Za-z0-9_:<>*&\s]+)\s+([A-Za-z_][A-Za-z0-9_:<>*&]*)\s*\(([^;{}]*)\)\s*(?:const\s*)?(?:noexcept\s*)?\s*\{\s*/g;
 
   const add = (sig, brief) => {
+    // Filter out obvious false positives
+    // Skip if signature starts with 'return' (inline function body)
+    if (sig.trim().startsWith('return ')) return;
+    // Skip if signature contains initializer list syntax
+    if (sig.includes(') :') && sig.includes('(') && sig.split('(').length > 2) return;
+    // Skip if parameters contain obvious non-parameter syntax
+    const paramPart = sig.match(/\((.*)\)/)?.[1] || '';
+    if (paramPart.includes(') :') || paramPart.includes('{ }') || paramPart.includes('{  }')) return;
+    
     const list = cppByFile.get(f) || [];
     list.push({ sig, brief });
     cppByFile.set(f, list);
@@ -371,12 +380,29 @@ if (!cppByFile.size) {
     lines.push(`# ${title}\n`);
     
     const list = cppByFile.get(f);
+    const usedAnchors = new Set(); // Track used anchors to avoid duplicates
+    
     for (const it of list) {
       // Parse function signature for parameter table
       const funcMatch = it.sig.match(/^(.*?)\s+([A-Za-z_][A-Za-z0-9_:<>*&]*)\s*\((.*)\)$/);
       if (funcMatch) {
-        const [, retType, funcName, paramsStr] = funcMatch;
-        const anchor = slug(funcName);
+        let [, retType, funcName, paramsStr] = funcMatch;
+        
+        // Clean up return type - remove visibility specifiers and other noise
+        retType = retType.replace(/^\s*(?:public|private|protected)\s*:\s*/i, '').trim();
+        retType = retType.replace(/^\s*(?:static|virtual|inline|explicit|constexpr)\s+/g, '').trim();
+        
+        // Determine if this is a constructor (return type matches function name or is empty after cleanup)
+        const isConstructor = !retType || retType === funcName || retType === '';
+        
+        // Generate unique anchor for this function
+        let anchor = slug(funcName);
+        let anchorSuffix = 0;
+        while (usedAnchors.has(anchor)) {
+          anchorSuffix++;
+          anchor = slug(funcName) + `-${anchorSuffix}`;
+        }
+        usedAnchors.add(anchor);
         
         // Function as heading
         lines.push(`(${anchor})=`);
@@ -398,27 +424,74 @@ if (!cppByFile.size) {
         
         // Parameter table (best-effort)
         if (paramsStr.trim() && paramsStr.trim() !== "void") {
-          const params = paramsStr.split(",").map(p => p.trim()).filter(Boolean);
+          // Smart split that respects angle brackets in templates
+          const params = [];
+          let current = '';
+          let angleDepth = 0;
+          for (let i = 0; i < paramsStr.length; i++) {
+            const char = paramsStr[i];
+            if (char === '<') angleDepth++;
+            else if (char === '>') angleDepth--;
+            else if (char === ',' && angleDepth === 0) {
+              if (current.trim()) params.push(current.trim());
+              current = '';
+              continue;
+            }
+            current += char;
+          }
+          if (current.trim()) params.push(current.trim());
           if (params.length > 0) {
             lines.push("**Parameters:**");
             lines.push("");
-            lines.push("| Type | Name | Description |");
-            lines.push("|------|------|-------------|");
+            
+            // Check if any parameter has a default value
+            const hasDefaults = params.some(p => p.includes("="));
+            
+            if (hasDefaults) {
+              lines.push("| Type | Name | Default | Description |");
+              lines.push("|------|------|---------|-------------|");
+            } else {
+              lines.push("| Type | Name | Description |");
+              lines.push("|------|------|-------------|");
+            }
+            
             for (const param of params) {
-              const match = param.match(/^(.*?)([A-Za-z_][A-Za-z0-9_]*)$/);
+              // Handle default values
+              let paramPart = param;
+              let defaultVal = "";
+              if (param.includes("=")) {
+                const parts = param.split("=");
+                paramPart = parts[0].trim();
+                defaultVal = parts.slice(1).join("=").trim();
+              }
+              
+              // Match type and name more carefully
+              // Handle complex types like std::map<uint32_t, ImagePtr>&
+              const match = paramPart.match(/^(.+?)\s+([A-Za-z_][A-Za-z0-9_]*)$/);
               if (match) {
                 const [, type, name] = match;
-                lines.push(`| \`${esc(type.trim())}\` | \`${esc(name.trim())}\` | - |`);
+                if (hasDefaults) {
+                  const defStr = defaultVal ? `\`${esc(defaultVal)}\`` : "";
+                  lines.push(`| \`${esc(type.trim())}\` | \`${esc(name.trim())}\` | ${defStr} | - |`);
+                } else {
+                  lines.push(`| \`${esc(type.trim())}\` | \`${esc(name.trim())}\` | - |`);
+                }
               } else {
-                lines.push(`| \`${esc(param)}\` | - | - |`);
+                // Fallback for unparseable parameters
+                if (hasDefaults) {
+                  const defStr = defaultVal ? `\`${esc(defaultVal)}\`` : "";
+                  lines.push(`| \`${esc(paramPart)}\` | - | ${defStr} | - |`);
+                } else {
+                  lines.push(`| \`${esc(paramPart)}\` | - | - |`);
+                }
               }
             }
             lines.push("");
           }
         }
         
-        // Return type
-        if (retType.trim() && retType.trim() !== "void") {
+        // Return type (skip for constructors and destructors)
+        if (!isConstructor && retType.trim() && retType.trim() !== "void" && !funcName.startsWith("~")) {
           lines.push("**Returns:**");
           lines.push(`- \`${esc(retType.trim())}\``);
           lines.push("");

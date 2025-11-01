@@ -1,7 +1,7 @@
 ---
 title: "src/client/uimap.h"
 source_file: "src/client/uimap.h"
-generated_at: "2025-10-31T23:33:30.330Z"
+generated_at: "2025-11-01T00:11:49.030Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: UIMap();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -222,9 +219,6 @@ protected: virtual void onStyleApply(const std::string& styleName, const OTMLNod
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
 
-**Returns:**
-- `protected: virtual void`
-
 ---
 
 (ongeometrychange)=
@@ -242,9 +236,6 @@ virtual void onGeometryChange(const Rect& oldRect, const Rect& newRect);
 | `const Rect&` | `oldRect` | - |
 | `const Rect&` | `newRect` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (updatevisibledimension)=
@@ -254,9 +245,6 @@ virtual void onGeometryChange(const Rect& oldRect, const Rect& newRect);
 ```cpp
 private: void updateVisibleDimension();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

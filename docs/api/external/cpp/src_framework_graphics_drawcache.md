@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/drawcache.h"
 source_file: "src/framework/graphics/drawcache.h"
-generated_at: "2025-10-31T23:33:30.339Z"
+generated_at: "2025-11-01T00:11:49.040Z"
 doc_type: "cpp_api"
 ---
 
@@ -135,7 +135,7 @@ inline int getSize();
 ```
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
@@ -154,9 +154,6 @@ private: inline void addRectRaw(float* dest, const Rect& rect);
 | `float*` | `dest` | - |
 | `const Rect&` | `rect` | - |
 
-**Returns:**
-- `private: inline void`
-
 ---
 
 (addcolorraw)=
@@ -173,8 +170,5 @@ inline void addColorRaw(const Color& color, int count);
 |------|------|-------------|
 | `const Color&` | `color` | - |
 | `int` | `count` | - |
-
-**Returns:**
-- `inline void`
 
 ---

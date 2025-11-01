@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/matrix.h"
 source_file: "src/framework/util/matrix.h"
-generated_at: "2025-10-31T23:33:30.368Z"
+generated_at: "2025-11-01T00:11:49.070Z"
 doc_type: "cpp_api"
 ---
 
@@ -58,15 +58,15 @@ out << mat(i,j);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `i` | - |
-| `` | `j` | - |
+| `i` | - | - |
+| `j` | - | - |
 
 **Returns:**
 - `out &lt;&lt;`
 
 ---
 
-(mat)=
+(mat-1)=
 ## `mat`
 
 **Signature:**
@@ -78,8 +78,8 @@ in >> mat(i,j);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `i` | - |
-| `` | `j` | - |
+| `i` | - | - |
+| `j` | - | - |
 
 **Returns:**
 - `in &gt;&gt;`
@@ -94,12 +94,9 @@ in >> mat(i,j);
 public: Matrix();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
-(matrix)=
+(matrix-1)=
 ## `Matrix`
 
 **Signature:**
@@ -118,7 +115,7 @@ template<typename U> Matrix(const std::initializer_list<U>& values);
 
 ---
 
-(matrix)=
+(matrix-2)=
 ## `Matrix`
 
 **Signature:**
@@ -130,7 +127,7 @@ template<typename U> Matrix(const U *values);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const U *` | `values` | - |
+| `const U *values` | - | - |
 
 **Returns:**
 - `template&lt;typename U&gt;`
@@ -157,7 +154,7 @@ T& operator()(int row, int column);
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator<<`
 
 **Signature:**
@@ -170,16 +167,14 @@ std::ostream& operator<<(std::ostream& out, const Matrix<N,M,T>& mat);
 | Type | Name | Description |
 |------|------|-------------|
 | `std::ostream&` | `out` | - |
-| `const Matrix&lt;` | `N` | - |
-| `` | `M` | - |
-| `T&gt;&` | `mat` | - |
+| `const Matrix&lt;N,M,T&gt;&` | `mat` | - |
 
 **Returns:**
 - `std::ostream&`
 
 ---
 
-(operator)=
+(operator-2)=
 ## `operator>>`
 
 **Signature:**
@@ -192,9 +187,7 @@ std::istream& operator>>(std::istream& in, Matrix<N,M,T>& mat);
 | Type | Name | Description |
 |------|------|-------------|
 | `std::istream&` | `in` | - |
-| `Matrix&lt;` | `N` | - |
-| `` | `M` | - |
-| `T&gt;&` | `mat` | - |
+| `Matrix&lt;N,M,T&gt;&` | `mat` | - |
 
 **Returns:**
 - `std::istream&`

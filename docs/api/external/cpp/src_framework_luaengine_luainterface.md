@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luainterface.h"
 source_file: "src/framework/luaengine/luainterface.h"
-generated_at: "2025-10-31T23:33:30.347Z"
+generated_at: "2025-11-01T00:11:49.048Z"
 doc_type: "cpp_api"
 ---
 
@@ -19,7 +19,7 @@ typedef int(*LuaCFunction) (lua_State *L);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `*LuaCFunction) (lua_State *` | `L` | - |
+| `*LuaCFunction) (lua_State *L` | - | - |
 
 **Returns:**
 - `typedef`
@@ -33,9 +33,6 @@ typedef int(*LuaCFunction) (lua_State *L);
 ```cpp
 public: LuaInterface();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -97,10 +94,10 @@ void registerClass(const std::string& className, const std::string& baseClass = 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `className` | - |
-| `const std::string& baseClass = "LuaObject"` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `className` |  | - |
+| `const std::string&` | `baseClass` | `"LuaObject"` | - |
 
 ---
 
@@ -189,12 +186,12 @@ void bindSingletonFunction(const std::string& functionName, F C::*function, C *i
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `functionName` | - |
-| `F C::*` | `function` | - |
-| `C *` | `instance` | - |
+| `F C::*function` | - | - |
+| `C *instance` | - | - |
 
 ---
 
-(bindsingletonfunction)=
+(bindsingletonfunction-1)=
 ## `bindSingletonFunction`
 
 **Signature:**
@@ -213,7 +210,7 @@ void bindSingletonFunction(const std::string& className, const std::string& func
 
 ---
 
-(bindsingletonfunction)=
+(bindsingletonfunction-2)=
 ## `bindSingletonFunction`
 
 **Signature:**
@@ -248,7 +245,7 @@ void bindClassStaticFunction(const std::string& functionName, const F& function)
 
 ---
 
-(bindclassstaticfunction)=
+(bindclassstaticfunction-1)=
 ## `bindClassStaticFunction`
 
 **Signature:**
@@ -279,11 +276,11 @@ void bindClassMemberFunction(const std::string& functionName, F FC::*function);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `functionName` | - |
-| `F FC::*` | `function` | - |
+| `F FC::*function` | - | - |
 
 ---
 
-(bindclassmemberfunction)=
+(bindclassmemberfunction-1)=
 ## `bindClassMemberFunction`
 
 **Signature:**
@@ -297,7 +294,7 @@ void bindClassMemberFunction(const std::string& className, const std::string& fu
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `functionName` | - |
-| `F FC::*` | `function` | - |
+| `F FC::*function` | - | - |
 
 ---
 
@@ -314,12 +311,12 @@ void bindClassMemberField(const std::string& fieldName, F1 FC::*getFunction, F2 
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `fieldName` | - |
-| `F1 FC::*` | `getFunction` | - |
-| `F2 FC::*` | `setFunction` | - |
+| `F1 FC::*getFunction` | - | - |
+| `F2 FC::*setFunction` | - | - |
 
 ---
 
-(bindclassmemberfield)=
+(bindclassmemberfield-1)=
 ## `bindClassMemberField`
 
 **Signature:**
@@ -333,8 +330,8 @@ void bindClassMemberField(const std::string& className, const std::string& field
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `fieldName` | - |
-| `F1 FC::*` | `getFunction` | - |
-| `F2 FC::*` | `setFunction` | - |
+| `F1 FC::*getFunction` | - | - |
+| `F2 FC::*setFunction` | - | - |
 
 ---
 
@@ -351,11 +348,11 @@ void bindClassMemberGetField(const std::string& fieldName, F FC::*getFunction);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `getFunction` | - |
+| `F FC::*getFunction` | - | - |
 
 ---
 
-(bindclassmembergetfield)=
+(bindclassmembergetfield-1)=
 ## `bindClassMemberGetField`
 
 **Signature:**
@@ -369,7 +366,7 @@ void bindClassMemberGetField(const std::string& className, const std::string& fi
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `getFunction` | - |
+| `F FC::*getFunction` | - | - |
 
 ---
 
@@ -386,11 +383,11 @@ void bindClassMemberSetField(const std::string& fieldName, F FC::*setFunction);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `setFunction` | - |
+| `F FC::*setFunction` | - | - |
 
 ---
 
-(bindclassmembersetfield)=
+(bindclassmembersetfield-1)=
 ## `bindClassMemberSetField`
 
 **Signature:**
@@ -404,7 +401,7 @@ void bindClassMemberSetField(const std::string& className, const std::string& fi
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `setFunction` | - |
+| `F FC::*setFunction` | - | - |
 
 ---
 
@@ -442,7 +439,7 @@ static int luaObjectGetEvent(LuaInterface* lua);
 | `LuaInterface*` | `lua` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -463,7 +460,7 @@ static int luaObjectSetEvent(LuaInterface* lua);
 | `LuaInterface*` | `lua` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -484,7 +481,7 @@ static int luaObjectEqualEvent(LuaInterface* lua);
 | `LuaInterface*` | `lua` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -508,7 +505,7 @@ static int luaObjectCollectEvent(LuaInterface* lua);
 | `LuaInterface*` | `lua` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -604,10 +601,10 @@ void loadFunction(const std::string& buffer, const std::string& source = "lua fu
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `buffer` | - |
-| `const std::string& source = "lua function buffer"` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `buffer` |  | - |
+| `const std::string&` | `source` | `"lua function buffer"` | - |
 
 ---
 
@@ -624,10 +621,10 @@ void evaluateExpression(const std::string& expression, const std::string& source
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `expression` | - |
-| `const std::string& source = "lua expression"` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `expression` |  | - |
+| `const std::string&` | `source` | `"lua expression"` | - |
 
 ---
 
@@ -646,10 +643,10 @@ std::string traceback(const std::string& errorMessage = "", int level = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string& errorMessage = ""` | - | - |
-| `int level = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `errorMessage` | `""` | - |
+| `int` | `level` | `0` | - |
 
 **Returns:**
 - `std::string`
@@ -688,9 +685,9 @@ std::string getCurrentSourcePath(int level = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int level = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `level` | `0` | - |
 
 **Returns:**
 - `std::string`
@@ -709,9 +706,9 @@ std::string getCurrentFunction(int level = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int level = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `level` | `0` | - |
 
 **Returns:**
 - `std::string`
@@ -734,11 +731,11 @@ int safeCall(int numArgs = 0, int numRets = -1, const std::shared_ptr<std::strin
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int numArgs = 0` | - | - |
-| `int numRets = -1` | - | - |
-| `const std::shared_ptr&lt;std::string&gt;& error =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `numArgs` | `0` | - |
+| `int` | `numRets` | `-1` | - |
+| `const std::shared_ptr&lt;std::string&gt;&` | `error` | `nullptr` | - |
 
 **Returns:**
 - `int`
@@ -760,10 +757,10 @@ int signalCall(int numArgs = 0, int numRets = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int numArgs = 0` | - | - |
-| `int numRets = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `numArgs` | `0` | - |
+| `int` | `numRets` | `-1` | - |
 
 **Returns:**
 - `int`
@@ -844,7 +841,7 @@ static int luaScriptLoader(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -865,7 +862,7 @@ static int lua_dofile(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -886,7 +883,7 @@ static int lua_dofiles(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -907,7 +904,7 @@ static int lua_loadfile(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -928,7 +925,7 @@ static int luaErrorHandler(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -949,7 +946,7 @@ static int luaCppFunctionCallback(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -970,7 +967,7 @@ static int luaCollectCppFunction(lua_State* L);
 | `lua_State*` | `L` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -981,9 +978,6 @@ static int luaCollectCppFunction(lua_State* L);
 ```cpp
 public: void createLuaState();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -1054,11 +1048,11 @@ int pcall(int numArgs = 0, int numRets = 0, int errorFuncIndex = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int numArgs = 0` | - | - |
-| `int numRets = 0` | - | - |
-| `int errorFuncIndex = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `numArgs` | `0` | - |
+| `int` | `numRets` | `0` | - |
+| `int` | `errorFuncIndex` | `0` | - |
 
 **Returns:**
 - `int`
@@ -1075,10 +1069,10 @@ void call(int numArgs = 0, int numRets = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int numArgs = 0` | - | - |
-| `int numRets = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `numArgs` | `0` | - |
+| `int` | `numRets` | `0` | - |
 
 ---
 
@@ -1144,9 +1138,9 @@ const char* typeName(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `const char*`
@@ -1221,9 +1215,9 @@ bool next(int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-2` | - |
 
 **Returns:**
 - `bool`
@@ -1240,9 +1234,9 @@ void getStackFunction(int level = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int level = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `level` | `0` | - |
 
 ---
 
@@ -1304,9 +1298,9 @@ void setMetatable(int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-2` | - |
 
 ---
 
@@ -1320,9 +1314,9 @@ void getMetatable(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1336,10 +1330,10 @@ void getField(const char* key, int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const char*` | `key` | - |
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const char*` | `key` |  | - |
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1353,10 +1347,10 @@ void setField(const char* key, int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const char*` | `key` | - |
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const char*` | `key` |  | - |
+| `int` | `index` | `-2` | - |
 
 ---
 
@@ -1370,9 +1364,9 @@ void getTable(int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-2` | - |
 
 ---
 
@@ -1386,9 +1380,9 @@ void setTable(int index = -3);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -3` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-3` | - |
 
 ---
 
@@ -1402,9 +1396,9 @@ void clearTable(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1418,9 +1412,9 @@ void getEnv(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1434,9 +1428,9 @@ void setEnv(int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-2` | - |
 
 ---
 
@@ -1499,9 +1493,9 @@ void rawGet(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1515,10 +1509,10 @@ void rawGeti(int n, int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `n` | - |
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` |  | - |
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1532,9 +1526,9 @@ void rawSet(int index = -3);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -3` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-3` | - |
 
 ---
 
@@ -1548,10 +1542,10 @@ void rawSeti(int n, int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `n` | - |
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` |  | - |
+| `int` | `index` | `-2` | - |
 
 ---
 
@@ -1611,9 +1605,9 @@ void pop(int n = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int n = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` | `1` | - |
 
 ---
 
@@ -1834,9 +1828,9 @@ void pushValue(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 ---
 
@@ -1866,10 +1860,10 @@ void pushCFunction(LuaCFunction func, int n = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `LuaCFunction` | `func` | - |
-| `int n = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `LuaCFunction` | `func` |  | - |
+| `int` | `n` | `0` | - |
 
 ---
 
@@ -1899,9 +1893,9 @@ bool isNil(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -1918,9 +1912,9 @@ bool isBoolean(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -1937,9 +1931,9 @@ bool isNumber(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -1956,9 +1950,9 @@ bool isString(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -1975,9 +1969,9 @@ bool isTable(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -1994,9 +1988,9 @@ bool isFunction(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -2013,9 +2007,9 @@ bool isCFunction(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -2032,9 +2026,9 @@ bool isUserdata(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -2051,9 +2045,9 @@ bool toBoolean(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -2070,9 +2064,9 @@ int toInteger(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `int`
@@ -2089,9 +2083,9 @@ double toNumber(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `double`
@@ -2108,9 +2102,9 @@ const char* toCString(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `const char*`
@@ -2127,9 +2121,9 @@ std::string toString(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `std::string`
@@ -2146,9 +2140,9 @@ void* toUserdata(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `void*`
@@ -2165,9 +2159,9 @@ LuaObjectPtr toObject(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `LuaObjectPtr`
@@ -2197,9 +2191,9 @@ std::string getSource(int level = 2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int level = 2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `level` | `2` | - |
 
 **Returns:**
 - `std::string`
@@ -2216,11 +2210,11 @@ void loadFiles(std::string directory, bool recursive = false, std::string contai
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string` | `directory` | - |
-| `bool recursive =` | `false` | - |
-| `std::string contains = ""` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string` | `directory` |  | - |
+| `bool` | `recursive` | `false` | - |
+| `std::string` | `contains` | `""` | - |
 
 ---
 
@@ -2259,9 +2253,9 @@ template<class T> T castValue(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `template&lt;class T&gt; T`
@@ -2300,7 +2294,7 @@ AutoStat s(STATS_LUA, std::string(global) + ":" + field);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `STATS_LUA` | - |
+| `STATS_LUA` | - | - |
 | `std::string(global) + ":" +` | `field` | - |
 
 **Returns:**
@@ -2308,7 +2302,7 @@ AutoStat s(STATS_LUA, std::string(global) + ":" + field);
 
 ---
 
-(registerclass)=
+(registerclass-1)=
 ## `registerClass`
 
 **Signature:**
@@ -2318,7 +2312,7 @@ void registerClass();
 
 ---
 
-(registerclassstaticfunction)=
+(registerclassstaticfunction-1)=
 ## `registerClassStaticFunction`
 
 **Signature:**
@@ -2335,7 +2329,7 @@ void registerClassStaticFunction(const std::string& functionName, const LuaCppFu
 
 ---
 
-(registerclassmemberfunction)=
+(registerclassmemberfunction-1)=
 ## `registerClassMemberFunction`
 
 **Signature:**
@@ -2352,7 +2346,7 @@ void registerClassMemberFunction(const std::string& functionName, const LuaCppFu
 
 ---
 
-(registerclassmemberfield)=
+(registerclassmemberfield-1)=
 ## `registerClassMemberField`
 
 **Signature:**
@@ -2426,7 +2420,7 @@ void resetGlobalEnvironment();
 
 ---
 
-(getfield)=
+(getfield-1)=
 ## `getField`
 
 **Signature:**
@@ -2436,14 +2430,14 @@ void getField(const std::string& key, int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `key` | - |
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `key` |  | - |
+| `int` | `index` | `-1` | - |
 
 ---
 
-(setfield)=
+(setfield-1)=
 ## `setField`
 
 **Signature:**
@@ -2453,10 +2447,10 @@ void setField(const std::string& key, int index = -2);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `key` | - |
-| `int index = -2` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `key` |  | - |
+| `int` | `index` | `-2` | - |
 
 ---
 
@@ -2470,9 +2464,9 @@ bool isLuaFunction(int index = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int index = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `index` | `-1` | - |
 
 **Returns:**
 - `bool`
@@ -2521,7 +2515,7 @@ bool hasIndex(int index);
 
 ---
 
-(polymorphicpush)=
+(polymorphicpush-1)=
 ## `polymorphicPush`
 
 **Signature:**
@@ -2582,12 +2576,12 @@ void LuaInterface::bindSingletonFunction(const std::string& functionName, F C::*
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `functionName` | - |
-| `F C::*` | `function` | - |
-| `C *` | `instance` | - |
+| `F C::*function` | - | - |
+| `C *instance` | - | - |
 
 ---
 
-(luainterfacebindsingletonfunction)=
+(luainterfacebindsingletonfunction-1)=
 ## `LuaInterface::bindSingletonFunction`
 
 **Signature:**
@@ -2601,12 +2595,12 @@ void LuaInterface::bindSingletonFunction(const std::string& className, const std
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `functionName` | - |
-| `F C::*` | `function` | - |
-| `C *` | `instance` | - |
+| `F C::*function` | - | - |
+| `C *instance` | - | - |
 
 ---
 
-(luainterfacebindsingletonfunction)=
+(luainterfacebindsingletonfunction-2)=
 ## `LuaInterface::bindSingletonFunction`
 
 **Signature:**
@@ -2641,7 +2635,7 @@ void LuaInterface::bindClassStaticFunction(const std::string& functionName, cons
 
 ---
 
-(luainterfacebindclassstaticfunction)=
+(luainterfacebindclassstaticfunction-1)=
 ## `LuaInterface::bindClassStaticFunction`
 
 **Signature:**
@@ -2672,11 +2666,11 @@ void LuaInterface::bindClassMemberFunction(const std::string& functionName, F FC
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `functionName` | - |
-| `F FC::*` | `function` | - |
+| `F FC::*function` | - | - |
 
 ---
 
-(luainterfacebindclassmemberfunction)=
+(luainterfacebindclassmemberfunction-1)=
 ## `LuaInterface::bindClassMemberFunction`
 
 **Signature:**
@@ -2690,7 +2684,7 @@ void LuaInterface::bindClassMemberFunction(const std::string& className, const s
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `functionName` | - |
-| `F FC::*` | `function` | - |
+| `F FC::*function` | - | - |
 
 ---
 
@@ -2707,12 +2701,12 @@ void LuaInterface::bindClassMemberField(const std::string& fieldName, F1 FC::*ge
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `fieldName` | - |
-| `F1 FC::*` | `getFunction` | - |
-| `F2 FC::*` | `setFunction` | - |
+| `F1 FC::*getFunction` | - | - |
+| `F2 FC::*setFunction` | - | - |
 
 ---
 
-(luainterfacebindclassmemberfield)=
+(luainterfacebindclassmemberfield-1)=
 ## `LuaInterface::bindClassMemberField`
 
 **Signature:**
@@ -2726,8 +2720,8 @@ void LuaInterface::bindClassMemberField(const std::string& className, const std:
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `fieldName` | - |
-| `F1 FC::*` | `getFunction` | - |
-| `F2 FC::*` | `setFunction` | - |
+| `F1 FC::*getFunction` | - | - |
+| `F2 FC::*setFunction` | - | - |
 
 ---
 
@@ -2744,11 +2738,11 @@ void LuaInterface::bindClassMemberGetField(const std::string& fieldName, F FC::*
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `getFunction` | - |
+| `F FC::*getFunction` | - | - |
 
 ---
 
-(luainterfacebindclassmembergetfield)=
+(luainterfacebindclassmembergetfield-1)=
 ## `LuaInterface::bindClassMemberGetField`
 
 **Signature:**
@@ -2762,7 +2756,7 @@ void LuaInterface::bindClassMemberGetField(const std::string& className, const s
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `getFunction` | - |
+| `F FC::*getFunction` | - | - |
 
 ---
 
@@ -2779,11 +2773,11 @@ void LuaInterface::bindClassMemberSetField(const std::string& fieldName, F FC::*
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `setFunction` | - |
+| `F FC::*setFunction` | - | - |
 
 ---
 
-(luainterfacebindclassmembersetfield)=
+(luainterfacebindclassmembersetfield-1)=
 ## `LuaInterface::bindClassMemberSetField`
 
 **Signature:**
@@ -2797,7 +2791,7 @@ void LuaInterface::bindClassMemberSetField(const std::string& className, const s
 |------|------|-------------|
 | `const std::string&` | `className` | - |
 | `const std::string&` | `fieldName` | - |
-| `F FC::*` | `setFunction` | - |
+| `F FC::*setFunction` | - | - |
 
 ---
 

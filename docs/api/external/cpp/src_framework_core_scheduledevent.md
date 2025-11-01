@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/scheduledevent.h"
 source_file: "src/framework/core/scheduledevent.h"
-generated_at: "2025-10-31T23:33:30.336Z"
+generated_at: "2025-11-01T00:11:49.037Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,16 +17,13 @@ public: ScheduledEvent(const std::string& function, const std::function<void()>&
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `function` | - |
-| `const std::function&lt;void()&gt;&` | `callback` | - |
-| `int` | `delay` | - |
-| `int` | `maxCycles` | - |
-| `bool botSafe =` | `false` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `function` |  | - |
+| `const std::function&lt;void()&gt;&` | `callback` |  | - |
+| `int` | `delay` |  | - |
+| `int` | `maxCycles` |  | - |
+| `bool` | `botSafe` | `false` | - |
 
 ---
 

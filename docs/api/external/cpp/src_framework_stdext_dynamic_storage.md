@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/dynamic_storage.h"
 source_file: "src/framework/stdext/dynamic_storage.h"
-generated_at: "2025-10-31T23:33:30.359Z"
+generated_at: "2025-11-01T00:11:49.061Z"
 doc_type: "cpp_api"
 ---
 
@@ -23,7 +23,7 @@ public: template<typename T> void set(const Key& k, const T& value);
 | `const T&` | `value` | - |
 
 **Returns:**
-- `public: template&lt;typename T&gt; void`
+- `template&lt;typename T&gt; void`
 
 ---
 

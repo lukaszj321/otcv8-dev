@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/time.h"
 source_file: "src/framework/stdext/time.h"
-generated_at: "2025-10-31T23:33:30.362Z"
+generated_at: "2025-11-01T00:11:49.064Z"
 doc_type: "cpp_api"
 ---
 
@@ -86,9 +86,6 @@ void microsleep(size_t us);
 public: timer();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (elapsed_seconds)=
@@ -140,8 +137,8 @@ void restart(int shift = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int shift = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `shift` | `0` | - |
 
 ---

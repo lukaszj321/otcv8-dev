@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/binarytree.h"
 source_file: "src/framework/core/binarytree.h"
-generated_at: "2025-10-31T23:33:30.333Z"
+generated_at: "2025-11-01T00:11:49.032Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: BinaryTree(const FileStreamPtr& fin);
 | Type | Name | Description |
 |------|------|-------------|
 | `const FileStreamPtr&` | `fin` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -120,9 +117,9 @@ std::string getString(uint16 len = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `uint16 len = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `uint16` | `len` | `0` | - |
 
 **Returns:**
 - `std::string`
@@ -163,9 +160,6 @@ BinaryTreeVec getChildren();
 private: void unserialize();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (skipnodes)=
@@ -191,9 +185,6 @@ public: OutputBinaryTree(const FileStreamPtr& finish);
 | Type | Name | Description |
 |------|------|-------------|
 | `const FileStreamPtr&` | `finish` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -335,9 +326,6 @@ protected: void write(const uint8* data, size_t size);
 |------|------|-------------|
 | `const uint8*` | `data` | - |
 | `size_t` | `size` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

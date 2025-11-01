@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/colorarray.h"
 source_file: "src/framework/graphics/colorarray.h"
-generated_at: "2025-10-31T23:33:30.338Z"
+generated_at: "2025-11-01T00:11:49.039Z"
 doc_type: "cpp_api"
 ---
 
@@ -24,12 +24,9 @@ public: inline void addColor(float r, float g, float b, float a);
 | `float` | `b` | - |
 | `float` | `a` | - |
 
-**Returns:**
-- `public: inline void`
-
 ---
 
-(addcolor)=
+(addcolor-1)=
 ## `addColor`
 
 **Signature:**
@@ -42,9 +39,6 @@ inline void addColor(const Color& c);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Color&` | `c` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 

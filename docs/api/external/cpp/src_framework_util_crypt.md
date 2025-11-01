@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/crypt.h"
 source_file: "src/framework/util/crypt.h"
-generated_at: "2025-10-31T23:33:30.367Z"
+generated_at: "2025-11-01T00:11:49.069Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Crypt();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -269,9 +266,9 @@ void rsaSetPrivateKey(const std::string &p, const std::string &q, const std::str
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::string &` | `p` | - |
-| `const std::string &` | `q` | - |
-| `const std::string &` | `d` | - |
+| `const std::string &p` | - | - |
+| `const std::string &q` | - | - |
+| `const std::string &d` | - | - |
 
 ---
 
@@ -300,7 +297,7 @@ bool rsaEncrypt(unsigned char *msg, int size);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `unsigned char *` | `msg` | - |
+| `unsigned char *msg` | - | - |
 | `int` | `size` | - |
 
 **Returns:**
@@ -320,7 +317,7 @@ bool rsaDecrypt(unsigned char *msg, int size);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `unsigned char *` | `msg` | - |
+| `unsigned char *msg` | - | - |
 | `int` | `size` | - |
 
 **Returns:**
@@ -393,7 +390,7 @@ private: std::string _encrypt(const std::string& decrypted_string, bool useMachi
 | `bool` | `useMachineUUID` | - |
 
 **Returns:**
-- `private: std::string`
+- `std::string`
 
 ---
 

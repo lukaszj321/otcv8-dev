@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/platformwindow.h"
 source_file: "src/framework/platform/platformwindow.h"
-generated_at: "2025-10-31T23:33:30.353Z"
+generated_at: "2025-11-01T00:11:49.055Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: virtual void init();
 ```
 
-**Returns:**
-- `public: virtual void`
-
 ---
 
 (terminate)=
@@ -27,9 +24,6 @@ public: virtual void init();
 ```cpp
 virtual void terminate();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -47,9 +41,6 @@ virtual void move(const Point& pos);
 |------|------|-------------|
 | `const Point&` | `pos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (resize)=
@@ -66,9 +57,6 @@ virtual void resize(const Size& size);
 |------|------|-------------|
 | `const Size&` | `size` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (show)=
@@ -78,9 +66,6 @@ virtual void resize(const Size& size);
 ```cpp
 virtual void show();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -92,9 +77,6 @@ virtual void show();
 virtual void hide();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (minimize)=
@@ -104,9 +86,6 @@ virtual void hide();
 ```cpp
 virtual void minimize();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -118,9 +97,6 @@ virtual void minimize();
 virtual void maximize();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (poll)=
@@ -130,9 +106,6 @@ virtual void maximize();
 ```cpp
 virtual void poll();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -144,9 +117,6 @@ virtual void poll();
 virtual void swapBuffers();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (showmouse)=
@@ -157,9 +127,6 @@ virtual void swapBuffers();
 virtual void showMouse();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (hidemouse)=
@@ -169,9 +136,6 @@ virtual void showMouse();
 ```cpp
 virtual void hideMouse();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -209,9 +173,6 @@ virtual void setMouseCursor(int cursorId);
 |------|------|-------------|
 | `int` | `cursorId` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (restoremousecursor)=
@@ -221,9 +182,6 @@ virtual void setMouseCursor(int cursorId);
 ```cpp
 virtual void restoreMouseCursor();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -241,9 +199,6 @@ virtual void setTitle(const std::string& title);
 |------|------|-------------|
 | `const std::string&` | `title` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setminimumsize)=
@@ -259,9 +214,6 @@ virtual void setMinimumSize(const Size& minimumSize);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Size&` | `minimumSize` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -279,9 +231,6 @@ virtual void setFullscreen(bool fullscreen);
 |------|------|-------------|
 | `bool` | `fullscreen` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setverticalsync)=
@@ -297,9 +246,6 @@ virtual void setVerticalSync(bool enable);
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | `enable` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -317,9 +263,6 @@ virtual void setIcon(const std::string& iconFile);
 |------|------|-------------|
 | `const std::string&` | `iconFile` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setclipboardtext)=
@@ -336,9 +279,6 @@ virtual void setClipboardText(const std::string& text);
 |------|------|-------------|
 | `const std::string&` | `text` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (getdisplaysize)=
@@ -350,7 +290,7 @@ virtual Size getDisplaySize();
 ```
 
 **Returns:**
-- `virtual Size`
+- `Size`
 
 ---
 
@@ -363,7 +303,7 @@ virtual std::string getClipboardText();
 ```
 
 **Returns:**
-- `virtual std::string`
+- `std::string`
 
 ---
 
@@ -376,7 +316,7 @@ virtual std::string getPlatformType();
 ```
 
 **Returns:**
-- `virtual std::string`
+- `std::string`
 
 ---
 
@@ -387,9 +327,6 @@ virtual std::string getPlatformType();
 ```cpp
 virtual void flash();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -409,7 +346,7 @@ protected: virtual int internalLoadMouseCursor(const ImagePtr& image, const Poin
 | `const Point&` | `hotSpot` | - |
 
 **Returns:**
-- `protected: virtual int`
+- `int`
 
 ---
 
@@ -488,9 +425,6 @@ virtual void displayFatalError(const std::string& message);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `message` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -831,9 +765,6 @@ virtual void showTextEditor(const std::string& title, const std::string& descrip
 | `const std::string&` | `text` | - |
 | `int` | `flags` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (handletextinput)=
@@ -849,9 +780,6 @@ virtual void handleTextInput(std::string text);
 | Type | Name | Description |
 |------|------|-------------|
 | `std::string` | `text` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 

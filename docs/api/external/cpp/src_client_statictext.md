@@ -1,7 +1,7 @@
 ---
 title: "src/client/statictext.h"
 source_file: "src/client/statictext.h"
-generated_at: "2025-10-31T23:33:30.327Z"
+generated_at: "2025-11-01T00:11:49.026Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: StaticText();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -118,9 +115,6 @@ bool addColoredMessage(const std::string& name, Otc::MessageMode mode, const std
 ```cpp
 private: void update();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

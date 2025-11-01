@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uiwidget.h"
 source_file: "src/framework/ui/uiwidget.h"
-generated_at: "2025-10-31T23:33:30.366Z"
+generated_at: "2025-11-01T00:11:49.067Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: UIWidget();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -35,9 +32,6 @@ virtual void draw(const Rect& visibleRect, Fw::DrawPane drawPane);
 | `const Rect&` | `visibleRect` | - |
 | `Fw::DrawPane` | `drawPane` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (drawself)=
@@ -53,9 +47,6 @@ protected: virtual void drawSelf(Fw::DrawPane drawPane);
 | Type | Name | Description |
 |------|------|-------------|
 | `Fw::DrawPane` | `drawPane` | - |
-
-**Returns:**
-- `protected: virtual void`
 
 ---
 
@@ -74,9 +65,6 @@ virtual void drawChildren(const Rect& visibleRect, Fw::DrawPane drawPane);
 | `const Rect&` | `visibleRect` | - |
 | `Fw::DrawPane` | `drawPane` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (addchild)=
@@ -92,9 +80,6 @@ public: void addChild(const UIWidgetPtr& child);
 | Type | Name | Description |
 |------|------|-------------|
 | `const UIWidgetPtr&` | `child` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -174,10 +159,10 @@ void focusNextChild(Fw::FocusReason reason, bool rotate = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Fw::FocusReason` | `reason` | - |
-| `bool rotate =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Fw::FocusReason` | `reason` |  | - |
+| `bool` | `rotate` | `false` | - |
 
 ---
 
@@ -191,10 +176,10 @@ void focusPreviousChild(Fw::FocusReason reason, bool rotate = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Fw::FocusReason` | `reason` | - |
-| `bool rotate =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Fw::FocusReason` | `reason` |  | - |
+| `bool` | `rotate` | `false` | - |
 
 ---
 
@@ -1205,7 +1190,7 @@ protected: bool setState(Fw::WidgetState state, bool on);
 | `bool` | `on` | - |
 
 **Returns:**
-- `protected: bool`
+- `bool`
 
 ---
 
@@ -1235,9 +1220,6 @@ bool hasState(Fw::WidgetState state);
 ```cpp
 private: void internalDestroy();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 
@@ -1302,9 +1284,6 @@ protected: virtual void onStyleApply(const std::string& styleName, const OTMLNod
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
 
-**Returns:**
-- `protected: virtual void`
-
 ---
 
 (ongeometrychange)=
@@ -1322,9 +1301,6 @@ virtual void onGeometryChange(const Rect& oldRect, const Rect& newRect);
 | `const Rect&` | `oldRect` | - |
 | `const Rect&` | `newRect` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onlayoutupdate)=
@@ -1334,9 +1310,6 @@ virtual void onGeometryChange(const Rect& oldRect, const Rect& newRect);
 ```cpp
 virtual void onLayoutUpdate();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -1354,9 +1327,6 @@ virtual void onFocusChange(bool focused, Fw::FocusReason reason);
 |------|------|-------------|
 | `bool` | `focused` | - |
 | `Fw::FocusReason` | `reason` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -1376,9 +1346,6 @@ virtual void onChildFocusChange(const UIWidgetPtr& focusedChild, const UIWidgetP
 | `const UIWidgetPtr&` | `unfocusedChild` | - |
 | `Fw::FocusReason` | `reason` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onhoverchange)=
@@ -1395,9 +1362,6 @@ virtual void onHoverChange(bool hovered);
 |------|------|-------------|
 | `bool` | `hovered` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onvisibilitychange)=
@@ -1413,9 +1377,6 @@ virtual void onVisibilityChange(bool visible);
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | `visible` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -1434,7 +1395,7 @@ virtual bool onDragEnter(const Point& mousePos);
 | `const Point&` | `mousePos` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1454,7 +1415,7 @@ virtual bool onDragLeave(UIWidgetPtr droppedWidget, const Point& mousePos);
 | `const Point&` | `mousePos` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1474,7 +1435,7 @@ virtual bool onDragMove(const Point& mousePos, const Point& mouseMoved);
 | `const Point&` | `mouseMoved` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1494,7 +1455,7 @@ virtual bool onDrop(UIWidgetPtr draggedWidget, const Point& mousePos);
 | `const Point&` | `mousePos` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1513,7 +1474,7 @@ virtual bool onKeyText(const std::string& keyText);
 | `const std::string&` | `keyText` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1533,7 +1494,7 @@ virtual bool onKeyDown(uchar keyCode, int keyboardModifiers);
 | `int` | `keyboardModifiers` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1554,7 +1515,7 @@ virtual bool onKeyPress(uchar keyCode, int keyboardModifiers, int autoRepeatTick
 | `int` | `autoRepeatTicks` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1574,7 +1535,7 @@ virtual bool onKeyUp(uchar keyCode, int keyboardModifiers);
 | `int` | `keyboardModifiers` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1594,7 +1555,7 @@ virtual bool onMousePress(const Point& mousePos, Fw::MouseButton button);
 | `Fw::MouseButton` | `button` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1614,7 +1575,7 @@ virtual bool onMouseRelease(const Point& mousePos, Fw::MouseButton button);
 | `Fw::MouseButton` | `button` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1634,7 +1595,7 @@ virtual bool onMouseMove(const Point& mousePos, const Point& mouseMoved);
 | `const Point&` | `mouseMoved` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1654,7 +1615,7 @@ virtual bool onMouseWheel(const Point& mousePos, Fw::MouseWheelDirection directi
 | `Fw::MouseWheelDirection` | `direction` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1673,7 +1634,7 @@ virtual bool onClick(const Point& mousePos);
 | `const Point&` | `mousePos` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1692,7 +1653,7 @@ virtual bool onDoubleClick(const Point& mousePos);
 | `const Point&` | `mousePos` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1825,9 +1786,6 @@ bool propagateOnMouseMove(const Point& mousePos, const Point& mouseMoved, UIWidg
 private: void initBaseStyle();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (parsebasestyle)=
@@ -1859,9 +1817,6 @@ protected: void drawBackground(const Rect& screenCoords);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Rect&` | `screenCoords` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 
@@ -1937,9 +1892,6 @@ void setCursor(const std::string& cursor);
 private: void initImage();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (parseimagestyle)=
@@ -1972,9 +1924,6 @@ protected: void drawImage(const Rect& screenCoords);
 |------|------|-------------|
 | `const Rect&` | `screenCoords` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (setqrcode)=
@@ -1991,9 +1940,6 @@ public: void setQRCode(const std::string& code, int border);
 |------|------|-------------|
 | `const std::string&` | `code` | - |
 | `int` | `border` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -2037,9 +1983,6 @@ void setImageSourceBase64(const std::string & data);
 private: void initText();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (parsetextstyle)=
@@ -2065,9 +2008,6 @@ void parseTextStyle(const OTMLNodePtr& styleNode);
 ```cpp
 protected: virtual void updateText();
 ```
-
-**Returns:**
-- `protected: virtual void`
 
 ---
 
@@ -2102,9 +2042,6 @@ virtual void onTextChange(const std::string& text, const std::string& oldText);
 | `const std::string&` | `text` | - |
 | `const std::string&` | `oldText` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onfontchange)=
@@ -2121,9 +2058,6 @@ virtual void onFontChange(const std::string& font);
 |------|------|-------------|
 | `const std::string&` | `font` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (settext)=
@@ -2136,10 +2070,10 @@ void setText(std::string text, bool dontFireLuaCall = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string` | `text` | - |
-| `bool dontFireLuaCall =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string` | `text` |  | - |
+| `bool` | `dontFireLuaCall` | `false` | - |
 
 ---
 
@@ -2153,10 +2087,10 @@ void setColoredText(const std::vector<std::string>& texts, bool dontFireLuaCall 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::vector&lt;std::string&gt;&` | `texts` | - |
-| `bool dontFireLuaCall =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::vector&lt;std::string&gt;&` | `texts` |  | - |
+| `bool` | `dontFireLuaCall` | `false` | - |
 
 ---
 
@@ -2238,9 +2172,6 @@ public: void resize(int width, int height);
 |------|------|-------------|
 | `int` | `width` | - |
 | `int` | `height` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -2962,9 +2893,6 @@ public: void setX(int x);
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `x` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -4960,9 +4888,6 @@ std::string getImageShader();
 ```cpp
 public: void resizeToText();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 

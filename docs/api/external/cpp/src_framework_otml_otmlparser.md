@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlparser.h"
 source_file: "src/framework/otml/otmlparser.h"
-generated_at: "2025-10-31T23:33:30.352Z"
+generated_at: "2025-11-01T00:11:49.054Z"
 doc_type: "cpp_api"
 ---
 
@@ -21,9 +21,6 @@ public: OTMLParser(OTMLDocumentPtr doc, std::istream& in);
 |------|------|-------------|
 | `OTMLDocumentPtr` | `doc` | - |
 | `std::istream&` | `in` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -66,10 +63,10 @@ int getLineDepth(const std::string& line, bool multilining = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `line` | - |
-| `bool multilining =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `line` |  | - |
+| `bool` | `multilining` | `false` | - |
 
 **Returns:**
 - `int`

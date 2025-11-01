@@ -1,7 +1,7 @@
 ---
 title: "src/client/uisprite.h"
 source_file: "src/client/uisprite.h"
-generated_at: "2025-10-31T23:33:30.331Z"
+generated_at: "2025-11-01T00:11:49.031Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: UISprite();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -66,9 +63,6 @@ protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& st
 |------|------|-------------|
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

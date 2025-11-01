@@ -1,7 +1,7 @@
 ---
 title: "src/client/houses.h"
 source_file: "src/client/houses.h"
-generated_at: "2025-10-31T23:33:30.320Z"
+generated_at: "2025-11-01T00:11:49.018Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: House();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -101,9 +98,6 @@ protected: void load(const TiXmlElement* elem);
 |------|------|-------------|
 | `const TiXmlElement*` | `elem` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (save)=
@@ -129,9 +123,6 @@ void save(TiXmlElement* elem);
 ```cpp
 public: HouseManager();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -205,7 +196,7 @@ HousePtr getHouseByName(std::string name);
 
 ---
 
-(load)=
+(load-1)=
 ## `load`
 
 **Signature:**
@@ -221,7 +212,7 @@ void load(const std::string& fileName);
 
 ---
 
-(save)=
+(save-1)=
 ## `save`
 
 **Signature:**
@@ -281,7 +272,7 @@ protected: HouseList::iterator findHouse(uint32 houseId);
 | `uint32` | `houseId` | - |
 
 **Returns:**
-- `protected: HouseList::iterator`
+- `HouseList::iterator`
 
 ---
 

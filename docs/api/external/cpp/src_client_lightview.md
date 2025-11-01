@@ -1,32 +1,11 @@
 ---
 title: "src/client/lightview.h"
 source_file: "src/client/lightview.h"
-generated_at: "2025-10-31T23:33:30.321Z"
+generated_at: "2025-11-01T00:11:49.019Z"
 doc_type: "cpp_api"
 ---
 
 # src/client/lightview.h
-
-(addlight)=
-## `addLight`
-
-**Signature:**
-```cpp
-return addLight(pos, light.color, light.intensity);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `pos` | - |
-| `light.` | `color` | - |
-| `light.` | `intensity` | - |
-
-**Returns:**
-- `return`
-
----
 
 (addlight)=
 ## `addLight`
@@ -64,35 +43,7 @@ void setFieldBrightness(const Point& pos, size_t start, uint8_t color);
 
 ---
 
-(lightview)=
-## `LightView`
-
-**Signature:**
-```cpp
-public: LightView(TexturePtr& lightTexture, const Size& mapSize, const Rect& dest, const Rect& src, uint8_t color, uint8_t intensity) : DrawQueueItem(nullptr), m_lightTexture(lightTexture), m_mapSize(mapSize), m_dest(dest), m_src(src);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `TexturePtr&` | `lightTexture` | - |
-| `const Size&` | `mapSize` | - |
-| `const Rect&` | `dest` | - |
-| `const Rect&` | `src` | - |
-| `uint8_t` | `color` | - |
-| `uint8_t intensity) : DrawQueueItem(nullptr)` | - | - |
-| `m_lightTexture(lightTexture)` | - | - |
-| `m_mapSize(mapSize)` | - | - |
-| `m_dest(dest)` | - | - |
-| `m_src(` | `src` | - |
-
-**Returns:**
-- `public:`
-
----
-
-(addlight)=
+(addlight-1)=
 ## `addLight`
 
 **Signature:**
@@ -106,9 +57,6 @@ inline void addLight(const Point& pos, const Light& light);
 |------|------|-------------|
 | `const Point&` | `pos` | - |
 | `const Light&` | `light` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 

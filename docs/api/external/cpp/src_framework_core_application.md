@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/application.h"
 source_file: "src/framework/core/application.h"
-generated_at: "2025-10-31T23:33:30.332Z"
+generated_at: "2025-11-01T00:11:49.032Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Application();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -34,9 +31,6 @@ virtual void init(std::vector<std::string>& args);
 |------|------|-------------|
 | `std::vector&lt;std::string&gt;&` | `args` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (deinit)=
@@ -46,9 +40,6 @@ virtual void init(std::vector<std::string>& args);
 ```cpp
 virtual void deinit();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -60,9 +51,6 @@ virtual void deinit();
 virtual void terminate();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (run)=
@@ -72,9 +60,6 @@ virtual void terminate();
 ```cpp
 virtual void run();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -86,9 +71,6 @@ virtual void run();
 virtual void poll();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (exit)=
@@ -98,9 +80,6 @@ virtual void poll();
 ```cpp
 virtual void exit();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -112,9 +91,6 @@ virtual void exit();
 virtual void quick_exit();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (close)=
@@ -124,9 +100,6 @@ virtual void quick_exit();
 ```cpp
 virtual void close();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -176,9 +149,6 @@ std::string getOs();
 ```cpp
 protected: void registerLuaFunctions();
 ```
-
-**Returns:**
-- `protected: void`
 
 ---
 
@@ -386,7 +356,7 @@ std::string getBuildType();
 
 ---
 
-(getbuildtype)=
+(getbuildtype-1)=
 ## `getBuildType`
 
 **Signature:**

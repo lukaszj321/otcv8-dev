@@ -1,7 +1,7 @@
 ---
 title: "src/framework/http/websocket.h"
 source_file: "src/framework/http/websocket.h"
-generated_at: "2025-10-31T23:33:30.345Z"
+generated_at: "2025-11-01T00:11:49.046Z"
 doc_type: "cpp_api"
 ---
 
@@ -151,40 +151,9 @@ void onError(const std::string& error, const std::string& details = "");
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `error` | - |
-| `const std::string& details = ""` | - | - |
-
----
-
-(websocketsession)=
-## `WebsocketSession`
-
-**Signature:**
-```cpp
-public: WebsocketSession(boost::asio::io_service& service, const std::string& url, const std::string& agent, int timeout, HttpResult_ptr result, WebsocketSession_cb callback) : m_service(service), m_url(url), m_agent(agent), m_resolver(service), m_callback(callback), m_result(result), m_timer(service), m_timeout(timeout);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `boost::asio::io_service&` | `service` | - |
-| `const std::string&` | `url` | - |
-| `const std::string&` | `agent` | - |
-| `int` | `timeout` | - |
-| `HttpResult_ptr` | `result` | - |
-| `WebsocketSession_cb callback) : m_service(service)` | - | - |
-| `m_url(url)` | - | - |
-| `m_agent(agent)` | - | - |
-| `m_resolver(service)` | - | - |
-| `m_callback(callback)` | - | - |
-| `m_result(result)` | - | - |
-| `m_timer(service)` | - | - |
-| `m_timeout(` | `timeout` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `error` |  | - |
+| `const std::string&` | `details` | `""` | - |
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uigridlayout.h"
 source_file: "src/framework/ui/uigridlayout.h"
-generated_at: "2025-10-31T23:33:30.363Z"
+generated_at: "2025-11-01T00:11:49.065Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: UIGridLayout(UIWidgetPtr parentWidget);
 | Type | Name | Description |
 |------|------|-------------|
 | `UIWidgetPtr` | `parentWidget` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -83,7 +80,7 @@ protected: bool internalUpdate();
 ```
 
 **Returns:**
-- `protected: bool`
+- `bool`
 
 ---
 
@@ -292,6 +289,6 @@ virtual bool isUIGridLayout();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---

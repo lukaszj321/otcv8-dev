@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uimanager.h"
 source_file: "src/framework/ui/uimanager.h"
-generated_at: "2025-10-31T23:33:30.364Z"
+generated_at: "2025-11-01T00:11:49.066Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -88,12 +85,12 @@ void updatePressedWidget(const Fw::MouseButton button, const UIWidgetPtr& newPre
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Fw::MouseButton` | `button` | - |
-| `const UIWidgetPtr&` | `newPressedWidget` | - |
-| `const Point& clickedPos = Point()` | - | - |
-| `bool fireClicks =` | `true` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Fw::MouseButton` | `button` |  | - |
+| `const UIWidgetPtr&` | `newPressedWidget` |  | - |
+| `const Point&` | `clickedPos` | `Point()` | - |
+| `bool` | `fireClicks` | `true` | - |
 
 ---
 
@@ -107,10 +104,10 @@ bool updateDraggingWidget(const UIWidgetPtr& draggingWidget, const Point& clicke
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const UIWidgetPtr&` | `draggingWidget` | - |
-| `const Point& clickedPos = Point()` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const UIWidgetPtr&` | `draggingWidget` |  | - |
+| `const Point&` | `clickedPos` | `Point()` | - |
 
 **Returns:**
 - `bool`
@@ -127,9 +124,9 @@ void updateHoveredWidget(bool now = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool now =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `now` | `false` | - |
 
 ---
 
@@ -328,9 +325,6 @@ protected: void onWidgetAppear(const UIWidgetPtr& widget);
 | Type | Name | Description |
 |------|------|-------------|
 | `const UIWidgetPtr&` | `widget` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/coordsbuffer.h"
 source_file: "src/framework/graphics/coordsbuffer.h"
-generated_at: "2025-10-31T23:33:30.339Z"
+generated_at: "2025-11-01T00:11:49.039Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: CoordsBuffer();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -64,9 +61,9 @@ void unlock(bool clear = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool clear =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `clear` | `false` | - |
 
 ---
 
@@ -127,7 +124,7 @@ void addRect(const Rect& dest);
 
 ---
 
-(addrect)=
+(addrect-1)=
 ## `addRect`
 
 **Signature:**
@@ -144,7 +141,7 @@ void addRect(const Rect& dest, const Rect& src);
 
 ---
 
-(addrect)=
+(addrect-2)=
 ## `addRect`
 
 **Signature:**

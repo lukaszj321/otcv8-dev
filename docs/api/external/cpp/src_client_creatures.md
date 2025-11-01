@@ -1,7 +1,7 @@
 ---
 title: "src/client/creatures.h"
 source_file: "src/client/creatures.h"
-generated_at: "2025-10-31T23:33:30.318Z"
+generated_at: "2025-11-01T00:11:49.016Z"
 doc_type: "cpp_api"
 ---
 
@@ -67,9 +67,6 @@ protected: void load(TiXmlElement* node);
 |------|------|-------------|
 | `TiXmlElement*` | `node` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (save)=
@@ -108,9 +105,6 @@ CreaturePtr cast();
 ```cpp
 public: CreatureManager();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -370,9 +364,6 @@ protected: void internalLoadCreatureBuffer(TiXmlElement* elem, const CreatureTyp
 | `TiXmlElement*` | `elem` | - |
 | `const CreatureTypePtr&` | `m` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (setradius)=
@@ -588,7 +579,7 @@ CreatureRace getRace();
 
 ---
 
-(clear)=
+(clear-1)=
 ## `clear`
 
 **Signature:**
@@ -624,7 +615,7 @@ bool isSpawnLoaded();
 
 ---
 
-(getcreatures)=
+(getcreatures-1)=
 ## `getCreatures`
 
 **Signature:**

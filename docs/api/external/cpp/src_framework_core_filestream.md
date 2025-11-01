@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/filestream.h"
 source_file: "src/framework/core/filestream.h"
-generated_at: "2025-10-31T23:33:30.334Z"
+generated_at: "2025-11-01T00:11:49.035Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,11 +20,8 @@ public: FileStream(const std::string& name, PHYSFS_File *fileHandle, bool writea
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `name` | - |
-| `PHYSFS_File *` | `fileHandle` | - |
+| `PHYSFS_File *fileHandle` | - | - |
 | `bool` | `writeable` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -60,7 +57,7 @@ void write(const void *buffer, uint count);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const void *` | `buffer` | - |
+| `const void *buffer` | - | - |
 | `uint` | `count` | - |
 
 ---
@@ -75,11 +72,11 @@ int read(void *buffer, uint size, uint nmemb = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `void *` | `buffer` | - |
-| `uint` | `size` | - |
-| `uint nmemb = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `void *buffer` | - |  | - |
+| `uint` | `size` |  | - |
+| `uint` | `nmemb` | `1` | - |
 
 **Returns:**
 - `int`
@@ -472,7 +469,7 @@ private: bool initFromGzip(const std::string& buffer);
 | `const std::string&` | `buffer` | - |
 
 **Returns:**
-- `private: bool`
+- `bool`
 
 ---
 
@@ -496,10 +493,10 @@ void throwError(const std::string& message, bool physfsError = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `message` | - |
-| `bool physfsError =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `message` |  | - |
+| `bool` | `physfsError` | `false` | - |
 
 ---
 

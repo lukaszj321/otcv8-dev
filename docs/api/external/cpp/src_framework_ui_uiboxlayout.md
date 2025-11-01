@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uiboxlayout.h"
 source_file: "src/framework/ui/uiboxlayout.h"
-generated_at: "2025-10-31T23:33:30.363Z"
+generated_at: "2025-11-01T00:11:49.065Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: UIBoxLayout(UIWidgetPtr parentWidget);
 | Type | Name | Description |
 |------|------|-------------|
 | `UIWidgetPtr` | `parentWidget` | - |
-
-**Returns:**
-- `public:`
 
 ---
 

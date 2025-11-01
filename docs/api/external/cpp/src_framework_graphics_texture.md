@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/texture.h"
 source_file: "src/framework/graphics/texture.h"
-generated_at: "2025-10-31T23:33:30.344Z"
+generated_at: "2025-11-01T00:11:49.045Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,15 +17,12 @@ public: Texture(const Size& size, bool depthTexture = false, bool smooth = false
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Size&` | `size` | - |
-| `bool depthTexture =` | `false` | - |
-| `bool smooth =` | `false` | - |
-| `bool upsideDown =` | `false` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Size&` | `size` |  | - |
+| `bool` | `depthTexture` | `false` | - |
+| `bool` | `smooth` | `false` | - |
+| `bool` | `upsideDown` | `false` | - |
 
 ---
 
@@ -42,9 +39,6 @@ virtual void replace(const ImagePtr& image);
 | Type | Name | Description |
 |------|------|-------------|
 | `const ImagePtr&` | `image` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -72,9 +66,6 @@ void resize(const Size& size);
 virtual void update();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setupsidedown)=
@@ -90,9 +81,6 @@ virtual void setUpsideDown(bool upsideDown);
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | `upsideDown` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -110,9 +98,6 @@ virtual void setSmooth(bool smooth);
 |------|------|-------------|
 | `bool` | `smooth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setrepeat)=
@@ -129,9 +114,6 @@ virtual void setRepeat(bool repeat);
 |------|------|-------------|
 | `bool` | `repeat` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (buildhardwaremipmaps)=
@@ -143,7 +125,7 @@ virtual bool buildHardwareMipmaps();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -157,14 +139,11 @@ protected: void uploadPixels(const ImagePtr& image, bool buildMipmaps = false, b
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const ImagePtr&` | `image` | - |
-| `bool buildMipmaps =` | `false` | - |
-| `bool compress =` | `false` | - |
-
-**Returns:**
-- `protected: void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const ImagePtr&` | `image` |  | - |
+| `bool` | `buildMipmaps` | `false` | - |
+| `bool` | `compress` | `false` | - |
 
 ---
 
@@ -224,13 +203,13 @@ void setupPixels(int level, const Size& size, uchar *pixels, int channels = 4, b
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `level` | - |
-| `const Size&` | `size` | - |
-| `uchar *` | `pixels` | - |
-| `int channels = 4` | - | - |
-| `bool compress =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `level` |  | - |
+| `const Size&` | `size` |  | - |
+| `uchar *pixels` | - |  | - |
+| `int` | `channels` | `4` | - |
+| `bool` | `compress` | `false` | - |
 
 ---
 
@@ -418,6 +397,6 @@ virtual bool isAnimatedTexture();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---

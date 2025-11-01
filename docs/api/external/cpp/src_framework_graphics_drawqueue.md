@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/drawqueue.h"
 source_file: "src/framework/graphics/drawqueue.h"
-generated_at: "2025-10-31T23:33:30.340Z"
+generated_at: "2025-11-01T00:11:49.040Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,12 +15,9 @@ doc_type: "cpp_api"
 virtual void draw();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(draw)=
+(draw-1)=
 ## `draw`
 
 **Signature:**
@@ -34,9 +31,6 @@ virtual void draw(const Point& pos);
 |------|------|-------------|
 | `const Point&` | `pos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (cache)=
@@ -48,11 +42,11 @@ virtual bool cache();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(draw)=
+(draw-2)=
 ## `draw`
 
 **Signature:**
@@ -62,7 +56,7 @@ void draw();
 
 ---
 
-(draw)=
+(draw-3)=
 ## `draw`
 
 **Signature:**
@@ -78,7 +72,7 @@ void draw(const Point& pos);
 
 ---
 
-(cache)=
+(cache-1)=
 ## `cache`
 
 **Signature:**
@@ -91,7 +85,7 @@ bool cache();
 
 ---
 
-(draw)=
+(draw-4)=
 ## `draw`
 
 **Signature:**
@@ -101,7 +95,7 @@ void draw();
 
 ---
 
-(cache)=
+(cache-2)=
 ## `cache`
 
 **Signature:**
@@ -114,7 +108,7 @@ bool cache();
 
 ---
 
-(draw)=
+(draw-5)=
 ## `draw`
 
 **Signature:**
@@ -124,7 +118,7 @@ void draw();
 
 ---
 
-(cache)=
+(cache-3)=
 ## `cache`
 
 **Signature:**
@@ -137,7 +131,7 @@ bool cache();
 
 ---
 
-(draw)=
+(draw-6)=
 ## `draw`
 
 **Signature:**
@@ -147,7 +141,7 @@ void draw();
 
 ---
 
-(draw)=
+(draw-7)=
 ## `draw`
 
 **Signature:**
@@ -157,7 +151,7 @@ void draw();
 
 ---
 
-(draw)=
+(draw-8)=
 ## `draw`
 
 **Signature:**
@@ -181,9 +175,6 @@ virtual void start(DrawQueue*);
 |------|------|-------------|
 | `DrawQueue*` | - | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (end)=
@@ -200,12 +191,9 @@ virtual void end(DrawQueue*);
 |------|------|-------------|
 | `DrawQueue*` | - | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(draw)=
+(draw-9)=
 ## `draw`
 
 **Signature:**
@@ -215,9 +203,9 @@ void draw(DrawType drawType = DRAW_ALL);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `DrawType drawType =` | `DRAW_ALL` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `DrawType` | `drawType` | `DRAW_ALL` | - |
 
 ---
 
@@ -233,9 +221,9 @@ DrawQueueItemTexturedRect* item(new DrawQueueItemTexturedRect(dest, texture, src
 
 | Type | Name | Description |
 |------|------|-------------|
-| `new DrawQueueItemTexturedRect(` | `dest` | - |
-| `` | `texture` | - |
-| `` | `src` | - |
+| `new DrawQueueItemTexturedRect(dest` | - | - |
+| `texture` | - | - |
+| `src` | - | - |
 | `color)` | - | - |
 
 **Returns:**
@@ -253,14 +241,14 @@ void addText(BitmapFontPtr font, const std::string& text, const Rect& screenCoor
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `BitmapFontPtr` | `font` | - |
-| `const std::string&` | `text` | - |
-| `const Rect&` | `screenCoords` | - |
-| `Fw::AlignmentFlag align = Fw::` | `AlignTopLeft` | - |
-| `const Color& color = Color::` | `white` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `BitmapFontPtr` | `font` |  | - |
+| `const std::string&` | `text` |  | - |
+| `const Rect&` | `screenCoords` |  | - |
+| `Fw::AlignmentFlag` | `align` | `Fw::AlignTopLeft` | - |
+| `const Color&` | `color` | `Color::white` | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
@@ -274,15 +262,14 @@ void addColoredText(BitmapFontPtr font, const std::string& text, const Rect& scr
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `BitmapFontPtr` | `font` | - |
-| `const std::string&` | `text` | - |
-| `const Rect&` | `screenCoords` | - |
-| `Fw::AlignmentFlag` | `align` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;&` | `colors` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `BitmapFontPtr` | `font` |  | - |
+| `const std::string&` | `text` |  | - |
+| `const Rect&` | `screenCoords` |  | - |
+| `Fw::AlignmentFlag` | `align` |  | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;&` | `colors` |  | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
@@ -322,7 +309,7 @@ void correctOutfit(const Rect& dest, int fromPos, bool oldScaling);
 
 ---
 
-(draw)=
+(draw-10)=
 ## `draw`
 
 **Signature:**
@@ -330,12 +317,9 @@ void correctOutfit(const Rect& dest, int fromPos, bool oldScaling);
 virtual void draw();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(draw)=
+(draw-11)=
 ## `draw`
 
 **Signature:**
@@ -349,12 +333,9 @@ virtual void draw(const Point& pos);
 |------|------|-------------|
 | `const Point&` | `pos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(cache)=
+(cache-4)=
 ## `cache`
 
 **Signature:**
@@ -363,7 +344,7 @@ virtual bool cache();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -393,12 +374,12 @@ DrawQueueItemTexturedRect* addTexturedRect(const Rect& dest, const TexturePtr& t
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `const TexturePtr&` | `texture` | - |
-| `const Rect&` | `src` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `const TexturePtr&` | `texture` |  | - |
+| `const Rect&` | `src` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 **Returns:**
 - `DrawQueueItemTexturedRect*`
@@ -415,11 +396,11 @@ void addTextureCoords(CoordsBuffer& coords, const TexturePtr& texture, const Col
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `CoordsBuffer&` | `coords` | - |
-| `const TexturePtr&` | `texture` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `CoordsBuffer&` | `coords` |  | - |
+| `const TexturePtr&` | `texture` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 
@@ -437,8 +418,7 @@ void addColoredTextureCoords(CoordsBuffer& coords, const TexturePtr& texture, co
 |------|------|-------------|
 | `CoordsBuffer&` | `coords` | - |
 | `const TexturePtr&` | `texture` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;&` | `colors` | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;&` | `colors` | - |
 
 ---
 
@@ -452,10 +432,10 @@ void addFilledRect(const Rect& dest, const Color& color = Color::white);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 
@@ -469,10 +449,10 @@ void addFillCoords(CoordsBuffer& coords, const Color& color = Color::white);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `CoordsBuffer&` | `coords` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `CoordsBuffer&` | `coords` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 
@@ -486,10 +466,10 @@ void addClearRect(const Rect& dest, const Color& color = Color::white);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 
@@ -503,12 +483,12 @@ void addFilledTriangle(const Point& a, const Point& b, const Point& c, const Col
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `a` | - |
-| `const Point&` | `b` | - |
-| `const Point&` | `c` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `a` |  | - |
+| `const Point&` | `b` |  | - |
+| `const Point&` | `c` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 
@@ -522,11 +502,11 @@ void addBoundingRect(const Rect& dest, int innerLineWidth, const Color& color = 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `int` | `innerLineWidth` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `int` | `innerLineWidth` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 
@@ -540,11 +520,11 @@ void addLine(const std::vector<Point>& points, int width, const Color& color = C
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::vector&lt;Point&gt;&` | `points` | - |
-| `int` | `width` | - |
-| `const Color& color = Color::` | `white` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::vector&lt;Point&gt;&` | `points` |  | - |
+| `int` | `width` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
 
 ---
 

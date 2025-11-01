@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/vertexarray.h"
 source_file: "src/framework/graphics/vertexarray.h"
-generated_at: "2025-10-31T23:33:30.345Z"
+generated_at: "2025-11-01T00:11:49.046Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: VertexArray();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -34,9 +31,6 @@ inline void addVertex(float x, float y);
 |------|------|-------------|
 | `float` | `x` | - |
 | `float` | `y` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -56,9 +50,6 @@ inline void addTriangle(const Point& a, const Point& b, const Point& c);
 | `const Point&` | `b` | - |
 | `const Point&` | `c` | - |
 
-**Returns:**
-- `inline void`
-
 ---
 
 (addrect)=
@@ -75,12 +66,9 @@ inline void addRect(const Rect& rect);
 |------|------|-------------|
 | `const Rect&` | `rect` | - |
 
-**Returns:**
-- `inline void`
-
 ---
 
-(addrect)=
+(addrect-1)=
 ## `addRect`
 
 **Signature:**
@@ -93,9 +81,6 @@ inline void addRect(const RectF& rect);
 | Type | Name | Description |
 |------|------|-------------|
 | `const RectF&` | `rect` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -113,9 +98,6 @@ inline void addQuad(const Rect& rect);
 |------|------|-------------|
 | `const Rect&` | `rect` | - |
 
-**Returns:**
-- `inline void`
-
 ---
 
 (addupsidedownquad)=
@@ -131,9 +113,6 @@ inline void addUpsideDownQuad(const Rect& rect);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Rect&` | `rect` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 

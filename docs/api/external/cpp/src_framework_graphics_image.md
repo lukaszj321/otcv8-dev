@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/image.h"
 source_file: "src/framework/graphics/image.h"
-generated_at: "2025-10-31T23:33:30.341Z"
+generated_at: "2025-11-01T00:11:49.042Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,14 +17,11 @@ public: Image(const Size& size, int bpp = 4, uint8 *pixels = nullptr);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Size&` | `size` | - |
-| `int bpp = 4` | - | - |
-| `uint8 *pixels =` | `nullptr` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Size&` | `size` |  | - |
+| `int` | `bpp` | `4` | - |
+| `uint8 *pixels` | - | `nullptr` | - |
 
 ---
 
@@ -43,7 +40,7 @@ static ImagePtr load(std::string file);
 | `std::string` | `file` | - |
 
 **Returns:**
-- `static ImagePtr`
+- `ImagePtr`
 
 ---
 
@@ -62,11 +59,11 @@ static ImagePtr loadPNG(const std::string& file);
 | `const std::string&` | `file` | - |
 
 **Returns:**
-- `static ImagePtr`
+- `ImagePtr`
 
 ---
 
-(loadpng)=
+(loadpng-1)=
 ## `loadPNG`
 
 **Signature:**
@@ -82,7 +79,7 @@ static ImagePtr loadPNG(const void* data, uint32_t size);
 | `uint32_t` | `size` | - |
 
 **Returns:**
-- `static ImagePtr`
+- `ImagePtr`
 
 ---
 
@@ -177,7 +174,7 @@ static ImagePtr fromQRCode(const std::string& code, int border);
 | `int` | `border` | - |
 
 **Returns:**
-- `static ImagePtr`
+- `ImagePtr`
 
 ---
 
@@ -211,11 +208,11 @@ void setPixel(int x, int y, uint8 *pixel);
 |------|------|-------------|
 | `int` | `x` | - |
 | `int` | `y` | - |
-| `uint8 *` | `pixel` | - |
+| `uint8 *pixel` | - | - |
 
 ---
 
-(setpixel)=
+(setpixel-1)=
 ## `setPixel`
 
 **Signature:**
@@ -233,7 +230,7 @@ void setPixel(int x, int y, uint32_t argb);
 
 ---
 
-(setpixel)=
+(setpixel-2)=
 ## `setPixel`
 
 **Signature:**

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/xml/tinyxml.h"
 source_file: "src/framework/xml/tinyxml.h"
-generated_at: "2025-10-31T23:33:30.371Z"
+generated_at: "2025-11-01T00:11:49.073Z"
 doc_type: "cpp_api"
 ---
 
@@ -24,8 +24,7 @@ or the string class(TiXmlString in non-STL mode, std::string in STL mode.) Eithe
 | `TiXmlString in non-STL` | `mode` | - |
 | `std::string in STL mode.) Either or both cfile and str can be null. This is a formatted` | `print` | - |
 | `and will insert tabs and newlines. (For an unformatted` | `stream` | - |
-| `use the &lt;&lt; operator.) */ virtual void Print( FILE*` | `cfile` | - |
-| `int` | `depth` | - |
+| `use the &lt;&lt; operator.) */ virtual void Print( FILE* cfile, int` | `depth` | - |
 
 **Returns:**
 - `or the string`
@@ -42,14 +41,14 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const char*` | `p` | - |
-| `TiXmlParsingData*` | `data` | - |
-| `TiXmlEncoding encoding /*= TIXML_ENCODING_UNKNOWN */` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const char*` | `p` |  | - |
+| `TiXmlParsingData*` | `data` |  | - |
+| `TiXmlEncoding encoding /*` | - | `TIXML_ENCODING_UNKNOWN */` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
@@ -67,9 +66,6 @@ static void EncodeString(const TIXML_STRING& str, TIXML_STRING* out);
 |------|------|-------------|
 | `const TIXML_STRING&` | `str` | - |
 | `TIXML_STRING*` | `out` | - |
-
-**Returns:**
-- `static void`
 
 ---
 
@@ -89,26 +85,7 @@ protected: static const char* SkipWhiteSpace(const char*, TiXmlEncoding encoding
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `protected: static const char*`
-
----
-
-(iswhitespace)=
-## `IsWhiteSpace`
-
-**Signature:**
-```cpp
-return IsWhiteSpace((char) c);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `(char)` | `c` | - |
-
-**Returns:**
-- `return`
+- `const char*`
 
 ---
 
@@ -128,7 +105,7 @@ static bool StreamWhiteSpace(std::istream * in, TIXML_STRING * tag);
 | `TIXML_STRING *` | `tag` | - |
 
 **Returns:**
-- `static bool`
+- `bool`
 
 ---
 
@@ -149,7 +126,7 @@ static bool StreamTo(std::istream * in, int character, TIXML_STRING * tag);
 | `TIXML_STRING *` | `tag` | - |
 
 **Returns:**
-- `static bool`
+- `bool`
 
 ---
 
@@ -170,7 +147,7 @@ static const char* ReadName(const char* p, TIXML_STRING* name, TiXmlEncoding enc
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `static const char*`
+- `const char*`
 
 ---
 
@@ -192,29 +169,7 @@ static const char* GetEntity(const char* in, char* value, int* length, TiXmlEnco
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `static const char*`
-
----
-
-(getentity)=
-## `GetEntity`
-
-**Signature:**
-```cpp
-return GetEntity(p, _value, length, encoding);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `p` | - |
-| `` | `_value` | - |
-| `` | `length` | - |
-| `` | `encoding` | - |
-
-**Returns:**
-- `return`
+- `const char*`
 
 ---
 
@@ -236,7 +191,7 @@ static bool StringEqual(const char* p, const char* endTag, bool ignoreCase, TiXm
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `static bool`
+- `bool`
 
 ---
 
@@ -256,7 +211,7 @@ static int IsAlpha(unsigned char anyByte, TiXmlEncoding encoding);
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `static int`
+- `int`
 
 ---
 
@@ -276,26 +231,7 @@ static int IsAlphaNum(unsigned char anyByte, TiXmlEncoding encoding);
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `static int`
-
----
-
-(tolower)=
-## `tolower`
-
-**Signature:**
-```cpp
-return tolower(v);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `v` | - |
-
-**Returns:**
-- `return`
+- `int`
 
 ---
 
@@ -314,9 +250,6 @@ static void ConvertUTF32ToUTF8(unsigned long input, char* output, int* length);
 | `unsigned long` | `input` | - |
 | `char*` | `output` | - |
 | `int*` | `length` | - |
-
-**Returns:**
-- `static void`
 
 ---
 
@@ -340,7 +273,7 @@ friend std::ostream& operator<<(std::ostream& out, const TiXmlNode& base);
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator<<`
 
 Appends the XML node or attribute to a std::string.
@@ -393,7 +326,7 @@ const TiXmlNode* IterateChildren(const TiXmlNode* previous);
 
 ---
 
-(iteratechildren)=
+(iteratechildren-1)=
 ## `IterateChildren`
 
 This flavor of IterateChildren searches for children with a particular 'value'
@@ -590,7 +523,7 @@ const TiXmlElement* NextSiblingElement();
 
 ---
 
-(nextsiblingelement)=
+(nextsiblingelement-1)=
 ## `NextSiblingElement`
 
 **Signature:**
@@ -624,7 +557,7 @@ const TiXmlElement* FirstChildElement();
 
 ---
 
-(firstchildelement)=
+(firstchildelement-1)=
 ## `FirstChildElement`
 
 Convenience function to get through elements.
@@ -667,7 +600,7 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
@@ -686,7 +619,7 @@ virtual bool Accept(TiXmlVisitor* visitor);
 | `TiXmlVisitor*` | `visitor` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -703,9 +636,6 @@ protected: TiXmlNode(NodeType _type);
 | Type | Name | Description |
 |------|------|-------------|
 | `NodeType` | `_type` | - |
-
-**Returns:**
-- `protected:`
 
 ---
 
@@ -739,9 +669,6 @@ virtual void StreamIn(std::istream* in, TIXML_STRING* tag);
 |------|------|-------------|
 | `std::istream*` | `in` | - |
 | `TIXML_STRING*` | `tag` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -835,7 +762,7 @@ const TiXmlAttribute* Previous();
 
 ---
 
-(parse)=
+(parse-1)=
 ## `Parse`
 
 **Signature:**
@@ -852,7 +779,7 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
@@ -881,9 +808,6 @@ void Print(FILE* cfile, int depth, TIXML_STRING* str);
 ```cpp
 public: TiXmlAttributeSet();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -957,7 +881,7 @@ TiXmlAttribute* FindOrCreate(const char* _name);
 
 ---
 
-(find)=
+(find-1)=
 ## `Find`
 
 **Signature:**
@@ -976,7 +900,7 @@ TiXmlAttribute* Find(const std::string& _name);
 
 ---
 
-(findorcreate)=
+(findorcreate-1)=
 ## `FindOrCreate`
 
 **Signature:**
@@ -1008,22 +932,6 @@ public: TiXmlElement(const std::string& _value);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `_value` | - |
-
-**Returns:**
-- `public:`
-
----
-
-(t)=
-## `T`
-
-**Signature:**
-```cpp
-return T();
-```
-
-**Returns:**
-- `return`
 
 ---
 
@@ -1065,7 +973,7 @@ std::string Attribute(const std::string& name);
 
 ---
 
-(attribute)=
+(attribute-1)=
 ## `Attribute`
 
 **Signature:**
@@ -1085,7 +993,7 @@ std::string Attribute(const std::string& name, int* i);
 
 ---
 
-(attribute)=
+(attribute-2)=
 ## `Attribute`
 
 **Signature:**
@@ -1157,7 +1065,7 @@ WARNING: GetText() accesses a child node - don't become confused with the simila
 
 ---
 
-(clone)=
+(clone-1)=
 ## `Clone`
 
 Creates a new Element and returns it - the returned element is a copy.
@@ -1168,11 +1076,11 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
-(print)=
+(print-1)=
 ## `Print`
 
 **Signature:**
@@ -1187,12 +1095,9 @@ virtual void Print(FILE* cfile, int depth);
 | `FILE*` | `cfile` | - |
 | `int` | `depth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(parse)=
+(parse-2)=
 ## `Parse`
 
 **Signature:**
@@ -1209,11 +1114,11 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
-(accept)=
+(accept-1)=
 ## `Accept`
 
 Walk the XML tree visiting this node and all of its children.
@@ -1230,11 +1135,11 @@ virtual bool Accept(TiXmlVisitor* visitor);
 | `TiXmlVisitor*` | `visitor` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(copyto)=
+(copyto-1)=
 ## `CopyTo`
 
 **Signature:**
@@ -1248,12 +1153,9 @@ protected: void CopyTo(TiXmlElement* target);
 |------|------|-------------|
 | `TiXmlElement*` | `target` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
-(streamin)=
+(streamin-1)=
 ## `StreamIn`
 
 **Signature:**
@@ -1267,9 +1169,6 @@ virtual void StreamIn(std::istream * in, TIXML_STRING * tag);
 |------|------|-------------|
 | `std::istream *` | `in` | - |
 | `TIXML_STRING *` | `tag` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -1294,7 +1193,7 @@ const char* ReadValue(const char* in, TiXmlParsingData* prevData, TiXmlEncoding 
 
 ---
 
-(clone)=
+(clone-2)=
 ## `Clone`
 
 Returns a copy of this Comment.
@@ -1305,11 +1204,11 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
-(print)=
+(print-2)=
 ## `Print`
 
 **Signature:**
@@ -1324,12 +1223,9 @@ virtual void Print(FILE* cfile, int depth);
 | `FILE*` | `cfile` | - |
 | `int` | `depth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(parse)=
+(parse-3)=
 ## `Parse`
 
 **Signature:**
@@ -1346,11 +1242,11 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
-(accept)=
+(accept-2)=
 ## `Accept`
 
 Walk the XML tree visiting this node and all of its children.
@@ -1367,11 +1263,11 @@ virtual bool Accept(TiXmlVisitor* visitor);
 | `TiXmlVisitor*` | `visitor` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(copyto)=
+(copyto-2)=
 ## `CopyTo`
 
 **Signature:**
@@ -1385,12 +1281,9 @@ protected: void CopyTo(TiXmlComment* target);
 |------|------|-------------|
 | `TiXmlComment*` | `target` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
-(streamin)=
+(streamin-2)=
 ## `StreamIn`
 
 **Signature:**
@@ -1405,12 +1298,9 @@ virtual void StreamIn(std::istream * in, TIXML_STRING * tag);
 | `std::istream *` | `in` | - |
 | `TIXML_STRING *` | `tag` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(print)=
+(print-3)=
 ## `Print`
 
 **Signature:**
@@ -1425,12 +1315,9 @@ virtual void Print(FILE* cfile, int depth);
 | `FILE*` | `cfile` | - |
 | `int` | `depth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(parse)=
+(parse-4)=
 ## `Parse`
 
 **Signature:**
@@ -1447,11 +1334,11 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
-(accept)=
+(accept-3)=
 ## `Accept`
 
 Walk the XML tree visiting this node and all of its children.
@@ -1468,11 +1355,11 @@ virtual bool Accept(TiXmlVisitor* content);
 | `TiXmlVisitor*` | `content` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(clone)=
+(clone-3)=
 ## `Clone`
 
 [internal use] Creates a new Element and returns it.
@@ -1483,11 +1370,11 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
-(copyto)=
+(copyto-3)=
 ## `CopyTo`
 
 **Signature:**
@@ -1503,7 +1390,7 @@ void CopyTo(TiXmlText* target);
 
 ---
 
-(streamin)=
+(streamin-3)=
 ## `StreamIn`
 
 **Signature:**
@@ -1518,12 +1405,9 @@ virtual void StreamIn(std::istream * in, TIXML_STRING * tag);
 | `std::istream *` | `in` | - |
 | `TIXML_STRING *` | `tag` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(clone)=
+(clone-4)=
 ## `Clone`
 
 Creates a copy of this Declaration and returns it.
@@ -1534,11 +1418,11 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
-(print)=
+(print-4)=
 ## `Print`
 
 **Signature:**
@@ -1554,12 +1438,9 @@ virtual void Print(FILE* cfile, int depth, TIXML_STRING* str);
 | `int` | `depth` | - |
 | `TIXML_STRING*` | `str` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(parse)=
+(parse-5)=
 ## `Parse`
 
 **Signature:**
@@ -1576,11 +1457,11 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
-(accept)=
+(accept-4)=
 ## `Accept`
 
 Walk the XML tree visiting this node and all of its children.
@@ -1597,11 +1478,11 @@ virtual bool Accept(TiXmlVisitor* visitor);
 | `TiXmlVisitor*` | `visitor` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(copyto)=
+(copyto-4)=
 ## `CopyTo`
 
 **Signature:**
@@ -1615,12 +1496,9 @@ protected: void CopyTo(TiXmlDeclaration* target);
 |------|------|-------------|
 | `TiXmlDeclaration*` | `target` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
-(streamin)=
+(streamin-4)=
 ## `StreamIn`
 
 **Signature:**
@@ -1635,12 +1513,9 @@ virtual void StreamIn(std::istream * in, TIXML_STRING * tag);
 | `std::istream *` | `in` | - |
 | `TIXML_STRING *` | `tag` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(clone)=
+(clone-5)=
 ## `Clone`
 
 Creates a copy of this Unknown and returns it.
@@ -1651,11 +1526,11 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
-(print)=
+(print-5)=
 ## `Print`
 
 **Signature:**
@@ -1670,12 +1545,9 @@ virtual void Print(FILE* cfile, int depth);
 | `FILE*` | `cfile` | - |
 | `int` | `depth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(parse)=
+(parse-6)=
 ## `Parse`
 
 **Signature:**
@@ -1692,11 +1564,11 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data, TiXmlEncoding e
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
-(accept)=
+(accept-5)=
 ## `Accept`
 
 Walk the XML tree visiting this node and all of its children.
@@ -1713,11 +1585,11 @@ virtual bool Accept(TiXmlVisitor* content);
 | `TiXmlVisitor*` | `content` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(copyto)=
+(copyto-5)=
 ## `CopyTo`
 
 **Signature:**
@@ -1731,12 +1603,9 @@ protected: void CopyTo(TiXmlUnknown* target);
 |------|------|-------------|
 | `TiXmlUnknown*` | `target` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
-(streamin)=
+(streamin-5)=
 ## `StreamIn`
 
 **Signature:**
@@ -1751,9 +1620,6 @@ virtual void StreamIn(std::istream * in, TIXML_STRING * tag);
 | `std::istream *` | `in` | - |
 | `TIXML_STRING *` | `tag` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (loadfile)=
@@ -1766,9 +1632,9 @@ bool LoadFile(TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `TiXmlEncoding encoding =` | `TIXML_DEFAULT_ENCODING` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `TiXmlEncoding` | `encoding` | `TIXML_DEFAULT_ENCODING` | - |
 
 **Returns:**
 - `bool`
@@ -1790,7 +1656,7 @@ bool SaveFile();
 
 ---
 
-(loadfile)=
+(loadfile-1)=
 ## `LoadFile`
 
 Load a file using the given filename. Returns true if successful.
@@ -1802,17 +1668,17 @@ bool LoadFile(const char * filename, TiXmlEncoding encoding = TIXML_DEFAULT_ENCO
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const char *` | `filename` | - |
-| `TiXmlEncoding encoding =` | `TIXML_DEFAULT_ENCODING` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const char *` | `filename` |  | - |
+| `TiXmlEncoding` | `encoding` | `TIXML_DEFAULT_ENCODING` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(savefile)=
+(savefile-1)=
 ## `SaveFile`
 
 Save a file using the given filename. Returns true if successful.
@@ -1833,7 +1699,7 @@ bool SaveFile(const char * filename);
 
 ---
 
-(loadfile)=
+(loadfile-2)=
 ## `LoadFile`
 
 **Signature:**
@@ -1843,17 +1709,17 @@ bool LoadFile(FILE*, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `FILE*` | - | - |
-| `TiXmlEncoding encoding =` | `TIXML_DEFAULT_ENCODING` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `FILE*` | - |  | - |
+| `TiXmlEncoding` | `encoding` | `TIXML_DEFAULT_ENCODING` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(savefile)=
+(savefile-2)=
 ## `SaveFile`
 
 Save a file using the given FILE*. Returns true if successful.
@@ -1874,46 +1740,7 @@ bool SaveFile(FILE*);
 
 ---
 
-(loadfile)=
-## `LoadFile`
-
-**Signature:**
-```cpp
-return LoadFile(filename.c_str(), encoding);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `filename.c_str()` | - | - |
-| `` | `encoding` | - |
-
-**Returns:**
-- `return`
-
----
-
-(savefile)=
-## `SaveFile`
-
-**Signature:**
-```cpp
-return SaveFile(filename.c_str());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `filename.c_str()` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(parse)=
+(parse-7)=
 ## `Parse`
 
 **Signature:**
@@ -1923,14 +1750,14 @@ virtual const char* Parse(const char* p, TiXmlParsingData* data = 0, TiXmlEncodi
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const char*` | `p` | - |
-| `TiXmlParsingData* data = 0` | - | - |
-| `TiXmlEncoding encoding =` | `TIXML_DEFAULT_ENCODING` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const char*` | `p` |  | - |
+| `TiXmlParsingData*` | `data` | `0` | - |
+| `TiXmlEncoding` | `encoding` | `TIXML_DEFAULT_ENCODING` | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
@@ -1953,7 +1780,7 @@ will allocate a character array(new char[]) and return it as a pointer. The call
 
 ---
 
-(print)=
+(print-6)=
 ## `Print`
 
 Print this Document to a FILE stream.
@@ -1965,13 +1792,10 @@ virtual void Print(FILE* cfile, int depth = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `FILE*` | `cfile` | - |
-| `int depth = 0` | - | - |
-
-**Returns:**
-- `virtual void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `FILE*` | `cfile` |  | - |
+| `int` | `depth` | `0` | - |
 
 ---
 
@@ -1994,7 +1818,7 @@ void SetError(int err, const char* errorLocation, TiXmlParsingData* prevData, Ti
 
 ---
 
-(accept)=
+(accept-6)=
 ## `Accept`
 
 Walk the XML tree visiting this node and all of its children.
@@ -2011,11 +1835,11 @@ virtual bool Accept(TiXmlVisitor* content);
 | `TiXmlVisitor*` | `content` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(clone)=
+(clone-6)=
 ## `Clone`
 
 **Signature:**
@@ -2024,11 +1848,11 @@ virtual TiXmlNode* Clone();
 ```
 
 **Returns:**
-- `virtual TiXmlNode*`
+- `TiXmlNode*`
 
 ---
 
-(streamin)=
+(streamin-6)=
 ## `StreamIn`
 
 **Signature:**
@@ -2043,12 +1867,9 @@ virtual void StreamIn(std::istream * in, TIXML_STRING * tag);
 | `std::istream *` | `in` | - |
 | `TIXML_STRING *` | `tag` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(copyto)=
+(copyto-6)=
 ## `CopyTo`
 
 **Signature:**
@@ -2061,9 +1882,6 @@ private: void CopyTo(TiXmlDocument* target);
 | Type | Name | Description |
 |------|------|-------------|
 | `TiXmlDocument*` | `target` | - |
-
-**Returns:**
-- `private: void`
 
 ---
 
@@ -2079,7 +1897,7 @@ TiXmlHandle docHandle(&document);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `&` | `document` | - |
+| `&document` | - | - |
 
 **Returns:**
 - `TiXmlHandle`
@@ -2101,7 +1919,7 @@ TiXmlHandle FirstChild();
 
 ---
 
-(firstchild)=
+(firstchild-1)=
 ## `FirstChild`
 
 Return a handle to the first child node with the given name.
@@ -2122,7 +1940,7 @@ TiXmlHandle FirstChild(const char * value);
 
 ---
 
-(firstchildelement)=
+(firstchildelement-2)=
 ## `FirstChildElement`
 
 Return a handle to the first child element.
@@ -2137,7 +1955,7 @@ TiXmlHandle FirstChildElement();
 
 ---
 
-(firstchildelement)=
+(firstchildelement-3)=
 ## `FirstChildElement`
 
 Return a handle to the first child element with the given name.
@@ -2178,7 +1996,7 @@ TiXmlHandle Child(const char* value, int index);
 
 ---
 
-(child)=
+(child-1)=
 ## `Child`
 
 **Signature:**
@@ -2217,7 +2035,7 @@ TiXmlHandle ChildElement(const char* value, int index);
 
 ---
 
-(childelement)=
+(childelement-1)=
 ## `ChildElement`
 
 **Signature:**
@@ -2251,7 +2069,7 @@ virtual bool VisitEnter(const TiXmlDocument& doc);
 | `const TiXmlDocument&` | `doc` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -2270,11 +2088,11 @@ virtual bool VisitExit(const TiXmlDocument& doc);
 | `const TiXmlDocument&` | `doc` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visitenter)=
+(visitenter-1)=
 ## `VisitEnter`
 
 **Signature:**
@@ -2290,11 +2108,11 @@ virtual bool VisitEnter(const TiXmlElement& element, const TiXmlAttribute* first
 | `const TiXmlAttribute*` | `firstAttribute` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visitexit)=
+(visitexit-1)=
 ## `VisitExit`
 
 **Signature:**
@@ -2309,7 +2127,7 @@ virtual bool VisitExit(const TiXmlElement& element);
 | `const TiXmlElement&` | `element` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -2328,11 +2146,11 @@ virtual bool Visit(const TiXmlDeclaration& declaration);
 | `const TiXmlDeclaration&` | `declaration` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-1)=
 ## `Visit`
 
 **Signature:**
@@ -2347,11 +2165,11 @@ virtual bool Visit(const TiXmlText& text);
 | `const TiXmlText&` | `text` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-2)=
 ## `Visit`
 
 **Signature:**
@@ -2366,11 +2184,11 @@ virtual bool Visit(const TiXmlComment& comment);
 | `const TiXmlComment&` | `comment` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-3)=
 ## `Visit`
 
 **Signature:**
@@ -2385,11 +2203,11 @@ virtual bool Visit(const TiXmlUnknown& unknown);
 | `const TiXmlUnknown&` | `unknown` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(clear)=
+(clear-1)=
 ## `Clear`
 
 **Signature:**
@@ -2399,7 +2217,7 @@ void Clear();
 
 ---
 
-(visitenter)=
+(visitenter-2)=
 ## `VisitEnter`
 
 Visit a document.
@@ -2416,11 +2234,11 @@ virtual bool VisitEnter(const TiXmlDocument& /*doc*/);
 | `const TiXmlDocument& /*doc*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visitexit)=
+(visitexit-2)=
 ## `VisitExit`
 
 Visit a document.
@@ -2437,11 +2255,11 @@ virtual bool VisitExit(const TiXmlDocument& /*doc*/);
 | `const TiXmlDocument& /*doc*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visitenter)=
+(visitenter-3)=
 ## `VisitEnter`
 
 Visit an element.
@@ -2459,11 +2277,11 @@ virtual bool VisitEnter(const TiXmlElement& /*element*/, const TiXmlAttribute* /
 | `const TiXmlAttribute* /*firstAttribute*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visitexit)=
+(visitexit-3)=
 ## `VisitExit`
 
 Visit an element.
@@ -2480,11 +2298,11 @@ virtual bool VisitExit(const TiXmlElement& /*element*/);
 | `const TiXmlElement& /*element*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-4)=
 ## `Visit`
 
 Visit a declaration
@@ -2501,11 +2319,11 @@ virtual bool Visit(const TiXmlDeclaration& /*declaration*/);
 | `const TiXmlDeclaration& /*declaration*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-5)=
 ## `Visit`
 
 Visit a text node
@@ -2522,11 +2340,11 @@ virtual bool Visit(const TiXmlText& /*text*/);
 | `const TiXmlText& /*text*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-6)=
 ## `Visit`
 
 Visit a comment node
@@ -2543,11 +2361,11 @@ virtual bool Visit(const TiXmlComment& /*comment*/);
 | `const TiXmlComment& /*comment*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
-(visit)=
+(visit-7)=
 ## `Visit`
 
 Visit an unknown node
@@ -2564,7 +2382,7 @@ virtual bool Visit(const TiXmlUnknown& /*unknown*/);
 | `const TiXmlUnknown& /*unknown*/` | - | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -2582,9 +2400,6 @@ static void SetCondenseWhiteSpace(bool condense);
 |------|------|-------------|
 | `bool` | `condense` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
 (iswhitespacecondensed)=
@@ -2598,7 +2413,7 @@ static bool IsWhiteSpaceCondensed();
 ```
 
 **Returns:**
-- `static bool`
+- `bool`
 
 ---
 
@@ -2663,7 +2478,7 @@ void* GetUserData();
 
 ---
 
-(getuserdata)=
+(getuserdata-1)=
 ## `GetUserData`
 
 **Signature:**
@@ -2691,11 +2506,11 @@ inline static bool IsWhiteSpace(char c);
 | `char` | `c` | - |
 
 **Returns:**
-- `inline static bool`
+- `static bool`
 
 ---
 
-(iswhitespace)=
+(iswhitespace-1)=
 ## `IsWhiteSpace`
 
 **Signature:**
@@ -2710,7 +2525,7 @@ inline static bool IsWhiteSpace(int c);
 | `int` | `c` | - |
 
 **Returns:**
-- `inline static bool`
+- `static bool`
 
 ---
 
@@ -2732,7 +2547,7 @@ inline static const char* GetChar(const char* p, char* _value, int* length, TiXm
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `inline static const char*`
+- `static const char*`
 
 ---
 
@@ -2748,7 +2563,7 @@ else if(*length);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `*` | `length` | - |
+| `*length` | - | - |
 
 **Returns:**
 - `else`
@@ -2771,7 +2586,7 @@ inline static int ToLower(int v, TiXmlEncoding encoding);
 | `TiXmlEncoding` | `encoding` | - |
 
 **Returns:**
-- `inline static int`
+- `static int`
 
 ---
 
@@ -2825,7 +2640,7 @@ void SetValue(const char * _value);
 
 ---
 
-(setvalue)=
+(setvalue-1)=
 ## `SetValue`
 
 STL std::string form.
@@ -2858,7 +2673,7 @@ TiXmlNode* Parent();
 
 ---
 
-(parent)=
+(parent-1)=
 ## `Parent`
 
 **Signature:**
@@ -2871,7 +2686,7 @@ const TiXmlNode* Parent();
 
 ---
 
-(firstchild)=
+(firstchild-2)=
 ## `FirstChild`
 
 **Signature:**
@@ -2884,7 +2699,7 @@ const TiXmlNode* FirstChild();
 
 ---
 
-(firstchild)=
+(firstchild-3)=
 ## `FirstChild`
 
 **Signature:**
@@ -2897,7 +2712,7 @@ TiXmlNode* FirstChild();
 
 ---
 
-(firstchild)=
+(firstchild-4)=
 ## `FirstChild`
 
 The first child of this node with the matching 'value'. Will be null if none found.
@@ -2931,7 +2746,7 @@ const TiXmlNode* LastChild();
 
 ---
 
-(lastchild)=
+(lastchild-1)=
 ## `LastChild`
 
 **Signature:**
@@ -2944,7 +2759,7 @@ TiXmlNode* LastChild();
 
 ---
 
-(lastchild)=
+(lastchild-2)=
 ## `LastChild`
 
 **Signature:**
@@ -2963,7 +2778,7 @@ TiXmlNode* LastChild(const char * _value);
 
 ---
 
-(firstchild)=
+(firstchild-5)=
 ## `FirstChild`
 
 **Signature:**
@@ -2982,7 +2797,7 @@ const TiXmlNode* FirstChild(const std::string& _value);
 
 ---
 
-(firstchild)=
+(firstchild-6)=
 ## `FirstChild`
 
 **Signature:**
@@ -3001,7 +2816,7 @@ TiXmlNode* FirstChild(const std::string& _value);
 
 ---
 
-(lastchild)=
+(lastchild-3)=
 ## `LastChild`
 
 **Signature:**
@@ -3020,7 +2835,7 @@ const TiXmlNode* LastChild(const std::string& _value);
 
 ---
 
-(lastchild)=
+(lastchild-4)=
 ## `LastChild`
 
 **Signature:**
@@ -3039,7 +2854,7 @@ TiXmlNode* LastChild(const std::string& _value);
 
 ---
 
-(iteratechildren)=
+(iteratechildren-2)=
 ## `IterateChildren`
 
 **Signature:**
@@ -3058,7 +2873,7 @@ TiXmlNode* IterateChildren(const TiXmlNode* previous);
 
 ---
 
-(iteratechildren)=
+(iteratechildren-3)=
 ## `IterateChildren`
 
 **Signature:**
@@ -3078,7 +2893,7 @@ TiXmlNode* IterateChildren(const char * _value, const TiXmlNode* previous);
 
 ---
 
-(iteratechildren)=
+(iteratechildren-4)=
 ## `IterateChildren`
 
 **Signature:**
@@ -3098,7 +2913,7 @@ const TiXmlNode* IterateChildren(const std::string& _value, const TiXmlNode* pre
 
 ---
 
-(iteratechildren)=
+(iteratechildren-5)=
 ## `IterateChildren`
 
 **Signature:**
@@ -3118,7 +2933,7 @@ TiXmlNode* IterateChildren(const std::string& _value, const TiXmlNode* previous)
 
 ---
 
-(previoussibling)=
+(previoussibling-1)=
 ## `PreviousSibling`
 
 Navigate to a sibling node.
@@ -3133,7 +2948,7 @@ const TiXmlNode* PreviousSibling();
 
 ---
 
-(previoussibling)=
+(previoussibling-2)=
 ## `PreviousSibling`
 
 **Signature:**
@@ -3146,7 +2961,7 @@ TiXmlNode* PreviousSibling();
 
 ---
 
-(previoussibling)=
+(previoussibling-3)=
 ## `PreviousSibling`
 
 **Signature:**
@@ -3158,14 +2973,14 @@ TiXmlNode* PreviousSibling(const char *_prev);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `_prev` | - |
+| `const char *_prev` | - | - |
 
 **Returns:**
 - `TiXmlNode*`
 
 ---
 
-(previoussibling)=
+(previoussibling-4)=
 ## `PreviousSibling`
 
 **Signature:**
@@ -3184,7 +2999,7 @@ const TiXmlNode* PreviousSibling(const std::string& _value);
 
 ---
 
-(previoussibling)=
+(previoussibling-5)=
 ## `PreviousSibling`
 
 **Signature:**
@@ -3203,7 +3018,7 @@ TiXmlNode* PreviousSibling(const std::string& _value);
 
 ---
 
-(nextsibling)=
+(nextsibling-1)=
 ## `NextSibling`
 
 **Signature:**
@@ -3222,7 +3037,7 @@ const TiXmlNode* NextSibling(const std::string& _value);
 
 ---
 
-(nextsibling)=
+(nextsibling-2)=
 ## `NextSibling`
 
 **Signature:**
@@ -3241,7 +3056,7 @@ TiXmlNode* NextSibling(const std::string& _value);
 
 ---
 
-(nextsibling)=
+(nextsibling-3)=
 ## `NextSibling`
 
 Navigate to a sibling node.
@@ -3256,7 +3071,7 @@ const TiXmlNode* NextSibling();
 
 ---
 
-(nextsibling)=
+(nextsibling-4)=
 ## `NextSibling`
 
 **Signature:**
@@ -3269,7 +3084,7 @@ TiXmlNode* NextSibling();
 
 ---
 
-(nextsibling)=
+(nextsibling-5)=
 ## `NextSibling`
 
 **Signature:**
@@ -3288,7 +3103,7 @@ TiXmlNode* NextSibling(const char* _next);
 
 ---
 
-(nextsiblingelement)=
+(nextsiblingelement-2)=
 ## `NextSiblingElement`
 
 **Signature:**
@@ -3301,7 +3116,7 @@ TiXmlElement* NextSiblingElement();
 
 ---
 
-(nextsiblingelement)=
+(nextsiblingelement-3)=
 ## `NextSiblingElement`
 
 **Signature:**
@@ -3313,14 +3128,14 @@ TiXmlElement* NextSiblingElement(const char *_next);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `_next` | - |
+| `const char *_next` | - | - |
 
 **Returns:**
 - `TiXmlElement*`
 
 ---
 
-(nextsiblingelement)=
+(nextsiblingelement-4)=
 ## `NextSiblingElement`
 
 **Signature:**
@@ -3339,7 +3154,7 @@ const TiXmlElement* NextSiblingElement(const std::string& _value);
 
 ---
 
-(nextsiblingelement)=
+(nextsiblingelement-5)=
 ## `NextSiblingElement`
 
 **Signature:**
@@ -3358,7 +3173,7 @@ TiXmlElement* NextSiblingElement(const std::string& _value);
 
 ---
 
-(firstchildelement)=
+(firstchildelement-4)=
 ## `FirstChildElement`
 
 **Signature:**
@@ -3371,7 +3186,7 @@ TiXmlElement* FirstChildElement();
 
 ---
 
-(firstchildelement)=
+(firstchildelement-5)=
 ## `FirstChildElement`
 
 **Signature:**
@@ -3390,7 +3205,7 @@ TiXmlElement* FirstChildElement(const char * _value);
 
 ---
 
-(firstchildelement)=
+(firstchildelement-6)=
 ## `FirstChildElement`
 
 **Signature:**
@@ -3409,7 +3224,7 @@ const TiXmlElement* FirstChildElement(const std::string& _value);
 
 ---
 
-(firstchildelement)=
+(firstchildelement-7)=
 ## `FirstChildElement`
 
 **Signature:**
@@ -3441,7 +3256,7 @@ int Type();
 
 ---
 
-(getdocument)=
+(getdocument-1)=
 ## `GetDocument`
 
 **Signature:**
@@ -3478,7 +3293,7 @@ virtual const TiXmlDocument* ToDocument();
 ```
 
 **Returns:**
-- `virtual const TiXmlDocument*`
+- `const TiXmlDocument*`
 
 ---
 
@@ -3491,7 +3306,7 @@ virtual const TiXmlElement* ToElement();
 ```
 
 **Returns:**
-- `virtual const TiXmlElement*`
+- `const TiXmlElement*`
 
 ---
 
@@ -3504,7 +3319,7 @@ virtual const TiXmlComment* ToComment();
 ```
 
 **Returns:**
-- `virtual const TiXmlComment*`
+- `const TiXmlComment*`
 
 ---
 
@@ -3517,7 +3332,7 @@ virtual const TiXmlUnknown* ToUnknown();
 ```
 
 **Returns:**
-- `virtual const TiXmlUnknown*`
+- `const TiXmlUnknown*`
 
 ---
 
@@ -3530,7 +3345,7 @@ virtual const TiXmlText* ToText();
 ```
 
 **Returns:**
-- `virtual const TiXmlText*`
+- `const TiXmlText*`
 
 ---
 
@@ -3543,11 +3358,11 @@ virtual const TiXmlDeclaration* ToDeclaration();
 ```
 
 **Returns:**
-- `virtual const TiXmlDeclaration*`
+- `const TiXmlDeclaration*`
 
 ---
 
-(todocument)=
+(todocument-1)=
 ## `ToDocument`
 
 **Signature:**
@@ -3556,11 +3371,11 @@ virtual TiXmlDocument* ToDocument();
 ```
 
 **Returns:**
-- `virtual TiXmlDocument*`
+- `TiXmlDocument*`
 
 ---
 
-(toelement)=
+(toelement-1)=
 ## `ToElement`
 
 **Signature:**
@@ -3569,11 +3384,11 @@ virtual TiXmlElement* ToElement();
 ```
 
 **Returns:**
-- `virtual TiXmlElement*`
+- `TiXmlElement*`
 
 ---
 
-(tocomment)=
+(tocomment-1)=
 ## `ToComment`
 
 **Signature:**
@@ -3582,11 +3397,11 @@ virtual TiXmlComment* ToComment();
 ```
 
 **Returns:**
-- `virtual TiXmlComment*`
+- `TiXmlComment*`
 
 ---
 
-(tounknown)=
+(tounknown-1)=
 ## `ToUnknown`
 
 **Signature:**
@@ -3595,11 +3410,11 @@ virtual TiXmlUnknown* ToUnknown();
 ```
 
 **Returns:**
-- `virtual TiXmlUnknown*`
+- `TiXmlUnknown*`
 
 ---
 
-(totext)=
+(totext-1)=
 ## `ToText`
 
 **Signature:**
@@ -3608,11 +3423,11 @@ virtual TiXmlText* ToText();
 ```
 
 **Returns:**
-- `virtual TiXmlText*`
+- `TiXmlText*`
 
 ---
 
-(todeclaration)=
+(todeclaration-1)=
 ## `ToDeclaration`
 
 **Signature:**
@@ -3621,7 +3436,7 @@ virtual TiXmlDeclaration* ToDeclaration();
 ```
 
 **Returns:**
-- `virtual TiXmlDeclaration*`
+- `TiXmlDeclaration*`
 
 ---
 
@@ -3638,7 +3453,7 @@ const char* Name();
 
 ---
 
-(value)=
+(value-1)=
 ## `Value`
 
 **Signature:**
@@ -3693,7 +3508,7 @@ void SetName(const char* _name);
 
 ---
 
-(setvalue)=
+(setvalue-2)=
 ## `SetValue`
 
 **Signature:**
@@ -3709,7 +3524,7 @@ void SetValue(const char* _value);
 
 ---
 
-(setname)=
+(setname-1)=
 ## `SetName`
 
 STL std::string form.
@@ -3727,7 +3542,7 @@ void SetName(const std::string& _name);
 
 ---
 
-(setvalue)=
+(setvalue-3)=
 ## `SetValue`
 
 STL std::string form.
@@ -3745,7 +3560,7 @@ void SetValue(const std::string& _value);
 
 ---
 
-(next)=
+(next-1)=
 ## `Next`
 
 **Signature:**
@@ -3758,7 +3573,7 @@ TiXmlAttribute* Next();
 
 ---
 
-(previous)=
+(previous-1)=
 ## `Previous`
 
 **Signature:**
@@ -3771,7 +3586,7 @@ TiXmlAttribute* Previous();
 
 ---
 
-(operator)=
+(operator-2)=
 ## `operator<`
 
 **Signature:**
@@ -3790,7 +3605,7 @@ bool operator<(const TiXmlAttribute& rhs);
 
 ---
 
-(operator)=
+(operator-3)=
 ## `operator>`
 
 **Signature:**
@@ -3809,7 +3624,7 @@ bool operator>(const TiXmlAttribute& rhs);
 
 ---
 
-(print)=
+(print-7)=
 ## `Print`
 
 **Signature:**
@@ -3823,9 +3638,6 @@ virtual void Print(FILE* cfile, int depth);
 |------|------|-------------|
 | `FILE*` | `cfile` | - |
 | `int` | `depth` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -3858,7 +3670,7 @@ const TiXmlAttribute* First();
 
 ---
 
-(first)=
+(first-1)=
 ## `First`
 
 **Signature:**
@@ -3884,7 +3696,7 @@ const TiXmlAttribute* Last();
 
 ---
 
-(last)=
+(last-1)=
 ## `Last`
 
 **Signature:**
@@ -3912,7 +3724,7 @@ inline T readType(const std::string& str);
 | `const std::string&` | `str` | - |
 
 **Returns:**
-- `inline T`
+- `T`
 
 ---
 
@@ -3936,7 +3748,7 @@ int QueryValueAttribute(const std::string& name, T* outValue);
 
 ---
 
-(queryvalueattribute)=
+(queryvalueattribute-1)=
 ## `QueryValueAttribute`
 
 **Signature:**
@@ -3956,7 +3768,7 @@ int QueryValueAttribute(const std::string& name, std::string* outValue);
 
 ---
 
-(setattribute)=
+(setattribute-1)=
 ## `SetAttribute`
 
 **Signature:**
@@ -3986,7 +3798,7 @@ const TiXmlAttribute* FirstAttribute();
 
 ---
 
-(firstattribute)=
+(firstattribute-1)=
 ## `FirstAttribute`
 
 **Signature:**
@@ -4012,7 +3824,7 @@ const TiXmlAttribute* LastAttribute();
 
 ---
 
-(lastattribute)=
+(lastattribute-1)=
 ## `LastAttribute`
 
 **Signature:**
@@ -4025,7 +3837,7 @@ TiXmlAttribute* LastAttribute();
 
 ---
 
-(toelement)=
+(toelement-2)=
 ## `ToElement`
 
 **Signature:**
@@ -4034,11 +3846,11 @@ virtual const TiXmlElement* ToElement();
 ```
 
 **Returns:**
-- `virtual const TiXmlElement*`
+- `const TiXmlElement*`
 
 ---
 
-(toelement)=
+(toelement-3)=
 ## `ToElement`
 
 **Signature:**
@@ -4047,11 +3859,11 @@ virtual TiXmlElement* ToElement();
 ```
 
 **Returns:**
-- `virtual TiXmlElement*`
+- `TiXmlElement*`
 
 ---
 
-(tocomment)=
+(tocomment-2)=
 ## `ToComment`
 
 **Signature:**
@@ -4060,11 +3872,11 @@ virtual const TiXmlComment* ToComment();
 ```
 
 **Returns:**
-- `virtual const TiXmlComment*`
+- `const TiXmlComment*`
 
 ---
 
-(tocomment)=
+(tocomment-3)=
 ## `ToComment`
 
 **Signature:**
@@ -4073,7 +3885,7 @@ virtual TiXmlComment* ToComment();
 ```
 
 **Returns:**
-- `virtual TiXmlComment*`
+- `TiXmlComment*`
 
 ---
 
@@ -4110,7 +3922,7 @@ void SetCDATA(bool _cdata);
 
 ---
 
-(totext)=
+(totext-2)=
 ## `ToText`
 
 **Signature:**
@@ -4119,11 +3931,11 @@ virtual const TiXmlText* ToText();
 ```
 
 **Returns:**
-- `virtual const TiXmlText*`
+- `const TiXmlText*`
 
 ---
 
-(totext)=
+(totext-3)=
 ## `ToText`
 
 **Signature:**
@@ -4132,11 +3944,11 @@ virtual TiXmlText* ToText();
 ```
 
 **Returns:**
-- `virtual TiXmlText*`
+- `TiXmlText*`
 
 ---
 
-(print)=
+(print-8)=
 ## `Print`
 
 **Signature:**
@@ -4151,12 +3963,9 @@ virtual void Print(FILE* cfile, int depth);
 | `FILE*` | `cfile` | - |
 | `int` | `depth` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
-(todeclaration)=
+(todeclaration-2)=
 ## `ToDeclaration`
 
 **Signature:**
@@ -4165,11 +3974,11 @@ virtual const TiXmlDeclaration* ToDeclaration();
 ```
 
 **Returns:**
-- `virtual const TiXmlDeclaration*`
+- `const TiXmlDeclaration*`
 
 ---
 
-(todeclaration)=
+(todeclaration-3)=
 ## `ToDeclaration`
 
 **Signature:**
@@ -4178,30 +3987,11 @@ virtual TiXmlDeclaration* ToDeclaration();
 ```
 
 **Returns:**
-- `virtual TiXmlDeclaration*`
+- `TiXmlDeclaration*`
 
 ---
 
-(tixmlunknown)=
-## `TiXmlUnknown`
-
-**Signature:**
-```cpp
-public: TiXmlUnknown() : TiXmlNode( TiXmlNode::TINYXML_UNKNOWN);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : TiXmlNode( TiXmlNode::` | `TINYXML_UNKNOWN` | - |
-
-**Returns:**
-- `public:`
-
----
-
-(tounknown)=
+(tounknown-2)=
 ## `ToUnknown`
 
 **Signature:**
@@ -4210,11 +4000,11 @@ virtual const TiXmlUnknown* ToUnknown();
 ```
 
 **Returns:**
-- `virtual const TiXmlUnknown*`
+- `const TiXmlUnknown*`
 
 ---
 
-(tounknown)=
+(tounknown-3)=
 ## `ToUnknown`
 
 **Signature:**
@@ -4223,7 +4013,7 @@ virtual TiXmlUnknown* ToUnknown();
 ```
 
 **Returns:**
-- `virtual TiXmlUnknown*`
+- `TiXmlUnknown*`
 
 ---
 
@@ -4240,7 +4030,7 @@ const TiXmlElement* RootElement();
 
 ---
 
-(rootelement)=
+(rootelement-1)=
 ## `RootElement`
 
 **Signature:**
@@ -4359,7 +4149,7 @@ void ClearError();
 
 ---
 
-(print)=
+(print-9)=
 ## `Print`
 
 Write the document to standard out using formatted printing ("pretty print").
@@ -4371,7 +4161,7 @@ void Print();
 
 ---
 
-(todocument)=
+(todocument-2)=
 ## `ToDocument`
 
 **Signature:**
@@ -4380,11 +4170,11 @@ virtual const TiXmlDocument* ToDocument();
 ```
 
 **Returns:**
-- `virtual const TiXmlDocument*`
+- `const TiXmlDocument*`
 
 ---
 
-(todocument)=
+(todocument-3)=
 ## `ToDocument`
 
 **Signature:**
@@ -4393,11 +4183,11 @@ virtual TiXmlDocument* ToDocument();
 ```
 
 **Returns:**
-- `virtual TiXmlDocument*`
+- `TiXmlDocument*`
 
 ---
 
-(firstchild)=
+(firstchild-7)=
 ## `FirstChild`
 
 **Signature:**
@@ -4416,7 +4206,7 @@ TiXmlHandle FirstChild(const std::string& _value);
 
 ---
 
-(firstchildelement)=
+(firstchildelement-8)=
 ## `FirstChildElement`
 
 **Signature:**
@@ -4435,7 +4225,7 @@ TiXmlHandle FirstChildElement(const std::string& _value);
 
 ---
 
-(child)=
+(child-2)=
 ## `Child`
 
 **Signature:**
@@ -4455,7 +4245,7 @@ TiXmlHandle Child(const std::string& _value, int index);
 
 ---
 
-(childelement)=
+(childelement-2)=
 ## `ChildElement`
 
 **Signature:**
@@ -4490,7 +4280,7 @@ TiXmlNode* ToNode();
 
 ---
 
-(toelement)=
+(toelement-4)=
 ## `ToElement`
 
 Return the handle as a TiXmlElement. This may return null.
@@ -4505,7 +4295,7 @@ TiXmlElement* ToElement();
 
 ---
 
-(totext)=
+(totext-4)=
 ## `ToText`
 
 Return the handle as a TiXmlText. This may return null.
@@ -4520,7 +4310,7 @@ TiXmlText* ToText();
 
 ---
 
-(tounknown)=
+(tounknown-4)=
 ## `ToUnknown`
 
 Return the handle as a TiXmlUnknown. This may return null.
@@ -4584,29 +4374,6 @@ TiXmlUnknown* Unknown();
 
 **Returns:**
 - `TiXmlUnknown*`
-
----
-
-(tixmlprinter)=
-## `TiXmlPrinter`
-
-**Signature:**
-```cpp
-public: TiXmlPrinter() : depth( 0 ), simpleTextPrint( false ), buffer(), indent( " " ), lineBreak( "\n");
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : depth( 0 )` | - | - |
-| `simpleTextPrint( false )` | - | - |
-| `buffer()` | - | - |
-| `indent( " " )` | - | - |
-| `lineBreak( "\n"` | - | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -4740,9 +4507,6 @@ const std::string& Str();
 ```cpp
 private: void DoIndent();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/demangle.h"
 source_file: "src/framework/stdext/demangle.h"
-generated_at: "2025-10-31T23:33:30.358Z"
+generated_at: "2025-11-01T00:11:49.061Z"
 doc_type: "cpp_api"
 ---
 
@@ -25,25 +25,6 @@ const char* demangle_name(const char* name);
 
 **Returns:**
 - `const char*`
-
----
-
-(demangle_name)=
-## `demangle_name`
-
-**Signature:**
-```cpp
-return demangle_name(typeid(T).name());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `typeid(T).name()` | - | - |
-
-**Returns:**
-- `return`
 
 ---
 

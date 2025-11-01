@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luavaluecasts.h"
 source_file: "src/framework/luaengine/luavaluecasts.h"
-generated_at: "2025-10-31T23:33:30.348Z"
+generated_at: "2025-11-01T00:11:49.050Z"
 doc_type: "cpp_api"
 ---
 
@@ -65,7 +65,7 @@ bool luavalue_cast(int index, bool& b);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-1)=
 ## `push_luavalue`
 
 **Signature:**
@@ -84,7 +84,7 @@ int push_luavalue(int i);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-1)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -104,7 +104,7 @@ bool luavalue_cast(int index, int& i);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-2)=
 ## `push_luavalue`
 
 **Signature:**
@@ -123,7 +123,7 @@ int push_luavalue(double d);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-2)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -143,7 +143,7 @@ bool luavalue_cast(int index, double& d);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-3)=
 ## `push_luavalue`
 
 **Signature:**
@@ -162,7 +162,7 @@ int push_luavalue(const char* cstr);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-4)=
 ## `push_luavalue`
 
 **Signature:**
@@ -181,7 +181,7 @@ int push_luavalue(const std::string& str);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-3)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -201,7 +201,7 @@ bool luavalue_cast(int index, std::string& str);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-5)=
 ## `push_luavalue`
 
 **Signature:**
@@ -220,7 +220,7 @@ int push_luavalue(const LuaCppFunction& func);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-6)=
 ## `push_luavalue`
 
 **Signature:**
@@ -239,7 +239,7 @@ int push_luavalue(const Color& color);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-4)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -259,7 +259,7 @@ bool luavalue_cast(int index, Color& color);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-7)=
 ## `push_luavalue`
 
 **Signature:**
@@ -278,7 +278,7 @@ int push_luavalue(const Rect& rect);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-5)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -298,7 +298,7 @@ bool luavalue_cast(int index, Rect& rect);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-8)=
 ## `push_luavalue`
 
 **Signature:**
@@ -317,7 +317,7 @@ int push_luavalue(const Point& point);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-6)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -337,7 +337,7 @@ bool luavalue_cast(int index, Point& point);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-9)=
 ## `push_luavalue`
 
 **Signature:**
@@ -356,7 +356,7 @@ int push_luavalue(const Size& size);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-7)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -376,7 +376,7 @@ bool luavalue_cast(int index, Size& size);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-10)=
 ## `push_luavalue`
 
 **Signature:**
@@ -395,7 +395,7 @@ int push_luavalue(const OTMLNodePtr& node);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-8)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -415,7 +415,7 @@ bool luavalue_cast(int index, OTMLNodePtr& node);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-9)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -435,7 +435,7 @@ bool luavalue_cast(int index, LuaObjectPtr& obj);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-11)=
 ## `push_luavalue`
 
 **Signature:**
@@ -454,7 +454,7 @@ int push_luavalue(const std::function<Ret(Args...)>& func);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-10)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -474,7 +474,7 @@ bool luavalue_cast(int index, std::function<void(Args...)>& func);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-12)=
 ## `push_luavalue`
 
 **Signature:**
@@ -493,7 +493,7 @@ int push_luavalue(const std::list<T>& list);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-11)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -513,7 +513,7 @@ bool luavalue_cast(int index, std::list<T>& list);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-13)=
 ## `push_luavalue`
 
 **Signature:**
@@ -532,7 +532,7 @@ int push_luavalue(const std::vector<T>& vec);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-12)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -552,7 +552,7 @@ bool luavalue_cast(int index, std::vector<T>& vec);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-14)=
 ## `push_luavalue`
 
 **Signature:**
@@ -571,7 +571,7 @@ int push_luavalue(const std::set<T>& vec);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-13)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -591,7 +591,7 @@ bool luavalue_cast(int index, std::set<T>& vec);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-15)=
 ## `push_luavalue`
 
 **Signature:**
@@ -610,7 +610,7 @@ int push_luavalue(const std::deque<T>& vec);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-14)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -630,7 +630,7 @@ bool luavalue_cast(int index, std::deque<T>& vec);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-16)=
 ## `push_luavalue`
 
 **Signature:**
@@ -642,15 +642,14 @@ int push_luavalue(const std::map<K, V>& map);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::map&lt;` | `K` | - |
-| `V&gt;&` | `map` | - |
+| `const std::map&lt;K, V&gt;&` | `map` | - |
 
 **Returns:**
 - `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-15)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -663,15 +662,14 @@ bool luavalue_cast(int index, std::map<K, V>& map);
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `index` | - |
-| `std::map&lt;` | `K` | - |
-| `V&gt;&` | `map` | - |
+| `std::map&lt;K, V&gt;&` | `map` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-16)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -684,15 +682,14 @@ bool luavalue_cast(int index, std::pair<K, V>& pair);
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `index` | - |
-| `std::pair&lt;` | `K` | - |
-| `V&gt;&` | `pair` | - |
+| `std::pair&lt;K, V&gt;&` | `pair` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-17)=
 ## `push_luavalue`
 
 **Signature:**
@@ -711,7 +708,7 @@ int push_luavalue(const std::tuple<Args...>& tuple);
 
 ---
 
-(push_internal_luavalue)=
+(push_internal_luavalue-1)=
 ## `push_internal_luavalue`
 
 **Signature:**
@@ -727,25 +724,6 @@ int push_internal_luavalue(const std::tuple<Args...>& tuple);
 
 **Returns:**
 - `int`
-
----
-
-(push_luavalue)=
-## `push_luavalue`
-
-**Signature:**
-```cpp
-return push_luavalue(v);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `v` | - |
-
-**Returns:**
-- `return`
 
 ---
 
@@ -769,7 +747,7 @@ throw LuaException("a function from lua didn't retrieve the expected number of r
 
 ---
 
-(luaexception)=
+(luaexception-1)=
 ## `LuaException`
 
 **Signature:**
@@ -790,20 +768,7 @@ throw LuaException("attempt to call an expired lua function from C++," "did you 
 
 ---
 
-(ret)=
-## `Ret`
-
-**Signature:**
-```cpp
-return Ret();
-```
-
-**Returns:**
-- `return`
-
----
-
-(push_luavalue)=
+(push_luavalue-18)=
 ## `push_luavalue`
 
 **Signature:**
@@ -818,11 +783,11 @@ inline int push_luavalue(float f);
 | `float` | `f` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-17)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -838,11 +803,11 @@ inline bool luavalue_cast(int index, float& f);
 | `float&` | `f` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-19)=
 ## `push_luavalue`
 
 **Signature:**
@@ -857,11 +822,11 @@ inline int push_luavalue(int8 v);
 | `int8` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-18)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -877,11 +842,11 @@ inline bool luavalue_cast(int index, int8& v);
 | `int8&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-20)=
 ## `push_luavalue`
 
 **Signature:**
@@ -896,11 +861,11 @@ inline int push_luavalue(uint8 v);
 | `uint8` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-19)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -916,11 +881,11 @@ inline bool luavalue_cast(int index, uint8& v);
 | `uint8&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-21)=
 ## `push_luavalue`
 
 **Signature:**
@@ -935,11 +900,11 @@ inline int push_luavalue(int16 v);
 | `int16` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-20)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -955,11 +920,11 @@ inline bool luavalue_cast(int index, int16& v);
 | `int16&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-22)=
 ## `push_luavalue`
 
 **Signature:**
@@ -974,11 +939,11 @@ inline int push_luavalue(uint16 v);
 | `uint16` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-21)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -994,11 +959,11 @@ inline bool luavalue_cast(int index, uint16& v);
 | `uint16&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-23)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1013,11 +978,11 @@ inline int push_luavalue(uint32 v);
 | `uint32` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-22)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1033,11 +998,11 @@ inline bool luavalue_cast(int index, uint32& v);
 | `uint32&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-24)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1052,11 +1017,11 @@ inline int push_luavalue(int64 v);
 | `int64` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-23)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1072,11 +1037,11 @@ inline bool luavalue_cast(int index, int64& v);
 | `int64&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_luavalue)=
+(push_luavalue-25)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1091,11 +1056,11 @@ inline int push_luavalue(uint64 v);
 | `uint64` | `v` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-24)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1111,11 +1076,11 @@ inline bool luavalue_cast(int index, uint64& v);
 | `uint64&` | `v` | - |
 
 **Returns:**
-- `inline bool`
+- `bool`
 
 ---
 
-(push_internal_luavalue)=
+(push_internal_luavalue-2)=
 ## `push_internal_luavalue`
 
 **Signature:**
@@ -1134,7 +1099,7 @@ int push_internal_luavalue(T v);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-26)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1153,7 +1118,7 @@ int push_luavalue(const std::function<Ret(Args...)>& func);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-25)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1173,7 +1138,7 @@ bool luavalue_cast(int index, std::function<void(Args...)>& func);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-27)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1192,7 +1157,7 @@ int push_luavalue(const std::list<T>& list);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-26)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1212,7 +1177,7 @@ bool luavalue_cast(int index, std::list<T>& list);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-28)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1231,7 +1196,7 @@ int push_luavalue(const std::vector<T>& vec);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-27)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1251,7 +1216,7 @@ bool luavalue_cast(int index, std::vector<T>& vec);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-29)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1270,7 +1235,7 @@ int push_luavalue(const std::set<T>& set);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-28)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1290,7 +1255,7 @@ bool luavalue_cast(int index, std::set<T>& set);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-30)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1309,7 +1274,7 @@ int push_luavalue(const std::deque<T>& vec);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-29)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1329,7 +1294,7 @@ bool luavalue_cast(int index, std::deque<T>& vec);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-31)=
 ## `push_luavalue`
 
 **Signature:**
@@ -1341,15 +1306,14 @@ int push_luavalue(const std::map<K, V>& map);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::map&lt;` | `K` | - |
-| `V&gt;&` | `map` | - |
+| `const std::map&lt;K, V&gt;&` | `map` | - |
 
 **Returns:**
 - `int`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-30)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1362,15 +1326,14 @@ bool luavalue_cast(int index, std::map<K, V>& map);
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `index` | - |
-| `std::map&lt;` | `K` | - |
-| `V&gt;&` | `map` | - |
+| `std::map&lt;K, V&gt;&` | `map` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-31)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -1383,8 +1346,7 @@ bool luavalue_cast(int index, std::pair<K, V>& pair);
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `index` | - |
-| `std::pair&lt;` | `K` | - |
-| `V&gt;&` | `pair` | - |
+| `std::pair&lt;K, V&gt;&` | `pair` | - |
 
 **Returns:**
 - `bool`
@@ -1405,12 +1367,9 @@ static void call(const Tuple& tuple);
 |------|------|-------------|
 | `const Tuple&` | `tuple` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(call)=
+(call-1)=
 ## `call`
 
 **Signature:**
@@ -1424,12 +1383,9 @@ static void call(const Tuple& tuple);
 |------|------|-------------|
 | `const Tuple&` | `tuple` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(push_internal_luavalue)=
+(push_internal_luavalue-3)=
 ## `push_internal_luavalue`
 
 **Signature:**
@@ -1448,7 +1404,7 @@ int push_internal_luavalue(const std::tuple<Args...>& tuple);
 
 ---
 
-(call)=
+(call-2)=
 ## `call`
 
 **Signature:**
@@ -1462,12 +1418,9 @@ static void call(const Tuple& tuple);
 |------|------|-------------|
 | `const Tuple&` | `tuple` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(call)=
+(call-3)=
 ## `call`
 
 **Signature:**
@@ -1481,12 +1434,9 @@ static void call(const Tuple& tuple);
 |------|------|-------------|
 | `const Tuple&` | `tuple` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(push_luavalue)=
+(push_luavalue-32)=
 ## `push_luavalue`
 
 **Signature:**

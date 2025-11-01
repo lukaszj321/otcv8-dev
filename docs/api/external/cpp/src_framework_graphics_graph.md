@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/graph.h"
 source_file: "src/framework/graphics/graph.h"
-generated_at: "2025-10-31T23:33:30.341Z"
+generated_at: "2025-11-01T00:11:49.041Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,13 +17,10 @@ public: Graph(const std::string& name, size_t capacity = 100);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `name` | - |
-| `size_t capacity = 100` | - | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `name` |  | - |
+| `size_t` | `capacity` | `100` | - |
 
 ---
 
@@ -63,9 +60,9 @@ void addValue(int value, bool ignoreSmallValues = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `value` | - |
-| `bool ignoreSmallValues =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `value` |  | - |
+| `bool` | `ignoreSmallValues` | `false` | - |
 
 ---

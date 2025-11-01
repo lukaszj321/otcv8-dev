@@ -1,24 +1,11 @@
 ---
 title: "src/client/walkmatrix.h"
 source_file: "src/client/walkmatrix.h"
-generated_at: "2025-10-31T23:33:30.332Z"
+generated_at: "2025-11-01T00:11:49.031Z"
 doc_type: "cpp_api"
 ---
 
 # src/client/walkmatrix.h
-
-(clear)=
-## `clear`
-
-**Signature:**
-```cpp
-return clear();
-```
-
-**Returns:**
-- `return`
-
----
 
 (updateposition)=
 ## `updatePosition`
@@ -33,9 +20,6 @@ public: void updatePosition(const Position& newPos);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Position&` | `newPos` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -68,10 +52,10 @@ int32_t update(const Position& pos2, int32_t value = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos2` | - |
-| `int32_t value = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos2` |  | - |
+| `int32_t` | `value` | `0` | - |
 
 **Returns:**
 - `int32_t`
@@ -97,7 +81,7 @@ int32_t get(const Position& pos2);
 
 ---
 
-(clear-void)=
+(clear)=
 ## `clear`
 
 **Signature:**
@@ -117,9 +101,9 @@ uint32_t reset(uint32_t value = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `uint32_t value = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `uint32_t` | `value` | `0` | - |
 
 **Returns:**
 - `uint32_t`

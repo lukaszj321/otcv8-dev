@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/framebuffer.h"
 source_file: "src/framework/graphics/framebuffer.h"
-generated_at: "2025-10-31T23:33:30.340Z"
+generated_at: "2025-11-01T00:11:49.041Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,12 +17,9 @@ public: FrameBuffer(bool withDepth = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool withDepth =` | `false` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `withDepth` | `false` | - |
 
 ---
 
@@ -52,9 +49,9 @@ void bind(const FrameBufferPtr& depthFramebuffer = nullptr);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const FrameBufferPtr& depthFramebuffer =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const FrameBufferPtr&` | `depthFramebuffer` | `nullptr` | - |
 
 ---
 
@@ -78,7 +75,7 @@ void draw();
 
 ---
 
-(draw)=
+(draw-1)=
 ## `draw`
 
 **Signature:**
@@ -94,7 +91,7 @@ void draw(const Rect& dest);
 
 ---
 
-(draw)=
+(draw-2)=
 ## `draw`
 
 **Signature:**
@@ -176,9 +173,6 @@ void doScreenshot(std::string fileName);
 ```cpp
 private: void internalCreate();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/soundchannel.h"
 source_file: "src/framework/sound/soundchannel.h"
-generated_at: "2025-10-31T23:33:30.356Z"
+generated_at: "2025-11-01T00:11:49.059Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,11 +17,11 @@ SoundSourcePtr play(const std::string& filename, float fadetime = 0, float gain 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `filename` | - |
-| `float fadetime = 0` | - | - |
-| `float gain = 1.0` | `f` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `filename` |  | - |
+| `float` | `fadetime` | `0` | - |
+| `float` | `gain` | `1.0f` | - |
 
 **Returns:**
 - `SoundSourcePtr`
@@ -38,9 +38,9 @@ void stop(float fadetime = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `float fadetime = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `float` | `fadetime` | `0` | - |
 
 ---
 
@@ -54,11 +54,11 @@ void enqueue(const std::string& filename, float fadetime = 0, float gain = 1.0f)
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `filename` | - |
-| `float fadetime = 0` | - | - |
-| `float gain = 1.0` | `f` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `filename` |  | - |
+| `float` | `fadetime` | `0` | - |
+| `float` | `gain` | `1.0f` | - |
 
 ---
 
@@ -101,29 +101,6 @@ void setEnabled(bool enable);
 ```cpp
 protected: void update();
 ```
-
-**Returns:**
-- `protected: void`
-
----
-
-(soundchannel)=
-## `SoundChannel`
-
-**Signature:**
-```cpp
-public: SoundChannel(int id) : m_id(id), m_gain(1);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `int id) : m_id(id)` | - | - |
-| `m_gain(1` | - | - |
-
-**Returns:**
-- `public:`
 
 ---
 

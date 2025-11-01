@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uitextedit.h"
 source_file: "src/framework/ui/uitextedit.h"
-generated_at: "2025-10-31T23:33:30.365Z"
+generated_at: "2025-11-01T00:11:49.066Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: UITextEdit();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -46,12 +43,9 @@ private: void update(bool focusCursor = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool focusCursor =` | `false` | - |
-
-**Returns:**
-- `private: void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `focusCursor` | `false` | - |
 
 ---
 
@@ -68,9 +62,6 @@ public: void setCursorPos(int pos);
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `pos` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -239,9 +230,9 @@ void del(bool right = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool right =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `right` | `false` | - |
 
 ---
 
@@ -350,9 +341,6 @@ int getTextPos(Point pos);
 protected: void updateText();
 ```
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (onstyleapply)=
@@ -369,9 +357,6 @@ virtual void onStyleApply(const std::string& styleName, const OTMLNodePtr& style
 |------|------|-------------|
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -390,9 +375,6 @@ virtual void onGeometryChange(const Rect& oldRect, const Rect& newRect);
 | `const Rect&` | `oldRect` | - |
 | `const Rect&` | `newRect` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onfocuschange)=
@@ -409,9 +391,6 @@ virtual void onFocusChange(bool focused, Fw::FocusReason reason);
 |------|------|-------------|
 | `bool` | `focused` | - |
 | `Fw::FocusReason` | `reason` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -430,7 +409,7 @@ virtual bool onKeyText(const std::string& keyText);
 | `const std::string&` | `keyText` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -451,7 +430,7 @@ virtual bool onKeyPress(uchar keyCode, int keyboardModifiers, int autoRepeatTick
 | `int` | `autoRepeatTicks` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -471,7 +450,7 @@ virtual bool onMousePress(const Point& mousePos, Fw::MouseButton button);
 | `Fw::MouseButton` | `button` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -491,7 +470,7 @@ virtual bool onMouseRelease(const Point& mousePos, Fw::MouseButton button);
 | `Fw::MouseButton` | `button` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -511,7 +490,7 @@ virtual bool onMouseMove(const Point& mousePos, const Point& mouseMoved);
 | `const Point&` | `mouseMoved` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -530,7 +509,7 @@ virtual bool onDoubleClick(const Point& mousePos);
 | `const Point&` | `mousePos` | - |
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -549,9 +528,6 @@ virtual void onTextAreaUpdate(const Point& vitualOffset, const Size& virtualSize
 | `const Point&` | `vitualOffset` | - |
 | `const Size&` | `virtualSize` | - |
 | `const Size&` | `totalSize` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -1027,9 +1003,6 @@ bool isAutoScrolling();
 ```cpp
 private: void disableUpdates();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

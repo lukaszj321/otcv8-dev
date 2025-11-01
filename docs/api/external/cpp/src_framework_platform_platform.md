@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/platform.h"
 source_file: "src/framework/platform/platform.h"
-generated_at: "2025-10-31T23:33:30.353Z"
+generated_at: "2025-11-01T00:11:49.055Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: void processArgs(std::vector<std::string>& args);
 | Type | Name | Description |
 |------|------|-------------|
 | `std::vector&lt;std::string&gt;&` | `args` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -210,10 +207,10 @@ bool openUrl(std::string url, bool now = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string` | `url` | - |
-| `bool now =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string` | `url` |  | - |
+| `bool` | `now` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -230,10 +227,10 @@ bool openDir(std::string path, bool now = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string` | `path` | - |
-| `bool now =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string` | `path` |  | - |
+| `bool` | `now` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -302,11 +299,11 @@ std::string traceback(const std::string& where, int level = 1, int maxDepth = 32
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `where` | - |
-| `int level = 1` | - | - |
-| `int maxDepth = 32` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `where` |  | - |
+| `int` | `level` | `1` | - |
+| `int` | `maxDepth` | `32` | - |
 
 **Returns:**
 - `std::string`

@@ -1,7 +1,7 @@
 ---
 title: "src/client/animatedtext.h"
 source_file: "src/client/animatedtext.h"
-generated_at: "2025-10-31T23:33:30.316Z"
+generated_at: "2025-11-01T00:11:49.014Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: AnimatedText();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -111,9 +108,6 @@ bool merge(const AnimatedTextPtr& other);
 ```cpp
 protected: virtual void onAppear();
 ```
-
-**Returns:**
-- `protected: virtual void`
 
 ---
 

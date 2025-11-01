@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/eventdispatcher.h"
 source_file: "src/framework/core/eventdispatcher.h"
-generated_at: "2025-10-31T23:33:30.334Z"
+generated_at: "2025-11-01T00:11:49.034Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void shutdown();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -40,11 +37,11 @@ EventPtr addEventEx(const std::string& function, const std::function<void()>& ca
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `function` | - |
-| `const std::function&lt;void()&gt;&` | `callback` | - |
-| `bool pushFront =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `function` |  | - |
+| `const std::function&lt;void()&gt;&` | `callback` |  | - |
+| `bool` | `pushFront` | `false` | - |
 
 **Returns:**
 - `EventPtr`

@@ -1,7 +1,7 @@
 ---
 title: "src/client/uimapanchorlayout.h"
 source_file: "src/client/uimapanchorlayout.h"
-generated_at: "2025-10-31T23:33:30.331Z"
+generated_at: "2025-11-01T00:11:49.030Z"
 doc_type: "cpp_api"
 ---
 
@@ -80,27 +80,6 @@ void fillPosition(const UIWidgetPtr& anchoredWidget, const Position& hookedPosit
 
 ---
 
-(uipositionanchor)=
-## `UIPositionAnchor`
-
-**Signature:**
-```cpp
-public: UIPositionAnchor(Fw::AnchorEdge anchoredEdge, const Position& hookedPosition, Fw::AnchorEdge hookedEdge) : UIAnchor(anchoredEdge, std::string(), hookedEdge), m_hookedPosition(hookedPosition);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `Fw::AnchorEdge` | `anchoredEdge` | - |
-| `const Position&` | `hookedPosition` | - |
-| `Fw::AnchorEdge` | `hookedEdge` | - |
-
-**Returns:**
-- `public:`
-
----
-
 (gethookedwidget)=
 ## `getHookedWidget`
 
@@ -118,24 +97,5 @@ UIWidgetPtr getHookedWidget(const UIWidgetPtr& widget, const UIWidgetPtr& parent
 
 **Returns:**
 - `UIWidgetPtr`
-
----
-
-(uimapanchorlayout)=
-## `UIMapAnchorLayout`
-
-**Signature:**
-```cpp
-public: UIMapAnchorLayout(UIWidgetPtr parentWidget) : UIAnchorLayout(parentWidget);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `UIWidgetPtr` | `parentWidget` | - |
-
-**Returns:**
-- `public:`
 
 ---

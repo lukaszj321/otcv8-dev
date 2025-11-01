@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uianchorlayout.h"
 source_file: "src/framework/ui/uianchorlayout.h"
-generated_at: "2025-10-31T23:33:30.363Z"
+generated_at: "2025-11-01T00:11:49.064Z"
 doc_type: "cpp_api"
 ---
 
@@ -23,7 +23,7 @@ virtual UIWidgetPtr getHookedWidget(const UIWidgetPtr& widget, const UIWidgetPtr
 | `const UIWidgetPtr&` | `parentWidget` | - |
 
 **Returns:**
-- `virtual UIWidgetPtr`
+- `UIWidgetPtr`
 
 ---
 
@@ -43,7 +43,7 @@ virtual int getHookedPoint(const UIWidgetPtr& hookedWidget, const UIWidgetPtr& p
 | `const UIWidgetPtr&` | `parentWidget` | - |
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -63,7 +63,7 @@ void addAnchor(const UIAnchorPtr& anchor);
 
 ---
 
-(addanchor)=
+(addanchor-1)=
 ## `addAnchor`
 
 **Signature:**
@@ -192,7 +192,7 @@ protected: virtual bool internalUpdate();
 ```
 
 **Returns:**
-- `protected: virtual bool`
+- `bool`
 
 ---
 
@@ -206,37 +206,14 @@ virtual bool updateWidget(const UIWidgetPtr& widget, const UIAnchorGroupPtr& anc
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const UIWidgetPtr&` | `widget` | - |
-| `const UIAnchorGroupPtr&` | `anchorGroup` | - |
-| `UIWidgetPtr first =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const UIWidgetPtr&` | `widget` |  | - |
+| `const UIAnchorGroupPtr&` | `anchorGroup` |  | - |
+| `UIWidgetPtr` | `first` | `nullptr` | - |
 
 **Returns:**
-- `virtual bool`
-
----
-
-(uianchor)=
-## `UIAnchor`
-
-**Signature:**
-```cpp
-public: UIAnchor(Fw::AnchorEdge anchoredEdge, const std::string& hookedWidgetId, Fw::AnchorEdge hookedEdge) : m_anchoredEdge(anchoredEdge), m_hookedEdge(hookedEdge), m_hookedWidgetId(hookedWidgetId);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `Fw::AnchorEdge` | `anchoredEdge` | - |
-| `const std::string&` | `hookedWidgetId` | - |
-| `Fw::AnchorEdge hookedEdge) : m_anchoredEdge(anchoredEdge)` | - | - |
-| `m_hookedEdge(hookedEdge)` | - | - |
-| `m_hookedWidgetId(` | `hookedWidgetId` | - |
-
-**Returns:**
-- `public:`
+- `bool`
 
 ---
 
@@ -263,25 +240,6 @@ Fw::AnchorEdge getHookedEdge();
 
 **Returns:**
 - `Fw::AnchorEdge`
-
----
-
-(uianchorgroup)=
-## `UIAnchorGroup`
-
-**Signature:**
-```cpp
-public: UIAnchorGroup() : m_updated(true);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : m_updated(` | `true` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -324,25 +282,6 @@ void setUpdated(bool updated);
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | `updated` | - |
-
----
-
-(uianchorlayout)=
-## `UIAnchorLayout`
-
-**Signature:**
-```cpp
-public: UIAnchorLayout(UIWidgetPtr parentWidget) : UILayout(parentWidget);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `UIWidgetPtr parentWidget) : UILayout(` | `parentWidget` | - |
-
-**Returns:**
-- `public:`
 
 ---
 

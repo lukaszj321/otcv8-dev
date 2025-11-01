@@ -1,7 +1,7 @@
 ---
 title: "src/client/uiminimap.h"
 source_file: "src/client/uiminimap.h"
-generated_at: "2025-10-31T23:33:30.331Z"
+generated_at: "2025-11-01T00:11:49.030Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: UIMinimap();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -222,9 +219,6 @@ protected: virtual void onZoomChange(int zoom, int oldZoom);
 | `int` | `zoom` | - |
 | `int` | `oldZoom` | - |
 
-**Returns:**
-- `protected: virtual void`
-
 ---
 
 (oncamerapositionchange)=
@@ -241,9 +235,6 @@ virtual void onCameraPositionChange(const Position& position, const Position& ol
 |------|------|-------------|
 | `const Position&` | `position` | - |
 | `const Position&` | `oldPosition` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -262,9 +253,6 @@ virtual void onStyleApply(const std::string& styleName, const OTMLNodePtr& style
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (update)=
@@ -274,9 +262,6 @@ virtual void onStyleApply(const std::string& styleName, const OTMLNodePtr& style
 ```cpp
 private: void update();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

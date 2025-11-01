@@ -1,7 +1,7 @@
 ---
 title: "src/client/protocolgame.h"
 source_file: "src/client/protocolgame.h"
-generated_at: "2025-10-31T23:33:30.326Z"
+generated_at: "2025-11-01T00:11:49.024Z"
 doc_type: "cpp_api"
 ---
 
@@ -28,9 +28,6 @@ public: void login(const std::string& accountName, const std::string& accountPas
 | `const std::string&` | `sessionKey` | - |
 | `const std::string&` | `worldName` | - |
 
-**Returns:**
-- `public: void`
-
 ---
 
 (send)=
@@ -43,10 +40,10 @@ void send(const OutputMessagePtr& outputMessage, bool rawPacket = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const OutputMessagePtr&` | `outputMessage` | - |
-| `bool rawPacket =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const OutputMessagePtr&` | `outputMessage` |  | - |
+| `bool` | `rawPacket` | `false` | - |
 
 ---
 
@@ -1031,14 +1028,14 @@ void sendOutfitExtensionStatus(int mount = -1, int wings = -1, int aura = -1, in
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int mount = -1` | - | - |
-| `int wings = -1` | - | - |
-| `int aura = -1` | - | - |
-| `int shader = -1` | - | - |
-| `int healthBar = -1` | - | - |
-| `int manaBar = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `mount` | `-1` | - |
+| `int` | `wings` | `-1` | - |
+| `int` | `aura` | `-1` | - |
+| `int` | `shader` | `-1` | - |
+| `int` | `healthBar` | `-1` | - |
+| `int` | `manaBar` | `-1` | - |
 
 ---
 
@@ -1513,9 +1510,6 @@ void sendNewWalk(int walkId, int predictionId, const Position& pos, uint8_t flag
 protected: void onConnect();
 ```
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (onrecv)=
@@ -1565,9 +1559,6 @@ public: void addPosition(const OutputMessagePtr& msg, const Position& position);
 | `const OutputMessagePtr&` | `msg` | - |
 | `const Position&` | `position` | - |
 
-**Returns:**
-- `public: void`
-
 ---
 
 (parsestorebuttonindicators)=
@@ -1583,9 +1574,6 @@ private: void parseStoreButtonIndicators(const InputMessagePtr& msg);
 | Type | Name | Description |
 |------|------|-------------|
 | `const InputMessagePtr&` | `msg` | - |
-
-**Returns:**
-- `private: void`
 
 ---
 
@@ -4024,9 +4012,6 @@ public: void setMapDescription(const InputMessagePtr& msg, int x, int y, int z, 
 | `int` | `width` | - |
 | `int` | `height` | - |
 
-**Returns:**
-- `public: void`
-
 ---
 
 (setfloordescription)=
@@ -4085,10 +4070,10 @@ Outfit getOutfit(const InputMessagePtr& msg, bool ignoreMount = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const InputMessagePtr&` | `msg` | - |
-| `bool ignoreMount =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const InputMessagePtr&` | `msg` |  | - |
+| `bool` | `ignoreMount` | `false` | - |
 
 **Returns:**
 - `Outfit`
@@ -4143,10 +4128,10 @@ CreaturePtr getCreature(const InputMessagePtr& msg, int type = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const InputMessagePtr&` | `msg` | - |
-| `int type = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const InputMessagePtr&` | `msg` |  | - |
+| `int` | `type` | `0` | - |
 
 **Returns:**
 - `CreaturePtr`
@@ -4163,10 +4148,10 @@ StaticTextPtr getStaticText(const InputMessagePtr& msg, int type = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const InputMessagePtr&` | `msg` | - |
-| `int type = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const InputMessagePtr&` | `msg` |  | - |
+| `int` | `type` | `0` | - |
 
 **Returns:**
 - `StaticTextPtr`
@@ -4183,11 +4168,11 @@ ItemPtr getItem(const InputMessagePtr& msg, int id = 0, bool hasDescription = tr
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const InputMessagePtr&` | `msg` | - |
-| `int id = 0` | - | - |
-| `bool hasDescription =` | `true` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const InputMessagePtr&` | `msg` |  | - |
+| `int` | `id` | `0` | - |
+| `bool` | `hasDescription` | `true` | - |
 
 **Returns:**
 - `ItemPtr`

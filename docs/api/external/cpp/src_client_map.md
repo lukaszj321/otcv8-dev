@@ -1,7 +1,7 @@
 ---
 title: "src/client/map.h"
 source_file: "src/client/map.h"
-generated_at: "2025-10-31T23:33:30.322Z"
+generated_at: "2025-11-01T00:11:49.020Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -72,10 +69,10 @@ void notificateTileUpdate(const Position& pos, bool updateMinimap = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos` | - |
-| `bool updateMinimap =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos` |  | - |
+| `bool` | `updateMinimap` | `false` | - |
 
 ---
 
@@ -196,11 +193,11 @@ void addThing(const ThingPtr& thing, const Position& pos, int stackPos = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const ThingPtr&` | `thing` | - |
-| `const Position&` | `pos` | - |
-| `int stackPos = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const ThingPtr&` | `thing` |  | - |
+| `const Position&` | `pos` |  | - |
+| `int` | `stackPos` | `-1` | - |
 
 ---
 
@@ -420,9 +417,9 @@ const TileList getTiles(int floor = -1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int floor = -1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `floor` | `-1` | - |
 
 **Returns:**
 - `const TileList`
@@ -775,10 +772,10 @@ bool isCovered(const Position& pos, int firstFloor = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos` | - |
-| `int firstFloor = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos` |  | - |
+| `int` | `firstFloor` | `0` | - |
 
 **Returns:**
 - `bool`
@@ -795,10 +792,10 @@ bool isCompletelyCovered(const Position& pos, int firstFloor = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos` | - |
-| `int firstFloor = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos` |  | - |
+| `int` | `firstFloor` | `0` | - |
 
 **Returns:**
 - `bool`
@@ -815,10 +812,10 @@ bool isAwareOfPosition(const Position& pos, bool extended = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos` | - |
-| `bool extended =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos` |  | - |
+| `bool` | `extended` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -835,10 +832,10 @@ bool isAwareOfPositionForClean(const Position& pos, bool extended = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos` | - |
-| `bool extended =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos` |  | - |
+| `bool` | `extended` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -1042,9 +1039,6 @@ bool checkSightLine(const Position& fromPos, const Position& toPos);
 private: void removeUnawareThings();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (tileblock)=
@@ -1054,9 +1048,6 @@ private: void removeUnawareThings();
 ```cpp
 public: TileBlock();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 

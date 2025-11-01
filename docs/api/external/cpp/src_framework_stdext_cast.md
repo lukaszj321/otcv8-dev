@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/cast.h"
 source_file: "src/framework/stdext/cast.h"
-generated_at: "2025-10-31T23:33:30.358Z"
+generated_at: "2025-11-01T00:11:49.060Z"
 doc_type: "cpp_api"
 ---
 
@@ -27,7 +27,7 @@ bool cast(const T& in, R& out);
 
 ---
 
-(cast)=
+(cast-1)=
 ## `cast`
 
 **Signature:**
@@ -47,7 +47,7 @@ bool cast(const T& in, std::string& out);
 
 ---
 
-(cast)=
+(cast-2)=
 ## `cast`
 
 **Signature:**
@@ -67,7 +67,7 @@ template<> inline bool cast(const std::string& in, std::string& out);
 
 ---
 
-(cast)=
+(cast-3)=
 ## `cast`
 
 **Signature:**
@@ -87,7 +87,7 @@ template<> inline bool cast(const std::string& in, bool& b);
 
 ---
 
-(cast)=
+(cast-4)=
 ## `cast`
 
 **Signature:**
@@ -107,7 +107,7 @@ template<> inline bool cast(const std::string& in, char& c);
 
 ---
 
-(cast)=
+(cast-5)=
 ## `cast`
 
 **Signature:**
@@ -127,7 +127,7 @@ template<> inline bool cast(const std::string& in, long& l);
 
 ---
 
-(cast)=
+(cast-6)=
 ## `cast`
 
 **Signature:**
@@ -147,7 +147,7 @@ template<> inline bool cast(const std::string& in, int& i);
 
 ---
 
-(cast)=
+(cast-7)=
 ## `cast`
 
 **Signature:**
@@ -167,7 +167,7 @@ template<> inline bool cast(const std::string& in, double& d);
 
 ---
 
-(cast)=
+(cast-8)=
 ## `cast`
 
 **Signature:**
@@ -187,7 +187,7 @@ template<> inline bool cast(const std::string& in, float& f);
 
 ---
 
-(cast)=
+(cast-9)=
 ## `cast`
 
 **Signature:**
@@ -232,6 +232,6 @@ virtual const char* what() const throw();
 | `) const throw(` | - | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---

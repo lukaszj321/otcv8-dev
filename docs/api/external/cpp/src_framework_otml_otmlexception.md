@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlexception.h"
 source_file: "src/framework/otml/otmlexception.h"
-generated_at: "2025-10-31T23:33:30.351Z"
+generated_at: "2025-11-01T00:11:49.054Z"
 doc_type: "cpp_api"
 ---
 
@@ -22,9 +22,6 @@ public: OTMLException(const OTMLNodePtr& node, const std::string& error);
 | `const OTMLNodePtr&` | `node` | - |
 | `const std::string&` | `error` | - |
 
-**Returns:**
-- `public:`
-
 ---
 
 (what)=
@@ -42,6 +39,6 @@ virtual const char* what() const throw();
 | `) const throw(` | - | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---

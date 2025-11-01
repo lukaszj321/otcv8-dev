@@ -1,7 +1,7 @@
 ---
 title: "src/client/thing.h"
 source_file: "src/client/thing.h"
-generated_at: "2025-10-31T23:33:30.327Z"
+generated_at: "2025-11-01T00:11:49.026Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Thing();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -58,7 +55,7 @@ virtual const TilePtr& getTile();
 ```
 
 **Returns:**
-- `virtual const TilePtr&`
+- `const TilePtr&`
 
 ---
 
@@ -110,7 +107,7 @@ virtual const ThingTypePtr& getThingType();
 ```
 
 **Returns:**
-- `virtual const ThingTypePtr&`
+- `const ThingTypePtr&`
 
 ---
 
@@ -124,14 +121,11 @@ virtual void draw(const Point& dest, bool animate = true, LightView* lightView =
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `bool animate =` | `true` | - |
-| `LightView* lightView =` | `nullptr` | - |
-
-**Returns:**
-- `virtual void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `bool` | `animate` | `true` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
@@ -149,9 +143,6 @@ virtual void setId(uint32 id);
 |------|------|-------------|
 | `uint32` | `id` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (getid)=
@@ -163,7 +154,7 @@ virtual uint32 getId();
 ```
 
 **Returns:**
-- `virtual uint32`
+- `uint32`
 
 ---
 
@@ -205,7 +196,7 @@ virtual bool isItem();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -218,7 +209,7 @@ virtual bool isEffect();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -231,7 +222,7 @@ virtual bool isMissile();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -244,7 +235,7 @@ virtual bool isCreature();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -257,7 +248,7 @@ virtual bool isNpc();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -270,7 +261,7 @@ virtual bool isMonster();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -283,7 +274,7 @@ virtual bool isPlayer();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -296,7 +287,7 @@ virtual bool isLocalPlayer();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -309,7 +300,7 @@ virtual bool isAnimatedText();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -322,7 +313,7 @@ virtual bool isStaticText();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -374,7 +365,7 @@ virtual Point getDisplacement();
 ```
 
 **Returns:**
-- `virtual Point`
+- `Point`
 
 ---
 
@@ -387,7 +378,7 @@ virtual int getDisplacementX();
 ```
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -400,7 +391,7 @@ virtual int getDisplacementY();
 ```
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -423,7 +414,7 @@ virtual int getExactSize(int layer, int xPattern, int yPattern, int zPattern, in
 | `int` | `animationPhase` | - |
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -1193,9 +1184,6 @@ virtual void onPositionChange(const Position& newPos, const Position& oldPos);
 | `const Position&` | `newPos` | - |
 | `const Position&` | `oldPos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onappear)=
@@ -1206,9 +1194,6 @@ virtual void onPositionChange(const Position& newPos, const Position& oldPos);
 virtual void onAppear();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (ondisappear)=
@@ -1218,8 +1203,5 @@ virtual void onAppear();
 ```cpp
 virtual void onDisappear();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---

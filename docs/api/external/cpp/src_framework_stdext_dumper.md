@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/dumper.h"
 source_file: "src/framework/stdext/dumper.h"
-generated_at: "2025-10-31T23:33:30.359Z"
+generated_at: "2025-11-01T00:11:49.061Z"
 doc_type: "cpp_api"
 ---
 
@@ -26,7 +26,7 @@ dumper_dummy& operator<<(const T& v);
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator<<`
 
 **Signature:**

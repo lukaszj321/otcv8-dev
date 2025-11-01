@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/modulemanager.h"
 source_file: "src/framework/core/modulemanager.h"
-generated_at: "2025-10-31T23:33:30.336Z"
+generated_at: "2025-11-01T00:11:49.036Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void clear();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -133,9 +130,6 @@ protected: void updateModuleLoadOrder(ModulePtr module);
 | Type | Name | Description |
 |------|------|-------------|
 | `ModulePtr` | `module` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

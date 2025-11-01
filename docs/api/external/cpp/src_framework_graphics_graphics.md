@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/graphics.h"
 source_file: "src/framework/graphics/graphics.h"
-generated_at: "2025-10-31T23:33:30.341Z"
+generated_at: "2025-11-01T00:11:49.041Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Graphics();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -84,7 +81,7 @@ void checkForError(const std::string& function, const std::string& file, int lin
 
 ---
 
-(checkdepthsupport)=
+(checkdepthsupport-1)=
 ## `checkDepthSupport`
 
 **Signature:**

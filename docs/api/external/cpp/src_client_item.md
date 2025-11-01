@@ -1,7 +1,7 @@
 ---
 title: "src/client/item.h"
 source_file: "src/client/item.h"
-generated_at: "2025-10-31T23:33:30.320Z"
+generated_at: "2025-11-01T00:11:49.018Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: Item();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (create)=
@@ -30,13 +27,13 @@ static ItemPtr create(int id, int countOrSubtype = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `id` | - |
-| `int countOrSubtype = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `id` |  | - |
+| `int` | `countOrSubtype` | `1` | - |
 
 **Returns:**
-- `static ItemPtr`
+- `ItemPtr`
 
 ---
 
@@ -55,7 +52,7 @@ static ItemPtr createFromOtb(int id);
 | `int` | `id` | - |
 
 **Returns:**
-- `static ItemPtr`
+- `ItemPtr`
 
 ---
 
@@ -69,15 +66,15 @@ void draw(const Point& dest, bool animate = true, LightView* lightView = nullptr
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `bool animate =` | `true` | - |
-| `LightView* lightView =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `bool` | `animate` | `true` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
-(draw)=
+(draw-1)=
 ## `draw`
 
 **Signature:**
@@ -87,10 +84,10 @@ void draw(const Rect& dest, bool animate = true);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `bool animate =` | `true` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `bool` | `animate` | `true` | - |
 
 ---
 
@@ -296,13 +293,13 @@ int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int zPattern
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int layer = 0` | - | - |
-| `int xPattern = 0` | - | - |
-| `int yPattern = 0` | - | - |
-| `int zPattern = 0` | - | - |
-| `int animationPhase = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `layer` | `0` | - |
+| `int` | `xPattern` | `0` | - |
+| `int` | `yPattern` | `0` | - |
+| `int` | `zPattern` | `0` | - |
+| `int` | `animationPhase` | `0` | - |
 
 **Returns:**
 - `int`

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/outputmessage.h"
 source_file: "src/framework/net/outputmessage.h"
-generated_at: "2025-10-31T23:33:30.349Z"
+generated_at: "2025-11-01T00:11:49.052Z"
 doc_type: "cpp_api"
 ---
 
@@ -139,10 +139,10 @@ void addPaddingBytes(int bytes, uint8 byte = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `bytes` | - |
-| `uint8 byte = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `bytes` |  | - |
+| `uint8` | `byte` | `0` | - |
 
 ---
 
@@ -213,7 +213,7 @@ private: bool canWrite(int bytes);
 | `int` | `bytes` | - |
 
 **Returns:**
-- `private: bool`
+- `bool`
 
 ---
 
@@ -313,7 +313,7 @@ protected: uint8* getWriteBuffer();
 ```
 
 **Returns:**
-- `protected: uint8*`
+- `uint8*`
 
 ---
 

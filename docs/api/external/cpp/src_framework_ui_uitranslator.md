@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uitranslator.h"
 source_file: "src/framework/ui/uitranslator.h"
-generated_at: "2025-10-31T23:33:30.365Z"
+generated_at: "2025-11-01T00:11:49.067Z"
 doc_type: "cpp_api"
 ---
 

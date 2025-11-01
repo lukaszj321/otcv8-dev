@@ -1,7 +1,7 @@
 ---
 title: "src/client/minimap.h"
 source_file: "src/client/minimap.h"
-generated_at: "2025-10-31T23:33:30.324Z"
+generated_at: "2025-11-01T00:11:49.022Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void clean();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -56,9 +53,6 @@ void updateTile(int x, int y, const MinimapTile& tile);
 public: void init();
 ```
 
-**Returns:**
-- `public: void`
-
 ---
 
 (terminate)=
@@ -71,7 +65,7 @@ void terminate();
 
 ---
 
-(clean)=
+(clean-1)=
 ## `clean`
 
 **Signature:**
@@ -166,7 +160,7 @@ Rect getTileRect(const Position& pos, const Rect& screenRect, const Position& ma
 
 ---
 
-(updatetile)=
+(updatetile-1)=
 ## `updateTile`
 
 **Signature:**
@@ -292,7 +286,7 @@ private: Rect calcMapRect(const Rect& screenRect, const Position& mapCenter, flo
 | `float` | `scale` | - |
 
 **Returns:**
-- `private: Rect`
+- `Rect`
 
 ---
 
@@ -308,7 +302,7 @@ std::lock_guard<std::mutex> lock(m_lock);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `m_lock` | - |
+| `m_lock` | - | - |
 
 **Returns:**
 - `std::lock_guard&lt;std::mutex&gt;`
@@ -347,7 +341,7 @@ int getSpeed();
 
 ---
 
-(gettile)=
+(gettile-1)=
 ## `getTile`
 
 **Signature:**

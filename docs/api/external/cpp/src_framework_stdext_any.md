@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/any.h"
 source_file: "src/framework/stdext/any.h"
-generated_at: "2025-10-31T23:33:30.358Z"
+generated_at: "2025-11-01T00:11:49.060Z"
 doc_type: "cpp_api"
 ---
 
@@ -16,7 +16,7 @@ virtual const std::type_info& type();
 ```
 
 **Returns:**
-- `virtual const std::type_info&`
+- `const std::type_info&`
 
 ---
 
@@ -29,7 +29,7 @@ virtual placeholder* clone();
 ```
 
 **Returns:**
-- `virtual placeholder*`
+- `placeholder*`
 
 ---
 
@@ -46,7 +46,7 @@ const T& cast();
 
 ---
 
-(type)=
+(type-1)=
 ## `type`
 
 **Signature:**
@@ -59,7 +59,7 @@ const std::type_info& type();
 
 ---
 
-(clone)=
+(clone-1)=
 ## `clone`
 
 **Signature:**
@@ -69,25 +69,6 @@ placeholder* clone();
 
 **Returns:**
 - `placeholder*`
-
----
-
-(any)=
-## `any`
-
-**Signature:**
-```cpp
-template<typename T> any(const T& value) : content(new holder<T>(value));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `const T& value) : content(new holder&lt;T&gt;(value)` | - | - |
-
-**Returns:**
-- `template&lt;typename T&gt;`
 
 ---
 
@@ -123,7 +104,7 @@ bool empty();
 
 ---
 
-(type)=
+(type-2)=
 ## `type`
 
 **Signature:**

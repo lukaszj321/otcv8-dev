@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/deptharray.h"
 source_file: "src/framework/graphics/deptharray.h"
-generated_at: "2025-10-31T23:33:30.339Z"
+generated_at: "2025-11-01T00:11:49.039Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: inline void addDepth(float depth);
 | Type | Name | Description |
 |------|------|-------------|
 | `float` | `depth` | - |
-
-**Returns:**
-- `public: inline void`
 
 ---
 

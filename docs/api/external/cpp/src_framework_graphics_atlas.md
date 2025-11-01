@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/atlas.h"
 source_file: "src/framework/graphics/atlas.h"
-generated_at: "2025-10-31T23:33:30.338Z"
+generated_at: "2025-11-01T00:11:49.038Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -108,9 +105,6 @@ void release();
 private: void reset();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (resetatlas)=
@@ -164,7 +158,7 @@ inline int calculateIndex(const Size& size);
 | `const Size&` | `size` | - |
 
 **Returns:**
-- `inline int`
+- `int`
 
 ---
 

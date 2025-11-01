@@ -1,7 +1,7 @@
 ---
 title: "src/client/uigraph.h"
 source_file: "src/client/uigraph.h"
-generated_at: "2025-10-31T23:33:30.330Z"
+generated_at: "2025-11-01T00:11:49.029Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: UIGraph();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -77,9 +74,6 @@ protected: void onStyleApply(const std::string& styleName, const OTMLNodePtr& st
 |------|------|-------------|
 | `const std::string&` | `styleName` | - |
 | `const OTMLNodePtr&` | `styleNode` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 

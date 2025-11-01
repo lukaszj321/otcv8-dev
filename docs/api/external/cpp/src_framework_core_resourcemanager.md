@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/resourcemanager.h"
 source_file: "src/framework/core/resourcemanager.h"
-generated_at: "2025-10-31T23:33:30.336Z"
+generated_at: "2025-11-01T00:11:49.036Z"
 doc_type: "cpp_api"
 ---
 
@@ -19,7 +19,7 @@ void init(const char *argv0);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `argv0` | - |
+| `const char *argv0` | - | - |
 
 ---
 
@@ -109,9 +109,9 @@ bool loadDataFromSelf(bool unmountIfMounted = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool unmountIfMounted =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `unmountIfMounted` | `false` | - |
 
 **Returns:**
 - `bool`
@@ -183,10 +183,10 @@ std::string readFileContents(const std::string& fileName, bool safe = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `fileName` | - |
-| `bool safe =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `fileName` |  | - |
+| `bool` | `safe` | `false` | - |
 
 **Returns:**
 - `std::string`
@@ -283,10 +283,10 @@ FileStreamPtr openFile(const std::string& fileName, bool dontCache = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `fileName` | - |
-| `bool dontCache =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `fileName` |  | - |
+| `bool` | `dontCache` | `false` | - |
 
 **Returns:**
 - `FileStreamPtr`
@@ -379,11 +379,11 @@ std::list<std::string> listDirectoryFiles(const std::string & directoryPath = ""
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string & directoryPath = ""` | - | - |
-| `bool fullPath =` | `false` | - |
-| `bool raw =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string &` | `directoryPath` | `""` | - |
+| `bool` | `fullPath` | `false` | - |
+| `bool` | `raw` | `false` | - |
 
 **Returns:**
 - `std::list&lt;std::string&gt;`
@@ -555,8 +555,7 @@ std::string createArchive(const std::map<std::string, std::string>& files);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::map&lt;std::` | `string` | - |
-| `std::string&gt;&` | `files` | - |
+| `const std::map&lt;std::string, std::string&gt;&` | `files` | - |
 
 **Returns:**
 - `std::string`
@@ -573,9 +572,9 @@ void encrypt(const std::string& seed = "");
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string& seed = ""` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `seed` | `""` | - |
 
 ---
 
@@ -589,10 +588,10 @@ bool encryptBuffer(std::string & buffer, uint32_t seed = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `std::string &` | `buffer` | - |
-| `uint32_t seed = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `std::string &` | `buffer` |  | - |
+| `uint32_t` | `seed` | `0` | - |
 
 **Returns:**
 - `bool`
@@ -665,7 +664,7 @@ private: bool mountMemoryData(const std::shared_ptr<std::vector<uint8_t>>& data)
 | `const std::shared_ptr&lt;std::vector&lt;uint8_t&gt;&gt;&` | `data` | - |
 
 **Returns:**
-- `private: bool`
+- `bool`
 
 ---
 
@@ -737,7 +736,7 @@ std::string getBinaryName();
 
 ---
 
-(getwritedir)=
+(getwritedir-1)=
 ## `getWriteDir`
 
 **Signature:**
@@ -750,7 +749,7 @@ std::string getWriteDir();
 
 ---
 
-(getbinaryname)=
+(getbinaryname-1)=
 ## `getBinaryName`
 
 **Signature:**

@@ -1,93 +1,11 @@
 ---
 title: "src/client/position.h"
 source_file: "src/client/position.h"
-generated_at: "2025-10-31T23:33:30.325Z"
+generated_at: "2025-11-01T00:11:49.023Z"
 doc_type: "cpp_api"
 ---
 
 # src/client/position.h
-
-(getanglefrompositions)=
-## `getAngleFromPositions`
-
-**Signature:**
-```cpp
-return getAngleFromPositions(*this, position);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `*` | `this` | - |
-| `` | `position` | - |
-
-**Returns:**
-- `return`
-
----
-
-(getdirectionfrompositions)=
-## `getDirectionFromPositions`
-
-**Signature:**
-```cpp
-return getDirectionFromPositions(*this, position);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `*` | `this` | - |
-| `` | `position` | - |
-
-**Returns:**
-- `return`
-
----
-
-(stdto_string)=
-## `std::to_string`
-
-**Signature:**
-```cpp
-return std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `x` | - |
-| `int` | `y` | - |
-| `int` | `z` | - |
-
-**Returns:**
-- `return`
-
----
-
-(position)=
-## `Position`
-
-**Signature:**
-```cpp
-public: Position() : x(65535), y(65535), z(255);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : x(65535)` | - | - |
-| `y(65535)` | - | - |
-| `z(255` | - | - |
-
-**Returns:**
-- `public:`
-
----
 
 (translatedtodirection)=
 ## `translatedToDirection`
@@ -162,7 +80,7 @@ static double getAngleFromPositions(const Position& fromPos, const Position& toP
 | `const Position&` | `toPos` | - |
 
 **Returns:**
-- `static double`
+- `double`
 
 ---
 
@@ -201,7 +119,7 @@ static Otc::Direction getDirectionFromPositions(const Position& fromPos, const P
 | `const Position&` | `toPos` | - |
 
 **Returns:**
-- `static Otc::Direction`
+- `Otc::Direction`
 
 ---
 
@@ -298,11 +216,11 @@ void translate(int dx, int dy, short dz = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `dx` | - |
-| `int` | `dy` | - |
-| `short dz = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `dx` |  | - |
+| `int` | `dy` |  | - |
+| `short` | `dz` | `0` | - |
 
 ---
 
@@ -316,11 +234,11 @@ Position translated(int dx, int dy, short dz = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `dx` | - |
-| `int` | `dy` | - |
-| `short dz = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `dx` |  | - |
+| `int` | `dy` |  | - |
+| `short` | `dz` | `0` | - |
 
 **Returns:**
 - `Position`
@@ -337,19 +255,19 @@ bool isInRange(const Position& pos, int xRange, int yRange, int zRange = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Position&` | `pos` | - |
-| `int` | `xRange` | - |
-| `int` | `yRange` | - |
-| `int zRange = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Position&` | `pos` |  | - |
+| `int` | `xRange` |  | - |
+| `int` | `yRange` |  | - |
+| `int` | `zRange` | `0` | - |
 
 **Returns:**
 - `bool`
 
 ---
 
-(isinrange)=
+(isinrange-1)=
 ## `isInRange`
 
 **Signature:**
@@ -401,9 +319,9 @@ bool up(int n = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int n = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` | `1` | - |
 
 **Returns:**
 - `bool`
@@ -420,9 +338,9 @@ bool down(int n = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int n = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` | `1` | - |
 
 **Returns:**
 - `bool`
@@ -439,9 +357,9 @@ bool coveredUp(int n = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int n = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` | `1` | - |
 
 **Returns:**
 - `bool`
@@ -458,9 +376,9 @@ bool coveredDown(int n = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int n = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `n` | `1` | - |
 
 **Returns:**
 - `bool`
@@ -480,7 +398,7 @@ std::string toString();
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator`
 
 **Signature:**
@@ -499,7 +417,7 @@ std::size_t operator()(const Position& pos);
 
 ---
 
-(operator)=
+(operator-2)=
 ## `operator<<`
 
 **Signature:**
@@ -515,11 +433,11 @@ inline std::ostream& operator<<(std::ostream& out, const Position& pos);
 | `const Position&` | `pos` | - |
 
 **Returns:**
-- `inline std::ostream&`
+- `std::ostream&`
 
 ---
 
-(operator)=
+(operator-3)=
 ## `operator>>`
 
 **Signature:**
@@ -535,6 +453,6 @@ inline std::istream& operator>>(std::istream& in, Position& pos);
 | `Position&` | `pos` | - |
 
 **Returns:**
-- `inline std::istream&`
+- `std::istream&`
 
 ---

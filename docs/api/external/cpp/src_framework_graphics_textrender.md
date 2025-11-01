@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/textrender.h"
 source_file: "src/framework/graphics/textrender.h"
-generated_at: "2025-10-31T23:33:30.344Z"
+generated_at: "2025-11-01T00:11:49.045Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -50,12 +47,12 @@ uint64_t addText(BitmapFontPtr font, const std::string& text, const Size& size, 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `BitmapFontPtr` | `font` | - |
-| `const std::string&` | `text` | - |
-| `const Size&` | `size` | - |
-| `Fw::AlignmentFlag align = Fw::` | `AlignTopLeft` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `BitmapFontPtr` | `font` |  | - |
+| `const std::string&` | `text` |  | - |
+| `const Size&` | `size` |  | - |
+| `Fw::AlignmentFlag` | `align` | `Fw::AlignTopLeft` | - |
 
 **Returns:**
 - `uint64_t`
@@ -72,18 +69,18 @@ void drawText(const Rect& rect, const std::string& text, BitmapFontPtr font, con
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `rect` | - |
-| `const std::string&` | `text` | - |
-| `BitmapFontPtr` | `font` | - |
-| `const Color& color = Color::` | `white` | - |
-| `Fw::AlignmentFlag align = Fw::` | `AlignTopLeft` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `rect` |  | - |
+| `const std::string&` | `text` |  | - |
+| `BitmapFontPtr` | `font` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
+| `Fw::AlignmentFlag` | `align` | `Fw::AlignTopLeft` | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
-(drawtext)=
+(drawtext-1)=
 ## `drawText`
 
 **Signature:**
@@ -93,12 +90,12 @@ void drawText(const Point& pos, uint64_t hash, const Color& color, bool shadow =
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `pos` | - |
-| `uint64_t` | `hash` | - |
-| `const Color&` | `color` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `pos` |  | - |
+| `uint64_t` | `hash` |  | - |
+| `const Color&` | `color` |  | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
@@ -112,12 +109,11 @@ void drawColoredText(const Point& pos, uint64_t hash, const std::vector<std::pai
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `pos` | - |
-| `uint64_t` | `hash` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;&` | `colors` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `pos` |  | - |
+| `uint64_t` | `hash` |  | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;&` | `colors` |  | - |
+| `bool` | `shadow` | `false` | - |
 
 ---

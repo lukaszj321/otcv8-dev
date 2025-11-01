@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/exception.h"
 source_file: "src/framework/stdext/exception.h"
-generated_at: "2025-10-31T23:33:30.359Z"
+generated_at: "2025-11-01T00:11:49.061Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: exception();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -35,7 +32,7 @@ virtual const char* what() const throw();
 | `) const throw(` | - | - |
 
 **Returns:**
-- `virtual const char*`
+- `const char*`
 
 ---
 
@@ -54,8 +51,5 @@ inline void throw_exception(const std::string& what);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `what` | - |
-
-**Returns:**
-- `inline void`
 
 ---

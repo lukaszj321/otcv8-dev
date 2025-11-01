@@ -1,7 +1,7 @@
 ---
 title: "src/client/container.h"
 source_file: "src/client/container.h"
-generated_at: "2025-10-31T23:33:30.317Z"
+generated_at: "2025-11-01T00:11:49.014Z"
 doc_type: "cpp_api"
 ---
 
@@ -29,9 +29,6 @@ protected: Container(int id, int capacity, const std::string& name, const ItemPt
 | `int` | `containerSize` | - |
 | `int` | `firstIndex` | - |
 
-**Returns:**
-- `protected:`
-
 ---
 
 (getitem)=
@@ -49,7 +46,7 @@ public: ItemPtr getItem(int slot);
 | `int` | `slot` | - |
 
 **Returns:**
-- `public: ItemPtr`
+- `ItemPtr`
 
 ---
 
@@ -86,9 +83,6 @@ protected: void onOpen(const ContainerPtr& previousContainer);
 | Type | Name | Description |
 |------|------|-------------|
 | `const ContainerPtr&` | `previousContainer` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 
@@ -176,9 +170,6 @@ void onRemoveItem(int slot, const ItemPtr& lastItem);
 ```cpp
 private: void updateItemsPositions();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

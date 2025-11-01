@@ -1,7 +1,7 @@
 ---
 title: "src/client/healthbars.h"
 source_file: "src/client/healthbars.h"
-generated_at: "2025-10-31T23:33:30.320Z"
+generated_at: "2025-11-01T00:11:49.018Z"
 doc_type: "cpp_api"
 ---
 
@@ -30,9 +30,6 @@ void setTexture(const std::string& path);
 ```cpp
 public: void init();
 ```
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -253,9 +250,6 @@ public: void setPath(const std::string& path);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `path` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 

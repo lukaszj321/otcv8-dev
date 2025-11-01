@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/streamsoundsource.h"
 source_file: "src/framework/sound/streamsoundsource.h"
-generated_at: "2025-10-31T23:33:30.357Z"
+generated_at: "2025-11-01T00:11:49.060Z"
 doc_type: "cpp_api"
 ---
 
@@ -76,9 +76,6 @@ void update();
 ```cpp
 private: void queueBuffers();
 ```
-
-**Returns:**
-- `private: void`
 
 ---
 

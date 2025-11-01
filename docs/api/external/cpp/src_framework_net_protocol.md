@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/protocol.h"
 source_file: "src/framework/net/protocol.h"
-generated_at: "2025-10-31T23:33:30.350Z"
+generated_at: "2025-11-01T00:11:49.052Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Protocol();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -157,13 +154,10 @@ virtual void send(const OutputMessagePtr& outputMessage, bool rawPacket = false)
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const OutputMessagePtr&` | `outputMessage` | - |
-| `bool rawPacket =` | `false` | - |
-
-**Returns:**
-- `virtual void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const OutputMessagePtr&` | `outputMessage` |  | - |
+| `bool` | `rawPacket` | `false` | - |
 
 ---
 
@@ -175,9 +169,6 @@ virtual void send(const OutputMessagePtr& outputMessage, bool rawPacket = false)
 virtual void recv();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onconnect)=
@@ -187,9 +178,6 @@ virtual void recv();
 ```cpp
 protected: virtual void onConnect();
 ```
-
-**Returns:**
-- `protected: virtual void`
 
 ---
 
@@ -207,9 +195,6 @@ virtual void onRecv(const InputMessagePtr& inputMessage);
 |------|------|-------------|
 | `const InputMessagePtr&` | `inputMessage` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onerror)=
@@ -225,9 +210,6 @@ virtual void onError(const boost::system::error_code& err);
 | Type | Name | Description |
 |------|------|-------------|
 | `const boost::system::error_code&` | `err` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -293,9 +275,6 @@ private: void internalRecvHeader(uint8* buffer, uint32 size);
 |------|------|-------------|
 | `uint8*` | `buffer` | - |
 | `uint32` | `size` | - |
-
-**Returns:**
-- `private: void`
 
 ---
 

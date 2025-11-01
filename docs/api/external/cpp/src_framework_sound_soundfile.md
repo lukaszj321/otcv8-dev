@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/soundfile.h"
 source_file: "src/framework/sound/soundfile.h"
-generated_at: "2025-10-31T23:33:30.357Z"
+generated_at: "2025-11-01T00:11:49.059Z"
 doc_type: "cpp_api"
 ---
 
@@ -21,9 +21,6 @@ public: SoundFile(const FileStreamPtr& fileStream);
 |------|------|-------------|
 | `const FileStreamPtr&` | `fileStream` | - |
 
-**Returns:**
-- `public:`
-
 ---
 
 (loadsoundfile)=
@@ -41,7 +38,7 @@ static SoundFilePtr loadSoundFile(const std::string& filename);
 | `const std::string&` | `filename` | - |
 
 **Returns:**
-- `static SoundFilePtr`
+- `SoundFilePtr`
 
 ---
 
@@ -70,11 +67,11 @@ virtual int read(void *buffer, int bufferSize);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `void *` | `buffer` | - |
+| `void *buffer` | - | - |
 | `int` | `bufferSize` | - |
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -85,9 +82,6 @@ virtual int read(void *buffer, int bufferSize);
 ```cpp
 virtual void reset();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 

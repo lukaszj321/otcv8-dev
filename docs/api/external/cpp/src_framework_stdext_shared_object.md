@@ -1,30 +1,11 @@
 ---
 title: "src/framework/stdext/shared_object.h"
 source_file: "src/framework/stdext/shared_object.h"
-generated_at: "2025-10-31T23:33:30.361Z"
+generated_at: "2025-11-01T00:11:49.063Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/stdext/shared_object.h
-
-(shared_object)=
-## `shared_object`
-
-**Signature:**
-```cpp
-public: shared_object() : refs(0);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `) : refs(0` | - | - |
-
-**Returns:**
-- `public:`
-
----
 
 (add_ref)=
 ## `add_ref`
@@ -98,28 +79,6 @@ stdext::shared_object_ptr<T> const_self_cast();
 
 ---
 
-(shared_object_ptr)=
-## `shared_object_ptr`
-
-**Signature:**
-```cpp
-template<class U> shared_object_ptr(shared_object_ptr<U> const& rhs, typename std::enable_if<std::is_convertible<U*,T*>::value, U*>::type = nullptr) : px(rhs.get());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `shared_object_ptr&lt;U&gt; const&` | `rhs` | - |
-| `typename std::enable_if&lt;std::is_convertible&lt;U*` | - | - |
-| `T*&gt;::` | `value` | - |
-| `U*&gt;::type = nullptr) : px(rhs.get()` | - | - |
-
-**Returns:**
-- `template&lt;class U&gt;`
-
----
-
 (reset)=
 ## `reset`
 
@@ -130,7 +89,7 @@ void reset();
 
 ---
 
-(reset)=
+(reset-1)=
 ## `reset`
 
 **Signature:**
@@ -227,7 +186,7 @@ operator unspecified_bool_type();
 
 ---
 
-(add_ref)=
+(add_ref-1)=
 ## `add_ref`
 
 **Signature:**
@@ -235,12 +194,9 @@ operator unspecified_bool_type();
 private: void add_ref();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
-(dec_ref)=
+(dec_ref-1)=
 ## `dec_ref`
 
 **Signature:**
@@ -250,7 +206,7 @@ void dec_ref();
 
 ---
 
-(operator)=
+(operator-1)=
 ## `operator<`
 
 **Signature:**
@@ -365,7 +321,7 @@ stdext::shared_object_ptr<T> make_shared_object(Args... args);
 
 ---
 
-(swap)=
+(swap-1)=
 ## `swap`
 
 **Signature:**

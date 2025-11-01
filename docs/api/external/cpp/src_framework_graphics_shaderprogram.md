@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/shaderprogram.h"
 source_file: "src/framework/graphics/shaderprogram.h"
-generated_at: "2025-10-31T23:33:30.343Z"
+generated_at: "2025-11-01T00:11:49.044Z"
 doc_type: "cpp_api"
 ---
 
@@ -21,9 +21,6 @@ public: ShaderProgram(const std::string& name);
 |------|------|-------------|
 | `const std::string&` | `name` | - |
 
-**Returns:**
-- `public:`
-
 ---
 
 (create)=
@@ -36,15 +33,15 @@ static PainterShaderProgramPtr create(const std::string& name, const std::string
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `name` | - |
-| `const std::string&` | `vertexShader` | - |
-| `const std::string&` | `fragmentShader` | - |
-| `bool colorMatrix =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `name` |  | - |
+| `const std::string&` | `vertexShader` |  | - |
+| `const std::string&` | `fragmentShader` |  | - |
+| `bool` | `colorMatrix` | `false` | - |
 
 **Returns:**
-- `static PainterShaderProgramPtr`
+- `PainterShaderProgramPtr`
 
 ---
 
@@ -142,7 +139,7 @@ virtual bool link();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -166,9 +163,6 @@ bool bind();
 ```cpp
 static void release();
 ```
-
-**Returns:**
-- `static void`
 
 ---
 
@@ -252,9 +246,6 @@ static void disableAttributeArray(int location);
 |------|------|-------------|
 | `int` | `location` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
 (enableattributearray)=
@@ -271,12 +262,9 @@ static void enableAttributeArray(int location);
 |------|------|-------------|
 | `int` | `location` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(disableattributearray)=
+(disableattributearray-1)=
 ## `disableAttributeArray`
 
 **Signature:**
@@ -292,7 +280,7 @@ void disableAttributeArray(const char* name);
 
 ---
 
-(enableattributearray)=
+(enableattributearray-1)=
 ## `enableAttributeArray`
 
 **Signature:**
@@ -318,12 +306,12 @@ void setAttributeArray(int location, const float* values, int size, int stride =
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `location` | - |
-| `const float*` | `values` | - |
-| `int` | `size` | - |
-| `int stride = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `location` |  | - |
+| `const float*` | `values` |  | - |
+| `int` | `size` |  | - |
+| `int` | `stride` | `0` | - |
 
 ---
 
@@ -344,7 +332,7 @@ void setAttributeValue(int location, float value);
 
 ---
 
-(setattributevalue)=
+(setattributevalue-1)=
 ## `setAttributeValue`
 
 **Signature:**
@@ -362,7 +350,7 @@ void setAttributeValue(int location, float x, float y);
 
 ---
 
-(setattributevalue)=
+(setattributevalue-2)=
 ## `setAttributeValue`
 
 **Signature:**
@@ -381,7 +369,7 @@ void setAttributeValue(int location, float x, float y, float z);
 
 ---
 
-(setattributearray)=
+(setattributearray-1)=
 ## `setAttributeArray`
 
 **Signature:**
@@ -391,16 +379,16 @@ void setAttributeArray(const char* name, const float* values, int size, int stri
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const char*` | `name` | - |
-| `const float*` | `values` | - |
-| `int` | `size` | - |
-| `int stride = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const char*` | `name` |  | - |
+| `const float*` | `values` |  | - |
+| `int` | `size` |  | - |
+| `int` | `stride` | `0` | - |
 
 ---
 
-(setattributevalue)=
+(setattributevalue-3)=
 ## `setAttributeValue`
 
 **Signature:**
@@ -417,7 +405,7 @@ void setAttributeValue(const char* name, float value);
 
 ---
 
-(setattributevalue)=
+(setattributevalue-4)=
 ## `setAttributeValue`
 
 **Signature:**
@@ -435,7 +423,7 @@ void setAttributeValue(const char* name, float x, float y);
 
 ---
 
-(setattributevalue)=
+(setattributevalue-5)=
 ## `setAttributeValue`
 
 **Signature:**
@@ -471,7 +459,7 @@ void setUniformValue(int location, const Color& color);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-1)=
 ## `setUniformValue`
 
 **Signature:**
@@ -488,7 +476,7 @@ void setUniformValue(int location, int value);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-2)=
 ## `setUniformValue`
 
 **Signature:**
@@ -505,7 +493,7 @@ void setUniformValue(int location, float value);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-3)=
 ## `setUniformValue`
 
 **Signature:**
@@ -523,7 +511,7 @@ void setUniformValue(int location, float x, float y);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-4)=
 ## `setUniformValue`
 
 **Signature:**
@@ -542,7 +530,7 @@ void setUniformValue(int location, float x, float y, float z);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-5)=
 ## `setUniformValue`
 
 **Signature:**
@@ -562,7 +550,7 @@ void setUniformValue(int location, float x, float y, float z, float w);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-6)=
 ## `setUniformValue`
 
 **Signature:**
@@ -579,7 +567,7 @@ void setUniformValue(int location, const Matrix2& mat);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-7)=
 ## `setUniformValue`
 
 **Signature:**
@@ -596,7 +584,7 @@ void setUniformValue(int location, const Matrix3& mat);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-8)=
 ## `setUniformValue`
 
 **Signature:**
@@ -613,7 +601,7 @@ void setUniformValue(int location, const Matrix4& mat);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-9)=
 ## `setUniformValue`
 
 **Signature:**
@@ -631,7 +619,7 @@ void setUniformValue(int location, int count, const int* value);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-10)=
 ## `setUniformValue`
 
 **Signature:**
@@ -648,7 +636,7 @@ void setUniformValue(const char* name, const Color& color);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-11)=
 ## `setUniformValue`
 
 **Signature:**
@@ -665,7 +653,7 @@ void setUniformValue(const char* name, int value);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-12)=
 ## `setUniformValue`
 
 **Signature:**
@@ -682,7 +670,7 @@ void setUniformValue(const char* name, float value);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-13)=
 ## `setUniformValue`
 
 **Signature:**
@@ -700,7 +688,7 @@ void setUniformValue(const char* name, float x, float y);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-14)=
 ## `setUniformValue`
 
 **Signature:**
@@ -719,7 +707,7 @@ void setUniformValue(const char* name, float x, float y, float z);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-15)=
 ## `setUniformValue`
 
 **Signature:**
@@ -739,7 +727,7 @@ void setUniformValue(const char* name, float x, float y, float z, float w);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-16)=
 ## `setUniformValue`
 
 **Signature:**
@@ -756,7 +744,7 @@ void setUniformValue(const char* name, const Matrix2& mat);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-17)=
 ## `setUniformValue`
 
 **Signature:**
@@ -773,7 +761,7 @@ void setUniformValue(const char* name, const Matrix3& mat);
 
 ---
 
-(setuniformvalue)=
+(setuniformvalue-18)=
 ## `setUniformValue`
 
 **Signature:**

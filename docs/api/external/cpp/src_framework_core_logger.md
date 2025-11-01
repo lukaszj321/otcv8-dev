@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/logger.h"
 source_file: "src/framework/core/logger.h"
-generated_at: "2025-10-31T23:33:30.335Z"
+generated_at: "2025-11-01T00:11:49.035Z"
 doc_type: "cpp_api"
 ---
 
@@ -21,9 +21,6 @@ public: void log(Fw::LogLevel level, const std::string& message);
 |------|------|-------------|
 | `Fw::LogLevel` | `level` | - |
 | `const std::string&` | `message` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 

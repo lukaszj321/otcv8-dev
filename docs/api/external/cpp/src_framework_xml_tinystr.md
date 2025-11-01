@@ -1,131 +1,11 @@
 ---
 title: "src/framework/xml/tinystr.h"
 source_file: "src/framework/xml/tinystr.h"
-generated_at: "2025-10-31T23:33:30.371Z"
+generated_at: "2025-11-01T00:11:49.072Z"
 doc_type: "cpp_api"
 ---
 
 # src/framework/xml/tinystr.h
-
-(assign)=
-## `assign`
-
-**Signature:**
-```cpp
-return assign(copy, (size_type)strlen(copy));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `copy` | - |
-| `(size_type)strlen(copy)` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(assign)=
-## `assign`
-
-**Signature:**
-```cpp
-return assign(copy.start(), copy.length());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `copy.start()` | - | - |
-| `copy.length()` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(append)=
-## `append`
-
-**Signature:**
-```cpp
-return append(suffix, static_cast<size_type>( strlen(suffix) ));
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `suffix` | - |
-| `static_cast&lt;size_type&gt;( strlen(suffix) )` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(append)=
-## `append`
-
-**Signature:**
-```cpp
-return append(&single, 1);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `&` | `single` | - |
-| `1` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(append)=
-## `append`
-
-**Signature:**
-```cpp
-return append(suffix.data(), suffix.length());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `suffix.data()` | - | - |
-| `suffix.length()` | - | - |
-
-**Returns:**
-- `return`
-
----
-
-(find)=
-## `find`
-
-**Signature:**
-```cpp
-return find(lookup, 0);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `lookup` | - |
-| `0` | - | - |
-
-**Returns:**
-- `return`
-
----
 
 (reserve)=
 ## `reserve`
@@ -180,45 +60,6 @@ TiXmlString& append(const char* str, size_type len);
 
 **Returns:**
 - `TiXmlString&`
-
----
-
-(tixmlstring)=
-## `TiXmlString`
-
-**Signature:**
-```cpp
-TIXML_EXPLICIT TiXmlString(const char * copy) : rep_(0);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `const char * copy) : rep_(0` | - | - |
-
-**Returns:**
-- `TIXML_EXPLICIT`
-
----
-
-(tixmlstring)=
-## `TiXmlString`
-
-**Signature:**
-```cpp
-TIXML_EXPLICIT TiXmlString(const char * str, size_type len) : rep_(0);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `const char *` | `str` | - |
-| `size_type len) : rep_(0` | - | - |
-
-**Returns:**
-- `TIXML_EXPLICIT`
 
 ---
 
@@ -338,7 +179,7 @@ size_type find(char lookup);
 
 ---
 
-(find)=
+(find-1)=
 ## `find`
 
 **Signature:**
@@ -398,9 +239,6 @@ private: void init(size_type sz);
 |------|------|-------------|
 | `size_type` | `sz` | - |
 
-**Returns:**
-- `private: void`
-
 ---
 
 (set_size)=
@@ -445,7 +283,7 @@ char* finish();
 
 ---
 
-(init)=
+(init-1)=
 ## `init`
 
 **Signature:**

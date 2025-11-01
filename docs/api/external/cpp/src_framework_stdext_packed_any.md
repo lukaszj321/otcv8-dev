@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/packed_any.h"
 source_file: "src/framework/stdext/packed_any.h"
-generated_at: "2025-10-31T23:33:30.361Z"
+generated_at: "2025-11-01T00:11:49.063Z"
 doc_type: "cpp_api"
 ---
 
@@ -16,7 +16,7 @@ virtual const std::type_info& type();
 ```
 
 **Returns:**
-- `virtual const std::type_info&`
+- `const std::type_info&`
 
 ---
 
@@ -29,7 +29,7 @@ virtual placeholder* clone();
 ```
 
 **Returns:**
-- `virtual placeholder*`
+- `placeholder*`
 
 ---
 
@@ -58,14 +58,14 @@ else return typeid(std::size_t);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `std::` | `size_t` | - |
+| `std::size_t` | - | - |
 
 **Returns:**
 - `else return`
 
 ---
 
-(type)=
+(type-1)=
 ## `type`
 
 **Signature:**
@@ -78,7 +78,7 @@ const std::type_info& type();
 
 ---
 
-(clone)=
+(clone-1)=
 ## `clone`
 
 **Signature:**
@@ -88,48 +88,6 @@ placeholder* clone();
 
 **Returns:**
 - `placeholder*`
-
----
-
-(packed_any)=
-## `packed_any`
-
-**Signature:**
-```cpp
-template<typename T> packed_any(const T& value, typename std::enable_if<(can_pack_in_any<T>::value)>::type* = nullptr) : content(reinterpret_cast<placeholder*>(static_cast<std::size_t>(value))), scalar(true);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `const T&` | `value` | - |
-| `typename std::enable_if&lt;(can_pack_in_any&lt;T&gt;::value)&gt;::type* = nullptr) : content(reinterpret_cast&lt;placeholder*&gt;(static_cast&lt;std::size_t&gt;(value)))` | - | - |
-| `scalar(` | `true` | - |
-
-**Returns:**
-- `template&lt;typename T&gt;`
-
----
-
-(packed_any)=
-## `packed_any`
-
-**Signature:**
-```cpp
-template<typename T> packed_any(const T& value, typename std::enable_if<!(can_pack_in_any<T>::value)>::type* = nullptr) : content(new holder<T>(value)), scalar(false);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `const T&` | `value` | - |
-| `typename std::enable_if&lt;!(can_pack_in_any&lt;T&gt;::value)&gt;::type* = nullptr) : content(new holder&lt;T&gt;(value))` | - | - |
-| `scalar(` | `false` | - |
-
-**Returns:**
-- `template&lt;typename T&gt;`
 
 ---
 
@@ -165,7 +123,7 @@ bool empty();
 
 ---
 
-(type)=
+(type-2)=
 ## `type`
 
 **Signature:**

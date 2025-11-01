@@ -1,7 +1,7 @@
 ---
 title: "src/client/game.h"
 source_file: "src/client/game.h"
-generated_at: "2025-10-31T23:33:30.318Z"
+generated_at: "2025-11-01T00:11:49.016Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: Game();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -48,9 +45,6 @@ void terminate();
 private: void resetGameStates();
 ```
 
-**Returns:**
-- `private: void`
-
 ---
 
 (processconnectionerror)=
@@ -66,9 +60,6 @@ protected: void processConnectionError(const boost::system::error_code& error);
 | Type | Name | Description |
 |------|------|-------------|
 | `const boost::system::error_code&` | `error` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 
@@ -560,8 +551,7 @@ void processChannelList(const std::vector<std::tuple<int, std::string> >& channe
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt; &gt;&` | `channelList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt; &gt;&` | `channelList` | - |
 
 ---
 
@@ -792,21 +782,13 @@ void processOpenOutfitWindow(const Outfit& currentOutfit, const std::vector<std:
 | Type | Name | Description |
 |------|------|-------------|
 | `const Outfit&` | `currentOutfit` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::` | `string` | - |
-| `int&gt;&gt;&` | `outfitList` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt;&gt;&` | `mountList` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt;&gt;&` | `wingList` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt;&gt;&` | `auraList` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt;&gt;&` | `shaderList` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt;&gt;&` | `healthBarList` | - |
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt;&gt;&` | `manaBarList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string, int&gt;&gt;&` | `outfitList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt;&gt;&` | `mountList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt;&gt;&` | `wingList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt;&gt;&` | `auraList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt;&gt;&` | `shaderList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt;&gt;&` | `healthBarList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string&gt;&gt;&` | `manaBarList` | - |
 
 ---
 
@@ -822,11 +804,7 @@ void processOpenNpcTrade(const std::vector<std::tuple<ItemPtr, std::string, int,
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::vector&lt;std::tuple&lt;` | `ItemPtr` | - |
-| `std::` | `string` | - |
-| `` | `int` | - |
-| `` | `int64_t` | - |
-| `int64_t&gt; &gt;&` | `items` | - |
+| `const std::vector&lt;std::tuple&lt;ItemPtr, std::string, int, int64_t, int64_t&gt; &gt;&` | `items` | - |
 
 ---
 
@@ -843,8 +821,7 @@ void processPlayerGoods(uint64_t money, const std::vector<std::tuple<ItemPtr, in
 | Type | Name | Description |
 |------|------|-------------|
 | `uint64_t` | `money` | - |
-| `const std::vector&lt;std::tuple&lt;` | `ItemPtr` | - |
-| `int&gt; &gt;&` | `goods` | - |
+| `const std::vector&lt;std::tuple&lt;ItemPtr, int&gt; &gt;&` | `goods` | - |
 
 ---
 
@@ -953,9 +930,7 @@ void processQuestLog(const std::vector<std::tuple<int, std::string, bool> >& que
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::` | `string` | - |
-| `bool&gt; &gt;&` | `questList` | - |
+| `const std::vector&lt;std::tuple&lt;int, std::string, bool&gt; &gt;&` | `questList` | - |
 
 ---
 
@@ -972,9 +947,7 @@ void processQuestLine(int questId, const std::vector<std::tuple<std::string, std
 | Type | Name | Description |
 |------|------|-------------|
 | `int` | `questId` | - |
-| `const std::vector&lt;std::tuple&lt;std::` | `string` | - |
-| `std::` | `string` | - |
-| `int&gt; &gt;&` | `questMissions` | - |
+| `const std::vector&lt;std::tuple&lt;std::string, std::string, int&gt; &gt;&` | `questMissions` | - |
 
 ---
 
@@ -993,12 +966,10 @@ void processModalDialog(uint32 id, std::string title, std::string message, std::
 | `uint32` | `id` | - |
 | `std::string` | `title` | - |
 | `std::string` | `message` | - |
-| `std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt; &gt;` | `buttonList` | - |
+| `std::vector&lt;std::tuple&lt;int, std::string&gt; &gt;` | `buttonList` | - |
 | `int` | `enterButton` | - |
 | `int` | `escapeButton` | - |
-| `std::vector&lt;std::tuple&lt;` | `int` | - |
-| `std::string&gt; &gt;` | `choiceList` | - |
+| `std::vector&lt;std::tuple&lt;int, std::string&gt; &gt;` | `choiceList` | - |
 | `bool` | `priority` | - |
 
 ---
@@ -1013,17 +984,17 @@ void loginWorld(const std::string& account, const std::string& password, const s
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `account` | - |
-| `const std::string&` | `password` | - |
-| `const std::string&` | `worldName` | - |
-| `const std::string&` | `worldHost` | - |
-| `int` | `worldPort` | - |
-| `const std::string&` | `characterName` | - |
-| `const std::string&` | `authenticatorToken` | - |
-| `const std::string&` | `sessionKey` | - |
-| `const std::string& recordTo = ""` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `account` |  | - |
+| `const std::string&` | `password` |  | - |
+| `const std::string&` | `worldName` |  | - |
+| `const std::string&` | `worldHost` |  | - |
+| `int` | `worldPort` |  | - |
+| `const std::string&` | `characterName` |  | - |
+| `const std::string&` | `authenticatorToken` |  | - |
+| `const std::string&` | `sessionKey` |  | - |
+| `const std::string&` | `recordTo` | `""` | - |
 
 ---
 
@@ -1143,10 +1114,10 @@ void look(const ThingPtr& thing, bool isBattleList = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const ThingPtr&` | `thing` | - |
-| `bool isBattleList =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const ThingPtr&` | `thing` |  | - |
+| `bool` | `isBattleList` | `false` | - |
 
 ---
 
@@ -1263,11 +1234,11 @@ void useWith(const ItemPtr& fromThing, const ThingPtr& toThing, int subType = 0)
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const ItemPtr&` | `fromThing` | - |
-| `const ThingPtr&` | `toThing` | - |
-| `int subType = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const ItemPtr&` | `fromThing` |  | - |
+| `const ThingPtr&` | `toThing` |  | - |
+| `int` | `subType` | `0` | - |
 
 ---
 
@@ -1281,10 +1252,10 @@ void useInventoryItem(int itemId, int subType = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `itemId` | - |
-| `int subType = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `itemId` |  | - |
+| `int` | `subType` | `0` | - |
 
 ---
 
@@ -1298,11 +1269,11 @@ void useInventoryItemWith(int itemId, const ThingPtr& toThing, int subType = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `itemId` | - |
-| `const ThingPtr&` | `toThing` | - |
-| `int subType = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `itemId` |  | - |
+| `const ThingPtr&` | `toThing` |  | - |
+| `int` | `subType` | `0` | - |
 
 ---
 
@@ -1404,10 +1375,10 @@ void attack(CreaturePtr creature, bool cancel = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `CreaturePtr` | `creature` | - |
-| `bool cancel =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `CreaturePtr` | `creature` |  | - |
+| `bool` | `cancel` | `false` | - |
 
 ---
 
@@ -2287,11 +2258,11 @@ void buyStoreOffer(int offerId, int productType, const std::string& name = "");
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `offerId` | - |
-| `int` | `productType` | - |
-| `const std::string& name = ""` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `offerId` |  | - |
+| `int` | `productType` |  | - |
+| `const std::string&` | `name` | `""` | - |
 
 ---
 
@@ -2322,10 +2293,10 @@ void requestStoreOffers(const std::string& categoryName, int serviceType = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `categoryName` | - |
-| `int serviceType = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `categoryName` |  | - |
+| `int` | `serviceType` | `0` | - |
 
 ---
 
@@ -2339,9 +2310,9 @@ void openStore(int serviceType = 0);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int serviceType = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `serviceType` | `0` | - |
 
 ---
 
@@ -2570,7 +2541,7 @@ std::string formatCreatureName(const std::string &name);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const std::string &` | `name` | - |
+| `const std::string &name` | - | - |
 
 **Returns:**
 - `std::string`
@@ -2603,9 +2574,6 @@ private: void setAttackingCreature(const CreaturePtr& creature);
 | Type | Name | Description |
 |------|------|-------------|
 | `const CreaturePtr&` | `creature` | - |
-
-**Returns:**
-- `private: void`
 
 ---
 
@@ -3420,9 +3388,6 @@ int getRecivedPacketsSize();
 ```cpp
 protected: void enableBotCall();
 ```
-
-**Returns:**
-- `protected: void`
 
 ---
 

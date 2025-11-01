@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/qrcodegen.h"
 source_file: "src/framework/util/qrcodegen.h"
-generated_at: "2025-10-31T23:33:30.369Z"
+generated_at: "2025-11-01T00:11:49.071Z"
 doc_type: "cpp_api"
 ---
 
@@ -30,7 +30,7 @@ bool qrcodegen_encodeText(const char *text, uint8_t tempBuffer[], uint8_t qrcode
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `text` | - |
+| `const char *text` | - | - |
 | `uint8_t tempBuffer[]` | - | - |
 | `uint8_t qrcode[]` | - | - |
 | `enum qrcodegen_Ecc` | `ecl` | - |
@@ -169,7 +169,7 @@ bool qrcodegen_isAlphanumeric(const char *text);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `text` | - |
+| `const char *text` | - | - |
 
 **Returns:**
 - `bool`
@@ -191,7 +191,7 @@ bool qrcodegen_isNumeric(const char *text);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `text` | - |
+| `const char *text` | - | - |
 
 **Returns:**
 - `bool`
@@ -267,7 +267,7 @@ struct qrcodegen_Segment qrcodegen_makeNumeric(const char *digits, uint8_t buf[]
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `digits` | - |
+| `const char *digits` | - | - |
 | `uint8_t buf[]` | - | - |
 
 **Returns:**
@@ -291,7 +291,7 @@ struct qrcodegen_Segment qrcodegen_makeAlphanumeric(const char *text, uint8_t bu
 
 | Type | Name | Description |
 |------|------|-------------|
-| `const char *` | `text` | - |
+| `const char *text` | - | - |
 | `uint8_t buf[]` | - | - |
 
 **Returns:**

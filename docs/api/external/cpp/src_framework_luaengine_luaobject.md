@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luaobject.h"
 source_file: "src/framework/luaengine/luaobject.h"
-generated_at: "2025-10-31T23:33:30.348Z"
+generated_at: "2025-11-01T00:11:49.049Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: LuaObject();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (connectluafield)=
@@ -30,11 +27,11 @@ void connectLuaField(const std::string& field, const std::function<T>& f, bool p
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `field` | - |
-| `const std::function&lt;T&gt;&` | `f` | - |
-| `bool pushFront =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `field` |  | - |
+| `const std::function&lt;T&gt;&` | `f` |  | - |
+| `bool` | `pushFront` | `false` | - |
 
 ---
 
@@ -253,12 +250,12 @@ void connect(const LuaObjectPtr& obj, const std::string& field, const std::funct
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const LuaObjectPtr&` | `obj` | - |
-| `const std::string&` | `field` | - |
-| `const std::function&lt;F&gt;&` | `f` | - |
-| `bool pushFront =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const LuaObjectPtr&` | `obj` |  | - |
+| `const std::string&` | `field` |  | - |
+| `const std::function&lt;F&gt;&` | `f` |  | - |
+| `bool` | `pushFront` | `false` | - |
 
 ---
 
@@ -272,13 +269,9 @@ typename std::enable_if<std::is_constructible<decltype(&Lambda::operator())>::va
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `&Lambda::operator())&gt;::` | `value` | - |
-| `void&gt;::type connect(const LuaObjectPtr&` | `obj` | - |
-| `const std::string&` | `field` | - |
-| `const Lambda&` | `f` | - |
-| `bool pushFront =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `&Lambda::operator())&gt;::value, void&gt;::type connect(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool` | `pushFront` | `false` | - |
 
 **Returns:**
 - `typename`
@@ -297,7 +290,7 @@ AutoStat s(STATS_LUA, getClassName() + ":" + field);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `` | `STATS_LUA` | - |
+| `STATS_LUA` | - | - |
 | `getClassName() + ":" +` | `field` | - |
 
 **Returns:**
@@ -336,7 +329,7 @@ void LuaObject::connectLuaField(const std::string& field, const std::function<T>
 
 ---
 
-(connect)=
+(connect-1)=
 ## `connect`
 
 **Signature:**
@@ -372,12 +365,9 @@ static void call(const LuaObjectPtr& obj, const std::string& field, const Lambda
 | `const Lambda&` | `f` | - |
 | `bool` | `pushFront` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
-(stdenable_ifstdis_constructibledecltype)=
+(stdenable_ifstdis_constructibledecltype-1)=
 ## `std::enable_if<std::is_constructible<decltype`
 
 **Signature:**
@@ -389,11 +379,7 @@ typename std::enable_if<std::is_constructible<decltype(&Lambda::operator())>::va
 
 | Type | Name | Description |
 |------|------|-------------|
-| `&Lambda::operator())&gt;::` | `value` | - |
-| `void&gt;::type connect(const LuaObjectPtr&` | `obj` | - |
-| `const std::string&` | `field` | - |
-| `const Lambda&` | `f` | - |
-| `bool` | `pushFront` | - |
+| `&Lambda::operator())&gt;::value, void&gt;::type connect(const LuaObjectPtr& obj, const std::string& field, const Lambda& f, bool` | `pushFront` | - |
 
 **Returns:**
 - `typename`

@@ -1,7 +1,7 @@
 ---
 title: "src/client/creature.h"
 source_file: "src/client/creature.h"
-generated_at: "2025-10-31T23:33:30.317Z"
+generated_at: "2025-11-01T00:11:49.015Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,14 +17,11 @@ virtual void draw(const Point& dest, bool animate = true, LightView* lightView =
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `bool animate =` | `true` | - |
-| `LightView* lightView =` | `nullptr` | - |
-
-**Returns:**
-- `virtual void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `bool` | `animate` | `true` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 
@@ -38,17 +35,14 @@ virtual void drawOutfit(const Rect& destRect, Otc::Direction direction = Otc::In
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `destRect` | - |
-| `Otc::Direction direction = Otc::` | `InvalidDirection` | - |
-| `const Color& color = Color::` | `white` | - |
-| `bool animate =` | `false` | - |
-| `bool ui =` | `false` | - |
-| `bool oldScaling =` | `false` | - |
-
-**Returns:**
-- `virtual void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `destRect` |  | - |
+| `Otc::Direction` | `direction` | `Otc::InvalidDirection` | - |
+| `const Color&` | `color` | `Color::white` | - |
+| `bool` | `animate` | `false` | - |
+| `bool` | `ui` | `false` | - |
+| `bool` | `oldScaling` | `false` | - |
 
 ---
 
@@ -469,10 +463,10 @@ uint16 getStepDuration(bool ignoreDiagonal = false, Otc::Direction dir = Otc::In
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool ignoreDiagonal =` | `false` | - |
-| `Otc::Direction dir = Otc::` | `InvalidDirection` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `ignoreDiagonal` | `false` | - |
+| `Otc::Direction` | `dir` | `Otc::InvalidDirection` | - |
 
 **Returns:**
 - `uint16`
@@ -501,7 +495,7 @@ virtual Point getDisplacement();
 ```
 
 **Returns:**
-- `virtual Point`
+- `Point`
 
 ---
 
@@ -514,7 +508,7 @@ virtual int getDisplacementX();
 ```
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -527,7 +521,7 @@ virtual int getDisplacementY();
 ```
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -541,16 +535,16 @@ virtual int getExactSize(int layer = 0, int xPattern = 0, int yPattern = 0, int 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int layer = 0` | - | - |
-| `int xPattern = 0` | - | - |
-| `int yPattern = 0` | - | - |
-| `int zPattern = 0` | - | - |
-| `int animationPhase = 0` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `layer` | `0` | - |
+| `int` | `xPattern` | `0` | - |
+| `int` | `yPattern` | `0` | - |
+| `int` | `zPattern` | `0` | - |
+| `int` | `animationPhase` | `0` | - |
 
 **Returns:**
-- `virtual int`
+- `int`
 
 ---
 
@@ -591,9 +585,6 @@ virtual void turn(Otc::Direction direction);
 |------|------|-------------|
 | `Otc::Direction` | `direction` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (jump)=
@@ -628,9 +619,6 @@ virtual void walk(const Position& oldPos, const Position& newPos);
 | `const Position&` | `oldPos` | - |
 | `const Position&` | `newPos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (stopwalk)=
@@ -640,9 +628,6 @@ virtual void walk(const Position& oldPos, const Position& newPos);
 ```cpp
 virtual void stopWalk();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -693,9 +678,6 @@ virtual void onPositionChange(const Position& newPos, const Position& oldPos);
 | `const Position&` | `newPos` | - |
 | `const Position&` | `oldPos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (onappear)=
@@ -705,9 +687,6 @@ virtual void onPositionChange(const Position& newPos, const Position& oldPos);
 ```cpp
 virtual void onAppear();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -719,9 +698,6 @@ virtual void onAppear();
 virtual void onDisappear();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (ondeath)=
@@ -731,9 +707,6 @@ virtual void onDisappear();
 ```cpp
 virtual void onDeath();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -994,9 +967,6 @@ protected: virtual void updateWalkAnimation(uint8 totalPixelsWalked);
 |------|------|-------------|
 | `uint8` | `totalPixelsWalked` | - |
 
-**Returns:**
-- `protected: virtual void`
-
 ---
 
 (updatewalkoffset)=
@@ -1009,13 +979,10 @@ virtual void updateWalkOffset(uint8 totalPixelsWalked, bool inNextFrame = false)
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `uint8` | `totalPixelsWalked` | - |
-| `bool inNextFrame =` | `false` | - |
-
-**Returns:**
-- `virtual void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `uint8` | `totalPixelsWalked` |  | - |
+| `bool` | `inNextFrame` | `false` | - |
 
 ---
 
@@ -1037,9 +1004,6 @@ void updateWalkingTile();
 virtual void nextWalkUpdate();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (updatewalk)=
@@ -1050,9 +1014,6 @@ virtual void nextWalkUpdate();
 virtual void updateWalk();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (terminatewalk)=
@@ -1062,9 +1023,6 @@ virtual void updateWalk();
 ```cpp
 virtual void terminateWalk();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -1504,9 +1462,9 @@ Point getWalkOffset(bool inNextFrame = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool inNextFrame =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `inNextFrame` | `false` | - |
 
 **Returns:**
 - `Point`
@@ -1765,7 +1723,7 @@ virtual bool isPreWalking();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1779,12 +1737,12 @@ virtual Position getPrewalkingPosition(bool beforePrewalk = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool beforePrewalk =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `beforePrewalk` | `false` | - |
 
 **Returns:**
-- `virtual Position`
+- `Position`
 
 ---
 
@@ -1810,7 +1768,7 @@ virtual bool isServerWalking();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -1865,7 +1823,7 @@ public: bool isNpc();
 ```
 
 **Returns:**
-- `public: bool`
+- `bool`
 
 ---
 
@@ -1878,6 +1836,6 @@ public: bool isMonster();
 ```
 
 **Returns:**
-- `public: bool`
+- `bool`
 
 ---

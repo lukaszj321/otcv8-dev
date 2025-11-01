@@ -1,7 +1,7 @@
 ---
 title: "src/framework/http/session.h"
 source_file: "src/framework/http/session.h"
-generated_at: "2025-10-31T23:33:30.345Z"
+generated_at: "2025-11-01T00:11:49.046Z"
 doc_type: "cpp_api"
 ---
 
@@ -136,44 +136,10 @@ void onError(const std::string& error, const std::string& details = "");
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `error` | - |
-| `const std::string& details = ""` | - | - |
-
----
-
-(httpsession)=
-## `HttpSession`
-
-**Signature:**
-```cpp
-public: HttpSession(boost::asio::io_service& service, const std::string& url, const std::string& agent, int timeout, bool isJson, HttpResult_ptr result, HttpResult_cb callback) : m_service(service), m_url(url), m_agent(agent), m_socket(service), m_resolver(service), m_callback(callback), m_result(result), m_timer(service), m_timeout(timeout), m_isJson(isJson);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `boost::asio::io_service&` | `service` | - |
-| `const std::string&` | `url` | - |
-| `const std::string&` | `agent` | - |
-| `int` | `timeout` | - |
-| `bool` | `isJson` | - |
-| `HttpResult_ptr` | `result` | - |
-| `HttpResult_cb callback) : m_service(service)` | - | - |
-| `m_url(url)` | - | - |
-| `m_agent(agent)` | - | - |
-| `m_socket(service)` | - | - |
-| `m_resolver(service)` | - | - |
-| `m_callback(callback)` | - | - |
-| `m_result(result)` | - | - |
-| `m_timer(service)` | - | - |
-| `m_timeout(timeout)` | - | - |
-| `m_isJson(` | `isJson` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `error` |  | - |
+| `const std::string&` | `details` | `""` | - |
 
 ---
 

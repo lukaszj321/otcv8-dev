@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/bitmapfont.h"
 source_file: "src/framework/graphics/bitmapfont.h"
-generated_at: "2025-10-31T23:33:30.338Z"
+generated_at: "2025-11-01T00:11:49.038Z"
 doc_type: "cpp_api"
 ---
 
@@ -37,16 +37,16 @@ void drawText(const std::string& text, const Point& startPos, const Color& color
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `text` | - |
-| `const Point&` | `startPos` | - |
-| `const Color& color = Color::` | `white` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `text` |  | - |
+| `const Point&` | `startPos` |  | - |
+| `const Color&` | `color` | `Color::white` | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
-(drawtext)=
+(drawtext-1)=
 ## `drawText`
 
 Advanced text render delimited by a screen region and alignment
@@ -58,13 +58,13 @@ void drawText(const std::string& text, const Rect& screenCoords, Fw::AlignmentFl
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `text` | - |
-| `const Rect&` | `screenCoords` | - |
-| `Fw::AlignmentFlag align = Fw::` | `AlignTopLeft` | - |
-| `const Color& color = Color::` | `white` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `text` |  | - |
+| `const Rect&` | `screenCoords` |  | - |
+| `Fw::AlignmentFlag` | `align` | `Fw::AlignTopLeft` | - |
+| `const Color&` | `color` | `Color::white` | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
@@ -78,14 +78,13 @@ void drawColoredText(const std::string& text, const Rect& screenCoords, Fw::Alig
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `text` | - |
-| `const Rect&` | `screenCoords` | - |
-| `Fw::AlignmentFlag` | `align` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;&` | `colors` | - |
-| `bool shadow =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `text` |  | - |
+| `const Rect&` | `screenCoords` |  | - |
+| `Fw::AlignmentFlag` | `align` |  | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;&` | `colors` |  | - |
+| `bool` | `shadow` | `false` | - |
 
 ---
 
@@ -99,12 +98,12 @@ void calculateDrawTextCoords(CoordsBuffer& coordsBuffer, const std::string& text
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `CoordsBuffer&` | `coordsBuffer` | - |
-| `const std::string&` | `text` | - |
-| `const Rect&` | `screenCoords` | - |
-| `Fw::AlignmentFlag align = Fw::` | `AlignTopLeft` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `CoordsBuffer&` | `coordsBuffer` |  | - |
+| `const std::string&` | `text` |  | - |
+| `const Rect&` | `screenCoords` |  | - |
+| `Fw::AlignmentFlag` | `align` | `Fw::AlignTopLeft` | - |
 
 ---
 
@@ -120,11 +119,11 @@ const std::vector<Point>& calculateGlyphsPositions(const std::string& text, Fw::
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `text` | - |
-| `Fw::AlignmentFlag align = Fw::` | `AlignTopLeft` | - |
-| `Size* textBoxSize =` | `NULL` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `text` |  | - |
+| `Fw::AlignmentFlag` | `align` | `Fw::AlignTopLeft` | - |
+| `Size*` | `textBoxSize` | `NULL` | - |
 
 **Returns:**
 - `const std::vector&lt;Point&gt;&`
@@ -162,12 +161,11 @@ std::string wrapText(const std::string& text, int maxWidth, std::vector<std::pai
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `text` | - |
-| `int` | `maxWidth` | - |
-| `std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;* colors =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `text` |  | - |
+| `int` | `maxWidth` |  | - |
+| `std::vector&lt;std::pair&lt;int, Color&gt;&gt;*` | `colors` | `nullptr` | - |
 
 **Returns:**
 - `std::string`
@@ -205,29 +203,9 @@ void updateColors(std::vector<std::pair<int, Color>>* colors, int pos, int newTe
 
 | Type | Name | Description |
 |------|------|-------------|
-| `std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;*` | `colors` | - |
+| `std::vector&lt;std::pair&lt;int, Color&gt;&gt;*` | `colors` | - |
 | `int` | `pos` | - |
 | `int` | `newTextLen` | - |
-
----
-
-(bitmapfont)=
-## `BitmapFont`
-
-**Signature:**
-```cpp
-public: BitmapFont(const std::string& name) : m_name(name);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string& name) : m_name(` | `name` | - |
-
-**Returns:**
-- `public:`
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/soundsource.h"
 source_file: "src/framework/sound/soundsource.h"
-generated_at: "2025-10-31T23:33:30.357Z"
+generated_at: "2025-11-01T00:11:49.060Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 virtual void play();
 ```
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (stop)=
@@ -27,9 +24,6 @@ virtual void play();
 ```cpp
 virtual void stop();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -42,7 +36,7 @@ virtual bool isBuffering();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -60,9 +54,6 @@ virtual void setLooping(bool looping);
 |------|------|-------------|
 | `bool` | `looping` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setrelative)=
@@ -78,9 +69,6 @@ virtual void setRelative(bool relative);
 | Type | Name | Description |
 |------|------|-------------|
 | `bool` | `relative` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -98,9 +86,6 @@ virtual void setReferenceDistance(float distance);
 |------|------|-------------|
 | `float` | `distance` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setgain)=
@@ -116,9 +101,6 @@ virtual void setGain(float gain);
 | Type | Name | Description |
 |------|------|-------------|
 | `float` | `gain` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -136,9 +118,6 @@ virtual void setPitch(float pitch);
 |------|------|-------------|
 | `float` | `pitch` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setposition)=
@@ -155,9 +134,6 @@ virtual void setPosition(const Point& pos);
 |------|------|-------------|
 | `const Point&` | `pos` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setvelocity)=
@@ -173,9 +149,6 @@ virtual void setVelocity(const Point& velocity);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Point&` | `velocity` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -194,9 +167,6 @@ virtual void setFading(FadeState state, float fadetime);
 | `FadeState` | `state` | - |
 | `float` | `fadetime` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (setbuffer)=
@@ -213,9 +183,6 @@ protected: void setBuffer(const SoundBufferPtr& buffer);
 |------|------|-------------|
 | `const SoundBufferPtr&` | `buffer` | - |
 
-**Returns:**
-- `protected: void`
-
 ---
 
 (update)=
@@ -225,28 +192,6 @@ protected: void setBuffer(const SoundBufferPtr& buffer);
 ```cpp
 virtual void update();
 ```
-
-**Returns:**
-- `virtual void`
-
----
-
-(soundsource)=
-## `SoundSource`
-
-**Signature:**
-```cpp
-protected: SoundSource(uint sourceId) : m_sourceId(sourceId);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `uint sourceId) : m_sourceId(` | `sourceId` | - |
-
-**Returns:**
-- `protected:`
 
 ---
 
@@ -259,7 +204,7 @@ virtual bool isPlaying();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 

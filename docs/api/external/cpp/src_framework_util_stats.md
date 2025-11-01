@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/stats.h"
 source_file: "src/framework/util/stats.h"
-generated_at: "2025-10-31T23:33:30.370Z"
+generated_at: "2025-11-01T00:11:49.072Z"
 doc_type: "cpp_api"
 ---
 
@@ -21,9 +21,6 @@ public: void add(int type, Stat* stats);
 |------|------|-------------|
 | `int` | `type` | - |
 | `Stat*` | `stats` | - |
-
-**Returns:**
-- `public: void`
 
 ---
 
@@ -208,9 +205,6 @@ void resetSleepTime();
 inline void addTexture();
 ```
 
-**Returns:**
-- `inline void`
-
 ---
 
 (removetexture)=
@@ -220,9 +214,6 @@ inline void addTexture();
 ```cpp
 inline void removeTexture();
 ```
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -234,9 +225,6 @@ inline void removeTexture();
 inline void addThing();
 ```
 
-**Returns:**
-- `inline void`
-
 ---
 
 (removething)=
@@ -246,9 +234,6 @@ inline void addThing();
 ```cpp
 inline void removeThing();
 ```
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -260,9 +245,6 @@ inline void removeThing();
 inline void addCreature();
 ```
 
-**Returns:**
-- `inline void`
-
 ---
 
 (removecreature)=
@@ -272,33 +254,5 @@ inline void addCreature();
 ```cpp
 inline void removeCreature();
 ```
-
-**Returns:**
-- `inline void`
-
----
-
-(autostat)=
-## `AutoStat`
-
-**Signature:**
-```cpp
-public: AutoStat(int type, const std::string& description, const std::string& extraDescription = "") : m_type(type), m_stat(new Stat(0, description, extraDescription)), m_timePoint(std::chrono::high_resolution_clock::now());
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `type` | - |
-| `const std::string&` | `description` | - |
-| `const std::string& extraDescription = "") : m_type(type)` | - | - |
-| `m_stat(new Stat(0` | - | - |
-| `` | `description` | - |
-| `extraDescription))` | - | - |
-| `m_timePoint(std::chrono::high_resolution_clock::now()` | - | - |
-
-**Returns:**
-- `public:`
 
 ---

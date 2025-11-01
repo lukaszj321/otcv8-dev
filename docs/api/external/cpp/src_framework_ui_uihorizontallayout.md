@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uihorizontallayout.h"
 source_file: "src/framework/ui/uihorizontallayout.h"
-generated_at: "2025-10-31T23:33:30.364Z"
+generated_at: "2025-11-01T00:11:49.065Z"
 doc_type: "cpp_api"
 ---
 
@@ -32,26 +32,7 @@ protected: bool internalUpdate();
 ```
 
 **Returns:**
-- `protected: bool`
-
----
-
-(uihorizontallayout)=
-## `UIHorizontalLayout`
-
-**Signature:**
-```cpp
-public: UIHorizontalLayout(UIWidgetPtr parentWidget) : UIBoxLayout(parentWidget);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `UIWidgetPtr parentWidget) : UIBoxLayout(` | `parentWidget` | - |
-
-**Returns:**
-- `public:`
+- `bool`
 
 ---
 

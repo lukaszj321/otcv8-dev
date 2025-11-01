@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/painter.h"
 source_file: "src/framework/graphics/painter.h"
-generated_at: "2025-10-31T23:33:30.342Z"
+generated_at: "2025-11-01T00:11:49.042Z"
 doc_type: "cpp_api"
 ---
 
@@ -272,7 +272,7 @@ void rotate(float angle);
 
 ---
 
-(rotate)=
+(rotate-1)=
 ## `rotate`
 
 **Signature:**
@@ -320,13 +320,12 @@ void drawCoords(CoordsBuffer& coordsBuffer, DrawMode drawMode = Triangles, Color
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `CoordsBuffer&` | `coordsBuffer` | - |
-| `DrawMode drawMode =` | `Triangles` | - |
-| `ColorArray* colorBuffer =` | `nullptr` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;* colors =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `CoordsBuffer&` | `coordsBuffer` |  | - |
+| `DrawMode` | `drawMode` | `Triangles` | - |
+| `ColorArray*` | `colorBuffer` | `nullptr` | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;*` | `colors` | `nullptr` | - |
 
 ---
 
@@ -356,12 +355,11 @@ void drawTextureCoords(CoordsBuffer& coordsBuffer, const TexturePtr& texture, co
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `CoordsBuffer&` | `coordsBuffer` | - |
-| `const TexturePtr&` | `texture` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;* colors =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `CoordsBuffer&` | `coordsBuffer` |  | - |
+| `const TexturePtr&` | `texture` |  | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;*` | `colors` | `nullptr` | - |
 
 ---
 
@@ -472,7 +470,7 @@ void drawText(const Point& pos, CoordsBuffer& coordsBuffer, const Color& color, 
 
 ---
 
-(drawtext)=
+(drawtext-1)=
 ## `drawText`
 
 **Signature:**
@@ -486,8 +484,7 @@ void drawText(const Point& pos, CoordsBuffer& coordsBuffer, const std::vector<st
 |------|------|-------------|
 | `const Point&` | `pos` | - |
 | `CoordsBuffer&` | `coordsBuffer` | - |
-| `const std::vector&lt;std::pair&lt;` | `int` | - |
-| `Color&gt;&gt;&` | `colors` | - |
+| `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;&` | `colors` | - |
 | `const TexturePtr&` | `texture` | - |
 
 ---
@@ -502,11 +499,11 @@ void drawLine(const std::vector<float>& vertex, int size, int width = 1);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::vector&lt;float&gt;&` | `vertex` | - |
-| `int` | `size` | - |
-| `int width = 1` | - | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::vector&lt;float&gt;&` | `vertex` |  | - |
+| `int` | `size` |  | - |
+| `int` | `width` | `1` | - |
 
 ---
 
@@ -584,9 +581,6 @@ void drawCache(const std::vector<float>& vertex, const std::vector<float>& textu
 ```cpp
 protected: void updateGlTexture();
 ```
-
-**Returns:**
-- `protected: void`
 
 ---
 
@@ -832,7 +826,7 @@ void resetTransformMatrix();
 
 ---
 
-(drawtexturedrect)=
+(drawtexturedrect-1)=
 ## `drawTexturedRect`
 
 **Signature:**
@@ -846,9 +840,6 @@ inline void drawTexturedRect(const Rect& dest, const TexturePtr& texture);
 |------|------|-------------|
 | `const Rect&` | `dest` | - |
 | `const TexturePtr&` | `texture` | - |
-
-**Returns:**
-- `inline void`
 
 ---
 
@@ -897,7 +888,7 @@ void setColor(const Color& color);
 
 ---
 
-(setshaderprogram)=
+(setshaderprogram-1)=
 ## `setShaderProgram`
 
 **Signature:**
@@ -913,7 +904,7 @@ void setShaderProgram(const PainterShaderProgramPtr& shaderProgram);
 
 ---
 
-(scale)=
+(scale-1)=
 ## `scale`
 
 **Signature:**
@@ -929,7 +920,7 @@ void scale(float factor);
 
 ---
 
-(translate)=
+(translate-1)=
 ## `translate`
 
 **Signature:**
@@ -945,7 +936,7 @@ void translate(const Point& p);
 
 ---
 
-(rotate)=
+(rotate-2)=
 ## `rotate`
 
 **Signature:**

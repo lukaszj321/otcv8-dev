@@ -1,7 +1,7 @@
 ---
 title: "src/client/mapview.h"
 source_file: "src/client/mapview.h"
-generated_at: "2025-10-31T23:33:30.323Z"
+generated_at: "2025-11-01T00:11:49.021Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,9 +15,6 @@ doc_type: "cpp_api"
 public: MapView();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (drawmapbackground)=
@@ -30,10 +27,10 @@ void drawMapBackground(const Rect& rect, const TilePtr& crosshairTile = nullptr)
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `rect` | - |
-| `const TilePtr& crosshairTile =` | `nullptr` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `rect` |  | - |
+| `const TilePtr&` | `crosshairTile` | `nullptr` | - |
 
 ---
 
@@ -63,14 +60,11 @@ private: void drawFloor(short floor, const Position& cameraPosition, const TileP
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `short` | `floor` | - |
-| `const Position&` | `cameraPosition` | - |
-| `const TilePtr& crosshairTile =` | `nullptr` | - |
-
-**Returns:**
-- `private: void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `short` | `floor` |  | - |
+| `const Position&` | `cameraPosition` |  | - |
+| `const TilePtr&` | `crosshairTile` | `nullptr` | - |
 
 ---
 
@@ -148,9 +142,6 @@ protected: void onTileUpdate(const Position& pos);
 | Type | Name | Description |
 |------|------|-------------|
 | `const Position&` | `pos` | - |
-
-**Returns:**
-- `protected: void`
 
 ---
 
@@ -372,13 +363,13 @@ private: Rect calcFramebufferSource(const Size& destSize, bool inNextFrame = fal
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Size&` | `destSize` | - |
-| `bool inNextFrame =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Size&` | `destSize` |  | - |
+| `bool` | `inNextFrame` | `false` | - |
 
 **Returns:**
-- `private: Rect`
+- `Rect`
 
 ---
 
@@ -392,9 +383,9 @@ int calcFirstVisibleFloor(bool forFading = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `bool forFading =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `bool` | `forFading` | `false` | - |
 
 **Returns:**
 - `int`

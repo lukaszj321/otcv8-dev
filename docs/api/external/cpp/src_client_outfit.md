@@ -1,7 +1,7 @@
 ---
 title: "src/client/outfit.h"
 source_file: "src/client/outfit.h"
-generated_at: "2025-10-31T23:33:30.324Z"
+generated_at: "2025-11-01T00:11:49.022Z"
 doc_type: "cpp_api"
 ---
 
@@ -15,28 +15,6 @@ doc_type: "cpp_api"
 public: Outfit();
 ```
 
-**Returns:**
-- `public:`
-
----
-
-(colorgetoutfitcolor)=
-## `Color::getOutfitColor`
-
-**Signature:**
-```cpp
-return Color::getOutfitColor(color);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `` | `color` | - |
-
-**Returns:**
-- `return`
-
 ---
 
 (draw)=
@@ -49,18 +27,18 @@ void draw(Point dest, Otc::Direction direction, uint walkAnimationPhase, bool an
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `Point` | `dest` | - |
-| `Otc::Direction` | `direction` | - |
-| `uint` | `walkAnimationPhase` | - |
-| `bool animate =` | `true` | - |
-| `LightView* lightView =` | `nullptr` | - |
-| `bool ui =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `Point` | `dest` |  | - |
+| `Otc::Direction` | `direction` |  | - |
+| `uint` | `walkAnimationPhase` |  | - |
+| `bool` | `animate` | `true` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
+| `bool` | `ui` | `false` | - |
 
 ---
 
-(draw)=
+(draw-1)=
 ## `draw`
 
 **Signature:**
@@ -70,14 +48,14 @@ void draw(const Rect& dest, Otc::Direction direction, uint animationPhase, bool 
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Rect&` | `dest` | - |
-| `Otc::Direction` | `direction` | - |
-| `uint` | `animationPhase` | - |
-| `bool animate =` | `true` | - |
-| `bool ui =` | `false` | - |
-| `bool oldScaling =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Rect&` | `dest` |  | - |
+| `Otc::Direction` | `direction` |  | - |
+| `uint` | `animationPhase` |  | - |
+| `bool` | `animate` | `true` | - |
+| `bool` | `ui` | `false` | - |
+| `bool` | `oldScaling` | `false` | - |
 
 ---
 
@@ -106,7 +84,7 @@ static Color getColor(int color);
 | `int` | `color` | - |
 
 **Returns:**
-- `static Color`
+- `Color`
 
 ---
 

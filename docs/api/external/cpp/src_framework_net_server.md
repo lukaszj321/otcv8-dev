@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/server.h"
 source_file: "src/framework/net/server.h"
-generated_at: "2025-10-31T23:33:30.351Z"
+generated_at: "2025-11-01T00:11:49.053Z"
 doc_type: "cpp_api"
 ---
 
@@ -21,9 +21,6 @@ public: Server(int port);
 |------|------|-------------|
 | `int` | `port` | - |
 
-**Returns:**
-- `public:`
-
 ---
 
 (create)=
@@ -41,7 +38,7 @@ static ServerPtr create(int port);
 | `int` | `port` | - |
 
 **Returns:**
-- `static ServerPtr`
+- `ServerPtr`
 
 ---
 

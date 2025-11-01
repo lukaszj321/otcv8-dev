@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uilayout.h"
 source_file: "src/framework/ui/uilayout.h"
-generated_at: "2025-10-31T23:33:30.364Z"
+generated_at: "2025-11-01T00:11:49.066Z"
 doc_type: "cpp_api"
 ---
 
@@ -27,25 +27,6 @@ void updateLater();
 
 ---
 
-(uilayout)=
-## `UILayout`
-
-**Signature:**
-```cpp
-public: UILayout(UIWidgetPtr parentWidget) : m_parentWidget(parentWidget);
-```
-
-**Parameters:**
-
-| Type | Name | Description |
-|------|------|-------------|
-| `UIWidgetPtr parentWidget) : m_parentWidget(` | `parentWidget` | - |
-
-**Returns:**
-- `public:`
-
----
-
 (applystyle)=
 ## `applyStyle`
 
@@ -59,9 +40,6 @@ virtual void applyStyle(const OTMLNodePtr& styleNode);
 | Type | Name | Description |
 |------|------|-------------|
 | `const OTMLNodePtr&` | `styleNode` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -79,9 +57,6 @@ virtual void addWidget(const UIWidgetPtr& widget);
 |------|------|-------------|
 | `const UIWidgetPtr&` | `widget` | - |
 
-**Returns:**
-- `virtual void`
-
 ---
 
 (removewidget)=
@@ -97,9 +72,6 @@ virtual void removeWidget(const UIWidgetPtr& widget);
 | Type | Name | Description |
 |------|------|-------------|
 | `const UIWidgetPtr&` | `widget` | - |
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -187,7 +159,7 @@ virtual bool isUIAnchorLayout();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -200,7 +172,7 @@ virtual bool isUIBoxLayout();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -213,7 +185,7 @@ virtual bool isUIHorizontalLayout();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -226,7 +198,7 @@ virtual bool isUIVerticalLayout();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -239,7 +211,7 @@ virtual bool isUIGridLayout();
 ```
 
 **Returns:**
-- `virtual bool`
+- `bool`
 
 ---
 
@@ -252,6 +224,6 @@ protected: virtual bool internalUpdate();
 ```
 
 **Returns:**
-- `protected: virtual bool`
+- `bool`
 
 ---

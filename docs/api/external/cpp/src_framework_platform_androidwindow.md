@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/androidwindow.h"
 source_file: "src/framework/platform/androidwindow.h"
-generated_at: "2025-10-31T23:33:30.352Z"
+generated_at: "2025-11-01T00:11:49.054Z"
 doc_type: "cpp_api"
 ---
 
@@ -85,9 +85,6 @@ void internalConnectGLContext();
 public: AndroidWindow();
 ```
 
-**Returns:**
-- `public:`
-
 ---
 
 (init)=
@@ -100,7 +97,7 @@ void init();
 
 ---
 
-(init)=
+(init-1)=
 ## `init`
 
 **Signature:**

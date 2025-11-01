@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/hardwarebuffer.h"
 source_file: "src/framework/graphics/hardwarebuffer.h"
-generated_at: "2025-10-31T23:33:30.341Z"
+generated_at: "2025-11-01T00:11:49.042Z"
 doc_type: "cpp_api"
 ---
 
@@ -31,9 +31,6 @@ static void unbind(Type type);
 |------|------|-------------|
 | `Type` | `type` | - |
 
-**Returns:**
-- `static void`
-
 ---
 
 (write)=
@@ -48,7 +45,7 @@ void write(void *data, int count, UsagePattern usage);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `void *` | `data` | - |
+| `void *data` | - | - |
 | `int` | `count` | - |
 | `UsagePattern` | `usage` | - |
 

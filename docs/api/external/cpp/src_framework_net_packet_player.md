@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/packet_player.h"
 source_file: "src/framework/net/packet_player.h"
-generated_at: "2025-10-31T23:33:30.350Z"
+generated_at: "2025-11-01T00:11:49.052Z"
 doc_type: "cpp_api"
 ---
 
@@ -20,9 +20,6 @@ public: PacketPlayer(const std::string& file);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `file` | - |
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -76,8 +73,5 @@ void onOutputPacket(const OutputMessagePtr& packet);
 ```cpp
 private: void process();
 ```
-
-**Returns:**
-- `private: void`
 
 ---

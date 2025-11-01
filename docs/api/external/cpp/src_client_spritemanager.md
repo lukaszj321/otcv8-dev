@@ -1,7 +1,7 @@
 ---
 title: "src/client/spritemanager.h"
 source_file: "src/client/spritemanager.h"
-generated_at: "2025-10-31T23:33:30.327Z"
+generated_at: "2025-11-01T00:11:49.026Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 public: SpriteManager();
 ```
-
-**Returns:**
-- `public:`
 
 ---
 
@@ -157,7 +154,7 @@ private: bool loadCasualSpr(std::string file);
 | `std::string` | `file` | - |
 
 **Returns:**
-- `private: bool`
+- `bool`
 
 ---
 

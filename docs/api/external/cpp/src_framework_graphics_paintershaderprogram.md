@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/paintershaderprogram.h"
 source_file: "src/framework/graphics/paintershaderprogram.h"
-generated_at: "2025-10-31T23:33:30.342Z"
+generated_at: "2025-11-01T00:11:49.043Z"
 doc_type: "cpp_api"
 ---
 
@@ -14,9 +14,6 @@ doc_type: "cpp_api"
 ```cpp
 virtual void setupUniforms();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
@@ -33,9 +30,6 @@ public: PainterShaderProgram(const std::string& name);
 | Type | Name | Description |
 |------|------|-------------|
 | `const std::string&` | `name` | - |
-
-**Returns:**
-- `public:`
 
 ---
 

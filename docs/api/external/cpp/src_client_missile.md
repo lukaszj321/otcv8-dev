@@ -1,7 +1,7 @@
 ---
 title: "src/client/missile.h"
 source_file: "src/client/missile.h"
-generated_at: "2025-10-31T23:33:30.324Z"
+generated_at: "2025-11-01T00:11:49.022Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,14 +17,11 @@ public: void draw(const Point& dest, bool animate = true, LightView* lightView =
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const Point&` | `dest` | - |
-| `bool animate =` | `true` | - |
-| `LightView* lightView =` | `nullptr` | - |
-
-**Returns:**
-- `public: void`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const Point&` | `dest` |  | - |
+| `bool` | `animate` | `true` | - |
+| `LightView*` | `lightView` | `nullptr` | - |
 
 ---
 

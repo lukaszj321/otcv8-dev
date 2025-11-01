@@ -1,7 +1,7 @@
 ---
 title: "src/client/luavaluecasts_client.h"
 source_file: "src/client/luavaluecasts_client.h"
-generated_at: "2025-10-31T23:33:30.322Z"
+generated_at: "2025-11-01T00:11:49.020Z"
 doc_type: "cpp_api"
 ---
 
@@ -46,7 +46,7 @@ bool luavalue_cast(int index, Outfit& outfit);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-1)=
 ## `push_luavalue`
 
 **Signature:**
@@ -65,7 +65,7 @@ int push_luavalue(const Position& pos);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-1)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -85,7 +85,7 @@ bool luavalue_cast(int index, Position& pos);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-2)=
 ## `push_luavalue`
 
 **Signature:**
@@ -104,7 +104,7 @@ int push_luavalue(const MarketData& data);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-2)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -124,7 +124,7 @@ bool luavalue_cast(int index, MarketData& data);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-3)=
 ## `push_luavalue`
 
 **Signature:**
@@ -143,7 +143,7 @@ int push_luavalue(const StoreCategory& category);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-3)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -163,7 +163,7 @@ bool luavalue_cast(int index, StoreCategory& data);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-4)=
 ## `push_luavalue`
 
 **Signature:**
@@ -182,7 +182,7 @@ int push_luavalue(const StoreOffer& offer);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-4)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -202,7 +202,7 @@ bool luavalue_cast(int index, StoreOffer& offer);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-5)=
 ## `push_luavalue`
 
 **Signature:**
@@ -221,7 +221,7 @@ int push_luavalue(const Imbuement& offer);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-6)=
 ## `push_luavalue`
 
 **Signature:**
@@ -240,7 +240,7 @@ int push_luavalue(const Light& light);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-5)=
 ## `luavalue_cast`
 
 **Signature:**
@@ -260,7 +260,7 @@ bool luavalue_cast(int index, Light& light);
 
 ---
 
-(push_luavalue)=
+(push_luavalue-7)=
 ## `push_luavalue`
 
 **Signature:**
@@ -279,7 +279,7 @@ int push_luavalue(const UnjustifiedPoints& unjustifiedPoints);
 
 ---
 
-(luavalue_cast)=
+(luavalue_cast-6)=
 ## `luavalue_cast`
 
 **Signature:**

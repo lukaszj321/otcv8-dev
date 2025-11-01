@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/shaders/shadersources.h"
 source_file: "src/framework/graphics/shaders/shadersources.h"
-generated_at: "2025-10-31T23:33:30.344Z"
+generated_at: "2025-11-01T00:11:49.044Z"
 doc_type: "cpp_api"
 ---
 
@@ -43,7 +43,7 @@ vec4 calculatePixel();
 
 ---
 
-(calculatepixel)=
+(calculatepixel-1)=
 ## `calculatePixel`
 
 **Signature:**
@@ -56,7 +56,7 @@ vec4 calculatePixel();
 
 ---
 
-(calculatepixel)=
+(calculatepixel-2)=
 ## `calculatePixel`
 
 **Signature:**

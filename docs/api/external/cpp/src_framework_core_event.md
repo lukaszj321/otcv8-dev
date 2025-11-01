@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/event.h"
 source_file: "src/framework/core/event.h"
-generated_at: "2025-10-31T23:33:30.334Z"
+generated_at: "2025-11-01T00:11:49.034Z"
 doc_type: "cpp_api"
 ---
 
@@ -17,14 +17,11 @@ public: Event(const std::string& function, const std::function<void()>& callback
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `const std::string&` | `function` | - |
-| `const std::function&lt;void()&gt;&` | `callback` | - |
-| `bool botSafe =` | `false` | - |
-
-**Returns:**
-- `public:`
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `const std::string&` | `function` |  | - |
+| `const std::function&lt;void()&gt;&` | `callback` |  | - |
+| `bool` | `botSafe` | `false` | - |
 
 ---
 
@@ -35,9 +32,6 @@ public: Event(const std::string& function, const std::function<void()>& callback
 ```cpp
 virtual void execute();
 ```
-
-**Returns:**
-- `virtual void`
 
 ---
 
