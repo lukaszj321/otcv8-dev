@@ -1,7 +1,7 @@
 ---
 title: "src/client/creature.h"
 source_file: "src/client/creature.h"
-generated_at: "2025-11-01T04:06:42.716Z"
+generated_at: "2025-11-01T05:32:59.253Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/client/position.h"
 source_file: "src/client/position.h"
-generated_at: "2025-11-01T04:06:42.727Z"
+generated_at: "2025-11-01T05:32:59.263Z"
 doc_type: "cpp_api"
 ---
 

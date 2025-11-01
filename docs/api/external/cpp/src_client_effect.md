@@ -1,7 +1,7 @@
 ---
 title: "src/client/effect.h"
 source_file: "src/client/effect.h"
-generated_at: "2025-11-01T04:06:42.717Z"
+generated_at: "2025-11-01T05:32:59.254Z"
 doc_type: "cpp_api"
 ---
 

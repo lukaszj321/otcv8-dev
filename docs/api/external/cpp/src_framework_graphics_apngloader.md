@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/apngloader.h"
 source_file: "src/framework/graphics/apngloader.h"
-generated_at: "2025-11-01T04:06:42.744Z"
+generated_at: "2025-11-01T05:32:59.278Z"
 doc_type: "cpp_api"
 ---
 

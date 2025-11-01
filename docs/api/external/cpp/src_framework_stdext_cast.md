@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/cast.h"
 source_file: "src/framework/stdext/cast.h"
-generated_at: "2025-11-01T04:06:42.770Z"
+generated_at: "2025-11-01T05:32:59.300Z"
 doc_type: "cpp_api"
 ---
 

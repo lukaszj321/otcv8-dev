@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/matrix.h"
 source_file: "src/framework/util/matrix.h"
-generated_at: "2025-11-01T04:06:42.781Z"
+generated_at: "2025-11-01T05:32:59.310Z"
 doc_type: "cpp_api"
 ---
 

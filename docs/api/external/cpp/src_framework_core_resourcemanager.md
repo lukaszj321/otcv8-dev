@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/resourcemanager.h"
 source_file: "src/framework/core/resourcemanager.h"
-generated_at: "2025-11-01T04:06:42.743Z"
+generated_at: "2025-11-01T05:32:59.277Z"
 doc_type: "cpp_api"
 ---
 

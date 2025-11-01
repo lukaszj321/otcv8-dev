@@ -1,7 +1,7 @@
 ---
 title: "src/client/luavaluecasts_client.h"
 source_file: "src/client/luavaluecasts_client.h"
-generated_at: "2025-11-01T04:06:42.723Z"
+generated_at: "2025-11-01T05:32:59.260Z"
 doc_type: "cpp_api"
 ---
 

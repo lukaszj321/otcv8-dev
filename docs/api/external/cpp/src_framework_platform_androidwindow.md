@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/androidwindow.h"
 source_file: "src/framework/platform/androidwindow.h"
-generated_at: "2025-11-01T04:06:42.764Z"
+generated_at: "2025-11-01T05:32:59.295Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/modulemanager.h"
 source_file: "src/framework/core/modulemanager.h"
-generated_at: "2025-11-01T04:06:42.742Z"
+generated_at: "2025-11-01T05:32:59.276Z"
 doc_type: "cpp_api"
 ---
 

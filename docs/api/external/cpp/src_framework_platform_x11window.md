@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/x11window.h"
 source_file: "src/framework/platform/x11window.h"
-generated_at: "2025-11-01T04:06:42.766Z"
+generated_at: "2025-11-01T05:32:59.297Z"
 doc_type: "cpp_api"
 ---
 

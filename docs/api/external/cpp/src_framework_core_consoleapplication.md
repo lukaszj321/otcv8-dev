@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/consoleapplication.h"
 source_file: "src/framework/core/consoleapplication.h"
-generated_at: "2025-11-01T04:06:42.740Z"
+generated_at: "2025-11-01T05:32:59.274Z"
 doc_type: "cpp_api"
 ---
 

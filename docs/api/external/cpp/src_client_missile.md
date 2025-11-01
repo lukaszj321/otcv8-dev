@@ -1,7 +1,7 @@
 ---
 title: "src/client/missile.h"
 source_file: "src/client/missile.h"
-generated_at: "2025-11-01T04:06:42.725Z"
+generated_at: "2025-11-01T05:32:59.262Z"
 doc_type: "cpp_api"
 ---
 

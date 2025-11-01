@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/shaders/shadersources.h"
 source_file: "src/framework/graphics/shaders/shadersources.h"
-generated_at: "2025-11-01T04:06:42.752Z"
+generated_at: "2025-11-01T05:32:59.285Z"
 doc_type: "cpp_api"
 ---
 

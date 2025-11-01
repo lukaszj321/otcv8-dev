@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/packet_recorder.h"
 source_file: "src/framework/net/packet_recorder.h"
-generated_at: "2025-11-01T04:06:42.762Z"
+generated_at: "2025-11-01T05:32:59.293Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/client/protocolgame.h"
 source_file: "src/client/protocolgame.h"
-generated_at: "2025-11-01T04:06:42.727Z"
+generated_at: "2025-11-01T05:32:59.264Z"
 doc_type: "cpp_api"
 ---
 

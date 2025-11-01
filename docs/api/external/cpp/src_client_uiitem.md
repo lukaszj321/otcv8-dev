@@ -1,7 +1,7 @@
 ---
 title: "src/client/uiitem.h"
 source_file: "src/client/uiitem.h"
-generated_at: "2025-11-01T04:06:42.735Z"
+generated_at: "2025-11-01T05:32:59.270Z"
 doc_type: "cpp_api"
 ---
 

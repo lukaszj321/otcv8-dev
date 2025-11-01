@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/image.h"
 source_file: "src/framework/graphics/image.h"
-generated_at: "2025-11-01T04:06:42.749Z"
+generated_at: "2025-11-01T05:32:59.283Z"
 doc_type: "cpp_api"
 ---
 

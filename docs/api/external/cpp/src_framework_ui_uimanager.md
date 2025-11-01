@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uimanager.h"
 source_file: "src/framework/ui/uimanager.h"
-generated_at: "2025-11-01T04:06:42.776Z"
+generated_at: "2025-11-01T05:32:59.305Z"
 doc_type: "cpp_api"
 ---
 
