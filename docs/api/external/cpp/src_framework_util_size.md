@@ -308,4 +308,3 @@ std::istream& operator>>(std::istream& in, TSize<T>& size);
 **Returns:**
 - `std::istream&`
 
----

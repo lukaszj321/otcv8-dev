@@ -295,4 +295,3 @@ cat docs/_build/linkcheck/output.txt
 - **Dokumentacja Sphinx**: [sphinx-doc.org](https://www.sphinx-doc.org/)
 - **MyST Parser**: [myst-parser.readthedocs.io](https://myst-parser.readthedocs.io/)
 
----

@@ -359,4 +359,3 @@ template<typename T> T clamp(T x, T min, T max);
 **Returns:**
 - `template&lt;typename T&gt; T`
 
----

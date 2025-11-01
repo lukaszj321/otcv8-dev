@@ -510,4 +510,3 @@ uint32 readSize(bool bigSize);
 **Returns:**
 - `uint32`
 
----

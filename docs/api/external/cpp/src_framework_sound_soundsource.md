@@ -277,4 +277,3 @@ void setChannel(uchar channel);
 |------|------|-------------|
 | `uchar` | `channel` | - |
 
----

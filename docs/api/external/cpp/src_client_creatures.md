@@ -626,4 +626,3 @@ const std::vector<CreatureTypePtr>& getCreatures();
 **Returns:**
 - `const std::vector&lt;CreatureTypePtr&gt;&`
 
----

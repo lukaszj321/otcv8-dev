@@ -118,4 +118,3 @@ void setDefaultFont(const std::string& fontName);
 |------|------|-------------|
 | `const std::string&` | `fontName` | - |
 
----

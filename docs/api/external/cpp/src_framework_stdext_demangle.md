@@ -56,4 +56,3 @@ std::string demangle_type();
 **Returns:**
 - `std::string`
 
----

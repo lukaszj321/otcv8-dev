@@ -52,4 +52,3 @@ inline void throw_exception(const std::string& what);
 |------|------|-------------|
 | `const std::string&` | `what` | - |
 
----

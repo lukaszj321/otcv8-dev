@@ -53,4 +53,3 @@ void addOutputPacket(const OutputMessagePtr& packet);
 |------|------|-------------|
 | `const OutputMessagePtr&` | `packet` | - |
 
----

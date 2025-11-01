@@ -188,4 +188,3 @@ Możliwe ulepszenia:
 - {doc}`../api/index` – API Reference
 - {doc}`template` – Szablon modułu
 
----

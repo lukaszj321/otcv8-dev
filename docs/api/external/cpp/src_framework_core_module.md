@@ -294,4 +294,3 @@ ModulePtr asModule();
 **Returns:**
 - `ModulePtr`
 
----

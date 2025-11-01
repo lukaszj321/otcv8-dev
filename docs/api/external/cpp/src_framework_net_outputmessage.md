@@ -341,4 +341,3 @@ uint8* getDataBuffer();
 **Returns:**
 - `uint8*`
 
----

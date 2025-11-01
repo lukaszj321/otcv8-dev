@@ -60,4 +60,3 @@ uint32_t getFileSize();
 **Returns:**
 - `uint32_t`
 
----

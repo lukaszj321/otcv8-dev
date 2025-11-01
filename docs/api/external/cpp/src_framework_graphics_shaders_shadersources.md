@@ -67,4 +67,3 @@ vec4 calculatePixel();
 **Returns:**
 - `vec4`
 
----

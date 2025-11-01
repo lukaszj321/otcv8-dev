@@ -161,4 +161,3 @@ std::string getName();
 **Returns:**
 - `std::string`
 
----

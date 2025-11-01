@@ -67,9 +67,10 @@ index.must_embed:
 ### Snippety MyST do wklejenia w `index.md`
 
 ## Datasets
-```{csv-table}
-:header-rows: 1
-:file: ./datasets/events_matrix.csv
+```{warning}
+Missing CSV file: `./datasets/events_matrix.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ## Diagram

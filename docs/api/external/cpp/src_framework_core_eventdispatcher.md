@@ -101,4 +101,3 @@ bool isBotSafe();
 **Returns:**
 - `bool`
 
----

@@ -90,4 +90,3 @@ float seconds();
 **Returns:**
 - `float`
 
----

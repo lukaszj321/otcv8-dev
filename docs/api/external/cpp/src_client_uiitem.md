@@ -287,4 +287,3 @@ bool isItemVisible();
 **Returns:**
 - `bool`
 
----

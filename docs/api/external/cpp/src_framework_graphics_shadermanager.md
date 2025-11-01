@@ -98,4 +98,3 @@ void createOutfitShader(const std::string& name, std::string vertex, std::string
 | `std::string` | `vertex` | - |
 | `std::string` | `fragment` | - |
 
----

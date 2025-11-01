@@ -145,4 +145,3 @@ static long cb_tell(void* source);
 **Returns:**
 - `long`
 
----

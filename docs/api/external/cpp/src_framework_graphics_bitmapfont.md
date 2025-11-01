@@ -311,4 +311,3 @@ Size getGlyphSpacing();
 **Returns:**
 - `Size`
 
----

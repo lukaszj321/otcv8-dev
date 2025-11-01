@@ -227,4 +227,3 @@ bool isComplete();
 **Returns:**
 - `bool`
 
----

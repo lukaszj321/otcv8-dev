@@ -102,4 +102,3 @@ virtual const char* what() const throw();
 protected: LuaException();
 ```
 
----

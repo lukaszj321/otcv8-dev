@@ -175,10 +175,10 @@ Mapowanie zdarzeń (JSON payload):
   - Pętla renderu (heartbeat)
 ```
 
-```{csv-table} jni_signatures
-:header-rows: 1
-:file: ../datasets/jni_signatures.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../datasets/jni_signatures.csv`
+
+Either add the dataset or update the directive.
 ```
 
 (facet-14_android.jni_signatures)=
@@ -224,20 +224,20 @@ android {
 
 # 8) ABI-matrix i FPS (datasety)
 
-```{csv-table} abi_matrix
-:header-rows: 1
-:file: ../datasets/abi_matrix.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../datasets/abi_matrix.csv`
+
+Either add the dataset or update the directive.
 ```
 
 (facet-14_android.abi_matrix)=
 
 ### Facet: `14_android.abi_matrix`
 
-```{csv-table} fps_report
-:header-rows: 1
-:file: ../datasets/fps_report.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../datasets/fps_report.csv`
+
+Either add the dataset or update the directive.
 ```
 
 (facet-14_android.fps_report)=

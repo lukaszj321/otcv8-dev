@@ -216,4 +216,3 @@ std::string getText();
 **Returns:**
 - `std::string`
 
----

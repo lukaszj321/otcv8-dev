@@ -5118,4 +5118,3 @@ Size getTextSize();
 **Returns:**
 - `Size`
 
----

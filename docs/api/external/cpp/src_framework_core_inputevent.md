@@ -21,4 +21,3 @@ void reset(Fw::InputEventType eventType = Fw::NoInputEvent);
 |------|------|---------|-------------|
 | `Fw::InputEventType` | `eventType` | `Fw::NoInputEvent` | - |
 
----

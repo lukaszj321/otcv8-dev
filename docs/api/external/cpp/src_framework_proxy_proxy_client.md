@@ -477,4 +477,3 @@ uint32_t getId();
 **Returns:**
 - `uint32_t`
 
----

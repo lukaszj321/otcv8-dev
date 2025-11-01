@@ -366,4 +366,3 @@ bool canRead();
 **Returns:**
 - `bool`
 
----

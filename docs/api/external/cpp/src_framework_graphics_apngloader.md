@@ -61,4 +61,3 @@ void free_apng(struct apng_data *apng);
 |------|------|-------------|
 | `struct apng_data *apng` | - | - |
 
----

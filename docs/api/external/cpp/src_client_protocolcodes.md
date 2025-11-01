@@ -59,4 +59,3 @@ uint8 translateMessageModeToServer(Otc::MessageMode mode);
 **Returns:**
 - `uint8`
 
----

@@ -123,4 +123,3 @@ bool isPressed(Fw::MouseButton mouseButton);
 **Returns:**
 - `bool`
 
----

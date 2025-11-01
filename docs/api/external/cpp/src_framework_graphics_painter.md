@@ -1177,4 +1177,3 @@ void setMatrixColor(const Matrix4& mat4);
 void setDrawOutfitLayersProgram();
 ```
 
----

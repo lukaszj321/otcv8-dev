@@ -18,4 +18,3 @@ static int fastrand();
 **Returns:**
 - `int`
 
----

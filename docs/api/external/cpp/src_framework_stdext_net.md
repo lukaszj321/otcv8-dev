@@ -63,4 +63,3 @@ std::vector<uint32> listSubnetAddresses(uint32 address, uint8 mask);
 **Returns:**
 - `std::vector&lt;uint32&gt;`
 
----

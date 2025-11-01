@@ -369,5 +369,4 @@ TradeWindow < MiniWindow
 
 ```
 
----
 

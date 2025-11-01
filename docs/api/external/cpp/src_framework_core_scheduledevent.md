@@ -133,4 +133,3 @@ bool operator()(const ScheduledEventPtr& a, const ScheduledEventPtr& b);
 **Returns:**
 - `bool`
 
----

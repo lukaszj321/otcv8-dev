@@ -420,4 +420,3 @@ void openUrl(std::string url);
 |------|------|-------------|
 | `std::string` | `url` | - |
 
----

@@ -63,4 +63,3 @@ bool isUIHorizontalLayout();
 **Returns:**
 - `bool`
 
----

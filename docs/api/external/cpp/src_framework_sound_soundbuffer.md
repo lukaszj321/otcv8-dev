@@ -69,4 +69,3 @@ uint getBufferId();
 **Returns:**
 - `uint`
 
----

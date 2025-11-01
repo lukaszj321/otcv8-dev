@@ -71,4 +71,3 @@ size_t size();
 **Returns:**
 - `size_t`
 
----

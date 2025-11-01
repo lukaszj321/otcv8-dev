@@ -54,9 +54,10 @@ acceptance:
 
 ## Embedy do `index.md`
 
-```{csv-table} RAG chunks (sample)
-:header-rows: 1
-:file: ./datasets/rag_chunks.csv
+```{warning}
+Missing CSV file: `./datasets/rag_chunks.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ## Przykładowy rekord (CSV)

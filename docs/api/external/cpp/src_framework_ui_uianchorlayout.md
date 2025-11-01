@@ -296,4 +296,3 @@ bool isUIAnchorLayout();
 **Returns:**
 - `bool`
 
----

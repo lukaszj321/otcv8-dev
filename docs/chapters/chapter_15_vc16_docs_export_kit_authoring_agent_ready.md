@@ -60,16 +60,16 @@ artifacts:
 
 # 2) Zawartość i kontrakt (datasets)
 
-```{csv-table} Nagłówki ANGLE
-:header-rows: 1
-:file: ../datasets/vc16_angle_headers.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../datasets/vc16_angle_headers.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} Biblioteki (DLL/IMPORT)
-:header-rows: 1
-:file: ../datasets/vc16_angle_libs.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../datasets/vc16_angle_libs.csv`
+
+Either add the dataset or update the directive.
 ```
 
 (facet-15_vc16.headers)=

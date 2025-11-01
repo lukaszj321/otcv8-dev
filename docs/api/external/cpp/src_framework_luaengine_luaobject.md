@@ -457,4 +457,3 @@ template<typename T> T LuaObject::getLuaField(const std::string& key);
 **Returns:**
 - `template&lt;typename T&gt; T`
 
----

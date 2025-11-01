@@ -145,4 +145,3 @@ bool hasSprite();
 **Returns:**
 - `bool`
 
----

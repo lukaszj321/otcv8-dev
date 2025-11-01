@@ -510,4 +510,3 @@ jobject getClazz();
 **Returns:**
 - `jobject`
 
----

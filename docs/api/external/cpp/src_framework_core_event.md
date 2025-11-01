@@ -95,4 +95,3 @@ const std::string& getFunction();
 **Returns:**
 - `const std::string&`
 
----

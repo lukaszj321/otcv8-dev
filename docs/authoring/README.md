@@ -148,10 +148,10 @@ Chapter pages use MyST (Markedly Structured Text) extensions:
 ### summary
 *Facet:* [`01_core.summary`](#facet-01_core.summary)
 
-```{csv-table} summary
-:header-rows: 1
-:file: ./datasets/summary.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/summary.csv`
+
+Either add the dataset or update the directive.
 ```
 ```
 

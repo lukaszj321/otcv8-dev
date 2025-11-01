@@ -558,4 +558,3 @@ FileStreamPtr asFileStream();
 **Returns:**
 - `FileStreamPtr`
 
----

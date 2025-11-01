@@ -699,4 +699,3 @@ std::string getShader();
 **Returns:**
 - `std::string`
 
----

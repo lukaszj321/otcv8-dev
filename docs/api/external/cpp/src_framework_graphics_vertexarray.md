@@ -186,4 +186,3 @@ HardwareBuffer* getHardwareCache();
 **Returns:**
 - `HardwareBuffer*`
 
----

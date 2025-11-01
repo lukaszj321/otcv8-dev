@@ -252,4 +252,3 @@ HardwareBuffer* getTextureHardwareCache();
 void cache();
 ```
 
----

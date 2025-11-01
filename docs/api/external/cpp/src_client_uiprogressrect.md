@@ -77,4 +77,3 @@ float getPercent();
 **Returns:**
 - `float`
 
----

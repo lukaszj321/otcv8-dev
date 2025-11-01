@@ -297,4 +297,3 @@ bool luavalue_cast(int index, UnjustifiedPoints& unjustifiedPoints);
 **Returns:**
 - `bool`
 
----

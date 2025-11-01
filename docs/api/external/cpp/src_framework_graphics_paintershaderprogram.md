@@ -244,4 +244,3 @@ void clearMultiTextures();
 void enableColorMatrix();
 ```
 
----

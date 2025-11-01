@@ -217,4 +217,3 @@ std::string format(const std::string& format, const Args&... args);
 **Returns:**
 - `std::string`
 
----

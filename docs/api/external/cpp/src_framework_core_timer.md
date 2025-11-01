@@ -103,4 +103,3 @@ bool running();
 **Returns:**
 - `bool`
 
----

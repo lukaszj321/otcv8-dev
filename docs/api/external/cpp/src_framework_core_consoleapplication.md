@@ -15,4 +15,3 @@ doc_type: "cpp_api"
 public: void run();
 ```
 
----

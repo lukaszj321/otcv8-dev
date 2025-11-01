@@ -144,4 +144,3 @@ std::deque<ModulePtr> getModules();
 **Returns:**
 - `std::deque&lt;ModulePtr&gt;`
 
----

@@ -1079,5 +1079,4 @@ BattleButton < CreatureButton
 
 ```
 
----
 

@@ -373,4 +373,3 @@ std::vector<std::string> getWindows();
 **Returns:**
 - `std::vector&lt;std::string&gt;`
 
----

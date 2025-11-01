@@ -439,4 +439,3 @@ inline std::istream& operator>>(std::istream& in, Color& color);
 **Returns:**
 - `std::istream&`
 
----

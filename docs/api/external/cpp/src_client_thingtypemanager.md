@@ -580,4 +580,3 @@ bool isValidOtbId(uint16 id);
 **Returns:**
 - `bool`
 
----

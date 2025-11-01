@@ -518,4 +518,3 @@ int getManaBar();
 **Returns:**
 - `int`
 
----

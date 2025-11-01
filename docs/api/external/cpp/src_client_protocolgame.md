@@ -4241,4 +4241,3 @@ int getRecivedPacketsSize();
 **Returns:**
 - `int`
 
----

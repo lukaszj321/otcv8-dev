@@ -24,4 +24,3 @@ ParsedURI parseURI(const std::string& url);
 **Returns:**
 - `ParsedURI`
 
----

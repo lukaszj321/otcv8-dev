@@ -139,4 +139,3 @@ void setShowLabels(bool value);
 |------|------|-------------|
 | `bool` | `value` | - |
 
----

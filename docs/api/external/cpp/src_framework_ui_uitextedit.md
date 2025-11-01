@@ -1024,4 +1024,3 @@ void enableUpdates();
 void recacheGlyphs();
 ```
 
----

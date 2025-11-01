@@ -76,4 +76,3 @@ bool isUIVerticalLayout();
 **Returns:**
 - `bool`
 
----

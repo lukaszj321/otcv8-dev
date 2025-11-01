@@ -233,4 +233,3 @@ python -m http.server 8000
 - {doc}`../authoring/index` – Przewodniki authoring
 - {doc}`../ui/index` – System UI (OTUI)
 
----

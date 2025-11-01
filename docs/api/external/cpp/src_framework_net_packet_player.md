@@ -74,4 +74,3 @@ void onOutputPacket(const OutputMessagePtr& packet);
 private: void process();
 ```
 
----

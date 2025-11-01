@@ -1515,4 +1515,3 @@ uint getBlockIndex(const Position& pos);
 **Returns:**
 - `uint`
 
----

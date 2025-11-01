@@ -134,4 +134,3 @@ Position getDestination();
 **Returns:**
 - `Position`
 
----

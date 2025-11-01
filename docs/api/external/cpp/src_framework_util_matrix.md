@@ -192,4 +192,3 @@ std::istream& operator>>(std::istream& in, Matrix<N,M,T>& mat);
 **Returns:**
 - `std::istream&`
 
----

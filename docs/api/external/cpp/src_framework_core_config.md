@@ -288,4 +288,3 @@ ConfigPtr asConfig();
 **Returns:**
 - `ConfigPtr`
 
----

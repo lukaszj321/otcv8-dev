@@ -171,4 +171,3 @@ void setForcedLevel(int value);
 |------|------|-------------|
 | `int` | `value` | - |
 
----

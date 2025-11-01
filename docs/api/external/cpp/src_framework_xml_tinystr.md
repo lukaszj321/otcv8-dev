@@ -308,4 +308,3 @@ void init(size_type sz, size_type cap);
 void quit();
 ```
 
----
