@@ -1,7 +1,7 @@
 ---
 title: "src/client/animatedtext.h"
 source_file: "src/client/animatedtext.h"
-generated_at: "2025-11-01T04:06:42.714Z"
+generated_at: "2025-11-01T06:09:06.156Z"
 doc_type: "cpp_api"
 ---
 

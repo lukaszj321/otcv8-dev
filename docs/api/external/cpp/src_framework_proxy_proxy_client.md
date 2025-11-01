@@ -1,7 +1,7 @@
 ---
 title: "src/framework/proxy/proxy_client.h"
 source_file: "src/framework/proxy/proxy_client.h"
-generated_at: "2025-11-01T04:06:42.767Z"
+generated_at: "2025-11-01T06:09:06.200Z"
 doc_type: "cpp_api"
 ---
 

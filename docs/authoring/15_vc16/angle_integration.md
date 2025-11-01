@@ -217,7 +217,7 @@ public:
 
 ### Error Handling
 
-```cpp
+```text
 const char* eglErrorString(EGLint error) {
     switch (error) {
         case EGL_SUCCESS: return "EGL_SUCCESS";
@@ -252,7 +252,7 @@ void logEGLError(const char* function) {
 
 ### Shader Compilation
 
-```cpp
+```text
 GLuint compileShader(GLenum type, const char* source) {
     GLuint shader = glCreateShader(type);
     glShaderSource(shader, 1, &source, nullptr);
@@ -415,7 +415,7 @@ glDrawElements(...);
 
 ### Issue: Black Screen
 
-```cpp
+```text
 // Check EGL errors after each call
 if (!eglMakeCurrent(...)) {
     logEGLError("eglMakeCurrent");

@@ -1,6 +1,6 @@
 # OTCv8 - Pełne API (auto)
 
-Wygenerowano: 2025-11-01T04:06:42.700Z
+Wygenerowano: 2025-11-01T06:09:06.142Z
 
 > Ten plik jest generowany automatycznie z kodu. Nie edytuj ręcznie.
 

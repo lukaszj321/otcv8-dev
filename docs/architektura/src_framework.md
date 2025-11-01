@@ -777,7 +777,7 @@ Plik `asyncdispatcher.h` deklaruje klasę `AsyncDispatcher`, która zarządza pu
 | `template<class F> schedule(const F& task)` | Planuje wykonanie zadania i zwraca `std::shared_future`, które pozwoli uzyskać wynik zadania w przyszłości. Używa `std::promise` do przekazania wyniku. |
 | `void dispatch(std::function<void()> f)` | Dodaje zadanie do kolejki bez oczekiwania na wynik (fire-and-forget). |
 # Przykład użycia `schedule`
-```cpp
+```text
 // Wątek główny
 auto future = g_asyncDispatcher.schedule([]() → int {
     // Długotrwała operacja
@@ -1944,7 +1944,7 @@ Plik `scheduledevent.h` deklaruje klasę `ScheduledEvent`, która rozszerza funk
 # Struktura `lessScheduledEvent`
 Funktor (obiekt funkcyjny) używany przez `std::priority_queue` w `EventDispatcher` do sortowania zdarzeń. Zapewnia, że zdarzenia z najwcześniejszym czasem wykonania mają najwyższy priorytet.
 
-```cpp
+```text
 struct lessScheduledEvent {
     bool operator()(const ScheduledEventPtr& a, const ScheduledEventPtr& b) {
         return  b→ticks() < a→ticks();
@@ -6127,7 +6127,7 @@ Dodaje nowe podrzędne źródło dźwięku do wewnętrznego wektora `m_sources`.
 # Metody operacyjne (`play`, `stop`, `setLooping`, `setGain`, etc.)
 Każda z tych metod jest prostą pętlą, która iteruje po wektorze `m_sources` i wywołuje odpowiednią metodę na każdym z podrzędnych obiektów `SoundSource`.
 
-```cpp
+```text
 void CombinedSoundSource::play()
 {
     for(const SoundSourcePtr& source : m_sources)
@@ -6144,7 +6144,7 @@ void CombinedSoundSource::setGain(float gain)
 # Metody sprawdzające stan (`isBuffering`, `isPlaying`)
 Zwracają `true`, jeśli **którekolwiek** z podrzędnych źródeł spełnia dany warunek.
 
-```cpp
+```text
 bool CombinedSoundSource::isPlaying()
 {
     for(const SoundSourcePtr& source : m_sources) {

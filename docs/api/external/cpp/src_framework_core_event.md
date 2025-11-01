@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/event.h"
 source_file: "src/framework/core/event.h"
-generated_at: "2025-11-01T04:06:42.740Z"
+generated_at: "2025-11-01T06:09:06.178Z"
 doc_type: "cpp_api"
 ---
 
