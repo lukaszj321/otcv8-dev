@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/atlas.h"
 source_file: "src/framework/graphics/atlas.h"
-generated_at: "2025-11-01T04:06:42.745Z"
+generated_at: "2025-11-01T06:09:06.182Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/inputmessage.h"
 source_file: "src/framework/net/inputmessage.h"
-generated_at: "2025-11-01T04:06:42.761Z"
+generated_at: "2025-11-01T06:09:06.195Z"
 doc_type: "cpp_api"
 ---
 

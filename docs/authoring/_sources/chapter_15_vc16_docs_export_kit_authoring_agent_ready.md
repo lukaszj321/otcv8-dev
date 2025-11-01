@@ -116,7 +116,7 @@ add_custom_command(TARGET otclient POST_BUILD
 
 # 4) Test dymny EGL (C++)
 
-```cpp
+```text
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
 #include <cstdio>

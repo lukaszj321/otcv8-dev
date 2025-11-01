@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/soundsource.h"
 source_file: "src/framework/sound/soundsource.h"
-generated_at: "2025-11-01T04:06:42.769Z"
+generated_at: "2025-11-01T06:09:06.202Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uilayout.h"
 source_file: "src/framework/ui/uilayout.h"
-generated_at: "2025-11-01T04:06:42.775Z"
+generated_at: "2025-11-01T06:09:06.208Z"
 doc_type: "cpp_api"
 ---
 

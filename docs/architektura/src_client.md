@@ -24,7 +24,7 @@ Klasa `AnimatedText` dziedziczy po `Thing` i reprezentuje tekst, który pojawia 
 # Przykład użycia
 Obiekty `AnimatedText` są tworzone przez `ProtocolGame` w odpowiedzi na komunikaty serwera (np. o obrażeniach) i dodawane do `g_map`, która zarządza ich cyklem życia i rysowaniem.
 
-```cpp
+```text
 // Przykład tworzenia (logika w ProtocolGame::parseAnimatedText)
 AnimatedTextPtr animatedText = AnimatedTextPtr(new AnimatedText);
 animatedText→setColor(color);

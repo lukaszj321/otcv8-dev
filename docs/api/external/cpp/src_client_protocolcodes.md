@@ -1,7 +1,7 @@
 ---
 title: "src/client/protocolcodes.h"
 source_file: "src/client/protocolcodes.h"
-generated_at: "2025-11-01T04:06:42.727Z"
+generated_at: "2025-11-01T06:09:06.167Z"
 doc_type: "cpp_api"
 ---
 

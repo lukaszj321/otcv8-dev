@@ -1,7 +1,7 @@
 ---
 title: "src/client/houses.h"
 source_file: "src/client/houses.h"
-generated_at: "2025-11-01T04:06:42.720Z"
+generated_at: "2025-11-01T06:09:06.162Z"
 doc_type: "cpp_api"
 ---
 
