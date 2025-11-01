@@ -56,10 +56,10 @@ void addValue(int value, bool ignoreSmallValues = false);
 
 **Parameters:**
 
-| Type | Name | Description |
-|------|------|-------------|
-| `int` | `value` | - |
-| `bool ignoreSmallValues =` | `false` | - |
+| Type | Name | Default | Description |
+|------|------|---------|-------------|
+| `int` | `value` |  | - |
+| `bool` | `ignoreSmallValues` | `false` | - |
 
 ---
 
