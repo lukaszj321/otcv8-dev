@@ -1,0 +1,64 @@
+name: Docs maintenance (apply)
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Run in apply mode (true/false)'
+        required: true
+        default: 'true'
+
+jobs:
+  run-fixes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install deps (pip)
+        run: |
+          python -m pip install --upgrade pip
+          pip install myst-parser sphinxcontrib-mermaid
+      - name: Run fix scripts
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_FIXER_TOKEN }}
+        run: |
+          # przykładowe uruchomienia w trybie apply
+          python3 tools/fix_tabs.py --apply || true
+          python3 tools/convert_mermaid_fences.py --apply || true
+          python3 tools/convert_problematic_cpp_fences.py --apply || true
+          python3 docs/scripts/find_and_stub_missing_docs.py --apply || true
+          python3 docs/scripts/dedupe_anchors.py --apply || true
+          python3 docs/scripts/cleanup_scripts_tools.py --apply || true
+          node scripts/extract-api.mjs
+      - name: Build docs
+        run: |
+          make -C docs html
+      - name: Commit & Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_FIXER_TOKEN }}
+        run: |
+          git config user.name "docs-bot"
+          git config user.email "docs-bot@example.com"
+          git checkout -b fix/sphinx-docs-auto-${GITHUB_RUN_ID}
+          git add -A
+          git commit -m "chore(docs): automated fixes" || echo "no changes"
+          git push --set-upstream origin HEAD
+      - name: Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_FIXER_TOKEN }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.DOCS_FIXER_TOKEN }}
+          commit-message: "chore(docs): automated fixes"
+          title: "chore(docs): split C++ per-header, improved extract-api, add doc maintenance scripts and placeholders"
+          body: |
+            Automated docs maintenance run. See workflow logs for details.
+          base: main
