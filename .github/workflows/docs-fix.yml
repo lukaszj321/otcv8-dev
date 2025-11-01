@@ -72,4 +72,4 @@ jobs:
           title: "chore(docs): split C++ per-header, improved extract-api, add doc maintenance scripts and placeholders"
           body: |
             Automated docs maintenance run. See workflow logs for details.
-          base: master
+          base: main
