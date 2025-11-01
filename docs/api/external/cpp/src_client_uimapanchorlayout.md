@@ -98,4 +98,3 @@ UIWidgetPtr getHookedWidget(const UIWidgetPtr& widget, const UIWidgetPtr& parent
 **Returns:**
 - `UIWidgetPtr`
 
----

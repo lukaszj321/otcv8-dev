@@ -255,4 +255,3 @@ inline void addCreature();
 inline void removeCreature();
 ```
 
----

@@ -307,4 +307,3 @@ LuaCppFunction bind_mem_fun(int (C::*f)(LuaInterface*));
 **Returns:**
 - `LuaCppFunction`
 
----

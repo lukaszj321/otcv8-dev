@@ -187,4 +187,3 @@ python tools/rag_query.py \
 - [Sentence Transformers](https://www.sbert.net/) – Dokumentacja biblioteki
 - [FAISS](https://faiss.ai/) – Biblioteka wyszukiwania wektorowego
 
----

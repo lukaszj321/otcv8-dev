@@ -80,4 +80,3 @@ const FrameBufferPtr& getDrawQueueTemporaryFrameBuffer();
 **Returns:**
 - `const FrameBufferPtr&`
 
----

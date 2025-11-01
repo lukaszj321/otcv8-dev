@@ -202,4 +202,3 @@ bool isWritable();
 **Returns:**
 - `bool`
 
----

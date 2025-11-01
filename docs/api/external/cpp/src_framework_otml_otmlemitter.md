@@ -27,4 +27,3 @@ static std::string emitNode(const OTMLNodePtr& node, int currentDepth = -1);
 **Returns:**
 - `std::string`
 
----

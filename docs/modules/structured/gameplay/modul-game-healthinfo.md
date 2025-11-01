@@ -571,5 +571,4 @@ HealthInfoWindow
 
 ```
 
----
 

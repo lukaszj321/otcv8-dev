@@ -49,4 +49,3 @@ void write(void *data, int count, UsagePattern usage);
 | `int` | `count` | - |
 | `UsagePattern` | `usage` | - |
 
----

@@ -246,4 +246,3 @@ bool hasDepth();
 **Returns:**
 - `bool`
 
----

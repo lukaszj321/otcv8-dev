@@ -843,4 +843,3 @@ MapViewPtr asMapView();
 **Returns:**
 - `MapViewPtr`
 
----

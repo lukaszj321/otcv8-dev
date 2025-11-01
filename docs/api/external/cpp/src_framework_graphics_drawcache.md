@@ -171,4 +171,3 @@ inline void addColorRaw(const Color& color, int count);
 | `const Color&` | `color` | - |
 | `int` | `count` | - |
 
----

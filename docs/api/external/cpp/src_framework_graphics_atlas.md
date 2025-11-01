@@ -179,4 +179,3 @@ TexturePtr get(int location);
 **Returns:**
 - `TexturePtr`
 
----

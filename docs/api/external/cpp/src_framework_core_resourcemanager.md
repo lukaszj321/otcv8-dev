@@ -799,4 +799,3 @@ std::string getLayout();
 **Returns:**
 - `std::string`
 
----

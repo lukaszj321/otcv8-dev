@@ -180,4 +180,3 @@ bool ok();
 **Returns:**
 - `bool`
 
----

@@ -336,4 +336,3 @@ void swap(stdext::shared_object_ptr<T>& lhs, stdext::shared_object_ptr<T>& rhs);
 | `stdext::shared_object_ptr&lt;T&gt;&` | `lhs` | - |
 | `stdext::shared_object_ptr&lt;T&gt;&` | `rhs` | - |
 
----

@@ -41,4 +41,3 @@ void terminate();
 void registerLuaFunctions();
 ```
 
----

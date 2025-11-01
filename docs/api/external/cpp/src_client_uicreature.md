@@ -260,4 +260,3 @@ void setOldScaling(bool value);
 |------|------|-------------|
 | `bool` | `value` | - |
 
----

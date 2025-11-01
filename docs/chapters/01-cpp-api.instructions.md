@@ -98,10 +98,10 @@ title: 01 — Core
 ```
 
 ## Datasets
-```{csv-table}
-:file: ./datasets/summary.csv
-:header-rows: 1
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/summary.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ## Diagrams

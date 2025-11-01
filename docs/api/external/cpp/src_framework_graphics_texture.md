@@ -399,4 +399,3 @@ virtual bool isAnimatedTexture();
 **Returns:**
 - `bool`
 
----

@@ -43,4 +43,3 @@ dumper_dummy operator<<(const T& v);
 **Returns:**
 - `dumper_dummy`
 
----

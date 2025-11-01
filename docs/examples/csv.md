@@ -26,11 +26,10 @@ Pliki CSV są przechowywane w `docs/assets/samples/` i mogą być łatwo aktuali
 Aby dodać tabelę CSV do dokumentacji, użyj dyrektywy `csv-table`:
 
 ````markdown
-```{csv-table} Tytuł tabeli
-:header: Kolumna1, Kolumna2
-:widths: 50, 50
-:file: ../assets/samples/your_file.csv
-:delim:
+```{warning}
+Missing CSV file: `../assets/samples/your_file.csv`
+
+Either add the dataset or update the directive.
 ```
 ````
 

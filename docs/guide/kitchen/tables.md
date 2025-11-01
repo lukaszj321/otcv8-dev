@@ -20,11 +20,10 @@
 ## 2) Separator inny niż przecinek — **kod**
 
 ````md
-```{csv-table} Logi (średnik)
-:header-rows: 1
-:file: ../../_data/logs.csv
-:delim: ;
-:widths: 20 40 40
+```{warning}
+Missing CSV file: `../../_data/logs.csv`
+
+Either add the dataset or update the directive.
 ```
 `````
 
@@ -33,12 +32,10 @@
 ## 3) Wyrównanie i kolumna tytułowa (stub) — **kod**
 
 ````md
-```{csv-table} API — Endpoints
-:header-rows: 1
-:file: ../../_data/endpoints.csv
-:widths: 24 38 38
-:align: left
-:stub-columns: 1
+```{warning}
+Missing CSV file: `../../_data/endpoints.csv`
+
+Either add the dataset or update the directive.
 ```
 ````
 
@@ -61,11 +58,10 @@ Name,Description
 ## 5) Klasy CSS i podpis (caption) — **kod**
 
 ````md
-```{csv-table} 📦 Paczki (release)
-:header-rows: 1
-:file: ../../_data/releases.csv
-:widths: 20 30 20 30
-:class: my-table compact
+```{warning}
+Missing CSV file: `../../_data/releases.csv`
+
+Either add the dataset or update the directive.
 ```
 ````
 

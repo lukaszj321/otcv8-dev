@@ -2868,4 +2868,3 @@ void LuaInterface::callGlobalField(const std::string& global, const std::string&
 | `const std::string&` | `field` | - |
 | `const T&...` | `args` | - |
 
----

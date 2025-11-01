@@ -125,4 +125,3 @@ bool isValidItemId(int id);
 **Returns:**
 - `bool`
 
----

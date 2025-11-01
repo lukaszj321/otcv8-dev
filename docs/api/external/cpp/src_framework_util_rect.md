@@ -1381,4 +1381,3 @@ std::istream& operator>>(std::istream& in, TRect<T>& rect);
 **Returns:**
 - `std::istream&`
 
----

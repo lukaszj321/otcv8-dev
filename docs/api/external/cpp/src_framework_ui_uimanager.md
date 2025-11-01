@@ -562,4 +562,3 @@ bool isDrawingDebugBoxes();
 **Returns:**
 - `bool`
 
----

@@ -469,4 +469,3 @@ std::string decrypt(const std::string& encrypted_string);
 **Returns:**
 - `std::string`
 
----

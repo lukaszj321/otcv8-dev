@@ -1453,4 +1453,3 @@ int push_luavalue(const std::tuple<Args...>& tuple);
 **Returns:**
 - `int`
 
----

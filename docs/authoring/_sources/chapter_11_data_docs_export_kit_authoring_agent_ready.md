@@ -626,46 +626,46 @@ graph TD
 
 ## 11) Datasets (podgląd)
 
-```{csv-table} images
-:header-rows: 1
-:file: ./datasets/images.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/images.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} fonts
-:header-rows: 1
-:file: ./datasets/fonts.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/fonts.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} styles
-:header-rows: 1
-:file: ./datasets/styles.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/styles.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} locales
-:header-rows: 1
-:file: ./datasets/locales.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/locales.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} sounds
-:header-rows: 1
-:file: ./datasets/sounds.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/sounds.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} shaders
-:header-rows: 1
-:file: ./datasets/shaders.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/shaders.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} ui_asset_usage
-:header-rows: 1
-:file: ./datasets/ui_asset_usage.csv
-:widths: auto
+```{warning}
+Missing CSV file: `./datasets/ui_asset_usage.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ---

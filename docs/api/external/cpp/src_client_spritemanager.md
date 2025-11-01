@@ -291,4 +291,3 @@ bool isHdMod();
 **Returns:**
 - `bool`
 
----

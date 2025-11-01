@@ -366,4 +366,3 @@ ConnectionPtr asConnection();
 **Returns:**
 - `ConnectionPtr`
 
----

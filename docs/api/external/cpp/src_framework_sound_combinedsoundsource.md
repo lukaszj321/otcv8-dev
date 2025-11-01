@@ -229,4 +229,3 @@ std::vector<SoundSourcePtr> getSources();
 **Returns:**
 - `std::vector&lt;SoundSourcePtr&gt;`
 
----

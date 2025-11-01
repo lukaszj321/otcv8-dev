@@ -198,4 +198,3 @@ std::istream& operator>>(std::istream& in, TPoint<T>& point);
 **Returns:**
 - `std::istream&`
 
----

@@ -404,4 +404,3 @@ HealthBarPtr getManaBar(int id);
 **Returns:**
 - `HealthBarPtr`
 
----

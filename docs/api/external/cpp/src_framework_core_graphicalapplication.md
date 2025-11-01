@@ -314,4 +314,3 @@ int getIteration();
 **Returns:**
 - `int`
 
----

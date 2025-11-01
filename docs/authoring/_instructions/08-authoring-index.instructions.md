@@ -37,10 +37,11 @@ chapter_index_template: |
   ```
 
   ## Datasets
-  ```{csv-table} Summary
-  :header-rows: 1
-  :file: ./datasets/summary.csv
-  ```
+```{warning}
+Missing CSV file: `./datasets/summary.csv`
+
+Either add the dataset or update the directive.
+```
   ## Diagrams
   ```{mermaid}
   %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%

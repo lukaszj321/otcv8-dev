@@ -116,4 +116,3 @@ void drawColoredText(const Point& pos, uint64_t hash, const std::vector<std::pai
 | `const std::vector&lt;std::pair&lt;int, Color&gt;&gt;&` | `colors` |  | - |
 | `bool` | `shadow` | `false` | - |
 
----

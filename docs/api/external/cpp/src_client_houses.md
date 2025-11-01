@@ -487,4 +487,3 @@ HouseList getHouseList();
 **Returns:**
 - `HouseList`
 
----

@@ -41,4 +41,3 @@ bool isPlayer();
 **Returns:**
 - `bool`
 
----

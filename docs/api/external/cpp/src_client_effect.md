@@ -38,4 +38,3 @@ EffectPtr asEffect();
 **Returns:**
 - `EffectPtr`
 
----

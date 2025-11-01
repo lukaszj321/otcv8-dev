@@ -187,4 +187,3 @@ bool hasText();
 **Returns:**
 - `bool`
 
----

@@ -433,4 +433,3 @@ ProtocolPtr asProtocol();
 **Returns:**
 - `ProtocolPtr`
 
----

@@ -17,15 +17,15 @@ Skrypt: `tools/generate_lua_bindings.lua`
 ## Wyjście (dataset)
 Poniżej osadzony dataset, który zasila RAG oraz strony **01_core**.
 
-```{csv-table} lua_bindings.csv
-:header-rows: 1
-:file: ../../authoring/01_core/datasets/lua_bindings.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../../authoring/01_core/datasets/lua_bindings.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ## Specyfikacja CSV
-```{csv-table} lua_bindings.schema.csv
-:header-rows: 1
-:file: ../../authoring/_data/schemas/lua_bindings.schema.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../../authoring/_data/schemas/lua_bindings.schema.csv`
+
+Either add the dataset or update the directive.
 ```

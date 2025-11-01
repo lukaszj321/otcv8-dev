@@ -81,4 +81,3 @@ AutoFocusPolicy translateAutoFocusPolicy(std::string policy);
 **Returns:**
 - `AutoFocusPolicy`
 
----

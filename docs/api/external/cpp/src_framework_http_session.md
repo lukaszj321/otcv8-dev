@@ -151,4 +151,3 @@ void onError(const std::string& error, const std::string& details = "");
 void cancel();
 ```
 
----

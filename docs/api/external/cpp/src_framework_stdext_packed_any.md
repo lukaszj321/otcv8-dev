@@ -147,4 +147,3 @@ template<typename T> T packed_any::cast();
 **Returns:**
 - `template&lt;typename T&gt; T`
 
----

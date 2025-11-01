@@ -128,4 +128,3 @@ void dispatch(std::function<void()> f);
 |------|------|-------------|
 | `std::function&lt;void()&gt;` | `f` | - |
 
----

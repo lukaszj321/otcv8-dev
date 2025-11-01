@@ -1180,4 +1180,3 @@ UIWidgetPtr getWidget();
 void removeWidget();
 ```
 
----

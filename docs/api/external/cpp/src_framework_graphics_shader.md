@@ -82,4 +82,3 @@ ShaderType getShaderType();
 **Returns:**
 - `ShaderType`
 
----

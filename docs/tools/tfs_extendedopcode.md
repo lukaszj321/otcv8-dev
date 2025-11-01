@@ -16,8 +16,8 @@ Poniżej pełna zawartość (diff).
 ## Dataset: extended opcodes
 Poniższa tabela stanowi **wejście do RAG** i dokumentuje zmapowane opcodes.
 
-```{csv-table} Extended opcodes
-:header-rows: 1
-:file: ../../authoring/05_network/datasets/extended_opcodes.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../../authoring/05_network/datasets/extended_opcodes.csv`
+
+Either add the dataset or update the directive.
 ```

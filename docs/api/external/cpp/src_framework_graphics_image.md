@@ -357,4 +357,3 @@ uint8* getPixel(int x, int y);
 **Returns:**
 - `uint8*`
 
----

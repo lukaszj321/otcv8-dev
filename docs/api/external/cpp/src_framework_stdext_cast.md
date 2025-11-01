@@ -234,4 +234,3 @@ virtual const char* what() const throw();
 **Returns:**
 - `const char*`
 
----

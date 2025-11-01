@@ -80,14 +80,16 @@ acceptance:
 - Indeksy: `04_ui/index.md`, `03_modules/index.md`
 
 ## Datasets — embed przykładowy
-```{csv-table} UI widgets (sample)
-:header-rows: 1
-:file: ./datasets/ui_widgets.csv
+```{warning}
+Missing CSV file: `./datasets/ui_widgets.csv`
+
+Either add the dataset or update the directive.
 ```
 
-```{csv-table} UI signals (sample)
-:header-rows: 1
-:file: ./datasets/ui_signals.csv
+```{warning}
+Missing CSV file: `./datasets/ui_signals.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ## Diagramy — podgląd i klikalne kotwice

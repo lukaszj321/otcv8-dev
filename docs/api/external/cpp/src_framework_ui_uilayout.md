@@ -226,4 +226,3 @@ protected: virtual bool internalUpdate();
 **Returns:**
 - `bool`
 
----

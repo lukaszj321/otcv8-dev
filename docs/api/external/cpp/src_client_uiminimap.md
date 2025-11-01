@@ -386,4 +386,3 @@ float getScale();
 **Returns:**
 - `float`
 
----

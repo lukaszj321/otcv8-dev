@@ -3672,5 +3672,4 @@ Raport: lista różnic, heatmapy, log walidatora (STRUCT/anchors/macierze).
 - **Testy**: 30
 - **Słownik**: 31
 
----
 

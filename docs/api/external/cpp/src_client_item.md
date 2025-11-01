@@ -957,4 +957,3 @@ uint64 getCustomAttribute(uint16 key);
 **Returns:**
 - `uint64`
 
----

@@ -105,4 +105,3 @@ std::size_t size();
 void clear();
 ```
 
----

@@ -455,4 +455,3 @@ inline std::istream& operator>>(std::istream& in, Position& pos);
 **Returns:**
 - `std::istream&`
 
----

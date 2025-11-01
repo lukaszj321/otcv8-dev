@@ -522,4 +522,3 @@ Rect adjustWindowRect(const Rect& rect);
 **Returns:**
 - `Rect`
 
----

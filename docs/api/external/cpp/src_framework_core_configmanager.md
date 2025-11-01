@@ -149,4 +149,3 @@ void remove(const ConfigPtr config);
 |------|------|-------------|
 | `const ConfigPtr` | `config` | - |
 
----

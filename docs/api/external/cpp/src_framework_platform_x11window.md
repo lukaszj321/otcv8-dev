@@ -446,4 +446,3 @@ protected: int internalLoadMouseCursor(const ImagePtr& image, const Point& hotSp
 **Returns:**
 - `int`
 
----

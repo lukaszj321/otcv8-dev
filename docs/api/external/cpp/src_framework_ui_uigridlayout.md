@@ -291,4 +291,3 @@ virtual bool isUIGridLayout();
 **Returns:**
 - `bool`
 
----

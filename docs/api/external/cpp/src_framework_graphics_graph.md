@@ -65,4 +65,3 @@ void addValue(int value, bool ignoreSmallValues = false);
 | `int` | `value` |  | - |
 | `bool` | `ignoreSmallValues` | `false` | - |
 
----

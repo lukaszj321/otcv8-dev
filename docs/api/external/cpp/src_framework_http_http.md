@@ -211,4 +211,3 @@ void setUserAgent(const std::string& userAgent);
 |------|------|-------------|
 | `const std::string&` | `userAgent` | - |
 
----

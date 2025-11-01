@@ -419,4 +419,3 @@ bool isMobile();
 **Returns:**
 - `bool`
 
----

@@ -73,4 +73,3 @@ bool isOpen();
 **Returns:**
 - `bool`
 
----

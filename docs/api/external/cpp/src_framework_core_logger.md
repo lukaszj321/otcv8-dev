@@ -185,4 +185,3 @@ std::string getLastLog();
 void setTestingMode();
 ```
 
----

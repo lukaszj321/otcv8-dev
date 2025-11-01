@@ -24,4 +24,3 @@ int luaopen_bit32(lua_State *L);
 **Returns:**
 - `int`
 
----

@@ -346,4 +346,3 @@ int getFirstIndex();
 **Returns:**
 - `int`
 
----

@@ -119,4 +119,3 @@ bool isPlaying();
 **Returns:**
 - `bool`
 
----

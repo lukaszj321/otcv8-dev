@@ -114,4 +114,3 @@ bool isUIBoxLayout();
 **Returns:**
 - `bool`
 
----

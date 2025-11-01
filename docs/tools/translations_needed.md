@@ -15,15 +15,15 @@ Skrypt: `tools/gen_needed_translations.sh`
 ```
 
 ## Wyjście (dataset)
-```{csv-table} needed_translations.csv
-:header-rows: 1
-:file: ../../authoring/04_ui/datasets/needed_translations.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../../authoring/04_ui/datasets/needed_translations.csv`
+
+Either add the dataset or update the directive.
 ```
 
 ## Specyfikacja CSV
-```{csv-table} needed_translations.schema.csv
-:header-rows: 1
-:file: ../../authoring/_data/schemas/needed_translations.schema.csv
-:widths: auto
+```{warning}
+Missing CSV file: `../../authoring/_data/schemas/needed_translations.schema.csv`
+
+Either add the dataset or update the directive.
 ```

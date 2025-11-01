@@ -1838,4 +1838,3 @@ public: bool isMonster();
 **Returns:**
 - `bool`
 
----

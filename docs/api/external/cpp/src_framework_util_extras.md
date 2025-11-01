@@ -83,4 +83,3 @@ std::vector<std::string> getAll();
 **Returns:**
 - `std::vector&lt;std::string&gt;`
 
----
