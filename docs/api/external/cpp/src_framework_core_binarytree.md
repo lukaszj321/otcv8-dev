@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/binarytree.h"
 source_file: "src/framework/core/binarytree.h"
-generated_at: "2025-11-01T06:09:06.176Z"
+generated_at: "2025-11-01T08:45:15.294Z"
 doc_type: "cpp_api"
 ---
 

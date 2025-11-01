@@ -1,7 +1,7 @@
 ---
 title: "src/framework/sound/soundchannel.h"
 source_file: "src/framework/sound/soundchannel.h"
-generated_at: "2025-11-01T06:09:06.201Z"
+generated_at: "2025-11-01T08:45:15.318Z"
 doc_type: "cpp_api"
 ---
 

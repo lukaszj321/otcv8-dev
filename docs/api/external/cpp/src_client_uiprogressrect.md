@@ -1,7 +1,7 @@
 ---
 title: "src/client/uiprogressrect.h"
 source_file: "src/client/uiprogressrect.h"
-generated_at: "2025-11-01T06:09:06.175Z"
+generated_at: "2025-11-01T08:45:15.292Z"
 doc_type: "cpp_api"
 ---
 

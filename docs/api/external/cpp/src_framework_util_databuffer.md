@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/databuffer.h"
 source_file: "src/framework/util/databuffer.h"
-generated_at: "2025-11-01T06:09:06.212Z"
+generated_at: "2025-11-01T08:45:15.329Z"
 doc_type: "cpp_api"
 ---
 

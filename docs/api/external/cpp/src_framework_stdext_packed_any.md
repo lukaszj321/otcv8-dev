@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/packed_any.h"
 source_file: "src/framework/stdext/packed_any.h"
-generated_at: "2025-11-01T06:09:06.205Z"
+generated_at: "2025-11-01T08:45:15.322Z"
 doc_type: "cpp_api"
 ---
 

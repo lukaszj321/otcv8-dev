@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/drawqueue.h"
 source_file: "src/framework/graphics/drawqueue.h"
-generated_at: "2025-11-01T06:09:06.184Z"
+generated_at: "2025-11-01T08:45:15.301Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luainterface.h"
 source_file: "src/framework/luaengine/luainterface.h"
-generated_at: "2025-11-01T06:09:06.191Z"
+generated_at: "2025-11-01T08:45:15.308Z"
 doc_type: "cpp_api"
 ---
 

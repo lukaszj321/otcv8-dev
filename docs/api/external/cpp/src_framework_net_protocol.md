@@ -1,7 +1,7 @@
 ---
 title: "src/framework/net/protocol.h"
 source_file: "src/framework/net/protocol.h"
-generated_at: "2025-11-01T06:09:06.196Z"
+generated_at: "2025-11-01T08:45:15.313Z"
 doc_type: "cpp_api"
 ---
 
