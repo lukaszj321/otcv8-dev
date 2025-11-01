@@ -1,7 +1,7 @@
 ---
 title: "src/framework/ui/uiwidget.h"
 source_file: "src/framework/ui/uiwidget.h"
-generated_at: "2025-11-01T06:09:06.209Z"
+generated_at: "2025-11-01T08:46:04.941Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/client/uigraph.h"
 source_file: "src/client/uigraph.h"
-generated_at: "2025-11-01T06:09:06.173Z"
+generated_at: "2025-11-01T08:46:04.903Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/extras.h"
 source_file: "src/framework/util/extras.h"
-generated_at: "2025-11-01T06:09:06.212Z"
+generated_at: "2025-11-01T08:46:04.944Z"
 doc_type: "cpp_api"
 ---
 

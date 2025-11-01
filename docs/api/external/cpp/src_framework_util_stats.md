@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/stats.h"
 source_file: "src/framework/util/stats.h"
-generated_at: "2025-11-01T06:09:06.215Z"
+generated_at: "2025-11-01T08:46:04.946Z"
 doc_type: "cpp_api"
 ---
 

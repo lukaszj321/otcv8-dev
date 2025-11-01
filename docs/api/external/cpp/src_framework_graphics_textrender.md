@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/textrender.h"
 source_file: "src/framework/graphics/textrender.h"
-generated_at: "2025-11-01T06:09:06.188Z"
+generated_at: "2025-11-01T08:46:04.919Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/format.h"
 source_file: "src/framework/stdext/format.h"
-generated_at: "2025-11-01T06:09:06.204Z"
+generated_at: "2025-11-01T08:46:04.935Z"
 doc_type: "cpp_api"
 ---
 

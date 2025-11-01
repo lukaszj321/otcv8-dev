@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/inputevent.h"
 source_file: "src/framework/core/inputevent.h"
-generated_at: "2025-11-01T06:09:06.179Z"
+generated_at: "2025-11-01T08:46:04.909Z"
 doc_type: "cpp_api"
 ---
 

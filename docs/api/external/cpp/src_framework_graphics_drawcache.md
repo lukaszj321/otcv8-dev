@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/drawcache.h"
 source_file: "src/framework/graphics/drawcache.h"
-generated_at: "2025-11-01T06:09:06.184Z"
+generated_at: "2025-11-01T08:46:04.914Z"
 doc_type: "cpp_api"
 ---
 

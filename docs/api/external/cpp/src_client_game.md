@@ -1,7 +1,7 @@
 ---
 title: "src/client/game.h"
 source_file: "src/client/game.h"
-generated_at: "2025-11-01T06:09:06.159Z"
+generated_at: "2025-11-01T08:46:04.888Z"
 doc_type: "cpp_api"
 ---
 

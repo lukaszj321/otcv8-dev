@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/scheduledevent.h"
 source_file: "src/framework/core/scheduledevent.h"
-generated_at: "2025-11-01T06:09:06.181Z"
+generated_at: "2025-11-01T08:46:04.911Z"
 doc_type: "cpp_api"
 ---
 

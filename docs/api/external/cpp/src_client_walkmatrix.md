@@ -1,7 +1,7 @@
 ---
 title: "src/client/walkmatrix.h"
 source_file: "src/client/walkmatrix.h"
-generated_at: "2025-11-01T06:09:06.175Z"
+generated_at: "2025-11-01T08:46:04.905Z"
 doc_type: "cpp_api"
 ---
 

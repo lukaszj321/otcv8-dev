@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/uri.h"
 source_file: "src/framework/stdext/uri.h"
-generated_at: "2025-11-01T06:09:06.206Z"
+generated_at: "2025-11-01T08:46:04.937Z"
 doc_type: "cpp_api"
 ---
 
