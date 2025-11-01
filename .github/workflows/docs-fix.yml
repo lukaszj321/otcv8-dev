@@ -48,7 +48,7 @@ jobs:
           SRC=$(python3 -c "from pathlib import Path; p=next(Path('docs').rglob('conf.py'), None); print(p.parent.as_posix() if p else 'docs')")
           echo "Using Sphinx source directory: $SRC"
           python3 -m pip install --upgrade pip
-          pip install -r requirements-docs.txt
+          pip install sphinx myst-parser sphinxcontrib-mermaid
           python3 -m sphinx -b html "$SRC" docs/_build/html
 
       - name: Commit & Push changes
