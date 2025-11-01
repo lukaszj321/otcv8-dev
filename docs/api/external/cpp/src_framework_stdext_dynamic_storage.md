@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/dynamic_storage.h"
 source_file: "src/framework/stdext/dynamic_storage.h"
-generated_at: "2025-11-01T00:11:49.061Z"
+generated_at: "2025-11-01T04:06:42.771Z"
 doc_type: "cpp_api"
 ---
 

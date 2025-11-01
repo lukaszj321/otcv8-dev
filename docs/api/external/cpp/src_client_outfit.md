@@ -1,7 +1,7 @@
 ---
 title: "src/client/outfit.h"
 source_file: "src/client/outfit.h"
-generated_at: "2025-11-01T00:11:49.022Z"
+generated_at: "2025-11-01T04:06:42.726Z"
 doc_type: "cpp_api"
 ---
 

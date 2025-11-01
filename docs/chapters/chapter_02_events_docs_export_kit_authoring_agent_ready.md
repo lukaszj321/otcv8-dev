@@ -542,7 +542,7 @@ run()
 
 diagrams/login_sequence.mmd
 
-```mermaid
+```{mermaid}
 sequenceDiagram
   participant Client
   participant Game as g_game
@@ -562,7 +562,7 @@ sequenceDiagram
 
 diagrams/events_flow.mmd
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Sniffer
   Sniffer --> NDJSON[(events.dataset.jsonl)]

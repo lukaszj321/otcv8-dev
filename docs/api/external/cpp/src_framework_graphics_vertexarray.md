@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/vertexarray.h"
 source_file: "src/framework/graphics/vertexarray.h"
-generated_at: "2025-11-01T00:11:49.046Z"
+generated_at: "2025-11-01T04:06:42.753Z"
 doc_type: "cpp_api"
 ---
 

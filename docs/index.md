@@ -127,7 +127,7 @@ Portal deweloperski z przeglądem projektu
 
 ## Architektura systemu
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 flowchart TB
     Core[OTCv8 Core C++] --> Events[System zdarzeń]

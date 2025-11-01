@@ -560,7 +560,7 @@ run()
 
 diagrams/audio_flow.mmd
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC snapshot| Snapshot
   Snapshot --> NDJSON[(audio.dataset.jsonl)]

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/point.h"
 source_file: "src/framework/util/point.h"
-generated_at: "2025-11-01T00:11:49.071Z"
+generated_at: "2025-11-01T04:06:42.781Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/string.h"
 source_file: "src/framework/stdext/string.h"
-generated_at: "2025-11-01T00:11:49.064Z"
+generated_at: "2025-11-01T04:06:42.773Z"
 doc_type: "cpp_api"
 ---
 

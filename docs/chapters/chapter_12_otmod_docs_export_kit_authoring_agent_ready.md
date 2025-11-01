@@ -446,7 +446,7 @@ run()
 
 **diagrams/lifecycle.mmd** *(facet: 12_otmod.lifecycle)*
 
-```mermaid
+```{mermaid}
 sequenceDiagram
   participant Loader
   participant Module as OTMOD
@@ -463,7 +463,7 @@ sequenceDiagram
 
 **diagrams/deps.mmd** *(facet: 12_otmod.deps)*
 
-```mermaid
+```{mermaid}
 graph TD
   A[game_interface] -->|soft| B[game_skills]
   A -->|soft| C[game_inventory]

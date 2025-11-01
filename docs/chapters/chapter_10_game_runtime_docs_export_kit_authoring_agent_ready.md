@@ -623,7 +623,7 @@ run()
 
 diagrams/game_runtime_flow.mmd
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Snapshotter
   Snapshotter --> NDJSON[(game_runtime.dataset.jsonl)]

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/input/mouse.h"
 source_file: "src/framework/input/mouse.h"
-generated_at: "2025-11-01T00:11:49.047Z"
+generated_at: "2025-11-01T04:06:42.754Z"
 doc_type: "cpp_api"
 ---
 

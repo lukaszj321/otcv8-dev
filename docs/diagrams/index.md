@@ -2,7 +2,7 @@
 
 ## Mermaid (H2)
 
-```mermaid
+```{mermaid}
 flowchart LR
   A[Wejście] --> B{{Przetwarzanie}}
   B --> C[Wynik]

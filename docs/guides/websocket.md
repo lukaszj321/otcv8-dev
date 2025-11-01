@@ -1,5 +1,5 @@
 # Realtime (websocket)
-```mermaid
+```{mermaid}
 sequenceDiagram
   participant UI as Dashboard (SPA)
   participant WS as WebSocket (wss)

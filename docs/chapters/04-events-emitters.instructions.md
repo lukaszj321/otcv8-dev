@@ -74,7 +74,7 @@ index.must_embed:
 
 ## Diagram
 
-```mermaid
+```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose'}}%%
 sequenceDiagram
   participant C as Client

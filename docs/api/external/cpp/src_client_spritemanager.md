@@ -1,7 +1,7 @@
 ---
 title: "src/client/spritemanager.h"
 source_file: "src/client/spritemanager.h"
-generated_at: "2025-11-01T00:11:49.026Z"
+generated_at: "2025-11-01T04:06:42.730Z"
 doc_type: "cpp_api"
 ---
 

@@ -541,7 +541,7 @@ run()
 
 `diagrams/ui_flow.mmd`
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC scan| Extractor
   Extractor --> NDJSON[(widgets.dataset.jsonl)]

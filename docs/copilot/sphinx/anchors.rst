@@ -20,7 +20,6 @@ event:onExit — L56
    :caption: modules/modules/client/client.lua (L56)
 
 
-.. _modules-modules-client-client-lua-l56-event-onexit-8931620ac2:
 
 event:onExit — L56
 ------------------
@@ -32,7 +31,6 @@ event:onExit — L56
    :caption: modules/modules/client/client.lua (L56)
 
 
-.. _modules-modules-client-client-lua-l56-event-onexit-8931620ac2:
 
 event:onExit — L56
 ------------------
@@ -44,7 +42,6 @@ event:onExit — L56
    :caption: modules/modules/client/client.lua (L56)
 
 
-.. _modules-modules-client-client-lua-l56-event-onexit-8931620ac2:
 
 event:onExit — L56
 ------------------
@@ -68,7 +65,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -80,7 +76,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -92,7 +87,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -104,7 +98,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -116,7 +109,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -128,7 +120,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -140,7 +131,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -152,7 +142,6 @@ event:onGameEnd — L46
    :caption: modules/modules/client/client.lua (L46)
 
 
-.. _modules-modules-client-client-lua-l46-event-ongameend-fb484e6bf9:
 
 event:onGameEnd — L46
 ---------------------
@@ -176,7 +165,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -188,7 +176,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -200,7 +187,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -212,7 +198,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -224,7 +209,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -236,7 +220,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -248,7 +231,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -260,7 +242,6 @@ event:onGameStart — L45
    :caption: modules/modules/client/client.lua (L45)
 
 
-.. _modules-modules-client-client-lua-l45-event-ongamestart-42368e6bdf:
 
 event:onGameStart — L45
 -----------------------
@@ -284,7 +265,6 @@ event:onRun — L55
    :caption: modules/modules/client/client.lua (L55)
 
 
-.. _modules-modules-client-client-lua-l55-event-onrun-24b4623d02:
 
 event:onRun — L55
 -----------------
@@ -296,7 +276,6 @@ event:onRun — L55
    :caption: modules/modules/client/client.lua (L55)
 
 
-.. _modules-modules-client-client-lua-l55-event-onrun-24b4623d02:
 
 event:onRun — L55
 -----------------
@@ -308,7 +287,6 @@ event:onRun — L55
    :caption: modules/modules/client/client.lua (L55)
 
 
-.. _modules-modules-client-client-lua-l55-event-onrun-24b4623d02:
 
 event:onRun — L55
 -----------------
@@ -332,7 +310,6 @@ event:onGameEnd — L18
    :caption: modules/modules/client_background/background.lua (L18)
 
 
-.. _modules-modules-client-background-background-lua-l18-event-ongam-c60155828f:
 
 event:onGameEnd — L18
 ---------------------
@@ -344,7 +321,6 @@ event:onGameEnd — L18
    :caption: modules/modules/client_background/background.lua (L18)
 
 
-.. _modules-modules-client-background-background-lua-l18-event-ongam-c60155828f:
 
 event:onGameEnd — L18
 ---------------------
@@ -356,7 +332,6 @@ event:onGameEnd — L18
    :caption: modules/modules/client_background/background.lua (L18)
 
 
-.. _modules-modules-client-background-background-lua-l18-event-ongam-c60155828f:
 
 event:onGameEnd — L18
 ---------------------
@@ -380,7 +355,6 @@ event:onGameStart — L17
    :caption: modules/modules/client_background/background.lua (L17)
 
 
-.. _modules-modules-client-background-background-lua-l17-event-ongam-d120554ac9:
 
 event:onGameStart — L17
 -----------------------
@@ -392,7 +366,6 @@ event:onGameStart — L17
    :caption: modules/modules/client_background/background.lua (L17)
 
 
-.. _modules-modules-client-background-background-lua-l17-event-ongam-d120554ac9:
 
 event:onGameStart — L17
 -----------------------
@@ -404,7 +377,6 @@ event:onGameStart — L17
    :caption: modules/modules/client_background/background.lua (L17)
 
 
-.. _modules-modules-client-background-background-lua-l17-event-ongam-d120554ac9:
 
 event:onGameStart — L17
 -----------------------
@@ -428,7 +400,6 @@ event:onCancel — L36
    :caption: modules/modules/client_entergame/characterlist.lua (L36)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l36-event-onc-4b8feaed74:
 
 event:onCancel — L36
 --------------------
@@ -476,7 +447,6 @@ event:onConnectionError — L184
    :caption: modules/modules/client_entergame/characterlist.lua (L184)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l184-event-on-351cc2298d:
 
 event:onConnectionError — L184
 ------------------------------
@@ -488,7 +458,6 @@ event:onConnectionError — L184
    :caption: modules/modules/client_entergame/characterlist.lua (L184)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l184-event-on-351cc2298d:
 
 event:onConnectionError — L184
 ------------------------------
@@ -500,7 +469,6 @@ event:onConnectionError — L184
    :caption: modules/modules/client_entergame/characterlist.lua (L184)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l184-event-on-351cc2298d:
 
 event:onConnectionError — L184
 ------------------------------
@@ -524,7 +492,6 @@ event:onDoubleClick — L283
    :caption: modules/modules/client_entergame/characterlist.lua (L283)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l283-event-on-ed7eabcf4e:
 
 event:onDoubleClick — L283
 --------------------------
@@ -548,7 +515,6 @@ event:onGameConnectionError — L126
    :caption: modules/modules/client_entergame/characterlist.lua (L126)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l126-event-on-20aa64d26b:
 
 event:onGameConnectionError — L126
 ----------------------------------
@@ -560,7 +526,6 @@ event:onGameConnectionError — L126
    :caption: modules/modules/client_entergame/characterlist.lua (L126)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l126-event-on-20aa64d26b:
 
 event:onGameConnectionError — L126
 ----------------------------------
@@ -584,7 +549,6 @@ event:onGameEnd — L148
    :caption: modules/modules/client_entergame/characterlist.lua (L148)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l148-event-on-0579447489:
 
 event:onGameEnd — L148
 ----------------------
@@ -596,7 +560,6 @@ event:onGameEnd — L148
    :caption: modules/modules/client_entergame/characterlist.lua (L148)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l148-event-on-0579447489:
 
 event:onGameEnd — L148
 ----------------------
@@ -608,7 +571,6 @@ event:onGameEnd — L148
    :caption: modules/modules/client_entergame/characterlist.lua (L148)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l148-event-on-0579447489:
 
 event:onGameEnd — L148
 ----------------------
@@ -620,7 +582,6 @@ event:onGameEnd — L148
    :caption: modules/modules/client_entergame/characterlist.lua (L148)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l148-event-on-0579447489:
 
 event:onGameEnd — L148
 ----------------------
@@ -632,7 +593,6 @@ event:onGameEnd — L148
    :caption: modules/modules/client_entergame/characterlist.lua (L148)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l148-event-on-0579447489:
 
 event:onGameEnd — L148
 ----------------------
@@ -644,7 +604,6 @@ event:onGameEnd — L148
    :caption: modules/modules/client_entergame/characterlist.lua (L148)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l148-event-on-0579447489:
 
 event:onGameEnd — L148
 ----------------------
@@ -668,7 +627,6 @@ event:onGameLoginError — L106
    :caption: modules/modules/client_entergame/characterlist.lua (L106)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l106-event-on-7e6eaefdc9:
 
 event:onGameLoginError — L106
 -----------------------------
@@ -680,7 +638,6 @@ event:onGameLoginError — L106
    :caption: modules/modules/client_entergame/characterlist.lua (L106)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l106-event-on-7e6eaefdc9:
 
 event:onGameLoginError — L106
 -----------------------------
@@ -704,7 +661,6 @@ event:onGameLoginToken — L116
    :caption: modules/modules/client_entergame/characterlist.lua (L116)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l116-event-on-df4ad2a284:
 
 event:onGameLoginToken — L116
 -----------------------------
@@ -716,7 +672,6 @@ event:onGameLoginToken — L116
    :caption: modules/modules/client_entergame/characterlist.lua (L116)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l116-event-on-df4ad2a284:
 
 event:onGameLoginToken — L116
 -----------------------------
@@ -740,7 +695,6 @@ event:onGameStart — L185
    :caption: modules/modules/client_entergame/characterlist.lua (L185)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l185-event-on-516db0cc6a:
 
 event:onGameStart — L185
 ------------------------
@@ -752,7 +706,6 @@ event:onGameStart — L185
    :caption: modules/modules/client_entergame/characterlist.lua (L185)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l185-event-on-516db0cc6a:
 
 event:onGameStart — L185
 ------------------------
@@ -764,7 +717,6 @@ event:onGameStart — L185
    :caption: modules/modules/client_entergame/characterlist.lua (L185)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l185-event-on-516db0cc6a:
 
 event:onGameStart — L185
 ------------------------
@@ -788,7 +740,6 @@ event:onGameUpdateNeeded — L139
    :caption: modules/modules/client_entergame/characterlist.lua (L139)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l139-event-on-4545e2b055:
 
 event:onGameUpdateNeeded — L139
 -------------------------------
@@ -800,7 +751,6 @@ event:onGameUpdateNeeded — L139
    :caption: modules/modules/client_entergame/characterlist.lua (L139)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l139-event-on-4545e2b055:
 
 event:onGameUpdateNeeded — L139
 -------------------------------
@@ -824,7 +774,6 @@ event:onLoginError — L181
    :caption: modules/modules/client_entergame/characterlist.lua (L181)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l181-event-on-504cc33666:
 
 event:onLoginError — L181
 -------------------------
@@ -836,7 +785,6 @@ event:onLoginError — L181
    :caption: modules/modules/client_entergame/characterlist.lua (L181)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l181-event-on-504cc33666:
 
 event:onLoginError — L181
 -------------------------
@@ -848,7 +796,6 @@ event:onLoginError — L181
    :caption: modules/modules/client_entergame/characterlist.lua (L181)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l181-event-on-504cc33666:
 
 event:onLoginError — L181
 -------------------------
@@ -872,7 +819,6 @@ event:onLoginToken — L182
    :caption: modules/modules/client_entergame/characterlist.lua (L182)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l182-event-on-a3d1b3c297:
 
 event:onLoginToken — L182
 -------------------------
@@ -884,7 +830,6 @@ event:onLoginToken — L182
    :caption: modules/modules/client_entergame/characterlist.lua (L182)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l182-event-on-a3d1b3c297:
 
 event:onLoginToken — L182
 -------------------------
@@ -896,7 +841,6 @@ event:onLoginToken — L182
    :caption: modules/modules/client_entergame/characterlist.lua (L182)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l182-event-on-a3d1b3c297:
 
 event:onLoginToken — L182
 -------------------------
@@ -920,7 +864,6 @@ event:onLoginWait — L94
    :caption: modules/modules/client_entergame/characterlist.lua (L94)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l94-event-onl-0b75632668:
 
 event:onLoginWait — L94
 -----------------------
@@ -932,7 +875,6 @@ event:onLoginWait — L94
    :caption: modules/modules/client_entergame/characterlist.lua (L94)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l94-event-onl-0b75632668:
 
 event:onLoginWait — L94
 -----------------------
@@ -944,7 +886,6 @@ event:onLoginWait — L94
    :caption: modules/modules/client_entergame/characterlist.lua (L94)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l94-event-onl-0b75632668:
 
 event:onLoginWait — L94
 -----------------------
@@ -956,7 +897,6 @@ event:onLoginWait — L94
    :caption: modules/modules/client_entergame/characterlist.lua (L94)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l94-event-onl-0b75632668:
 
 event:onLoginWait — L94
 -----------------------
@@ -968,7 +908,6 @@ event:onLoginWait — L94
    :caption: modules/modules/client_entergame/characterlist.lua (L94)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l94-event-onl-0b75632668:
 
 event:onLoginWait — L94
 -----------------------
@@ -980,7 +919,6 @@ event:onLoginWait — L94
    :caption: modules/modules/client_entergame/characterlist.lua (L94)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l94-event-onl-0b75632668:
 
 event:onLoginWait — L94
 -----------------------
@@ -1004,7 +942,6 @@ event:onLogout — L153
    :caption: modules/modules/client_entergame/characterlist.lua (L153)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l153-event-on-22538abc65:
 
 event:onLogout — L153
 ---------------------
@@ -1016,7 +953,6 @@ event:onLogout — L153
    :caption: modules/modules/client_entergame/characterlist.lua (L153)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l153-event-on-22538abc65:
 
 event:onLogout — L153
 ---------------------
@@ -1028,7 +964,6 @@ event:onLogout — L153
    :caption: modules/modules/client_entergame/characterlist.lua (L153)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l153-event-on-22538abc65:
 
 event:onLogout — L153
 ---------------------
@@ -1040,7 +975,6 @@ event:onLogout — L153
    :caption: modules/modules/client_entergame/characterlist.lua (L153)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l153-event-on-22538abc65:
 
 event:onLogout — L153
 ---------------------
@@ -1052,7 +986,6 @@ event:onLogout — L153
    :caption: modules/modules/client_entergame/characterlist.lua (L153)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l153-event-on-22538abc65:
 
 event:onLogout — L153
 ---------------------
@@ -1064,7 +997,6 @@ event:onLogout — L153
    :caption: modules/modules/client_entergame/characterlist.lua (L153)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l153-event-on-22538abc65:
 
 event:onLogout — L153
 ---------------------
@@ -1088,7 +1020,6 @@ event:onOk — L109
    :caption: modules/modules/client_entergame/characterlist.lua (L109)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l109-event-on-fead466b44:
 
 event:onOk — L109
 -----------------
@@ -1100,7 +1031,6 @@ event:onOk — L109
    :caption: modules/modules/client_entergame/characterlist.lua (L109)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l109-event-on-fead466b44:
 
 event:onOk — L109
 -----------------
@@ -1112,7 +1042,6 @@ event:onOk — L109
    :caption: modules/modules/client_entergame/characterlist.lua (L109)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l109-event-on-fead466b44:
 
 event:onOk — L109
 -----------------
@@ -1136,7 +1065,6 @@ event:onUpdateNeeded — L183
    :caption: modules/modules/client_entergame/characterlist.lua (L183)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l183-event-on-909a985751:
 
 event:onUpdateNeeded — L183
 ---------------------------
@@ -1148,7 +1076,6 @@ event:onUpdateNeeded — L183
    :caption: modules/modules/client_entergame/characterlist.lua (L183)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l183-event-on-909a985751:
 
 event:onUpdateNeeded — L183
 ---------------------------
@@ -1160,7 +1087,6 @@ event:onUpdateNeeded — L183
    :caption: modules/modules/client_entergame/characterlist.lua (L183)
 
 
-.. _modules-modules-client-entergame-characterlist-lua-l183-event-on-909a985751:
 
 event:onUpdateNeeded — L183
 ---------------------------
@@ -1184,7 +1110,6 @@ event:onCancel — L510
    :caption: modules/modules/client_entergame/entergame.lua (L510)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l510-event-oncanc-f4d82a6c77:
 
 event:onCancel — L510
 ---------------------
@@ -1196,7 +1121,6 @@ event:onCancel — L510
    :caption: modules/modules/client_entergame/entergame.lua (L510)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l510-event-oncanc-f4d82a6c77:
 
 event:onCancel — L510
 ---------------------
@@ -1208,7 +1132,6 @@ event:onCancel — L510
    :caption: modules/modules/client_entergame/entergame.lua (L510)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l510-event-oncanc-f4d82a6c77:
 
 event:onCancel — L510
 ---------------------
@@ -1232,7 +1155,6 @@ event:onCharacterList — L35
    :caption: modules/modules/client_entergame/entergame.lua (L35)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l35-event-onchara-33a258f51a:
 
 event:onCharacterList — L35
 ---------------------------
@@ -1244,7 +1166,6 @@ event:onCharacterList — L35
    :caption: modules/modules/client_entergame/entergame.lua (L35)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l35-event-onchara-33a258f51a:
 
 event:onCharacterList — L35
 ---------------------------
@@ -1256,7 +1177,6 @@ event:onCharacterList — L35
    :caption: modules/modules/client_entergame/entergame.lua (L35)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l35-event-onchara-33a258f51a:
 
 event:onCharacterList — L35
 ---------------------------
@@ -1268,7 +1188,6 @@ event:onCharacterList — L35
    :caption: modules/modules/client_entergame/entergame.lua (L35)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l35-event-onchara-33a258f51a:
 
 event:onCharacterList — L35
 ---------------------------
@@ -1292,7 +1211,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1304,7 +1222,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1316,7 +1233,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1328,7 +1244,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1340,7 +1255,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1352,7 +1266,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1364,7 +1277,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1376,7 +1288,6 @@ event:onError — L26
    :caption: modules/modules/client_entergame/entergame.lua (L26)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l26-event-onerror-e389fc078d:
 
 event:onError — L26
 -------------------
@@ -1400,7 +1311,6 @@ event:onHTTPResult — L205
    :caption: modules/modules/client_entergame/entergame.lua (L205)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l205-event-onhttp-a26e2f4fbe:
 
 event:onHTTPResult — L205
 -------------------------
@@ -1412,7 +1322,6 @@ event:onHTTPResult — L205
    :caption: modules/modules/client_entergame/entergame.lua (L205)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l205-event-onhttp-a26e2f4fbe:
 
 event:onHTTPResult — L205
 -------------------------
@@ -1436,7 +1345,6 @@ event:onLoginError — L28
    :caption: modules/modules/client_entergame/entergame.lua (L28)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l28-event-onlogin-2fe5eda1b9:
 
 event:onLoginError — L28
 ------------------------
@@ -1448,7 +1356,6 @@ event:onLoginError — L28
    :caption: modules/modules/client_entergame/entergame.lua (L28)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l28-event-onlogin-2fe5eda1b9:
 
 event:onLoginError — L28
 ------------------------
@@ -1460,7 +1367,6 @@ event:onLoginError — L28
    :caption: modules/modules/client_entergame/entergame.lua (L28)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l28-event-onlogin-2fe5eda1b9:
 
 event:onLoginError — L28
 ------------------------
@@ -1472,7 +1378,6 @@ event:onLoginError — L28
    :caption: modules/modules/client_entergame/entergame.lua (L28)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l28-event-onlogin-2fe5eda1b9:
 
 event:onLoginError — L28
 ------------------------
@@ -1496,7 +1401,6 @@ event:onOk — L428
    :caption: modules/modules/client_entergame/entergame.lua (L428)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l428-event-onok-c09d351375:
 
 event:onOk — L428
 -----------------
@@ -1508,7 +1412,6 @@ event:onOk — L428
    :caption: modules/modules/client_entergame/entergame.lua (L428)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l428-event-onok-c09d351375:
 
 event:onOk — L428
 -----------------
@@ -1520,7 +1423,6 @@ event:onOk — L428
    :caption: modules/modules/client_entergame/entergame.lua (L428)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l428-event-onok-c09d351375:
 
 event:onOk — L428
 -----------------
@@ -1544,7 +1446,6 @@ event:onProtocolError — L24
    :caption: modules/modules/client_entergame/entergame.lua (L24)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l24-event-onproto-446b2561f8:
 
 event:onProtocolError — L24
 ---------------------------
@@ -1568,7 +1469,6 @@ event:onProxyList — L67
    :caption: modules/modules/client_entergame/entergame.lua (L67)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l67-event-onproxy-b8b0d4880a:
 
 event:onProxyList — L67
 -----------------------
@@ -1580,7 +1480,6 @@ event:onProxyList — L67
    :caption: modules/modules/client_entergame/entergame.lua (L67)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l67-event-onproxy-b8b0d4880a:
 
 event:onProxyList — L67
 -----------------------
@@ -1616,7 +1515,6 @@ event:onSessionKey — L31
    :caption: modules/modules/client_entergame/entergame.lua (L31)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l31-event-onsessi-dcb519edb4:
 
 event:onSessionKey — L31
 ------------------------
@@ -1628,7 +1526,6 @@ event:onSessionKey — L31
    :caption: modules/modules/client_entergame/entergame.lua (L31)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l31-event-onsessi-dcb519edb4:
 
 event:onSessionKey — L31
 ------------------------
@@ -1640,7 +1537,6 @@ event:onSessionKey — L31
    :caption: modules/modules/client_entergame/entergame.lua (L31)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l31-event-onsessi-dcb519edb4:
 
 event:onSessionKey — L31
 ------------------------
@@ -1652,7 +1548,6 @@ event:onSessionKey — L31
    :caption: modules/modules/client_entergame/entergame.lua (L31)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l31-event-onsessi-dcb519edb4:
 
 event:onSessionKey — L31
 ------------------------
@@ -1676,7 +1571,6 @@ event:onTibia12HTTPResult — L116
    :caption: modules/modules/client_entergame/entergame.lua (L116)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l116-event-ontibi-4bf577578d:
 
 event:onTibia12HTTPResult — L116
 --------------------------------
@@ -1700,7 +1594,6 @@ event:onUpdateNeeded — L63
    :caption: modules/modules/client_entergame/entergame.lua (L63)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l63-event-onupdat-8eec45387f:
 
 event:onUpdateNeeded — L63
 --------------------------
@@ -1712,7 +1605,6 @@ event:onUpdateNeeded — L63
    :caption: modules/modules/client_entergame/entergame.lua (L63)
 
 
-.. _modules-modules-client-entergame-entergame-lua-l63-event-onupdat-8eec45387f:
 
 event:onUpdateNeeded — L63
 --------------------------
@@ -1736,7 +1628,6 @@ event:onClick — L17
    :caption: modules/modules/client_feedback/feedback.lua (L17)
 
 
-.. _modules-modules-client-feedback-feedback-lua-l17-event-onclick-42555862df:
 
 event:onClick — L17
 -------------------
@@ -1784,7 +1675,6 @@ event:onLocaleChanged — L130
    :caption: modules/modules/client_locales/locales.lua (L130)
 
 
-.. _modules-modules-client-locales-locales-lua-l130-event-onlocalech-e632084bcb:
 
 event:onLocaleChanged — L130
 ----------------------------
@@ -1808,7 +1698,6 @@ event:onRun — L53
    :caption: modules/modules/client_locales/locales.lua (L53)
 
 
-.. _modules-modules-client-locales-locales-lua-l53-event-onrun-0fe1e41b39:
 
 event:onRun — L53
 -----------------
@@ -1820,7 +1709,6 @@ event:onRun — L53
    :caption: modules/modules/client_locales/locales.lua (L53)
 
 
-.. _modules-modules-client-locales-locales-lua-l53-event-onrun-0fe1e41b39:
 
 event:onRun — L53
 -----------------
@@ -1832,7 +1720,6 @@ event:onRun — L53
    :caption: modules/modules/client_locales/locales.lua (L53)
 
 
-.. _modules-modules-client-locales-locales-lua-l53-event-onrun-0fe1e41b39:
 
 event:onRun — L53
 -----------------
@@ -1856,7 +1743,6 @@ event:onGameEnd — L49
    :caption: modules/modules/client_mobile/mobile.lua (L49)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l49-event-ongameend-2c20f2fff8:
 
 event:onGameEnd — L49
 ---------------------
@@ -1868,7 +1754,6 @@ event:onGameEnd — L49
    :caption: modules/modules/client_mobile/mobile.lua (L49)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l49-event-ongameend-2c20f2fff8:
 
 event:onGameEnd — L49
 ---------------------
@@ -1880,7 +1765,6 @@ event:onGameEnd — L49
    :caption: modules/modules/client_mobile/mobile.lua (L49)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l49-event-ongameend-2c20f2fff8:
 
 event:onGameEnd — L49
 ---------------------
@@ -1904,7 +1788,6 @@ event:onGameStart — L48
    :caption: modules/modules/client_mobile/mobile.lua (L48)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l48-event-ongamestart-71631fc4db:
 
 event:onGameStart — L48
 -----------------------
@@ -1916,7 +1799,6 @@ event:onGameStart — L48
    :caption: modules/modules/client_mobile/mobile.lua (L48)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l48-event-ongamestart-71631fc4db:
 
 event:onGameStart — L48
 -----------------------
@@ -1928,7 +1810,6 @@ event:onGameStart — L48
    :caption: modules/modules/client_mobile/mobile.lua (L48)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l48-event-ongamestart-71631fc4db:
 
 event:onGameStart — L48
 -----------------------
@@ -1952,7 +1833,6 @@ event:onKeypadTouchMove — L45
    :caption: modules/modules/client_mobile/mobile.lua (L45)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l45-event-onkeypadtouch-ed1639f88d:
 
 event:onKeypadTouchMove — L45
 -----------------------------
@@ -1964,7 +1844,6 @@ event:onKeypadTouchMove — L45
    :caption: modules/modules/client_mobile/mobile.lua (L45)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l45-event-onkeypadtouch-ed1639f88d:
 
 event:onKeypadTouchMove — L45
 -----------------------------
@@ -1988,7 +1867,6 @@ event:onKeypadTouchPress — L43
    :caption: modules/modules/client_mobile/mobile.lua (L43)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l43-event-onkeypadtouch-59454d245c:
 
 event:onKeypadTouchPress — L43
 ------------------------------
@@ -2000,7 +1878,6 @@ event:onKeypadTouchPress — L43
    :caption: modules/modules/client_mobile/mobile.lua (L43)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l43-event-onkeypadtouch-59454d245c:
 
 event:onKeypadTouchPress — L43
 ------------------------------
@@ -2024,7 +1901,6 @@ event:onKeypadTouchRelease — L44
    :caption: modules/modules/client_mobile/mobile.lua (L44)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l44-event-onkeypadtouch-12c0599930:
 
 event:onKeypadTouchRelease — L44
 --------------------------------
@@ -2036,7 +1912,6 @@ event:onKeypadTouchRelease — L44
    :caption: modules/modules/client_mobile/mobile.lua (L44)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l44-event-onkeypadtouch-12c0599930:
 
 event:onKeypadTouchRelease — L44
 --------------------------------
@@ -2060,7 +1935,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2072,7 +1946,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2084,7 +1957,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2096,7 +1968,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2108,7 +1979,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2120,7 +1990,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2132,7 +2001,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2144,7 +2012,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2156,7 +2023,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2168,7 +2034,6 @@ event:onMouseMove — L40
    :caption: modules/modules/client_mobile/mobile.lua (L40)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l40-event-onmousemove-2166d85948:
 
 event:onMouseMove — L40
 -----------------------
@@ -2192,7 +2057,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2204,7 +2068,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2216,7 +2079,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2228,7 +2090,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2240,7 +2101,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2252,7 +2112,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2264,7 +2123,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2276,7 +2134,6 @@ event:onMousePress — L36
    :caption: modules/modules/client_mobile/mobile.lua (L36)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l36-event-onmousepress-fd5f1bedb2:
 
 event:onMousePress — L36
 ------------------------
@@ -2300,7 +2157,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2312,7 +2168,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2324,7 +2179,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2336,7 +2190,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2348,7 +2201,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2360,7 +2212,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2372,7 +2223,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2384,7 +2234,6 @@ event:onMouseRelease — L37
    :caption: modules/modules/client_mobile/mobile.lua (L37)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l37-event-onmousereleas-b6d483041e:
 
 event:onMouseRelease — L37
 --------------------------
@@ -2408,7 +2257,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2420,7 +2268,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2432,7 +2279,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2444,7 +2290,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2456,7 +2301,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2468,7 +2312,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2480,7 +2323,6 @@ event:onTouchPress — L38
    :caption: modules/modules/client_mobile/mobile.lua (L38)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l38-event-ontouchpress-f5991e42ad:
 
 event:onTouchPress — L38
 ------------------------
@@ -2504,7 +2346,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2516,7 +2357,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2528,7 +2368,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2540,7 +2379,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2552,7 +2390,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2564,7 +2401,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2576,7 +2412,6 @@ event:onTouchRelease — L39
    :caption: modules/modules/client_mobile/mobile.lua (L39)
 
 
-.. _modules-modules-client-mobile-mobile-lua-l39-event-ontouchreleas-0b12c1d476:
 
 event:onTouchRelease — L39
 --------------------------
@@ -2600,7 +2435,6 @@ event:onGameEnd — L144
    :caption: modules/modules/client_options/options.lua (L144)
 
 
-.. _modules-modules-client-options-options-lua-l144-event-ongameend-c199ae6176:
 
 event:onGameEnd — L144
 ----------------------
@@ -2612,7 +2446,6 @@ event:onGameEnd — L144
    :caption: modules/modules/client_options/options.lua (L144)
 
 
-.. _modules-modules-client-options-options-lua-l144-event-ongameend-c199ae6176:
 
 event:onGameEnd — L144
 ----------------------
@@ -2624,7 +2457,6 @@ event:onGameEnd — L144
    :caption: modules/modules/client_options/options.lua (L144)
 
 
-.. _modules-modules-client-options-options-lua-l144-event-ongameend-c199ae6176:
 
 event:onGameEnd — L144
 ----------------------
@@ -2648,7 +2480,6 @@ event:onGameStart — L143
    :caption: modules/modules/client_options/options.lua (L143)
 
 
-.. _modules-modules-client-options-options-lua-l143-event-ongamestar-439df96a48:
 
 event:onGameStart — L143
 ------------------------
@@ -2660,7 +2491,6 @@ event:onGameStart — L143
    :caption: modules/modules/client_options/options.lua (L143)
 
 
-.. _modules-modules-client-options-options-lua-l143-event-ongamestar-439df96a48:
 
 event:onGameStart — L143
 ------------------------
@@ -2672,7 +2502,6 @@ event:onGameStart — L143
    :caption: modules/modules/client_options/options.lua (L143)
 
 
-.. _modules-modules-client-options-options-lua-l143-event-ongamestar-439df96a48:
 
 event:onGameStart — L143
 ------------------------
@@ -2708,7 +2537,6 @@ event:onError — L139
    :caption: modules/modules/client_profiles/profiles.lua (L139)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l139-event-onerror-52b8a2f152:
 
 event:onError — L139
 --------------------
@@ -2720,7 +2548,6 @@ event:onError — L139
    :caption: modules/modules/client_profiles/profiles.lua (L139)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l139-event-onerror-52b8a2f152:
 
 event:onError — L139
 --------------------
@@ -2744,7 +2571,6 @@ event:onGameEnd — L7
    :caption: modules/modules/client_profiles/profiles.lua (L7)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l7-event-ongameend-50bd8bcb34:
 
 event:onGameEnd — L7
 --------------------
@@ -2756,7 +2582,6 @@ event:onGameEnd — L7
    :caption: modules/modules/client_profiles/profiles.lua (L7)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l7-event-ongameend-50bd8bcb34:
 
 event:onGameEnd — L7
 --------------------
@@ -2768,7 +2593,6 @@ event:onGameEnd — L7
    :caption: modules/modules/client_profiles/profiles.lua (L7)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l7-event-ongameend-50bd8bcb34:
 
 event:onGameEnd — L7
 --------------------
@@ -2792,7 +2616,6 @@ event:onGameStart — L6
    :caption: modules/modules/client_profiles/profiles.lua (L6)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l6-event-ongamestar-6f45e76201:
 
 event:onGameStart — L6
 ----------------------
@@ -2804,7 +2627,6 @@ event:onGameStart — L6
    :caption: modules/modules/client_profiles/profiles.lua (L6)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l6-event-ongamestar-6f45e76201:
 
 event:onGameStart — L6
 ----------------------
@@ -2816,7 +2638,6 @@ event:onGameStart — L6
    :caption: modules/modules/client_profiles/profiles.lua (L6)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l6-event-ongamestar-6f45e76201:
 
 event:onGameStart — L6
 ----------------------
@@ -2840,7 +2661,6 @@ event:onProfileChange — L104
    :caption: modules/modules/client_profiles/profiles.lua (L104)
 
 
-.. _modules-modules-client-profiles-profiles-lua-l104-event-onprofil-50961f5ad3:
 
 event:onProfileChange — L104
 ----------------------------
@@ -2876,7 +2696,6 @@ event:onPingBack — L29
    :caption: modules/modules/client_terminal/commands.lua (L29)
 
 
-.. _modules-modules-client-terminal-commands-lua-l29-event-onpingbac-8cd2ce0f57:
 
 event:onPingBack — L29
 ----------------------
@@ -2900,7 +2719,6 @@ event:onCommandChange — L117
    :caption: modules/modules/client_terminal/terminal.lua (L117)
 
 
-.. _modules-modules-client-terminal-terminal-lua-l117-event-oncomman-3558bfe4c0:
 
 event:onCommandChange — L117
 ----------------------------
@@ -2924,7 +2742,6 @@ event:onDoubleClick — L141
    :caption: modules/modules/client_terminal/terminal.lua (L141)
 
 
-.. _modules-modules-client-terminal-terminal-lua-l141-event-ondouble-10bccc96a3:
 
 event:onDoubleClick — L141
 --------------------------
@@ -2948,7 +2765,6 @@ event:onLog — L126
    :caption: modules/modules/client_terminal/terminal.lua (L126)
 
 
-.. _modules-modules-client-terminal-terminal-lua-l126-event-onlog-8d6686c965:
 
 event:onLog — L126
 ------------------
@@ -2972,7 +2788,6 @@ event:onMouseWheel — L168
    :caption: modules/modules/client_terminal/terminal.lua (L168)
 
 
-.. _modules-modules-client-terminal-terminal-lua-l168-event-onmousew-40ba4e0154:
 
 event:onMouseWheel — L168
 -------------------------
@@ -3008,7 +2823,6 @@ event:onTextChange — L151
    :caption: modules/modules/client_terminal/terminal.lua (L151)
 
 
-.. _modules-modules-client-terminal-terminal-lua-l151-event-ontextch-094379f09b:
 
 event:onTextChange — L151
 -------------------------
@@ -3032,7 +2846,6 @@ event:onClick — L87
    :caption: modules/modules/client_textedit/textedit.lua (L87)
 
 
-.. _modules-modules-client-textedit-textedit-lua-l87-event-onclick-99ca7e1501:
 
 event:onClick — L87
 -------------------
@@ -3092,7 +2905,6 @@ event:onGameEnd — L6
    :caption: modules/modules/client_textedit/textedit.lua (L6)
 
 
-.. _modules-modules-client-textedit-textedit-lua-l6-event-ongameend-20758023ed:
 
 event:onGameEnd — L6
 --------------------
@@ -3104,7 +2916,6 @@ event:onGameEnd — L6
    :caption: modules/modules/client_textedit/textedit.lua (L6)
 
 
-.. _modules-modules-client-textedit-textedit-lua-l6-event-ongameend-20758023ed:
 
 event:onGameEnd — L6
 --------------------
@@ -3116,7 +2927,6 @@ event:onGameEnd — L6
    :caption: modules/modules/client_textedit/textedit.lua (L6)
 
 
-.. _modules-modules-client-textedit-textedit-lua-l6-event-ongameend-20758023ed:
 
 event:onGameEnd — L6
 --------------------
@@ -3164,7 +2974,6 @@ event:onClick — L279
    :caption: modules/modules/client_topmenu/topmenu.lua (L279)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l279-event-onclick-24857fe3f5:
 
 event:onClick — L279
 --------------------
@@ -3188,7 +2997,6 @@ event:onGameEnd — L47
    :caption: modules/modules/client_topmenu/topmenu.lua (L47)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l47-event-ongameend-412acd541c:
 
 event:onGameEnd — L47
 ---------------------
@@ -3200,7 +3008,6 @@ event:onGameEnd — L47
    :caption: modules/modules/client_topmenu/topmenu.lua (L47)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l47-event-ongameend-412acd541c:
 
 event:onGameEnd — L47
 ---------------------
@@ -3212,7 +3019,6 @@ event:onGameEnd — L47
    :caption: modules/modules/client_topmenu/topmenu.lua (L47)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l47-event-ongameend-412acd541c:
 
 event:onGameEnd — L47
 ---------------------
@@ -3236,7 +3042,6 @@ event:onGameStart — L46
    :caption: modules/modules/client_topmenu/topmenu.lua (L46)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l46-event-ongamestart-45e9ec1af8:
 
 event:onGameStart — L46
 -----------------------
@@ -3248,7 +3053,6 @@ event:onGameStart — L46
    :caption: modules/modules/client_topmenu/topmenu.lua (L46)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l46-event-ongamestart-45e9ec1af8:
 
 event:onGameStart — L46
 -----------------------
@@ -3260,7 +3064,6 @@ event:onGameStart — L46
    :caption: modules/modules/client_topmenu/topmenu.lua (L46)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l46-event-ongamestart-45e9ec1af8:
 
 event:onGameStart — L46
 -----------------------
@@ -3284,7 +3087,6 @@ event:onMouseRelease — L31
    :caption: modules/modules/client_topmenu/topmenu.lua (L31)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l31-event-onmouserele-c7611376c4:
 
 event:onMouseRelease — L31
 --------------------------
@@ -3308,7 +3110,6 @@ event:onPingBack — L48
    :caption: modules/modules/client_topmenu/topmenu.lua (L48)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l48-event-onpingback-017f0b455e:
 
 event:onPingBack — L48
 ----------------------
@@ -3320,7 +3121,6 @@ event:onPingBack — L48
    :caption: modules/modules/client_topmenu/topmenu.lua (L48)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l48-event-onpingback-017f0b455e:
 
 event:onPingBack — L48
 ----------------------
@@ -3332,7 +3132,6 @@ event:onPingBack — L48
    :caption: modules/modules/client_topmenu/topmenu.lua (L48)
 
 
-.. _modules-modules-client-topmenu-topmenu-lua-l48-event-onpingback-017f0b455e:
 
 event:onPingBack — L48
 ----------------------
@@ -3368,7 +3167,6 @@ event:onClose — L259
    :caption: modules/modules/corelib/http.lua (L259)
 
 
-.. _modules-modules-corelib-http-lua-l259-event-onclose-d9eeadb426:
 
 event:onClose — L259
 --------------------
@@ -3392,7 +3190,6 @@ event:onDownload — L183
    :caption: modules/modules/corelib/http.lua (L183)
 
 
-.. _modules-modules-corelib-http-lua-l183-event-ondownload-352967e339:
 
 event:onDownload — L183
 -----------------------
@@ -3404,7 +3201,6 @@ event:onDownload — L183
    :caption: modules/modules/corelib/http.lua (L183)
 
 
-.. _modules-modules-corelib-http-lua-l183-event-ondownload-352967e339:
 
 event:onDownload — L183
 -----------------------
@@ -3416,7 +3212,6 @@ event:onDownload — L183
    :caption: modules/modules/corelib/http.lua (L183)
 
 
-.. _modules-modules-corelib-http-lua-l183-event-ondownload-352967e339:
 
 event:onDownload — L183
 -----------------------
@@ -3440,7 +3235,6 @@ event:onDownloadProgress — L203
    :caption: modules/modules/corelib/http.lua (L203)
 
 
-.. _modules-modules-corelib-http-lua-l203-event-ondownloadprogress-587aac960d:
 
 event:onDownloadProgress — L203
 -------------------------------
@@ -3452,7 +3246,6 @@ event:onDownloadProgress — L203
    :caption: modules/modules/corelib/http.lua (L203)
 
 
-.. _modules-modules-corelib-http-lua-l203-event-ondownloadprogress-587aac960d:
 
 event:onDownloadProgress — L203
 -------------------------------
@@ -3464,7 +3257,6 @@ event:onDownloadProgress — L203
    :caption: modules/modules/corelib/http.lua (L203)
 
 
-.. _modules-modules-corelib-http-lua-l203-event-ondownloadprogress-587aac960d:
 
 event:onDownloadProgress — L203
 -------------------------------
@@ -3488,7 +3280,6 @@ event:onError — L242
    :caption: modules/modules/corelib/http.lua (L242)
 
 
-.. _modules-modules-corelib-http-lua-l242-event-onerror-507d825c03:
 
 event:onError — L242
 --------------------
@@ -3500,7 +3291,6 @@ event:onError — L242
    :caption: modules/modules/corelib/http.lua (L242)
 
 
-.. _modules-modules-corelib-http-lua-l242-event-onerror-507d825c03:
 
 event:onError — L242
 --------------------
@@ -3512,7 +3302,6 @@ event:onError — L242
    :caption: modules/modules/corelib/http.lua (L242)
 
 
-.. _modules-modules-corelib-http-lua-l242-event-onerror-507d825c03:
 
 event:onError — L242
 --------------------
@@ -3536,7 +3325,6 @@ event:onGet — L116
    :caption: modules/modules/corelib/http.lua (L116)
 
 
-.. _modules-modules-corelib-http-lua-l116-event-onget-06ebf0fbfb:
 
 event:onGet — L116
 ------------------
@@ -3548,7 +3336,6 @@ event:onGet — L116
    :caption: modules/modules/corelib/http.lua (L116)
 
 
-.. _modules-modules-corelib-http-lua-l116-event-onget-06ebf0fbfb:
 
 event:onGet — L116
 ------------------
@@ -3560,7 +3347,6 @@ event:onGet — L116
    :caption: modules/modules/corelib/http.lua (L116)
 
 
-.. _modules-modules-corelib-http-lua-l116-event-onget-06ebf0fbfb:
 
 event:onGet — L116
 ------------------
@@ -3584,7 +3370,6 @@ event:onGetProgress — L142
    :caption: modules/modules/corelib/http.lua (L142)
 
 
-.. _modules-modules-corelib-http-lua-l142-event-ongetprogress-f4cb4edcc3:
 
 event:onGetProgress — L142
 --------------------------
@@ -3596,7 +3381,6 @@ event:onGetProgress — L142
    :caption: modules/modules/corelib/http.lua (L142)
 
 
-.. _modules-modules-corelib-http-lua-l142-event-ongetprogress-f4cb4edcc3:
 
 event:onGetProgress — L142
 --------------------------
@@ -3608,7 +3392,6 @@ event:onGetProgress — L142
    :caption: modules/modules/corelib/http.lua (L142)
 
 
-.. _modules-modules-corelib-http-lua-l142-event-ongetprogress-f4cb4edcc3:
 
 event:onGetProgress — L142
 --------------------------
@@ -3632,7 +3415,6 @@ event:onMessage — L228
    :caption: modules/modules/corelib/http.lua (L228)
 
 
-.. _modules-modules-corelib-http-lua-l228-event-onmessage-7f2b5dfda6:
 
 event:onMessage — L228
 ----------------------
@@ -3644,7 +3426,6 @@ event:onMessage — L228
    :caption: modules/modules/corelib/http.lua (L228)
 
 
-.. _modules-modules-corelib-http-lua-l228-event-onmessage-7f2b5dfda6:
 
 event:onMessage — L228
 ----------------------
@@ -3668,7 +3449,6 @@ event:onOpen — L218
    :caption: modules/modules/corelib/http.lua (L218)
 
 
-.. _modules-modules-corelib-http-lua-l218-event-onopen-875ed6d6e5:
 
 event:onOpen — L218
 -------------------
@@ -3692,7 +3472,6 @@ event:onPost — L150
    :caption: modules/modules/corelib/http.lua (L150)
 
 
-.. _modules-modules-corelib-http-lua-l150-event-onpost-f70ed55308:
 
 event:onPost — L150
 -------------------
@@ -3704,7 +3483,6 @@ event:onPost — L150
    :caption: modules/modules/corelib/http.lua (L150)
 
 
-.. _modules-modules-corelib-http-lua-l150-event-onpost-f70ed55308:
 
 event:onPost — L150
 -------------------
@@ -3716,7 +3494,6 @@ event:onPost — L150
    :caption: modules/modules/corelib/http.lua (L150)
 
 
-.. _modules-modules-corelib-http-lua-l150-event-onpost-f70ed55308:
 
 event:onPost — L150
 -------------------
@@ -3740,7 +3517,6 @@ event:onPostProgress — L176
    :caption: modules/modules/corelib/http.lua (L176)
 
 
-.. _modules-modules-corelib-http-lua-l176-event-onpostprogress-e8dfababb6:
 
 event:onPostProgress — L176
 ---------------------------
@@ -3752,7 +3528,6 @@ event:onPostProgress — L176
    :caption: modules/modules/corelib/http.lua (L176)
 
 
-.. _modules-modules-corelib-http-lua-l176-event-onpostprogress-e8dfababb6:
 
 event:onPostProgress — L176
 ---------------------------
@@ -3764,7 +3539,6 @@ event:onPostProgress — L176
    :caption: modules/modules/corelib/http.lua (L176)
 
 
-.. _modules-modules-corelib-http-lua-l176-event-onpostprogress-e8dfababb6:
 
 event:onPostProgress — L176
 ---------------------------
@@ -3788,7 +3562,6 @@ event:onWsClose — L254
    :caption: modules/modules/corelib/http.lua (L254)
 
 
-.. _modules-modules-corelib-http-lua-l254-event-onwsclose-00e16cf3b8:
 
 event:onWsClose — L254
 ----------------------
@@ -3800,7 +3573,6 @@ event:onWsClose — L254
    :caption: modules/modules/corelib/http.lua (L254)
 
 
-.. _modules-modules-corelib-http-lua-l254-event-onwsclose-00e16cf3b8:
 
 event:onWsClose — L254
 ----------------------
@@ -3812,7 +3584,6 @@ event:onWsClose — L254
    :caption: modules/modules/corelib/http.lua (L254)
 
 
-.. _modules-modules-corelib-http-lua-l254-event-onwsclose-00e16cf3b8:
 
 event:onWsClose — L254
 ----------------------
@@ -3836,7 +3607,6 @@ event:onWsError — L264
    :caption: modules/modules/corelib/http.lua (L264)
 
 
-.. _modules-modules-corelib-http-lua-l264-event-onwserror-9fd0c0b1ba:
 
 event:onWsError — L264
 ----------------------
@@ -3848,7 +3618,6 @@ event:onWsError — L264
    :caption: modules/modules/corelib/http.lua (L264)
 
 
-.. _modules-modules-corelib-http-lua-l264-event-onwserror-9fd0c0b1ba:
 
 event:onWsError — L264
 ----------------------
@@ -3860,7 +3629,6 @@ event:onWsError — L264
    :caption: modules/modules/corelib/http.lua (L264)
 
 
-.. _modules-modules-corelib-http-lua-l264-event-onwserror-9fd0c0b1ba:
 
 event:onWsError — L264
 ----------------------
@@ -3884,7 +3652,6 @@ event:onWsMessage — L223
    :caption: modules/modules/corelib/http.lua (L223)
 
 
-.. _modules-modules-corelib-http-lua-l223-event-onwsmessage-3c2535cab4:
 
 event:onWsMessage — L223
 ------------------------
@@ -3896,7 +3663,6 @@ event:onWsMessage — L223
    :caption: modules/modules/corelib/http.lua (L223)
 
 
-.. _modules-modules-corelib-http-lua-l223-event-onwsmessage-3c2535cab4:
 
 event:onWsMessage — L223
 ------------------------
@@ -3908,7 +3674,6 @@ event:onWsMessage — L223
    :caption: modules/modules/corelib/http.lua (L223)
 
 
-.. _modules-modules-corelib-http-lua-l223-event-onwsmessage-3c2535cab4:
 
 event:onWsMessage — L223
 ------------------------
@@ -3932,7 +3697,6 @@ event:onWsOpen — L213
    :caption: modules/modules/corelib/http.lua (L213)
 
 
-.. _modules-modules-corelib-http-lua-l213-event-onwsopen-e4a38f8a72:
 
 event:onWsOpen — L213
 ---------------------
@@ -3944,7 +3708,6 @@ event:onWsOpen — L213
    :caption: modules/modules/corelib/http.lua (L213)
 
 
-.. _modules-modules-corelib-http-lua-l213-event-onwsopen-e4a38f8a72:
 
 event:onWsOpen — L213
 ---------------------
@@ -3956,7 +3719,6 @@ event:onWsOpen — L213
    :caption: modules/modules/corelib/http.lua (L213)
 
 
-.. _modules-modules-corelib-http-lua-l213-event-onwsopen-e4a38f8a72:
 
 event:onWsOpen — L213
 ---------------------
@@ -3980,7 +3742,6 @@ event:onKeyDown — L99
    :caption: modules/modules/corelib/keyboard.lua (L99)
 
 
-.. _modules-modules-corelib-keyboard-lua-l99-event-onkeydown-471907a937:
 
 event:onKeyDown — L99
 ---------------------
@@ -4004,7 +3765,6 @@ event:onKeyPress — L113
    :caption: modules/modules/corelib/keyboard.lua (L113)
 
 
-.. _modules-modules-corelib-keyboard-lua-l113-event-onkeypress-9ebd59dd4b:
 
 event:onKeyPress — L113
 -----------------------
@@ -4028,7 +3788,6 @@ event:onKeyUp — L106
    :caption: modules/modules/corelib/keyboard.lua (L106)
 
 
-.. _modules-modules-corelib-keyboard-lua-l106-event-onkeyup-8c088c2f2f:
 
 event:onKeyUp — L106
 --------------------
@@ -4052,7 +3811,6 @@ event:onWidgetKeyDown — L75
    :caption: modules/modules/corelib/keyboard.lua (L75)
 
 
-.. _modules-modules-corelib-keyboard-lua-l75-event-onwidgetkeydown-ac389352c6:
 
 event:onWidgetKeyDown — L75
 ---------------------------
@@ -4076,7 +3834,6 @@ event:onWidgetKeyPress — L91
    :caption: modules/modules/corelib/keyboard.lua (L91)
 
 
-.. _modules-modules-corelib-keyboard-lua-l91-event-onwidgetkeypress-026302e95c:
 
 event:onWidgetKeyPress — L91
 ----------------------------
@@ -4100,7 +3857,6 @@ event:onWidgetKeyUp — L83
    :caption: modules/modules/corelib/keyboard.lua (L83)
 
 
-.. _modules-modules-corelib-keyboard-lua-l83-event-onwidgetkeyup-e72cb7f872:
 
 event:onWidgetKeyUp — L83
 -------------------------
@@ -4124,7 +3880,6 @@ event:onMouseMove — L20
    :caption: modules/modules/corelib/mouse.lua (L20)
 
 
-.. _modules-modules-corelib-mouse-lua-l20-event-onmousemove-907172639d:
 
 event:onMouseMove — L20
 -----------------------
@@ -4148,7 +3903,6 @@ event:onMousePress — L4
    :caption: modules/modules/corelib/mouse.lua (L4)
 
 
-.. _modules-modules-corelib-mouse-lua-l4-event-onmousepress-2e6c969a16:
 
 event:onMousePress — L4
 -----------------------
@@ -4160,7 +3914,6 @@ event:onMousePress — L4
    :caption: modules/modules/corelib/mouse.lua (L4)
 
 
-.. _modules-modules-corelib-mouse-lua-l4-event-onmousepress-2e6c969a16:
 
 event:onMousePress — L4
 -----------------------
@@ -4172,7 +3925,6 @@ event:onMousePress — L4
    :caption: modules/modules/corelib/mouse.lua (L4)
 
 
-.. _modules-modules-corelib-mouse-lua-l4-event-onmousepress-2e6c969a16:
 
 event:onMousePress — L4
 -----------------------
@@ -4196,7 +3948,6 @@ event:onClick — L57
    :caption: modules/modules/corelib/ui/effects.lua (L57)
 
 
-.. _modules-modules-corelib-ui-effects-lua-l57-event-onclick-3a1a69c314:
 
 event:onClick — L57
 -------------------
@@ -4208,7 +3959,6 @@ event:onClick — L57
    :caption: modules/modules/corelib/ui/effects.lua (L57)
 
 
-.. _modules-modules-corelib-ui-effects-lua-l57-event-onclick-3a1a69c314:
 
 event:onClick — L57
 -------------------
@@ -4220,7 +3970,6 @@ event:onClick — L57
    :caption: modules/modules/corelib/ui/effects.lua (L57)
 
 
-.. _modules-modules-corelib-ui-effects-lua-l57-event-onclick-3a1a69c314:
 
 event:onClick — L57
 -------------------
@@ -4244,7 +3993,6 @@ event:onHoverChange — L57
    :caption: modules/modules/corelib/ui/tooltip.lua (L57)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l57-event-onhoverchange-2fefa62767:
 
 event:onHoverChange — L57
 -------------------------
@@ -4256,7 +4004,6 @@ event:onHoverChange — L57
    :caption: modules/modules/corelib/ui/tooltip.lua (L57)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l57-event-onhoverchange-2fefa62767:
 
 event:onHoverChange — L57
 -------------------------
@@ -4268,7 +4015,6 @@ event:onHoverChange — L57
    :caption: modules/modules/corelib/ui/tooltip.lua (L57)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l57-event-onhoverchange-2fefa62767:
 
 event:onHoverChange — L57
 -------------------------
@@ -4292,7 +4038,6 @@ event:onMouseMove — L93
    :caption: modules/modules/corelib/ui/tooltip.lua (L93)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l93-event-onmousemove-faec4f50f1:
 
 event:onMouseMove — L93
 -----------------------
@@ -4304,7 +4049,6 @@ event:onMouseMove — L93
    :caption: modules/modules/corelib/ui/tooltip.lua (L93)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l93-event-onmousemove-faec4f50f1:
 
 event:onMouseMove — L93
 -----------------------
@@ -4316,7 +4060,6 @@ event:onMouseMove — L93
    :caption: modules/modules/corelib/ui/tooltip.lua (L93)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l93-event-onmousemove-faec4f50f1:
 
 event:onMouseMove — L93
 -----------------------
@@ -4340,7 +4083,6 @@ event:onStyleApply — L56
    :caption: modules/modules/corelib/ui/tooltip.lua (L56)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l56-event-onstyleapply-abf2b9684f:
 
 event:onStyleApply — L56
 ------------------------
@@ -4352,7 +4094,6 @@ event:onStyleApply — L56
    :caption: modules/modules/corelib/ui/tooltip.lua (L56)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l56-event-onstyleapply-abf2b9684f:
 
 event:onStyleApply — L56
 ------------------------
@@ -4364,7 +4105,6 @@ event:onStyleApply — L56
    :caption: modules/modules/corelib/ui/tooltip.lua (L56)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l56-event-onstyleapply-abf2b9684f:
 
 event:onStyleApply — L56
 ------------------------
@@ -4388,7 +4128,6 @@ event:onTerminate — L124
    :caption: modules/modules/corelib/ui/tooltip.lua (L124)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l124-event-onterminate-90d2217fba:
 
 event:onTerminate — L124
 ------------------------
@@ -4412,7 +4151,6 @@ event:onWidgetHoverChange — L34
    :caption: modules/modules/corelib/ui/tooltip.lua (L34)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l34-event-onwidgethoverch-3f700d0f14:
 
 event:onWidgetHoverChange — L34
 -------------------------------
@@ -4424,7 +4162,6 @@ event:onWidgetHoverChange — L34
    :caption: modules/modules/corelib/ui/tooltip.lua (L34)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l34-event-onwidgethoverch-3f700d0f14:
 
 event:onWidgetHoverChange — L34
 -------------------------------
@@ -4448,7 +4185,6 @@ event:onWidgetStyleApply — L48
    :caption: modules/modules/corelib/ui/tooltip.lua (L48)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l48-event-onwidgetstyleap-79a2826e20:
 
 event:onWidgetStyleApply — L48
 ------------------------------
@@ -4460,7 +4196,6 @@ event:onWidgetStyleApply — L48
    :caption: modules/modules/corelib/ui/tooltip.lua (L48)
 
 
-.. _modules-modules-corelib-ui-tooltip-lua-l48-event-onwidgetstyleap-79a2826e20:
 
 event:onWidgetStyleApply — L48
 ------------------------------
@@ -4508,7 +4243,6 @@ event:onDestroy — L132
    :caption: modules/modules/corelib/ui/uicombobox.lua (L132)
 
 
-.. _modules-modules-corelib-ui-uicombobox-lua-l132-event-ondestroy-c77f786516:
 
 event:onDestroy — L132
 ----------------------
@@ -4556,7 +4290,6 @@ event:onOptionChange — L51
    :caption: modules/modules/corelib/ui/uicombobox.lua (L51)
 
 
-.. _modules-modules-corelib-ui-uicombobox-lua-l51-event-onoptionchan-65203aae16:
 
 event:onOptionChange — L51
 --------------------------
@@ -4568,7 +4301,6 @@ event:onOptionChange — L51
    :caption: modules/modules/corelib/ui/uicombobox.lua (L51)
 
 
-.. _modules-modules-corelib-ui-uicombobox-lua-l51-event-onoptionchan-65203aae16:
 
 event:onOptionChange — L51
 --------------------------
@@ -4652,7 +4384,6 @@ event:onClick — L92
    :caption: modules/modules/corelib/ui/uiinputbox.lua (L92)
 
 
-.. _modules-modules-corelib-ui-uiinputbox-lua-l92-event-onclick-7e4f0bd335:
 
 event:onClick — L92
 -------------------
@@ -4676,7 +4407,6 @@ event:onEnter — L11
    :caption: modules/modules/corelib/ui/uiinputbox.lua (L11)
 
 
-.. _modules-modules-corelib-ui-uiinputbox-lua-l11-event-onenter-6ffd81b503:
 
 event:onEnter — L11
 -------------------
@@ -4700,7 +4430,6 @@ event:onEscape — L19
    :caption: modules/modules/corelib/ui/uiinputbox.lua (L19)
 
 
-.. _modules-modules-corelib-ui-uiinputbox-lua-l19-event-onescape-d97c9db1b4:
 
 event:onEscape — L19
 --------------------
@@ -4724,7 +4453,6 @@ event:onCancel — L93
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L93)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l93-event-oncancel-57436f5bf7:
 
 event:onCancel — L93
 --------------------
@@ -4748,7 +4476,6 @@ event:onClick — L82
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L82)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l82-event-onclick-ff5c10617b:
 
 event:onClick — L82
 -------------------
@@ -4772,7 +4499,6 @@ event:onEnter — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onenter-c877a7b7c7:
 
 event:onEnter — L9
 ------------------
@@ -4796,7 +4522,6 @@ event:onEnterCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onentercall-c8dba8d873:
 
 event:onEnterCallback — L9
 --------------------------
@@ -4808,7 +4533,6 @@ event:onEnterCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onentercall-c8dba8d873:
 
 event:onEnterCallback — L9
 --------------------------
@@ -4820,7 +4544,6 @@ event:onEnterCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onentercall-c8dba8d873:
 
 event:onEnterCallback — L9
 --------------------------
@@ -4832,7 +4555,6 @@ event:onEnterCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onentercall-c8dba8d873:
 
 event:onEnterCallback — L9
 --------------------------
@@ -4856,7 +4578,6 @@ event:onEscape — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onescape-70c8330f06:
 
 event:onEscape — L9
 -------------------
@@ -4880,7 +4601,6 @@ event:onEscapeCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onescapecal-1d57ae58f1:
 
 event:onEscapeCallback — L9
 ---------------------------
@@ -4892,7 +4612,6 @@ event:onEscapeCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onescapecal-1d57ae58f1:
 
 event:onEscapeCallback — L9
 ---------------------------
@@ -4904,7 +4623,6 @@ event:onEscapeCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onescapecal-1d57ae58f1:
 
 event:onEscapeCallback — L9
 ---------------------------
@@ -4916,7 +4634,6 @@ event:onEscapeCallback — L9
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l9-event-onescapecal-1d57ae58f1:
 
 event:onEscapeCallback — L9
 ---------------------------
@@ -4940,7 +4657,6 @@ event:onOk — L87
    :caption: modules/modules/corelib/ui/uimessagebox.lua (L87)
 
 
-.. _modules-modules-corelib-ui-uimessagebox-lua-l87-event-onok-7e250ce9b2:
 
 event:onOk — L87
 ----------------
@@ -4964,7 +4680,6 @@ event:onClick — L98
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L98)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l98-event-onclick-258e177b7d:
 
 event:onClick — L98
 -------------------
@@ -4976,7 +4691,6 @@ event:onClick — L98
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L98)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l98-event-onclick-258e177b7d:
 
 event:onClick — L98
 -------------------
@@ -5012,7 +4726,6 @@ event:onDoubleClick — L131
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L131)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l131-event-ondoublec-53f2058b08:
 
 event:onDoubleClick — L131
 --------------------------
@@ -5048,7 +4761,6 @@ event:onDragLeave — L230
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L230)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l230-event-ondraglea-916cd008fb:
 
 event:onDragLeave — L230
 ------------------------
@@ -5072,7 +4784,6 @@ event:onDragMove — L243
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L243)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l243-event-ondragmov-21941d8af9:
 
 event:onDragMove — L243
 -----------------------
@@ -5108,7 +4819,6 @@ event:onHeightChange — L303
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L303)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l303-event-onheightc-98b51a80f9:
 
 event:onHeightChange — L303
 ---------------------------
@@ -5132,7 +4842,6 @@ event:onLockChange — L82
    :caption: modules/modules/corelib/ui/uiminiwindow.lua (L82)
 
 
-.. _modules-modules-corelib-ui-uiminiwindow-lua-l82-event-onlockchan-fbb8499cf3:
 
 event:onLockChange — L82
 ------------------------
@@ -5252,7 +4961,6 @@ event:onClick — L260
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L260)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l260-event-onclic-956f67d20c:
 
 event:onClick — L260
 --------------------
@@ -5264,7 +4972,6 @@ event:onClick — L260
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L260)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l260-event-onclic-956f67d20c:
 
 event:onClick — L260
 --------------------
@@ -5288,7 +4995,6 @@ event:onDestroy — L220
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L220)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l220-event-ondest-a839b8d7c4:
 
 event:onDestroy — L220
 ----------------------
@@ -5396,7 +5102,6 @@ event:onTabClick — L5
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L5)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l5-event-ontabcli-fca1f003b3:
 
 event:onTabClick — L5
 ---------------------
@@ -5420,7 +5125,6 @@ event:onTabDragEnter — L159
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L159)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l159-event-ontabd-4a56a19090:
 
 event:onTabDragEnter — L159
 ---------------------------
@@ -5444,7 +5148,6 @@ event:onTabDragLeave — L166
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L166)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l166-event-ontabd-3984dc8d55:
 
 event:onTabDragLeave — L166
 ---------------------------
@@ -5468,7 +5171,6 @@ event:onTabDragMove — L172
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L172)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l172-event-ontabd-221aa295e3:
 
 event:onTabDragMove — L172
 --------------------------
@@ -5492,7 +5194,6 @@ event:onTabMousePress — L152
    :caption: modules/modules/corelib/ui/uimovabletabbar.lua (L152)
 
 
-.. _modules-modules-corelib-ui-uimovabletabbar-lua-l152-event-ontabm-a026ff265f:
 
 event:onTabMousePress — L152
 ----------------------------
@@ -5540,7 +5241,6 @@ event:onGameEnd — L115
    :caption: modules/modules/corelib/ui/uipopupmenu.lua (L115)
 
 
-.. _modules-modules-corelib-ui-uipopupmenu-lua-l115-event-ongameend-8fe368f2b1:
 
 event:onGameEnd — L115
 ----------------------
@@ -5552,7 +5252,6 @@ event:onGameEnd — L115
    :caption: modules/modules/corelib/ui/uipopupmenu.lua (L115)
 
 
-.. _modules-modules-corelib-ui-uipopupmenu-lua-l115-event-ongameend-8fe368f2b1:
 
 event:onGameEnd — L115
 ----------------------
@@ -5564,7 +5263,6 @@ event:onGameEnd — L115
    :caption: modules/modules/corelib/ui/uipopupmenu.lua (L115)
 
 
-.. _modules-modules-corelib-ui-uipopupmenu-lua-l115-event-ongameend-8fe368f2b1:
 
 event:onGameEnd — L115
 ----------------------
@@ -5588,7 +5286,6 @@ event:onGeometryChange — L43
    :caption: modules/modules/corelib/ui/uipopupmenu.lua (L43)
 
 
-.. _modules-modules-corelib-ui-uipopupmenu-lua-l43-event-ongeometryc-adaa684468:
 
 event:onGeometryChange — L43
 ----------------------------
@@ -5600,7 +5297,6 @@ event:onGeometryChange — L43
    :caption: modules/modules/corelib/ui/uipopupmenu.lua (L43)
 
 
-.. _modules-modules-corelib-ui-uipopupmenu-lua-l43-event-ongeometryc-adaa684468:
 
 event:onGeometryChange — L43
 ----------------------------
@@ -5648,7 +5344,6 @@ event:onRootGeometryUpdate — L109
    :caption: modules/modules/corelib/ui/uipopupmenu.lua (L109)
 
 
-.. _modules-modules-corelib-ui-uipopupmenu-lua-l109-event-onrootgeom-5521ad6152:
 
 event:onRootGeometryUpdate — L109
 ---------------------------------
@@ -5696,7 +5391,6 @@ event:onGeometryChange — L62
    :caption: modules/modules/corelib/ui/uipopupscrollmenu.lua (L62)
 
 
-.. _modules-modules-corelib-ui-uipopupscrollmenu-lua-l62-event-ongeo-41487e715d:
 
 event:onGeometryChange — L62
 ----------------------------
@@ -5708,7 +5402,6 @@ event:onGeometryChange — L62
    :caption: modules/modules/corelib/ui/uipopupscrollmenu.lua (L62)
 
 
-.. _modules-modules-corelib-ui-uipopupscrollmenu-lua-l62-event-ongeo-41487e715d:
 
 event:onGeometryChange — L62
 ----------------------------
@@ -5756,7 +5449,6 @@ event:onRootGeometryUpdate — L124
    :caption: modules/modules/corelib/ui/uipopupscrollmenu.lua (L124)
 
 
-.. _modules-modules-corelib-ui-uipopupscrollmenu-lua-l124-event-onro-a70a570e50:
 
 event:onRootGeometryUpdate — L124
 ---------------------------------
@@ -5816,7 +5508,6 @@ event:onClick — L13
    :caption: modules/modules/corelib/ui/uiradiogroup.lua (L13)
 
 
-.. _modules-modules-corelib-ui-uiradiogroup-lua-l13-event-onclick-bffc34e4b0:
 
 event:onClick — L13
 -------------------
@@ -5828,7 +5519,6 @@ event:onClick — L13
    :caption: modules/modules/corelib/ui/uiradiogroup.lua (L13)
 
 
-.. _modules-modules-corelib-ui-uiradiogroup-lua-l13-event-onclick-bffc34e4b0:
 
 event:onClick — L13
 -------------------
@@ -5852,7 +5542,6 @@ event:onSelectionChange — L46
    :caption: modules/modules/corelib/ui/uiradiogroup.lua (L46)
 
 
-.. _modules-modules-corelib-ui-uiradiogroup-lua-l46-event-onselectio-3f8134e837:
 
 event:onSelectionChange — L46
 -----------------------------
@@ -5996,7 +5685,6 @@ event:onScrollChange — L80
    :caption: modules/modules/corelib/ui/uiscrollarea.lua (L80)
 
 
-.. _modules-modules-corelib-ui-uiscrollarea-lua-l80-event-onscrollch-be0acbbf33:
 
 event:onScrollChange — L80
 --------------------------
@@ -6020,7 +5708,6 @@ event:onScrollHeightChange — L67
    :caption: modules/modules/corelib/ui/uiscrollarea.lua (L67)
 
 
-.. _modules-modules-corelib-ui-uiscrollarea-lua-l67-event-onscrollhe-62a8e0c1bb:
 
 event:onScrollHeightChange — L67
 --------------------------------
@@ -6044,7 +5731,6 @@ event:onScrollWidthChange — L64
    :caption: modules/modules/corelib/ui/uiscrollarea.lua (L64)
 
 
-.. _modules-modules-corelib-ui-uiscrollarea-lua-l64-event-onscrollwi-9f0e26d6e9:
 
 event:onScrollWidthChange — L64
 -------------------------------
@@ -6080,7 +5766,6 @@ event:onValueChange — L76
    :caption: modules/modules/corelib/ui/uiscrollarea.lua (L76)
 
 
-.. _modules-modules-corelib-ui-uiscrollarea-lua-l76-event-onvaluecha-65d8d6ee66:
 
 event:onValueChange — L76
 -------------------------
@@ -6104,7 +5789,6 @@ event:onDecrement — L132
    :caption: modules/modules/corelib/ui/uiscrollbar.lua (L132)
 
 
-.. _modules-modules-corelib-ui-uiscrollbar-lua-l132-event-ondecremen-0e96f84dac:
 
 event:onDecrement — L132
 ------------------------
@@ -6140,7 +5824,6 @@ event:onIncrement — L133
    :caption: modules/modules/corelib/ui/uiscrollbar.lua (L133)
 
 
-.. _modules-modules-corelib-ui-uiscrollbar-lua-l133-event-onincremen-35abfc4113:
 
 event:onIncrement — L133
 ------------------------
@@ -6284,7 +5967,6 @@ event:onValueChange — L68
    :caption: modules/modules/corelib/ui/uispinbox.lua (L68)
 
 
-.. _modules-modules-corelib-ui-uispinbox-lua-l68-event-onvaluechange-c790f964d6:
 
 event:onValueChange — L68
 -------------------------
@@ -6356,7 +6038,6 @@ event:onClick — L48
    :caption: modules/modules/corelib/ui/uitabbar.lua (L48)
 
 
-.. _modules-modules-corelib-ui-uitabbar-lua-l48-event-onclick-c61b8d9fb4:
 
 event:onClick — L48
 -------------------
@@ -6428,7 +6109,6 @@ event:onTabClick — L5
    :caption: modules/modules/corelib/ui/uitabbar.lua (L5)
 
 
-.. _modules-modules-corelib-ui-uitabbar-lua-l5-event-ontabclick-3a6d493a6d:
 
 event:onTabClick — L5
 ---------------------
@@ -6464,7 +6144,6 @@ event:onTabMouseRelease — L9
    :caption: modules/modules/corelib/ui/uitabbar.lua (L9)
 
 
-.. _modules-modules-corelib-ui-uitabbar-lua-l9-event-ontabmouserelea-480ac509f6:
 
 event:onTabMouseRelease — L9
 ----------------------------
@@ -6488,7 +6167,6 @@ event:onClick — L38
    :caption: modules/modules/corelib/ui/uitable.lua (L38)
 
 
-.. _modules-modules-corelib-ui-uitable-lua-l38-event-onclick-bb8ae73cdd:
 
 event:onClick — L38
 -------------------
@@ -6500,7 +6178,6 @@ event:onClick — L38
    :caption: modules/modules/corelib/ui/uitable.lua (L38)
 
 
-.. _modules-modules-corelib-ui-uitable-lua-l38-event-onclick-bb8ae73cdd:
 
 event:onClick — L38
 -------------------
@@ -6512,7 +6189,6 @@ event:onClick — L38
    :caption: modules/modules/corelib/ui/uitable.lua (L38)
 
 
-.. _modules-modules-corelib-ui-uitable-lua-l38-event-onclick-bb8ae73cdd:
 
 event:onClick — L38
 -------------------
@@ -6524,7 +6200,6 @@ event:onClick — L38
    :caption: modules/modules/corelib/ui/uitable.lua (L38)
 
 
-.. _modules-modules-corelib-ui-uitable-lua-l38-event-onclick-bb8ae73cdd:
 
 event:onClick — L38
 -------------------
@@ -6596,7 +6271,6 @@ event:onStyleApply — L62
    :caption: modules/modules/corelib/ui/uitable.lua (L62)
 
 
-.. _modules-modules-corelib-ui-uitable-lua-l62-event-onstyleapply-ab87b3a293:
 
 event:onStyleApply — L62
 ------------------------
@@ -6656,7 +6330,6 @@ event:onValueChange — L39
    :caption: modules/modules/corelib/ui/uitextedit.lua (L39)
 
 
-.. _modules-modules-corelib-ui-uitextedit-lua-l39-event-onvaluechang-dae0180d89:
 
 event:onValueChange — L39
 -------------------------
@@ -6788,7 +6461,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6800,7 +6472,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6812,7 +6483,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6824,7 +6494,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6836,7 +6505,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6848,7 +6516,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6860,7 +6527,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6872,7 +6538,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6884,7 +6549,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6896,7 +6560,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6908,7 +6571,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6920,7 +6582,6 @@ event:onClick — L533
    :caption: modules/modules/game_actionbar/actionbar.lua (L533)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l533-event-onclick-7598004311:
 
 event:onClick — L533
 --------------------
@@ -6956,7 +6617,6 @@ event:onDropActionButton — L79
    :caption: modules/modules/game_actionbar/actionbar.lua (L79)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l79-event-ondropact-b62aaec147:
 
 event:onDropActionButton — L79
 ------------------------------
@@ -6980,7 +6640,6 @@ event:onEnter — L646
    :caption: modules/modules/game_actionbar/actionbar.lua (L646)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l646-event-onenter-30bd729e83:
 
 event:onEnter — L646
 --------------------
@@ -6992,7 +6651,6 @@ event:onEnter — L646
    :caption: modules/modules/game_actionbar/actionbar.lua (L646)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l646-event-onenter-30bd729e83:
 
 event:onEnter — L646
 --------------------
@@ -7016,7 +6674,6 @@ event:onEscape — L649
    :caption: modules/modules/game_actionbar/actionbar.lua (L649)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l649-event-onescape-c911f5b2cf:
 
 event:onEscape — L649
 ---------------------
@@ -7028,7 +6685,6 @@ event:onEscape — L649
    :caption: modules/modules/game_actionbar/actionbar.lua (L649)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l649-event-onescape-c911f5b2cf:
 
 event:onEscape — L649
 ---------------------
@@ -7052,7 +6708,6 @@ event:onGameEnd — L66
    :caption: modules/modules/game_actionbar/actionbar.lua (L66)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l66-event-ongameend-57c0150f68:
 
 event:onGameEnd — L66
 ---------------------
@@ -7064,7 +6719,6 @@ event:onGameEnd — L66
    :caption: modules/modules/game_actionbar/actionbar.lua (L66)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l66-event-ongameend-57c0150f68:
 
 event:onGameEnd — L66
 ---------------------
@@ -7076,7 +6730,6 @@ event:onGameEnd — L66
    :caption: modules/modules/game_actionbar/actionbar.lua (L66)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l66-event-ongameend-57c0150f68:
 
 event:onGameEnd — L66
 ---------------------
@@ -7100,7 +6753,6 @@ event:onGameStart — L65
    :caption: modules/modules/game_actionbar/actionbar.lua (L65)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l65-event-ongamesta-7c9e2a3ac2:
 
 event:onGameStart — L65
 -----------------------
@@ -7112,7 +6764,6 @@ event:onGameStart — L65
    :caption: modules/modules/game_actionbar/actionbar.lua (L65)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l65-event-ongamesta-7c9e2a3ac2:
 
 event:onGameStart — L65
 -----------------------
@@ -7124,7 +6775,6 @@ event:onGameStart — L65
    :caption: modules/modules/game_actionbar/actionbar.lua (L65)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l65-event-ongamesta-7c9e2a3ac2:
 
 event:onGameStart — L65
 -----------------------
@@ -7148,7 +6798,6 @@ event:onItemChange — L358
    :caption: modules/modules/game_actionbar/actionbar.lua (L358)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l358-event-onitemch-9b79ca8e48:
 
 event:onItemChange — L358
 -------------------------
@@ -7160,7 +6809,6 @@ event:onItemChange — L358
    :caption: modules/modules/game_actionbar/actionbar.lua (L358)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l358-event-onitemch-9b79ca8e48:
 
 event:onItemChange — L358
 -------------------------
@@ -7196,7 +6844,6 @@ event:onMouseRelease — L79
    :caption: modules/modules/game_actionbar/actionbar.lua (L79)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l79-event-onmousere-4fc399450a:
 
 event:onMouseRelease — L79
 --------------------------
@@ -7244,7 +6891,6 @@ event:onSpellCooldown — L68
    :caption: modules/modules/game_actionbar/actionbar.lua (L68)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l68-event-onspellco-43c1184254:
 
 event:onSpellCooldown — L68
 ---------------------------
@@ -7256,7 +6902,6 @@ event:onSpellCooldown — L68
    :caption: modules/modules/game_actionbar/actionbar.lua (L68)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l68-event-onspellco-43c1184254:
 
 event:onSpellCooldown — L68
 ---------------------------
@@ -7268,7 +6913,6 @@ event:onSpellCooldown — L68
    :caption: modules/modules/game_actionbar/actionbar.lua (L68)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l68-event-onspellco-43c1184254:
 
 event:onSpellCooldown — L68
 ---------------------------
@@ -7280,7 +6924,6 @@ event:onSpellCooldown — L68
    :caption: modules/modules/game_actionbar/actionbar.lua (L68)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l68-event-onspellco-43c1184254:
 
 event:onSpellCooldown — L68
 ---------------------------
@@ -7292,7 +6935,6 @@ event:onSpellCooldown — L68
    :caption: modules/modules/game_actionbar/actionbar.lua (L68)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l68-event-onspellco-43c1184254:
 
 event:onSpellCooldown — L68
 ---------------------------
@@ -7304,7 +6946,6 @@ event:onSpellCooldown — L68
    :caption: modules/modules/game_actionbar/actionbar.lua (L68)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l68-event-onspellco-43c1184254:
 
 event:onSpellCooldown — L68
 ---------------------------
@@ -7328,7 +6969,6 @@ event:onSpellGroupCooldown — L67
    :caption: modules/modules/game_actionbar/actionbar.lua (L67)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l67-event-onspellgr-1d7123e316:
 
 event:onSpellGroupCooldown — L67
 --------------------------------
@@ -7340,7 +6980,6 @@ event:onSpellGroupCooldown — L67
    :caption: modules/modules/game_actionbar/actionbar.lua (L67)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l67-event-onspellgr-1d7123e316:
 
 event:onSpellGroupCooldown — L67
 --------------------------------
@@ -7352,7 +6991,6 @@ event:onSpellGroupCooldown — L67
    :caption: modules/modules/game_actionbar/actionbar.lua (L67)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l67-event-onspellgr-1d7123e316:
 
 event:onSpellGroupCooldown — L67
 --------------------------------
@@ -7364,7 +7002,6 @@ event:onSpellGroupCooldown — L67
    :caption: modules/modules/game_actionbar/actionbar.lua (L67)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l67-event-onspellgr-1d7123e316:
 
 event:onSpellGroupCooldown — L67
 --------------------------------
@@ -7376,7 +7013,6 @@ event:onSpellGroupCooldown — L67
    :caption: modules/modules/game_actionbar/actionbar.lua (L67)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l67-event-onspellgr-1d7123e316:
 
 event:onSpellGroupCooldown — L67
 --------------------------------
@@ -7388,7 +7024,6 @@ event:onSpellGroupCooldown — L67
    :caption: modules/modules/game_actionbar/actionbar.lua (L67)
 
 
-.. _modules-modules-game-actionbar-actionbar-lua-l67-event-onspellgr-1d7123e316:
 
 event:onSpellGroupCooldown — L67
 --------------------------------
@@ -7424,7 +7059,6 @@ event:onAppear — L78
    :caption: modules/modules/game_battle/battle.lua (L78)
 
 
-.. _modules-modules-game-battle-battle-lua-l78-event-onappear-a568c2a0b1:
 
 event:onAppear — L78
 --------------------
@@ -7436,7 +7070,6 @@ event:onAppear — L78
    :caption: modules/modules/game_battle/battle.lua (L78)
 
 
-.. _modules-modules-game-battle-battle-lua-l78-event-onappear-a568c2a0b1:
 
 event:onAppear — L78
 --------------------
@@ -7448,7 +7081,6 @@ event:onAppear — L78
    :caption: modules/modules/game_battle/battle.lua (L78)
 
 
-.. _modules-modules-game-battle-battle-lua-l78-event-onappear-a568c2a0b1:
 
 event:onAppear — L78
 --------------------
@@ -7472,7 +7104,6 @@ event:onAttackingCreatureChange — L82
    :caption: modules/modules/game_battle/battle.lua (L82)
 
 
-.. _modules-modules-game-battle-battle-lua-l82-event-onattackingcrea-6efaabfd29:
 
 event:onAttackingCreatureChange — L82
 -------------------------------------
@@ -7484,7 +7115,6 @@ event:onAttackingCreatureChange — L82
    :caption: modules/modules/game_battle/battle.lua (L82)
 
 
-.. _modules-modules-game-battle-battle-lua-l82-event-onattackingcrea-6efaabfd29:
 
 event:onAttackingCreatureChange — L82
 -------------------------------------
@@ -7496,7 +7126,6 @@ event:onAttackingCreatureChange — L82
    :caption: modules/modules/game_battle/battle.lua (L82)
 
 
-.. _modules-modules-game-battle-battle-lua-l82-event-onattackingcrea-6efaabfd29:
 
 event:onAttackingCreatureChange — L82
 -------------------------------------
@@ -7520,7 +7149,6 @@ event:onBattleButtonHoverChange — L67
    :caption: modules/modules/game_battle/battle.lua (L67)
 
 
-.. _modules-modules-game-battle-battle-lua-l67-event-onbattlebuttonh-8acad98cc2:
 
 event:onBattleButtonHoverChange — L67
 -------------------------------------
@@ -7532,7 +7160,6 @@ event:onBattleButtonHoverChange — L67
    :caption: modules/modules/game_battle/battle.lua (L67)
 
 
-.. _modules-modules-game-battle-battle-lua-l67-event-onbattlebuttonh-8acad98cc2:
 
 event:onBattleButtonHoverChange — L67
 -------------------------------------
@@ -7556,7 +7183,6 @@ event:onBattleButtonMouseRelease — L68
    :caption: modules/modules/game_battle/battle.lua (L68)
 
 
-.. _modules-modules-game-battle-battle-lua-l68-event-onbattlebuttonm-0e77779d1f:
 
 event:onBattleButtonMouseRelease — L68
 --------------------------------------
@@ -7580,7 +7206,6 @@ event:onChangeSortOrder — L59
    :caption: modules/modules/game_battle/battle.lua (L59)
 
 
-.. _modules-modules-game-battle-battle-lua-l59-event-onchangesortord-4dd799d327:
 
 event:onChangeSortOrder — L59
 -----------------------------
@@ -7604,7 +7229,6 @@ event:onChangeSortType — L54
    :caption: modules/modules/game_battle/battle.lua (L54)
 
 
-.. _modules-modules-game-battle-battle-lua-l54-event-onchangesorttyp-1512a762d2:
 
 event:onChangeSortType — L54
 ----------------------------
@@ -7652,7 +7276,6 @@ event:onDisappear — L79
    :caption: modules/modules/game_battle/battle.lua (L79)
 
 
-.. _modules-modules-game-battle-battle-lua-l79-event-ondisappear-2a5bbc510d:
 
 event:onDisappear — L79
 -----------------------
@@ -7664,7 +7287,6 @@ event:onDisappear — L79
    :caption: modules/modules/game_battle/battle.lua (L79)
 
 
-.. _modules-modules-game-battle-battle-lua-l79-event-ondisappear-2a5bbc510d:
 
 event:onDisappear — L79
 -----------------------
@@ -7676,7 +7298,6 @@ event:onDisappear — L79
    :caption: modules/modules/game_battle/battle.lua (L79)
 
 
-.. _modules-modules-game-battle-battle-lua-l79-event-ondisappear-2a5bbc510d:
 
 event:onDisappear — L79
 -----------------------
@@ -7700,7 +7321,6 @@ event:onFollowed — L415
    :caption: modules/modules/game_battle/battle.lua (L415)
 
 
-.. _modules-modules-game-battle-battle-lua-l415-event-onfollowed-58d7672899:
 
 event:onFollowed — L415
 -----------------------
@@ -7724,7 +7344,6 @@ event:onFollowingCreatureChange — L83
    :caption: modules/modules/game_battle/battle.lua (L83)
 
 
-.. _modules-modules-game-battle-battle-lua-l83-event-onfollowingcrea-d1c7f82691:
 
 event:onFollowingCreatureChange — L83
 -------------------------------------
@@ -7736,7 +7355,6 @@ event:onFollowingCreatureChange — L83
    :caption: modules/modules/game_battle/battle.lua (L83)
 
 
-.. _modules-modules-game-battle-battle-lua-l83-event-onfollowingcrea-d1c7f82691:
 
 event:onFollowingCreatureChange — L83
 -------------------------------------
@@ -7748,7 +7366,6 @@ event:onFollowingCreatureChange — L83
    :caption: modules/modules/game_battle/battle.lua (L83)
 
 
-.. _modules-modules-game-battle-battle-lua-l83-event-onfollowingcrea-d1c7f82691:
 
 event:onFollowingCreatureChange — L83
 -------------------------------------
@@ -7784,7 +7401,6 @@ event:onIdle — L413
    :caption: modules/modules/game_battle/battle.lua (L413)
 
 
-.. _modules-modules-game-battle-battle-lua-l413-event-onidle-704ac64829:
 
 event:onIdle — L413
 -------------------
@@ -7796,7 +7412,6 @@ event:onIdle — L413
    :caption: modules/modules/game_battle/battle.lua (L413)
 
 
-.. _modules-modules-game-battle-battle-lua-l413-event-onidle-704ac64829:
 
 event:onIdle — L413
 -------------------
@@ -7844,7 +7459,6 @@ event:onOptionChange — L54
    :caption: modules/modules/game_battle/battle.lua (L54)
 
 
-.. _modules-modules-game-battle-battle-lua-l54-event-onoptionchange-94b7185901:
 
 event:onOptionChange — L54
 --------------------------
@@ -7868,7 +7482,6 @@ event:onPlayerPositionChange — L75
    :caption: modules/modules/game_battle/battle.lua (L75)
 
 
-.. _modules-modules-game-battle-battle-lua-l75-event-onplayerpositio-f8b53aa77f:
 
 event:onPlayerPositionChange — L75
 ----------------------------------
@@ -7880,7 +7493,6 @@ event:onPlayerPositionChange — L75
    :caption: modules/modules/game_battle/battle.lua (L75)
 
 
-.. _modules-modules-game-battle-battle-lua-l75-event-onplayerpositio-f8b53aa77f:
 
 event:onPlayerPositionChange — L75
 ----------------------------------
@@ -7904,7 +7516,6 @@ event:onPositionChange — L75
    :caption: modules/modules/game_battle/battle.lua (L75)
 
 
-.. _modules-modules-game-battle-battle-lua-l75-event-onpositionchang-ad83d07c70:
 
 event:onPositionChange — L75
 ----------------------------
@@ -7916,7 +7527,6 @@ event:onPositionChange — L75
    :caption: modules/modules/game_battle/battle.lua (L75)
 
 
-.. _modules-modules-game-battle-battle-lua-l75-event-onpositionchang-ad83d07c70:
 
 event:onPositionChange — L75
 ----------------------------
@@ -7928,7 +7538,6 @@ event:onPositionChange — L75
    :caption: modules/modules/game_battle/battle.lua (L75)
 
 
-.. _modules-modules-game-battle-battle-lua-l75-event-onpositionchang-ad83d07c70:
 
 event:onPositionChange — L75
 ----------------------------
@@ -7952,7 +7561,6 @@ event:onTargeted — L414
    :caption: modules/modules/game_battle/battle.lua (L414)
 
 
-.. _modules-modules-game-battle-battle-lua-l414-event-ontargeted-6351dc01a9:
 
 event:onTargeted — L414
 -----------------------
@@ -7976,7 +7584,6 @@ event:onAddItem — L496
    :caption: modules/modules/game_bot/bot.lua (L496)
 
 
-.. _modules-modules-game-bot-bot-lua-l496-event-onadditem-270ebfa0cc:
 
 event:onAddItem — L496
 ----------------------
@@ -7988,7 +7595,6 @@ event:onAddItem — L496
    :caption: modules/modules/game_bot/bot.lua (L496)
 
 
-.. _modules-modules-game-bot-bot-lua-l496-event-onadditem-270ebfa0cc:
 
 event:onAddItem — L496
 ----------------------
@@ -8000,7 +7606,6 @@ event:onAddItem — L496
    :caption: modules/modules/game_bot/bot.lua (L496)
 
 
-.. _modules-modules-game-bot-bot-lua-l496-event-onadditem-270ebfa0cc:
 
 event:onAddItem — L496
 ----------------------
@@ -8012,7 +7617,6 @@ event:onAddItem — L496
    :caption: modules/modules/game_bot/bot.lua (L496)
 
 
-.. _modules-modules-game-bot-bot-lua-l496-event-onadditem-270ebfa0cc:
 
 event:onAddItem — L496
 ----------------------
@@ -8024,7 +7628,6 @@ event:onAddItem — L496
    :caption: modules/modules/game_bot/bot.lua (L496)
 
 
-.. _modules-modules-game-bot-bot-lua-l496-event-onadditem-270ebfa0cc:
 
 event:onAddItem — L496
 ----------------------
@@ -8036,7 +7639,6 @@ event:onAddItem — L496
    :caption: modules/modules/game_bot/bot.lua (L496)
 
 
-.. _modules-modules-game-bot-bot-lua-l496-event-onadditem-270ebfa0cc:
 
 event:onAddItem — L496
 ----------------------
@@ -8060,7 +7662,6 @@ event:onAddThing — L504
    :caption: modules/modules/game_bot/bot.lua (L504)
 
 
-.. _modules-modules-game-bot-bot-lua-l504-event-onaddthing-555d15e610:
 
 event:onAddThing — L504
 -----------------------
@@ -8072,7 +7673,6 @@ event:onAddThing — L504
    :caption: modules/modules/game_bot/bot.lua (L504)
 
 
-.. _modules-modules-game-bot-bot-lua-l504-event-onaddthing-555d15e610:
 
 event:onAddThing — L504
 -----------------------
@@ -8084,7 +7684,6 @@ event:onAddThing — L504
    :caption: modules/modules/game_bot/bot.lua (L504)
 
 
-.. _modules-modules-game-bot-bot-lua-l504-event-onaddthing-555d15e610:
 
 event:onAddThing — L504
 -----------------------
@@ -8096,7 +7695,6 @@ event:onAddThing — L504
    :caption: modules/modules/game_bot/bot.lua (L504)
 
 
-.. _modules-modules-game-bot-bot-lua-l504-event-onaddthing-555d15e610:
 
 event:onAddThing — L504
 -----------------------
@@ -8120,7 +7718,6 @@ event:onAnimatedText — L537
    :caption: modules/modules/game_bot/bot.lua (L537)
 
 
-.. _modules-modules-game-bot-bot-lua-l537-event-onanimatedtext-13f1fcb9c2:
 
 event:onAnimatedText — L537
 ---------------------------
@@ -8132,7 +7729,6 @@ event:onAnimatedText — L537
    :caption: modules/modules/game_bot/bot.lua (L537)
 
 
-.. _modules-modules-game-bot-bot-lua-l537-event-onanimatedtext-13f1fcb9c2:
 
 event:onAnimatedText — L537
 ---------------------------
@@ -8144,7 +7740,6 @@ event:onAnimatedText — L537
    :caption: modules/modules/game_bot/bot.lua (L537)
 
 
-.. _modules-modules-game-bot-bot-lua-l537-event-onanimatedtext-13f1fcb9c2:
 
 event:onAnimatedText — L537
 ---------------------------
@@ -8156,7 +7751,6 @@ event:onAnimatedText — L537
    :caption: modules/modules/game_bot/bot.lua (L537)
 
 
-.. _modules-modules-game-bot-bot-lua-l537-event-onanimatedtext-13f1fcb9c2:
 
 event:onAnimatedText — L537
 ---------------------------
@@ -8180,7 +7774,6 @@ event:onAppear — L509
    :caption: modules/modules/game_bot/bot.lua (L509)
 
 
-.. _modules-modules-game-bot-bot-lua-l509-event-onappear-267ddbd4f2:
 
 event:onAppear — L509
 ---------------------
@@ -8192,7 +7785,6 @@ event:onAppear — L509
    :caption: modules/modules/game_bot/bot.lua (L509)
 
 
-.. _modules-modules-game-bot-bot-lua-l509-event-onappear-267ddbd4f2:
 
 event:onAppear — L509
 ---------------------
@@ -8204,7 +7796,6 @@ event:onAppear — L509
    :caption: modules/modules/game_bot/bot.lua (L509)
 
 
-.. _modules-modules-game-bot-bot-lua-l509-event-onappear-267ddbd4f2:
 
 event:onAppear — L509
 ---------------------
@@ -8228,7 +7819,6 @@ event:onAttackingCreatureChange — L495
    :caption: modules/modules/game_bot/bot.lua (L495)
 
 
-.. _modules-modules-game-bot-bot-lua-l495-event-onattackingcreaturec-a778c68066:
 
 event:onAttackingCreatureChange — L495
 --------------------------------------
@@ -8240,7 +7830,6 @@ event:onAttackingCreatureChange — L495
    :caption: modules/modules/game_bot/bot.lua (L495)
 
 
-.. _modules-modules-game-bot-bot-lua-l495-event-onattackingcreaturec-a778c68066:
 
 event:onAttackingCreatureChange — L495
 --------------------------------------
@@ -8252,7 +7841,6 @@ event:onAttackingCreatureChange — L495
    :caption: modules/modules/game_bot/bot.lua (L495)
 
 
-.. _modules-modules-game-bot-bot-lua-l495-event-onattackingcreaturec-a778c68066:
 
 event:onAttackingCreatureChange — L495
 --------------------------------------
@@ -8264,7 +7852,6 @@ event:onAttackingCreatureChange — L495
    :caption: modules/modules/game_bot/bot.lua (L495)
 
 
-.. _modules-modules-game-bot-bot-lua-l495-event-onattackingcreaturec-a778c68066:
 
 event:onAttackingCreatureChange — L495
 --------------------------------------
@@ -8288,7 +7875,6 @@ event:onChannelEvent — L492
    :caption: modules/modules/game_bot/bot.lua (L492)
 
 
-.. _modules-modules-game-bot-bot-lua-l492-event-onchannelevent-e0a7265ce0:
 
 event:onChannelEvent — L492
 ---------------------------
@@ -8300,7 +7886,6 @@ event:onChannelEvent — L492
    :caption: modules/modules/game_bot/bot.lua (L492)
 
 
-.. _modules-modules-game-bot-bot-lua-l492-event-onchannelevent-e0a7265ce0:
 
 event:onChannelEvent — L492
 ---------------------------
@@ -8312,7 +7897,6 @@ event:onChannelEvent — L492
    :caption: modules/modules/game_bot/bot.lua (L492)
 
 
-.. _modules-modules-game-bot-bot-lua-l492-event-onchannelevent-e0a7265ce0:
 
 event:onChannelEvent — L492
 ---------------------------
@@ -8324,7 +7908,6 @@ event:onChannelEvent — L492
    :caption: modules/modules/game_bot/bot.lua (L492)
 
 
-.. _modules-modules-game-bot-bot-lua-l492-event-onchannelevent-e0a7265ce0:
 
 event:onChannelEvent — L492
 ---------------------------
@@ -8348,7 +7931,6 @@ event:onChannelList — L489
    :caption: modules/modules/game_bot/bot.lua (L489)
 
 
-.. _modules-modules-game-bot-bot-lua-l489-event-onchannellist-e9be63e554:
 
 event:onChannelList — L489
 --------------------------
@@ -8360,7 +7942,6 @@ event:onChannelList — L489
    :caption: modules/modules/game_bot/bot.lua (L489)
 
 
-.. _modules-modules-game-bot-bot-lua-l489-event-onchannellist-e9be63e554:
 
 event:onChannelList — L489
 --------------------------
@@ -8372,7 +7953,6 @@ event:onChannelList — L489
    :caption: modules/modules/game_bot/bot.lua (L489)
 
 
-.. _modules-modules-game-bot-bot-lua-l489-event-onchannellist-e9be63e554:
 
 event:onChannelList — L489
 --------------------------
@@ -8384,7 +7964,6 @@ event:onChannelList — L489
    :caption: modules/modules/game_bot/bot.lua (L489)
 
 
-.. _modules-modules-game-bot-bot-lua-l489-event-onchannellist-e9be63e554:
 
 event:onChannelList — L489
 --------------------------
@@ -8408,7 +7987,6 @@ event:onClick — L144
    :caption: modules/modules/game_bot/bot.lua (L144)
 
 
-.. _modules-modules-game-bot-bot-lua-l144-event-onclick-cd24a624ca:
 
 event:onClick — L144
 --------------------
@@ -8432,7 +8010,6 @@ event:onClose — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclose-c482bdf049:
 
 event:onClose — L491
 --------------------
@@ -8444,7 +8021,6 @@ event:onClose — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclose-c482bdf049:
 
 event:onClose — L491
 --------------------
@@ -8456,7 +8032,6 @@ event:onClose — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclose-c482bdf049:
 
 event:onClose — L491
 --------------------
@@ -8480,7 +8055,6 @@ event:onCloseChannel — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclosechannel-ac4ccbdb1d:
 
 event:onCloseChannel — L491
 ---------------------------
@@ -8492,7 +8066,6 @@ event:onCloseChannel — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclosechannel-ac4ccbdb1d:
 
 event:onCloseChannel — L491
 ---------------------------
@@ -8504,7 +8077,6 @@ event:onCloseChannel — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclosechannel-ac4ccbdb1d:
 
 event:onCloseChannel — L491
 ---------------------------
@@ -8516,7 +8088,6 @@ event:onCloseChannel — L491
    :caption: modules/modules/game_bot/bot.lua (L491)
 
 
-.. _modules-modules-game-bot-bot-lua-l491-event-onclosechannel-ac4ccbdb1d:
 
 event:onCloseChannel — L491
 ---------------------------
@@ -8624,7 +8195,6 @@ event:onDisappear — L510
    :caption: modules/modules/game_bot/bot.lua (L510)
 
 
-.. _modules-modules-game-bot-bot-lua-l510-event-ondisappear-be726fc99b:
 
 event:onDisappear — L510
 ------------------------
@@ -8636,7 +8206,6 @@ event:onDisappear — L510
    :caption: modules/modules/game_bot/bot.lua (L510)
 
 
-.. _modules-modules-game-bot-bot-lua-l510-event-ondisappear-be726fc99b:
 
 event:onDisappear — L510
 ------------------------
@@ -8648,7 +8217,6 @@ event:onDisappear — L510
    :caption: modules/modules/game_bot/bot.lua (L510)
 
 
-.. _modules-modules-game-bot-bot-lua-l510-event-ondisappear-be726fc99b:
 
 event:onDisappear — L510
 ------------------------
@@ -8672,7 +8240,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8684,7 +8251,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8696,7 +8262,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8708,7 +8273,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8720,7 +8284,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8732,7 +8295,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8744,7 +8306,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8756,7 +8317,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8768,7 +8328,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8780,7 +8339,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8792,7 +8350,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8804,7 +8361,6 @@ event:onError — L134
    :caption: modules/modules/game_bot/bot.lua (L134)
 
 
-.. _modules-modules-game-bot-bot-lua-l134-event-onerror-1baee4bd77:
 
 event:onError — L134
 --------------------
@@ -8828,7 +8384,6 @@ event:onGameEditText — L498
    :caption: modules/modules/game_bot/bot.lua (L498)
 
 
-.. _modules-modules-game-bot-bot-lua-l498-event-ongameedittext-bdb97a8168:
 
 event:onGameEditText — L498
 ---------------------------
@@ -8840,7 +8395,6 @@ event:onGameEditText — L498
    :caption: modules/modules/game_bot/bot.lua (L498)
 
 
-.. _modules-modules-game-bot-bot-lua-l498-event-ongameedittext-bdb97a8168:
 
 event:onGameEditText — L498
 ---------------------------
@@ -8852,7 +8406,6 @@ event:onGameEditText — L498
    :caption: modules/modules/game_bot/bot.lua (L498)
 
 
-.. _modules-modules-game-bot-bot-lua-l498-event-ongameedittext-bdb97a8168:
 
 event:onGameEditText — L498
 ---------------------------
@@ -8864,7 +8417,6 @@ event:onGameEditText — L498
    :caption: modules/modules/game_bot/bot.lua (L498)
 
 
-.. _modules-modules-game-bot-bot-lua-l498-event-ongameedittext-bdb97a8168:
 
 event:onGameEditText — L498
 ---------------------------
@@ -8888,7 +8440,6 @@ event:onGameEnd — L33
    :caption: modules/modules/game_bot/bot.lua (L33)
 
 
-.. _modules-modules-game-bot-bot-lua-l33-event-ongameend-08bad05c16:
 
 event:onGameEnd — L33
 ---------------------
@@ -8900,7 +8451,6 @@ event:onGameEnd — L33
    :caption: modules/modules/game_bot/bot.lua (L33)
 
 
-.. _modules-modules-game-bot-bot-lua-l33-event-ongameend-08bad05c16:
 
 event:onGameEnd — L33
 ---------------------
@@ -8912,7 +8462,6 @@ event:onGameEnd — L33
    :caption: modules/modules/game_bot/bot.lua (L33)
 
 
-.. _modules-modules-game-bot-bot-lua-l33-event-ongameend-08bad05c16:
 
 event:onGameEnd — L33
 ---------------------
@@ -8936,7 +8485,6 @@ event:onGameStart — L32
    :caption: modules/modules/game_bot/bot.lua (L32)
 
 
-.. _modules-modules-game-bot-bot-lua-l32-event-ongamestart-8ff45ae576:
 
 event:onGameStart — L32
 -----------------------
@@ -8948,7 +8496,6 @@ event:onGameStart — L32
    :caption: modules/modules/game_bot/bot.lua (L32)
 
 
-.. _modules-modules-game-bot-bot-lua-l32-event-ongamestart-8ff45ae576:
 
 event:onGameStart — L32
 -----------------------
@@ -8960,7 +8507,6 @@ event:onGameStart — L32
    :caption: modules/modules/game_bot/bot.lua (L32)
 
 
-.. _modules-modules-game-bot-bot-lua-l32-event-ongamestart-8ff45ae576:
 
 event:onGameStart — L32
 -----------------------
@@ -8996,7 +8542,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9008,7 +8553,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9020,7 +8564,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9032,7 +8575,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9044,7 +8586,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9056,7 +8597,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9068,7 +8608,6 @@ event:onHealthPercentChange — L512
    :caption: modules/modules/game_bot/bot.lua (L512)
 
 
-.. _modules-modules-game-bot-bot-lua-l512-event-onhealthpercentchang-cbf8dcc1fd:
 
 event:onHealthPercentChange — L512
 ----------------------------------
@@ -9092,7 +8631,6 @@ event:onImbuementWindow — L493
    :caption: modules/modules/game_bot/bot.lua (L493)
 
 
-.. _modules-modules-game-bot-bot-lua-l493-event-onimbuementwindow-e003137061:
 
 event:onImbuementWindow — L493
 ------------------------------
@@ -9104,7 +8642,6 @@ event:onImbuementWindow — L493
    :caption: modules/modules/game_bot/bot.lua (L493)
 
 
-.. _modules-modules-game-bot-bot-lua-l493-event-onimbuementwindow-e003137061:
 
 event:onImbuementWindow — L493
 ------------------------------
@@ -9116,7 +8653,6 @@ event:onImbuementWindow — L493
    :caption: modules/modules/game_bot/bot.lua (L493)
 
 
-.. _modules-modules-game-bot-bot-lua-l493-event-onimbuementwindow-e003137061:
 
 event:onImbuementWindow — L493
 ------------------------------
@@ -9128,7 +8664,6 @@ event:onImbuementWindow — L493
    :caption: modules/modules/game_bot/bot.lua (L493)
 
 
-.. _modules-modules-game-bot-bot-lua-l493-event-onimbuementwindow-e003137061:
 
 event:onImbuementWindow — L493
 ------------------------------
@@ -9152,7 +8687,6 @@ event:onInventoryChange — L524
    :caption: modules/modules/game_bot/bot.lua (L524)
 
 
-.. _modules-modules-game-bot-bot-lua-l524-event-oninventorychange-a4ff495c39:
 
 event:onInventoryChange — L524
 ------------------------------
@@ -9164,7 +8698,6 @@ event:onInventoryChange — L524
    :caption: modules/modules/game_bot/bot.lua (L524)
 
 
-.. _modules-modules-game-bot-bot-lua-l524-event-oninventorychange-a4ff495c39:
 
 event:onInventoryChange — L524
 ------------------------------
@@ -9176,7 +8709,6 @@ event:onInventoryChange — L524
    :caption: modules/modules/game_bot/bot.lua (L524)
 
 
-.. _modules-modules-game-bot-bot-lua-l524-event-oninventorychange-a4ff495c39:
 
 event:onInventoryChange — L524
 ------------------------------
@@ -9188,7 +8720,6 @@ event:onInventoryChange — L524
    :caption: modules/modules/game_bot/bot.lua (L524)
 
 
-.. _modules-modules-game-bot-bot-lua-l524-event-oninventorychange-a4ff495c39:
 
 event:onInventoryChange — L524
 ------------------------------
@@ -9212,7 +8743,6 @@ event:onKeyDown — L478
    :caption: modules/modules/game_bot/bot.lua (L478)
 
 
-.. _modules-modules-game-bot-bot-lua-l478-event-onkeydown-16a79135df:
 
 event:onKeyDown — L478
 ----------------------
@@ -9224,7 +8754,6 @@ event:onKeyDown — L478
    :caption: modules/modules/game_bot/bot.lua (L478)
 
 
-.. _modules-modules-game-bot-bot-lua-l478-event-onkeydown-16a79135df:
 
 event:onKeyDown — L478
 ----------------------
@@ -9236,7 +8765,6 @@ event:onKeyDown — L478
    :caption: modules/modules/game_bot/bot.lua (L478)
 
 
-.. _modules-modules-game-bot-bot-lua-l478-event-onkeydown-16a79135df:
 
 event:onKeyDown — L478
 ----------------------
@@ -9248,7 +8776,6 @@ event:onKeyDown — L478
    :caption: modules/modules/game_bot/bot.lua (L478)
 
 
-.. _modules-modules-game-bot-bot-lua-l478-event-onkeydown-16a79135df:
 
 event:onKeyDown — L478
 ----------------------
@@ -9272,7 +8799,6 @@ event:onKeyPress — L480
    :caption: modules/modules/game_bot/bot.lua (L480)
 
 
-.. _modules-modules-game-bot-bot-lua-l480-event-onkeypress-5a7ae748e8:
 
 event:onKeyPress — L480
 -----------------------
@@ -9284,7 +8810,6 @@ event:onKeyPress — L480
    :caption: modules/modules/game_bot/bot.lua (L480)
 
 
-.. _modules-modules-game-bot-bot-lua-l480-event-onkeypress-5a7ae748e8:
 
 event:onKeyPress — L480
 -----------------------
@@ -9296,7 +8821,6 @@ event:onKeyPress — L480
    :caption: modules/modules/game_bot/bot.lua (L480)
 
 
-.. _modules-modules-game-bot-bot-lua-l480-event-onkeypress-5a7ae748e8:
 
 event:onKeyPress — L480
 -----------------------
@@ -9308,7 +8832,6 @@ event:onKeyPress — L480
    :caption: modules/modules/game_bot/bot.lua (L480)
 
 
-.. _modules-modules-game-bot-bot-lua-l480-event-onkeypress-5a7ae748e8:
 
 event:onKeyPress — L480
 -----------------------
@@ -9332,7 +8855,6 @@ event:onKeyUp — L479
    :caption: modules/modules/game_bot/bot.lua (L479)
 
 
-.. _modules-modules-game-bot-bot-lua-l479-event-onkeyup-1d111b728a:
 
 event:onKeyUp — L479
 --------------------
@@ -9344,7 +8866,6 @@ event:onKeyUp — L479
    :caption: modules/modules/game_bot/bot.lua (L479)
 
 
-.. _modules-modules-game-bot-bot-lua-l479-event-onkeyup-1d111b728a:
 
 event:onKeyUp — L479
 --------------------
@@ -9356,7 +8877,6 @@ event:onKeyUp — L479
    :caption: modules/modules/game_bot/bot.lua (L479)
 
 
-.. _modules-modules-game-bot-bot-lua-l479-event-onkeyup-1d111b728a:
 
 event:onKeyUp — L479
 --------------------
@@ -9368,7 +8888,6 @@ event:onKeyUp — L479
    :caption: modules/modules/game_bot/bot.lua (L479)
 
 
-.. _modules-modules-game-bot-bot-lua-l479-event-onkeyup-1d111b728a:
 
 event:onKeyUp — L479
 --------------------
@@ -9392,7 +8911,6 @@ event:onLoginAdvice — L486
    :caption: modules/modules/game_bot/bot.lua (L486)
 
 
-.. _modules-modules-game-bot-bot-lua-l486-event-onloginadvice-e9ac350380:
 
 event:onLoginAdvice — L486
 --------------------------
@@ -9404,7 +8922,6 @@ event:onLoginAdvice — L486
    :caption: modules/modules/game_bot/bot.lua (L486)
 
 
-.. _modules-modules-game-bot-bot-lua-l486-event-onloginadvice-e9ac350380:
 
 event:onLoginAdvice — L486
 --------------------------
@@ -9416,7 +8933,6 @@ event:onLoginAdvice — L486
    :caption: modules/modules/game_bot/bot.lua (L486)
 
 
-.. _modules-modules-game-bot-bot-lua-l486-event-onloginadvice-e9ac350380:
 
 event:onLoginAdvice — L486
 --------------------------
@@ -9428,7 +8944,6 @@ event:onLoginAdvice — L486
    :caption: modules/modules/game_bot/bot.lua (L486)
 
 
-.. _modules-modules-game-bot-bot-lua-l486-event-onloginadvice-e9ac350380:
 
 event:onLoginAdvice — L486
 --------------------------
@@ -9452,7 +8967,6 @@ event:onManaChange — L522
    :caption: modules/modules/game_bot/bot.lua (L522)
 
 
-.. _modules-modules-game-bot-bot-lua-l522-event-onmanachange-5407703752:
 
 event:onManaChange — L522
 -------------------------
@@ -9464,7 +8978,6 @@ event:onManaChange — L522
    :caption: modules/modules/game_bot/bot.lua (L522)
 
 
-.. _modules-modules-game-bot-bot-lua-l522-event-onmanachange-5407703752:
 
 event:onManaChange — L522
 -------------------------
@@ -9476,7 +8989,6 @@ event:onManaChange — L522
    :caption: modules/modules/game_bot/bot.lua (L522)
 
 
-.. _modules-modules-game-bot-bot-lua-l522-event-onmanachange-5407703752:
 
 event:onManaChange — L522
 -------------------------
@@ -9488,7 +9000,6 @@ event:onManaChange — L522
    :caption: modules/modules/game_bot/bot.lua (L522)
 
 
-.. _modules-modules-game-bot-bot-lua-l522-event-onmanachange-5407703752:
 
 event:onManaChange — L522
 -------------------------
@@ -9524,7 +9035,6 @@ event:onMissle — L536
    :caption: modules/modules/game_bot/bot.lua (L536)
 
 
-.. _modules-modules-game-bot-bot-lua-l536-event-onmissle-af6a4b0f18:
 
 event:onMissle — L536
 ---------------------
@@ -9536,7 +9046,6 @@ event:onMissle — L536
    :caption: modules/modules/game_bot/bot.lua (L536)
 
 
-.. _modules-modules-game-bot-bot-lua-l536-event-onmissle-af6a4b0f18:
 
 event:onMissle — L536
 ---------------------
@@ -9548,7 +9057,6 @@ event:onMissle — L536
    :caption: modules/modules/game_bot/bot.lua (L536)
 
 
-.. _modules-modules-game-bot-bot-lua-l536-event-onmissle-af6a4b0f18:
 
 event:onMissle — L536
 ---------------------
@@ -9560,7 +9068,6 @@ event:onMissle — L536
    :caption: modules/modules/game_bot/bot.lua (L536)
 
 
-.. _modules-modules-game-bot-bot-lua-l536-event-onmissle-af6a4b0f18:
 
 event:onMissle — L536
 ---------------------
@@ -9584,7 +9091,6 @@ event:onModalDialog — L494
    :caption: modules/modules/game_bot/bot.lua (L494)
 
 
-.. _modules-modules-game-bot-bot-lua-l494-event-onmodaldialog-df21ae4740:
 
 event:onModalDialog — L494
 --------------------------
@@ -9596,7 +9102,6 @@ event:onModalDialog — L494
    :caption: modules/modules/game_bot/bot.lua (L494)
 
 
-.. _modules-modules-game-bot-bot-lua-l494-event-onmodaldialog-df21ae4740:
 
 event:onModalDialog — L494
 --------------------------
@@ -9608,7 +9113,6 @@ event:onModalDialog — L494
    :caption: modules/modules/game_bot/bot.lua (L494)
 
 
-.. _modules-modules-game-bot-bot-lua-l494-event-onmodaldialog-df21ae4740:
 
 event:onModalDialog — L494
 --------------------------
@@ -9620,7 +9124,6 @@ event:onModalDialog — L494
    :caption: modules/modules/game_bot/bot.lua (L494)
 
 
-.. _modules-modules-game-bot-bot-lua-l494-event-onmodaldialog-df21ae4740:
 
 event:onModalDialog — L494
 --------------------------
@@ -9644,7 +9147,6 @@ event:onOpen — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopen-4acfe3c74a:
 
 event:onOpen — L490
 -------------------
@@ -9656,7 +9158,6 @@ event:onOpen — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopen-4acfe3c74a:
 
 event:onOpen — L490
 -------------------
@@ -9668,7 +9169,6 @@ event:onOpen — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopen-4acfe3c74a:
 
 event:onOpen — L490
 -------------------
@@ -9692,7 +9192,6 @@ event:onOpenChannel — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopenchannel-00ef2b6a03:
 
 event:onOpenChannel — L490
 --------------------------
@@ -9704,7 +9203,6 @@ event:onOpenChannel — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopenchannel-00ef2b6a03:
 
 event:onOpenChannel — L490
 --------------------------
@@ -9716,7 +9214,6 @@ event:onOpenChannel — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopenchannel-00ef2b6a03:
 
 event:onOpenChannel — L490
 --------------------------
@@ -9728,7 +9225,6 @@ event:onOpenChannel — L490
    :caption: modules/modules/game_bot/bot.lua (L490)
 
 
-.. _modules-modules-game-bot-bot-lua-l490-event-onopenchannel-00ef2b6a03:
 
 event:onOpenChannel — L490
 --------------------------
@@ -9752,7 +9248,6 @@ event:onOptionChange — L143
    :caption: modules/modules/game_bot/bot.lua (L143)
 
 
-.. _modules-modules-game-bot-bot-lua-l143-event-onoptionchange-ba00ebe9a2:
 
 event:onOptionChange — L143
 ---------------------------
@@ -9776,7 +9271,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9788,7 +9282,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9800,7 +9293,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9812,7 +9304,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9824,7 +9315,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9836,7 +9326,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9848,7 +9337,6 @@ event:onPositionChange — L511
    :caption: modules/modules/game_bot/bot.lua (L511)
 
 
-.. _modules-modules-game-bot-bot-lua-l511-event-onpositionchange-54ac3e9e45:
 
 event:onPositionChange — L511
 -----------------------------
@@ -9872,7 +9360,6 @@ event:onRemoveItem — L497
    :caption: modules/modules/game_bot/bot.lua (L497)
 
 
-.. _modules-modules-game-bot-bot-lua-l497-event-onremoveitem-6dcbc10093:
 
 event:onRemoveItem — L497
 -------------------------
@@ -9884,7 +9371,6 @@ event:onRemoveItem — L497
    :caption: modules/modules/game_bot/bot.lua (L497)
 
 
-.. _modules-modules-game-bot-bot-lua-l497-event-onremoveitem-6dcbc10093:
 
 event:onRemoveItem — L497
 -------------------------
@@ -9896,7 +9382,6 @@ event:onRemoveItem — L497
    :caption: modules/modules/game_bot/bot.lua (L497)
 
 
-.. _modules-modules-game-bot-bot-lua-l497-event-onremoveitem-6dcbc10093:
 
 event:onRemoveItem — L497
 -------------------------
@@ -9908,7 +9393,6 @@ event:onRemoveItem — L497
    :caption: modules/modules/game_bot/bot.lua (L497)
 
 
-.. _modules-modules-game-bot-bot-lua-l497-event-onremoveitem-6dcbc10093:
 
 event:onRemoveItem — L497
 -------------------------
@@ -9920,7 +9404,6 @@ event:onRemoveItem — L497
    :caption: modules/modules/game_bot/bot.lua (L497)
 
 
-.. _modules-modules-game-bot-bot-lua-l497-event-onremoveitem-6dcbc10093:
 
 event:onRemoveItem — L497
 -------------------------
@@ -9932,7 +9415,6 @@ event:onRemoveItem — L497
    :caption: modules/modules/game_bot/bot.lua (L497)
 
 
-.. _modules-modules-game-bot-bot-lua-l497-event-onremoveitem-6dcbc10093:
 
 event:onRemoveItem — L497
 -------------------------
@@ -9956,7 +9438,6 @@ event:onRemoveThing — L505
    :caption: modules/modules/game_bot/bot.lua (L505)
 
 
-.. _modules-modules-game-bot-bot-lua-l505-event-onremovething-141f23e16f:
 
 event:onRemoveThing — L505
 --------------------------
@@ -9968,7 +9449,6 @@ event:onRemoveThing — L505
    :caption: modules/modules/game_bot/bot.lua (L505)
 
 
-.. _modules-modules-game-bot-bot-lua-l505-event-onremovething-141f23e16f:
 
 event:onRemoveThing — L505
 --------------------------
@@ -9980,7 +9460,6 @@ event:onRemoveThing — L505
    :caption: modules/modules/game_bot/bot.lua (L505)
 
 
-.. _modules-modules-game-bot-bot-lua-l505-event-onremovething-141f23e16f:
 
 event:onRemoveThing — L505
 --------------------------
@@ -9992,7 +9471,6 @@ event:onRemoveThing — L505
    :caption: modules/modules/game_bot/bot.lua (L505)
 
 
-.. _modules-modules-game-bot-bot-lua-l505-event-onremovething-141f23e16f:
 
 event:onRemoveThing — L505
 --------------------------
@@ -10016,7 +9494,6 @@ event:onSpellCooldown — L499
    :caption: modules/modules/game_bot/bot.lua (L499)
 
 
-.. _modules-modules-game-bot-bot-lua-l499-event-onspellcooldown-eed9a64471:
 
 event:onSpellCooldown — L499
 ----------------------------
@@ -10028,7 +9505,6 @@ event:onSpellCooldown — L499
    :caption: modules/modules/game_bot/bot.lua (L499)
 
 
-.. _modules-modules-game-bot-bot-lua-l499-event-onspellcooldown-eed9a64471:
 
 event:onSpellCooldown — L499
 ----------------------------
@@ -10040,7 +9516,6 @@ event:onSpellCooldown — L499
    :caption: modules/modules/game_bot/bot.lua (L499)
 
 
-.. _modules-modules-game-bot-bot-lua-l499-event-onspellcooldown-eed9a64471:
 
 event:onSpellCooldown — L499
 ----------------------------
@@ -10052,7 +9527,6 @@ event:onSpellCooldown — L499
    :caption: modules/modules/game_bot/bot.lua (L499)
 
 
-.. _modules-modules-game-bot-bot-lua-l499-event-onspellcooldown-eed9a64471:
 
 event:onSpellCooldown — L499
 ----------------------------
@@ -10076,7 +9550,6 @@ event:onSpellGroupCooldown — L500
    :caption: modules/modules/game_bot/bot.lua (L500)
 
 
-.. _modules-modules-game-bot-bot-lua-l500-event-onspellgroupcooldown-0b34718049:
 
 event:onSpellGroupCooldown — L500
 ---------------------------------
@@ -10088,7 +9561,6 @@ event:onSpellGroupCooldown — L500
    :caption: modules/modules/game_bot/bot.lua (L500)
 
 
-.. _modules-modules-game-bot-bot-lua-l500-event-onspellgroupcooldown-0b34718049:
 
 event:onSpellGroupCooldown — L500
 ---------------------------------
@@ -10100,7 +9572,6 @@ event:onSpellGroupCooldown — L500
    :caption: modules/modules/game_bot/bot.lua (L500)
 
 
-.. _modules-modules-game-bot-bot-lua-l500-event-onspellgroupcooldown-0b34718049:
 
 event:onSpellGroupCooldown — L500
 ---------------------------------
@@ -10124,7 +9595,6 @@ event:onStatesChange — L523
    :caption: modules/modules/game_bot/bot.lua (L523)
 
 
-.. _modules-modules-game-bot-bot-lua-l523-event-onstateschange-76cad6bbbf:
 
 event:onStatesChange — L523
 ---------------------------
@@ -10136,7 +9606,6 @@ event:onStatesChange — L523
    :caption: modules/modules/game_bot/bot.lua (L523)
 
 
-.. _modules-modules-game-bot-bot-lua-l523-event-onstateschange-76cad6bbbf:
 
 event:onStatesChange — L523
 ---------------------------
@@ -10148,7 +9617,6 @@ event:onStatesChange — L523
    :caption: modules/modules/game_bot/bot.lua (L523)
 
 
-.. _modules-modules-game-bot-bot-lua-l523-event-onstateschange-76cad6bbbf:
 
 event:onStatesChange — L523
 ---------------------------
@@ -10160,7 +9628,6 @@ event:onStatesChange — L523
    :caption: modules/modules/game_bot/bot.lua (L523)
 
 
-.. _modules-modules-game-bot-bot-lua-l523-event-onstateschange-76cad6bbbf:
 
 event:onStatesChange — L523
 ---------------------------
@@ -10184,7 +9651,6 @@ event:onStaticText — L538
    :caption: modules/modules/game_bot/bot.lua (L538)
 
 
-.. _modules-modules-game-bot-bot-lua-l538-event-onstatictext-f2c5c1c474:
 
 event:onStaticText — L538
 -------------------------
@@ -10196,7 +9662,6 @@ event:onStaticText — L538
    :caption: modules/modules/game_bot/bot.lua (L538)
 
 
-.. _modules-modules-game-bot-bot-lua-l538-event-onstatictext-f2c5c1c474:
 
 event:onStaticText — L538
 -------------------------
@@ -10208,7 +9673,6 @@ event:onStaticText — L538
    :caption: modules/modules/game_bot/bot.lua (L538)
 
 
-.. _modules-modules-game-bot-bot-lua-l538-event-onstatictext-f2c5c1c474:
 
 event:onStaticText — L538
 -------------------------
@@ -10220,7 +9684,6 @@ event:onStaticText — L538
    :caption: modules/modules/game_bot/bot.lua (L538)
 
 
-.. _modules-modules-game-bot-bot-lua-l538-event-onstatictext-f2c5c1c474:
 
 event:onStaticText — L538
 -------------------------
@@ -10244,7 +9707,6 @@ event:onTalk — L484
    :caption: modules/modules/game_bot/bot.lua (L484)
 
 
-.. _modules-modules-game-bot-bot-lua-l484-event-ontalk-ece8d06503:
 
 event:onTalk — L484
 -------------------
@@ -10256,7 +9718,6 @@ event:onTalk — L484
    :caption: modules/modules/game_bot/bot.lua (L484)
 
 
-.. _modules-modules-game-bot-bot-lua-l484-event-ontalk-ece8d06503:
 
 event:onTalk — L484
 -------------------
@@ -10268,7 +9729,6 @@ event:onTalk — L484
    :caption: modules/modules/game_bot/bot.lua (L484)
 
 
-.. _modules-modules-game-bot-bot-lua-l484-event-ontalk-ece8d06503:
 
 event:onTalk — L484
 -------------------
@@ -10280,7 +9740,6 @@ event:onTalk — L484
    :caption: modules/modules/game_bot/bot.lua (L484)
 
 
-.. _modules-modules-game-bot-bot-lua-l484-event-ontalk-ece8d06503:
 
 event:onTalk — L484
 -------------------
@@ -10304,7 +9763,6 @@ event:onTextMessage — L485
    :caption: modules/modules/game_bot/bot.lua (L485)
 
 
-.. _modules-modules-game-bot-bot-lua-l485-event-ontextmessage-52323c6bd8:
 
 event:onTextMessage — L485
 --------------------------
@@ -10316,7 +9774,6 @@ event:onTextMessage — L485
    :caption: modules/modules/game_bot/bot.lua (L485)
 
 
-.. _modules-modules-game-bot-bot-lua-l485-event-ontextmessage-52323c6bd8:
 
 event:onTextMessage — L485
 --------------------------
@@ -10328,7 +9785,6 @@ event:onTextMessage — L485
    :caption: modules/modules/game_bot/bot.lua (L485)
 
 
-.. _modules-modules-game-bot-bot-lua-l485-event-ontextmessage-52323c6bd8:
 
 event:onTextMessage — L485
 --------------------------
@@ -10340,7 +9796,6 @@ event:onTextMessage — L485
    :caption: modules/modules/game_bot/bot.lua (L485)
 
 
-.. _modules-modules-game-bot-bot-lua-l485-event-ontextmessage-52323c6bd8:
 
 event:onTextMessage — L485
 --------------------------
@@ -10364,7 +9819,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10376,7 +9830,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10388,7 +9841,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10400,7 +9852,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10412,7 +9863,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10424,7 +9874,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10436,7 +9885,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10448,7 +9896,6 @@ event:onTurn — L513
    :caption: modules/modules/game_bot/bot.lua (L513)
 
 
-.. _modules-modules-game-bot-bot-lua-l513-event-onturn-0477447401:
 
 event:onTurn — L513
 -------------------
@@ -10472,7 +9919,6 @@ event:onUpdateItem — L530
    :caption: modules/modules/game_bot/bot.lua (L530)
 
 
-.. _modules-modules-game-bot-bot-lua-l530-event-onupdateitem-e60084de70:
 
 event:onUpdateItem — L530
 -------------------------
@@ -10484,7 +9930,6 @@ event:onUpdateItem — L530
    :caption: modules/modules/game_bot/bot.lua (L530)
 
 
-.. _modules-modules-game-bot-bot-lua-l530-event-onupdateitem-e60084de70:
 
 event:onUpdateItem — L530
 -------------------------
@@ -10496,7 +9941,6 @@ event:onUpdateItem — L530
    :caption: modules/modules/game_bot/bot.lua (L530)
 
 
-.. _modules-modules-game-bot-bot-lua-l530-event-onupdateitem-e60084de70:
 
 event:onUpdateItem — L530
 -------------------------
@@ -10520,7 +9964,6 @@ event:onUse — L487
    :caption: modules/modules/game_bot/bot.lua (L487)
 
 
-.. _modules-modules-game-bot-bot-lua-l487-event-onuse-5b2b2d9172:
 
 event:onUse — L487
 ------------------
@@ -10532,7 +9975,6 @@ event:onUse — L487
    :caption: modules/modules/game_bot/bot.lua (L487)
 
 
-.. _modules-modules-game-bot-bot-lua-l487-event-onuse-5b2b2d9172:
 
 event:onUse — L487
 ------------------
@@ -10544,7 +9986,6 @@ event:onUse — L487
    :caption: modules/modules/game_bot/bot.lua (L487)
 
 
-.. _modules-modules-game-bot-bot-lua-l487-event-onuse-5b2b2d9172:
 
 event:onUse — L487
 ------------------
@@ -10556,7 +9997,6 @@ event:onUse — L487
    :caption: modules/modules/game_bot/bot.lua (L487)
 
 
-.. _modules-modules-game-bot-bot-lua-l487-event-onuse-5b2b2d9172:
 
 event:onUse — L487
 ------------------
@@ -10580,7 +10020,6 @@ event:onUseWith — L488
    :caption: modules/modules/game_bot/bot.lua (L488)
 
 
-.. _modules-modules-game-bot-bot-lua-l488-event-onusewith-3bb18fe06c:
 
 event:onUseWith — L488
 ----------------------
@@ -10592,7 +10031,6 @@ event:onUseWith — L488
    :caption: modules/modules/game_bot/bot.lua (L488)
 
 
-.. _modules-modules-game-bot-bot-lua-l488-event-onusewith-3bb18fe06c:
 
 event:onUseWith — L488
 ----------------------
@@ -10604,7 +10042,6 @@ event:onUseWith — L488
    :caption: modules/modules/game_bot/bot.lua (L488)
 
 
-.. _modules-modules-game-bot-bot-lua-l488-event-onusewith-3bb18fe06c:
 
 event:onUseWith — L488
 ----------------------
@@ -10616,7 +10053,6 @@ event:onUseWith — L488
    :caption: modules/modules/game_bot/bot.lua (L488)
 
 
-.. _modules-modules-game-bot-bot-lua-l488-event-onusewith-3bb18fe06c:
 
 event:onUseWith — L488
 ----------------------
@@ -10640,7 +10076,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10652,7 +10087,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10664,7 +10098,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10676,7 +10109,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10688,7 +10120,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10700,7 +10131,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10712,7 +10142,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10724,7 +10153,6 @@ event:onWalk — L514
    :caption: modules/modules/game_bot/bot.lua (L514)
 
 
-.. _modules-modules-game-bot-bot-lua-l514-event-onwalk-8a176c044c:
 
 event:onWalk — L514
 -------------------
@@ -10760,7 +10188,6 @@ event:onClick — L143
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/cavebot/cavebot.lua (L143)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-cavebot-cav-4122779435:
 
 event:onClick — L143
 --------------------
@@ -10784,7 +10211,6 @@ event:onConfigChange — L117
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/cavebot/cavebot.lua (L117)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-cavebot-cav-3003526e39:
 
 event:onConfigChange — L117
 ---------------------------
@@ -10796,7 +10222,6 @@ event:onConfigChange — L117
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/cavebot/cavebot.lua (L117)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-cavebot-cav-3003526e39:
 
 event:onConfigChange — L117
 ---------------------------
@@ -10820,7 +10245,6 @@ event:onSave — L215
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/cavebot/cavebot.lua (L215)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-cavebot-cav-5ca2b6cae7:
 
 event:onSave — L215
 -------------------
@@ -10904,7 +10328,6 @@ event:onClick — L28
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/cavebot/editor.lua (L28)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-cavebot-edi-fe65407717:
 
 event:onClick — L28
 -------------------
@@ -10928,7 +10351,6 @@ event:onDoubleClick — L64
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/cavebot/editor.lua (L64)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-cavebot-edi-3d7645956c:
 
 event:onDoubleClick — L64
 -------------------------
@@ -11132,7 +10554,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-c-d2b65e48b1:
 
 event:onClick — L35
 -------------------
@@ -11144,7 +10565,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-c-d2b65e48b1:
 
 event:onClick — L35
 -------------------
@@ -11156,7 +10576,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-c-d2b65e48b1:
 
 event:onClick — L35
 -------------------
@@ -11192,7 +10611,6 @@ event:onValueChange — L12
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/creature_editor.lua (L12)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-c-9198b009a8:
 
 event:onValueChange — L12
 -------------------------
@@ -11240,7 +10658,6 @@ event:onContainersUpdate — L14
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.lua (L14)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-l-73ac7de689:
 
 event:onContainersUpdate — L14
 ------------------------------
@@ -11276,7 +10693,6 @@ event:onItemsUpdate — L13
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.lua (L13)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-l-f0ae499c82:
 
 event:onItemsUpdate — L13
 -------------------------
@@ -11300,7 +10716,6 @@ event:onTextChange — L19
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/looting.lua (L19)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-l-2b9aead744:
 
 event:onTextChange — L19
 ------------------------
@@ -11324,7 +10739,6 @@ event:onClick — L24
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/target.lua (L24)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-t-b2ec9cc26f:
 
 event:onClick — L24
 -------------------
@@ -11336,7 +10750,6 @@ event:onClick — L24
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/target.lua (L24)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-t-b2ec9cc26f:
 
 event:onClick — L24
 -------------------
@@ -11348,7 +10761,6 @@ event:onClick — L24
    :caption: modules/modules/game_bot/default_configs/cavebot_1.3/targetbot/target.lua (L24)
 
 
-.. _modules-modules-game-bot-default-configs-cavebot-1-3-targetbot-t-b2ec9cc26f:
 
 event:onClick — L24
 -------------------
@@ -11408,7 +10820,6 @@ event:onClick — L143
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.lua (L143)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-cavebo-bf3b9c482d:
 
 event:onClick — L143
 --------------------
@@ -11432,7 +10843,6 @@ event:onConfigChange — L117
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.lua (L117)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-cavebo-8e5de65b2f:
 
 event:onConfigChange — L117
 ---------------------------
@@ -11444,7 +10854,6 @@ event:onConfigChange — L117
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.lua (L117)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-cavebo-8e5de65b2f:
 
 event:onConfigChange — L117
 ---------------------------
@@ -11468,7 +10877,6 @@ event:onSave — L434
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/cavebot.lua (L434)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-cavebo-ade730cd9b:
 
 event:onSave — L434
 -------------------
@@ -11528,7 +10936,6 @@ event:onClick — L28
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/editor.lua (L28)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-editor-77871f7312:
 
 event:onClick — L28
 -------------------
@@ -11552,7 +10959,6 @@ event:onDoubleClick — L64
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/editor.lua (L64)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-editor-5b90e53f19:
 
 event:onDoubleClick — L64
 -------------------------
@@ -11672,7 +11078,6 @@ event:onChildFocusChange — L168
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/cavebot/stand_lure.lua (L168)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-cavebot-stand--f1b11b6f70:
 
 event:onChildFocusChange — L168
 -------------------------------
@@ -11744,7 +11149,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-crea-1a30f51b9b:
 
 event:onClick — L35
 -------------------
@@ -11756,7 +11160,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-crea-1a30f51b9b:
 
 event:onClick — L35
 -------------------
@@ -11768,7 +11171,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-crea-1a30f51b9b:
 
 event:onClick — L35
 -------------------
@@ -11804,7 +11206,6 @@ event:onValueChange — L12
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/creature_editor.lua (L12)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-crea-d7192f8f4d:
 
 event:onValueChange — L12
 -------------------------
@@ -11852,7 +11253,6 @@ event:onContainersUpdate — L14
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/looting.lua (L14)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-loot-582194bbf4:
 
 event:onContainersUpdate — L14
 ------------------------------
@@ -11888,7 +11288,6 @@ event:onItemsUpdate — L13
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/looting.lua (L13)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-loot-34a7112477:
 
 event:onItemsUpdate — L13
 -------------------------
@@ -11912,7 +11311,6 @@ event:onTextChange — L19
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/looting.lua (L19)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-loot-9bcfd247e4:
 
 event:onTextChange — L19
 ------------------------
@@ -11948,7 +11346,6 @@ event:onClick — L26
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/target.lua (L26)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-targ-2abd9493d3:
 
 event:onClick — L26
 -------------------
@@ -11960,7 +11357,6 @@ event:onClick — L26
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/target.lua (L26)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-targ-2abd9493d3:
 
 event:onClick — L26
 -------------------
@@ -11972,7 +11368,6 @@ event:onClick — L26
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/targetbot/target.lua (L26)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-targetbot-targ-2abd9493d3:
 
 event:onClick — L26
 -------------------
@@ -11996,7 +11391,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12008,7 +11402,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12020,7 +11413,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12032,7 +11424,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12044,7 +11435,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12056,7 +11446,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12068,7 +11457,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12080,7 +11468,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12092,7 +11479,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12104,7 +11490,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12116,7 +11501,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12128,7 +11512,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12140,7 +11523,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12152,7 +11534,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12164,7 +11545,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12176,7 +11556,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12188,7 +11567,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12200,7 +11578,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12212,7 +11589,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12224,7 +11600,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12236,7 +11611,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12248,7 +11622,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12260,7 +11633,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12272,7 +11644,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12284,7 +11655,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-203ec2036d:
 
 event:onClick — L611
 --------------------
@@ -12332,7 +11702,6 @@ event:onValueChange — L924
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/AttackBot.lua (L924)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-attackbot-565c6d70e4:
 
 event:onValueChange — L924
 --------------------------
@@ -12380,7 +11749,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12392,7 +11760,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12404,7 +11771,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12416,7 +11782,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12428,7 +11793,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12440,7 +11804,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12452,7 +11815,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12464,7 +11826,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/BotServer.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-botserver-fb506ab8e9:
 
 event:onClick — L49
 -------------------
@@ -12500,7 +11861,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12512,7 +11872,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12524,7 +11883,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12536,7 +11894,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12548,7 +11905,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12560,7 +11916,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12572,7 +11927,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12584,7 +11938,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12596,7 +11949,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12608,7 +11960,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12620,7 +11971,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12632,7 +11982,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12644,7 +11993,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12656,7 +12004,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-96964e84be:
 
 event:onClick — L61
 -------------------
@@ -12692,7 +12039,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12704,7 +12050,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12716,7 +12061,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12728,7 +12072,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12740,7 +12083,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12752,7 +12094,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12764,7 +12105,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12776,7 +12116,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12788,7 +12127,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12800,7 +12138,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12812,7 +12149,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-condition-e17d1f9ecc:
 
 event:onTextChange — L89
 ------------------------
@@ -12860,7 +12196,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12872,7 +12207,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12884,7 +12218,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12896,7 +12229,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12908,7 +12240,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12920,7 +12251,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12932,7 +12262,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12944,7 +12273,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12956,7 +12284,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12968,7 +12295,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12980,7 +12306,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -12992,7 +12317,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -13004,7 +12328,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-5066c19086:
 
 event:onClick — L393
 --------------------
@@ -13040,7 +12363,6 @@ event:onContainerOpen — L534
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Containers.lua (L534)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-container-d4ba905203:
 
 event:onContainerOpen — L534
 ----------------------------
@@ -13112,7 +12434,6 @@ event:onClick — L88
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Dropper.lua (L88)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-dropper-l-2955e55f19:
 
 event:onClick — L88
 -------------------
@@ -13136,7 +12457,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13148,7 +12468,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13160,7 +12479,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13172,7 +12490,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13184,7 +12501,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13196,7 +12512,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13208,7 +12523,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13220,7 +12534,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13232,7 +12545,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13244,7 +12556,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13256,7 +12567,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13268,7 +12578,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13280,7 +12589,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13292,7 +12600,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13304,7 +12611,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13316,7 +12622,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13328,7 +12633,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13340,7 +12644,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13352,7 +12655,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13364,7 +12666,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13376,7 +12677,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13388,7 +12688,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13400,7 +12699,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--d8500deaaa:
 
 event:onClick — L36
 -------------------
@@ -13472,7 +12770,6 @@ event:onMouseWheel — L313
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Equipper.lua (L313)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-equipper--2c9c451554:
 
 event:onMouseWheel — L313
 -------------------------
@@ -13520,7 +12817,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13532,7 +12828,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13544,7 +12839,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13556,7 +12850,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13568,7 +12861,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13580,7 +12872,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13592,7 +12883,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13604,7 +12894,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13616,7 +12905,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13628,7 +12916,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13640,7 +12927,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13652,7 +12938,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13664,7 +12949,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13676,7 +12960,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13688,7 +12971,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13700,7 +12982,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13712,7 +12993,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13724,7 +13004,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13736,7 +13015,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13748,7 +13026,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13760,7 +13037,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-healbot-l-5dfde1044c:
 
 event:onClick — L173
 --------------------
@@ -13832,7 +13108,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13844,7 +13119,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13856,7 +13130,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13868,7 +13141,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13880,7 +13152,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13892,7 +13163,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13904,7 +13174,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13916,7 +13185,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13928,7 +13196,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13940,7 +13207,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -13952,7 +13218,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-612524448b:
 
 event:onClick — L50
 -------------------
@@ -14000,7 +13265,6 @@ event:onValueChange — L131
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L131)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-036efb470f:
 
 event:onValueChange — L131
 --------------------------
@@ -14012,7 +13276,6 @@ event:onValueChange — L131
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/Sio.lua (L131)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-sio-lua-l-036efb470f:
 
 event:onValueChange — L131
 --------------------------
@@ -14036,7 +13299,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14048,7 +13310,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14060,7 +13321,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14072,7 +13332,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14084,7 +13343,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14096,7 +13354,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14108,7 +13365,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14120,7 +13376,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14132,7 +13387,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14144,7 +13398,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14156,7 +13409,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14168,7 +13420,6 @@ event:onClick — L49
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L49)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-a8b3c0ec20:
 
 event:onClick — L49
 -------------------
@@ -14204,7 +13455,6 @@ event:onTextChange — L134
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L134)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-f65a922d8f:
 
 event:onTextChange — L134
 -------------------------
@@ -14240,7 +13490,6 @@ event:onValueChange — L97
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/alarms.lua (L97)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-alarms-lu-cbf6a4db7a:
 
 event:onValueChange — L97
 -------------------------
@@ -14264,7 +13513,6 @@ event:onAddItem — L1019
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L1019)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--8d921d1547:
 
 event:onAddItem — L1019
 -----------------------
@@ -14288,7 +13536,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14300,7 +13547,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14312,7 +13558,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14324,7 +13569,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14336,7 +13580,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14348,7 +13591,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14360,7 +13602,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14372,7 +13613,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14384,7 +13624,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14396,7 +13635,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14408,7 +13646,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14420,7 +13657,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14432,7 +13668,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14444,7 +13679,6 @@ event:onClick — L190
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L190)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--1b5331e79c:
 
 event:onClick — L190
 --------------------
@@ -14492,7 +13726,6 @@ event:onContainerUpdateItem — L1027
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L1027)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--a64b3b1d92:
 
 event:onContainerUpdateItem — L1027
 -----------------------------------
@@ -14504,7 +13737,6 @@ event:onContainerUpdateItem — L1027
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L1027)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--a64b3b1d92:
 
 event:onContainerUpdateItem — L1027
 -----------------------------------
@@ -14528,7 +13760,6 @@ event:onDoubleClick — L309
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L309)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--3c90d21428:
 
 event:onDoubleClick — L309
 --------------------------
@@ -14540,7 +13771,6 @@ event:onDoubleClick — L309
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L309)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--3c90d21428:
 
 event:onDoubleClick — L309
 --------------------------
@@ -14576,7 +13806,6 @@ event:onItemChange — L319
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L319)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--99b09d5418:
 
 event:onItemChange — L319
 -------------------------
@@ -14612,7 +13841,6 @@ event:onTextMessage — L781
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L781)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--418d624fa7:
 
 event:onTextMessage — L781
 --------------------------
@@ -14624,7 +13852,6 @@ event:onTextMessage — L781
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/analyzer.lua (L781)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-analyzer--418d624fa7:
 
 event:onTextMessage — L781
 --------------------------
@@ -14660,7 +13887,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d6b9e1c8c6:
 
 event:onCastEnabled — L32
 -------------------------
@@ -14672,7 +13898,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d6b9e1c8c6:
 
 event:onCastEnabled — L32
 -------------------------
@@ -14684,7 +13909,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d6b9e1c8c6:
 
 event:onCastEnabled — L32
 -------------------------
@@ -14696,7 +13920,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d6b9e1c8c6:
 
 event:onCastEnabled — L32
 -------------------------
@@ -14708,7 +13931,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d6b9e1c8c6:
 
 event:onCastEnabled — L32
 -------------------------
@@ -14720,7 +13942,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d6b9e1c8c6:
 
 event:onCastEnabled — L32
 -------------------------
@@ -14744,7 +13965,6 @@ event:onCastLeader — L176
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L176)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-b1265a0e5a:
 
 event:onCastLeader — L176
 -------------------------
@@ -14768,7 +13988,6 @@ event:onCastToggle — L135
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L135)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-2a982b23ff:
 
 event:onCastToggle — L135
 -------------------------
@@ -14792,7 +14011,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14804,7 +14022,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14816,7 +14033,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14828,7 +14044,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14840,7 +14055,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14852,7 +14066,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14864,7 +14077,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14876,7 +14088,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14888,7 +14099,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14900,7 +14110,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14912,7 +14121,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14924,7 +14132,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14936,7 +14143,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14948,7 +14154,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -14960,7 +14165,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-d0ed31b8a2:
 
 event:onClick — L56
 -------------------
@@ -15020,7 +14224,6 @@ event:onOptionChange — L113
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L113)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-7b09c547c6:
 
 event:onOptionChange — L113
 ---------------------------
@@ -15044,7 +14247,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-c4ab574d59:
 
 event:onSayEnabled — L30
 ------------------------
@@ -15056,7 +14258,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-c4ab574d59:
 
 event:onSayEnabled — L30
 ------------------------
@@ -15068,7 +14269,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-c4ab574d59:
 
 event:onSayEnabled — L30
 ------------------------
@@ -15080,7 +14280,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-c4ab574d59:
 
 event:onSayEnabled — L30
 ------------------------
@@ -15092,7 +14291,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-c4ab574d59:
 
 event:onSayEnabled — L30
 ------------------------
@@ -15104,7 +14302,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-c4ab574d59:
 
 event:onSayEnabled — L30
 ------------------------
@@ -15128,7 +14325,6 @@ event:onSayLeader — L166
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L166)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-5c6745d9bf:
 
 event:onSayLeader — L166
 ------------------------
@@ -15152,7 +14348,6 @@ event:onSayPhrase — L181
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L181)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-02e6ad7927:
 
 event:onSayPhrase — L181
 ------------------------
@@ -15176,7 +14371,6 @@ event:onSayToggle — L123
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L123)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-3dbce7c10f:
 
 event:onSayToggle — L123
 ------------------------
@@ -15200,7 +14394,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-ffc9e20a7f:
 
 event:onShootEnabled — L31
 --------------------------
@@ -15212,7 +14405,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-ffc9e20a7f:
 
 event:onShootEnabled — L31
 --------------------------
@@ -15224,7 +14416,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-ffc9e20a7f:
 
 event:onShootEnabled — L31
 --------------------------
@@ -15236,7 +14427,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-ffc9e20a7f:
 
 event:onShootEnabled — L31
 --------------------------
@@ -15248,7 +14438,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-ffc9e20a7f:
 
 event:onShootEnabled — L31
 --------------------------
@@ -15260,7 +14449,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-ffc9e20a7f:
 
 event:onShootEnabled — L31
 --------------------------
@@ -15284,7 +14472,6 @@ event:onShootLeader — L171
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L171)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-550d0a350c:
 
 event:onShootLeader — L171
 --------------------------
@@ -15308,7 +14495,6 @@ event:onShootToggle — L129
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L129)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-71d96eb91d:
 
 event:onShootToggle — L129
 --------------------------
@@ -15344,7 +14530,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-4f357baa87:
 
 event:onTextChange — L167
 -------------------------
@@ -15356,7 +14541,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-4f357baa87:
 
 event:onTextChange — L167
 -------------------------
@@ -15368,7 +14552,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-4f357baa87:
 
 event:onTextChange — L167
 -------------------------
@@ -15380,7 +14563,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-4f357baa87:
 
 event:onTextChange — L167
 -------------------------
@@ -15392,7 +14574,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-combo-lua-4f357baa87:
 
 event:onTextChange — L167
 -------------------------
@@ -15440,7 +14621,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-configs-l-4c5db5e73a:
 
 event:onError — L36
 -------------------
@@ -15452,7 +14632,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-configs-l-4c5db5e73a:
 
 event:onError — L36
 -------------------
@@ -15464,7 +14643,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-configs-l-4c5db5e73a:
 
 event:onError — L36
 -------------------
@@ -15476,7 +14654,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-configs-l-4c5db5e73a:
 
 event:onError — L36
 -------------------
@@ -15500,7 +14677,6 @@ event:onClick — L23
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.lua (L23)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-depositer-b2186e2945:
 
 event:onClick — L23
 -------------------
@@ -15524,7 +14700,6 @@ event:onDoubleClick — L46
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/depositer_config.lua (L46)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-depositer-aaac4af141:
 
 event:onDoubleClick — L46
 -------------------------
@@ -15608,7 +14783,6 @@ event:onAddThing — L219
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L219)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-1f045cd4da:
 
 event:onAddThing — L219
 -----------------------
@@ -15644,7 +14818,6 @@ event:onClick — L13
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L13)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-feaf506eb5:
 
 event:onClick — L13
 -------------------
@@ -15728,7 +14901,6 @@ event:onKeyPress — L343
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L343)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-c97d3f8c58:
 
 event:onKeyPress — L343
 -----------------------
@@ -15764,7 +14936,6 @@ event:onRemoveThing — L240
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L240)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-b581d2fdc9:
 
 event:onRemoveThing — L240
 --------------------------
@@ -15788,7 +14959,6 @@ event:onTalk — L156
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L156)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-327b21911e:
 
 event:onTalk — L156
 -------------------
@@ -15824,7 +14994,6 @@ event:onTextMessage — L376
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L376)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-3df29ed11f:
 
 event:onTextMessage — L376
 --------------------------
@@ -15860,7 +15029,6 @@ event:onValueChange — L82
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/extras.lua (L82)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-extras-lu-54e59ead8f:
 
 event:onValueChange — L82
 -------------------------
@@ -15896,7 +15064,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15908,7 +15075,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15920,7 +15086,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15932,7 +15097,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15944,7 +15108,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15956,7 +15119,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15968,7 +15130,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15980,7 +15141,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -15992,7 +15152,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16004,7 +15163,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16016,7 +15174,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16028,7 +15185,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16040,7 +15196,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16052,7 +15207,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16064,7 +15218,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-04eb22873b:
 
 event:onClick — L79
 -------------------
@@ -16088,7 +15241,6 @@ event:onDoubleClick — L106
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/new_healer.lua (L106)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-new-heale-159362109f:
 
 event:onDoubleClick — L106
 --------------------------
@@ -16160,7 +15312,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16172,7 +15323,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16184,7 +15334,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16196,7 +15345,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16208,7 +15356,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16220,7 +15367,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16232,7 +15378,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16244,7 +15389,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16256,7 +15400,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-c8d34a857b:
 
 event:onClick — L148
 --------------------
@@ -16304,7 +15447,6 @@ event:onMouseRelease — L206
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L206)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-5e78ff1ba9:
 
 event:onMouseRelease — L206
 ---------------------------
@@ -16316,7 +15458,6 @@ event:onMouseRelease — L206
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/playerlist.lua (L206)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-playerlis-5e78ff1ba9:
 
 event:onMouseRelease — L206
 ---------------------------
@@ -16376,7 +15517,6 @@ event:onClick — L42
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.lua (L42)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-pushmax-l-bf84fb6a9c:
 
 event:onClick — L42
 -------------------
@@ -16388,7 +15528,6 @@ event:onClick — L42
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.lua (L42)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-pushmax-l-bf84fb6a9c:
 
 event:onClick — L42
 -------------------
@@ -16424,7 +15563,6 @@ event:onItemChange — L72
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/pushmax.lua (L72)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-pushmax-l-19076986f4:
 
 event:onItemChange — L72
 ------------------------
@@ -16640,7 +15778,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16652,7 +15789,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16664,7 +15800,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16676,7 +15811,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16688,7 +15822,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16700,7 +15833,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16712,7 +15844,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16724,7 +15855,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16736,7 +15866,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16748,7 +15877,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--66d2ae1732:
 
 event:onClick — L235
 --------------------
@@ -16796,7 +15924,6 @@ event:onMouseWheel — L366
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L366)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--c7cf17c4aa:
 
 event:onMouseWheel — L366
 -------------------------
@@ -16808,7 +15935,6 @@ event:onMouseWheel — L366
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L366)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--c7cf17c4aa:
 
 event:onMouseWheel — L366
 -------------------------
@@ -16832,7 +15958,6 @@ event:onTextChange — L264
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L264)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--c475c8a8f4:
 
 event:onTextChange — L264
 -------------------------
@@ -16844,7 +15969,6 @@ event:onTextChange — L264
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/supplies.lua (L264)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-supplies--c475c8a8f4:
 
 event:onTextChange — L264
 -------------------------
@@ -16880,7 +16004,6 @@ event:onAnother — L702
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L702)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--f55745a10d:
 
 event:onAnother — L702
 ----------------------
@@ -16892,7 +16015,6 @@ event:onAnother — L702
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L702)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--f55745a10d:
 
 event:onAnother — L702
 ----------------------
@@ -16904,7 +16026,6 @@ event:onAnother — L702
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L702)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--f55745a10d:
 
 event:onAnother — L702
 ----------------------
@@ -16928,7 +16049,6 @@ event:onGroupSpellCooldown — L309
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L309)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--7d88741336:
 
 event:onGroupSpellCooldown — L309
 ---------------------------------
@@ -16964,7 +16084,6 @@ event:onSame — L701
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L701)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--5f5aec826e:
 
 event:onSame — L701
 -------------------
@@ -16976,7 +16095,6 @@ event:onSame — L701
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L701)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--5f5aec826e:
 
 event:onSame — L701
 -------------------
@@ -16988,7 +16106,6 @@ event:onSame — L701
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L701)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--5f5aec826e:
 
 event:onSame — L701
 -------------------
@@ -17012,7 +16129,6 @@ event:onSpellCooldown — L309
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L309)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--754fe65c66:
 
 event:onSpellCooldown — L309
 ----------------------------
@@ -17036,7 +16152,6 @@ event:onTalk — L233
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L233)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--b525eeef3d:
 
 event:onTalk — L233
 -------------------
@@ -17048,7 +16163,6 @@ event:onTalk — L233
    :caption: modules/modules/game_bot/default_configs/vBot_4.7/vBot/vlib.lua (L233)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-7-vbot-vlib-lua--b525eeef3d:
 
 event:onTalk — L233
 -------------------
@@ -17156,7 +16270,6 @@ event:onClick — L143
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.lua (L143)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-cavebo-5760e5654d:
 
 event:onClick — L143
 --------------------
@@ -17180,7 +16293,6 @@ event:onConfigChange — L117
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.lua (L117)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-cavebo-e0f42db262:
 
 event:onConfigChange — L117
 ---------------------------
@@ -17192,7 +16304,6 @@ event:onConfigChange — L117
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.lua (L117)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-cavebo-e0f42db262:
 
 event:onConfigChange — L117
 ---------------------------
@@ -17216,7 +16327,6 @@ event:onSave — L434
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/cavebot.lua (L434)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-cavebo-3471fdf7cf:
 
 event:onSave — L434
 -------------------
@@ -17276,7 +16386,6 @@ event:onClick — L28
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/editor.lua (L28)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-editor-2b3425665c:
 
 event:onClick — L28
 -------------------
@@ -17300,7 +16409,6 @@ event:onDoubleClick — L64
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/editor.lua (L64)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-editor-7c2407e373:
 
 event:onDoubleClick — L64
 -------------------------
@@ -17420,7 +16528,6 @@ event:onChildFocusChange — L168
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/cavebot/stand_lure.lua (L168)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-cavebot-stand--58a85b8a8f:
 
 event:onChildFocusChange — L168
 -------------------------------
@@ -17492,7 +16599,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-crea-e96adf063d:
 
 event:onClick — L35
 -------------------
@@ -17504,7 +16610,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-crea-e96adf063d:
 
 event:onClick — L35
 -------------------
@@ -17516,7 +16621,6 @@ event:onClick — L35
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.lua (L35)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-crea-e96adf063d:
 
 event:onClick — L35
 -------------------
@@ -17552,7 +16656,6 @@ event:onValueChange — L12
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/creature_editor.lua (L12)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-crea-2d32de1011:
 
 event:onValueChange — L12
 -------------------------
@@ -17600,7 +16703,6 @@ event:onContainersUpdate — L14
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/looting.lua (L14)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-loot-508f9784de:
 
 event:onContainersUpdate — L14
 ------------------------------
@@ -17636,7 +16738,6 @@ event:onItemsUpdate — L13
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/looting.lua (L13)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-loot-132ab5c7b2:
 
 event:onItemsUpdate — L13
 -------------------------
@@ -17660,7 +16761,6 @@ event:onTextChange — L19
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/looting.lua (L19)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-loot-4f318d6d4b:
 
 event:onTextChange — L19
 ------------------------
@@ -17696,7 +16796,6 @@ event:onClick — L26
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/target.lua (L26)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-targ-59520851b7:
 
 event:onClick — L26
 -------------------
@@ -17708,7 +16807,6 @@ event:onClick — L26
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/target.lua (L26)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-targ-59520851b7:
 
 event:onClick — L26
 -------------------
@@ -17720,7 +16818,6 @@ event:onClick — L26
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/targetbot/target.lua (L26)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-targetbot-targ-59520851b7:
 
 event:onClick — L26
 -------------------
@@ -17744,7 +16841,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17756,7 +16852,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17768,7 +16863,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17780,7 +16874,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17792,7 +16885,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17804,7 +16896,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17816,7 +16907,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17828,7 +16918,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17840,7 +16929,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17852,7 +16940,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17864,7 +16951,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17876,7 +16962,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17888,7 +16973,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17900,7 +16984,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17912,7 +16995,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17924,7 +17006,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17936,7 +17017,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17948,7 +17028,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17960,7 +17039,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17972,7 +17050,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17984,7 +17061,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -17996,7 +17072,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -18008,7 +17083,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -18020,7 +17094,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -18032,7 +17105,6 @@ event:onClick — L611
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L611)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-0f87376de4:
 
 event:onClick — L611
 --------------------
@@ -18080,7 +17152,6 @@ event:onValueChange — L924
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/AttackBot.lua (L924)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-attackbot-25851b304f:
 
 event:onValueChange — L924
 --------------------------
@@ -18128,7 +17199,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18140,7 +17210,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18152,7 +17221,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18164,7 +17232,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18176,7 +17243,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18188,7 +17254,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18200,7 +17265,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18212,7 +17276,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18224,7 +17287,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/BotServer.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-botserver-8fd221e9b0:
 
 event:onClick — L50
 -------------------
@@ -18260,7 +17322,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18272,7 +17333,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18284,7 +17344,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18296,7 +17355,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18308,7 +17366,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18320,7 +17377,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18332,7 +17388,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18344,7 +17399,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18356,7 +17410,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18368,7 +17421,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18380,7 +17432,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18392,7 +17443,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18404,7 +17454,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18416,7 +17465,6 @@ event:onClick — L61
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L61)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-9e525748f7:
 
 event:onClick — L61
 -------------------
@@ -18452,7 +17500,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18464,7 +17511,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18476,7 +17522,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18488,7 +17533,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18500,7 +17544,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18512,7 +17555,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18524,7 +17566,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18536,7 +17577,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18548,7 +17588,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18560,7 +17599,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18572,7 +17610,6 @@ event:onTextChange — L89
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Conditions.lua (L89)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-condition-f62e42f1f3:
 
 event:onTextChange — L89
 ------------------------
@@ -18620,7 +17657,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18632,7 +17668,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18644,7 +17679,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18656,7 +17690,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18668,7 +17701,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18680,7 +17712,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18692,7 +17723,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18704,7 +17734,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18716,7 +17745,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18728,7 +17756,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18740,7 +17767,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18752,7 +17778,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18764,7 +17789,6 @@ event:onClick — L393
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L393)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-b664c2f70a:
 
 event:onClick — L393
 --------------------
@@ -18800,7 +17824,6 @@ event:onContainerOpen — L534
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Containers.lua (L534)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-container-333d63da7c:
 
 event:onContainerOpen — L534
 ----------------------------
@@ -18872,7 +17895,6 @@ event:onClick — L88
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Dropper.lua (L88)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-dropper-l-65aaca2c45:
 
 event:onClick — L88
 -------------------
@@ -18896,7 +17918,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18908,7 +17929,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18920,7 +17940,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18932,7 +17951,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18944,7 +17962,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18956,7 +17973,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18968,7 +17984,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18980,7 +17995,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -18992,7 +18006,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19004,7 +18017,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19016,7 +18028,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19028,7 +18039,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19040,7 +18050,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19052,7 +18061,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19064,7 +18072,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19076,7 +18083,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19088,7 +18094,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19100,7 +18105,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19112,7 +18116,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19124,7 +18127,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19136,7 +18138,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19148,7 +18149,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19160,7 +18160,6 @@ event:onClick — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--963c04c60a:
 
 event:onClick — L36
 -------------------
@@ -19232,7 +18231,6 @@ event:onMouseWheel — L315
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Equipper.lua (L315)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-equipper--dcea9c2248:
 
 event:onMouseWheel — L315
 -------------------------
@@ -19280,7 +18278,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19292,7 +18289,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19304,7 +18300,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19316,7 +18311,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19328,7 +18322,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19340,7 +18333,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19352,7 +18344,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19364,7 +18355,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19376,7 +18366,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19388,7 +18377,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19400,7 +18388,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19412,7 +18399,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19424,7 +18410,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19436,7 +18421,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19448,7 +18432,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19460,7 +18443,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19472,7 +18454,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19484,7 +18465,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19496,7 +18476,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19508,7 +18487,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19520,7 +18498,6 @@ event:onClick — L173
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/HealBot.lua (L173)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-healbot-l-8036c08e6c:
 
 event:onClick — L173
 --------------------
@@ -19592,7 +18569,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19604,7 +18580,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19616,7 +18591,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19628,7 +18602,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19640,7 +18613,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19652,7 +18624,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19664,7 +18635,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19676,7 +18646,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19688,7 +18657,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19700,7 +18668,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19712,7 +18679,6 @@ event:onClick — L50
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L50)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-c072011139:
 
 event:onClick — L50
 -------------------
@@ -19760,7 +18726,6 @@ event:onValueChange — L131
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L131)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-148bd977a5:
 
 event:onValueChange — L131
 --------------------------
@@ -19772,7 +18737,6 @@ event:onValueChange — L131
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/Sio.lua (L131)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-sio-lua-l-148bd977a5:
 
 event:onValueChange — L131
 --------------------------
@@ -19796,7 +18760,6 @@ event:onClick — L33
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua (L33)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-alarms-lu-b5d96eb7ad:
 
 event:onClick — L33
 -------------------
@@ -19808,7 +18771,6 @@ event:onClick — L33
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/alarms.lua (L33)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-alarms-lu-b5d96eb7ad:
 
 event:onClick — L33
 -------------------
@@ -19880,7 +18842,6 @@ event:onAddItem — L1120
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L1120)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--5ada153079:
 
 event:onAddItem — L1120
 -----------------------
@@ -19916,7 +18877,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -19928,7 +18888,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -19940,7 +18899,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -19952,7 +18910,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -19964,7 +18921,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -19976,7 +18932,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -19988,7 +18943,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20000,7 +18954,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20012,7 +18965,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20024,7 +18976,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20036,7 +18987,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20048,7 +18998,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20060,7 +19009,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20072,7 +19020,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20084,7 +19031,6 @@ event:onClick — L204
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L204)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--54427c86cb:
 
 event:onClick — L204
 --------------------
@@ -20132,7 +19078,6 @@ event:onContainerUpdateItem — L1128
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L1128)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--dd1df65b02:
 
 event:onContainerUpdateItem — L1128
 -----------------------------------
@@ -20144,7 +19089,6 @@ event:onContainerUpdateItem — L1128
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L1128)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--dd1df65b02:
 
 event:onContainerUpdateItem — L1128
 -----------------------------------
@@ -20168,7 +19112,6 @@ event:onDoubleClick — L408
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L408)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--c0da86c430:
 
 event:onDoubleClick — L408
 --------------------------
@@ -20180,7 +19123,6 @@ event:onDoubleClick — L408
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L408)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--c0da86c430:
 
 event:onDoubleClick — L408
 --------------------------
@@ -20216,7 +19158,6 @@ event:onItemChange — L418
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L418)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--b3ba629ef8:
 
 event:onItemChange — L418
 -------------------------
@@ -20276,7 +19217,6 @@ event:onTextMessage — L882
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L882)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--915d4f67cf:
 
 event:onTextMessage — L882
 --------------------------
@@ -20288,7 +19228,6 @@ event:onTextMessage — L882
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/analyzer.lua (L882)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-analyzer--915d4f67cf:
 
 event:onTextMessage — L882
 --------------------------
@@ -20324,7 +19263,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-34c3cdff3b:
 
 event:onCastEnabled — L32
 -------------------------
@@ -20336,7 +19274,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-34c3cdff3b:
 
 event:onCastEnabled — L32
 -------------------------
@@ -20348,7 +19285,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-34c3cdff3b:
 
 event:onCastEnabled — L32
 -------------------------
@@ -20360,7 +19296,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-34c3cdff3b:
 
 event:onCastEnabled — L32
 -------------------------
@@ -20372,7 +19307,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-34c3cdff3b:
 
 event:onCastEnabled — L32
 -------------------------
@@ -20384,7 +19318,6 @@ event:onCastEnabled — L32
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L32)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-34c3cdff3b:
 
 event:onCastEnabled — L32
 -------------------------
@@ -20408,7 +19341,6 @@ event:onCastLeader — L176
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L176)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-a3ab31b730:
 
 event:onCastLeader — L176
 -------------------------
@@ -20432,7 +19364,6 @@ event:onCastToggle — L135
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L135)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-020c703312:
 
 event:onCastToggle — L135
 -------------------------
@@ -20456,7 +19387,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20468,7 +19398,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20480,7 +19409,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20492,7 +19420,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20504,7 +19431,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20516,7 +19442,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20528,7 +19453,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20540,7 +19464,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20552,7 +19475,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20564,7 +19486,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20576,7 +19497,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20588,7 +19508,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20600,7 +19519,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20612,7 +19530,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20624,7 +19541,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L56)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-940c999479:
 
 event:onClick — L56
 -------------------
@@ -20684,7 +19600,6 @@ event:onOptionChange — L113
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L113)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-518e70e3f3:
 
 event:onOptionChange — L113
 ---------------------------
@@ -20708,7 +19623,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-1cef74e262:
 
 event:onSayEnabled — L30
 ------------------------
@@ -20720,7 +19634,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-1cef74e262:
 
 event:onSayEnabled — L30
 ------------------------
@@ -20732,7 +19645,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-1cef74e262:
 
 event:onSayEnabled — L30
 ------------------------
@@ -20744,7 +19656,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-1cef74e262:
 
 event:onSayEnabled — L30
 ------------------------
@@ -20756,7 +19667,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-1cef74e262:
 
 event:onSayEnabled — L30
 ------------------------
@@ -20768,7 +19678,6 @@ event:onSayEnabled — L30
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L30)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-1cef74e262:
 
 event:onSayEnabled — L30
 ------------------------
@@ -20792,7 +19701,6 @@ event:onSayLeader — L166
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L166)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-b376213cc5:
 
 event:onSayLeader — L166
 ------------------------
@@ -20816,7 +19724,6 @@ event:onSayPhrase — L181
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L181)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-33989e83f2:
 
 event:onSayPhrase — L181
 ------------------------
@@ -20840,7 +19747,6 @@ event:onSayToggle — L123
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L123)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-09e8a17ac9:
 
 event:onSayToggle — L123
 ------------------------
@@ -20864,7 +19770,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-db8dfb1b26:
 
 event:onShootEnabled — L31
 --------------------------
@@ -20876,7 +19781,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-db8dfb1b26:
 
 event:onShootEnabled — L31
 --------------------------
@@ -20888,7 +19792,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-db8dfb1b26:
 
 event:onShootEnabled — L31
 --------------------------
@@ -20900,7 +19803,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-db8dfb1b26:
 
 event:onShootEnabled — L31
 --------------------------
@@ -20912,7 +19814,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-db8dfb1b26:
 
 event:onShootEnabled — L31
 --------------------------
@@ -20924,7 +19825,6 @@ event:onShootEnabled — L31
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L31)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-db8dfb1b26:
 
 event:onShootEnabled — L31
 --------------------------
@@ -20948,7 +19848,6 @@ event:onShootLeader — L171
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L171)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-9cb4341c6d:
 
 event:onShootLeader — L171
 --------------------------
@@ -20972,7 +19871,6 @@ event:onShootToggle — L129
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L129)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-389bc738f3:
 
 event:onShootToggle — L129
 --------------------------
@@ -21008,7 +19906,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-fd82078a20:
 
 event:onTextChange — L167
 -------------------------
@@ -21020,7 +19917,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-fd82078a20:
 
 event:onTextChange — L167
 -------------------------
@@ -21032,7 +19928,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-fd82078a20:
 
 event:onTextChange — L167
 -------------------------
@@ -21044,7 +19939,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-fd82078a20:
 
 event:onTextChange — L167
 -------------------------
@@ -21056,7 +19950,6 @@ event:onTextChange — L167
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/combo.lua (L167)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-combo-lua-fd82078a20:
 
 event:onTextChange — L167
 -------------------------
@@ -21104,7 +19997,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-configs-l-5c9f74037c:
 
 event:onError — L36
 -------------------
@@ -21116,7 +20008,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-configs-l-5c9f74037c:
 
 event:onError — L36
 -------------------
@@ -21128,7 +20019,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-configs-l-5c9f74037c:
 
 event:onError — L36
 -------------------
@@ -21140,7 +20030,6 @@ event:onError — L36
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/configs.lua (L36)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-configs-l-5c9f74037c:
 
 event:onError — L36
 -------------------
@@ -21164,7 +20053,6 @@ event:onClick — L23
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.lua (L23)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-depositer-8c8a990929:
 
 event:onClick — L23
 -------------------
@@ -21188,7 +20076,6 @@ event:onDoubleClick — L46
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/depositer_config.lua (L46)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-depositer-d89e0654ea:
 
 event:onDoubleClick — L46
 -------------------------
@@ -21272,7 +20159,6 @@ event:onAddThing — L220
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L220)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-2164132b57:
 
 event:onAddThing — L220
 -----------------------
@@ -21308,7 +20194,6 @@ event:onClick — L13
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L13)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-3108ff18ca:
 
 event:onClick — L13
 -------------------
@@ -21392,7 +20277,6 @@ event:onKeyPress — L344
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L344)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-430aa66721:
 
 event:onKeyPress — L344
 -----------------------
@@ -21428,7 +20312,6 @@ event:onRemoveThing — L241
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L241)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-2f0dd09514:
 
 event:onRemoveThing — L241
 --------------------------
@@ -21452,7 +20335,6 @@ event:onTalk — L157
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L157)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-aa3352765f:
 
 event:onTalk — L157
 -------------------
@@ -21488,7 +20370,6 @@ event:onTextMessage — L377
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L377)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-f89d5f7401:
 
 event:onTextMessage — L377
 --------------------------
@@ -21524,7 +20405,6 @@ event:onValueChange — L82
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/extras.lua (L82)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-extras-lu-e1de4193b4:
 
 event:onValueChange — L82
 -------------------------
@@ -21560,7 +20440,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21572,7 +20451,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21584,7 +20462,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21596,7 +20473,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21608,7 +20484,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21620,7 +20495,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21632,7 +20506,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21644,7 +20517,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21656,7 +20528,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21668,7 +20539,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21680,7 +20550,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21692,7 +20561,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21704,7 +20572,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21716,7 +20583,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21728,7 +20594,6 @@ event:onClick — L79
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L79)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-918a74ee44:
 
 event:onClick — L79
 -------------------
@@ -21752,7 +20617,6 @@ event:onDoubleClick — L106
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/new_healer.lua (L106)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-new-heale-9b16b71f77:
 
 event:onDoubleClick — L106
 --------------------------
@@ -21824,7 +20688,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21836,7 +20699,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21848,7 +20710,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21860,7 +20721,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21872,7 +20732,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21884,7 +20743,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21896,7 +20754,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21908,7 +20765,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21920,7 +20776,6 @@ event:onClick — L148
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L148)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-929d1e25d9:
 
 event:onClick — L148
 --------------------
@@ -21968,7 +20823,6 @@ event:onMouseRelease — L206
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L206)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-cd77bac1d6:
 
 event:onMouseRelease — L206
 ---------------------------
@@ -21980,7 +20834,6 @@ event:onMouseRelease — L206
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/playerlist.lua (L206)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-playerlis-cd77bac1d6:
 
 event:onMouseRelease — L206
 ---------------------------
@@ -22040,7 +20893,6 @@ event:onClick — L42
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.lua (L42)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-pushmax-l-65b0846a47:
 
 event:onClick — L42
 -------------------
@@ -22052,7 +20904,6 @@ event:onClick — L42
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.lua (L42)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-pushmax-l-65b0846a47:
 
 event:onClick — L42
 -------------------
@@ -22088,7 +20939,6 @@ event:onItemChange — L72
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/pushmax.lua (L72)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-pushmax-l-6adea4f5ee:
 
 event:onItemChange — L72
 ------------------------
@@ -22304,7 +21154,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22316,7 +21165,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22328,7 +21176,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22340,7 +21187,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22352,7 +21198,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22364,7 +21209,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22376,7 +21220,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22388,7 +21231,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22400,7 +21242,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22412,7 +21253,6 @@ event:onClick — L235
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L235)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--70628cbcca:
 
 event:onClick — L235
 --------------------
@@ -22460,7 +21300,6 @@ event:onMouseWheel — L366
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L366)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--651fbfde75:
 
 event:onMouseWheel — L366
 -------------------------
@@ -22472,7 +21311,6 @@ event:onMouseWheel — L366
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L366)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--651fbfde75:
 
 event:onMouseWheel — L366
 -------------------------
@@ -22496,7 +21334,6 @@ event:onTextChange — L264
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L264)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--37b533d9df:
 
 event:onTextChange — L264
 -------------------------
@@ -22508,7 +21345,6 @@ event:onTextChange — L264
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/supplies.lua (L264)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-supplies--37b533d9df:
 
 event:onTextChange — L264
 -------------------------
@@ -22544,7 +21380,6 @@ event:onAnother — L704
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L704)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--c2e267c182:
 
 event:onAnother — L704
 ----------------------
@@ -22556,7 +21391,6 @@ event:onAnother — L704
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L704)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--c2e267c182:
 
 event:onAnother — L704
 ----------------------
@@ -22568,7 +21402,6 @@ event:onAnother — L704
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L704)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--c2e267c182:
 
 event:onAnother — L704
 ----------------------
@@ -22592,7 +21425,6 @@ event:onGroupSpellCooldown — L309
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L309)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--d742630ea6:
 
 event:onGroupSpellCooldown — L309
 ---------------------------------
@@ -22628,7 +21460,6 @@ event:onSame — L703
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L703)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--78eef82521:
 
 event:onSame — L703
 -------------------
@@ -22640,7 +21471,6 @@ event:onSame — L703
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L703)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--78eef82521:
 
 event:onSame — L703
 -------------------
@@ -22652,7 +21482,6 @@ event:onSame — L703
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L703)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--78eef82521:
 
 event:onSame — L703
 -------------------
@@ -22676,7 +21505,6 @@ event:onSpellCooldown — L309
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L309)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--ebe4121b90:
 
 event:onSpellCooldown — L309
 ----------------------------
@@ -22700,7 +21528,6 @@ event:onTalk — L233
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L233)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--e70c40bb40:
 
 event:onTalk — L233
 -------------------
@@ -22712,7 +21539,6 @@ event:onTalk — L233
    :caption: modules/modules/game_bot/default_configs/vBot_4.8/vBot/vlib.lua (L233)
 
 
-.. _modules-modules-game-bot-default-configs-vbot-4-8-vbot-vlib-lua--e70c40bb40:
 
 event:onTalk — L233
 -------------------
@@ -22784,7 +21610,6 @@ event:onAddItem — L71
    :caption: modules/modules/game_bot/executor.lua (L71)
 
 
-.. _modules-modules-game-bot-executor-lua-l71-event-onadditem-6aa6849da7:
 
 event:onAddItem — L71
 ---------------------
@@ -22796,7 +21621,6 @@ event:onAddItem — L71
    :caption: modules/modules/game_bot/executor.lua (L71)
 
 
-.. _modules-modules-game-bot-executor-lua-l71-event-onadditem-6aa6849da7:
 
 event:onAddItem — L71
 ---------------------
@@ -22820,7 +21644,6 @@ event:onAddThing — L46
    :caption: modules/modules/game_bot/executor.lua (L46)
 
 
-.. _modules-modules-game-bot-executor-lua-l46-event-onaddthing-d4f3222335:
 
 event:onAddThing — L46
 ----------------------
@@ -22832,7 +21655,6 @@ event:onAddThing — L46
    :caption: modules/modules/game_bot/executor.lua (L46)
 
 
-.. _modules-modules-game-bot-executor-lua-l46-event-onaddthing-d4f3222335:
 
 event:onAddThing — L46
 ----------------------
@@ -22856,7 +21678,6 @@ event:onAnimatedText — L58
    :caption: modules/modules/game_bot/executor.lua (L58)
 
 
-.. _modules-modules-game-bot-executor-lua-l58-event-onanimatedtext-57bf307887:
 
 event:onAnimatedText — L58
 --------------------------
@@ -22868,7 +21689,6 @@ event:onAnimatedText — L58
    :caption: modules/modules/game_bot/executor.lua (L58)
 
 
-.. _modules-modules-game-bot-executor-lua-l58-event-onanimatedtext-57bf307887:
 
 event:onAnimatedText — L58
 --------------------------
@@ -22892,7 +21712,6 @@ event:onAttackingCreatureChange — L68
    :caption: modules/modules/game_bot/executor.lua (L68)
 
 
-.. _modules-modules-game-bot-executor-lua-l68-event-onattackingcreat-9904dfa8ae:
 
 event:onAttackingCreatureChange — L68
 -------------------------------------
@@ -22904,7 +21723,6 @@ event:onAttackingCreatureChange — L68
    :caption: modules/modules/game_bot/executor.lua (L68)
 
 
-.. _modules-modules-game-bot-executor-lua-l68-event-onattackingcreat-9904dfa8ae:
 
 event:onAttackingCreatureChange — L68
 -------------------------------------
@@ -22928,7 +21746,6 @@ event:onChannelEvent — L63
    :caption: modules/modules/game_bot/executor.lua (L63)
 
 
-.. _modules-modules-game-bot-executor-lua-l63-event-onchannelevent-0b635c660f:
 
 event:onChannelEvent — L63
 --------------------------
@@ -22940,7 +21757,6 @@ event:onChannelEvent — L63
    :caption: modules/modules/game_bot/executor.lua (L63)
 
 
-.. _modules-modules-game-bot-executor-lua-l63-event-onchannelevent-0b635c660f:
 
 event:onChannelEvent — L63
 --------------------------
@@ -22964,7 +21780,6 @@ event:onChannelList — L60
    :caption: modules/modules/game_bot/executor.lua (L60)
 
 
-.. _modules-modules-game-bot-executor-lua-l60-event-onchannellist-912df1b751:
 
 event:onChannelList — L60
 -------------------------
@@ -22976,7 +21791,6 @@ event:onChannelList — L60
    :caption: modules/modules/game_bot/executor.lua (L60)
 
 
-.. _modules-modules-game-bot-executor-lua-l60-event-onchannellist-912df1b751:
 
 event:onChannelList — L60
 -------------------------
@@ -23012,7 +21826,6 @@ event:onCloseChannel — L62
    :caption: modules/modules/game_bot/executor.lua (L62)
 
 
-.. _modules-modules-game-bot-executor-lua-l62-event-onclosechannel-82c002e2ab:
 
 event:onCloseChannel — L62
 --------------------------
@@ -23024,7 +21837,6 @@ event:onCloseChannel — L62
    :caption: modules/modules/game_bot/executor.lua (L62)
 
 
-.. _modules-modules-game-bot-executor-lua-l62-event-onclosechannel-82c002e2ab:
 
 event:onCloseChannel — L62
 --------------------------
@@ -23048,7 +21860,6 @@ event:onContainerClose — L55
    :caption: modules/modules/game_bot/executor.lua (L55)
 
 
-.. _modules-modules-game-bot-executor-lua-l55-event-oncontainerclose-ff27f07e79:
 
 event:onContainerClose — L55
 ----------------------------
@@ -23060,7 +21871,6 @@ event:onContainerClose — L55
    :caption: modules/modules/game_bot/executor.lua (L55)
 
 
-.. _modules-modules-game-bot-executor-lua-l55-event-oncontainerclose-ff27f07e79:
 
 event:onContainerClose — L55
 ----------------------------
@@ -23084,7 +21894,6 @@ event:onContainerOpen — L54
    :caption: modules/modules/game_bot/executor.lua (L54)
 
 
-.. _modules-modules-game-bot-executor-lua-l54-event-oncontaineropen-65b4e7fb18:
 
 event:onContainerOpen — L54
 ---------------------------
@@ -23096,7 +21905,6 @@ event:onContainerOpen — L54
    :caption: modules/modules/game_bot/executor.lua (L54)
 
 
-.. _modules-modules-game-bot-executor-lua-l54-event-oncontaineropen-65b4e7fb18:
 
 event:onContainerOpen — L54
 ---------------------------
@@ -23120,7 +21928,6 @@ event:onContainerUpdateItem — L56
    :caption: modules/modules/game_bot/executor.lua (L56)
 
 
-.. _modules-modules-game-bot-executor-lua-l56-event-oncontainerupdat-986789a3c3:
 
 event:onContainerUpdateItem — L56
 ---------------------------------
@@ -23132,7 +21939,6 @@ event:onContainerUpdateItem — L56
    :caption: modules/modules/game_bot/executor.lua (L56)
 
 
-.. _modules-modules-game-bot-executor-lua-l56-event-oncontainerupdat-986789a3c3:
 
 event:onContainerUpdateItem — L56
 ---------------------------------
@@ -23156,7 +21962,6 @@ event:onCreatureAppear — L48
    :caption: modules/modules/game_bot/executor.lua (L48)
 
 
-.. _modules-modules-game-bot-executor-lua-l48-event-oncreatureappear-afd38887df:
 
 event:onCreatureAppear — L48
 ----------------------------
@@ -23168,7 +21973,6 @@ event:onCreatureAppear — L48
    :caption: modules/modules/game_bot/executor.lua (L48)
 
 
-.. _modules-modules-game-bot-executor-lua-l48-event-oncreatureappear-afd38887df:
 
 event:onCreatureAppear — L48
 ----------------------------
@@ -23192,7 +21996,6 @@ event:onCreatureDisappear — L49
    :caption: modules/modules/game_bot/executor.lua (L49)
 
 
-.. _modules-modules-game-bot-executor-lua-l49-event-oncreaturedisapp-87719a0fa8:
 
 event:onCreatureDisappear — L49
 -------------------------------
@@ -23204,7 +22007,6 @@ event:onCreatureDisappear — L49
    :caption: modules/modules/game_bot/executor.lua (L49)
 
 
-.. _modules-modules-game-bot-executor-lua-l49-event-oncreaturedisapp-87719a0fa8:
 
 event:onCreatureDisappear — L49
 -------------------------------
@@ -23228,7 +22030,6 @@ event:onCreatureHealthPercentChange — L51
    :caption: modules/modules/game_bot/executor.lua (L51)
 
 
-.. _modules-modules-game-bot-executor-lua-l51-event-oncreaturehealth-3e7b367b91:
 
 event:onCreatureHealthPercentChange — L51
 -----------------------------------------
@@ -23240,7 +22041,6 @@ event:onCreatureHealthPercentChange — L51
    :caption: modules/modules/game_bot/executor.lua (L51)
 
 
-.. _modules-modules-game-bot-executor-lua-l51-event-oncreaturehealth-3e7b367b91:
 
 event:onCreatureHealthPercentChange — L51
 -----------------------------------------
@@ -23264,7 +22064,6 @@ event:onCreaturePositionChange — L50
    :caption: modules/modules/game_bot/executor.lua (L50)
 
 
-.. _modules-modules-game-bot-executor-lua-l50-event-oncreaturepositi-b9efd6e250:
 
 event:onCreaturePositionChange — L50
 ------------------------------------
@@ -23276,7 +22075,6 @@ event:onCreaturePositionChange — L50
    :caption: modules/modules/game_bot/executor.lua (L50)
 
 
-.. _modules-modules-game-bot-executor-lua-l50-event-oncreaturepositi-b9efd6e250:
 
 event:onCreaturePositionChange — L50
 ------------------------------------
@@ -23300,7 +22098,6 @@ event:onGameEditText — L72
    :caption: modules/modules/game_bot/executor.lua (L72)
 
 
-.. _modules-modules-game-bot-executor-lua-l72-event-ongameedittext-2e709f95ad:
 
 event:onGameEditText — L72
 --------------------------
@@ -23312,7 +22109,6 @@ event:onGameEditText — L72
    :caption: modules/modules/game_bot/executor.lua (L72)
 
 
-.. _modules-modules-game-bot-executor-lua-l72-event-ongameedittext-2e709f95ad:
 
 event:onGameEditText — L72
 --------------------------
@@ -23336,7 +22132,6 @@ event:onGroupSpellCooldown — L73
    :caption: modules/modules/game_bot/executor.lua (L73)
 
 
-.. _modules-modules-game-bot-executor-lua-l73-event-ongroupspellcool-c4170fb2aa:
 
 event:onGroupSpellCooldown — L73
 --------------------------------
@@ -23348,7 +22143,6 @@ event:onGroupSpellCooldown — L73
    :caption: modules/modules/game_bot/executor.lua (L73)
 
 
-.. _modules-modules-game-bot-executor-lua-l73-event-ongroupspellcool-c4170fb2aa:
 
 event:onGroupSpellCooldown — L73
 --------------------------------
@@ -23372,7 +22166,6 @@ event:onImbuementWindow — L66
    :caption: modules/modules/game_bot/executor.lua (L66)
 
 
-.. _modules-modules-game-bot-executor-lua-l66-event-onimbuementwindo-6428b07bca:
 
 event:onImbuementWindow — L66
 -----------------------------
@@ -23384,7 +22177,6 @@ event:onImbuementWindow — L66
    :caption: modules/modules/game_bot/executor.lua (L66)
 
 
-.. _modules-modules-game-bot-executor-lua-l66-event-onimbuementwindo-6428b07bca:
 
 event:onImbuementWindow — L66
 -----------------------------
@@ -23408,7 +22200,6 @@ event:onInventoryChange — L76
    :caption: modules/modules/game_bot/executor.lua (L76)
 
 
-.. _modules-modules-game-bot-executor-lua-l76-event-oninventorychang-5c1af46fb0:
 
 event:onInventoryChange — L76
 -----------------------------
@@ -23420,7 +22211,6 @@ event:onInventoryChange — L76
    :caption: modules/modules/game_bot/executor.lua (L76)
 
 
-.. _modules-modules-game-bot-executor-lua-l76-event-oninventorychang-5c1af46fb0:
 
 event:onInventoryChange — L76
 -----------------------------
@@ -23444,7 +22234,6 @@ event:onKeyDown — L40
    :caption: modules/modules/game_bot/executor.lua (L40)
 
 
-.. _modules-modules-game-bot-executor-lua-l40-event-onkeydown-b38cef7b62:
 
 event:onKeyDown — L40
 ---------------------
@@ -23456,7 +22245,6 @@ event:onKeyDown — L40
    :caption: modules/modules/game_bot/executor.lua (L40)
 
 
-.. _modules-modules-game-bot-executor-lua-l40-event-onkeydown-b38cef7b62:
 
 event:onKeyDown — L40
 ---------------------
@@ -23480,7 +22268,6 @@ event:onKeyPress — L42
    :caption: modules/modules/game_bot/executor.lua (L42)
 
 
-.. _modules-modules-game-bot-executor-lua-l42-event-onkeypress-8eafbcbd1e:
 
 event:onKeyPress — L42
 ----------------------
@@ -23492,7 +22279,6 @@ event:onKeyPress — L42
    :caption: modules/modules/game_bot/executor.lua (L42)
 
 
-.. _modules-modules-game-bot-executor-lua-l42-event-onkeypress-8eafbcbd1e:
 
 event:onKeyPress — L42
 ----------------------
@@ -23516,7 +22302,6 @@ event:onKeyUp — L41
    :caption: modules/modules/game_bot/executor.lua (L41)
 
 
-.. _modules-modules-game-bot-executor-lua-l41-event-onkeyup-fcf249bfdd:
 
 event:onKeyUp — L41
 -------------------
@@ -23528,7 +22313,6 @@ event:onKeyUp — L41
    :caption: modules/modules/game_bot/executor.lua (L41)
 
 
-.. _modules-modules-game-bot-executor-lua-l41-event-onkeyup-fcf249bfdd:
 
 event:onKeyUp — L41
 -------------------
@@ -23552,7 +22336,6 @@ event:onLoginAdvice — L45
    :caption: modules/modules/game_bot/executor.lua (L45)
 
 
-.. _modules-modules-game-bot-executor-lua-l45-event-onloginadvice-24ddd5b81e:
 
 event:onLoginAdvice — L45
 -------------------------
@@ -23564,7 +22347,6 @@ event:onLoginAdvice — L45
    :caption: modules/modules/game_bot/executor.lua (L45)
 
 
-.. _modules-modules-game-bot-executor-lua-l45-event-onloginadvice-24ddd5b81e:
 
 event:onLoginAdvice — L45
 -------------------------
@@ -23588,7 +22370,6 @@ event:onManaChange — L69
    :caption: modules/modules/game_bot/executor.lua (L69)
 
 
-.. _modules-modules-game-bot-executor-lua-l69-event-onmanachange-61f066ed9d:
 
 event:onManaChange — L69
 ------------------------
@@ -23600,7 +22381,6 @@ event:onManaChange — L69
    :caption: modules/modules/game_bot/executor.lua (L69)
 
 
-.. _modules-modules-game-bot-executor-lua-l69-event-onmanachange-61f066ed9d:
 
 event:onManaChange — L69
 ------------------------
@@ -23624,7 +22404,6 @@ event:onMissle — L57
    :caption: modules/modules/game_bot/executor.lua (L57)
 
 
-.. _modules-modules-game-bot-executor-lua-l57-event-onmissle-f74e9b5e09:
 
 event:onMissle — L57
 --------------------
@@ -23636,7 +22415,6 @@ event:onMissle — L57
    :caption: modules/modules/game_bot/executor.lua (L57)
 
 
-.. _modules-modules-game-bot-executor-lua-l57-event-onmissle-f74e9b5e09:
 
 event:onMissle — L57
 --------------------
@@ -23660,7 +22438,6 @@ event:onModalDialog — L67
    :caption: modules/modules/game_bot/executor.lua (L67)
 
 
-.. _modules-modules-game-bot-executor-lua-l67-event-onmodaldialog-6d32850689:
 
 event:onModalDialog — L67
 -------------------------
@@ -23672,7 +22449,6 @@ event:onModalDialog — L67
    :caption: modules/modules/game_bot/executor.lua (L67)
 
 
-.. _modules-modules-game-bot-executor-lua-l67-event-onmodaldialog-6d32850689:
 
 event:onModalDialog — L67
 -------------------------
@@ -23696,7 +22472,6 @@ event:onOpenChannel — L61
    :caption: modules/modules/game_bot/executor.lua (L61)
 
 
-.. _modules-modules-game-bot-executor-lua-l61-event-onopenchannel-e7f639d4e1:
 
 event:onOpenChannel — L61
 -------------------------
@@ -23708,7 +22483,6 @@ event:onOpenChannel — L61
    :caption: modules/modules/game_bot/executor.lua (L61)
 
 
-.. _modules-modules-game-bot-executor-lua-l61-event-onopenchannel-e7f639d4e1:
 
 event:onOpenChannel — L61
 -------------------------
@@ -23732,7 +22506,6 @@ event:onRemoveItem — L75
    :caption: modules/modules/game_bot/executor.lua (L75)
 
 
-.. _modules-modules-game-bot-executor-lua-l75-event-onremoveitem-353dc85e9e:
 
 event:onRemoveItem — L75
 ------------------------
@@ -23744,7 +22517,6 @@ event:onRemoveItem — L75
    :caption: modules/modules/game_bot/executor.lua (L75)
 
 
-.. _modules-modules-game-bot-executor-lua-l75-event-onremoveitem-353dc85e9e:
 
 event:onRemoveItem — L75
 ------------------------
@@ -23768,7 +22540,6 @@ event:onRemoveThing — L47
    :caption: modules/modules/game_bot/executor.lua (L47)
 
 
-.. _modules-modules-game-bot-executor-lua-l47-event-onremovething-f5e758ec22:
 
 event:onRemoveThing — L47
 -------------------------
@@ -23780,7 +22551,6 @@ event:onRemoveThing — L47
    :caption: modules/modules/game_bot/executor.lua (L47)
 
 
-.. _modules-modules-game-bot-executor-lua-l47-event-onremovething-f5e758ec22:
 
 event:onRemoveThing — L47
 -------------------------
@@ -23804,7 +22574,6 @@ event:onSpellCooldown — L74
    :caption: modules/modules/game_bot/executor.lua (L74)
 
 
-.. _modules-modules-game-bot-executor-lua-l74-event-onspellcooldown-a13cb6b9e5:
 
 event:onSpellCooldown — L74
 ---------------------------
@@ -23816,7 +22585,6 @@ event:onSpellCooldown — L74
    :caption: modules/modules/game_bot/executor.lua (L74)
 
 
-.. _modules-modules-game-bot-executor-lua-l74-event-onspellcooldown-a13cb6b9e5:
 
 event:onSpellCooldown — L74
 ---------------------------
@@ -23828,7 +22596,6 @@ event:onSpellCooldown — L74
    :caption: modules/modules/game_bot/executor.lua (L74)
 
 
-.. _modules-modules-game-bot-executor-lua-l74-event-onspellcooldown-a13cb6b9e5:
 
 event:onSpellCooldown — L74
 ---------------------------
@@ -23840,7 +22607,6 @@ event:onSpellCooldown — L74
    :caption: modules/modules/game_bot/executor.lua (L74)
 
 
-.. _modules-modules-game-bot-executor-lua-l74-event-onspellcooldown-a13cb6b9e5:
 
 event:onSpellCooldown — L74
 ---------------------------
@@ -23864,7 +22630,6 @@ event:onStatesChange — L70
    :caption: modules/modules/game_bot/executor.lua (L70)
 
 
-.. _modules-modules-game-bot-executor-lua-l70-event-onstateschange-29eca8a072:
 
 event:onStatesChange — L70
 --------------------------
@@ -23876,7 +22641,6 @@ event:onStatesChange — L70
    :caption: modules/modules/game_bot/executor.lua (L70)
 
 
-.. _modules-modules-game-bot-executor-lua-l70-event-onstateschange-29eca8a072:
 
 event:onStatesChange — L70
 --------------------------
@@ -23900,7 +22664,6 @@ event:onStaticText — L59
    :caption: modules/modules/game_bot/executor.lua (L59)
 
 
-.. _modules-modules-game-bot-executor-lua-l59-event-onstatictext-cbdbaa96f9:
 
 event:onStaticText — L59
 ------------------------
@@ -23912,7 +22675,6 @@ event:onStaticText — L59
    :caption: modules/modules/game_bot/executor.lua (L59)
 
 
-.. _modules-modules-game-bot-executor-lua-l59-event-onstatictext-cbdbaa96f9:
 
 event:onStaticText — L59
 ------------------------
@@ -23936,7 +22698,6 @@ event:onTalk — L43
    :caption: modules/modules/game_bot/executor.lua (L43)
 
 
-.. _modules-modules-game-bot-executor-lua-l43-event-ontalk-ecab9541ab:
 
 event:onTalk — L43
 ------------------
@@ -23948,7 +22709,6 @@ event:onTalk — L43
    :caption: modules/modules/game_bot/executor.lua (L43)
 
 
-.. _modules-modules-game-bot-executor-lua-l43-event-ontalk-ecab9541ab:
 
 event:onTalk — L43
 ------------------
@@ -23972,7 +22732,6 @@ event:onTextMessage — L44
    :caption: modules/modules/game_bot/executor.lua (L44)
 
 
-.. _modules-modules-game-bot-executor-lua-l44-event-ontextmessage-91c7ec8da2:
 
 event:onTextMessage — L44
 -------------------------
@@ -23984,7 +22743,6 @@ event:onTextMessage — L44
    :caption: modules/modules/game_bot/executor.lua (L44)
 
 
-.. _modules-modules-game-bot-executor-lua-l44-event-ontextmessage-91c7ec8da2:
 
 event:onTextMessage — L44
 -------------------------
@@ -24008,7 +22766,6 @@ event:onTurn — L64
    :caption: modules/modules/game_bot/executor.lua (L64)
 
 
-.. _modules-modules-game-bot-executor-lua-l64-event-onturn-4a4d5824ea:
 
 event:onTurn — L64
 ------------------
@@ -24020,7 +22777,6 @@ event:onTurn — L64
    :caption: modules/modules/game_bot/executor.lua (L64)
 
 
-.. _modules-modules-game-bot-executor-lua-l64-event-onturn-4a4d5824ea:
 
 event:onTurn — L64
 ------------------
@@ -24044,7 +22800,6 @@ event:onUse — L52
    :caption: modules/modules/game_bot/executor.lua (L52)
 
 
-.. _modules-modules-game-bot-executor-lua-l52-event-onuse-2f6685ad9a:
 
 event:onUse — L52
 -----------------
@@ -24056,7 +22811,6 @@ event:onUse — L52
    :caption: modules/modules/game_bot/executor.lua (L52)
 
 
-.. _modules-modules-game-bot-executor-lua-l52-event-onuse-2f6685ad9a:
 
 event:onUse — L52
 -----------------
@@ -24080,7 +22834,6 @@ event:onUseWith — L53
    :caption: modules/modules/game_bot/executor.lua (L53)
 
 
-.. _modules-modules-game-bot-executor-lua-l53-event-onusewith-a1c2950aba:
 
 event:onUseWith — L53
 ---------------------
@@ -24092,7 +22845,6 @@ event:onUseWith — L53
    :caption: modules/modules/game_bot/executor.lua (L53)
 
 
-.. _modules-modules-game-bot-executor-lua-l53-event-onusewith-a1c2950aba:
 
 event:onUseWith — L53
 ---------------------
@@ -24116,7 +22868,6 @@ event:onWalk — L65
    :caption: modules/modules/game_bot/executor.lua (L65)
 
 
-.. _modules-modules-game-bot-executor-lua-l65-event-onwalk-4e9b0bfc4d:
 
 event:onWalk — L65
 ------------------
@@ -24128,7 +22879,6 @@ event:onWalk — L65
    :caption: modules/modules/game_bot/executor.lua (L65)
 
 
-.. _modules-modules-game-bot-executor-lua-l65-event-onwalk-4e9b0bfc4d:
 
 event:onWalk — L65
 ------------------
@@ -24152,7 +22902,6 @@ event:onAddItem — L198
    :caption: modules/modules/game_bot/functions/callbacks.lua (L198)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l198-event-onad-6d1dd3ab09:
 
 event:onAddItem — L198
 ----------------------
@@ -24164,7 +22913,6 @@ event:onAddItem — L198
    :caption: modules/modules/game_bot/functions/callbacks.lua (L198)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l198-event-onad-6d1dd3ab09:
 
 event:onAddItem — L198
 ----------------------
@@ -24188,7 +22936,6 @@ event:onAddThing — L8
    :caption: modules/modules/game_bot/functions/callbacks.lua (L8)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l8-event-onaddt-0a0f7b84d9:
 
 event:onAddThing — L8
 ---------------------
@@ -24200,7 +22947,6 @@ event:onAddThing — L8
    :caption: modules/modules/game_bot/functions/callbacks.lua (L8)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l8-event-onaddt-0a0f7b84d9:
 
 event:onAddThing — L8
 ---------------------
@@ -24212,7 +22958,6 @@ event:onAddThing — L8
    :caption: modules/modules/game_bot/functions/callbacks.lua (L8)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l8-event-onaddt-0a0f7b84d9:
 
 event:onAddThing — L8
 ---------------------
@@ -24236,7 +22981,6 @@ event:onAnimatedText — L138
    :caption: modules/modules/game_bot/functions/callbacks.lua (L138)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l138-event-onan-8ee43ec4bd:
 
 event:onAnimatedText — L138
 ---------------------------
@@ -24248,7 +22992,6 @@ event:onAnimatedText — L138
    :caption: modules/modules/game_bot/functions/callbacks.lua (L138)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l138-event-onan-8ee43ec4bd:
 
 event:onAnimatedText — L138
 ---------------------------
@@ -24272,7 +23015,6 @@ event:onAttackingCreatureChange — L188
    :caption: modules/modules/game_bot/functions/callbacks.lua (L188)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l188-event-onat-b1de479dd6:
 
 event:onAttackingCreatureChange — L188
 --------------------------------------
@@ -24284,7 +23026,6 @@ event:onAttackingCreatureChange — L188
    :caption: modules/modules/game_bot/functions/callbacks.lua (L188)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l188-event-onat-b1de479dd6:
 
 event:onAttackingCreatureChange — L188
 --------------------------------------
@@ -24308,7 +23049,6 @@ event:onChannelEvent — L163
    :caption: modules/modules/game_bot/functions/callbacks.lua (L163)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l163-event-onch-6892c09bf8:
 
 event:onChannelEvent — L163
 ---------------------------
@@ -24320,7 +23060,6 @@ event:onChannelEvent — L163
    :caption: modules/modules/game_bot/functions/callbacks.lua (L163)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l163-event-onch-6892c09bf8:
 
 event:onChannelEvent — L163
 ---------------------------
@@ -24344,7 +23083,6 @@ event:onChannelList — L148
    :caption: modules/modules/game_bot/functions/callbacks.lua (L148)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l148-event-onch-2d5f405050:
 
 event:onChannelList — L148
 --------------------------
@@ -24356,7 +23094,6 @@ event:onChannelList — L148
    :caption: modules/modules/game_bot/functions/callbacks.lua (L148)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l148-event-onch-2d5f405050:
 
 event:onChannelList — L148
 --------------------------
@@ -24380,7 +23117,6 @@ event:onCloseChannel — L158
    :caption: modules/modules/game_bot/functions/callbacks.lua (L158)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l158-event-oncl-2f30db1752:
 
 event:onCloseChannel — L158
 ---------------------------
@@ -24392,7 +23128,6 @@ event:onCloseChannel — L158
    :caption: modules/modules/game_bot/functions/callbacks.lua (L158)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l158-event-oncl-2f30db1752:
 
 event:onCloseChannel — L158
 ---------------------------
@@ -24416,7 +23151,6 @@ event:onContainerClose — L123
    :caption: modules/modules/game_bot/functions/callbacks.lua (L123)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l123-event-onco-f3a4f88745:
 
 event:onContainerClose — L123
 -----------------------------
@@ -24428,7 +23162,6 @@ event:onContainerClose — L123
    :caption: modules/modules/game_bot/functions/callbacks.lua (L123)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l123-event-onco-f3a4f88745:
 
 event:onContainerClose — L123
 -----------------------------
@@ -24452,7 +23185,6 @@ event:onContainerOpen — L118
    :caption: modules/modules/game_bot/functions/callbacks.lua (L118)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l118-event-onco-843173faa8:
 
 event:onContainerOpen — L118
 ----------------------------
@@ -24464,7 +23196,6 @@ event:onContainerOpen — L118
    :caption: modules/modules/game_bot/functions/callbacks.lua (L118)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l118-event-onco-843173faa8:
 
 event:onContainerOpen — L118
 ----------------------------
@@ -24488,7 +23219,6 @@ event:onContainerUpdateItem — L128
    :caption: modules/modules/game_bot/functions/callbacks.lua (L128)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l128-event-onco-72b5b1b52e:
 
 event:onContainerUpdateItem — L128
 ----------------------------------
@@ -24500,7 +23230,6 @@ event:onContainerUpdateItem — L128
    :caption: modules/modules/game_bot/functions/callbacks.lua (L128)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l128-event-onco-72b5b1b52e:
 
 event:onContainerUpdateItem — L128
 ----------------------------------
@@ -24524,7 +23253,6 @@ event:onCreatureAppear — L88
    :caption: modules/modules/game_bot/functions/callbacks.lua (L88)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l88-event-oncre-fd088faa9f:
 
 event:onCreatureAppear — L88
 ----------------------------
@@ -24536,7 +23264,6 @@ event:onCreatureAppear — L88
    :caption: modules/modules/game_bot/functions/callbacks.lua (L88)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l88-event-oncre-fd088faa9f:
 
 event:onCreatureAppear — L88
 ----------------------------
@@ -24560,7 +23287,6 @@ event:onCreatureDisappear — L93
    :caption: modules/modules/game_bot/functions/callbacks.lua (L93)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l93-event-oncre-1c996139d5:
 
 event:onCreatureDisappear — L93
 -------------------------------
@@ -24572,7 +23298,6 @@ event:onCreatureDisappear — L93
    :caption: modules/modules/game_bot/functions/callbacks.lua (L93)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l93-event-oncre-1c996139d5:
 
 event:onCreatureDisappear — L93
 -------------------------------
@@ -24596,7 +23321,6 @@ event:onCreatureHealthPercentChange — L103
    :caption: modules/modules/game_bot/functions/callbacks.lua (L103)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l103-event-oncr-9d19955db0:
 
 event:onCreatureHealthPercentChange — L103
 ------------------------------------------
@@ -24608,7 +23332,6 @@ event:onCreatureHealthPercentChange — L103
    :caption: modules/modules/game_bot/functions/callbacks.lua (L103)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l103-event-oncr-9d19955db0:
 
 event:onCreatureHealthPercentChange — L103
 ------------------------------------------
@@ -24620,7 +23343,6 @@ event:onCreatureHealthPercentChange — L103
    :caption: modules/modules/game_bot/functions/callbacks.lua (L103)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l103-event-oncr-9d19955db0:
 
 event:onCreatureHealthPercentChange — L103
 ------------------------------------------
@@ -24644,7 +23366,6 @@ event:onCreaturePositionChange — L98
    :caption: modules/modules/game_bot/functions/callbacks.lua (L98)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l98-event-oncre-d77fe6680d:
 
 event:onCreaturePositionChange — L98
 ------------------------------------
@@ -24656,7 +23377,6 @@ event:onCreaturePositionChange — L98
    :caption: modules/modules/game_bot/functions/callbacks.lua (L98)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l98-event-oncre-d77fe6680d:
 
 event:onCreaturePositionChange — L98
 ------------------------------------
@@ -24668,7 +23388,6 @@ event:onCreaturePositionChange — L98
    :caption: modules/modules/game_bot/functions/callbacks.lua (L98)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l98-event-oncre-d77fe6680d:
 
 event:onCreaturePositionChange — L98
 ------------------------------------
@@ -24692,7 +23411,6 @@ event:onGameEditText — L213
    :caption: modules/modules/game_bot/functions/callbacks.lua (L213)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l213-event-onga-21668dbbf9:
 
 event:onGameEditText — L213
 ---------------------------
@@ -24704,7 +23422,6 @@ event:onGameEditText — L213
    :caption: modules/modules/game_bot/functions/callbacks.lua (L213)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l213-event-onga-21668dbbf9:
 
 event:onGameEditText — L213
 ---------------------------
@@ -24728,7 +23445,6 @@ event:onGroupSpellCooldown — L223
    :caption: modules/modules/game_bot/functions/callbacks.lua (L223)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l223-event-ongr-3baded42ab:
 
 event:onGroupSpellCooldown — L223
 ---------------------------------
@@ -24740,7 +23456,6 @@ event:onGroupSpellCooldown — L223
    :caption: modules/modules/game_bot/functions/callbacks.lua (L223)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l223-event-ongr-3baded42ab:
 
 event:onGroupSpellCooldown — L223
 ---------------------------------
@@ -24764,7 +23479,6 @@ event:onImbuementWindow — L178
    :caption: modules/modules/game_bot/functions/callbacks.lua (L178)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l178-event-onim-da462abb19:
 
 event:onImbuementWindow — L178
 ------------------------------
@@ -24776,7 +23490,6 @@ event:onImbuementWindow — L178
    :caption: modules/modules/game_bot/functions/callbacks.lua (L178)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l178-event-onim-da462abb19:
 
 event:onImbuementWindow — L178
 ------------------------------
@@ -24800,7 +23513,6 @@ event:onInventoryChange — L228
    :caption: modules/modules/game_bot/functions/callbacks.lua (L228)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l228-event-onin-d5b05023d0:
 
 event:onInventoryChange — L228
 ------------------------------
@@ -24812,7 +23524,6 @@ event:onInventoryChange — L228
    :caption: modules/modules/game_bot/functions/callbacks.lua (L228)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l228-event-onin-d5b05023d0:
 
 event:onInventoryChange — L228
 ------------------------------
@@ -24824,7 +23535,6 @@ event:onInventoryChange — L228
    :caption: modules/modules/game_bot/functions/callbacks.lua (L228)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l228-event-onin-d5b05023d0:
 
 event:onInventoryChange — L228
 ------------------------------
@@ -24848,7 +23558,6 @@ event:onKeyDown — L48
    :caption: modules/modules/game_bot/functions/callbacks.lua (L48)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l48-event-onkey-98ed89b183:
 
 event:onKeyDown — L48
 ---------------------
@@ -24860,7 +23569,6 @@ event:onKeyDown — L48
    :caption: modules/modules/game_bot/functions/callbacks.lua (L48)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l48-event-onkey-98ed89b183:
 
 event:onKeyDown — L48
 ---------------------
@@ -24884,7 +23592,6 @@ event:onKeyPress — L53
    :caption: modules/modules/game_bot/functions/callbacks.lua (L53)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l53-event-onkey-c618f74348:
 
 event:onKeyPress — L53
 ----------------------
@@ -24896,7 +23603,6 @@ event:onKeyPress — L53
    :caption: modules/modules/game_bot/functions/callbacks.lua (L53)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l53-event-onkey-c618f74348:
 
 event:onKeyPress — L53
 ----------------------
@@ -24920,7 +23626,6 @@ event:onKeyUp — L58
    :caption: modules/modules/game_bot/functions/callbacks.lua (L58)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l58-event-onkey-7951f44e44:
 
 event:onKeyUp — L58
 -------------------
@@ -24932,7 +23637,6 @@ event:onKeyUp — L58
    :caption: modules/modules/game_bot/functions/callbacks.lua (L58)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l58-event-onkey-7951f44e44:
 
 event:onKeyUp — L58
 -------------------
@@ -24956,7 +23660,6 @@ event:onLoginAdvice — L73
    :caption: modules/modules/game_bot/functions/callbacks.lua (L73)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l73-event-onlog-81d1e67bcb:
 
 event:onLoginAdvice — L73
 -------------------------
@@ -24968,7 +23671,6 @@ event:onLoginAdvice — L73
    :caption: modules/modules/game_bot/functions/callbacks.lua (L73)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l73-event-onlog-81d1e67bcb:
 
 event:onLoginAdvice — L73
 -------------------------
@@ -24992,7 +23694,6 @@ event:onManaChange — L193
    :caption: modules/modules/game_bot/functions/callbacks.lua (L193)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l193-event-onma-0bd7a3fe4a:
 
 event:onManaChange — L193
 -------------------------
@@ -25004,7 +23705,6 @@ event:onManaChange — L193
    :caption: modules/modules/game_bot/functions/callbacks.lua (L193)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l193-event-onma-0bd7a3fe4a:
 
 event:onManaChange — L193
 -------------------------
@@ -25028,7 +23728,6 @@ event:onMissle — L133
    :caption: modules/modules/game_bot/functions/callbacks.lua (L133)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l133-event-onmi-fd1d44c1a6:
 
 event:onMissle — L133
 ---------------------
@@ -25040,7 +23739,6 @@ event:onMissle — L133
    :caption: modules/modules/game_bot/functions/callbacks.lua (L133)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l133-event-onmi-fd1d44c1a6:
 
 event:onMissle — L133
 ---------------------
@@ -25064,7 +23762,6 @@ event:onModalDialog — L183
    :caption: modules/modules/game_bot/functions/callbacks.lua (L183)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l183-event-onmo-6f0b159b9f:
 
 event:onModalDialog — L183
 --------------------------
@@ -25076,7 +23773,6 @@ event:onModalDialog — L183
    :caption: modules/modules/game_bot/functions/callbacks.lua (L183)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l183-event-onmo-6f0b159b9f:
 
 event:onModalDialog — L183
 --------------------------
@@ -25100,7 +23796,6 @@ event:onOpenChannel — L153
    :caption: modules/modules/game_bot/functions/callbacks.lua (L153)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l153-event-onop-00b060ab36:
 
 event:onOpenChannel — L153
 --------------------------
@@ -25112,7 +23807,6 @@ event:onOpenChannel — L153
    :caption: modules/modules/game_bot/functions/callbacks.lua (L153)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l153-event-onop-00b060ab36:
 
 event:onOpenChannel — L153
 --------------------------
@@ -25136,7 +23830,6 @@ event:onPlayerHealthChange — L255
    :caption: modules/modules/game_bot/functions/callbacks.lua (L255)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l255-event-onpl-3c8c5da17d:
 
 event:onPlayerHealthChange — L255
 ---------------------------------
@@ -25160,7 +23853,6 @@ event:onPlayerInventoryChange — L264
    :caption: modules/modules/game_bot/functions/callbacks.lua (L264)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l264-event-onpl-cdc7e0aacf:
 
 event:onPlayerInventoryChange — L264
 ------------------------------------
@@ -25184,7 +23876,6 @@ event:onPlayerPositionChange — L246
    :caption: modules/modules/game_bot/functions/callbacks.lua (L246)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l246-event-onpl-e2e7cdc8ca:
 
 event:onPlayerPositionChange — L246
 -----------------------------------
@@ -25208,7 +23899,6 @@ event:onRemoveItem — L203
    :caption: modules/modules/game_bot/functions/callbacks.lua (L203)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l203-event-onre-334d6ec67a:
 
 event:onRemoveItem — L203
 -------------------------
@@ -25220,7 +23910,6 @@ event:onRemoveItem — L203
    :caption: modules/modules/game_bot/functions/callbacks.lua (L203)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l203-event-onre-334d6ec67a:
 
 event:onRemoveItem — L203
 -------------------------
@@ -25244,7 +23933,6 @@ event:onRemoveThing — L8
    :caption: modules/modules/game_bot/functions/callbacks.lua (L8)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l8-event-onremo-274774f368:
 
 event:onRemoveThing — L8
 ------------------------
@@ -25256,7 +23944,6 @@ event:onRemoveThing — L8
    :caption: modules/modules/game_bot/functions/callbacks.lua (L8)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l8-event-onremo-274774f368:
 
 event:onRemoveThing — L8
 ------------------------
@@ -25268,7 +23955,6 @@ event:onRemoveThing — L8
    :caption: modules/modules/game_bot/functions/callbacks.lua (L8)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l8-event-onremo-274774f368:
 
 event:onRemoveThing — L8
 ------------------------
@@ -25292,7 +23978,6 @@ event:onSpellCooldown — L218
    :caption: modules/modules/game_bot/functions/callbacks.lua (L218)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l218-event-onsp-6cdfc5ce7b:
 
 event:onSpellCooldown — L218
 ----------------------------
@@ -25304,7 +23989,6 @@ event:onSpellCooldown — L218
    :caption: modules/modules/game_bot/functions/callbacks.lua (L218)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l218-event-onsp-6cdfc5ce7b:
 
 event:onSpellCooldown — L218
 ----------------------------
@@ -25328,7 +24012,6 @@ event:onStatesChange — L208
    :caption: modules/modules/game_bot/functions/callbacks.lua (L208)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l208-event-onst-396c09dc87:
 
 event:onStatesChange — L208
 ---------------------------
@@ -25340,7 +24023,6 @@ event:onStatesChange — L208
    :caption: modules/modules/game_bot/functions/callbacks.lua (L208)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l208-event-onst-396c09dc87:
 
 event:onStatesChange — L208
 ---------------------------
@@ -25364,7 +24046,6 @@ event:onStaticText — L143
    :caption: modules/modules/game_bot/functions/callbacks.lua (L143)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l143-event-onst-6d633775e0:
 
 event:onStaticText — L143
 -------------------------
@@ -25376,7 +24057,6 @@ event:onStaticText — L143
    :caption: modules/modules/game_bot/functions/callbacks.lua (L143)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l143-event-onst-6d633775e0:
 
 event:onStaticText — L143
 -------------------------
@@ -25400,7 +24080,6 @@ event:onTalk — L63
    :caption: modules/modules/game_bot/functions/callbacks.lua (L63)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l63-event-ontal-b9ba9d7a50:
 
 event:onTalk — L63
 ------------------
@@ -25412,7 +24091,6 @@ event:onTalk — L63
    :caption: modules/modules/game_bot/functions/callbacks.lua (L63)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l63-event-ontal-b9ba9d7a50:
 
 event:onTalk — L63
 ------------------
@@ -25424,7 +24102,6 @@ event:onTalk — L63
    :caption: modules/modules/game_bot/functions/callbacks.lua (L63)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l63-event-ontal-b9ba9d7a50:
 
 event:onTalk — L63
 ------------------
@@ -25448,7 +24125,6 @@ event:onTextMessage — L68
    :caption: modules/modules/game_bot/functions/callbacks.lua (L68)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l68-event-ontex-5efb159d67:
 
 event:onTextMessage — L68
 -------------------------
@@ -25460,7 +24136,6 @@ event:onTextMessage — L68
    :caption: modules/modules/game_bot/functions/callbacks.lua (L68)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l68-event-ontex-5efb159d67:
 
 event:onTextMessage — L68
 -------------------------
@@ -25484,7 +24159,6 @@ event:onTurn — L168
    :caption: modules/modules/game_bot/functions/callbacks.lua (L168)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l168-event-ontu-24b2314083:
 
 event:onTurn — L168
 -------------------
@@ -25496,7 +24170,6 @@ event:onTurn — L168
    :caption: modules/modules/game_bot/functions/callbacks.lua (L168)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l168-event-ontu-24b2314083:
 
 event:onTurn — L168
 -------------------
@@ -25520,7 +24193,6 @@ event:onUse — L108
    :caption: modules/modules/game_bot/functions/callbacks.lua (L108)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l108-event-onus-2234853c39:
 
 event:onUse — L108
 ------------------
@@ -25532,7 +24204,6 @@ event:onUse — L108
    :caption: modules/modules/game_bot/functions/callbacks.lua (L108)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l108-event-onus-2234853c39:
 
 event:onUse — L108
 ------------------
@@ -25556,7 +24227,6 @@ event:onUseWith — L113
    :caption: modules/modules/game_bot/functions/callbacks.lua (L113)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l113-event-onus-4310d4dbeb:
 
 event:onUseWith — L113
 ----------------------
@@ -25568,7 +24238,6 @@ event:onUseWith — L113
    :caption: modules/modules/game_bot/functions/callbacks.lua (L113)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l113-event-onus-4310d4dbeb:
 
 event:onUseWith — L113
 ----------------------
@@ -25592,7 +24261,6 @@ event:onWalk — L173
    :caption: modules/modules/game_bot/functions/callbacks.lua (L173)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l173-event-onwa-53ad26ca0e:
 
 event:onWalk — L173
 -------------------
@@ -25604,7 +24272,6 @@ event:onWalk — L173
    :caption: modules/modules/game_bot/functions/callbacks.lua (L173)
 
 
-.. _modules-modules-game-bot-functions-callbacks-lua-l173-event-onwa-53ad26ca0e:
 
 event:onWalk — L173
 -------------------
@@ -25628,7 +24295,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25640,7 +24306,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25652,7 +24317,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25664,7 +24328,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25676,7 +24339,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25688,7 +24350,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25700,7 +24361,6 @@ event:onClick — L180
    :caption: modules/modules/game_bot/functions/config.lua (L180)
 
 
-.. _modules-modules-game-bot-functions-config-lua-l180-event-onclick-f257e5eae1:
 
 event:onClick — L180
 --------------------
@@ -25736,7 +24396,6 @@ event:onClick — L93
    :caption: modules/modules/game_bot/functions/icon.lua (L93)
 
 
-.. _modules-modules-game-bot-functions-icon-lua-l93-event-onclick-77d4d2aefa:
 
 event:onClick — L93
 -------------------
@@ -25820,7 +24479,6 @@ event:onLoadCallback — L3
    :caption: modules/modules/game_bot/functions/script_loader.lua (L3)
 
 
-.. _modules-modules-game-bot-functions-script-loader-lua-l3-event-on-88f76c42c7:
 
 event:onLoadCallback — L3
 -------------------------
@@ -25832,7 +24490,6 @@ event:onLoadCallback — L3
    :caption: modules/modules/game_bot/functions/script_loader.lua (L3)
 
 
-.. _modules-modules-game-bot-functions-script-loader-lua-l3-event-on-88f76c42c7:
 
 event:onLoadCallback — L3
 -------------------------
@@ -25844,7 +24501,6 @@ event:onLoadCallback — L3
    :caption: modules/modules/game_bot/functions/script_loader.lua (L3)
 
 
-.. _modules-modules-game-bot-functions-script-loader-lua-l3-event-on-88f76c42c7:
 
 event:onLoadCallback — L3
 -------------------------
@@ -25856,7 +24512,6 @@ event:onLoadCallback — L3
    :caption: modules/modules/game_bot/functions/script_loader.lua (L3)
 
 
-.. _modules-modules-game-bot-functions-script-loader-lua-l3-event-on-88f76c42c7:
 
 event:onLoadCallback — L3
 -------------------------
@@ -25868,7 +24523,6 @@ event:onLoadCallback — L3
    :caption: modules/modules/game_bot/functions/script_loader.lua (L3)
 
 
-.. _modules-modules-game-bot-functions-script-loader-lua-l3-event-on-88f76c42c7:
 
 event:onLoadCallback — L3
 -------------------------
@@ -25916,7 +24570,6 @@ event:onEnterCallback — L6
    :caption: modules/modules/game_bot/functions/tools.lua (L6)
 
 
-.. _modules-modules-game-bot-functions-tools-lua-l6-event-onentercal-c3da4bfa47:
 
 event:onEnterCallback — L6
 --------------------------
@@ -25940,7 +24593,6 @@ event:onEscapeCallback — L6
    :caption: modules/modules/game_bot/functions/tools.lua (L6)
 
 
-.. _modules-modules-game-bot-functions-tools-lua-l6-event-onescapeca-3f71a85b1a:
 
 event:onEscapeCallback — L6
 ---------------------------
@@ -25964,7 +24616,6 @@ event:onClick — L10
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L10)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l10-event-onc-56ec30aca2:
 
 event:onClick — L10
 -------------------
@@ -25976,7 +24627,6 @@ event:onClick — L10
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L10)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l10-event-onc-56ec30aca2:
 
 event:onClick — L10
 -------------------
@@ -25988,7 +24638,6 @@ event:onClick — L10
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L10)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l10-event-onc-56ec30aca2:
 
 event:onClick — L10
 -------------------
@@ -26000,7 +24649,6 @@ event:onClick — L10
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L10)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l10-event-onc-56ec30aca2:
 
 event:onClick — L10
 -------------------
@@ -26012,7 +24660,6 @@ event:onClick — L10
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L10)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l10-event-onc-56ec30aca2:
 
 event:onClick — L10
 -------------------
@@ -26036,7 +24683,6 @@ event:onItemChange — L73
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L73)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l73-event-oni-0911aabf82:
 
 event:onItemChange — L73
 ------------------------
@@ -26048,7 +24694,6 @@ event:onItemChange — L73
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L73)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l73-event-oni-0911aabf82:
 
 event:onItemChange — L73
 ------------------------
@@ -26060,7 +24705,6 @@ event:onItemChange — L73
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L73)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l73-event-oni-0911aabf82:
 
 event:onItemChange — L73
 ------------------------
@@ -26096,7 +24740,6 @@ event:onTextChange — L121
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L121)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l121-event-on-d3c0cb0263:
 
 event:onTextChange — L121
 -------------------------
@@ -26108,7 +24751,6 @@ event:onTextChange — L121
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L121)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l121-event-on-d3c0cb0263:
 
 event:onTextChange — L121
 -------------------------
@@ -26132,7 +24774,6 @@ event:onValueChange — L138
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L138)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l138-event-on-9b68e07817:
 
 event:onValueChange — L138
 --------------------------
@@ -26144,7 +24785,6 @@ event:onValueChange — L138
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L138)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l138-event-on-9b68e07817:
 
 event:onValueChange — L138
 --------------------------
@@ -26156,7 +24796,6 @@ event:onValueChange — L138
    :caption: modules/modules/game_bot/functions/ui_elements.lua (L138)
 
 
-.. _modules-modules-game-bot-functions-ui-elements-lua-l138-event-on-9b68e07817:
 
 event:onValueChange — L138
 --------------------------
@@ -26180,7 +24819,6 @@ event:onClick — L56
    :caption: modules/modules/game_bot/functions/ui_legacy.lua (L56)
 
 
-.. _modules-modules-game-bot-functions-ui-legacy-lua-l56-event-oncli-e75a5209dc:
 
 event:onClick — L56
 -------------------
@@ -26204,7 +24842,6 @@ event:onClickCallback — L56
    :caption: modules/modules/game_bot/functions/ui_legacy.lua (L56)
 
 
-.. _modules-modules-game-bot-functions-ui-legacy-lua-l56-event-oncli-9a1213783c:
 
 event:onClickCallback — L56
 ---------------------------
@@ -26216,7 +24853,6 @@ event:onClickCallback — L56
    :caption: modules/modules/game_bot/functions/ui_legacy.lua (L56)
 
 
-.. _modules-modules-game-bot-functions-ui-legacy-lua-l56-event-oncli-9a1213783c:
 
 event:onClickCallback — L56
 ---------------------------
@@ -26228,7 +24864,6 @@ event:onClickCallback — L56
    :caption: modules/modules/game_bot/functions/ui_legacy.lua (L56)
 
 
-.. _modules-modules-game-bot-functions-ui-legacy-lua-l56-event-oncli-9a1213783c:
 
 event:onClickCallback — L56
 ---------------------------
@@ -26264,7 +24899,6 @@ event:onTextChangeCallback — L88
    :caption: modules/modules/game_bot/functions/ui_legacy.lua (L88)
 
 
-.. _modules-modules-game-bot-functions-ui-legacy-lua-l88-event-ontex-5a6a62332f:
 
 event:onTextChangeCallback — L88
 --------------------------------
@@ -26288,7 +24922,6 @@ event:onConfirm — L36
    :caption: modules/modules/game_bot/functions/ui_windows.lua (L36)
 
 
-.. _modules-modules-game-bot-functions-ui-windows-lua-l36-event-onco-8bb5997a77:
 
 event:onConfirm — L36
 ---------------------
@@ -26300,7 +24933,6 @@ event:onConfirm — L36
    :caption: modules/modules/game_bot/functions/ui_windows.lua (L36)
 
 
-.. _modules-modules-game-bot-functions-ui-windows-lua-l36-event-onco-8bb5997a77:
 
 event:onConfirm — L36
 ---------------------
@@ -26324,7 +24956,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26336,7 +24967,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26348,7 +24978,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26360,7 +24989,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26372,7 +25000,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26384,7 +25011,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26396,7 +25022,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26408,7 +25033,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26420,7 +25044,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26432,7 +25055,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26444,7 +25066,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26456,7 +25077,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26468,7 +25088,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26480,7 +25099,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26492,7 +25110,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26504,7 +25121,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26516,7 +25132,6 @@ event:onClick — L347
    :caption: modules/modules/game_bot/panels/attacking.lua (L347)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l347-event-onclick-9a9df5545e:
 
 event:onClick — L347
 --------------------
@@ -26600,7 +25215,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26612,7 +25226,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26624,7 +25237,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26636,7 +25248,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26648,7 +25259,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26660,7 +25270,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26672,7 +25281,6 @@ event:onValueChange — L353
    :caption: modules/modules/game_bot/panels/attacking.lua (L353)
 
 
-.. _modules-modules-game-bot-panels-attacking-lua-l353-event-onvalue-8bcb4bc24e:
 
 event:onValueChange — L353
 --------------------------
@@ -26720,7 +25328,6 @@ event:onClick — L65
    :caption: modules/modules/game_bot/panels/healing.lua (L65)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l65-event-onclick-2ebce39b0e:
 
 event:onClick — L65
 -------------------
@@ -26732,7 +25339,6 @@ event:onClick — L65
    :caption: modules/modules/game_bot/panels/healing.lua (L65)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l65-event-onclick-2ebce39b0e:
 
 event:onClick — L65
 -------------------
@@ -26744,7 +25350,6 @@ event:onClick — L65
    :caption: modules/modules/game_bot/panels/healing.lua (L65)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l65-event-onclick-2ebce39b0e:
 
 event:onClick — L65
 -------------------
@@ -26756,7 +25361,6 @@ event:onClick — L65
    :caption: modules/modules/game_bot/panels/healing.lua (L65)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l65-event-onclick-2ebce39b0e:
 
 event:onClick — L65
 -------------------
@@ -26780,7 +25384,6 @@ event:onItemChange — L129
    :caption: modules/modules/game_bot/panels/healing.lua (L129)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l129-event-onitemcha-b98f543e2d:
 
 event:onItemChange — L129
 -------------------------
@@ -26792,7 +25395,6 @@ event:onItemChange — L129
    :caption: modules/modules/game_bot/panels/healing.lua (L129)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l129-event-onitemcha-b98f543e2d:
 
 event:onItemChange — L129
 -------------------------
@@ -26804,7 +25406,6 @@ event:onItemChange — L129
    :caption: modules/modules/game_bot/panels/healing.lua (L129)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l129-event-onitemcha-b98f543e2d:
 
 event:onItemChange — L129
 -------------------------
@@ -26816,7 +25417,6 @@ event:onItemChange — L129
    :caption: modules/modules/game_bot/panels/healing.lua (L129)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l129-event-onitemcha-b98f543e2d:
 
 event:onItemChange — L129
 -------------------------
@@ -26864,7 +25464,6 @@ event:onValueChange — L79
    :caption: modules/modules/game_bot/panels/healing.lua (L79)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l79-event-onvaluecha-a9d0b90b52:
 
 event:onValueChange — L79
 -------------------------
@@ -26876,7 +25475,6 @@ event:onValueChange — L79
    :caption: modules/modules/game_bot/panels/healing.lua (L79)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l79-event-onvaluecha-a9d0b90b52:
 
 event:onValueChange — L79
 -------------------------
@@ -26888,7 +25486,6 @@ event:onValueChange — L79
    :caption: modules/modules/game_bot/panels/healing.lua (L79)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l79-event-onvaluecha-a9d0b90b52:
 
 event:onValueChange — L79
 -------------------------
@@ -26900,7 +25497,6 @@ event:onValueChange — L79
    :caption: modules/modules/game_bot/panels/healing.lua (L79)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l79-event-onvaluecha-a9d0b90b52:
 
 event:onValueChange — L79
 -------------------------
@@ -26912,7 +25508,6 @@ event:onValueChange — L79
    :caption: modules/modules/game_bot/panels/healing.lua (L79)
 
 
-.. _modules-modules-game-bot-panels-healing-lua-l79-event-onvaluecha-a9d0b90b52:
 
 event:onValueChange — L79
 -------------------------
@@ -26936,7 +25531,6 @@ event:onClick — L261
    :caption: modules/modules/game_bot/panels/looting.lua (L261)
 
 
-.. _modules-modules-game-bot-panels-looting-lua-l261-event-onclick-70f3b68858:
 
 event:onClick — L261
 --------------------
@@ -26948,7 +25542,6 @@ event:onClick — L261
    :caption: modules/modules/game_bot/panels/looting.lua (L261)
 
 
-.. _modules-modules-game-bot-panels-looting-lua-l261-event-onclick-70f3b68858:
 
 event:onClick — L261
 --------------------
@@ -26960,7 +25553,6 @@ event:onClick — L261
    :caption: modules/modules/game_bot/panels/looting.lua (L261)
 
 
-.. _modules-modules-game-bot-panels-looting-lua-l261-event-onclick-70f3b68858:
 
 event:onClick — L261
 --------------------
@@ -26996,7 +25588,6 @@ event:onItemChange — L193
    :caption: modules/modules/game_bot/panels/looting.lua (L193)
 
 
-.. _modules-modules-game-bot-panels-looting-lua-l193-event-onitemcha-be2891a4b5:
 
 event:onItemChange — L193
 -------------------------
@@ -27008,7 +25599,6 @@ event:onItemChange — L193
    :caption: modules/modules/game_bot/panels/looting.lua (L193)
 
 
-.. _modules-modules-game-bot-panels-looting-lua-l193-event-onitemcha-be2891a4b5:
 
 event:onItemChange — L193
 -------------------------
@@ -27092,7 +25682,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27104,7 +25693,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27116,7 +25704,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27128,7 +25715,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27140,7 +25726,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27152,7 +25737,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27164,7 +25748,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27176,7 +25759,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27188,7 +25770,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27200,7 +25781,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27212,7 +25792,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27224,7 +25803,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27236,7 +25814,6 @@ event:onClick — L299
    :caption: modules/modules/game_bot/panels/waypoints.lua (L299)
 
 
-.. _modules-modules-game-bot-panels-waypoints-lua-l299-event-onclick-4028ed636a:
 
 event:onClick — L299
 --------------------
@@ -27320,7 +25897,6 @@ event:onChannelEvent — L104
    :caption: modules/modules/game_console/console.lua (L104)
 
 
-.. _modules-modules-game-console-console-lua-l104-event-onchanneleve-b8f17e9842:
 
 event:onChannelEvent — L104
 ---------------------------
@@ -27332,7 +25908,6 @@ event:onChannelEvent — L104
    :caption: modules/modules/game_console/console.lua (L104)
 
 
-.. _modules-modules-game-console-console-lua-l104-event-onchanneleve-b8f17e9842:
 
 event:onChannelEvent — L104
 ---------------------------
@@ -27344,7 +25919,6 @@ event:onChannelEvent — L104
    :caption: modules/modules/game_console/console.lua (L104)
 
 
-.. _modules-modules-game-console-console-lua-l104-event-onchanneleve-b8f17e9842:
 
 event:onChannelEvent — L104
 ---------------------------
@@ -27356,7 +25930,6 @@ event:onChannelEvent — L104
    :caption: modules/modules/game_console/console.lua (L104)
 
 
-.. _modules-modules-game-console-console-lua-l104-event-onchanneleve-b8f17e9842:
 
 event:onChannelEvent — L104
 ---------------------------
@@ -27368,7 +25941,6 @@ event:onChannelEvent — L104
    :caption: modules/modules/game_console/console.lua (L104)
 
 
-.. _modules-modules-game-console-console-lua-l104-event-onchanneleve-b8f17e9842:
 
 event:onChannelEvent — L104
 ---------------------------
@@ -27380,7 +25952,6 @@ event:onChannelEvent — L104
    :caption: modules/modules/game_console/console.lua (L104)
 
 
-.. _modules-modules-game-console-console-lua-l104-event-onchanneleve-b8f17e9842:
 
 event:onChannelEvent — L104
 ---------------------------
@@ -27404,7 +25975,6 @@ event:onChannelList — L101
    :caption: modules/modules/game_console/console.lua (L101)
 
 
-.. _modules-modules-game-console-console-lua-l101-event-onchannellis-7d69b27d41:
 
 event:onChannelList — L101
 --------------------------
@@ -27416,7 +25986,6 @@ event:onChannelList — L101
    :caption: modules/modules/game_console/console.lua (L101)
 
 
-.. _modules-modules-game-console-console-lua-l101-event-onchannellis-7d69b27d41:
 
 event:onChannelList — L101
 --------------------------
@@ -27428,7 +25997,6 @@ event:onChannelList — L101
    :caption: modules/modules/game_console/console.lua (L101)
 
 
-.. _modules-modules-game-console-console-lua-l101-event-onchannellis-7d69b27d41:
 
 event:onChannelList — L101
 --------------------------
@@ -27440,7 +26008,6 @@ event:onChannelList — L101
    :caption: modules/modules/game_console/console.lua (L101)
 
 
-.. _modules-modules-game-console-console-lua-l101-event-onchannellis-7d69b27d41:
 
 event:onChannelList — L101
 --------------------------
@@ -27452,7 +26019,6 @@ event:onChannelList — L101
    :caption: modules/modules/game_console/console.lua (L101)
 
 
-.. _modules-modules-game-console-console-lua-l101-event-onchannellis-7d69b27d41:
 
 event:onChannelList — L101
 --------------------------
@@ -27464,7 +26030,6 @@ event:onChannelList — L101
    :caption: modules/modules/game_console/console.lua (L101)
 
 
-.. _modules-modules-game-console-console-lua-l101-event-onchannellis-7d69b27d41:
 
 event:onChannelList — L101
 --------------------------
@@ -27488,7 +26053,6 @@ event:onChildFocusChange — L1363
    :caption: modules/modules/game_console/console.lua (L1363)
 
 
-.. _modules-modules-game-console-console-lua-l1363-event-onchildfocu-e615d03503:
 
 event:onChildFocusChange — L1363
 --------------------------------
@@ -27512,7 +26076,6 @@ event:onClick — L1349
    :caption: modules/modules/game_console/console.lua (L1349)
 
 
-.. _modules-modules-game-console-console-lua-l1349-event-onclick-0c014b6500:
 
 event:onClick — L1349
 ---------------------
@@ -27524,7 +26087,6 @@ event:onClick — L1349
    :caption: modules/modules/game_console/console.lua (L1349)
 
 
-.. _modules-modules-game-console-console-lua-l1349-event-onclick-0c014b6500:
 
 event:onClick — L1349
 ---------------------
@@ -27536,7 +26098,6 @@ event:onClick — L1349
    :caption: modules/modules/game_console/console.lua (L1349)
 
 
-.. _modules-modules-game-console-console-lua-l1349-event-onclick-0c014b6500:
 
 event:onClick — L1349
 ---------------------
@@ -27548,7 +26109,6 @@ event:onClick — L1349
    :caption: modules/modules/game_console/console.lua (L1349)
 
 
-.. _modules-modules-game-console-console-lua-l1349-event-onclick-0c014b6500:
 
 event:onClick — L1349
 ---------------------
@@ -27560,7 +26120,6 @@ event:onClick — L1349
    :caption: modules/modules/game_console/console.lua (L1349)
 
 
-.. _modules-modules-game-console-console-lua-l1349-event-onclick-0c014b6500:
 
 event:onClick — L1349
 ---------------------
@@ -27596,7 +26155,6 @@ event:onCloseChannel — L103
    :caption: modules/modules/game_console/console.lua (L103)
 
 
-.. _modules-modules-game-console-console-lua-l103-event-onclosechann-bcc3d47d7a:
 
 event:onCloseChannel — L103
 ---------------------------
@@ -27608,7 +26166,6 @@ event:onCloseChannel — L103
    :caption: modules/modules/game_console/console.lua (L103)
 
 
-.. _modules-modules-game-console-console-lua-l103-event-onclosechann-bcc3d47d7a:
 
 event:onCloseChannel — L103
 ---------------------------
@@ -27620,7 +26177,6 @@ event:onCloseChannel — L103
    :caption: modules/modules/game_console/console.lua (L103)
 
 
-.. _modules-modules-game-console-console-lua-l103-event-onclosechann-bcc3d47d7a:
 
 event:onCloseChannel — L103
 ---------------------------
@@ -27632,7 +26188,6 @@ event:onCloseChannel — L103
    :caption: modules/modules/game_console/console.lua (L103)
 
 
-.. _modules-modules-game-console-console-lua-l103-event-onclosechann-bcc3d47d7a:
 
 event:onCloseChannel — L103
 ---------------------------
@@ -27644,7 +26199,6 @@ event:onCloseChannel — L103
    :caption: modules/modules/game_console/console.lua (L103)
 
 
-.. _modules-modules-game-console-console-lua-l103-event-onclosechann-bcc3d47d7a:
 
 event:onCloseChannel — L103
 ---------------------------
@@ -27656,7 +26210,6 @@ event:onCloseChannel — L103
    :caption: modules/modules/game_console/console.lua (L103)
 
 
-.. _modules-modules-game-console-console-lua-l103-event-onclosechann-bcc3d47d7a:
 
 event:onCloseChannel — L103
 ---------------------------
@@ -27680,7 +26233,6 @@ event:onDestroy — L1230
    :caption: modules/modules/game_console/console.lua (L1230)
 
 
-.. _modules-modules-game-console-console-lua-l1230-event-ondestroy-fb275714c6:
 
 event:onDestroy — L1230
 -----------------------
@@ -27716,7 +26268,6 @@ event:onDragEnter — L122
    :caption: modules/modules/game_console/console.lua (L122)
 
 
-.. _modules-modules-game-console-console-lua-l122-event-ondragenter-bfdf48f34b:
 
 event:onDragEnter — L122
 ------------------------
@@ -27728,7 +26279,6 @@ event:onDragEnter — L122
    :caption: modules/modules/game_console/console.lua (L122)
 
 
-.. _modules-modules-game-console-console-lua-l122-event-ondragenter-bfdf48f34b:
 
 event:onDragEnter — L122
 ------------------------
@@ -27740,7 +26290,6 @@ event:onDragEnter — L122
    :caption: modules/modules/game_console/console.lua (L122)
 
 
-.. _modules-modules-game-console-console-lua-l122-event-ondragenter-bfdf48f34b:
 
 event:onDragEnter — L122
 ------------------------
@@ -27752,7 +26301,6 @@ event:onDragEnter — L122
    :caption: modules/modules/game_console/console.lua (L122)
 
 
-.. _modules-modules-game-console-console-lua-l122-event-ondragenter-bfdf48f34b:
 
 event:onDragEnter — L122
 ------------------------
@@ -27764,7 +26312,6 @@ event:onDragEnter — L122
    :caption: modules/modules/game_console/console.lua (L122)
 
 
-.. _modules-modules-game-console-console-lua-l122-event-ondragenter-bfdf48f34b:
 
 event:onDragEnter — L122
 ------------------------
@@ -27788,7 +26335,6 @@ event:onDragLeave — L123
    :caption: modules/modules/game_console/console.lua (L123)
 
 
-.. _modules-modules-game-console-console-lua-l123-event-ondragleave-b9c7d3fdc7:
 
 event:onDragLeave — L123
 ------------------------
@@ -27800,7 +26346,6 @@ event:onDragLeave — L123
    :caption: modules/modules/game_console/console.lua (L123)
 
 
-.. _modules-modules-game-console-console-lua-l123-event-ondragleave-b9c7d3fdc7:
 
 event:onDragLeave — L123
 ------------------------
@@ -27812,7 +26357,6 @@ event:onDragLeave — L123
    :caption: modules/modules/game_console/console.lua (L123)
 
 
-.. _modules-modules-game-console-console-lua-l123-event-ondragleave-b9c7d3fdc7:
 
 event:onDragLeave — L123
 ------------------------
@@ -27824,7 +26368,6 @@ event:onDragLeave — L123
    :caption: modules/modules/game_console/console.lua (L123)
 
 
-.. _modules-modules-game-console-console-lua-l123-event-ondragleave-b9c7d3fdc7:
 
 event:onDragLeave — L123
 ------------------------
@@ -27836,7 +26379,6 @@ event:onDragLeave — L123
    :caption: modules/modules/game_console/console.lua (L123)
 
 
-.. _modules-modules-game-console-console-lua-l123-event-ondragleave-b9c7d3fdc7:
 
 event:onDragLeave — L123
 ------------------------
@@ -27860,7 +26402,6 @@ event:onDragMove — L124
    :caption: modules/modules/game_console/console.lua (L124)
 
 
-.. _modules-modules-game-console-console-lua-l124-event-ondragmove-cb490cf585:
 
 event:onDragMove — L124
 -----------------------
@@ -27872,7 +26413,6 @@ event:onDragMove — L124
    :caption: modules/modules/game_console/console.lua (L124)
 
 
-.. _modules-modules-game-console-console-lua-l124-event-ondragmove-cb490cf585:
 
 event:onDragMove — L124
 -----------------------
@@ -27884,7 +26424,6 @@ event:onDragMove — L124
    :caption: modules/modules/game_console/console.lua (L124)
 
 
-.. _modules-modules-game-console-console-lua-l124-event-ondragmove-cb490cf585:
 
 event:onDragMove — L124
 -----------------------
@@ -27896,7 +26435,6 @@ event:onDragMove — L124
    :caption: modules/modules/game_console/console.lua (L124)
 
 
-.. _modules-modules-game-console-console-lua-l124-event-ondragmove-cb490cf585:
 
 event:onDragMove — L124
 -----------------------
@@ -27908,7 +26446,6 @@ event:onDragMove — L124
    :caption: modules/modules/game_console/console.lua (L124)
 
 
-.. _modules-modules-game-console-console-lua-l124-event-ondragmove-cb490cf585:
 
 event:onDragMove — L124
 -----------------------
@@ -27932,7 +26469,6 @@ event:onEnter — L439
    :caption: modules/modules/game_console/console.lua (L439)
 
 
-.. _modules-modules-game-console-console-lua-l439-event-onenter-83c885debd:
 
 event:onEnter — L439
 --------------------
@@ -27944,7 +26480,6 @@ event:onEnter — L439
    :caption: modules/modules/game_console/console.lua (L439)
 
 
-.. _modules-modules-game-console-console-lua-l439-event-onenter-83c885debd:
 
 event:onEnter — L439
 --------------------
@@ -27980,7 +26515,6 @@ event:onGameEnd — L112
    :caption: modules/modules/game_console/console.lua (L112)
 
 
-.. _modules-modules-game-console-console-lua-l112-event-ongameend-dcb6be95a8:
 
 event:onGameEnd — L112
 ----------------------
@@ -27992,7 +26526,6 @@ event:onGameEnd — L112
    :caption: modules/modules/game_console/console.lua (L112)
 
 
-.. _modules-modules-game-console-console-lua-l112-event-ongameend-dcb6be95a8:
 
 event:onGameEnd — L112
 ----------------------
@@ -28004,7 +26537,6 @@ event:onGameEnd — L112
    :caption: modules/modules/game_console/console.lua (L112)
 
 
-.. _modules-modules-game-console-console-lua-l112-event-ongameend-dcb6be95a8:
 
 event:onGameEnd — L112
 ----------------------
@@ -28028,7 +26560,6 @@ event:onGameStart — L111
    :caption: modules/modules/game_console/console.lua (L111)
 
 
-.. _modules-modules-game-console-console-lua-l111-event-ongamestart-5162048f9d:
 
 event:onGameStart — L111
 ------------------------
@@ -28040,7 +26571,6 @@ event:onGameStart — L111
    :caption: modules/modules/game_console/console.lua (L111)
 
 
-.. _modules-modules-game-console-console-lua-l111-event-ongamestart-5162048f9d:
 
 event:onGameStart — L111
 ------------------------
@@ -28052,7 +26582,6 @@ event:onGameStart — L111
    :caption: modules/modules/game_console/console.lua (L111)
 
 
-.. _modules-modules-game-console-console-lua-l111-event-ongamestart-5162048f9d:
 
 event:onGameStart — L111
 ------------------------
@@ -28100,7 +26629,6 @@ event:onMouseRelease — L651
    :caption: modules/modules/game_console/console.lua (L651)
 
 
-.. _modules-modules-game-console-console-lua-l651-event-onmouserelea-010af9e8cd:
 
 event:onMouseRelease — L651
 ---------------------------
@@ -28124,7 +26652,6 @@ event:onOpenChannel — L102
    :caption: modules/modules/game_console/console.lua (L102)
 
 
-.. _modules-modules-game-console-console-lua-l102-event-onopenchanne-37a6bf8f0e:
 
 event:onOpenChannel — L102
 --------------------------
@@ -28136,7 +26663,6 @@ event:onOpenChannel — L102
    :caption: modules/modules/game_console/console.lua (L102)
 
 
-.. _modules-modules-game-console-console-lua-l102-event-onopenchanne-37a6bf8f0e:
 
 event:onOpenChannel — L102
 --------------------------
@@ -28148,7 +26674,6 @@ event:onOpenChannel — L102
    :caption: modules/modules/game_console/console.lua (L102)
 
 
-.. _modules-modules-game-console-console-lua-l102-event-onopenchanne-37a6bf8f0e:
 
 event:onOpenChannel — L102
 --------------------------
@@ -28160,7 +26685,6 @@ event:onOpenChannel — L102
    :caption: modules/modules/game_console/console.lua (L102)
 
 
-.. _modules-modules-game-console-console-lua-l102-event-onopenchanne-37a6bf8f0e:
 
 event:onOpenChannel — L102
 --------------------------
@@ -28172,7 +26696,6 @@ event:onOpenChannel — L102
    :caption: modules/modules/game_console/console.lua (L102)
 
 
-.. _modules-modules-game-console-console-lua-l102-event-onopenchanne-37a6bf8f0e:
 
 event:onOpenChannel — L102
 --------------------------
@@ -28184,7 +26707,6 @@ event:onOpenChannel — L102
    :caption: modules/modules/game_console/console.lua (L102)
 
 
-.. _modules-modules-game-console-console-lua-l102-event-onopenchanne-37a6bf8f0e:
 
 event:onOpenChannel — L102
 --------------------------
@@ -28208,7 +26730,6 @@ event:onOpenOwnPrivateChannel — L106
    :caption: modules/modules/game_console/console.lua (L106)
 
 
-.. _modules-modules-game-console-console-lua-l106-event-onopenownpri-d7474dde03:
 
 event:onOpenOwnPrivateChannel — L106
 ------------------------------------
@@ -28220,7 +26741,6 @@ event:onOpenOwnPrivateChannel — L106
    :caption: modules/modules/game_console/console.lua (L106)
 
 
-.. _modules-modules-game-console-console-lua-l106-event-onopenownpri-d7474dde03:
 
 event:onOpenOwnPrivateChannel — L106
 ------------------------------------
@@ -28232,7 +26752,6 @@ event:onOpenOwnPrivateChannel — L106
    :caption: modules/modules/game_console/console.lua (L106)
 
 
-.. _modules-modules-game-console-console-lua-l106-event-onopenownpri-d7474dde03:
 
 event:onOpenOwnPrivateChannel — L106
 ------------------------------------
@@ -28244,7 +26763,6 @@ event:onOpenOwnPrivateChannel — L106
    :caption: modules/modules/game_console/console.lua (L106)
 
 
-.. _modules-modules-game-console-console-lua-l106-event-onopenownpri-d7474dde03:
 
 event:onOpenOwnPrivateChannel — L106
 ------------------------------------
@@ -28256,7 +26774,6 @@ event:onOpenOwnPrivateChannel — L106
    :caption: modules/modules/game_console/console.lua (L106)
 
 
-.. _modules-modules-game-console-console-lua-l106-event-onopenownpri-d7474dde03:
 
 event:onOpenOwnPrivateChannel — L106
 ------------------------------------
@@ -28280,7 +26797,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28292,7 +26808,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28304,7 +26819,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28316,7 +26830,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28328,7 +26841,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28340,7 +26852,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28352,7 +26863,6 @@ event:onOpenPrivateChannel — L105
    :caption: modules/modules/game_console/console.lua (L105)
 
 
-.. _modules-modules-game-console-console-lua-l105-event-onopenprivat-c312863f34:
 
 event:onOpenPrivateChannel — L105
 ---------------------------------
@@ -28376,7 +26886,6 @@ event:onRuleViolationCancel — L109
    :caption: modules/modules/game_console/console.lua (L109)
 
 
-.. _modules-modules-game-console-console-lua-l109-event-onruleviolat-4492798668:
 
 event:onRuleViolationCancel — L109
 ----------------------------------
@@ -28388,7 +26897,6 @@ event:onRuleViolationCancel — L109
    :caption: modules/modules/game_console/console.lua (L109)
 
 
-.. _modules-modules-game-console-console-lua-l109-event-onruleviolat-4492798668:
 
 event:onRuleViolationCancel — L109
 ----------------------------------
@@ -28400,7 +26908,6 @@ event:onRuleViolationCancel — L109
    :caption: modules/modules/game_console/console.lua (L109)
 
 
-.. _modules-modules-game-console-console-lua-l109-event-onruleviolat-4492798668:
 
 event:onRuleViolationCancel — L109
 ----------------------------------
@@ -28412,7 +26919,6 @@ event:onRuleViolationCancel — L109
    :caption: modules/modules/game_console/console.lua (L109)
 
 
-.. _modules-modules-game-console-console-lua-l109-event-onruleviolat-4492798668:
 
 event:onRuleViolationCancel — L109
 ----------------------------------
@@ -28424,7 +26930,6 @@ event:onRuleViolationCancel — L109
    :caption: modules/modules/game_console/console.lua (L109)
 
 
-.. _modules-modules-game-console-console-lua-l109-event-onruleviolat-4492798668:
 
 event:onRuleViolationCancel — L109
 ----------------------------------
@@ -28436,7 +26941,6 @@ event:onRuleViolationCancel — L109
    :caption: modules/modules/game_console/console.lua (L109)
 
 
-.. _modules-modules-game-console-console-lua-l109-event-onruleviolat-4492798668:
 
 event:onRuleViolationCancel — L109
 ----------------------------------
@@ -28460,7 +26964,6 @@ event:onRuleViolationChannel — L107
    :caption: modules/modules/game_console/console.lua (L107)
 
 
-.. _modules-modules-game-console-console-lua-l107-event-onruleviolat-6ee0469426:
 
 event:onRuleViolationChannel — L107
 -----------------------------------
@@ -28472,7 +26975,6 @@ event:onRuleViolationChannel — L107
    :caption: modules/modules/game_console/console.lua (L107)
 
 
-.. _modules-modules-game-console-console-lua-l107-event-onruleviolat-6ee0469426:
 
 event:onRuleViolationChannel — L107
 -----------------------------------
@@ -28484,7 +26986,6 @@ event:onRuleViolationChannel — L107
    :caption: modules/modules/game_console/console.lua (L107)
 
 
-.. _modules-modules-game-console-console-lua-l107-event-onruleviolat-6ee0469426:
 
 event:onRuleViolationChannel — L107
 -----------------------------------
@@ -28496,7 +26997,6 @@ event:onRuleViolationChannel — L107
    :caption: modules/modules/game_console/console.lua (L107)
 
 
-.. _modules-modules-game-console-console-lua-l107-event-onruleviolat-6ee0469426:
 
 event:onRuleViolationChannel — L107
 -----------------------------------
@@ -28508,7 +27008,6 @@ event:onRuleViolationChannel — L107
    :caption: modules/modules/game_console/console.lua (L107)
 
 
-.. _modules-modules-game-console-console-lua-l107-event-onruleviolat-6ee0469426:
 
 event:onRuleViolationChannel — L107
 -----------------------------------
@@ -28520,7 +27019,6 @@ event:onRuleViolationChannel — L107
    :caption: modules/modules/game_console/console.lua (L107)
 
 
-.. _modules-modules-game-console-console-lua-l107-event-onruleviolat-6ee0469426:
 
 event:onRuleViolationChannel — L107
 -----------------------------------
@@ -28544,7 +27042,6 @@ event:onRuleViolationLock — L110
    :caption: modules/modules/game_console/console.lua (L110)
 
 
-.. _modules-modules-game-console-console-lua-l110-event-onruleviolat-781a434e51:
 
 event:onRuleViolationLock — L110
 --------------------------------
@@ -28556,7 +27053,6 @@ event:onRuleViolationLock — L110
    :caption: modules/modules/game_console/console.lua (L110)
 
 
-.. _modules-modules-game-console-console-lua-l110-event-onruleviolat-781a434e51:
 
 event:onRuleViolationLock — L110
 --------------------------------
@@ -28568,7 +27064,6 @@ event:onRuleViolationLock — L110
    :caption: modules/modules/game_console/console.lua (L110)
 
 
-.. _modules-modules-game-console-console-lua-l110-event-onruleviolat-781a434e51:
 
 event:onRuleViolationLock — L110
 --------------------------------
@@ -28580,7 +27075,6 @@ event:onRuleViolationLock — L110
    :caption: modules/modules/game_console/console.lua (L110)
 
 
-.. _modules-modules-game-console-console-lua-l110-event-onruleviolat-781a434e51:
 
 event:onRuleViolationLock — L110
 --------------------------------
@@ -28592,7 +27086,6 @@ event:onRuleViolationLock — L110
    :caption: modules/modules/game_console/console.lua (L110)
 
 
-.. _modules-modules-game-console-console-lua-l110-event-onruleviolat-781a434e51:
 
 event:onRuleViolationLock — L110
 --------------------------------
@@ -28604,7 +27097,6 @@ event:onRuleViolationLock — L110
    :caption: modules/modules/game_console/console.lua (L110)
 
 
-.. _modules-modules-game-console-console-lua-l110-event-onruleviolat-781a434e51:
 
 event:onRuleViolationLock — L110
 --------------------------------
@@ -28628,7 +27120,6 @@ event:onRuleViolationRemove — L108
    :caption: modules/modules/game_console/console.lua (L108)
 
 
-.. _modules-modules-game-console-console-lua-l108-event-onruleviolat-a1db777267:
 
 event:onRuleViolationRemove — L108
 ----------------------------------
@@ -28640,7 +27131,6 @@ event:onRuleViolationRemove — L108
    :caption: modules/modules/game_console/console.lua (L108)
 
 
-.. _modules-modules-game-console-console-lua-l108-event-onruleviolat-a1db777267:
 
 event:onRuleViolationRemove — L108
 ----------------------------------
@@ -28652,7 +27142,6 @@ event:onRuleViolationRemove — L108
    :caption: modules/modules/game_console/console.lua (L108)
 
 
-.. _modules-modules-game-console-console-lua-l108-event-onruleviolat-a1db777267:
 
 event:onRuleViolationRemove — L108
 ----------------------------------
@@ -28664,7 +27153,6 @@ event:onRuleViolationRemove — L108
    :caption: modules/modules/game_console/console.lua (L108)
 
 
-.. _modules-modules-game-console-console-lua-l108-event-onruleviolat-a1db777267:
 
 event:onRuleViolationRemove — L108
 ----------------------------------
@@ -28676,7 +27164,6 @@ event:onRuleViolationRemove — L108
    :caption: modules/modules/game_console/console.lua (L108)
 
 
-.. _modules-modules-game-console-console-lua-l108-event-onruleviolat-a1db777267:
 
 event:onRuleViolationRemove — L108
 ----------------------------------
@@ -28688,7 +27175,6 @@ event:onRuleViolationRemove — L108
    :caption: modules/modules/game_console/console.lua (L108)
 
 
-.. _modules-modules-game-console-console-lua-l108-event-onruleviolat-a1db777267:
 
 event:onRuleViolationRemove — L108
 ----------------------------------
@@ -28712,7 +27198,6 @@ event:onTabChange — L151
    :caption: modules/modules/game_console/console.lua (L151)
 
 
-.. _modules-modules-game-console-console-lua-l151-event-ontabchange-7016ec40a2:
 
 event:onTabChange — L151
 ------------------------
@@ -28724,7 +27209,6 @@ event:onTabChange — L151
    :caption: modules/modules/game_console/console.lua (L151)
 
 
-.. _modules-modules-game-console-console-lua-l151-event-ontabchange-7016ec40a2:
 
 event:onTabChange — L151
 ------------------------
@@ -28748,7 +27232,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28760,7 +27243,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28772,7 +27254,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28784,7 +27265,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28796,7 +27276,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28808,7 +27287,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28820,7 +27298,6 @@ event:onTalk — L100
    :caption: modules/modules/game_console/console.lua (L100)
 
 
-.. _modules-modules-game-console-console-lua-l100-event-ontalk-1c9325a75e:
 
 event:onTalk — L100
 -------------------
@@ -28844,7 +27321,6 @@ event:onClick — L87
    :caption: modules/modules/game_containers/containers.lua (L87)
 
 
-.. _modules-modules-game-containers-containers-lua-l87-event-onclick-6d09b45088:
 
 event:onClick — L87
 -------------------
@@ -28856,7 +27332,6 @@ event:onClick — L87
    :caption: modules/modules/game_containers/containers.lua (L87)
 
 
-.. _modules-modules-game-containers-containers-lua-l87-event-onclick-6d09b45088:
 
 event:onClick — L87
 -------------------
@@ -28868,7 +27343,6 @@ event:onClick — L87
    :caption: modules/modules/game_containers/containers.lua (L87)
 
 
-.. _modules-modules-game-containers-containers-lua-l87-event-onclick-6d09b45088:
 
 event:onClick — L87
 -------------------
@@ -28880,7 +27354,6 @@ event:onClick — L87
    :caption: modules/modules/game_containers/containers.lua (L87)
 
 
-.. _modules-modules-game-containers-containers-lua-l87-event-onclick-6d09b45088:
 
 event:onClick — L87
 -------------------
@@ -28904,7 +27377,6 @@ event:onClose — L5
    :caption: modules/modules/game_containers/containers.lua (L5)
 
 
-.. _modules-modules-game-containers-containers-lua-l5-event-onclose-97e1d15b49:
 
 event:onClose — L5
 ------------------
@@ -28916,7 +27388,6 @@ event:onClose — L5
    :caption: modules/modules/game_containers/containers.lua (L5)
 
 
-.. _modules-modules-game-containers-containers-lua-l5-event-onclose-97e1d15b49:
 
 event:onClose — L5
 ------------------
@@ -28928,7 +27399,6 @@ event:onClose — L5
    :caption: modules/modules/game_containers/containers.lua (L5)
 
 
-.. _modules-modules-game-containers-containers-lua-l5-event-onclose-97e1d15b49:
 
 event:onClose — L5
 ------------------
@@ -28940,7 +27410,6 @@ event:onClose — L5
    :caption: modules/modules/game_containers/containers.lua (L5)
 
 
-.. _modules-modules-game-containers-containers-lua-l5-event-onclose-97e1d15b49:
 
 event:onClose — L5
 ------------------
@@ -28964,7 +27433,6 @@ event:onContainerChangeSize — L6
    :caption: modules/modules/game_containers/containers.lua (L6)
 
 
-.. _modules-modules-game-containers-containers-lua-l6-event-oncontai-fafca154d4:
 
 event:onContainerChangeSize — L6
 --------------------------------
@@ -28976,7 +27444,6 @@ event:onContainerChangeSize — L6
    :caption: modules/modules/game_containers/containers.lua (L6)
 
 
-.. _modules-modules-game-containers-containers-lua-l6-event-oncontai-fafca154d4:
 
 event:onContainerChangeSize — L6
 --------------------------------
@@ -29000,7 +27467,6 @@ event:onContainerClose — L5
    :caption: modules/modules/game_containers/containers.lua (L5)
 
 
-.. _modules-modules-game-containers-containers-lua-l5-event-oncontai-5f13c4011f:
 
 event:onContainerClose — L5
 ---------------------------
@@ -29012,7 +27478,6 @@ event:onContainerClose — L5
    :caption: modules/modules/game_containers/containers.lua (L5)
 
 
-.. _modules-modules-game-containers-containers-lua-l5-event-oncontai-5f13c4011f:
 
 event:onContainerClose — L5
 ---------------------------
@@ -29036,7 +27501,6 @@ event:onContainerOpen — L4
    :caption: modules/modules/game_containers/containers.lua (L4)
 
 
-.. _modules-modules-game-containers-containers-lua-l4-event-oncontai-266cce1ebf:
 
 event:onContainerOpen — L4
 --------------------------
@@ -29048,7 +27512,6 @@ event:onContainerOpen — L4
    :caption: modules/modules/game_containers/containers.lua (L4)
 
 
-.. _modules-modules-game-containers-containers-lua-l4-event-oncontai-266cce1ebf:
 
 event:onContainerOpen — L4
 --------------------------
@@ -29060,7 +27523,6 @@ event:onContainerOpen — L4
    :caption: modules/modules/game_containers/containers.lua (L4)
 
 
-.. _modules-modules-game-containers-containers-lua-l4-event-oncontai-266cce1ebf:
 
 event:onContainerOpen — L4
 --------------------------
@@ -29084,7 +27546,6 @@ event:onContainerUpdateItem — L7
    :caption: modules/modules/game_containers/containers.lua (L7)
 
 
-.. _modules-modules-game-containers-containers-lua-l7-event-oncontai-7ecf930d32:
 
 event:onContainerUpdateItem — L7
 --------------------------------
@@ -29096,7 +27557,6 @@ event:onContainerUpdateItem — L7
    :caption: modules/modules/game_containers/containers.lua (L7)
 
 
-.. _modules-modules-game-containers-containers-lua-l7-event-oncontai-7ecf930d32:
 
 event:onContainerUpdateItem — L7
 --------------------------------
@@ -29120,7 +27580,6 @@ event:onDrop — L141
    :caption: modules/modules/game_containers/containers.lua (L141)
 
 
-.. _modules-modules-game-containers-containers-lua-l141-event-ondrop-869b62acbc:
 
 event:onDrop — L141
 -------------------
@@ -29144,7 +27603,6 @@ event:onGameEnd — L10
    :caption: modules/modules/game_containers/containers.lua (L10)
 
 
-.. _modules-modules-game-containers-containers-lua-l10-event-ongamee-1d93dbb2ab:
 
 event:onGameEnd — L10
 ---------------------
@@ -29156,7 +27614,6 @@ event:onGameEnd — L10
    :caption: modules/modules/game_containers/containers.lua (L10)
 
 
-.. _modules-modules-game-containers-containers-lua-l10-event-ongamee-1d93dbb2ab:
 
 event:onGameEnd — L10
 ---------------------
@@ -29168,7 +27625,6 @@ event:onGameEnd — L10
    :caption: modules/modules/game_containers/containers.lua (L10)
 
 
-.. _modules-modules-game-containers-containers-lua-l10-event-ongamee-1d93dbb2ab:
 
 event:onGameEnd — L10
 ---------------------
@@ -29192,7 +27648,6 @@ event:onGameStart — L9
    :caption: modules/modules/game_containers/containers.lua (L9)
 
 
-.. _modules-modules-game-containers-containers-lua-l9-event-ongamest-80fa058513:
 
 event:onGameStart — L9
 ----------------------
@@ -29204,7 +27659,6 @@ event:onGameStart — L9
    :caption: modules/modules/game_containers/containers.lua (L9)
 
 
-.. _modules-modules-game-containers-containers-lua-l9-event-ongamest-80fa058513:
 
 event:onGameStart — L9
 ----------------------
@@ -29216,7 +27670,6 @@ event:onGameStart — L9
    :caption: modules/modules/game_containers/containers.lua (L9)
 
 
-.. _modules-modules-game-containers-containers-lua-l9-event-ongamest-80fa058513:
 
 event:onGameStart — L9
 ----------------------
@@ -29264,7 +27717,6 @@ event:onOpen — L4
    :caption: modules/modules/game_containers/containers.lua (L4)
 
 
-.. _modules-modules-game-containers-containers-lua-l4-event-onopen-143fdc5054:
 
 event:onOpen — L4
 -----------------
@@ -29276,7 +27728,6 @@ event:onOpen — L4
    :caption: modules/modules/game_containers/containers.lua (L4)
 
 
-.. _modules-modules-game-containers-containers-lua-l4-event-onopen-143fdc5054:
 
 event:onOpen — L4
 -----------------
@@ -29288,7 +27739,6 @@ event:onOpen — L4
    :caption: modules/modules/game_containers/containers.lua (L4)
 
 
-.. _modules-modules-game-containers-containers-lua-l4-event-onopen-143fdc5054:
 
 event:onOpen — L4
 -----------------
@@ -29312,7 +27762,6 @@ event:onSizeChange — L6
    :caption: modules/modules/game_containers/containers.lua (L6)
 
 
-.. _modules-modules-game-containers-containers-lua-l6-event-onsizech-d0f9c8ab50:
 
 event:onSizeChange — L6
 -----------------------
@@ -29324,7 +27773,6 @@ event:onSizeChange — L6
    :caption: modules/modules/game_containers/containers.lua (L6)
 
 
-.. _modules-modules-game-containers-containers-lua-l6-event-onsizech-d0f9c8ab50:
 
 event:onSizeChange — L6
 -----------------------
@@ -29336,7 +27784,6 @@ event:onSizeChange — L6
    :caption: modules/modules/game_containers/containers.lua (L6)
 
 
-.. _modules-modules-game-containers-containers-lua-l6-event-onsizech-d0f9c8ab50:
 
 event:onSizeChange — L6
 -----------------------
@@ -29360,7 +27807,6 @@ event:onUpdateItem — L7
    :caption: modules/modules/game_containers/containers.lua (L7)
 
 
-.. _modules-modules-game-containers-containers-lua-l7-event-onupdate-3d470f8ed7:
 
 event:onUpdateItem — L7
 -----------------------
@@ -29372,7 +27818,6 @@ event:onUpdateItem — L7
    :caption: modules/modules/game_containers/containers.lua (L7)
 
 
-.. _modules-modules-game-containers-containers-lua-l7-event-onupdate-3d470f8ed7:
 
 event:onUpdateItem — L7
 -----------------------
@@ -29384,7 +27829,6 @@ event:onUpdateItem — L7
    :caption: modules/modules/game_containers/containers.lua (L7)
 
 
-.. _modules-modules-game-containers-containers-lua-l7-event-onupdate-3d470f8ed7:
 
 event:onUpdateItem — L7
 -----------------------
@@ -29420,7 +27864,6 @@ event:onGameStart — L17
    :caption: modules/modules/game_cooldown/cooldown.lua (L17)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l17-event-ongamestart-354b164e4f:
 
 event:onGameStart — L17
 -----------------------
@@ -29432,7 +27875,6 @@ event:onGameStart — L17
    :caption: modules/modules/game_cooldown/cooldown.lua (L17)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l17-event-ongamestart-354b164e4f:
 
 event:onGameStart — L17
 -----------------------
@@ -29444,7 +27886,6 @@ event:onGameStart — L17
    :caption: modules/modules/game_cooldown/cooldown.lua (L17)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l17-event-ongamestart-354b164e4f:
 
 event:onGameStart — L17
 -----------------------
@@ -29480,7 +27921,6 @@ event:onSpellCooldown — L19
    :caption: modules/modules/game_cooldown/cooldown.lua (L19)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l19-event-onspellcool-850e8b3ca6:
 
 event:onSpellCooldown — L19
 ---------------------------
@@ -29492,7 +27932,6 @@ event:onSpellCooldown — L19
    :caption: modules/modules/game_cooldown/cooldown.lua (L19)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l19-event-onspellcool-850e8b3ca6:
 
 event:onSpellCooldown — L19
 ---------------------------
@@ -29504,7 +27943,6 @@ event:onSpellCooldown — L19
    :caption: modules/modules/game_cooldown/cooldown.lua (L19)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l19-event-onspellcool-850e8b3ca6:
 
 event:onSpellCooldown — L19
 ---------------------------
@@ -29516,7 +27954,6 @@ event:onSpellCooldown — L19
    :caption: modules/modules/game_cooldown/cooldown.lua (L19)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l19-event-onspellcool-850e8b3ca6:
 
 event:onSpellCooldown — L19
 ---------------------------
@@ -29528,7 +27965,6 @@ event:onSpellCooldown — L19
    :caption: modules/modules/game_cooldown/cooldown.lua (L19)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l19-event-onspellcool-850e8b3ca6:
 
 event:onSpellCooldown — L19
 ---------------------------
@@ -29540,7 +27976,6 @@ event:onSpellCooldown — L19
    :caption: modules/modules/game_cooldown/cooldown.lua (L19)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l19-event-onspellcool-850e8b3ca6:
 
 event:onSpellCooldown — L19
 ---------------------------
@@ -29564,7 +27999,6 @@ event:onSpellGroupCooldown — L18
    :caption: modules/modules/game_cooldown/cooldown.lua (L18)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l18-event-onspellgrou-5c8a62f368:
 
 event:onSpellGroupCooldown — L18
 --------------------------------
@@ -29576,7 +28010,6 @@ event:onSpellGroupCooldown — L18
    :caption: modules/modules/game_cooldown/cooldown.lua (L18)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l18-event-onspellgrou-5c8a62f368:
 
 event:onSpellGroupCooldown — L18
 --------------------------------
@@ -29588,7 +28021,6 @@ event:onSpellGroupCooldown — L18
    :caption: modules/modules/game_cooldown/cooldown.lua (L18)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l18-event-onspellgrou-5c8a62f368:
 
 event:onSpellGroupCooldown — L18
 --------------------------------
@@ -29600,7 +28032,6 @@ event:onSpellGroupCooldown — L18
    :caption: modules/modules/game_cooldown/cooldown.lua (L18)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l18-event-onspellgrou-5c8a62f368:
 
 event:onSpellGroupCooldown — L18
 --------------------------------
@@ -29612,7 +28043,6 @@ event:onSpellGroupCooldown — L18
    :caption: modules/modules/game_cooldown/cooldown.lua (L18)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l18-event-onspellgrou-5c8a62f368:
 
 event:onSpellGroupCooldown — L18
 --------------------------------
@@ -29624,7 +28054,6 @@ event:onSpellGroupCooldown — L18
    :caption: modules/modules/game_cooldown/cooldown.lua (L18)
 
 
-.. _modules-modules-game-cooldown-cooldown-lua-l18-event-onspellgrou-5c8a62f368:
 
 event:onSpellGroupCooldown — L18
 --------------------------------
@@ -29648,7 +28077,6 @@ event:onClientVersionChange — L2
    :caption: modules/modules/game_features/features.lua (L2)
 
 
-.. _modules-modules-game-features-features-lua-l2-event-onclientvers-33cad0de82:
 
 event:onClientVersionChange — L2
 --------------------------------
@@ -29660,7 +28088,6 @@ event:onClientVersionChange — L2
    :caption: modules/modules/game_features/features.lua (L2)
 
 
-.. _modules-modules-game-features-features-lua-l2-event-onclientvers-33cad0de82:
 
 event:onClientVersionChange — L2
 --------------------------------
@@ -29672,7 +28099,6 @@ event:onClientVersionChange — L2
    :caption: modules/modules/game_features/features.lua (L2)
 
 
-.. _modules-modules-game-features-features-lua-l2-event-onclientvers-33cad0de82:
 
 event:onClientVersionChange — L2
 --------------------------------
@@ -29696,7 +28122,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29708,7 +28133,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29720,7 +28144,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29732,7 +28155,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29744,7 +28166,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29756,7 +28177,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29768,7 +28188,6 @@ event:onFreeCapacityChange — L44
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L44)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l44-event-onfreec-d369589243:
 
 event:onFreeCapacityChange — L44
 --------------------------------
@@ -29792,7 +28211,6 @@ event:onGameEnd — L46
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L46)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l46-event-ongamee-c95b11e82f:
 
 event:onGameEnd — L46
 ---------------------
@@ -29804,7 +28222,6 @@ event:onGameEnd — L46
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L46)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l46-event-ongamee-c95b11e82f:
 
 event:onGameEnd — L46
 ---------------------
@@ -29816,7 +28233,6 @@ event:onGameEnd — L46
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L46)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l46-event-ongamee-c95b11e82f:
 
 event:onGameEnd — L46
 ---------------------
@@ -29840,7 +28256,6 @@ event:onGeometryChange — L74
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L74)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l74-event-ongeome-b6bff8eedf:
 
 event:onGeometryChange — L74
 ----------------------------
@@ -29852,7 +28267,6 @@ event:onGeometryChange — L74
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L74)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l74-event-ongeome-b6bff8eedf:
 
 event:onGeometryChange — L74
 ----------------------------
@@ -29864,7 +28278,6 @@ event:onGeometryChange — L74
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L74)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l74-event-ongeome-b6bff8eedf:
 
 event:onGeometryChange — L74
 ----------------------------
@@ -29888,7 +28301,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29900,7 +28312,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29912,7 +28323,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29924,7 +28334,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29936,7 +28345,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29948,7 +28356,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29960,7 +28367,6 @@ event:onHealthChange — L39
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L39)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l39-event-onhealt-42cc99a1e0:
 
 event:onHealthChange — L39
 --------------------------
@@ -29984,7 +28390,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -29996,7 +28401,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -30008,7 +28412,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -30020,7 +28423,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -30032,7 +28434,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -30044,7 +28445,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -30056,7 +28456,6 @@ event:onLevelChange — L41
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L41)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l41-event-onlevel-55199de68c:
 
 event:onLevelChange — L41
 -------------------------
@@ -30080,7 +28479,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30092,7 +28490,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30104,7 +28501,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30116,7 +28512,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30128,7 +28523,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30140,7 +28534,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30152,7 +28545,6 @@ event:onManaChange — L40
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L40)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l40-event-onmanac-63725d65fb:
 
 event:onManaChange — L40
 ------------------------
@@ -30188,7 +28580,6 @@ event:onOverlayGeometryChange — L74
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L74)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l74-event-onoverl-bff652aa87:
 
 event:onOverlayGeometryChange — L74
 -----------------------------------
@@ -30200,7 +28591,6 @@ event:onOverlayGeometryChange — L74
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L74)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l74-event-onoverl-bff652aa87:
 
 event:onOverlayGeometryChange — L74
 -----------------------------------
@@ -30224,7 +28614,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30236,7 +28625,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30248,7 +28636,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30260,7 +28647,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30272,7 +28658,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30284,7 +28669,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30296,7 +28680,6 @@ event:onSoulChange — L43
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L43)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l43-event-onsoulc-a594118526:
 
 event:onSoulChange — L43
 ------------------------
@@ -30320,7 +28703,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30332,7 +28714,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30344,7 +28725,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30356,7 +28736,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30368,7 +28747,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30380,7 +28758,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30392,7 +28769,6 @@ event:onStatesChange — L42
    :caption: modules/modules/game_healthinfo/healthinfo.lua (L42)
 
 
-.. _modules-modules-game-healthinfo-healthinfo-lua-l42-event-onstate-ce33a65854:
 
 event:onStatesChange — L42
 --------------------------
@@ -30416,7 +28792,6 @@ event:onChangeUseType — L71
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L71)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l71-event-oncha-4132294b7a:
 
 event:onChangeUseType — L71
 ---------------------------
@@ -30452,7 +28827,6 @@ event:onChooseItemMouseRelease — L76
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L76)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l76-event-oncho-9b067dee4b:
 
 event:onChooseItemMouseRelease — L76
 ------------------------------------
@@ -30488,7 +28862,6 @@ event:onGameEnd — L88
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L88)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l88-event-ongam-b44abaeb01:
 
 event:onGameEnd — L88
 ---------------------
@@ -30500,7 +28873,6 @@ event:onGameEnd — L88
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L88)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l88-event-ongam-b44abaeb01:
 
 event:onGameEnd — L88
 ---------------------
@@ -30512,7 +28884,6 @@ event:onGameEnd — L88
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L88)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l88-event-ongam-b44abaeb01:
 
 event:onGameEnd — L88
 ---------------------
@@ -30536,7 +28907,6 @@ event:onGameStart — L87
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L87)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l87-event-ongam-e238e0e4fb:
 
 event:onGameStart — L87
 -----------------------
@@ -30548,7 +28918,6 @@ event:onGameStart — L87
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L87)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l87-event-ongam-e238e0e4fb:
 
 event:onGameStart — L87
 -----------------------
@@ -30560,7 +28929,6 @@ event:onGameStart — L87
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L87)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l87-event-ongam-e238e0e4fb:
 
 event:onGameStart — L87
 -----------------------
@@ -30620,7 +28988,6 @@ event:onSelectHotkeyLabel — L78
    :caption: modules/modules/game_hotkeys/hotkeys_manager.lua (L78)
 
 
-.. _modules-modules-game-hotkeys-hotkeys-manager-lua-l78-event-onsel-029bdb5667:
 
 event:onSelectHotkeyLabel — L78
 -------------------------------
@@ -30668,7 +29035,6 @@ event:onClick — L106
    :caption: modules/modules/game_imbuing/imbuing.lua (L106)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l106-event-onclick-0e73f9713e:
 
 event:onClick — L106
 --------------------
@@ -30680,7 +29046,6 @@ event:onClick — L106
    :caption: modules/modules/game_imbuing/imbuing.lua (L106)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l106-event-onclick-0e73f9713e:
 
 event:onClick — L106
 --------------------
@@ -30692,7 +29057,6 @@ event:onClick — L106
    :caption: modules/modules/game_imbuing/imbuing.lua (L106)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l106-event-onclick-0e73f9713e:
 
 event:onClick — L106
 --------------------
@@ -30704,7 +29068,6 @@ event:onClick — L106
    :caption: modules/modules/game_imbuing/imbuing.lua (L106)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l106-event-onclick-0e73f9713e:
 
 event:onClick — L106
 --------------------
@@ -30716,7 +29079,6 @@ event:onClick — L106
    :caption: modules/modules/game_imbuing/imbuing.lua (L106)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l106-event-onclick-0e73f9713e:
 
 event:onClick — L106
 --------------------
@@ -30740,7 +29102,6 @@ event:onCloseImbuementWindow — L21
    :caption: modules/modules/game_imbuing/imbuing.lua (L21)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l21-event-oncloseimbuem-73294cfdf5:
 
 event:onCloseImbuementWindow — L21
 ----------------------------------
@@ -30752,7 +29113,6 @@ event:onCloseImbuementWindow — L21
    :caption: modules/modules/game_imbuing/imbuing.lua (L21)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l21-event-oncloseimbuem-73294cfdf5:
 
 event:onCloseImbuementWindow — L21
 ----------------------------------
@@ -30764,7 +29124,6 @@ event:onCloseImbuementWindow — L21
    :caption: modules/modules/game_imbuing/imbuing.lua (L21)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l21-event-oncloseimbuem-73294cfdf5:
 
 event:onCloseImbuementWindow — L21
 ----------------------------------
@@ -30776,7 +29135,6 @@ event:onCloseImbuementWindow — L21
    :caption: modules/modules/game_imbuing/imbuing.lua (L21)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l21-event-oncloseimbuem-73294cfdf5:
 
 event:onCloseImbuementWindow — L21
 ----------------------------------
@@ -30788,7 +29146,6 @@ event:onCloseImbuementWindow — L21
    :caption: modules/modules/game_imbuing/imbuing.lua (L21)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l21-event-oncloseimbuem-73294cfdf5:
 
 event:onCloseImbuementWindow — L21
 ----------------------------------
@@ -30800,7 +29157,6 @@ event:onCloseImbuementWindow — L21
    :caption: modules/modules/game_imbuing/imbuing.lua (L21)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l21-event-oncloseimbuem-73294cfdf5:
 
 event:onCloseImbuementWindow — L21
 ----------------------------------
@@ -30824,7 +29180,6 @@ event:onGameEnd — L18
    :caption: modules/modules/game_imbuing/imbuing.lua (L18)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l18-event-ongameend-ffaa6b115a:
 
 event:onGameEnd — L18
 ---------------------
@@ -30836,7 +29191,6 @@ event:onGameEnd — L18
    :caption: modules/modules/game_imbuing/imbuing.lua (L18)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l18-event-ongameend-ffaa6b115a:
 
 event:onGameEnd — L18
 ---------------------
@@ -30848,7 +29202,6 @@ event:onGameEnd — L18
    :caption: modules/modules/game_imbuing/imbuing.lua (L18)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l18-event-ongameend-ffaa6b115a:
 
 event:onGameEnd — L18
 ---------------------
@@ -30872,7 +29225,6 @@ event:onImbuementWindow — L20
    :caption: modules/modules/game_imbuing/imbuing.lua (L20)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l20-event-onimbuementwi-0fb4ba3951:
 
 event:onImbuementWindow — L20
 -----------------------------
@@ -30884,7 +29236,6 @@ event:onImbuementWindow — L20
    :caption: modules/modules/game_imbuing/imbuing.lua (L20)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l20-event-onimbuementwi-0fb4ba3951:
 
 event:onImbuementWindow — L20
 -----------------------------
@@ -30896,7 +29247,6 @@ event:onImbuementWindow — L20
    :caption: modules/modules/game_imbuing/imbuing.lua (L20)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l20-event-onimbuementwi-0fb4ba3951:
 
 event:onImbuementWindow — L20
 -----------------------------
@@ -30908,7 +29258,6 @@ event:onImbuementWindow — L20
    :caption: modules/modules/game_imbuing/imbuing.lua (L20)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l20-event-onimbuementwi-0fb4ba3951:
 
 event:onImbuementWindow — L20
 -----------------------------
@@ -30920,7 +29269,6 @@ event:onImbuementWindow — L20
    :caption: modules/modules/game_imbuing/imbuing.lua (L20)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l20-event-onimbuementwi-0fb4ba3951:
 
 event:onImbuementWindow — L20
 -----------------------------
@@ -30932,7 +29280,6 @@ event:onImbuementWindow — L20
    :caption: modules/modules/game_imbuing/imbuing.lua (L20)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l20-event-onimbuementwi-0fb4ba3951:
 
 event:onImbuementWindow — L20
 -----------------------------
@@ -30956,7 +29303,6 @@ event:onOptionChange — L32
    :caption: modules/modules/game_imbuing/imbuing.lua (L32)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l32-event-onoptionchang-d992c0599f:
 
 event:onOptionChange — L32
 --------------------------
@@ -30968,7 +29314,6 @@ event:onOptionChange — L32
    :caption: modules/modules/game_imbuing/imbuing.lua (L32)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l32-event-onoptionchang-d992c0599f:
 
 event:onOptionChange — L32
 --------------------------
@@ -30992,7 +29337,6 @@ event:onResourceBalance — L19
    :caption: modules/modules/game_imbuing/imbuing.lua (L19)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l19-event-onresourcebal-a96086fd88:
 
 event:onResourceBalance — L19
 -----------------------------
@@ -31004,7 +29348,6 @@ event:onResourceBalance — L19
    :caption: modules/modules/game_imbuing/imbuing.lua (L19)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l19-event-onresourcebal-a96086fd88:
 
 event:onResourceBalance — L19
 -----------------------------
@@ -31016,7 +29359,6 @@ event:onResourceBalance — L19
    :caption: modules/modules/game_imbuing/imbuing.lua (L19)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l19-event-onresourcebal-a96086fd88:
 
 event:onResourceBalance — L19
 -----------------------------
@@ -31028,7 +29370,6 @@ event:onResourceBalance — L19
    :caption: modules/modules/game_imbuing/imbuing.lua (L19)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l19-event-onresourcebal-a96086fd88:
 
 event:onResourceBalance — L19
 -----------------------------
@@ -31040,7 +29381,6 @@ event:onResourceBalance — L19
    :caption: modules/modules/game_imbuing/imbuing.lua (L19)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l19-event-onresourcebal-a96086fd88:
 
 event:onResourceBalance — L19
 -----------------------------
@@ -31052,7 +29392,6 @@ event:onResourceBalance — L19
    :caption: modules/modules/game_imbuing/imbuing.lua (L19)
 
 
-.. _modules-modules-game-imbuing-imbuing-lua-l19-event-onresourcebal-a96086fd88:
 
 event:onResourceBalance — L19
 -----------------------------
@@ -31076,7 +29415,6 @@ event:onClick — L805
    :caption: modules/modules/game_interface/gameinterface.lua (L805)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l805-event-oncl-373f266148:
 
 event:onClick — L805
 --------------------
@@ -31088,7 +29426,6 @@ event:onClick — L805
    :caption: modules/modules/game_interface/gameinterface.lua (L805)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l805-event-oncl-373f266148:
 
 event:onClick — L805
 --------------------
@@ -31100,7 +29437,6 @@ event:onClick — L805
    :caption: modules/modules/game_interface/gameinterface.lua (L805)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l805-event-oncl-373f266148:
 
 event:onClick — L805
 --------------------
@@ -31124,7 +29460,6 @@ event:onClose — L133
    :caption: modules/modules/game_interface/gameinterface.lua (L133)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l133-event-oncl-11cd57ce01:
 
 event:onClose — L133
 --------------------
@@ -31136,7 +29471,6 @@ event:onClose — L133
    :caption: modules/modules/game_interface/gameinterface.lua (L133)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l133-event-oncl-11cd57ce01:
 
 event:onClose — L133
 --------------------
@@ -31148,7 +29482,6 @@ event:onClose — L133
    :caption: modules/modules/game_interface/gameinterface.lua (L133)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l133-event-oncl-11cd57ce01:
 
 event:onClose — L133
 --------------------
@@ -31196,7 +29529,6 @@ event:onExit — L36
    :caption: modules/modules/game_interface/gameinterface.lua (L36)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l36-event-onexi-156d15b39b:
 
 event:onExit — L36
 ------------------
@@ -31220,7 +29552,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_interface/gameinterface.lua (L26)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l26-event-ongam-834c6b20e4:
 
 event:onGameEnd — L26
 ---------------------
@@ -31232,7 +29563,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_interface/gameinterface.lua (L26)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l26-event-ongam-834c6b20e4:
 
 event:onGameEnd — L26
 ---------------------
@@ -31244,7 +29574,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_interface/gameinterface.lua (L26)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l26-event-ongam-834c6b20e4:
 
 event:onGameEnd — L26
 ---------------------
@@ -31256,7 +29585,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_interface/gameinterface.lua (L26)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l26-event-ongam-834c6b20e4:
 
 event:onGameEnd — L26
 ---------------------
@@ -31268,7 +29596,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_interface/gameinterface.lua (L26)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l26-event-ongam-834c6b20e4:
 
 event:onGameEnd — L26
 ---------------------
@@ -31280,7 +29607,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_interface/gameinterface.lua (L26)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l26-event-ongam-834c6b20e4:
 
 event:onGameEnd — L26
 ---------------------
@@ -31304,7 +29630,6 @@ event:onGameStart — L25
    :caption: modules/modules/game_interface/gameinterface.lua (L25)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l25-event-ongam-79e4c0100e:
 
 event:onGameStart — L25
 -----------------------
@@ -31316,7 +29641,6 @@ event:onGameStart — L25
    :caption: modules/modules/game_interface/gameinterface.lua (L25)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l25-event-ongam-79e4c0100e:
 
 event:onGameStart — L25
 -----------------------
@@ -31328,7 +29652,6 @@ event:onGameStart — L25
    :caption: modules/modules/game_interface/gameinterface.lua (L25)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l25-event-ongam-79e4c0100e:
 
 event:onGameStart — L25
 -----------------------
@@ -31340,7 +29663,6 @@ event:onGameStart — L25
    :caption: modules/modules/game_interface/gameinterface.lua (L25)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l25-event-ongam-79e4c0100e:
 
 event:onGameStart — L25
 -----------------------
@@ -31352,7 +29674,6 @@ event:onGameStart — L25
    :caption: modules/modules/game_interface/gameinterface.lua (L25)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l25-event-ongam-79e4c0100e:
 
 event:onGameStart — L25
 -----------------------
@@ -31364,7 +29685,6 @@ event:onGameStart — L25
    :caption: modules/modules/game_interface/gameinterface.lua (L25)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l25-event-ongam-79e4c0100e:
 
 event:onGameStart — L25
 -----------------------
@@ -31388,7 +29708,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31400,7 +29719,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31412,7 +29730,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31424,7 +29741,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31436,7 +29752,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31448,7 +29763,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31460,7 +29774,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31472,7 +29785,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31484,7 +29796,6 @@ event:onGeometryChange — L32
    :caption: modules/modules/game_interface/gameinterface.lua (L32)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l32-event-ongeo-53afc8a614:
 
 event:onGeometryChange — L32
 ----------------------------
@@ -31520,7 +29831,6 @@ event:onLoginAdvice — L27
    :caption: modules/modules/game_interface/gameinterface.lua (L27)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l27-event-onlog-ee6675c290:
 
 event:onLoginAdvice — L27
 -------------------------
@@ -31532,7 +29842,6 @@ event:onLoginAdvice — L27
    :caption: modules/modules/game_interface/gameinterface.lua (L27)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l27-event-onlog-ee6675c290:
 
 event:onLoginAdvice — L27
 -------------------------
@@ -31544,7 +29853,6 @@ event:onLoginAdvice — L27
    :caption: modules/modules/game_interface/gameinterface.lua (L27)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l27-event-onlog-ee6675c290:
 
 event:onLoginAdvice — L27
 -------------------------
@@ -31556,7 +29864,6 @@ event:onLoginAdvice — L27
    :caption: modules/modules/game_interface/gameinterface.lua (L27)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l27-event-onlog-ee6675c290:
 
 event:onLoginAdvice — L27
 -------------------------
@@ -31568,7 +29875,6 @@ event:onLoginAdvice — L27
    :caption: modules/modules/game_interface/gameinterface.lua (L27)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l27-event-onlog-ee6675c290:
 
 event:onLoginAdvice — L27
 -------------------------
@@ -31580,7 +29886,6 @@ event:onLoginAdvice — L27
    :caption: modules/modules/game_interface/gameinterface.lua (L27)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l27-event-onlog-ee6675c290:
 
 event:onLoginAdvice — L27
 -------------------------
@@ -31604,7 +29909,6 @@ event:onMapChangeAwareRange — L72
    :caption: modules/modules/game_interface/gameinterface.lua (L72)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l72-event-onmap-31263c6afa:
 
 event:onMapChangeAwareRange — L72
 ---------------------------------
@@ -31628,7 +29932,6 @@ event:onMouseGrabberRelease — L45
    :caption: modules/modules/game_interface/gameinterface.lua (L45)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l45-event-onmou-cdfe18cdca:
 
 event:onMouseGrabberRelease — L45
 ---------------------------------
@@ -31652,7 +29955,6 @@ event:onMouseRelease — L45
    :caption: modules/modules/game_interface/gameinterface.lua (L45)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l45-event-onmou-82b98c962e:
 
 event:onMouseRelease — L45
 --------------------------
@@ -31676,7 +29978,6 @@ event:onRun — L35
    :caption: modules/modules/game_interface/gameinterface.lua (L35)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l35-event-onrun-2b9921bb32:
 
 event:onRun — L35
 -----------------
@@ -31712,7 +30013,6 @@ event:onTradeWith — L286
    :caption: modules/modules/game_interface/gameinterface.lua (L286)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l286-event-ontr-a1bf7a2c72:
 
 event:onTradeWith — L286
 ------------------------
@@ -31736,7 +30036,6 @@ event:onUseWith — L284
    :caption: modules/modules/game_interface/gameinterface.lua (L284)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l284-event-onus-ce97e56117:
 
 event:onUseWith — L284
 ----------------------
@@ -31760,7 +30059,6 @@ event:onValueChange — L767
    :caption: modules/modules/game_interface/gameinterface.lua (L767)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l767-event-onva-74de275d28:
 
 event:onValueChange — L767
 --------------------------
@@ -31772,7 +30070,6 @@ event:onValueChange — L767
    :caption: modules/modules/game_interface/gameinterface.lua (L767)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l767-event-onva-74de275d28:
 
 event:onValueChange — L767
 --------------------------
@@ -31784,7 +30081,6 @@ event:onValueChange — L767
    :caption: modules/modules/game_interface/gameinterface.lua (L767)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l767-event-onva-74de275d28:
 
 event:onValueChange — L767
 --------------------------
@@ -31808,7 +30104,6 @@ event:onVisibilityChange — L58
    :caption: modules/modules/game_interface/gameinterface.lua (L58)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l58-event-onvis-07779f4b83:
 
 event:onVisibilityChange — L58
 ------------------------------
@@ -31832,7 +30127,6 @@ event:onVisibleDimensionChange — L71
    :caption: modules/modules/game_interface/gameinterface.lua (L71)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l71-event-onvis-18fcb52c0c:
 
 event:onVisibleDimensionChange — L71
 ------------------------------------
@@ -31844,7 +30138,6 @@ event:onVisibleDimensionChange — L71
    :caption: modules/modules/game_interface/gameinterface.lua (L71)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l71-event-onvis-18fcb52c0c:
 
 event:onVisibleDimensionChange — L71
 ------------------------------------
@@ -31856,7 +30149,6 @@ event:onVisibleDimensionChange — L71
    :caption: modules/modules/game_interface/gameinterface.lua (L71)
 
 
-.. _modules-modules-game-interface-gameinterface-lua-l71-event-onvis-18fcb52c0c:
 
 event:onVisibleDimensionChange — L71
 ------------------------------------
@@ -31964,7 +30256,6 @@ event:onMouseRelease — L90
    :caption: modules/modules/game_interface/widgets/uigamemap.lua (L90)
 
 
-.. _modules-modules-game-interface-widgets-uigamemap-lua-l90-event-o-b91a997833:
 
 event:onMouseRelease — L90
 --------------------------
@@ -31976,7 +30267,6 @@ event:onMouseRelease — L90
    :caption: modules/modules/game_interface/widgets/uigamemap.lua (L90)
 
 
-.. _modules-modules-game-interface-widgets-uigamemap-lua-l90-event-o-b91a997833:
 
 event:onMouseRelease — L90
 --------------------------
@@ -32012,7 +30302,6 @@ event:onAutoWalk — L114
    :caption: modules/modules/game_inventory/inventory.lua (L114)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l114-event-onautowa-6671fafc4b:
 
 event:onAutoWalk — L114
 -----------------------
@@ -32024,7 +30313,6 @@ event:onAutoWalk — L114
    :caption: modules/modules/game_inventory/inventory.lua (L114)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l114-event-onautowa-6671fafc4b:
 
 event:onAutoWalk — L114
 -----------------------
@@ -32036,7 +30324,6 @@ event:onAutoWalk — L114
    :caption: modules/modules/game_inventory/inventory.lua (L114)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l114-event-onautowa-6671fafc4b:
 
 event:onAutoWalk — L114
 -----------------------
@@ -32060,7 +30347,6 @@ event:onBlessingsChange — L55
    :caption: modules/modules/game_inventory/inventory.lua (L55)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l55-event-onblessin-a368db25ce:
 
 event:onBlessingsChange — L55
 -----------------------------
@@ -32072,7 +30358,6 @@ event:onBlessingsChange — L55
    :caption: modules/modules/game_inventory/inventory.lua (L55)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l55-event-onblessin-a368db25ce:
 
 event:onBlessingsChange — L55
 -----------------------------
@@ -32084,7 +30369,6 @@ event:onBlessingsChange — L55
    :caption: modules/modules/game_inventory/inventory.lua (L55)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l55-event-onblessin-a368db25ce:
 
 event:onBlessingsChange — L55
 -----------------------------
@@ -32096,7 +30380,6 @@ event:onBlessingsChange — L55
    :caption: modules/modules/game_inventory/inventory.lua (L55)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l55-event-onblessin-a368db25ce:
 
 event:onBlessingsChange — L55
 -----------------------------
@@ -32108,7 +30391,6 @@ event:onBlessingsChange — L55
    :caption: modules/modules/game_inventory/inventory.lua (L55)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l55-event-onblessin-a368db25ce:
 
 event:onBlessingsChange — L55
 -----------------------------
@@ -32120,7 +30402,6 @@ event:onBlessingsChange — L55
    :caption: modules/modules/game_inventory/inventory.lua (L55)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l55-event-onblessin-a368db25ce:
 
 event:onBlessingsChange — L55
 -----------------------------
@@ -32144,7 +30425,6 @@ event:onChaseModeChange — L110
    :caption: modules/modules/game_inventory/inventory.lua (L110)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l110-event-onchasem-efd77f03d9:
 
 event:onChaseModeChange — L110
 ------------------------------
@@ -32156,7 +30436,6 @@ event:onChaseModeChange — L110
    :caption: modules/modules/game_inventory/inventory.lua (L110)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l110-event-onchasem-efd77f03d9:
 
 event:onChaseModeChange — L110
 ------------------------------
@@ -32168,7 +30447,6 @@ event:onChaseModeChange — L110
    :caption: modules/modules/game_inventory/inventory.lua (L110)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l110-event-onchasem-efd77f03d9:
 
 event:onChaseModeChange — L110
 ------------------------------
@@ -32192,7 +30470,6 @@ event:onCheckChange — L101
    :caption: modules/modules/game_inventory/inventory.lua (L101)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l101-event-oncheckc-07753fb83e:
 
 event:onCheckChange — L101
 --------------------------
@@ -32204,7 +30481,6 @@ event:onCheckChange — L101
    :caption: modules/modules/game_inventory/inventory.lua (L101)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l101-event-oncheckc-07753fb83e:
 
 event:onCheckChange — L101
 --------------------------
@@ -32216,7 +30492,6 @@ event:onCheckChange — L101
    :caption: modules/modules/game_inventory/inventory.lua (L101)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l101-event-oncheckc-07753fb83e:
 
 event:onCheckChange — L101
 --------------------------
@@ -32240,7 +30515,6 @@ event:onClick — L71
    :caption: modules/modules/game_inventory/inventory.lua (L71)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l71-event-onclick-40cf23eb08:
 
 event:onClick — L71
 -------------------
@@ -32252,7 +30526,6 @@ event:onClick — L71
    :caption: modules/modules/game_inventory/inventory.lua (L71)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l71-event-onclick-40cf23eb08:
 
 event:onClick — L71
 -------------------
@@ -32264,7 +30537,6 @@ event:onClick — L71
    :caption: modules/modules/game_inventory/inventory.lua (L71)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l71-event-onclick-40cf23eb08:
 
 event:onClick — L71
 -------------------
@@ -32288,7 +30560,6 @@ event:onFightModeChange — L109
    :caption: modules/modules/game_inventory/inventory.lua (L109)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l109-event-onfightm-ca430c5f4b:
 
 event:onFightModeChange — L109
 ------------------------------
@@ -32300,7 +30571,6 @@ event:onFightModeChange — L109
    :caption: modules/modules/game_inventory/inventory.lua (L109)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l109-event-onfightm-ca430c5f4b:
 
 event:onFightModeChange — L109
 ------------------------------
@@ -32312,7 +30582,6 @@ event:onFightModeChange — L109
    :caption: modules/modules/game_inventory/inventory.lua (L109)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l109-event-onfightm-ca430c5f4b:
 
 event:onFightModeChange — L109
 ------------------------------
@@ -32336,7 +30605,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32348,7 +30616,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32360,7 +30627,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32372,7 +30638,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32384,7 +30649,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32396,7 +30660,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32408,7 +30671,6 @@ event:onFreeCapacityChange — L132
    :caption: modules/modules/game_inventory/inventory.lua (L132)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l132-event-onfreeca-79b3dfe81d:
 
 event:onFreeCapacityChange — L132
 ---------------------------------
@@ -32432,7 +30694,6 @@ event:onGameEnd — L108
    :caption: modules/modules/game_inventory/inventory.lua (L108)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l108-event-ongameen-9279ffcda0:
 
 event:onGameEnd — L108
 ----------------------
@@ -32444,7 +30705,6 @@ event:onGameEnd — L108
    :caption: modules/modules/game_inventory/inventory.lua (L108)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l108-event-ongameen-9279ffcda0:
 
 event:onGameEnd — L108
 ----------------------
@@ -32456,7 +30716,6 @@ event:onGameEnd — L108
    :caption: modules/modules/game_inventory/inventory.lua (L108)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l108-event-ongameen-9279ffcda0:
 
 event:onGameEnd — L108
 ----------------------
@@ -32480,7 +30739,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32492,7 +30750,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32504,7 +30761,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32516,7 +30772,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32528,7 +30783,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32540,7 +30794,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32552,7 +30805,6 @@ event:onGameStart — L57
    :caption: modules/modules/game_inventory/inventory.lua (L57)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l57-event-ongamesta-4af63dba46:
 
 event:onGameStart — L57
 -----------------------
@@ -32576,7 +30828,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32588,7 +30839,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32600,7 +30850,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32612,7 +30861,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32624,7 +30872,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32636,7 +30883,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32648,7 +30894,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32660,7 +30905,6 @@ event:onInventoryChange — L54
    :caption: modules/modules/game_inventory/inventory.lua (L54)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l54-event-oninvento-276cda8c53:
 
 event:onInventoryChange — L54
 -----------------------------
@@ -32696,7 +30940,6 @@ event:onMountButtonClick — L88
    :caption: modules/modules/game_inventory/inventory.lua (L88)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l88-event-onmountbu-5364798358:
 
 event:onMountButtonClick — L88
 ------------------------------
@@ -32720,7 +30963,6 @@ event:onOutfitChange — L117
    :caption: modules/modules/game_inventory/inventory.lua (L117)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l117-event-onoutfit-fafce2be01:
 
 event:onOutfitChange — L117
 ---------------------------
@@ -32732,7 +30974,6 @@ event:onOutfitChange — L117
    :caption: modules/modules/game_inventory/inventory.lua (L117)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l117-event-onoutfit-fafce2be01:
 
 event:onOutfitChange — L117
 ---------------------------
@@ -32744,7 +30985,6 @@ event:onOutfitChange — L117
    :caption: modules/modules/game_inventory/inventory.lua (L117)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l117-event-onoutfit-fafce2be01:
 
 event:onOutfitChange — L117
 ---------------------------
@@ -32756,7 +30996,6 @@ event:onOutfitChange — L117
    :caption: modules/modules/game_inventory/inventory.lua (L117)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l117-event-onoutfit-fafce2be01:
 
 event:onOutfitChange — L117
 ---------------------------
@@ -32768,7 +31007,6 @@ event:onOutfitChange — L117
    :caption: modules/modules/game_inventory/inventory.lua (L117)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l117-event-onoutfit-fafce2be01:
 
 event:onOutfitChange — L117
 ---------------------------
@@ -32780,7 +31018,6 @@ event:onOutfitChange — L117
    :caption: modules/modules/game_inventory/inventory.lua (L117)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l117-event-onoutfit-fafce2be01:
 
 event:onOutfitChange — L117
 ---------------------------
@@ -32804,7 +31041,6 @@ event:onPVPModeChange — L112
    :caption: modules/modules/game_inventory/inventory.lua (L112)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l112-event-onpvpmod-be4d27b741:
 
 event:onPVPModeChange — L112
 ----------------------------
@@ -32816,7 +31052,6 @@ event:onPVPModeChange — L112
    :caption: modules/modules/game_inventory/inventory.lua (L112)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l112-event-onpvpmod-be4d27b741:
 
 event:onPVPModeChange — L112
 ----------------------------
@@ -32828,7 +31063,6 @@ event:onPVPModeChange — L112
    :caption: modules/modules/game_inventory/inventory.lua (L112)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l112-event-onpvpmod-be4d27b741:
 
 event:onPVPModeChange — L112
 ----------------------------
@@ -32852,7 +31086,6 @@ event:onSafeFightChange — L111
    :caption: modules/modules/game_inventory/inventory.lua (L111)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l111-event-onsafefi-7fee19e6d9:
 
 event:onSafeFightChange — L111
 ------------------------------
@@ -32864,7 +31097,6 @@ event:onSafeFightChange — L111
    :caption: modules/modules/game_inventory/inventory.lua (L111)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l111-event-onsafefi-7fee19e6d9:
 
 event:onSafeFightChange — L111
 ------------------------------
@@ -32876,7 +31108,6 @@ event:onSafeFightChange — L111
    :caption: modules/modules/game_inventory/inventory.lua (L111)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l111-event-onsafefi-7fee19e6d9:
 
 event:onSafeFightChange — L111
 ------------------------------
@@ -32900,7 +31131,6 @@ event:onSelectionChange — L100
    :caption: modules/modules/game_inventory/inventory.lua (L100)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l100-event-onselect-ab010b817e:
 
 event:onSelectionChange — L100
 ------------------------------
@@ -32924,7 +31154,6 @@ event:onSetChaseMode — L101
    :caption: modules/modules/game_inventory/inventory.lua (L101)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l101-event-onsetcha-76c7e8da00:
 
 event:onSetChaseMode — L101
 ---------------------------
@@ -32948,7 +31177,6 @@ event:onSetFightMode — L100
    :caption: modules/modules/game_inventory/inventory.lua (L100)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l100-event-onsetfig-18ca5a4327:
 
 event:onSetFightMode — L100
 ---------------------------
@@ -32984,7 +31212,6 @@ event:onSetSafeFight — L102
    :caption: modules/modules/game_inventory/inventory.lua (L102)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l102-event-onsetsaf-62ad2918c9:
 
 event:onSetSafeFight — L102
 ---------------------------
@@ -32996,7 +31223,6 @@ event:onSetSafeFight — L102
    :caption: modules/modules/game_inventory/inventory.lua (L102)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l102-event-onsetsaf-62ad2918c9:
 
 event:onSetSafeFight — L102
 ---------------------------
@@ -33020,7 +31246,6 @@ event:onSetSafeFight2 — L104
    :caption: modules/modules/game_inventory/inventory.lua (L104)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l104-event-onsetsaf-66190c7aee:
 
 event:onSetSafeFight2 — L104
 ----------------------------
@@ -33044,7 +31269,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33056,7 +31280,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33068,7 +31291,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33080,7 +31302,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33092,7 +31313,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33104,7 +31324,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33116,7 +31335,6 @@ event:onSoulChange — L131
    :caption: modules/modules/game_inventory/inventory.lua (L131)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l131-event-onsoulch-ecffaf1b73:
 
 event:onSoulChange — L131
 -------------------------
@@ -33140,7 +31358,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33152,7 +31369,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33164,7 +31380,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33176,7 +31391,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33188,7 +31402,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33200,7 +31413,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33212,7 +31424,6 @@ event:onStatesChange — L130
    :caption: modules/modules/game_inventory/inventory.lua (L130)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l130-event-onstates-fa7a819c82:
 
 event:onStatesChange — L130
 ---------------------------
@@ -33236,7 +31447,6 @@ event:onWalk — L113
    :caption: modules/modules/game_inventory/inventory.lua (L113)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l113-event-onwalk-23c3abee7e:
 
 event:onWalk — L113
 -------------------
@@ -33248,7 +31458,6 @@ event:onWalk — L113
    :caption: modules/modules/game_inventory/inventory.lua (L113)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l113-event-onwalk-23c3abee7e:
 
 event:onWalk — L113
 -------------------
@@ -33260,7 +31469,6 @@ event:onWalk — L113
    :caption: modules/modules/game_inventory/inventory.lua (L113)
 
 
-.. _modules-modules-game-inventory-inventory-lua-l113-event-onwalk-23c3abee7e:
 
 event:onWalk — L113
 -------------------
@@ -33284,7 +31492,6 @@ event:onClick — L47
    :caption: modules/modules/game_itemselector/itemselector.lua (L47)
 
 
-.. _modules-modules-game-itemselector-itemselector-lua-l47-event-onc-ed0f44a638:
 
 event:onClick — L47
 -------------------
@@ -33296,7 +31503,6 @@ event:onClick — L47
    :caption: modules/modules/game_itemselector/itemselector.lua (L47)
 
 
-.. _modules-modules-game-itemselector-itemselector-lua-l47-event-onc-ed0f44a638:
 
 event:onClick — L47
 -------------------
@@ -33344,7 +31550,6 @@ event:onGameEnd — L6
    :caption: modules/modules/game_itemselector/itemselector.lua (L6)
 
 
-.. _modules-modules-game-itemselector-itemselector-lua-l6-event-onga-9ce73709fd:
 
 event:onGameEnd — L6
 --------------------
@@ -33356,7 +31561,6 @@ event:onGameEnd — L6
    :caption: modules/modules/game_itemselector/itemselector.lua (L6)
 
 
-.. _modules-modules-game-itemselector-itemselector-lua-l6-event-onga-9ce73709fd:
 
 event:onGameEnd — L6
 --------------------
@@ -33368,7 +31572,6 @@ event:onGameEnd — L6
    :caption: modules/modules/game_itemselector/itemselector.lua (L6)
 
 
-.. _modules-modules-game-itemselector-itemselector-lua-l6-event-onga-9ce73709fd:
 
 event:onGameEnd — L6
 --------------------
@@ -33392,7 +31595,6 @@ event:onValueChange — L60
    :caption: modules/modules/game_itemselector/itemselector.lua (L60)
 
 
-.. _modules-modules-game-itemselector-itemselector-lua-l60-event-onv-b5be4f4b9d:
 
 event:onValueChange — L60
 -------------------------
@@ -33416,7 +31618,6 @@ event:onAmountChange — L728
    :caption: modules/modules/game_market/market.lua (L728)
 
 
-.. _modules-modules-game-market-market-lua-l728-event-onamountchange-037aabc9f0:
 
 event:onAmountChange — L728
 ---------------------------
@@ -33440,7 +31641,6 @@ event:onChangeCategory — L661
    :caption: modules/modules/game_market/market.lua (L661)
 
 
-.. _modules-modules-game-market-market-lua-l661-event-onchangecatego-4b3d4444b0:
 
 event:onChangeCategory — L661
 -----------------------------
@@ -33464,7 +31664,6 @@ event:onChangeOfferType — L694
    :caption: modules/modules/game_market/market.lua (L694)
 
 
-.. _modules-modules-game-market-market-lua-l694-event-onchangeoffert-320ae27537:
 
 event:onChangeOfferType — L694
 ------------------------------
@@ -33488,7 +31687,6 @@ event:onChangeSlotFilter — L690
    :caption: modules/modules/game_market/market.lua (L690)
 
 
-.. _modules-modules-game-market-market-lua-l690-event-onchangeslotfi-c608bbac65:
 
 event:onChangeSlotFilter — L690
 -------------------------------
@@ -33512,7 +31710,6 @@ event:onChangeSubCategory — L676
    :caption: modules/modules/game_market/market.lua (L676)
 
 
-.. _modules-modules-game-market-market-lua-l676-event-onchangesubcat-93f4602582:
 
 event:onChangeSubCategory — L676
 --------------------------------
@@ -33536,7 +31733,6 @@ event:onCheckChange — L921
    :caption: modules/modules/game_market/market.lua (L921)
 
 
-.. _modules-modules-game-market-market-lua-l921-event-oncheckchange-0b77c2450b:
 
 event:onCheckChange — L921
 --------------------------
@@ -33560,7 +31756,6 @@ event:onClick — L596
    :caption: modules/modules/game_market/market.lua (L596)
 
 
-.. _modules-modules-game-market-market-lua-l596-event-onclick-46b2d01d44:
 
 event:onClick — L596
 --------------------
@@ -33572,7 +31767,6 @@ event:onClick — L596
    :caption: modules/modules/game_market/market.lua (L596)
 
 
-.. _modules-modules-game-market-market-lua-l596-event-onclick-46b2d01d44:
 
 event:onClick — L596
 --------------------
@@ -33584,7 +31778,6 @@ event:onClick — L596
    :caption: modules/modules/game_market/market.lua (L596)
 
 
-.. _modules-modules-game-market-market-lua-l596-event-onclick-46b2d01d44:
 
 event:onClick — L596
 --------------------
@@ -33596,7 +31789,6 @@ event:onClick — L596
    :caption: modules/modules/game_market/market.lua (L596)
 
 
-.. _modules-modules-game-market-market-lua-l596-event-onclick-46b2d01d44:
 
 event:onClick — L596
 --------------------
@@ -33608,7 +31800,6 @@ event:onClick — L596
    :caption: modules/modules/game_market/market.lua (L596)
 
 
-.. _modules-modules-game-market-market-lua-l596-event-onclick-46b2d01d44:
 
 event:onClick — L596
 --------------------
@@ -33620,7 +31811,6 @@ event:onClick — L596
    :caption: modules/modules/game_market/market.lua (L596)
 
 
-.. _modules-modules-game-market-market-lua-l596-event-onclick-46b2d01d44:
 
 event:onClick — L596
 --------------------
@@ -33644,7 +31834,6 @@ event:onCoinBalance — L991
    :caption: modules/modules/game_market/market.lua (L991)
 
 
-.. _modules-modules-game-market-market-lua-l991-event-oncoinbalance-a29f60a91e:
 
 event:onCoinBalance — L991
 --------------------------
@@ -33656,7 +31845,6 @@ event:onCoinBalance — L991
    :caption: modules/modules/game_market/market.lua (L991)
 
 
-.. _modules-modules-game-market-market-lua-l991-event-oncoinbalance-a29f60a91e:
 
 event:onCoinBalance — L991
 --------------------------
@@ -33668,7 +31856,6 @@ event:onCoinBalance — L991
    :caption: modules/modules/game_market/market.lua (L991)
 
 
-.. _modules-modules-game-market-market-lua-l991-event-oncoinbalance-a29f60a91e:
 
 event:onCoinBalance — L991
 --------------------------
@@ -33680,7 +31867,6 @@ event:onCoinBalance — L991
    :caption: modules/modules/game_market/market.lua (L991)
 
 
-.. _modules-modules-game-market-market-lua-l991-event-oncoinbalance-a29f60a91e:
 
 event:onCoinBalance — L991
 --------------------------
@@ -33692,7 +31878,6 @@ event:onCoinBalance — L991
    :caption: modules/modules/game_market/market.lua (L991)
 
 
-.. _modules-modules-game-market-market-lua-l991-event-oncoinbalance-a29f60a91e:
 
 event:onCoinBalance — L991
 --------------------------
@@ -33704,7 +31889,6 @@ event:onCoinBalance — L991
    :caption: modules/modules/game_market/market.lua (L991)
 
 
-.. _modules-modules-game-market-market-lua-l991-event-oncoinbalance-a29f60a91e:
 
 event:onCoinBalance — L991
 --------------------------
@@ -33752,7 +31936,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33764,7 +31947,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33776,7 +31958,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33788,7 +31969,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33800,7 +31980,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33812,7 +31991,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33824,7 +32002,6 @@ event:onGameEnd — L988
    :caption: modules/modules/game_market/market.lua (L988)
 
 
-.. _modules-modules-game-market-market-lua-l988-event-ongameend-18b5110799:
 
 event:onGameEnd — L988
 ----------------------
@@ -33848,7 +32025,6 @@ event:onGameStart — L990
    :caption: modules/modules/game_market/market.lua (L990)
 
 
-.. _modules-modules-game-market-market-lua-l990-event-ongamestart-6bc235a800:
 
 event:onGameStart — L990
 ------------------------
@@ -33860,7 +32036,6 @@ event:onGameStart — L990
    :caption: modules/modules/game_market/market.lua (L990)
 
 
-.. _modules-modules-game-market-market-lua-l990-event-ongamestart-6bc235a800:
 
 event:onGameStart — L990
 ------------------------
@@ -33872,7 +32047,6 @@ event:onGameStart — L990
    :caption: modules/modules/game_market/market.lua (L990)
 
 
-.. _modules-modules-game-market-market-lua-l990-event-ongamestart-6bc235a800:
 
 event:onGameStart — L990
 ------------------------
@@ -33896,7 +32070,6 @@ event:onItemBoxChecked — L1183
    :caption: modules/modules/game_market/market.lua (L1183)
 
 
-.. _modules-modules-game-market-market-lua-l1183-event-onitemboxchec-1504b3a071:
 
 event:onItemBoxChecked — L1183
 ------------------------------
@@ -33908,7 +32081,6 @@ event:onItemBoxChecked — L1183
    :caption: modules/modules/game_market/market.lua (L1183)
 
 
-.. _modules-modules-game-market-market-lua-l1183-event-onitemboxchec-1504b3a071:
 
 event:onItemBoxChecked — L1183
 ------------------------------
@@ -33980,7 +32152,6 @@ event:onMarketMessage — L739
    :caption: modules/modules/game_market/market.lua (L739)
 
 
-.. _modules-modules-game-market-market-lua-l739-event-onmarketmessag-b93ba19f80:
 
 event:onMarketMessage — L739
 ----------------------------
@@ -33992,7 +32163,6 @@ event:onMarketMessage — L739
    :caption: modules/modules/game_market/market.lua (L739)
 
 
-.. _modules-modules-game-market-market-lua-l739-event-onmarketmessag-b93ba19f80:
 
 event:onMarketMessage — L739
 ----------------------------
@@ -34016,7 +32186,6 @@ event:onOptionChange — L903
    :caption: modules/modules/game_market/market.lua (L903)
 
 
-.. _modules-modules-game-market-market-lua-l903-event-onoptionchange-3788e498eb:
 
 event:onOptionChange — L903
 ---------------------------
@@ -34028,7 +32197,6 @@ event:onOptionChange — L903
    :caption: modules/modules/game_market/market.lua (L903)
 
 
-.. _modules-modules-game-market-market-lua-l903-event-onoptionchange-3788e498eb:
 
 event:onOptionChange — L903
 ---------------------------
@@ -34040,7 +32208,6 @@ event:onOptionChange — L903
    :caption: modules/modules/game_market/market.lua (L903)
 
 
-.. _modules-modules-game-market-market-lua-l903-event-onoptionchange-3788e498eb:
 
 event:onOptionChange — L903
 ---------------------------
@@ -34064,7 +32231,6 @@ event:onPiecePriceChange — L717
    :caption: modules/modules/game_market/market.lua (L717)
 
 
-.. _modules-modules-game-market-market-lua-l717-event-onpiecepricech-fa90fdc355:
 
 event:onPiecePriceChange — L717
 -------------------------------
@@ -34088,7 +32254,6 @@ event:onSelectBuyOffer — L629
    :caption: modules/modules/game_market/market.lua (L629)
 
 
-.. _modules-modules-game-market-market-lua-l629-event-onselectbuyoff-af00956e18:
 
 event:onSelectBuyOffer — L629
 -----------------------------
@@ -34112,7 +32277,6 @@ event:onSelectMyBuyOffer — L643
    :caption: modules/modules/game_market/market.lua (L643)
 
 
-.. _modules-modules-game-market-market-lua-l643-event-onselectmybuyo-231581cc8e:
 
 event:onSelectMyBuyOffer — L643
 -------------------------------
@@ -34136,7 +32300,6 @@ event:onSelectMySellOffer — L652
    :caption: modules/modules/game_market/market.lua (L652)
 
 
-.. _modules-modules-game-market-market-lua-l652-event-onselectmysell-b9b1f0d391:
 
 event:onSelectMySellOffer — L652
 --------------------------------
@@ -34160,7 +32323,6 @@ event:onSelectSellOffer — L600
    :caption: modules/modules/game_market/market.lua (L600)
 
 
-.. _modules-modules-game-market-market-lua-l600-event-onselectsellof-b6462a81ec:
 
 event:onSelectSellOffer — L600
 ------------------------------
@@ -34184,7 +32346,6 @@ event:onSelectionChange — L945
    :caption: modules/modules/game_market/market.lua (L945)
 
 
-.. _modules-modules-game-market-market-lua-l945-event-onselectioncha-4a403e4c1f:
 
 event:onSelectionChange — L945
 ------------------------------
@@ -34196,7 +32357,6 @@ event:onSelectionChange — L945
    :caption: modules/modules/game_market/market.lua (L945)
 
 
-.. _modules-modules-game-market-market-lua-l945-event-onselectioncha-4a403e4c1f:
 
 event:onSelectionChange — L945
 ------------------------------
@@ -34208,7 +32368,6 @@ event:onSelectionChange — L945
    :caption: modules/modules/game_market/market.lua (L945)
 
 
-.. _modules-modules-game-market-market-lua-l945-event-onselectioncha-4a403e4c1f:
 
 event:onSelectionChange — L945
 ------------------------------
@@ -34232,7 +32391,6 @@ event:onTabChange — L861
    :caption: modules/modules/game_market/market.lua (L861)
 
 
-.. _modules-modules-game-market-market-lua-l861-event-ontabchange-018578791b:
 
 event:onTabChange — L861
 ------------------------
@@ -34256,7 +32414,6 @@ event:onTotalPriceChange — L706
    :caption: modules/modules/game_market/market.lua (L706)
 
 
-.. _modules-modules-game-market-market-lua-l706-event-ontotalpricech-9d646f6a39:
 
 event:onTotalPriceChange — L706
 -------------------------------
@@ -34280,7 +32437,6 @@ event:onValueChange — L569
    :caption: modules/modules/game_market/market.lua (L569)
 
 
-.. _modules-modules-game-market-market-lua-l569-event-onvaluechange-5cda1cc4ac:
 
 event:onValueChange — L569
 --------------------------
@@ -34292,7 +32448,6 @@ event:onValueChange — L569
    :caption: modules/modules/game_market/market.lua (L569)
 
 
-.. _modules-modules-game-market-market-lua-l569-event-onvaluechange-5cda1cc4ac:
 
 event:onValueChange — L569
 --------------------------
@@ -34304,7 +32459,6 @@ event:onValueChange — L569
    :caption: modules/modules/game_market/market.lua (L569)
 
 
-.. _modules-modules-game-market-market-lua-l569-event-onvaluechange-5cda1cc4ac:
 
 event:onValueChange — L569
 --------------------------
@@ -34328,7 +32482,6 @@ event:onGameEnd — L162
    :caption: modules/modules/game_market/marketprotocol.lua (L162)
 
 
-.. _modules-modules-game-market-marketprotocol-lua-l162-event-ongame-a30d3390ac:
 
 event:onGameEnd — L162
 ----------------------
@@ -34340,7 +32493,6 @@ event:onGameEnd — L162
    :caption: modules/modules/game_market/marketprotocol.lua (L162)
 
 
-.. _modules-modules-game-market-marketprotocol-lua-l162-event-ongame-a30d3390ac:
 
 event:onGameEnd — L162
 ----------------------
@@ -34352,7 +32504,6 @@ event:onGameEnd — L162
    :caption: modules/modules/game_market/marketprotocol.lua (L162)
 
 
-.. _modules-modules-game-market-marketprotocol-lua-l162-event-ongame-a30d3390ac:
 
 event:onGameEnd — L162
 ----------------------
@@ -34376,7 +32527,6 @@ event:onGameStart — L161
    :caption: modules/modules/game_market/marketprotocol.lua (L161)
 
 
-.. _modules-modules-game-market-marketprotocol-lua-l161-event-ongame-02d4ce0935:
 
 event:onGameStart — L161
 ------------------------
@@ -34388,7 +32538,6 @@ event:onGameStart — L161
    :caption: modules/modules/game_market/marketprotocol.lua (L161)
 
 
-.. _modules-modules-game-market-marketprotocol-lua-l161-event-ongame-02d4ce0935:
 
 event:onGameStart — L161
 ------------------------
@@ -34400,7 +32549,6 @@ event:onGameStart — L161
    :caption: modules/modules/game_market/marketprotocol.lua (L161)
 
 
-.. _modules-modules-game-market-marketprotocol-lua-l161-event-ongame-02d4ce0935:
 
 event:onGameStart — L161
 ------------------------
@@ -34472,7 +32620,6 @@ event:onGameEnd — L33
    :caption: modules/modules/game_minimap/minimap.lua (L33)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l33-event-ongameend-5b0881ebd4:
 
 event:onGameEnd — L33
 ---------------------
@@ -34484,7 +32631,6 @@ event:onGameEnd — L33
    :caption: modules/modules/game_minimap/minimap.lua (L33)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l33-event-ongameend-5b0881ebd4:
 
 event:onGameEnd — L33
 ---------------------
@@ -34496,7 +32642,6 @@ event:onGameEnd — L33
    :caption: modules/modules/game_minimap/minimap.lua (L33)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l33-event-ongameend-5b0881ebd4:
 
 event:onGameEnd — L33
 ---------------------
@@ -34520,7 +32665,6 @@ event:onGameStart — L32
    :caption: modules/modules/game_minimap/minimap.lua (L32)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l32-event-ongamestart-d8fba9fd84:
 
 event:onGameStart — L32
 -----------------------
@@ -34532,7 +32676,6 @@ event:onGameStart — L32
    :caption: modules/modules/game_minimap/minimap.lua (L32)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l32-event-ongamestart-d8fba9fd84:
 
 event:onGameStart — L32
 -----------------------
@@ -34544,7 +32687,6 @@ event:onGameStart — L32
    :caption: modules/modules/game_minimap/minimap.lua (L32)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l32-event-ongamestart-d8fba9fd84:
 
 event:onGameStart — L32
 -----------------------
@@ -34580,7 +32722,6 @@ event:onPositionChange — L37
    :caption: modules/modules/game_minimap/minimap.lua (L37)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l37-event-onpositioncha-7b2c001cef:
 
 event:onPositionChange — L37
 ----------------------------
@@ -34592,7 +32733,6 @@ event:onPositionChange — L37
    :caption: modules/modules/game_minimap/minimap.lua (L37)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l37-event-onpositioncha-7b2c001cef:
 
 event:onPositionChange — L37
 ----------------------------
@@ -34604,7 +32744,6 @@ event:onPositionChange — L37
    :caption: modules/modules/game_minimap/minimap.lua (L37)
 
 
-.. _modules-modules-game-minimap-minimap-lua-l37-event-onpositioncha-7b2c001cef:
 
 event:onPositionChange — L37
 ----------------------------
@@ -34676,7 +32815,6 @@ event:onGameEnd — L10
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L10)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l10-event-ongam-df7b8321b0:
 
 event:onGameEnd — L10
 ---------------------
@@ -34688,7 +32826,6 @@ event:onGameEnd — L10
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L10)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l10-event-ongam-df7b8321b0:
 
 event:onGameEnd — L10
 ---------------------
@@ -34700,7 +32837,6 @@ event:onGameEnd — L10
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L10)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l10-event-ongam-df7b8321b0:
 
 event:onGameEnd — L10
 ---------------------
@@ -34724,7 +32860,6 @@ event:onModalDialog — L9
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L9)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l9-event-onmoda-552dc061d1:
 
 event:onModalDialog — L9
 ------------------------
@@ -34736,7 +32871,6 @@ event:onModalDialog — L9
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L9)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l9-event-onmoda-552dc061d1:
 
 event:onModalDialog — L9
 ------------------------
@@ -34748,7 +32882,6 @@ event:onModalDialog — L9
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L9)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l9-event-onmoda-552dc061d1:
 
 event:onModalDialog — L9
 ------------------------
@@ -34760,7 +32893,6 @@ event:onModalDialog — L9
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L9)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l9-event-onmoda-552dc061d1:
 
 event:onModalDialog — L9
 ------------------------
@@ -34772,7 +32904,6 @@ event:onModalDialog — L9
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L9)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l9-event-onmoda-552dc061d1:
 
 event:onModalDialog — L9
 ------------------------
@@ -34784,7 +32915,6 @@ event:onModalDialog — L9
    :caption: modules/modules/game_modaldialog/modaldialog.lua (L9)
 
 
-.. _modules-modules-game-modaldialog-modaldialog-lua-l9-event-onmoda-552dc061d1:
 
 event:onModalDialog — L9
 ------------------------
@@ -34820,7 +32950,6 @@ event:onCloseNpcTrade — L88
    :caption: modules/modules/game_npctrade/npctrade.lua (L88)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l88-event-onclosenpct-a4256f2863:
 
 event:onCloseNpcTrade — L88
 ---------------------------
@@ -34832,7 +32961,6 @@ event:onCloseNpcTrade — L88
    :caption: modules/modules/game_npctrade/npctrade.lua (L88)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l88-event-onclosenpct-a4256f2863:
 
 event:onCloseNpcTrade — L88
 ---------------------------
@@ -34844,7 +32972,6 @@ event:onCloseNpcTrade — L88
    :caption: modules/modules/game_npctrade/npctrade.lua (L88)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l88-event-onclosenpct-a4256f2863:
 
 event:onCloseNpcTrade — L88
 ---------------------------
@@ -34856,7 +32983,6 @@ event:onCloseNpcTrade — L88
    :caption: modules/modules/game_npctrade/npctrade.lua (L88)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l88-event-onclosenpct-a4256f2863:
 
 event:onCloseNpcTrade — L88
 ---------------------------
@@ -34868,7 +32994,6 @@ event:onCloseNpcTrade — L88
    :caption: modules/modules/game_npctrade/npctrade.lua (L88)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l88-event-onclosenpct-a4256f2863:
 
 event:onCloseNpcTrade — L88
 ---------------------------
@@ -34880,7 +33005,6 @@ event:onCloseNpcTrade — L88
    :caption: modules/modules/game_npctrade/npctrade.lua (L88)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l88-event-onclosenpct-a4256f2863:
 
 event:onCloseNpcTrade — L88
 ---------------------------
@@ -34904,7 +33028,6 @@ event:onFreeCapacityChange — L91
    :caption: modules/modules/game_npctrade/npctrade.lua (L91)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l91-event-onfreecapac-2aa93069e1:
 
 event:onFreeCapacityChange — L91
 --------------------------------
@@ -34916,7 +33039,6 @@ event:onFreeCapacityChange — L91
    :caption: modules/modules/game_npctrade/npctrade.lua (L91)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l91-event-onfreecapac-2aa93069e1:
 
 event:onFreeCapacityChange — L91
 --------------------------------
@@ -34928,7 +33050,6 @@ event:onFreeCapacityChange — L91
    :caption: modules/modules/game_npctrade/npctrade.lua (L91)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l91-event-onfreecapac-2aa93069e1:
 
 event:onFreeCapacityChange — L91
 --------------------------------
@@ -34940,7 +33061,6 @@ event:onFreeCapacityChange — L91
    :caption: modules/modules/game_npctrade/npctrade.lua (L91)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l91-event-onfreecapac-2aa93069e1:
 
 event:onFreeCapacityChange — L91
 --------------------------------
@@ -34952,7 +33072,6 @@ event:onFreeCapacityChange — L91
    :caption: modules/modules/game_npctrade/npctrade.lua (L91)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l91-event-onfreecapac-2aa93069e1:
 
 event:onFreeCapacityChange — L91
 --------------------------------
@@ -34964,7 +33083,6 @@ event:onFreeCapacityChange — L91
    :caption: modules/modules/game_npctrade/npctrade.lua (L91)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l91-event-onfreecapac-2aa93069e1:
 
 event:onFreeCapacityChange — L91
 --------------------------------
@@ -34988,7 +33106,6 @@ event:onGameEnd — L86
    :caption: modules/modules/game_npctrade/npctrade.lua (L86)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l86-event-ongameend-3edca37623:
 
 event:onGameEnd — L86
 ---------------------
@@ -35000,7 +33117,6 @@ event:onGameEnd — L86
    :caption: modules/modules/game_npctrade/npctrade.lua (L86)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l86-event-ongameend-3edca37623:
 
 event:onGameEnd — L86
 ---------------------
@@ -35012,7 +33128,6 @@ event:onGameEnd — L86
    :caption: modules/modules/game_npctrade/npctrade.lua (L86)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l86-event-ongameend-3edca37623:
 
 event:onGameEnd — L86
 ---------------------
@@ -35060,7 +33175,6 @@ event:onInventoryChange — L92
    :caption: modules/modules/game_npctrade/npctrade.lua (L92)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l92-event-oninventory-c4d21ce176:
 
 event:onInventoryChange — L92
 -----------------------------
@@ -35072,7 +33186,6 @@ event:onInventoryChange — L92
    :caption: modules/modules/game_npctrade/npctrade.lua (L92)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l92-event-oninventory-c4d21ce176:
 
 event:onInventoryChange — L92
 -----------------------------
@@ -35084,7 +33197,6 @@ event:onInventoryChange — L92
    :caption: modules/modules/game_npctrade/npctrade.lua (L92)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l92-event-oninventory-c4d21ce176:
 
 event:onInventoryChange — L92
 -----------------------------
@@ -35096,7 +33208,6 @@ event:onInventoryChange — L92
    :caption: modules/modules/game_npctrade/npctrade.lua (L92)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l92-event-oninventory-c4d21ce176:
 
 event:onInventoryChange — L92
 -----------------------------
@@ -35108,7 +33219,6 @@ event:onInventoryChange — L92
    :caption: modules/modules/game_npctrade/npctrade.lua (L92)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l92-event-oninventory-c4d21ce176:
 
 event:onInventoryChange — L92
 -----------------------------
@@ -35120,7 +33230,6 @@ event:onInventoryChange — L92
    :caption: modules/modules/game_npctrade/npctrade.lua (L92)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l92-event-oninventory-c4d21ce176:
 
 event:onInventoryChange — L92
 -----------------------------
@@ -35168,7 +33277,6 @@ event:onOpenNpcTrade — L87
    :caption: modules/modules/game_npctrade/npctrade.lua (L87)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l87-event-onopennpctr-49e351301a:
 
 event:onOpenNpcTrade — L87
 --------------------------
@@ -35180,7 +33288,6 @@ event:onOpenNpcTrade — L87
    :caption: modules/modules/game_npctrade/npctrade.lua (L87)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l87-event-onopennpctr-49e351301a:
 
 event:onOpenNpcTrade — L87
 --------------------------
@@ -35192,7 +33299,6 @@ event:onOpenNpcTrade — L87
    :caption: modules/modules/game_npctrade/npctrade.lua (L87)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l87-event-onopennpctr-49e351301a:
 
 event:onOpenNpcTrade — L87
 --------------------------
@@ -35204,7 +33310,6 @@ event:onOpenNpcTrade — L87
    :caption: modules/modules/game_npctrade/npctrade.lua (L87)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l87-event-onopennpctr-49e351301a:
 
 event:onOpenNpcTrade — L87
 --------------------------
@@ -35216,7 +33321,6 @@ event:onOpenNpcTrade — L87
    :caption: modules/modules/game_npctrade/npctrade.lua (L87)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l87-event-onopennpctr-49e351301a:
 
 event:onOpenNpcTrade — L87
 --------------------------
@@ -35228,7 +33332,6 @@ event:onOpenNpcTrade — L87
    :caption: modules/modules/game_npctrade/npctrade.lua (L87)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l87-event-onopennpctr-49e351301a:
 
 event:onOpenNpcTrade — L87
 --------------------------
@@ -35252,7 +33355,6 @@ event:onPlayerGoods — L89
    :caption: modules/modules/game_npctrade/npctrade.lua (L89)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l89-event-onplayergoo-f4b68d0038:
 
 event:onPlayerGoods — L89
 -------------------------
@@ -35264,7 +33366,6 @@ event:onPlayerGoods — L89
    :caption: modules/modules/game_npctrade/npctrade.lua (L89)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l89-event-onplayergoo-f4b68d0038:
 
 event:onPlayerGoods — L89
 -------------------------
@@ -35276,7 +33377,6 @@ event:onPlayerGoods — L89
    :caption: modules/modules/game_npctrade/npctrade.lua (L89)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l89-event-onplayergoo-f4b68d0038:
 
 event:onPlayerGoods — L89
 -------------------------
@@ -35288,7 +33388,6 @@ event:onPlayerGoods — L89
    :caption: modules/modules/game_npctrade/npctrade.lua (L89)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l89-event-onplayergoo-f4b68d0038:
 
 event:onPlayerGoods — L89
 -------------------------
@@ -35300,7 +33399,6 @@ event:onPlayerGoods — L89
    :caption: modules/modules/game_npctrade/npctrade.lua (L89)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l89-event-onplayergoo-f4b68d0038:
 
 event:onPlayerGoods — L89
 -------------------------
@@ -35312,7 +33410,6 @@ event:onPlayerGoods — L89
    :caption: modules/modules/game_npctrade/npctrade.lua (L89)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l89-event-onplayergoo-f4b68d0038:
 
 event:onPlayerGoods — L89
 -------------------------
@@ -35396,7 +33493,6 @@ event:onTradeTypeChange — L78
    :caption: modules/modules/game_npctrade/npctrade.lua (L78)
 
 
-.. _modules-modules-game-npctrade-npctrade-lua-l78-event-ontradetype-4aa4187581:
 
 event:onTradeTypeChange — L78
 -----------------------------
@@ -35420,7 +33516,6 @@ event:onAddonChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-onaddonchange-895072d4e5:
 
 event:onAddonChange — L251
 --------------------------
@@ -35432,7 +33527,6 @@ event:onAddonChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-onaddonchange-895072d4e5:
 
 event:onAddonChange — L251
 --------------------------
@@ -35444,7 +33538,6 @@ event:onAddonChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-onaddonchange-895072d4e5:
 
 event:onAddonChange — L251
 --------------------------
@@ -35456,7 +33549,6 @@ event:onAddonChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-onaddonchange-895072d4e5:
 
 event:onAddonChange — L251
 --------------------------
@@ -35480,7 +33572,6 @@ event:onAppearanceChange — L317
    :caption: modules/modules/game_outfit/outfit.lua (L317)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l317-event-onappearancech-e7254e04a5:
 
 event:onAppearanceChange — L317
 -------------------------------
@@ -35504,7 +33595,6 @@ event:onAuraSelect — L692
    :caption: modules/modules/game_outfit/outfit.lua (L692)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l692-event-onauraselect-a74617dab0:
 
 event:onAuraSelect — L692
 -------------------------
@@ -35528,7 +33618,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35540,7 +33629,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35552,7 +33640,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35564,7 +33651,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35576,7 +33662,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35588,7 +33673,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35600,7 +33684,6 @@ event:onCheckChange — L251
    :caption: modules/modules/game_outfit/outfit.lua (L251)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l251-event-oncheckchange-12cbe0b641:
 
 event:onCheckChange — L251
 --------------------------
@@ -35624,7 +33707,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35636,7 +33718,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35648,7 +33729,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35660,7 +33740,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35672,7 +33751,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35684,7 +33762,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35696,7 +33773,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35708,7 +33784,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35720,7 +33795,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35732,7 +33806,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35744,7 +33817,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35756,7 +33828,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35768,7 +33839,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35780,7 +33850,6 @@ event:onChildFocusChange — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onchildfocusch-a139f0f434:
 
 event:onChildFocusChange — L565
 -------------------------------
@@ -35816,7 +33885,6 @@ event:onColorCheckChange — L305
    :caption: modules/modules/game_outfit/outfit.lua (L305)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l305-event-oncolorcheckch-6688c607db:
 
 event:onColorCheckChange — L305
 -------------------------------
@@ -35840,7 +33908,6 @@ event:onColorModeChange — L326
    :caption: modules/modules/game_outfit/outfit.lua (L326)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l326-event-oncolormodecha-e088d7b3e5:
 
 event:onColorModeChange — L326
 ------------------------------
@@ -35864,7 +33931,6 @@ event:onFilterSearch — L343
    :caption: modules/modules/game_outfit/outfit.lua (L343)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l343-event-onfiltersearch-2e4d1ce2c6:
 
 event:onFilterSearch — L343
 ---------------------------
@@ -35888,7 +33954,6 @@ event:onGameEnd — L53
    :caption: modules/modules/game_outfit/outfit.lua (L53)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l53-event-ongameend-f33ec07e56:
 
 event:onGameEnd — L53
 ---------------------
@@ -35900,7 +33965,6 @@ event:onGameEnd — L53
    :caption: modules/modules/game_outfit/outfit.lua (L53)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l53-event-ongameend-f33ec07e56:
 
 event:onGameEnd — L53
 ---------------------
@@ -35912,7 +33976,6 @@ event:onGameEnd — L53
    :caption: modules/modules/game_outfit/outfit.lua (L53)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l53-event-ongameend-f33ec07e56:
 
 event:onGameEnd — L53
 ---------------------
@@ -35936,7 +33999,6 @@ event:onHealthBarSelect — L827
    :caption: modules/modules/game_outfit/outfit.lua (L827)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l827-event-onhealthbarsel-edc2119885:
 
 event:onHealthBarSelect — L827
 ------------------------------
@@ -35972,7 +34034,6 @@ event:onManaBarSelect — L874
    :caption: modules/modules/game_outfit/outfit.lua (L874)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l874-event-onmanabarselec-62c144134c:
 
 event:onManaBarSelect — L874
 ----------------------------
@@ -35996,7 +34057,6 @@ event:onMountSelect — L648
    :caption: modules/modules/game_outfit/outfit.lua (L648)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l648-event-onmountselect-bfe0d1102a:
 
 event:onMountSelect — L648
 --------------------------
@@ -36020,7 +34080,6 @@ event:onMovementChange — L69
    :caption: modules/modules/game_outfit/outfit.lua (L69)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l69-event-onmovementchang-ece5ba16a3:
 
 event:onMovementChange — L69
 ----------------------------
@@ -36044,7 +34103,6 @@ event:onOpenOutfitWindow — L52
    :caption: modules/modules/game_outfit/outfit.lua (L52)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l52-event-onopenoutfitwin-f21e693087:
 
 event:onOpenOutfitWindow — L52
 ------------------------------
@@ -36056,7 +34114,6 @@ event:onOpenOutfitWindow — L52
    :caption: modules/modules/game_outfit/outfit.lua (L52)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l52-event-onopenoutfitwin-f21e693087:
 
 event:onOpenOutfitWindow — L52
 ------------------------------
@@ -36068,7 +34125,6 @@ event:onOpenOutfitWindow — L52
    :caption: modules/modules/game_outfit/outfit.lua (L52)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l52-event-onopenoutfitwin-f21e693087:
 
 event:onOpenOutfitWindow — L52
 ------------------------------
@@ -36092,7 +34148,6 @@ event:onOutfitSelect — L608
    :caption: modules/modules/game_outfit/outfit.lua (L608)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l608-event-onoutfitselect-c50f963d48:
 
 event:onOutfitSelect — L608
 ---------------------------
@@ -36116,7 +34171,6 @@ event:onPresetSelect — L565
    :caption: modules/modules/game_outfit/outfit.lua (L565)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l565-event-onpresetselect-d514dbb7b9:
 
 event:onPresetSelect — L565
 ---------------------------
@@ -36140,7 +34194,6 @@ event:onSelectionChange — L305
    :caption: modules/modules/game_outfit/outfit.lua (L305)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l305-event-onselectioncha-3e24442de2:
 
 event:onSelectionChange — L305
 ------------------------------
@@ -36152,7 +34205,6 @@ event:onSelectionChange — L305
    :caption: modules/modules/game_outfit/outfit.lua (L305)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l305-event-onselectioncha-3e24442de2:
 
 event:onSelectionChange — L305
 ------------------------------
@@ -36176,7 +34228,6 @@ event:onShaderSelect — L780
    :caption: modules/modules/game_outfit/outfit.lua (L780)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l780-event-onshaderselect-52bf30b488:
 
 event:onShaderSelect — L780
 ---------------------------
@@ -36200,7 +34251,6 @@ event:onShowAuraChange — L147
    :caption: modules/modules/game_outfit/outfit.lua (L147)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l147-event-onshowaurachan-4e9fe0d085:
 
 event:onShowAuraChange — L147
 -----------------------------
@@ -36224,7 +34274,6 @@ event:onShowBarsChange — L162
    :caption: modules/modules/game_outfit/outfit.lua (L162)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l162-event-onshowbarschan-7c14b58212:
 
 event:onShowBarsChange — L162
 -----------------------------
@@ -36248,7 +34297,6 @@ event:onShowFloorChange — L74
    :caption: modules/modules/game_outfit/outfit.lua (L74)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l74-event-onshowfloorchan-1350ee7e43:
 
 event:onShowFloorChange — L74
 -----------------------------
@@ -36272,7 +34320,6 @@ event:onShowMountChange — L132
    :caption: modules/modules/game_outfit/outfit.lua (L132)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l132-event-onshowmountcha-54163dfa9b:
 
 event:onShowMountChange — L132
 ------------------------------
@@ -36296,7 +34343,6 @@ event:onShowOutfitChange — L137
    :caption: modules/modules/game_outfit/outfit.lua (L137)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l137-event-onshowoutfitch-72837b1d70:
 
 event:onShowOutfitChange — L137
 -------------------------------
@@ -36320,7 +34366,6 @@ event:onShowShaderChange — L157
    :caption: modules/modules/game_outfit/outfit.lua (L157)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l157-event-onshowshaderch-53b647a6aa:
 
 event:onShowShaderChange — L157
 -------------------------------
@@ -36344,7 +34389,6 @@ event:onShowWingsChange — L152
    :caption: modules/modules/game_outfit/outfit.lua (L152)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l152-event-onshowwingscha-068e3d9125:
 
 event:onShowWingsChange — L152
 ------------------------------
@@ -36368,7 +34412,6 @@ event:onWingsSelect — L736
    :caption: modules/modules/game_outfit/outfit.lua (L736)
 
 
-.. _modules-modules-game-outfit-outfit-lua-l736-event-onwingsselect-6d9c01f358:
 
 event:onWingsSelect — L736
 --------------------------
@@ -36392,7 +34435,6 @@ event:onClick — L84
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L84)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l84-event-oncli-ca6f65b42e:
 
 event:onClick — L84
 -------------------
@@ -36416,7 +34458,6 @@ event:onDeath — L12
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L12)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l12-event-ondea-254b2d07c2:
 
 event:onDeath — L12
 -------------------
@@ -36428,7 +34469,6 @@ event:onDeath — L12
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L12)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l12-event-ondea-254b2d07c2:
 
 event:onDeath — L12
 -------------------
@@ -36440,7 +34480,6 @@ event:onDeath — L12
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L12)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l12-event-ondea-254b2d07c2:
 
 event:onDeath — L12
 -------------------
@@ -36488,7 +34527,6 @@ event:onGameEnd — L13
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L13)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l13-event-ongam-baa7f6d6d4:
 
 event:onGameEnd — L13
 ---------------------
@@ -36500,7 +34538,6 @@ event:onGameEnd — L13
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L13)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l13-event-ongam-baa7f6d6d4:
 
 event:onGameEnd — L13
 ---------------------
@@ -36512,7 +34549,6 @@ event:onGameEnd — L13
    :caption: modules/modules/game_playerdeath/playerdeath.lua (L13)
 
 
-.. _modules-modules-game-playerdeath-playerdeath-lua-l13-event-ongam-baa7f6d6d4:
 
 event:onGameEnd — L13
 ---------------------
@@ -36536,7 +34572,6 @@ event:onGameEnd — L4
    :caption: modules/modules/game_playermount/playermount.lua (L4)
 
 
-.. _modules-modules-game-playermount-playermount-lua-l4-event-ongame-521b52d0c3:
 
 event:onGameEnd — L4
 --------------------
@@ -36548,7 +34583,6 @@ event:onGameEnd — L4
    :caption: modules/modules/game_playermount/playermount.lua (L4)
 
 
-.. _modules-modules-game-playermount-playermount-lua-l4-event-ongame-521b52d0c3:
 
 event:onGameEnd — L4
 --------------------
@@ -36560,7 +34594,6 @@ event:onGameEnd — L4
    :caption: modules/modules/game_playermount/playermount.lua (L4)
 
 
-.. _modules-modules-game-playermount-playermount-lua-l4-event-ongame-521b52d0c3:
 
 event:onGameEnd — L4
 --------------------
@@ -36584,7 +34617,6 @@ event:onGameStart — L3
    :caption: modules/modules/game_playermount/playermount.lua (L3)
 
 
-.. _modules-modules-game-playermount-playermount-lua-l3-event-ongame-013db074fa:
 
 event:onGameStart — L3
 ----------------------
@@ -36596,7 +34628,6 @@ event:onGameStart — L3
    :caption: modules/modules/game_playermount/playermount.lua (L3)
 
 
-.. _modules-modules-game-playermount-playermount-lua-l3-event-ongame-013db074fa:
 
 event:onGameStart — L3
 ----------------------
@@ -36608,7 +34639,6 @@ event:onGameStart — L3
    :caption: modules/modules/game_playermount/playermount.lua (L3)
 
 
-.. _modules-modules-game-playermount-playermount-lua-l3-event-ongame-013db074fa:
 
 event:onGameStart — L3
 ----------------------
@@ -36656,7 +34686,6 @@ event:onCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-onclos-8d09754c68:
 
 event:onCloseTrade — L8
 -----------------------
@@ -36668,7 +34697,6 @@ event:onCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-onclos-8d09754c68:
 
 event:onCloseTrade — L8
 -----------------------
@@ -36680,7 +34708,6 @@ event:onCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-onclos-8d09754c68:
 
 event:onCloseTrade — L8
 -----------------------
@@ -36704,7 +34731,6 @@ event:onCounterTrade — L7
    :caption: modules/modules/game_playertrade/playertrade.lua (L7)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l7-event-oncoun-44bb2f16ce:
 
 event:onCounterTrade — L7
 -------------------------
@@ -36716,7 +34742,6 @@ event:onCounterTrade — L7
    :caption: modules/modules/game_playertrade/playertrade.lua (L7)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l7-event-oncoun-44bb2f16ce:
 
 event:onCounterTrade — L7
 -------------------------
@@ -36728,7 +34753,6 @@ event:onCounterTrade — L7
    :caption: modules/modules/game_playertrade/playertrade.lua (L7)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l7-event-oncoun-44bb2f16ce:
 
 event:onCounterTrade — L7
 -------------------------
@@ -36752,7 +34776,6 @@ event:onGameCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-ongame-ff61b83e89:
 
 event:onGameCloseTrade — L8
 ---------------------------
@@ -36764,7 +34787,6 @@ event:onGameCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-ongame-ff61b83e89:
 
 event:onGameCloseTrade — L8
 ---------------------------
@@ -36776,7 +34798,6 @@ event:onGameCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-ongame-ff61b83e89:
 
 event:onGameCloseTrade — L8
 ---------------------------
@@ -36788,7 +34809,6 @@ event:onGameCloseTrade — L8
    :caption: modules/modules/game_playertrade/playertrade.lua (L8)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l8-event-ongame-ff61b83e89:
 
 event:onGameCloseTrade — L8
 ---------------------------
@@ -36812,7 +34832,6 @@ event:onGameCounterTrade — L7
    :caption: modules/modules/game_playertrade/playertrade.lua (L7)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l7-event-ongame-e1daf4773e:
 
 event:onGameCounterTrade — L7
 -----------------------------
@@ -36824,7 +34843,6 @@ event:onGameCounterTrade — L7
    :caption: modules/modules/game_playertrade/playertrade.lua (L7)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l7-event-ongame-e1daf4773e:
 
 event:onGameCounterTrade — L7
 -----------------------------
@@ -36848,7 +34866,6 @@ event:onGameEnd — L9
    :caption: modules/modules/game_playertrade/playertrade.lua (L9)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l9-event-ongame-05cc3c8cae:
 
 event:onGameEnd — L9
 --------------------
@@ -36860,7 +34877,6 @@ event:onGameEnd — L9
    :caption: modules/modules/game_playertrade/playertrade.lua (L9)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l9-event-ongame-05cc3c8cae:
 
 event:onGameEnd — L9
 --------------------
@@ -36872,7 +34888,6 @@ event:onGameEnd — L9
    :caption: modules/modules/game_playertrade/playertrade.lua (L9)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l9-event-ongame-05cc3c8cae:
 
 event:onGameEnd — L9
 --------------------
@@ -36896,7 +34911,6 @@ event:onGameOwnTrade — L6
    :caption: modules/modules/game_playertrade/playertrade.lua (L6)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l6-event-ongame-dbeb0edb99:
 
 event:onGameOwnTrade — L6
 -------------------------
@@ -36908,7 +34922,6 @@ event:onGameOwnTrade — L6
    :caption: modules/modules/game_playertrade/playertrade.lua (L6)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l6-event-ongame-dbeb0edb99:
 
 event:onGameOwnTrade — L6
 -------------------------
@@ -36932,7 +34945,6 @@ event:onOwnTrade — L6
    :caption: modules/modules/game_playertrade/playertrade.lua (L6)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l6-event-onownt-a75f4597d8:
 
 event:onOwnTrade — L6
 ---------------------
@@ -36944,7 +34956,6 @@ event:onOwnTrade — L6
    :caption: modules/modules/game_playertrade/playertrade.lua (L6)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l6-event-onownt-a75f4597d8:
 
 event:onOwnTrade — L6
 ---------------------
@@ -36956,7 +34967,6 @@ event:onOwnTrade — L6
    :caption: modules/modules/game_playertrade/playertrade.lua (L6)
 
 
-.. _modules-modules-game-playertrade-playertrade-lua-l6-event-onownt-a75f4597d8:
 
 event:onOwnTrade — L6
 ---------------------
@@ -36980,7 +34990,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -36992,7 +35001,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37004,7 +35012,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37016,7 +35023,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37028,7 +35034,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37040,7 +35045,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37052,7 +35056,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37064,7 +35067,6 @@ event:onClick — L233
    :caption: modules/modules/game_prey/prey.lua (L233)
 
 
-.. _modules-modules-game-prey-prey-lua-l233-event-onclick-fcb5887343:
 
 event:onClick — L233
 --------------------
@@ -37088,7 +35090,6 @@ event:onGameEnd — L59
    :caption: modules/modules/game_prey/prey.lua (L59)
 
 
-.. _modules-modules-game-prey-prey-lua-l59-event-ongameend-1fbc095b32:
 
 event:onGameEnd — L59
 ---------------------
@@ -37100,7 +35101,6 @@ event:onGameEnd — L59
    :caption: modules/modules/game_prey/prey.lua (L59)
 
 
-.. _modules-modules-game-prey-prey-lua-l59-event-ongameend-1fbc095b32:
 
 event:onGameEnd — L59
 ---------------------
@@ -37112,7 +35112,6 @@ event:onGameEnd — L59
    :caption: modules/modules/game_prey/prey.lua (L59)
 
 
-.. _modules-modules-game-prey-prey-lua-l59-event-ongameend-1fbc095b32:
 
 event:onGameEnd — L59
 ---------------------
@@ -37136,7 +35135,6 @@ event:onGameStart — L58
    :caption: modules/modules/game_prey/prey.lua (L58)
 
 
-.. _modules-modules-game-prey-prey-lua-l58-event-ongamestart-e36b99606c:
 
 event:onGameStart — L58
 -----------------------
@@ -37148,7 +35146,6 @@ event:onGameStart — L58
    :caption: modules/modules/game_prey/prey.lua (L58)
 
 
-.. _modules-modules-game-prey-prey-lua-l58-event-ongamestart-e36b99606c:
 
 event:onGameStart — L58
 -----------------------
@@ -37160,7 +35157,6 @@ event:onGameStart — L58
    :caption: modules/modules/game_prey/prey.lua (L58)
 
 
-.. _modules-modules-game-prey-prey-lua-l58-event-ongamestart-e36b99606c:
 
 event:onGameStart — L58
 -----------------------
@@ -37184,7 +35180,6 @@ event:onHover — L95
    :caption: modules/modules/game_prey/prey.lua (L95)
 
 
-.. _modules-modules-game-prey-prey-lua-l95-event-onhover-8550d98386:
 
 event:onHover — L95
 -------------------
@@ -37196,7 +35191,6 @@ event:onHover — L95
    :caption: modules/modules/game_prey/prey.lua (L95)
 
 
-.. _modules-modules-game-prey-prey-lua-l95-event-onhover-8550d98386:
 
 event:onHover — L95
 -------------------
@@ -37208,7 +35202,6 @@ event:onHover — L95
    :caption: modules/modules/game_prey/prey.lua (L95)
 
 
-.. _modules-modules-game-prey-prey-lua-l95-event-onhover-8550d98386:
 
 event:onHover — L95
 -------------------
@@ -37232,7 +35225,6 @@ event:onHoverChange — L338
    :caption: modules/modules/game_prey/prey.lua (L338)
 
 
-.. _modules-modules-game-prey-prey-lua-l338-event-onhoverchange-cc5414ea98:
 
 event:onHoverChange — L338
 --------------------------
@@ -37244,7 +35236,6 @@ event:onHoverChange — L338
    :caption: modules/modules/game_prey/prey.lua (L338)
 
 
-.. _modules-modules-game-prey-prey-lua-l338-event-onhoverchange-cc5414ea98:
 
 event:onHoverChange — L338
 --------------------------
@@ -37280,7 +35271,6 @@ event:onPreyActive — L66
    :caption: modules/modules/game_prey/prey.lua (L66)
 
 
-.. _modules-modules-game-prey-prey-lua-l66-event-onpreyactive-07b16ce442:
 
 event:onPreyActive — L66
 ------------------------
@@ -37292,7 +35282,6 @@ event:onPreyActive — L66
    :caption: modules/modules/game_prey/prey.lua (L66)
 
 
-.. _modules-modules-game-prey-prey-lua-l66-event-onpreyactive-07b16ce442:
 
 event:onPreyActive — L66
 ------------------------
@@ -37304,7 +35293,6 @@ event:onPreyActive — L66
    :caption: modules/modules/game_prey/prey.lua (L66)
 
 
-.. _modules-modules-game-prey-prey-lua-l66-event-onpreyactive-07b16ce442:
 
 event:onPreyActive — L66
 ------------------------
@@ -37316,7 +35304,6 @@ event:onPreyActive — L66
    :caption: modules/modules/game_prey/prey.lua (L66)
 
 
-.. _modules-modules-game-prey-prey-lua-l66-event-onpreyactive-07b16ce442:
 
 event:onPreyActive — L66
 ------------------------
@@ -37328,7 +35315,6 @@ event:onPreyActive — L66
    :caption: modules/modules/game_prey/prey.lua (L66)
 
 
-.. _modules-modules-game-prey-prey-lua-l66-event-onpreyactive-07b16ce442:
 
 event:onPreyActive — L66
 ------------------------
@@ -37340,7 +35326,6 @@ event:onPreyActive — L66
    :caption: modules/modules/game_prey/prey.lua (L66)
 
 
-.. _modules-modules-game-prey-prey-lua-l66-event-onpreyactive-07b16ce442:
 
 event:onPreyActive — L66
 ------------------------
@@ -37364,7 +35349,6 @@ event:onPreyFreeRolls — L61
    :caption: modules/modules/game_prey/prey.lua (L61)
 
 
-.. _modules-modules-game-prey-prey-lua-l61-event-onpreyfreerolls-210780b31d:
 
 event:onPreyFreeRolls — L61
 ---------------------------
@@ -37376,7 +35360,6 @@ event:onPreyFreeRolls — L61
    :caption: modules/modules/game_prey/prey.lua (L61)
 
 
-.. _modules-modules-game-prey-prey-lua-l61-event-onpreyfreerolls-210780b31d:
 
 event:onPreyFreeRolls — L61
 ---------------------------
@@ -37388,7 +35371,6 @@ event:onPreyFreeRolls — L61
    :caption: modules/modules/game_prey/prey.lua (L61)
 
 
-.. _modules-modules-game-prey-prey-lua-l61-event-onpreyfreerolls-210780b31d:
 
 event:onPreyFreeRolls — L61
 ---------------------------
@@ -37400,7 +35382,6 @@ event:onPreyFreeRolls — L61
    :caption: modules/modules/game_prey/prey.lua (L61)
 
 
-.. _modules-modules-game-prey-prey-lua-l61-event-onpreyfreerolls-210780b31d:
 
 event:onPreyFreeRolls — L61
 ---------------------------
@@ -37412,7 +35393,6 @@ event:onPreyFreeRolls — L61
    :caption: modules/modules/game_prey/prey.lua (L61)
 
 
-.. _modules-modules-game-prey-prey-lua-l61-event-onpreyfreerolls-210780b31d:
 
 event:onPreyFreeRolls — L61
 ---------------------------
@@ -37424,7 +35404,6 @@ event:onPreyFreeRolls — L61
    :caption: modules/modules/game_prey/prey.lua (L61)
 
 
-.. _modules-modules-game-prey-prey-lua-l61-event-onpreyfreerolls-210780b31d:
 
 event:onPreyFreeRolls — L61
 ---------------------------
@@ -37448,7 +35427,6 @@ event:onPreyInactive — L65
    :caption: modules/modules/game_prey/prey.lua (L65)
 
 
-.. _modules-modules-game-prey-prey-lua-l65-event-onpreyinactive-be31e589b8:
 
 event:onPreyInactive — L65
 --------------------------
@@ -37460,7 +35438,6 @@ event:onPreyInactive — L65
    :caption: modules/modules/game_prey/prey.lua (L65)
 
 
-.. _modules-modules-game-prey-prey-lua-l65-event-onpreyinactive-be31e589b8:
 
 event:onPreyInactive — L65
 --------------------------
@@ -37472,7 +35449,6 @@ event:onPreyInactive — L65
    :caption: modules/modules/game_prey/prey.lua (L65)
 
 
-.. _modules-modules-game-prey-prey-lua-l65-event-onpreyinactive-be31e589b8:
 
 event:onPreyInactive — L65
 --------------------------
@@ -37484,7 +35460,6 @@ event:onPreyInactive — L65
    :caption: modules/modules/game_prey/prey.lua (L65)
 
 
-.. _modules-modules-game-prey-prey-lua-l65-event-onpreyinactive-be31e589b8:
 
 event:onPreyInactive — L65
 --------------------------
@@ -37496,7 +35471,6 @@ event:onPreyInactive — L65
    :caption: modules/modules/game_prey/prey.lua (L65)
 
 
-.. _modules-modules-game-prey-prey-lua-l65-event-onpreyinactive-be31e589b8:
 
 event:onPreyInactive — L65
 --------------------------
@@ -37508,7 +35482,6 @@ event:onPreyInactive — L65
    :caption: modules/modules/game_prey/prey.lua (L65)
 
 
-.. _modules-modules-game-prey-prey-lua-l65-event-onpreyinactive-be31e589b8:
 
 event:onPreyInactive — L65
 --------------------------
@@ -37532,7 +35505,6 @@ event:onPreyLocked — L64
    :caption: modules/modules/game_prey/prey.lua (L64)
 
 
-.. _modules-modules-game-prey-prey-lua-l64-event-onpreylocked-15a9687fea:
 
 event:onPreyLocked — L64
 ------------------------
@@ -37544,7 +35516,6 @@ event:onPreyLocked — L64
    :caption: modules/modules/game_prey/prey.lua (L64)
 
 
-.. _modules-modules-game-prey-prey-lua-l64-event-onpreylocked-15a9687fea:
 
 event:onPreyLocked — L64
 ------------------------
@@ -37556,7 +35527,6 @@ event:onPreyLocked — L64
    :caption: modules/modules/game_prey/prey.lua (L64)
 
 
-.. _modules-modules-game-prey-prey-lua-l64-event-onpreylocked-15a9687fea:
 
 event:onPreyLocked — L64
 ------------------------
@@ -37568,7 +35538,6 @@ event:onPreyLocked — L64
    :caption: modules/modules/game_prey/prey.lua (L64)
 
 
-.. _modules-modules-game-prey-prey-lua-l64-event-onpreylocked-15a9687fea:
 
 event:onPreyLocked — L64
 ------------------------
@@ -37580,7 +35549,6 @@ event:onPreyLocked — L64
    :caption: modules/modules/game_prey/prey.lua (L64)
 
 
-.. _modules-modules-game-prey-prey-lua-l64-event-onpreylocked-15a9687fea:
 
 event:onPreyLocked — L64
 ------------------------
@@ -37592,7 +35560,6 @@ event:onPreyLocked — L64
    :caption: modules/modules/game_prey/prey.lua (L64)
 
 
-.. _modules-modules-game-prey-prey-lua-l64-event-onpreylocked-15a9687fea:
 
 event:onPreyLocked — L64
 ------------------------
@@ -37616,7 +35583,6 @@ event:onPreyPrice — L63
    :caption: modules/modules/game_prey/prey.lua (L63)
 
 
-.. _modules-modules-game-prey-prey-lua-l63-event-onpreyprice-4926f80ec8:
 
 event:onPreyPrice — L63
 -----------------------
@@ -37628,7 +35594,6 @@ event:onPreyPrice — L63
    :caption: modules/modules/game_prey/prey.lua (L63)
 
 
-.. _modules-modules-game-prey-prey-lua-l63-event-onpreyprice-4926f80ec8:
 
 event:onPreyPrice — L63
 -----------------------
@@ -37640,7 +35605,6 @@ event:onPreyPrice — L63
    :caption: modules/modules/game_prey/prey.lua (L63)
 
 
-.. _modules-modules-game-prey-prey-lua-l63-event-onpreyprice-4926f80ec8:
 
 event:onPreyPrice — L63
 -----------------------
@@ -37652,7 +35616,6 @@ event:onPreyPrice — L63
    :caption: modules/modules/game_prey/prey.lua (L63)
 
 
-.. _modules-modules-game-prey-prey-lua-l63-event-onpreyprice-4926f80ec8:
 
 event:onPreyPrice — L63
 -----------------------
@@ -37664,7 +35627,6 @@ event:onPreyPrice — L63
    :caption: modules/modules/game_prey/prey.lua (L63)
 
 
-.. _modules-modules-game-prey-prey-lua-l63-event-onpreyprice-4926f80ec8:
 
 event:onPreyPrice — L63
 -----------------------
@@ -37676,7 +35638,6 @@ event:onPreyPrice — L63
    :caption: modules/modules/game_prey/prey.lua (L63)
 
 
-.. _modules-modules-game-prey-prey-lua-l63-event-onpreyprice-4926f80ec8:
 
 event:onPreyPrice — L63
 -----------------------
@@ -37700,7 +35661,6 @@ event:onPreySelection — L67
    :caption: modules/modules/game_prey/prey.lua (L67)
 
 
-.. _modules-modules-game-prey-prey-lua-l67-event-onpreyselection-bc26dadede:
 
 event:onPreySelection — L67
 ---------------------------
@@ -37712,7 +35672,6 @@ event:onPreySelection — L67
    :caption: modules/modules/game_prey/prey.lua (L67)
 
 
-.. _modules-modules-game-prey-prey-lua-l67-event-onpreyselection-bc26dadede:
 
 event:onPreySelection — L67
 ---------------------------
@@ -37724,7 +35683,6 @@ event:onPreySelection — L67
    :caption: modules/modules/game_prey/prey.lua (L67)
 
 
-.. _modules-modules-game-prey-prey-lua-l67-event-onpreyselection-bc26dadede:
 
 event:onPreySelection — L67
 ---------------------------
@@ -37736,7 +35694,6 @@ event:onPreySelection — L67
    :caption: modules/modules/game_prey/prey.lua (L67)
 
 
-.. _modules-modules-game-prey-prey-lua-l67-event-onpreyselection-bc26dadede:
 
 event:onPreySelection — L67
 ---------------------------
@@ -37748,7 +35705,6 @@ event:onPreySelection — L67
    :caption: modules/modules/game_prey/prey.lua (L67)
 
 
-.. _modules-modules-game-prey-prey-lua-l67-event-onpreyselection-bc26dadede:
 
 event:onPreySelection — L67
 ---------------------------
@@ -37760,7 +35716,6 @@ event:onPreySelection — L67
    :caption: modules/modules/game_prey/prey.lua (L67)
 
 
-.. _modules-modules-game-prey-prey-lua-l67-event-onpreyselection-bc26dadede:
 
 event:onPreySelection — L67
 ---------------------------
@@ -37784,7 +35739,6 @@ event:onPreyTimeLeft — L62
    :caption: modules/modules/game_prey/prey.lua (L62)
 
 
-.. _modules-modules-game-prey-prey-lua-l62-event-onpreytimeleft-3880be2009:
 
 event:onPreyTimeLeft — L62
 --------------------------
@@ -37796,7 +35750,6 @@ event:onPreyTimeLeft — L62
    :caption: modules/modules/game_prey/prey.lua (L62)
 
 
-.. _modules-modules-game-prey-prey-lua-l62-event-onpreytimeleft-3880be2009:
 
 event:onPreyTimeLeft — L62
 --------------------------
@@ -37808,7 +35761,6 @@ event:onPreyTimeLeft — L62
    :caption: modules/modules/game_prey/prey.lua (L62)
 
 
-.. _modules-modules-game-prey-prey-lua-l62-event-onpreytimeleft-3880be2009:
 
 event:onPreyTimeLeft — L62
 --------------------------
@@ -37820,7 +35772,6 @@ event:onPreyTimeLeft — L62
    :caption: modules/modules/game_prey/prey.lua (L62)
 
 
-.. _modules-modules-game-prey-prey-lua-l62-event-onpreytimeleft-3880be2009:
 
 event:onPreyTimeLeft — L62
 --------------------------
@@ -37832,7 +35783,6 @@ event:onPreyTimeLeft — L62
    :caption: modules/modules/game_prey/prey.lua (L62)
 
 
-.. _modules-modules-game-prey-prey-lua-l62-event-onpreytimeleft-3880be2009:
 
 event:onPreyTimeLeft — L62
 --------------------------
@@ -37844,7 +35794,6 @@ event:onPreyTimeLeft — L62
    :caption: modules/modules/game_prey/prey.lua (L62)
 
 
-.. _modules-modules-game-prey-prey-lua-l62-event-onpreytimeleft-3880be2009:
 
 event:onPreyTimeLeft — L62
 --------------------------
@@ -37868,7 +35817,6 @@ event:onResourceBalance — L60
    :caption: modules/modules/game_prey/prey.lua (L60)
 
 
-.. _modules-modules-game-prey-prey-lua-l60-event-onresourcebalance-355b2f155f:
 
 event:onResourceBalance — L60
 -----------------------------
@@ -37880,7 +35828,6 @@ event:onResourceBalance — L60
    :caption: modules/modules/game_prey/prey.lua (L60)
 
 
-.. _modules-modules-game-prey-prey-lua-l60-event-onresourcebalance-355b2f155f:
 
 event:onResourceBalance — L60
 -----------------------------
@@ -37892,7 +35839,6 @@ event:onResourceBalance — L60
    :caption: modules/modules/game_prey/prey.lua (L60)
 
 
-.. _modules-modules-game-prey-prey-lua-l60-event-onresourcebalance-355b2f155f:
 
 event:onResourceBalance — L60
 -----------------------------
@@ -37904,7 +35850,6 @@ event:onResourceBalance — L60
    :caption: modules/modules/game_prey/prey.lua (L60)
 
 
-.. _modules-modules-game-prey-prey-lua-l60-event-onresourcebalance-355b2f155f:
 
 event:onResourceBalance — L60
 -----------------------------
@@ -37916,7 +35861,6 @@ event:onResourceBalance — L60
    :caption: modules/modules/game_prey/prey.lua (L60)
 
 
-.. _modules-modules-game-prey-prey-lua-l60-event-onresourcebalance-355b2f155f:
 
 event:onResourceBalance — L60
 -----------------------------
@@ -37928,7 +35872,6 @@ event:onResourceBalance — L60
    :caption: modules/modules/game_prey/prey.lua (L60)
 
 
-.. _modules-modules-game-prey-prey-lua-l60-event-onresourcebalance-355b2f155f:
 
 event:onResourceBalance — L60
 -----------------------------
@@ -37952,7 +35895,6 @@ event:onEnterGame — L53
    :caption: modules/modules/game_protocol/protocol.lua (L53)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l53-event-onentergame-37a45f7e65:
 
 event:onEnterGame — L53
 -----------------------
@@ -37964,7 +35906,6 @@ event:onEnterGame — L53
    :caption: modules/modules/game_protocol/protocol.lua (L53)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l53-event-onentergame-37a45f7e65:
 
 event:onEnterGame — L53
 -----------------------
@@ -37976,7 +35917,6 @@ event:onEnterGame — L53
    :caption: modules/modules/game_protocol/protocol.lua (L53)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l53-event-onentergame-37a45f7e65:
 
 event:onEnterGame — L53
 -----------------------
@@ -38000,7 +35940,6 @@ event:onGameEnd — L55
    :caption: modules/modules/game_protocol/protocol.lua (L55)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l55-event-ongameend-04fd2060ec:
 
 event:onGameEnd — L55
 ---------------------
@@ -38012,7 +35951,6 @@ event:onGameEnd — L55
    :caption: modules/modules/game_protocol/protocol.lua (L55)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l55-event-ongameend-04fd2060ec:
 
 event:onGameEnd — L55
 ---------------------
@@ -38024,7 +35962,6 @@ event:onGameEnd — L55
    :caption: modules/modules/game_protocol/protocol.lua (L55)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l55-event-ongameend-04fd2060ec:
 
 event:onGameEnd — L55
 ---------------------
@@ -38048,7 +35985,6 @@ event:onPendingGame — L54
    :caption: modules/modules/game_protocol/protocol.lua (L54)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l54-event-onpendingga-68f2b0a077:
 
 event:onPendingGame — L54
 -------------------------
@@ -38060,7 +35996,6 @@ event:onPendingGame — L54
    :caption: modules/modules/game_protocol/protocol.lua (L54)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l54-event-onpendingga-68f2b0a077:
 
 event:onPendingGame — L54
 -------------------------
@@ -38072,7 +36007,6 @@ event:onPendingGame — L54
    :caption: modules/modules/game_protocol/protocol.lua (L54)
 
 
-.. _modules-modules-game-protocol-protocol-lua-l54-event-onpendingga-68f2b0a077:
 
 event:onPendingGame — L54
 -------------------------
@@ -38096,7 +36030,6 @@ event:onChildFocusChange — L82
    :caption: modules/modules/game_questlog/questlog.lua (L82)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l82-event-onchildfocu-85f67b7003:
 
 event:onChildFocusChange — L82
 ------------------------------
@@ -38132,7 +36065,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_questlog/questlog.lua (L26)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l26-event-ongameend-b6fc2405ba:
 
 event:onGameEnd — L26
 ---------------------
@@ -38144,7 +36076,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_questlog/questlog.lua (L26)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l26-event-ongameend-b6fc2405ba:
 
 event:onGameEnd — L26
 ---------------------
@@ -38156,7 +36087,6 @@ event:onGameEnd — L26
    :caption: modules/modules/game_questlog/questlog.lua (L26)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l26-event-ongameend-b6fc2405ba:
 
 event:onGameEnd — L26
 ---------------------
@@ -38180,7 +36110,6 @@ event:onGameQuestLine — L25
    :caption: modules/modules/game_questlog/questlog.lua (L25)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l25-event-ongamequest-d80800c8aa:
 
 event:onGameQuestLine — L25
 ---------------------------
@@ -38192,7 +36121,6 @@ event:onGameQuestLine — L25
    :caption: modules/modules/game_questlog/questlog.lua (L25)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l25-event-ongamequest-d80800c8aa:
 
 event:onGameQuestLine — L25
 ---------------------------
@@ -38216,7 +36144,6 @@ event:onGameQuestLog — L24
    :caption: modules/modules/game_questlog/questlog.lua (L24)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l24-event-ongamequest-1f7d72e15c:
 
 event:onGameQuestLog — L24
 --------------------------
@@ -38228,7 +36155,6 @@ event:onGameQuestLog — L24
    :caption: modules/modules/game_questlog/questlog.lua (L24)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l24-event-ongamequest-1f7d72e15c:
 
 event:onGameQuestLog — L24
 --------------------------
@@ -38252,7 +36178,6 @@ event:onGameStart — L27
    :caption: modules/modules/game_questlog/questlog.lua (L27)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l27-event-ongamestart-3e76b0d530:
 
 event:onGameStart — L27
 -----------------------
@@ -38264,7 +36189,6 @@ event:onGameStart — L27
    :caption: modules/modules/game_questlog/questlog.lua (L27)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l27-event-ongamestart-3e76b0d530:
 
 event:onGameStart — L27
 -----------------------
@@ -38276,7 +36200,6 @@ event:onGameStart — L27
    :caption: modules/modules/game_questlog/questlog.lua (L27)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l27-event-ongamestart-3e76b0d530:
 
 event:onGameStart — L27
 -----------------------
@@ -38300,7 +36223,6 @@ event:onQuestLine — L25
    :caption: modules/modules/game_questlog/questlog.lua (L25)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l25-event-onquestline-8443811513:
 
 event:onQuestLine — L25
 -----------------------
@@ -38312,7 +36234,6 @@ event:onQuestLine — L25
    :caption: modules/modules/game_questlog/questlog.lua (L25)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l25-event-onquestline-8443811513:
 
 event:onQuestLine — L25
 -----------------------
@@ -38324,7 +36245,6 @@ event:onQuestLine — L25
    :caption: modules/modules/game_questlog/questlog.lua (L25)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l25-event-onquestline-8443811513:
 
 event:onQuestLine — L25
 -----------------------
@@ -38348,7 +36268,6 @@ event:onQuestLog — L24
    :caption: modules/modules/game_questlog/questlog.lua (L24)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l24-event-onquestlog-f209bb7bf9:
 
 event:onQuestLog — L24
 ----------------------
@@ -38360,7 +36279,6 @@ event:onQuestLog — L24
    :caption: modules/modules/game_questlog/questlog.lua (L24)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l24-event-onquestlog-f209bb7bf9:
 
 event:onQuestLog — L24
 ----------------------
@@ -38372,7 +36290,6 @@ event:onQuestLog — L24
    :caption: modules/modules/game_questlog/questlog.lua (L24)
 
 
-.. _modules-modules-game-questlog-questlog-lua-l24-event-onquestlog-f209bb7bf9:
 
 event:onQuestLog — L24
 ----------------------
@@ -38420,7 +36337,6 @@ event:onGMActions — L38
    :caption: modules/modules/game_ruleviolation/ruleviolation.lua (L38)
 
 
-.. _modules-modules-game-ruleviolation-ruleviolation-lua-l38-event-o-417aa95f4a:
 
 event:onGMActions — L38
 -----------------------
@@ -38432,7 +36348,6 @@ event:onGMActions — L38
    :caption: modules/modules/game_ruleviolation/ruleviolation.lua (L38)
 
 
-.. _modules-modules-game-ruleviolation-ruleviolation-lua-l38-event-o-417aa95f4a:
 
 event:onGMActions — L38
 -----------------------
@@ -38444,7 +36359,6 @@ event:onGMActions — L38
    :caption: modules/modules/game_ruleviolation/ruleviolation.lua (L38)
 
 
-.. _modules-modules-game-ruleviolation-ruleviolation-lua-l38-event-o-417aa95f4a:
 
 event:onGMActions — L38
 -----------------------
@@ -38468,7 +36382,6 @@ event:onSelectReason — L71
    :caption: modules/modules/game_ruleviolation/ruleviolation.lua (L71)
 
 
-.. _modules-modules-game-ruleviolation-ruleviolation-lua-l71-event-o-8e794c27a7:
 
 event:onSelectReason — L71
 --------------------------
@@ -38492,7 +36405,6 @@ event:onChildFocusChange — L80
    :caption: modules/modules/game_shop/shop.lua (L80)
 
 
-.. _modules-modules-game-shop-shop-lua-l80-event-onchildfocuschange-dcf581e4b4:
 
 event:onChildFocusChange — L80
 ------------------------------
@@ -38504,7 +36416,6 @@ event:onChildFocusChange — L80
    :caption: modules/modules/game_shop/shop.lua (L80)
 
 
-.. _modules-modules-game-shop-shop-lua-l80-event-onchildfocuschange-dcf581e4b4:
 
 event:onChildFocusChange — L80
 ------------------------------
@@ -38516,7 +36427,6 @@ event:onChildFocusChange — L80
    :caption: modules/modules/game_shop/shop.lua (L80)
 
 
-.. _modules-modules-game-shop-shop-lua-l80-event-onchildfocuschange-dcf581e4b4:
 
 event:onChildFocusChange — L80
 ------------------------------
@@ -38552,7 +36462,6 @@ event:onCoinBalance — L48
    :caption: modules/modules/game_shop/shop.lua (L48)
 
 
-.. _modules-modules-game-shop-shop-lua-l48-event-oncoinbalance-685dc6ff09:
 
 event:onCoinBalance — L48
 -------------------------
@@ -38564,7 +36473,6 @@ event:onCoinBalance — L48
    :caption: modules/modules/game_shop/shop.lua (L48)
 
 
-.. _modules-modules-game-shop-shop-lua-l48-event-oncoinbalance-685dc6ff09:
 
 event:onCoinBalance — L48
 -------------------------
@@ -38576,7 +36484,6 @@ event:onCoinBalance — L48
    :caption: modules/modules/game_shop/shop.lua (L48)
 
 
-.. _modules-modules-game-shop-shop-lua-l48-event-oncoinbalance-685dc6ff09:
 
 event:onCoinBalance — L48
 -------------------------
@@ -38588,7 +36495,6 @@ event:onCoinBalance — L48
    :caption: modules/modules/game_shop/shop.lua (L48)
 
 
-.. _modules-modules-game-shop-shop-lua-l48-event-oncoinbalance-685dc6ff09:
 
 event:onCoinBalance — L48
 -------------------------
@@ -38600,7 +36506,6 @@ event:onCoinBalance — L48
    :caption: modules/modules/game_shop/shop.lua (L48)
 
 
-.. _modules-modules-game-shop-shop-lua-l48-event-oncoinbalance-685dc6ff09:
 
 event:onCoinBalance — L48
 -------------------------
@@ -38612,7 +36517,6 @@ event:onCoinBalance — L48
    :caption: modules/modules/game_shop/shop.lua (L48)
 
 
-.. _modules-modules-game-shop-shop-lua-l48-event-oncoinbalance-685dc6ff09:
 
 event:onCoinBalance — L48
 -------------------------
@@ -38660,7 +36564,6 @@ event:onExtendedJSONOpcode — L51
    :caption: modules/modules/game_shop/shop.lua (L51)
 
 
-.. _modules-modules-game-shop-shop-lua-l51-event-onextendedjsonopcod-123ea3a83e:
 
 event:onExtendedJSONOpcode — L51
 --------------------------------
@@ -38672,7 +36575,6 @@ event:onExtendedJSONOpcode — L51
    :caption: modules/modules/game_shop/shop.lua (L51)
 
 
-.. _modules-modules-game-shop-shop-lua-l51-event-onextendedjsonopcod-123ea3a83e:
 
 event:onExtendedJSONOpcode — L51
 --------------------------------
@@ -38696,7 +36598,6 @@ event:onGameEnd — L41
    :caption: modules/modules/game_shop/shop.lua (L41)
 
 
-.. _modules-modules-game-shop-shop-lua-l41-event-ongameend-3cfd749abc:
 
 event:onGameEnd — L41
 ---------------------
@@ -38708,7 +36609,6 @@ event:onGameEnd — L41
    :caption: modules/modules/game_shop/shop.lua (L41)
 
 
-.. _modules-modules-game-shop-shop-lua-l41-event-ongameend-3cfd749abc:
 
 event:onGameEnd — L41
 ---------------------
@@ -38720,7 +36620,6 @@ event:onGameEnd — L41
    :caption: modules/modules/game_shop/shop.lua (L41)
 
 
-.. _modules-modules-game-shop-shop-lua-l41-event-ongameend-3cfd749abc:
 
 event:onGameEnd — L41
 ---------------------
@@ -38744,7 +36643,6 @@ event:onGameStart — L40
    :caption: modules/modules/game_shop/shop.lua (L40)
 
 
-.. _modules-modules-game-shop-shop-lua-l40-event-ongamestart-8d5cced40b:
 
 event:onGameStart — L40
 -----------------------
@@ -38756,7 +36654,6 @@ event:onGameStart — L40
    :caption: modules/modules/game_shop/shop.lua (L40)
 
 
-.. _modules-modules-game-shop-shop-lua-l40-event-ongamestart-8d5cced40b:
 
 event:onGameStart — L40
 -----------------------
@@ -38768,7 +36665,6 @@ event:onGameStart — L40
    :caption: modules/modules/game_shop/shop.lua (L40)
 
 
-.. _modules-modules-game-shop-shop-lua-l40-event-ongamestart-8d5cced40b:
 
 event:onGameStart — L40
 -----------------------
@@ -38792,7 +36688,6 @@ event:onMouseRelease — L408
    :caption: modules/modules/game_shop/shop.lua (L408)
 
 
-.. _modules-modules-game-shop-shop-lua-l408-event-onmouserelease-61a2315020:
 
 event:onMouseRelease — L408
 ---------------------------
@@ -38804,7 +36699,6 @@ event:onMouseRelease — L408
    :caption: modules/modules/game_shop/shop.lua (L408)
 
 
-.. _modules-modules-game-shop-shop-lua-l408-event-onmouserelease-61a2315020:
 
 event:onMouseRelease — L408
 ---------------------------
@@ -38828,7 +36722,6 @@ event:onStoreCategories — L43
    :caption: modules/modules/game_shop/shop.lua (L43)
 
 
-.. _modules-modules-game-shop-shop-lua-l43-event-onstorecategories-703de8066f:
 
 event:onStoreCategories — L43
 -----------------------------
@@ -38840,7 +36733,6 @@ event:onStoreCategories — L43
    :caption: modules/modules/game_shop/shop.lua (L43)
 
 
-.. _modules-modules-game-shop-shop-lua-l43-event-onstorecategories-703de8066f:
 
 event:onStoreCategories — L43
 -----------------------------
@@ -38852,7 +36744,6 @@ event:onStoreCategories — L43
    :caption: modules/modules/game_shop/shop.lua (L43)
 
 
-.. _modules-modules-game-shop-shop-lua-l43-event-onstorecategories-703de8066f:
 
 event:onStoreCategories — L43
 -----------------------------
@@ -38864,7 +36755,6 @@ event:onStoreCategories — L43
    :caption: modules/modules/game_shop/shop.lua (L43)
 
 
-.. _modules-modules-game-shop-shop-lua-l43-event-onstorecategories-703de8066f:
 
 event:onStoreCategories — L43
 -----------------------------
@@ -38876,7 +36766,6 @@ event:onStoreCategories — L43
    :caption: modules/modules/game_shop/shop.lua (L43)
 
 
-.. _modules-modules-game-shop-shop-lua-l43-event-onstorecategories-703de8066f:
 
 event:onStoreCategories — L43
 -----------------------------
@@ -38888,7 +36777,6 @@ event:onStoreCategories — L43
    :caption: modules/modules/game_shop/shop.lua (L43)
 
 
-.. _modules-modules-game-shop-shop-lua-l43-event-onstorecategories-703de8066f:
 
 event:onStoreCategories — L43
 -----------------------------
@@ -38912,7 +36800,6 @@ event:onStoreError — L47
    :caption: modules/modules/game_shop/shop.lua (L47)
 
 
-.. _modules-modules-game-shop-shop-lua-l47-event-onstoreerror-f24fd1cf12:
 
 event:onStoreError — L47
 ------------------------
@@ -38924,7 +36811,6 @@ event:onStoreError — L47
    :caption: modules/modules/game_shop/shop.lua (L47)
 
 
-.. _modules-modules-game-shop-shop-lua-l47-event-onstoreerror-f24fd1cf12:
 
 event:onStoreError — L47
 ------------------------
@@ -38936,7 +36822,6 @@ event:onStoreError — L47
    :caption: modules/modules/game_shop/shop.lua (L47)
 
 
-.. _modules-modules-game-shop-shop-lua-l47-event-onstoreerror-f24fd1cf12:
 
 event:onStoreError — L47
 ------------------------
@@ -38948,7 +36833,6 @@ event:onStoreError — L47
    :caption: modules/modules/game_shop/shop.lua (L47)
 
 
-.. _modules-modules-game-shop-shop-lua-l47-event-onstoreerror-f24fd1cf12:
 
 event:onStoreError — L47
 ------------------------
@@ -38960,7 +36844,6 @@ event:onStoreError — L47
    :caption: modules/modules/game_shop/shop.lua (L47)
 
 
-.. _modules-modules-game-shop-shop-lua-l47-event-onstoreerror-f24fd1cf12:
 
 event:onStoreError — L47
 ------------------------
@@ -38972,7 +36855,6 @@ event:onStoreError — L47
    :caption: modules/modules/game_shop/shop.lua (L47)
 
 
-.. _modules-modules-game-shop-shop-lua-l47-event-onstoreerror-f24fd1cf12:
 
 event:onStoreError — L47
 ------------------------
@@ -38996,7 +36878,6 @@ event:onStoreInit — L42
    :caption: modules/modules/game_shop/shop.lua (L42)
 
 
-.. _modules-modules-game-shop-shop-lua-l42-event-onstoreinit-87f18f0a4a:
 
 event:onStoreInit — L42
 -----------------------
@@ -39008,7 +36889,6 @@ event:onStoreInit — L42
    :caption: modules/modules/game_shop/shop.lua (L42)
 
 
-.. _modules-modules-game-shop-shop-lua-l42-event-onstoreinit-87f18f0a4a:
 
 event:onStoreInit — L42
 -----------------------
@@ -39020,7 +36900,6 @@ event:onStoreInit — L42
    :caption: modules/modules/game_shop/shop.lua (L42)
 
 
-.. _modules-modules-game-shop-shop-lua-l42-event-onstoreinit-87f18f0a4a:
 
 event:onStoreInit — L42
 -----------------------
@@ -39032,7 +36911,6 @@ event:onStoreInit — L42
    :caption: modules/modules/game_shop/shop.lua (L42)
 
 
-.. _modules-modules-game-shop-shop-lua-l42-event-onstoreinit-87f18f0a4a:
 
 event:onStoreInit — L42
 -----------------------
@@ -39044,7 +36922,6 @@ event:onStoreInit — L42
    :caption: modules/modules/game_shop/shop.lua (L42)
 
 
-.. _modules-modules-game-shop-shop-lua-l42-event-onstoreinit-87f18f0a4a:
 
 event:onStoreInit — L42
 -----------------------
@@ -39056,7 +36933,6 @@ event:onStoreInit — L42
    :caption: modules/modules/game_shop/shop.lua (L42)
 
 
-.. _modules-modules-game-shop-shop-lua-l42-event-onstoreinit-87f18f0a4a:
 
 event:onStoreInit — L42
 -----------------------
@@ -39080,7 +36956,6 @@ event:onStoreOffers — L44
    :caption: modules/modules/game_shop/shop.lua (L44)
 
 
-.. _modules-modules-game-shop-shop-lua-l44-event-onstoreoffers-596fa5780c:
 
 event:onStoreOffers — L44
 -------------------------
@@ -39092,7 +36967,6 @@ event:onStoreOffers — L44
    :caption: modules/modules/game_shop/shop.lua (L44)
 
 
-.. _modules-modules-game-shop-shop-lua-l44-event-onstoreoffers-596fa5780c:
 
 event:onStoreOffers — L44
 -------------------------
@@ -39104,7 +36978,6 @@ event:onStoreOffers — L44
    :caption: modules/modules/game_shop/shop.lua (L44)
 
 
-.. _modules-modules-game-shop-shop-lua-l44-event-onstoreoffers-596fa5780c:
 
 event:onStoreOffers — L44
 -------------------------
@@ -39116,7 +36989,6 @@ event:onStoreOffers — L44
    :caption: modules/modules/game_shop/shop.lua (L44)
 
 
-.. _modules-modules-game-shop-shop-lua-l44-event-onstoreoffers-596fa5780c:
 
 event:onStoreOffers — L44
 -------------------------
@@ -39128,7 +37000,6 @@ event:onStoreOffers — L44
    :caption: modules/modules/game_shop/shop.lua (L44)
 
 
-.. _modules-modules-game-shop-shop-lua-l44-event-onstoreoffers-596fa5780c:
 
 event:onStoreOffers — L44
 -------------------------
@@ -39140,7 +37011,6 @@ event:onStoreOffers — L44
    :caption: modules/modules/game_shop/shop.lua (L44)
 
 
-.. _modules-modules-game-shop-shop-lua-l44-event-onstoreoffers-596fa5780c:
 
 event:onStoreOffers — L44
 -------------------------
@@ -39164,7 +37034,6 @@ event:onStorePurchase — L46
    :caption: modules/modules/game_shop/shop.lua (L46)
 
 
-.. _modules-modules-game-shop-shop-lua-l46-event-onstorepurchase-909789b83c:
 
 event:onStorePurchase — L46
 ---------------------------
@@ -39176,7 +37045,6 @@ event:onStorePurchase — L46
    :caption: modules/modules/game_shop/shop.lua (L46)
 
 
-.. _modules-modules-game-shop-shop-lua-l46-event-onstorepurchase-909789b83c:
 
 event:onStorePurchase — L46
 ---------------------------
@@ -39188,7 +37056,6 @@ event:onStorePurchase — L46
    :caption: modules/modules/game_shop/shop.lua (L46)
 
 
-.. _modules-modules-game-shop-shop-lua-l46-event-onstorepurchase-909789b83c:
 
 event:onStorePurchase — L46
 ---------------------------
@@ -39200,7 +37067,6 @@ event:onStorePurchase — L46
    :caption: modules/modules/game_shop/shop.lua (L46)
 
 
-.. _modules-modules-game-shop-shop-lua-l46-event-onstorepurchase-909789b83c:
 
 event:onStorePurchase — L46
 ---------------------------
@@ -39212,7 +37078,6 @@ event:onStorePurchase — L46
    :caption: modules/modules/game_shop/shop.lua (L46)
 
 
-.. _modules-modules-game-shop-shop-lua-l46-event-onstorepurchase-909789b83c:
 
 event:onStorePurchase — L46
 ---------------------------
@@ -39224,7 +37089,6 @@ event:onStorePurchase — L46
    :caption: modules/modules/game_shop/shop.lua (L46)
 
 
-.. _modules-modules-game-shop-shop-lua-l46-event-onstorepurchase-909789b83c:
 
 event:onStorePurchase — L46
 ---------------------------
@@ -39248,7 +37112,6 @@ event:onStoreTransactionHistory — L45
    :caption: modules/modules/game_shop/shop.lua (L45)
 
 
-.. _modules-modules-game-shop-shop-lua-l45-event-onstoretransactionh-f0b5f964f1:
 
 event:onStoreTransactionHistory — L45
 -------------------------------------
@@ -39260,7 +37123,6 @@ event:onStoreTransactionHistory — L45
    :caption: modules/modules/game_shop/shop.lua (L45)
 
 
-.. _modules-modules-game-shop-shop-lua-l45-event-onstoretransactionh-f0b5f964f1:
 
 event:onStoreTransactionHistory — L45
 -------------------------------------
@@ -39272,7 +37134,6 @@ event:onStoreTransactionHistory — L45
    :caption: modules/modules/game_shop/shop.lua (L45)
 
 
-.. _modules-modules-game-shop-shop-lua-l45-event-onstoretransactionh-f0b5f964f1:
 
 event:onStoreTransactionHistory — L45
 -------------------------------------
@@ -39284,7 +37145,6 @@ event:onStoreTransactionHistory — L45
    :caption: modules/modules/game_shop/shop.lua (L45)
 
 
-.. _modules-modules-game-shop-shop-lua-l45-event-onstoretransactionh-f0b5f964f1:
 
 event:onStoreTransactionHistory — L45
 -------------------------------------
@@ -39296,7 +37156,6 @@ event:onStoreTransactionHistory — L45
    :caption: modules/modules/game_shop/shop.lua (L45)
 
 
-.. _modules-modules-game-shop-shop-lua-l45-event-onstoretransactionh-f0b5f964f1:
 
 event:onStoreTransactionHistory — L45
 -------------------------------------
@@ -39308,7 +37167,6 @@ event:onStoreTransactionHistory — L45
    :caption: modules/modules/game_shop/shop.lua (L45)
 
 
-.. _modules-modules-game-shop-shop-lua-l45-event-onstoretransactionh-f0b5f964f1:
 
 event:onStoreTransactionHistory — L45
 -------------------------------------
@@ -39332,7 +37190,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39344,7 +37201,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39356,7 +37212,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39368,7 +37223,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39380,7 +37234,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39392,7 +37245,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39404,7 +37256,6 @@ event:onBaseMagicLevelChange — L19
    :caption: modules/modules/game_skills/skills.lua (L19)
 
 
-.. _modules-modules-game-skills-skills-lua-l19-event-onbasemagicleve-0f2497ce0c:
 
 event:onBaseMagicLevelChange — L19
 ----------------------------------
@@ -39428,7 +37279,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39440,7 +37290,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39452,7 +37301,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39464,7 +37312,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39476,7 +37323,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39488,7 +37334,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39500,7 +37345,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39512,7 +37356,6 @@ event:onBaseSkillChange — L21
    :caption: modules/modules/game_skills/skills.lua (L21)
 
 
-.. _modules-modules-game-skills-skills-lua-l21-event-onbaseskillchan-84a92e1536:
 
 event:onBaseSkillChange — L21
 -----------------------------
@@ -39536,7 +37379,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39548,7 +37390,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39560,7 +37401,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39572,7 +37412,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39584,7 +37423,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39596,7 +37434,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39608,7 +37445,6 @@ event:onBaseSpeedChange — L17
    :caption: modules/modules/game_skills/skills.lua (L17)
 
 
-.. _modules-modules-game-skills-skills-lua-l17-event-onbasespeedchan-c547a7c0ed:
 
 event:onBaseSpeedChange — L17
 -----------------------------
@@ -39632,7 +37468,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39644,7 +37479,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39656,7 +37490,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39668,7 +37501,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39680,7 +37512,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39692,7 +37523,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39704,7 +37534,6 @@ event:onExperienceChange — L6
    :caption: modules/modules/game_skills/skills.lua (L6)
 
 
-.. _modules-modules-game-skills-skills-lua-l6-event-onexperiencechan-cb066a2f33:
 
 event:onExperienceChange — L6
 -----------------------------
@@ -39728,7 +37557,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39740,7 +37568,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39752,7 +37579,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39764,7 +37590,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39776,7 +37601,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39788,7 +37612,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39800,7 +37623,6 @@ event:onFreeCapacityChange — L11
    :caption: modules/modules/game_skills/skills.lua (L11)
 
 
-.. _modules-modules-game-skills-skills-lua-l11-event-onfreecapacityc-fca571b812:
 
 event:onFreeCapacityChange — L11
 --------------------------------
@@ -39824,7 +37646,6 @@ event:onGameEnd — L25
    :caption: modules/modules/game_skills/skills.lua (L25)
 
 
-.. _modules-modules-game-skills-skills-lua-l25-event-ongameend-4dae754b14:
 
 event:onGameEnd — L25
 ---------------------
@@ -39836,7 +37657,6 @@ event:onGameEnd — L25
    :caption: modules/modules/game_skills/skills.lua (L25)
 
 
-.. _modules-modules-game-skills-skills-lua-l25-event-ongameend-4dae754b14:
 
 event:onGameEnd — L25
 ---------------------
@@ -39848,7 +37668,6 @@ event:onGameEnd — L25
    :caption: modules/modules/game_skills/skills.lua (L25)
 
 
-.. _modules-modules-game-skills-skills-lua-l25-event-ongameend-4dae754b14:
 
 event:onGameEnd — L25
 ---------------------
@@ -39872,7 +37691,6 @@ event:onGameStart — L24
    :caption: modules/modules/game_skills/skills.lua (L24)
 
 
-.. _modules-modules-game-skills-skills-lua-l24-event-ongamestart-568c2289e2:
 
 event:onGameStart — L24
 -----------------------
@@ -39884,7 +37702,6 @@ event:onGameStart — L24
    :caption: modules/modules/game_skills/skills.lua (L24)
 
 
-.. _modules-modules-game-skills-skills-lua-l24-event-ongamestart-568c2289e2:
 
 event:onGameStart — L24
 -----------------------
@@ -39896,7 +37713,6 @@ event:onGameStart — L24
    :caption: modules/modules/game_skills/skills.lua (L24)
 
 
-.. _modules-modules-game-skills-skills-lua-l24-event-ongamestart-568c2289e2:
 
 event:onGameStart — L24
 -----------------------
@@ -39920,7 +37736,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -39932,7 +37747,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -39944,7 +37758,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -39956,7 +37769,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -39968,7 +37780,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -39980,7 +37791,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -39992,7 +37802,6 @@ event:onHealthChange — L8
    :caption: modules/modules/game_skills/skills.lua (L8)
 
 
-.. _modules-modules-game-skills-skills-lua-l8-event-onhealthchange-63e5113035:
 
 event:onHealthChange — L8
 -------------------------
@@ -40016,7 +37825,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40028,7 +37836,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40040,7 +37847,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40052,7 +37858,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40064,7 +37869,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40076,7 +37880,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40088,7 +37891,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40100,7 +37902,6 @@ event:onLevelChange — L7
    :caption: modules/modules/game_skills/skills.lua (L7)
 
 
-.. _modules-modules-game-skills-skills-lua-l7-event-onlevelchange-c7f203f496:
 
 event:onLevelChange — L7
 ------------------------
@@ -40124,7 +37925,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40136,7 +37936,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40148,7 +37947,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40160,7 +37958,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40172,7 +37969,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40184,7 +37980,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40196,7 +37991,6 @@ event:onMagicLevelChange — L18
    :caption: modules/modules/game_skills/skills.lua (L18)
 
 
-.. _modules-modules-game-skills-skills-lua-l18-event-onmagiclevelcha-f695a2f1e4:
 
 event:onMagicLevelChange — L18
 ------------------------------
@@ -40220,7 +38014,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40232,7 +38025,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40244,7 +38036,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40256,7 +38047,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40268,7 +38058,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40280,7 +38069,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40292,7 +38080,6 @@ event:onManaChange — L9
    :caption: modules/modules/game_skills/skills.lua (L9)
 
 
-.. _modules-modules-game-skills-skills-lua-l9-event-onmanachange-d07a2f926a:
 
 event:onManaChange — L9
 -----------------------
@@ -40328,7 +38115,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40340,7 +38126,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40352,7 +38137,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40364,7 +38148,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40376,7 +38159,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40388,7 +38170,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40400,7 +38181,6 @@ event:onOfflineTrainingChange — L14
    :caption: modules/modules/game_skills/skills.lua (L14)
 
 
-.. _modules-modules-game-skills-skills-lua-l14-event-onofflinetraini-aef45d56b5:
 
 event:onOfflineTrainingChange — L14
 -----------------------------------
@@ -40424,7 +38204,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40436,7 +38215,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40448,7 +38226,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40460,7 +38237,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40472,7 +38248,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40484,7 +38259,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40496,7 +38270,6 @@ event:onRegenerationChange — L15
    :caption: modules/modules/game_skills/skills.lua (L15)
 
 
-.. _modules-modules-game-skills-skills-lua-l15-event-onregenerationc-af3d9c51ea:
 
 event:onRegenerationChange — L15
 --------------------------------
@@ -40532,7 +38305,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40544,7 +38316,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40556,7 +38327,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40568,7 +38338,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40580,7 +38349,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40592,7 +38360,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40604,7 +38371,6 @@ event:onSkillChange — L20
    :caption: modules/modules/game_skills/skills.lua (L20)
 
 
-.. _modules-modules-game-skills-skills-lua-l20-event-onskillchange-3e1c81a5a8:
 
 event:onSkillChange — L20
 -------------------------
@@ -40628,7 +38394,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40640,7 +38405,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40652,7 +38416,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40664,7 +38427,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40676,7 +38438,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40688,7 +38449,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40700,7 +38460,6 @@ event:onSoulChange — L10
    :caption: modules/modules/game_skills/skills.lua (L10)
 
 
-.. _modules-modules-game-skills-skills-lua-l10-event-onsoulchange-137123a496:
 
 event:onSoulChange — L10
 ------------------------
@@ -40724,7 +38483,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40736,7 +38494,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40748,7 +38505,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40760,7 +38516,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40772,7 +38527,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40784,7 +38538,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40796,7 +38549,6 @@ event:onSpeedChange — L16
    :caption: modules/modules/game_skills/skills.lua (L16)
 
 
-.. _modules-modules-game-skills-skills-lua-l16-event-onspeedchange-3e77167541:
 
 event:onSpeedChange — L16
 -------------------------
@@ -40820,7 +38572,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40832,7 +38583,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40844,7 +38594,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40856,7 +38605,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40868,7 +38616,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40880,7 +38627,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40892,7 +38638,6 @@ event:onStaminaChange — L13
    :caption: modules/modules/game_skills/skills.lua (L13)
 
 
-.. _modules-modules-game-skills-skills-lua-l13-event-onstaminachange-91ab213c9a:
 
 event:onStaminaChange — L13
 ---------------------------
@@ -40916,7 +38661,6 @@ event:onTotalCapacityChange — L12
    :caption: modules/modules/game_skills/skills.lua (L12)
 
 
-.. _modules-modules-game-skills-skills-lua-l12-event-ontotalcapacity-f303f1c0a9:
 
 event:onTotalCapacityChange — L12
 ---------------------------------
@@ -40928,7 +38672,6 @@ event:onTotalCapacityChange — L12
    :caption: modules/modules/game_skills/skills.lua (L12)
 
 
-.. _modules-modules-game-skills-skills-lua-l12-event-ontotalcapacity-f303f1c0a9:
 
 event:onTotalCapacityChange — L12
 ---------------------------------
@@ -40940,7 +38683,6 @@ event:onTotalCapacityChange — L12
    :caption: modules/modules/game_skills/skills.lua (L12)
 
 
-.. _modules-modules-game-skills-skills-lua-l12-event-ontotalcapacity-f303f1c0a9:
 
 event:onTotalCapacityChange — L12
 ---------------------------------
@@ -40952,7 +38694,6 @@ event:onTotalCapacityChange — L12
    :caption: modules/modules/game_skills/skills.lua (L12)
 
 
-.. _modules-modules-game-skills-skills-lua-l12-event-ontotalcapacity-f303f1c0a9:
 
 event:onTotalCapacityChange — L12
 ---------------------------------
@@ -40964,7 +38705,6 @@ event:onTotalCapacityChange — L12
    :caption: modules/modules/game_skills/skills.lua (L12)
 
 
-.. _modules-modules-game-skills-skills-lua-l12-event-ontotalcapacity-f303f1c0a9:
 
 event:onTotalCapacityChange — L12
 ---------------------------------
@@ -40976,7 +38716,6 @@ event:onTotalCapacityChange — L12
    :caption: modules/modules/game_skills/skills.lua (L12)
 
 
-.. _modules-modules-game-skills-skills-lua-l12-event-ontotalcapacity-f303f1c0a9:
 
 event:onTotalCapacityChange — L12
 ---------------------------------
@@ -41000,7 +38739,6 @@ event:onChildFocusChange — L176
    :caption: modules/modules/game_spelllist/spelllist.lua (L176)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l176-event-onchildf-fc5feaacba:
 
 event:onChildFocusChange — L176
 -------------------------------
@@ -41012,7 +38750,6 @@ event:onChildFocusChange — L176
    :caption: modules/modules/game_spelllist/spelllist.lua (L176)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l176-event-onchildf-fc5feaacba:
 
 event:onChildFocusChange — L176
 -------------------------------
@@ -41024,7 +38761,6 @@ event:onChildFocusChange — L176
    :caption: modules/modules/game_spelllist/spelllist.lua (L176)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l176-event-onchildf-fc5feaacba:
 
 event:onChildFocusChange — L176
 -------------------------------
@@ -41060,7 +38796,6 @@ event:onGameEnd — L99
    :caption: modules/modules/game_spelllist/spelllist.lua (L99)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l99-event-ongameend-26380be44d:
 
 event:onGameEnd — L99
 ---------------------
@@ -41072,7 +38807,6 @@ event:onGameEnd — L99
    :caption: modules/modules/game_spelllist/spelllist.lua (L99)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l99-event-ongameend-26380be44d:
 
 event:onGameEnd — L99
 ---------------------
@@ -41084,7 +38818,6 @@ event:onGameEnd — L99
    :caption: modules/modules/game_spelllist/spelllist.lua (L99)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l99-event-ongameend-26380be44d:
 
 event:onGameEnd — L99
 ---------------------
@@ -41108,7 +38841,6 @@ event:onGameStart — L98
    :caption: modules/modules/game_spelllist/spelllist.lua (L98)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l98-event-ongamesta-2fe2d9e557:
 
 event:onGameStart — L98
 -----------------------
@@ -41120,7 +38852,6 @@ event:onGameStart — L98
    :caption: modules/modules/game_spelllist/spelllist.lua (L98)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l98-event-ongamesta-2fe2d9e557:
 
 event:onGameStart — L98
 -----------------------
@@ -41132,7 +38863,6 @@ event:onGameStart — L98
    :caption: modules/modules/game_spelllist/spelllist.lua (L98)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l98-event-ongamesta-2fe2d9e557:
 
 event:onGameStart — L98
 -----------------------
@@ -41156,7 +38886,6 @@ event:onSelectionChange — L155
    :caption: modules/modules/game_spelllist/spelllist.lua (L155)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l155-event-onselect-53e505edd0:
 
 event:onSelectionChange — L155
 ------------------------------
@@ -41168,7 +38897,6 @@ event:onSelectionChange — L155
    :caption: modules/modules/game_spelllist/spelllist.lua (L155)
 
 
-.. _modules-modules-game-spelllist-spelllist-lua-l155-event-onselect-53e505edd0:
 
 event:onSelectionChange — L155
 ------------------------------
@@ -41204,7 +38932,6 @@ event:onGameEnd — L61
    :caption: modules/modules/game_textmessage/textmessage.lua (L61)
 
 
-.. _modules-modules-game-textmessage-textmessage-lua-l61-event-ongam-351a3c56c0:
 
 event:onGameEnd — L61
 ---------------------
@@ -41228,7 +38955,6 @@ event:onClick — L94
    :caption: modules/modules/game_textwindow/textwindow.lua (L94)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l94-event-onclick-d4fddbff8b:
 
 event:onClick — L94
 -------------------
@@ -41240,7 +38966,6 @@ event:onClick — L94
    :caption: modules/modules/game_textwindow/textwindow.lua (L94)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l94-event-onclick-d4fddbff8b:
 
 event:onClick — L94
 -------------------
@@ -41252,7 +38977,6 @@ event:onClick — L94
    :caption: modules/modules/game_textwindow/textwindow.lua (L94)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l94-event-onclick-d4fddbff8b:
 
 event:onClick — L94
 -------------------
@@ -41276,7 +39000,6 @@ event:onEditList — L7
    :caption: modules/modules/game_textwindow/textwindow.lua (L7)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l7-event-oneditli-5c41f38462:
 
 event:onEditList — L7
 ---------------------
@@ -41288,7 +39011,6 @@ event:onEditList — L7
    :caption: modules/modules/game_textwindow/textwindow.lua (L7)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l7-event-oneditli-5c41f38462:
 
 event:onEditList — L7
 ---------------------
@@ -41300,7 +39022,6 @@ event:onEditList — L7
    :caption: modules/modules/game_textwindow/textwindow.lua (L7)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l7-event-oneditli-5c41f38462:
 
 event:onEditList — L7
 ---------------------
@@ -41324,7 +39045,6 @@ event:onEditText — L6
    :caption: modules/modules/game_textwindow/textwindow.lua (L6)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l6-event-oneditte-bc2390d82c:
 
 event:onEditText — L6
 ---------------------
@@ -41336,7 +39056,6 @@ event:onEditText — L6
    :caption: modules/modules/game_textwindow/textwindow.lua (L6)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l6-event-oneditte-bc2390d82c:
 
 event:onEditText — L6
 ---------------------
@@ -41348,7 +39067,6 @@ event:onEditText — L6
    :caption: modules/modules/game_textwindow/textwindow.lua (L6)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l6-event-oneditte-bc2390d82c:
 
 event:onEditText — L6
 ---------------------
@@ -41384,7 +39102,6 @@ event:onEscape — L101
    :caption: modules/modules/game_textwindow/textwindow.lua (L101)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l101-event-onesca-288b31f05e:
 
 event:onEscape — L101
 ---------------------
@@ -41408,7 +39125,6 @@ event:onGameEditList — L7
    :caption: modules/modules/game_textwindow/textwindow.lua (L7)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l7-event-ongameed-032072f10f:
 
 event:onGameEditList — L7
 -------------------------
@@ -41420,7 +39136,6 @@ event:onGameEditList — L7
    :caption: modules/modules/game_textwindow/textwindow.lua (L7)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l7-event-ongameed-032072f10f:
 
 event:onGameEditList — L7
 -------------------------
@@ -41444,7 +39159,6 @@ event:onGameEditText — L6
    :caption: modules/modules/game_textwindow/textwindow.lua (L6)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l6-event-ongameed-809e670aac:
 
 event:onGameEditText — L6
 -------------------------
@@ -41456,7 +39170,6 @@ event:onGameEditText — L6
    :caption: modules/modules/game_textwindow/textwindow.lua (L6)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l6-event-ongameed-809e670aac:
 
 event:onGameEditText — L6
 -------------------------
@@ -41480,7 +39193,6 @@ event:onGameEnd — L8
    :caption: modules/modules/game_textwindow/textwindow.lua (L8)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l8-event-ongameen-d528f3d81f:
 
 event:onGameEnd — L8
 --------------------
@@ -41492,7 +39204,6 @@ event:onGameEnd — L8
    :caption: modules/modules/game_textwindow/textwindow.lua (L8)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l8-event-ongameen-d528f3d81f:
 
 event:onGameEnd — L8
 --------------------
@@ -41504,7 +39215,6 @@ event:onGameEnd — L8
    :caption: modules/modules/game_textwindow/textwindow.lua (L8)
 
 
-.. _modules-modules-game-textwindow-textwindow-lua-l8-event-ongameen-d528f3d81f:
 
 event:onGameEnd — L8
 --------------------
@@ -41528,7 +39238,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41540,7 +39249,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41552,7 +39260,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41564,7 +39271,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41576,7 +39282,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41588,7 +39293,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41600,7 +39304,6 @@ event:onBaseMagicLevelChange — L115
    :caption: modules/modules/game_topbar/topbar.lua (L115)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l115-event-onbasemagiclev-45d60ebad2:
 
 event:onBaseMagicLevelChange — L115
 -----------------------------------
@@ -41624,7 +39327,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41636,7 +39338,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41648,7 +39349,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41660,7 +39360,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41672,7 +39371,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41684,7 +39382,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41696,7 +39393,6 @@ event:onBaseSkillChange — L117
    :caption: modules/modules/game_topbar/topbar.lua (L117)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l117-event-onbaseskillcha-70ad6e3377:
 
 event:onBaseSkillChange — L117
 ------------------------------
@@ -41720,7 +39416,6 @@ event:onError — L476
    :caption: modules/modules/game_topbar/topbar.lua (L476)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l476-event-onerror-e7508dedc1:
 
 event:onError — L476
 --------------------
@@ -41732,7 +39427,6 @@ event:onError — L476
    :caption: modules/modules/game_topbar/topbar.lua (L476)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l476-event-onerror-e7508dedc1:
 
 event:onError — L476
 --------------------
@@ -41756,7 +39450,6 @@ event:onGameEnd — L119
    :caption: modules/modules/game_topbar/topbar.lua (L119)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l119-event-ongameend-48f0d5acfd:
 
 event:onGameEnd — L119
 ----------------------
@@ -41768,7 +39461,6 @@ event:onGameEnd — L119
    :caption: modules/modules/game_topbar/topbar.lua (L119)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l119-event-ongameend-48f0d5acfd:
 
 event:onGameEnd — L119
 ----------------------
@@ -41780,7 +39472,6 @@ event:onGameEnd — L119
    :caption: modules/modules/game_topbar/topbar.lua (L119)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l119-event-ongameend-48f0d5acfd:
 
 event:onGameEnd — L119
 ----------------------
@@ -41804,7 +39495,6 @@ event:onGameStart — L119
    :caption: modules/modules/game_topbar/topbar.lua (L119)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l119-event-ongamestart-35545724f7:
 
 event:onGameStart — L119
 ------------------------
@@ -41816,7 +39506,6 @@ event:onGameStart — L119
    :caption: modules/modules/game_topbar/topbar.lua (L119)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l119-event-ongamestart-35545724f7:
 
 event:onGameStart — L119
 ------------------------
@@ -41828,7 +39517,6 @@ event:onGameStart — L119
    :caption: modules/modules/game_topbar/topbar.lua (L119)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l119-event-ongamestart-35545724f7:
 
 event:onGameStart — L119
 ------------------------
@@ -41852,7 +39540,6 @@ event:onGeometryChange — L181
    :caption: modules/modules/game_topbar/topbar.lua (L181)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l181-event-ongeometrychan-13ed0e2efd:
 
 event:onGeometryChange — L181
 -----------------------------
@@ -41876,7 +39563,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41888,7 +39574,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41900,7 +39585,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41912,7 +39596,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41924,7 +39607,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41936,7 +39618,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41948,7 +39629,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41960,7 +39640,6 @@ event:onHealthChange — L110
    :caption: modules/modules/game_topbar/topbar.lua (L110)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l110-event-onhealthchange-b4d22ffa9f:
 
 event:onHealthChange — L110
 ---------------------------
@@ -41984,7 +39663,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -41996,7 +39674,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42008,7 +39685,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42020,7 +39696,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42032,7 +39707,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42044,7 +39718,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42056,7 +39729,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42068,7 +39740,6 @@ event:onLevelChange — L112
    :caption: modules/modules/game_topbar/topbar.lua (L112)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l112-event-onlevelchange-aa049ad2e4:
 
 event:onLevelChange — L112
 --------------------------
@@ -42092,7 +39763,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42104,7 +39774,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42116,7 +39785,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42128,7 +39796,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42140,7 +39807,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42152,7 +39818,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42164,7 +39829,6 @@ event:onMagicLevelChange — L114
    :caption: modules/modules/game_topbar/topbar.lua (L114)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l114-event-onmagiclevelch-a671970d4f:
 
 event:onMagicLevelChange — L114
 -------------------------------
@@ -42188,7 +39852,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42200,7 +39863,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42212,7 +39874,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42224,7 +39885,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42236,7 +39896,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42248,7 +39907,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42260,7 +39918,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42272,7 +39929,6 @@ event:onManaChange — L111
    :caption: modules/modules/game_topbar/topbar.lua (L111)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l111-event-onmanachange-8060996725:
 
 event:onManaChange — L111
 -------------------------
@@ -42308,7 +39964,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42320,7 +39975,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42332,7 +39986,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42344,7 +39997,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42356,7 +40008,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42368,7 +40019,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42380,7 +40030,6 @@ event:onSkillChange — L116
    :caption: modules/modules/game_topbar/topbar.lua (L116)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l116-event-onskillchange-e755c30cae:
 
 event:onSkillChange — L116
 --------------------------
@@ -42404,7 +40053,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42416,7 +40064,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42428,7 +40075,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42440,7 +40086,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42452,7 +40097,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42464,7 +40108,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42476,7 +40119,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42488,7 +40130,6 @@ event:onStatesChange — L113
    :caption: modules/modules/game_topbar/topbar.lua (L113)
 
 
-.. _modules-modules-game-topbar-topbar-lua-l113-event-onstateschange-a52f65f1ef:
 
 event:onStatesChange — L113
 ---------------------------
@@ -42512,7 +40153,6 @@ event:onGameStart — L18
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L18)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l18-aa0743c0df:
 
 event:onGameStart — L18
 -----------------------
@@ -42524,7 +40164,6 @@ event:onGameStart — L18
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L18)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l18-aa0743c0df:
 
 event:onGameStart — L18
 -----------------------
@@ -42536,7 +40175,6 @@ event:onGameStart — L18
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L18)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l18-aa0743c0df:
 
 event:onGameStart — L18
 -----------------------
@@ -42572,7 +40210,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42584,7 +40221,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42596,7 +40232,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42608,7 +40243,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42620,7 +40254,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42632,7 +40265,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42644,7 +40276,6 @@ event:onOpenPvpSituationsChange — L20
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L20)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l20-9123e5037b:
 
 event:onOpenPvpSituationsChange — L20
 -------------------------------------
@@ -42668,7 +40299,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42680,7 +40310,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42692,7 +40321,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42704,7 +40332,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42716,7 +40343,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42728,7 +40354,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42740,7 +40365,6 @@ event:onSkullChange — L21
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L21)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l21-76e9ce1f57:
 
 event:onSkullChange — L21
 -------------------------
@@ -42764,7 +40388,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42776,7 +40399,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42788,7 +40410,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42800,7 +40421,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42812,7 +40432,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42824,7 +40443,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42836,7 +40454,6 @@ event:onUnjustifiedPointsChange — L19
    :caption: modules/modules/game_unjustifiedpoints/unjustifiedpoints.lua (L19)
 
 
-.. _modules-modules-game-unjustifiedpoints-unjustifiedpoints-lua-l19-a7d83fcefe:
 
 event:onUnjustifiedPointsChange — L19
 -------------------------------------
@@ -42860,7 +40477,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42872,7 +40488,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42884,7 +40499,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42896,7 +40510,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42908,7 +40521,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42920,7 +40532,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42932,7 +40543,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42944,7 +40554,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42956,7 +40565,6 @@ event:onAddVip — L10
    :caption: modules/modules/game_viplist/viplist.lua (L10)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l10-event-onaddvip-22a5952962:
 
 event:onAddVip — L10
 --------------------
@@ -42980,7 +40588,6 @@ event:onClick — L165
    :caption: modules/modules/game_viplist/viplist.lua (L165)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l165-event-onclick-3f13e67621:
 
 event:onClick — L165
 --------------------
@@ -43004,7 +40611,6 @@ event:onDoubleClick — L297
    :caption: modules/modules/game_viplist/viplist.lua (L297)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l297-event-ondoubleclic-8b277f3201:
 
 event:onDoubleClick — L297
 --------------------------
@@ -43052,7 +40658,6 @@ event:onGameEnd — L9
    :caption: modules/modules/game_viplist/viplist.lua (L9)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l9-event-ongameend-717f9bce99:
 
 event:onGameEnd — L9
 --------------------
@@ -43064,7 +40669,6 @@ event:onGameEnd — L9
    :caption: modules/modules/game_viplist/viplist.lua (L9)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l9-event-ongameend-717f9bce99:
 
 event:onGameEnd — L9
 --------------------
@@ -43076,7 +40680,6 @@ event:onGameEnd — L9
    :caption: modules/modules/game_viplist/viplist.lua (L9)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l9-event-ongameend-717f9bce99:
 
 event:onGameEnd — L9
 --------------------
@@ -43100,7 +40703,6 @@ event:onGameStart — L8
    :caption: modules/modules/game_viplist/viplist.lua (L8)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l8-event-ongamestart-12aca25430:
 
 event:onGameStart — L8
 ----------------------
@@ -43112,7 +40714,6 @@ event:onGameStart — L8
    :caption: modules/modules/game_viplist/viplist.lua (L8)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l8-event-ongamestart-12aca25430:
 
 event:onGameStart — L8
 ----------------------
@@ -43124,7 +40725,6 @@ event:onGameStart — L8
    :caption: modules/modules/game_viplist/viplist.lua (L8)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l8-event-ongamestart-12aca25430:
 
 event:onGameStart — L8
 ----------------------
@@ -43172,7 +40772,6 @@ event:onVipListLabelMousePress — L261
    :caption: modules/modules/game_viplist/viplist.lua (L261)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l261-event-onviplistlab-a28f7ff943:
 
 event:onVipListLabelMousePress — L261
 -------------------------------------
@@ -43208,7 +40807,6 @@ event:onVipStateChange — L11
    :caption: modules/modules/game_viplist/viplist.lua (L11)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l11-event-onvipstatecha-f4086a4e7c:
 
 event:onVipStateChange — L11
 ----------------------------
@@ -43220,7 +40818,6 @@ event:onVipStateChange — L11
    :caption: modules/modules/game_viplist/viplist.lua (L11)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l11-event-onvipstatecha-f4086a4e7c:
 
 event:onVipStateChange — L11
 ----------------------------
@@ -43232,7 +40829,6 @@ event:onVipStateChange — L11
    :caption: modules/modules/game_viplist/viplist.lua (L11)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l11-event-onvipstatecha-f4086a4e7c:
 
 event:onVipStateChange — L11
 ----------------------------
@@ -43244,7 +40840,6 @@ event:onVipStateChange — L11
    :caption: modules/modules/game_viplist/viplist.lua (L11)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l11-event-onvipstatecha-f4086a4e7c:
 
 event:onVipStateChange — L11
 ----------------------------
@@ -43256,7 +40851,6 @@ event:onVipStateChange — L11
    :caption: modules/modules/game_viplist/viplist.lua (L11)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l11-event-onvipstatecha-f4086a4e7c:
 
 event:onVipStateChange — L11
 ----------------------------
@@ -43268,7 +40862,6 @@ event:onVipStateChange — L11
    :caption: modules/modules/game_viplist/viplist.lua (L11)
 
 
-.. _modules-modules-game-viplist-viplist-lua-l11-event-onvipstatecha-f4086a4e7c:
 
 event:onVipStateChange — L11
 ----------------------------
@@ -43292,7 +40885,6 @@ event:onCancelWalk — L26
    :caption: modules/modules/game_walking/walking.lua (L26)
 
 
-.. _modules-modules-game-walking-walking-lua-l26-event-oncancelwalk-fc65ac0b8c:
 
 event:onCancelWalk — L26
 ------------------------
@@ -43304,7 +40896,6 @@ event:onCancelWalk — L26
    :caption: modules/modules/game_walking/walking.lua (L26)
 
 
-.. _modules-modules-game-walking-walking-lua-l26-event-oncancelwalk-fc65ac0b8c:
 
 event:onCancelWalk — L26
 ------------------------
@@ -43316,7 +40907,6 @@ event:onCancelWalk — L26
    :caption: modules/modules/game_walking/walking.lua (L26)
 
 
-.. _modules-modules-game-walking-walking-lua-l26-event-oncancelwalk-fc65ac0b8c:
 
 event:onCancelWalk — L26
 ------------------------
@@ -43352,7 +40942,6 @@ event:onPositionChange — L23
    :caption: modules/modules/game_walking/walking.lua (L23)
 
 
-.. _modules-modules-game-walking-walking-lua-l23-event-onpositioncha-febcaad7ed:
 
 event:onPositionChange — L23
 ----------------------------
@@ -43364,7 +40953,6 @@ event:onPositionChange — L23
    :caption: modules/modules/game_walking/walking.lua (L23)
 
 
-.. _modules-modules-game-walking-walking-lua-l23-event-onpositioncha-febcaad7ed:
 
 event:onPositionChange — L23
 ----------------------------
@@ -43376,7 +40964,6 @@ event:onPositionChange — L23
    :caption: modules/modules/game_walking/walking.lua (L23)
 
 
-.. _modules-modules-game-walking-walking-lua-l23-event-onpositioncha-febcaad7ed:
 
 event:onPositionChange — L23
 ----------------------------
@@ -43388,7 +40975,6 @@ event:onPositionChange — L23
    :caption: modules/modules/game_walking/walking.lua (L23)
 
 
-.. _modules-modules-game-walking-walking-lua-l23-event-onpositioncha-febcaad7ed:
 
 event:onPositionChange — L23
 ----------------------------
@@ -43400,7 +40986,6 @@ event:onPositionChange — L23
    :caption: modules/modules/game_walking/walking.lua (L23)
 
 
-.. _modules-modules-game-walking-walking-lua-l23-event-onpositioncha-febcaad7ed:
 
 event:onPositionChange — L23
 ----------------------------
@@ -43412,7 +40997,6 @@ event:onPositionChange — L23
    :caption: modules/modules/game_walking/walking.lua (L23)
 
 
-.. _modules-modules-game-walking-walking-lua-l23-event-onpositioncha-febcaad7ed:
 
 event:onPositionChange — L23
 ----------------------------
@@ -43436,7 +41020,6 @@ event:onTeleport — L20
    :caption: modules/modules/game_walking/walking.lua (L20)
 
 
-.. _modules-modules-game-walking-walking-lua-l20-event-onteleport-4b41901644:
 
 event:onTeleport — L20
 ----------------------
@@ -43448,7 +41031,6 @@ event:onTeleport — L20
    :caption: modules/modules/game_walking/walking.lua (L20)
 
 
-.. _modules-modules-game-walking-walking-lua-l20-event-onteleport-4b41901644:
 
 event:onTeleport — L20
 ----------------------
@@ -43460,7 +41042,6 @@ event:onTeleport — L20
    :caption: modules/modules/game_walking/walking.lua (L20)
 
 
-.. _modules-modules-game-walking-walking-lua-l20-event-onteleport-4b41901644:
 
 event:onTeleport — L20
 ----------------------
@@ -43472,7 +41053,6 @@ event:onTeleport — L20
    :caption: modules/modules/game_walking/walking.lua (L20)
 
 
-.. _modules-modules-game-walking-walking-lua-l20-event-onteleport-4b41901644:
 
 event:onTeleport — L20
 ----------------------
@@ -43484,7 +41064,6 @@ event:onTeleport — L20
    :caption: modules/modules/game_walking/walking.lua (L20)
 
 
-.. _modules-modules-game-walking-walking-lua-l20-event-onteleport-4b41901644:
 
 event:onTeleport — L20
 ----------------------
@@ -43496,7 +41075,6 @@ event:onTeleport — L20
    :caption: modules/modules/game_walking/walking.lua (L20)
 
 
-.. _modules-modules-game-walking-walking-lua-l20-event-onteleport-4b41901644:
 
 event:onTeleport — L20
 ----------------------
@@ -43520,7 +41098,6 @@ event:onWalk — L24
    :caption: modules/modules/game_walking/walking.lua (L24)
 
 
-.. _modules-modules-game-walking-walking-lua-l24-event-onwalk-62ac0e2333:
 
 event:onWalk — L24
 ------------------
@@ -43532,7 +41109,6 @@ event:onWalk — L24
    :caption: modules/modules/game_walking/walking.lua (L24)
 
 
-.. _modules-modules-game-walking-walking-lua-l24-event-onwalk-62ac0e2333:
 
 event:onWalk — L24
 ------------------
@@ -43544,7 +41120,6 @@ event:onWalk — L24
    :caption: modules/modules/game_walking/walking.lua (L24)
 
 
-.. _modules-modules-game-walking-walking-lua-l24-event-onwalk-62ac0e2333:
 
 event:onWalk — L24
 ------------------
@@ -43556,7 +41131,6 @@ event:onWalk — L24
    :caption: modules/modules/game_walking/walking.lua (L24)
 
 
-.. _modules-modules-game-walking-walking-lua-l24-event-onwalk-62ac0e2333:
 
 event:onWalk — L24
 ------------------
@@ -43568,7 +41142,6 @@ event:onWalk — L24
    :caption: modules/modules/game_walking/walking.lua (L24)
 
 
-.. _modules-modules-game-walking-walking-lua-l24-event-onwalk-62ac0e2333:
 
 event:onWalk — L24
 ------------------
@@ -43580,7 +41153,6 @@ event:onWalk — L24
    :caption: modules/modules/game_walking/walking.lua (L24)
 
 
-.. _modules-modules-game-walking-walking-lua-l24-event-onwalk-62ac0e2333:
 
 event:onWalk — L24
 ------------------
@@ -43604,7 +41176,6 @@ event:onWalkFinish — L25
    :caption: modules/modules/game_walking/walking.lua (L25)
 
 
-.. _modules-modules-game-walking-walking-lua-l25-event-onwalkfinish-f1c5e46b8b:
 
 event:onWalkFinish — L25
 ------------------------
@@ -43616,7 +41187,6 @@ event:onWalkFinish — L25
    :caption: modules/modules/game_walking/walking.lua (L25)
 
 
-.. _modules-modules-game-walking-walking-lua-l25-event-onwalkfinish-f1c5e46b8b:
 
 event:onWalkFinish — L25
 ------------------------
@@ -43628,7 +41198,6 @@ event:onWalkFinish — L25
    :caption: modules/modules/game_walking/walking.lua (L25)
 
 
-.. _modules-modules-game-walking-walking-lua-l25-event-onwalkfinish-f1c5e46b8b:
 
 event:onWalkFinish — L25
 ------------------------
@@ -43640,7 +41209,6 @@ event:onWalkFinish — L25
    :caption: modules/modules/game_walking/walking.lua (L25)
 
 
-.. _modules-modules-game-walking-walking-lua-l25-event-onwalkfinish-f1c5e46b8b:
 
 event:onWalkFinish — L25
 ------------------------
@@ -43652,7 +41220,6 @@ event:onWalkFinish — L25
    :caption: modules/modules/game_walking/walking.lua (L25)
 
 
-.. _modules-modules-game-walking-walking-lua-l25-event-onwalkfinish-f1c5e46b8b:
 
 event:onWalkFinish — L25
 ------------------------
@@ -43664,7 +41231,6 @@ event:onWalkFinish — L25
    :caption: modules/modules/game_walking/walking.lua (L25)
 
 
-.. _modules-modules-game-walking-walking-lua-l25-event-onwalkfinish-f1c5e46b8b:
 
 event:onWalkFinish — L25
 ------------------------
@@ -43772,7 +41338,6 @@ event:onCharacterList — L282
    :caption: modules/modules/gamelib/protocollogin.lua (L282)
 
 
-.. _modules-modules-gamelib-protocollogin-lua-l282-event-oncharacter-8bc6069682:
 
 event:onCharacterList — L282
 ----------------------------
@@ -43820,7 +41385,6 @@ event:onLoginError — L21
    :caption: modules/modules/gamelib/protocollogin.lua (L21)
 
 
-.. _modules-modules-gamelib-protocollogin-lua-l21-event-onloginerror-6565ec4fc4:
 
 event:onLoginError — L21
 ------------------------
@@ -43832,7 +41396,6 @@ event:onLoginError — L21
    :caption: modules/modules/gamelib/protocollogin.lua (L21)
 
 
-.. _modules-modules-gamelib-protocollogin-lua-l21-event-onloginerror-6565ec4fc4:
 
 event:onLoginError — L21
 ------------------------
@@ -43844,7 +41407,6 @@ event:onLoginError — L21
    :caption: modules/modules/gamelib/protocollogin.lua (L21)
 
 
-.. _modules-modules-gamelib-protocollogin-lua-l21-event-onloginerror-6565ec4fc4:
 
 event:onLoginError — L21
 ------------------------
@@ -43856,7 +41418,6 @@ event:onLoginError — L21
    :caption: modules/modules/gamelib/protocollogin.lua (L21)
 
 
-.. _modules-modules-gamelib-protocollogin-lua-l21-event-onloginerror-6565ec4fc4:
 
 event:onLoginError — L21
 ------------------------
@@ -43952,7 +41513,6 @@ event:onTextMessage — L3
    :caption: modules/modules/gamelib/textmessages.lua (L3)
 
 
-.. _modules-modules-gamelib-textmessages-lua-l3-event-ontextmessage-ee05f899a9:
 
 event:onTextMessage — L3
 ------------------------
@@ -43976,7 +41536,6 @@ event:onFollowed — L7
    :caption: modules/modules/gamelib/ui/uicreaturebutton.lua (L7)
 
 
-.. _modules-modules-gamelib-ui-uicreaturebutton-lua-l7-event-onfollo-50797ef6a8:
 
 event:onFollowed — L7
 ---------------------
@@ -44000,7 +41559,6 @@ event:onIdle — L5
    :caption: modules/modules/gamelib/ui/uicreaturebutton.lua (L5)
 
 
-.. _modules-modules-gamelib-ui-uicreaturebutton-lua-l5-event-onidle-cee5f19e34:
 
 event:onIdle — L5
 -----------------
@@ -44012,7 +41570,6 @@ event:onIdle — L5
    :caption: modules/modules/gamelib/ui/uicreaturebutton.lua (L5)
 
 
-.. _modules-modules-gamelib-ui-uicreaturebutton-lua-l5-event-onidle-cee5f19e34:
 
 event:onIdle — L5
 -----------------
@@ -44036,7 +41593,6 @@ event:onTargeted — L6
    :caption: modules/modules/gamelib/ui/uicreaturebutton.lua (L6)
 
 
-.. _modules-modules-gamelib-ui-uicreaturebutton-lua-l6-event-ontarge-dec9dcef87:
 
 event:onTargeted — L6
 ---------------------
@@ -44120,7 +41676,6 @@ event:onHoverChange — L61
    :caption: modules/modules/gamelib/ui/uiitem.lua (L61)
 
 
-.. _modules-modules-gamelib-ui-uiitem-lua-l61-event-onhoverchange-a2d0b8ccdf:
 
 event:onHoverChange — L61
 -------------------------
@@ -44168,7 +41723,6 @@ event:onAddAutomapFlag — L9
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L9)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l9-event-onaddautomapfl-15282d4e01:
 
 event:onAddAutomapFlag — L9
 ---------------------------
@@ -44180,7 +41734,6 @@ event:onAddAutomapFlag — L9
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L9)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l9-event-onaddautomapfl-15282d4e01:
 
 event:onAddAutomapFlag — L9
 ---------------------------
@@ -44192,7 +41745,6 @@ event:onAddAutomapFlag — L9
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L9)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l9-event-onaddautomapfl-15282d4e01:
 
 event:onAddAutomapFlag — L9
 ---------------------------
@@ -44204,7 +41756,6 @@ event:onAddAutomapFlag — L9
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L9)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l9-event-onaddautomapfl-15282d4e01:
 
 event:onAddAutomapFlag — L9
 ---------------------------
@@ -44216,7 +41767,6 @@ event:onAddAutomapFlag — L9
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L9)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l9-event-onaddautomapfl-15282d4e01:
 
 event:onAddAutomapFlag — L9
 ---------------------------
@@ -44228,7 +41778,6 @@ event:onAddAutomapFlag — L9
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L9)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l9-event-onaddautomapfl-15282d4e01:
 
 event:onAddAutomapFlag — L9
 ---------------------------
@@ -44264,7 +41813,6 @@ event:onClick — L302
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L302)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l302-event-onclick-7cb6355076:
 
 event:onClick — L302
 --------------------
@@ -44300,7 +41848,6 @@ event:onDestroy — L17
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L17)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l17-event-ondestroy-faed0d38d2:
 
 event:onDestroy — L17
 ---------------------
@@ -44312,7 +41859,6 @@ event:onDestroy — L17
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L17)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l17-event-ondestroy-faed0d38d2:
 
 event:onDestroy — L17
 ---------------------
@@ -44396,7 +41942,6 @@ event:onFlagMouseRelease — L83
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L83)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l83-event-onflagmousere-3f897de47c:
 
 event:onFlagMouseRelease — L83
 ------------------------------
@@ -44432,7 +41977,6 @@ event:onMouseRelease — L131
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L131)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l131-event-onmouserelea-25c342bdf8:
 
 event:onMouseRelease — L131
 ---------------------------
@@ -44468,7 +42012,6 @@ event:onRemoveAutomapFlag — L10
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L10)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l10-event-onremoveautom-3b93dc5ff4:
 
 event:onRemoveAutomapFlag — L10
 -------------------------------
@@ -44480,7 +42023,6 @@ event:onRemoveAutomapFlag — L10
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L10)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l10-event-onremoveautom-3b93dc5ff4:
 
 event:onRemoveAutomapFlag — L10
 -------------------------------
@@ -44492,7 +42034,6 @@ event:onRemoveAutomapFlag — L10
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L10)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l10-event-onremoveautom-3b93dc5ff4:
 
 event:onRemoveAutomapFlag — L10
 -------------------------------
@@ -44504,7 +42045,6 @@ event:onRemoveAutomapFlag — L10
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L10)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l10-event-onremoveautom-3b93dc5ff4:
 
 event:onRemoveAutomapFlag — L10
 -------------------------------
@@ -44516,7 +42056,6 @@ event:onRemoveAutomapFlag — L10
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L10)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l10-event-onremoveautom-3b93dc5ff4:
 
 event:onRemoveAutomapFlag — L10
 -------------------------------
@@ -44528,7 +42067,6 @@ event:onRemoveAutomapFlag — L10
    :caption: modules/modules/gamelib/ui/uiminimap.lua (L10)
 
 
-.. _modules-modules-gamelib-ui-uiminimap-lua-l10-event-onremoveautom-3b93dc5ff4:
 
 event:onRemoveAutomapFlag — L10
 -------------------------------
@@ -44600,7 +42138,6 @@ event:onLog — L14
    :caption: modules/modules/updater/updater.lua (L14)
 
 
-.. _modules-modules-updater-updater-lua-l14-event-onlog-7096bb8000:
 
 event:onLog — L14
 -----------------

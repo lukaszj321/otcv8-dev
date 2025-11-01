@@ -663,7 +663,7 @@ run()
 
 diagrams/settings_crypto_flow.mmd
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC export| SettingsExport
   Studio -->|IPC export| CryptoExport
