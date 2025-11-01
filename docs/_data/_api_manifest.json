@@ -1,0 +1,687 @@
+{
+  "generatedAt": "2025-11-01T00:11:48.998Z",
+  "main": "docs/api/otcv8-full-api.md",
+  "sections": [],
+  "schemas": [
+    {
+      "id": "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema-strict.json",
+      "title": "markdownlint configuration schema",
+      "md": "docs/api/schemas/markdownlint-config-schema-strict.json"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.38.0/schema/markdownlint-config-schema.json",
+      "title": "markdownlint configuration schema",
+      "md": "docs/api/schemas/markdownlint-config-schema.json"
+    }
+  ],
+  "cppSplit": [
+    {
+      "title": "src/android/android_native_app_glue.h",
+      "md": "docs/api/external/cpp/src_android_android_native_app_glue.md"
+    },
+    {
+      "title": "src/client/animatedtext.h",
+      "md": "docs/api/external/cpp/src_client_animatedtext.md"
+    },
+    {
+      "title": "src/client/animator.h",
+      "md": "docs/api/external/cpp/src_client_animator.md"
+    },
+    {
+      "title": "src/client/client.h",
+      "md": "docs/api/external/cpp/src_client_client.md"
+    },
+    {
+      "title": "src/client/container.h",
+      "md": "docs/api/external/cpp/src_client_container.md"
+    },
+    {
+      "title": "src/client/creature.h",
+      "md": "docs/api/external/cpp/src_client_creature.md"
+    },
+    {
+      "title": "src/client/creatures.h",
+      "md": "docs/api/external/cpp/src_client_creatures.md"
+    },
+    {
+      "title": "src/client/effect.h",
+      "md": "docs/api/external/cpp/src_client_effect.md"
+    },
+    {
+      "title": "src/client/game.h",
+      "md": "docs/api/external/cpp/src_client_game.md"
+    },
+    {
+      "title": "src/client/healthbars.h",
+      "md": "docs/api/external/cpp/src_client_healthbars.md"
+    },
+    {
+      "title": "src/client/houses.h",
+      "md": "docs/api/external/cpp/src_client_houses.md"
+    },
+    {
+      "title": "src/client/item.h",
+      "md": "docs/api/external/cpp/src_client_item.md"
+    },
+    {
+      "title": "src/client/itemtype.h",
+      "md": "docs/api/external/cpp/src_client_itemtype.md"
+    },
+    {
+      "title": "src/client/lightview.h",
+      "md": "docs/api/external/cpp/src_client_lightview.md"
+    },
+    {
+      "title": "src/client/localplayer.h",
+      "md": "docs/api/external/cpp/src_client_localplayer.md"
+    },
+    {
+      "title": "src/client/luavaluecasts_client.h",
+      "md": "docs/api/external/cpp/src_client_luavaluecasts_client.md"
+    },
+    {
+      "title": "src/client/map.h",
+      "md": "docs/api/external/cpp/src_client_map.md"
+    },
+    {
+      "title": "src/client/mapview.h",
+      "md": "docs/api/external/cpp/src_client_mapview.md"
+    },
+    {
+      "title": "src/client/minimap.h",
+      "md": "docs/api/external/cpp/src_client_minimap.md"
+    },
+    {
+      "title": "src/client/missile.h",
+      "md": "docs/api/external/cpp/src_client_missile.md"
+    },
+    {
+      "title": "src/client/outfit.h",
+      "md": "docs/api/external/cpp/src_client_outfit.md"
+    },
+    {
+      "title": "src/client/player.h",
+      "md": "docs/api/external/cpp/src_client_player.md"
+    },
+    {
+      "title": "src/client/position.h",
+      "md": "docs/api/external/cpp/src_client_position.md"
+    },
+    {
+      "title": "src/client/protocolcodes.h",
+      "md": "docs/api/external/cpp/src_client_protocolcodes.md"
+    },
+    {
+      "title": "src/client/protocolgame.h",
+      "md": "docs/api/external/cpp/src_client_protocolgame.md"
+    },
+    {
+      "title": "src/client/spritemanager.h",
+      "md": "docs/api/external/cpp/src_client_spritemanager.md"
+    },
+    {
+      "title": "src/client/statictext.h",
+      "md": "docs/api/external/cpp/src_client_statictext.md"
+    },
+    {
+      "title": "src/client/thing.h",
+      "md": "docs/api/external/cpp/src_client_thing.md"
+    },
+    {
+      "title": "src/client/thingstype.h",
+      "md": "docs/api/external/cpp/src_client_thingstype.md"
+    },
+    {
+      "title": "src/client/thingtype.h",
+      "md": "docs/api/external/cpp/src_client_thingtype.md"
+    },
+    {
+      "title": "src/client/thingtypemanager.h",
+      "md": "docs/api/external/cpp/src_client_thingtypemanager.md"
+    },
+    {
+      "title": "src/client/tile.h",
+      "md": "docs/api/external/cpp/src_client_tile.md"
+    },
+    {
+      "title": "src/client/towns.h",
+      "md": "docs/api/external/cpp/src_client_towns.md"
+    },
+    {
+      "title": "src/client/uicreature.h",
+      "md": "docs/api/external/cpp/src_client_uicreature.md"
+    },
+    {
+      "title": "src/client/uigraph.h",
+      "md": "docs/api/external/cpp/src_client_uigraph.md"
+    },
+    {
+      "title": "src/client/uiitem.h",
+      "md": "docs/api/external/cpp/src_client_uiitem.md"
+    },
+    {
+      "title": "src/client/uimap.h",
+      "md": "docs/api/external/cpp/src_client_uimap.md"
+    },
+    {
+      "title": "src/client/uimapanchorlayout.h",
+      "md": "docs/api/external/cpp/src_client_uimapanchorlayout.md"
+    },
+    {
+      "title": "src/client/uiminimap.h",
+      "md": "docs/api/external/cpp/src_client_uiminimap.md"
+    },
+    {
+      "title": "src/client/uiprogressrect.h",
+      "md": "docs/api/external/cpp/src_client_uiprogressrect.md"
+    },
+    {
+      "title": "src/client/uisprite.h",
+      "md": "docs/api/external/cpp/src_client_uisprite.md"
+    },
+    {
+      "title": "src/client/walkmatrix.h",
+      "md": "docs/api/external/cpp/src_client_walkmatrix.md"
+    },
+    {
+      "title": "src/framework/core/adaptiverenderer.h",
+      "md": "docs/api/external/cpp/src_framework_core_adaptiverenderer.md"
+    },
+    {
+      "title": "src/framework/core/application.h",
+      "md": "docs/api/external/cpp/src_framework_core_application.md"
+    },
+    {
+      "title": "src/framework/core/asyncdispatcher.h",
+      "md": "docs/api/external/cpp/src_framework_core_asyncdispatcher.md"
+    },
+    {
+      "title": "src/framework/core/binarytree.h",
+      "md": "docs/api/external/cpp/src_framework_core_binarytree.md"
+    },
+    {
+      "title": "src/framework/core/clock.h",
+      "md": "docs/api/external/cpp/src_framework_core_clock.md"
+    },
+    {
+      "title": "src/framework/core/config.h",
+      "md": "docs/api/external/cpp/src_framework_core_config.md"
+    },
+    {
+      "title": "src/framework/core/configmanager.h",
+      "md": "docs/api/external/cpp/src_framework_core_configmanager.md"
+    },
+    {
+      "title": "src/framework/core/consoleapplication.h",
+      "md": "docs/api/external/cpp/src_framework_core_consoleapplication.md"
+    },
+    {
+      "title": "src/framework/core/event.h",
+      "md": "docs/api/external/cpp/src_framework_core_event.md"
+    },
+    {
+      "title": "src/framework/core/eventdispatcher.h",
+      "md": "docs/api/external/cpp/src_framework_core_eventdispatcher.md"
+    },
+    {
+      "title": "src/framework/core/filestream.h",
+      "md": "docs/api/external/cpp/src_framework_core_filestream.md"
+    },
+    {
+      "title": "src/framework/core/graphicalapplication.h",
+      "md": "docs/api/external/cpp/src_framework_core_graphicalapplication.md"
+    },
+    {
+      "title": "src/framework/core/inputevent.h",
+      "md": "docs/api/external/cpp/src_framework_core_inputevent.md"
+    },
+    {
+      "title": "src/framework/core/logger.h",
+      "md": "docs/api/external/cpp/src_framework_core_logger.md"
+    },
+    {
+      "title": "src/framework/core/module.h",
+      "md": "docs/api/external/cpp/src_framework_core_module.md"
+    },
+    {
+      "title": "src/framework/core/modulemanager.h",
+      "md": "docs/api/external/cpp/src_framework_core_modulemanager.md"
+    },
+    {
+      "title": "src/framework/core/resourcemanager.h",
+      "md": "docs/api/external/cpp/src_framework_core_resourcemanager.md"
+    },
+    {
+      "title": "src/framework/core/scheduledevent.h",
+      "md": "docs/api/external/cpp/src_framework_core_scheduledevent.md"
+    },
+    {
+      "title": "src/framework/core/timer.h",
+      "md": "docs/api/external/cpp/src_framework_core_timer.md"
+    },
+    {
+      "title": "src/framework/global.h",
+      "md": "docs/api/external/cpp/src_framework_global.md"
+    },
+    {
+      "title": "src/framework/graphics/animatedtexture.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_animatedtexture.md"
+    },
+    {
+      "title": "src/framework/graphics/apngloader.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_apngloader.md"
+    },
+    {
+      "title": "src/framework/graphics/atlas.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_atlas.md"
+    },
+    {
+      "title": "src/framework/graphics/bitmapfont.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_bitmapfont.md"
+    },
+    {
+      "title": "src/framework/graphics/cachedtext.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_cachedtext.md"
+    },
+    {
+      "title": "src/framework/graphics/colorarray.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_colorarray.md"
+    },
+    {
+      "title": "src/framework/graphics/coordsbuffer.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_coordsbuffer.md"
+    },
+    {
+      "title": "src/framework/graphics/deptharray.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_deptharray.md"
+    },
+    {
+      "title": "src/framework/graphics/drawcache.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_drawcache.md"
+    },
+    {
+      "title": "src/framework/graphics/drawqueue.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_drawqueue.md"
+    },
+    {
+      "title": "src/framework/graphics/fontmanager.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_fontmanager.md"
+    },
+    {
+      "title": "src/framework/graphics/framebuffer.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_framebuffer.md"
+    },
+    {
+      "title": "src/framework/graphics/framebuffermanager.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_framebuffermanager.md"
+    },
+    {
+      "title": "src/framework/graphics/graph.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_graph.md"
+    },
+    {
+      "title": "src/framework/graphics/graphics.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_graphics.md"
+    },
+    {
+      "title": "src/framework/graphics/hardwarebuffer.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_hardwarebuffer.md"
+    },
+    {
+      "title": "src/framework/graphics/image.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_image.md"
+    },
+    {
+      "title": "src/framework/graphics/painter.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_painter.md"
+    },
+    {
+      "title": "src/framework/graphics/paintershaderprogram.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_paintershaderprogram.md"
+    },
+    {
+      "title": "src/framework/graphics/shader.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_shader.md"
+    },
+    {
+      "title": "src/framework/graphics/shadermanager.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_shadermanager.md"
+    },
+    {
+      "title": "src/framework/graphics/shaderprogram.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_shaderprogram.md"
+    },
+    {
+      "title": "src/framework/graphics/shaders/shadersources.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_shaders_shadersources.md"
+    },
+    {
+      "title": "src/framework/graphics/textrender.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_textrender.md"
+    },
+    {
+      "title": "src/framework/graphics/texture.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_texture.md"
+    },
+    {
+      "title": "src/framework/graphics/texturemanager.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_texturemanager.md"
+    },
+    {
+      "title": "src/framework/graphics/vertexarray.h",
+      "md": "docs/api/external/cpp/src_framework_graphics_vertexarray.md"
+    },
+    {
+      "title": "src/framework/http/http.h",
+      "md": "docs/api/external/cpp/src_framework_http_http.md"
+    },
+    {
+      "title": "src/framework/http/session.h",
+      "md": "docs/api/external/cpp/src_framework_http_session.md"
+    },
+    {
+      "title": "src/framework/http/websocket.h",
+      "md": "docs/api/external/cpp/src_framework_http_websocket.md"
+    },
+    {
+      "title": "src/framework/input/mouse.h",
+      "md": "docs/api/external/cpp/src_framework_input_mouse.md"
+    },
+    {
+      "title": "src/framework/luaengine/lbitlib.h",
+      "md": "docs/api/external/cpp/src_framework_luaengine_lbitlib.md"
+    },
+    {
+      "title": "src/framework/luaengine/luabinder.h",
+      "md": "docs/api/external/cpp/src_framework_luaengine_luabinder.md"
+    },
+    {
+      "title": "src/framework/luaengine/luaexception.h",
+      "md": "docs/api/external/cpp/src_framework_luaengine_luaexception.md"
+    },
+    {
+      "title": "src/framework/luaengine/luainterface.h",
+      "md": "docs/api/external/cpp/src_framework_luaengine_luainterface.md"
+    },
+    {
+      "title": "src/framework/luaengine/luaobject.h",
+      "md": "docs/api/external/cpp/src_framework_luaengine_luaobject.md"
+    },
+    {
+      "title": "src/framework/luaengine/luavaluecasts.h",
+      "md": "docs/api/external/cpp/src_framework_luaengine_luavaluecasts.md"
+    },
+    {
+      "title": "src/framework/net/connection.h",
+      "md": "docs/api/external/cpp/src_framework_net_connection.md"
+    },
+    {
+      "title": "src/framework/net/inputmessage.h",
+      "md": "docs/api/external/cpp/src_framework_net_inputmessage.md"
+    },
+    {
+      "title": "src/framework/net/outputmessage.h",
+      "md": "docs/api/external/cpp/src_framework_net_outputmessage.md"
+    },
+    {
+      "title": "src/framework/net/packet_player.h",
+      "md": "docs/api/external/cpp/src_framework_net_packet_player.md"
+    },
+    {
+      "title": "src/framework/net/packet_recorder.h",
+      "md": "docs/api/external/cpp/src_framework_net_packet_recorder.md"
+    },
+    {
+      "title": "src/framework/net/protocol.h",
+      "md": "docs/api/external/cpp/src_framework_net_protocol.md"
+    },
+    {
+      "title": "src/framework/net/server.h",
+      "md": "docs/api/external/cpp/src_framework_net_server.md"
+    },
+    {
+      "title": "src/framework/otml/otmldocument.h",
+      "md": "docs/api/external/cpp/src_framework_otml_otmldocument.md"
+    },
+    {
+      "title": "src/framework/otml/otmlemitter.h",
+      "md": "docs/api/external/cpp/src_framework_otml_otmlemitter.md"
+    },
+    {
+      "title": "src/framework/otml/otmlexception.h",
+      "md": "docs/api/external/cpp/src_framework_otml_otmlexception.md"
+    },
+    {
+      "title": "src/framework/otml/otmlnode.h",
+      "md": "docs/api/external/cpp/src_framework_otml_otmlnode.md"
+    },
+    {
+      "title": "src/framework/otml/otmlparser.h",
+      "md": "docs/api/external/cpp/src_framework_otml_otmlparser.md"
+    },
+    {
+      "title": "src/framework/platform/androidwindow.h",
+      "md": "docs/api/external/cpp/src_framework_platform_androidwindow.md"
+    },
+    {
+      "title": "src/framework/platform/crashhandler.h",
+      "md": "docs/api/external/cpp/src_framework_platform_crashhandler.md"
+    },
+    {
+      "title": "src/framework/platform/platform.h",
+      "md": "docs/api/external/cpp/src_framework_platform_platform.md"
+    },
+    {
+      "title": "src/framework/platform/platformwindow.h",
+      "md": "docs/api/external/cpp/src_framework_platform_platformwindow.md"
+    },
+    {
+      "title": "src/framework/platform/sdlwindow.h",
+      "md": "docs/api/external/cpp/src_framework_platform_sdlwindow.md"
+    },
+    {
+      "title": "src/framework/platform/win32window.h",
+      "md": "docs/api/external/cpp/src_framework_platform_win32window.md"
+    },
+    {
+      "title": "src/framework/platform/x11window.h",
+      "md": "docs/api/external/cpp/src_framework_platform_x11window.md"
+    },
+    {
+      "title": "src/framework/proxy/proxy.h",
+      "md": "docs/api/external/cpp/src_framework_proxy_proxy.md"
+    },
+    {
+      "title": "src/framework/proxy/proxy_client.h",
+      "md": "docs/api/external/cpp/src_framework_proxy_proxy_client.md"
+    },
+    {
+      "title": "src/framework/sound/combinedsoundsource.h",
+      "md": "docs/api/external/cpp/src_framework_sound_combinedsoundsource.md"
+    },
+    {
+      "title": "src/framework/sound/oggsoundfile.h",
+      "md": "docs/api/external/cpp/src_framework_sound_oggsoundfile.md"
+    },
+    {
+      "title": "src/framework/sound/soundbuffer.h",
+      "md": "docs/api/external/cpp/src_framework_sound_soundbuffer.md"
+    },
+    {
+      "title": "src/framework/sound/soundchannel.h",
+      "md": "docs/api/external/cpp/src_framework_sound_soundchannel.md"
+    },
+    {
+      "title": "src/framework/sound/soundfile.h",
+      "md": "docs/api/external/cpp/src_framework_sound_soundfile.md"
+    },
+    {
+      "title": "src/framework/sound/soundmanager.h",
+      "md": "docs/api/external/cpp/src_framework_sound_soundmanager.md"
+    },
+    {
+      "title": "src/framework/sound/soundsource.h",
+      "md": "docs/api/external/cpp/src_framework_sound_soundsource.md"
+    },
+    {
+      "title": "src/framework/sound/streamsoundsource.h",
+      "md": "docs/api/external/cpp/src_framework_sound_streamsoundsource.md"
+    },
+    {
+      "title": "src/framework/stdext/any.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_any.md"
+    },
+    {
+      "title": "src/framework/stdext/cast.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_cast.md"
+    },
+    {
+      "title": "src/framework/stdext/demangle.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_demangle.md"
+    },
+    {
+      "title": "src/framework/stdext/dumper.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_dumper.md"
+    },
+    {
+      "title": "src/framework/stdext/dynamic_storage.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_dynamic_storage.md"
+    },
+    {
+      "title": "src/framework/stdext/exception.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_exception.md"
+    },
+    {
+      "title": "src/framework/stdext/fastrand.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_fastrand.md"
+    },
+    {
+      "title": "src/framework/stdext/format.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_format.md"
+    },
+    {
+      "title": "src/framework/stdext/math.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_math.md"
+    },
+    {
+      "title": "src/framework/stdext/net.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_net.md"
+    },
+    {
+      "title": "src/framework/stdext/packed_any.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_packed_any.md"
+    },
+    {
+      "title": "src/framework/stdext/packed_storage.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_packed_storage.md"
+    },
+    {
+      "title": "src/framework/stdext/shared_object.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_shared_object.md"
+    },
+    {
+      "title": "src/framework/stdext/string.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_string.md"
+    },
+    {
+      "title": "src/framework/stdext/time.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_time.md"
+    },
+    {
+      "title": "src/framework/stdext/uri.h",
+      "md": "docs/api/external/cpp/src_framework_stdext_uri.md"
+    },
+    {
+      "title": "src/framework/ui/uianchorlayout.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uianchorlayout.md"
+    },
+    {
+      "title": "src/framework/ui/uiboxlayout.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uiboxlayout.md"
+    },
+    {
+      "title": "src/framework/ui/uigridlayout.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uigridlayout.md"
+    },
+    {
+      "title": "src/framework/ui/uihorizontallayout.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uihorizontallayout.md"
+    },
+    {
+      "title": "src/framework/ui/uilayout.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uilayout.md"
+    },
+    {
+      "title": "src/framework/ui/uimanager.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uimanager.md"
+    },
+    {
+      "title": "src/framework/ui/uitextedit.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uitextedit.md"
+    },
+    {
+      "title": "src/framework/ui/uitranslator.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uitranslator.md"
+    },
+    {
+      "title": "src/framework/ui/uiverticallayout.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uiverticallayout.md"
+    },
+    {
+      "title": "src/framework/ui/uiwidget.h",
+      "md": "docs/api/external/cpp/src_framework_ui_uiwidget.md"
+    },
+    {
+      "title": "src/framework/util/color.h",
+      "md": "docs/api/external/cpp/src_framework_util_color.md"
+    },
+    {
+      "title": "src/framework/util/crypt.h",
+      "md": "docs/api/external/cpp/src_framework_util_crypt.md"
+    },
+    {
+      "title": "src/framework/util/databuffer.h",
+      "md": "docs/api/external/cpp/src_framework_util_databuffer.md"
+    },
+    {
+      "title": "src/framework/util/extras.h",
+      "md": "docs/api/external/cpp/src_framework_util_extras.md"
+    },
+    {
+      "title": "src/framework/util/matrix.h",
+      "md": "docs/api/external/cpp/src_framework_util_matrix.md"
+    },
+    {
+      "title": "src/framework/util/pngunpacker.h",
+      "md": "docs/api/external/cpp/src_framework_util_pngunpacker.md"
+    },
+    {
+      "title": "src/framework/util/point.h",
+      "md": "docs/api/external/cpp/src_framework_util_point.md"
+    },
+    {
+      "title": "src/framework/util/qrcodegen.h",
+      "md": "docs/api/external/cpp/src_framework_util_qrcodegen.md"
+    },
+    {
+      "title": "src/framework/util/rect.h",
+      "md": "docs/api/external/cpp/src_framework_util_rect.md"
+    },
+    {
+      "title": "src/framework/util/size.h",
+      "md": "docs/api/external/cpp/src_framework_util_size.md"
+    },
+    {
+      "title": "src/framework/util/stats.h",
+      "md": "docs/api/external/cpp/src_framework_util_stats.md"
+    },
+    {
+      "title": "src/framework/xml/tinystr.h",
+      "md": "docs/api/external/cpp/src_framework_xml_tinystr.md"
+    },
+    {
+      "title": "src/framework/xml/tinyxml.h",
+      "md": "docs/api/external/cpp/src_framework_xml_tinyxml.md"
+    }
+  ]
+}
