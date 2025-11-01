@@ -32,3 +32,6 @@ docs/api/otcv8-full-api.md text working-tree-encoding=UTF-8 eol=lf
 *.otf binary
 *.woff binary
 *.woff2 binary
+docs/_data/_api_manifest.json merge=ours
+docs/api/**                 merge=ours
+docs/_extra/ldoc-*/**       merge=ours
