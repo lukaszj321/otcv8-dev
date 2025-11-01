@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/rect.h"
 source_file: "src/framework/util/rect.h"
-generated_at: "2025-11-01T06:09:06.214Z"
+generated_at: "2025-11-01T08:29:23.730Z"
 doc_type: "cpp_api"
 ---
 

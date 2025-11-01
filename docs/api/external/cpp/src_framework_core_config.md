@@ -1,7 +1,7 @@
 ---
 title: "src/framework/core/config.h"
 source_file: "src/framework/core/config.h"
-generated_at: "2025-11-01T06:09:06.177Z"
+generated_at: "2025-11-01T08:29:23.693Z"
 doc_type: "cpp_api"
 ---
 

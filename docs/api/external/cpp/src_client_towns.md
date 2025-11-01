@@ -1,7 +1,7 @@
 ---
 title: "src/client/towns.h"
 source_file: "src/client/towns.h"
-generated_at: "2025-11-01T06:09:06.172Z"
+generated_at: "2025-11-01T08:29:23.689Z"
 doc_type: "cpp_api"
 ---
 

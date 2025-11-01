@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/colorarray.h"
 source_file: "src/framework/graphics/colorarray.h"
-generated_at: "2025-11-01T06:09:06.183Z"
+generated_at: "2025-11-01T08:29:23.700Z"
 doc_type: "cpp_api"
 ---
 

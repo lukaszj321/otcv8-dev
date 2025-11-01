@@ -1,7 +1,7 @@
 ---
 title: "src/framework/luaengine/luabinder.h"
 source_file: "src/framework/luaengine/luabinder.h"
-generated_at: "2025-11-01T06:09:06.191Z"
+generated_at: "2025-11-01T08:29:23.707Z"
 doc_type: "cpp_api"
 ---
 

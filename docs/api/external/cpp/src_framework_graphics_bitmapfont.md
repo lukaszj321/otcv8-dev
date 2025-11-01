@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/bitmapfont.h"
 source_file: "src/framework/graphics/bitmapfont.h"
-generated_at: "2025-11-01T06:09:06.182Z"
+generated_at: "2025-11-01T08:29:23.699Z"
 doc_type: "cpp_api"
 ---
 

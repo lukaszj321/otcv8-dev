@@ -1,7 +1,7 @@
 ---
 title: "src/framework/util/qrcodegen.h"
 source_file: "src/framework/util/qrcodegen.h"
-generated_at: "2025-11-01T06:09:06.213Z"
+generated_at: "2025-11-01T08:29:23.729Z"
 doc_type: "cpp_api"
 ---
 

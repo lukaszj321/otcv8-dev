@@ -1,7 +1,7 @@
 ---
 title: "src/client/uicreature.h"
 source_file: "src/client/uicreature.h"
-generated_at: "2025-11-01T06:09:06.173Z"
+generated_at: "2025-11-01T08:29:23.689Z"
 doc_type: "cpp_api"
 ---
 

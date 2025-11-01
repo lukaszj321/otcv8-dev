@@ -1,7 +1,7 @@
 ---
 title: "src/framework/otml/otmlexception.h"
 source_file: "src/framework/otml/otmlexception.h"
-generated_at: "2025-11-01T06:09:06.197Z"
+generated_at: "2025-11-01T08:29:23.713Z"
 doc_type: "cpp_api"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/graph.h"
 source_file: "src/framework/graphics/graph.h"
-generated_at: "2025-11-01T06:09:06.185Z"
+generated_at: "2025-11-01T08:29:23.702Z"
 doc_type: "cpp_api"
 ---
 

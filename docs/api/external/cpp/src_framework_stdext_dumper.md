@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/dumper.h"
 source_file: "src/framework/stdext/dumper.h"
-generated_at: "2025-11-01T06:09:06.203Z"
+generated_at: "2025-11-01T08:29:23.720Z"
 doc_type: "cpp_api"
 ---
 

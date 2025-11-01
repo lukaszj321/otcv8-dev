@@ -1,7 +1,7 @@
 ---
 title: "src/client/thing.h"
 source_file: "src/client/thing.h"
-generated_at: "2025-11-01T06:09:06.170Z"
+generated_at: "2025-11-01T08:29:23.686Z"
 doc_type: "cpp_api"
 ---
 

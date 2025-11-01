@@ -1,7 +1,7 @@
 ---
 title: "src/framework/global.h"
 source_file: "src/framework/global.h"
-generated_at: "2025-11-01T06:09:06.181Z"
+generated_at: "2025-11-01T08:29:23.697Z"
 doc_type: "cpp_api"
 ---
 
