@@ -549,7 +549,7 @@ run()
 
 `diagrams/assets_flow.mmd`
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
   Inventory --> NDJSON[(assets.dataset.jsonl)]

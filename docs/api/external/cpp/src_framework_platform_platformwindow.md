@@ -1,7 +1,7 @@
 ---
 title: "src/framework/platform/platformwindow.h"
 source_file: "src/framework/platform/platformwindow.h"
-generated_at: "2025-11-01T00:11:49.055Z"
+generated_at: "2025-11-01T04:06:42.765Z"
 doc_type: "cpp_api"
 ---
 

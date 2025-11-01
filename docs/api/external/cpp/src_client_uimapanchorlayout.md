@@ -1,7 +1,7 @@
 ---
 title: "src/client/uimapanchorlayout.h"
 source_file: "src/client/uimapanchorlayout.h"
-generated_at: "2025-11-01T00:11:49.030Z"
+generated_at: "2025-11-01T04:06:42.736Z"
 doc_type: "cpp_api"
 ---
 

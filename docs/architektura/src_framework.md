@@ -8099,7 +8099,7 @@ Główna metoda aktualizacji layoutu.
 
 ---
 # 🧭 Mapa zależności
-```mermaid
+```{mermaid}
 graph TD
     subgraph Aplikacja
         Application -- dziedziczy --> GraphicalApplication

@@ -1,7 +1,7 @@
 ---
 title: "src/client/uisprite.h"
 source_file: "src/client/uisprite.h"
-generated_at: "2025-11-01T00:11:49.031Z"
+generated_at: "2025-11-01T04:06:42.737Z"
 doc_type: "cpp_api"
 ---
 

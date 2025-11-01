@@ -439,7 +439,7 @@ run()
 
 ### `data_flow.mmd` *(facet: 11_data.data_flow)*
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
   Inventory --> IMAGES[(images.csv)]
@@ -456,7 +456,7 @@ graph TD
 
 ### `asset_linking.mmd` *(facet: 11_data.asset_linking)*
 
-```mermaid
+```{mermaid}
 graph TD
   OTUI[OTUI property] -->|image-source / icon / font| Asset["data/** | layouts/**"]
   Asset --> Indexes["images.csv / fonts.csv / shaders.csv / sounds.csv"]

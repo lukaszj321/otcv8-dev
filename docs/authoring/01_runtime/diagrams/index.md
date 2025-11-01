@@ -5,7 +5,7 @@
 :caption: Architecture
 
 
-```mermaid
+```{mermaid}
 graph LR
     subgraph Runtime
         E0[Runtime Metrics]
@@ -18,7 +18,7 @@ graph LR
 
 :caption: Flow
 
-```mermaid
+```{mermaid}
 graph TD
     A[Runtime] --> B[Data Collection]
     B --> C[Processing]

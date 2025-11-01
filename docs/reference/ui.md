@@ -8,7 +8,7 @@ System UI w OTClientV8 wykorzystuje deklaratywny język OTUI do definiowania int
 (ui-widget-hierarchy)=
 ## Hierarchia widgetów
 
-```mermaid
+```{mermaid}
 graph TD
     UIWidget[UIWidget - bazowa klasa]
     UIWidget --> UIButton[UIButton]

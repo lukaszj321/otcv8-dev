@@ -1,7 +1,7 @@
 ---
 title: "src/framework/graphics/animatedtexture.h"
 source_file: "src/framework/graphics/animatedtexture.h"
-generated_at: "2025-11-01T00:11:49.037Z"
+generated_at: "2025-11-01T04:06:42.744Z"
 doc_type: "cpp_api"
 ---
 

@@ -150,7 +150,7 @@ Generowanie indeksów.
 
 **Mermaid — Sequence Diagram**
 
-```mermaid
+```{mermaid}
 %%{init: {"theme":"dark"}}%%
 sequenceDiagram
   participant User
@@ -235,7 +235,7 @@ digraph G {
 :widths: 20, 20, 30, 30
 ```
 
-```mermaid
+```{mermaid}
 %%{init: {"theme":"dark"}}%%
 sequenceDiagram
   participant User

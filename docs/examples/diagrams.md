@@ -12,7 +12,7 @@ Ten dokument zawiera kluczowe diagramy ilustrujące architekturę i przepływy w
 
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
 
-```mermaid
+```{mermaid}
 flowchart TB
   A[Start] --> B{Decyzja?}
   B -- Tak --> C[Wykonaj akcję]
@@ -22,7 +22,7 @@ flowchart TB
 
 ---
 
-```mermaid
+```{mermaid}
 flowchart TD
   A[Core Engine C++] --> B(Event System)
   A --> C(Module Loader)
@@ -41,7 +41,7 @@ flowchart TD
 
 Poniżej przykład prostego schematu z użyciem **Mermaid**. Blok jest automatycznie renderowany podczas budowania dokumentacji.
 
-```mermaid
+```{mermaid}
 flowchart TB
   A[Start] --> B{Decyzja?}
   B -- Tak --> C[Wykonaj akcję]
@@ -53,7 +53,7 @@ flowchart TB
 
 ## Cykl życia modułu
 
-```mermaid
+```{mermaid}
 stateDiagram-v2
     [*] --> Unloaded
     Unloaded --> Loading: load()
@@ -72,7 +72,7 @@ stateDiagram-v2
 
 ## Przepływ zdarzeń
 
-```mermaid
+```{mermaid}
 sequenceDiagram
     participant Game as Game Engine
     participant EventSys as Event System
@@ -92,7 +92,7 @@ sequenceDiagram
 
 ## Stos sieciowy
 
-```mermaid
+```{mermaid}
 flowchart LR
     subgraph Client
         A[Application Layer] --> B[Protocol Handler]
@@ -119,7 +119,7 @@ flowchart LR
 
 ## Hierarchia UI
 
-```mermaid
+```{mermaid}
 graph TD
     Root[Root Widget] --> MainWindow[Main Window]
     Root --> TopMenu[Top Menu Bar]
@@ -143,7 +143,7 @@ graph TD
 
 ## Pipeline assetów
 
-```mermaid
+```{mermaid}
 flowchart TD
     A[Raw Assets] --> B{Asset Type?}
     B -->|Image| C[Texture Loader]

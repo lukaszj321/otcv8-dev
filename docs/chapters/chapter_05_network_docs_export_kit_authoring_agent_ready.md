@@ -536,7 +536,7 @@ run()
 
 `diagrams/network_flow.mmd`
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
   Inventory --> NDJSON[(protocol.dataset.jsonl)]
@@ -548,7 +548,7 @@ graph TD
 
 `diagrams/login_handshake.mmd`
 
-```mermaid
+```{mermaid}
 sequenceDiagram
   participant Client
   participant Studio as Electron Studio

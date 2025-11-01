@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/demangle.h"
 source_file: "src/framework/stdext/demangle.h"
-generated_at: "2025-11-01T00:11:49.061Z"
+generated_at: "2025-11-01T04:06:42.770Z"
 doc_type: "cpp_api"
 ---
 

@@ -174,7 +174,7 @@ std::cout << "hello";
 **Kod**
 
 ````md
-```mermaid
+```{mermaid}
 flowchart LR
   A[Start] --> B[Process]
   B --> C[End]
@@ -186,7 +186,7 @@ flowchart LR
 :::{grid-item}
 **Efekt**
 
-```mermaid
+```{mermaid}
 flowchart LR
   A[Start] --> B[Process]
   B --> C[End]

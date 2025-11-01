@@ -206,7 +206,7 @@ Zacznij teraz
 
 :::{grid-item}
 
-```mermaid
+```{mermaid}
 flowchart LR
   A[Start] --> B[Next]
 ```

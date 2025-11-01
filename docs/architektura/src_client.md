@@ -2576,7 +2576,7 @@ Każda metoda `parse...` jest odpowiedzialna za odczytanie danych z `InputMessag
 # 🧭 Mapa zależności
 Poniższy diagram przedstawia główne zależności i przepływ informacji między kluczowymi modułami systemu.
 
-```mermaid
+```{mermaid}
 graph TD
     subgraph Aplikacja i UI
         Client[Client] -->|inicjalizuje| Game

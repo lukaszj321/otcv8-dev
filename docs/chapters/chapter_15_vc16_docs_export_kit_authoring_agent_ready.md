@@ -152,7 +152,7 @@ static GLuint prog(){
 
 # 6) Render stack (diagram)
 
-```mermaid
+```{mermaid}
 graph TD
   App --> EGL
   EGL --> GLES2
@@ -169,7 +169,7 @@ graph TD
 
 # 7) Pipeline (build → sanity → pakowanie)
 
-```mermaid
+```{mermaid}
 graph TD
   A[MSVC/CMake build] --> B[AppLocal copy DLL]
   B --> C[egl-smoke]

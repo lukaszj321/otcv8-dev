@@ -493,7 +493,7 @@ run()
 
 ### 9) Diagram (Mermaid) - diagrams/runtime_stack.mmd
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC extract or aggregate| Extractors
   subgraph Client

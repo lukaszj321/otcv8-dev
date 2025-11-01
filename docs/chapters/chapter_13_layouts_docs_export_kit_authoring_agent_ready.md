@@ -219,7 +219,7 @@ TabBarButton < UIButton
 
 ### Facet: `13_layouts.resolve_flow`
 
-```mermaid
+```{mermaid}
 flowchart TD
   A[Request asset path] --> B{layouts/<active>/... exists?}
   B -- yes --> C[Use layout asset]
@@ -233,7 +233,7 @@ flowchart TD
 
 ### Facet: `13_layouts.layout_to_ui`
 
-```mermaid
+```{mermaid}
 graph LR
   L[layouts/<active>] -->|override| D[data/**]
   L --> IMG[images]

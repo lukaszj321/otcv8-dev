@@ -277,7 +277,7 @@ Kanały IPC (używane przez Studio/Electron):
 
 ## Pipeline (build/test)
 
-```mermaid
+```{mermaid}
 graph TD
 A[Gradle build]-->B[APK/AAB]
 B-->C[ABI scan]
@@ -296,7 +296,7 @@ I-->J[android_assets.csv]
 
 ## JNI flow
 
-```mermaid
+```{mermaid}
 sequenceDiagram
   participant Java as Bridge(Java/Kotlin)
   participant JNI as C++ JNI

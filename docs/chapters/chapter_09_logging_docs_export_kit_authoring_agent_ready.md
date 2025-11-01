@@ -624,7 +624,7 @@ run()
 
 `diagrams/logging_flow.mmd`
 
-```mermaid
+```{mermaid}
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Sniffer
   Sniffer --> NDJSON[(logs.dataset.jsonl)]
@@ -636,7 +636,7 @@ graph TD
 
 `diagrams/error_timeline.mmd`
 
-```mermaid
+```{mermaid}
 sequenceDiagram
   participant Studio as Electron Studio
   participant Sniffer

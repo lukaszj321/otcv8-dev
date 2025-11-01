@@ -1,7 +1,7 @@
 ---
 title: "src/framework/stdext/shared_object.h"
 source_file: "src/framework/stdext/shared_object.h"
-generated_at: "2025-11-01T00:11:49.063Z"
+generated_at: "2025-11-01T04:06:42.773Z"
 doc_type: "cpp_api"
 ---
 

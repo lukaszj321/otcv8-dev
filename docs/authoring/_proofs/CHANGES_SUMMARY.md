@@ -128,11 +128,11 @@ Ran `scripts/build_authoring_pages.py` to:
 ### Before
 ```
 ❌ Mermaid:
-   ```mermaid
+   ```{mermaid}
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
    graph TD
      A --> B
-```
+   ```
    (shown as code block)
 
 ❌ Grid:
