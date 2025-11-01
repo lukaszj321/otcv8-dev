@@ -719,7 +719,7 @@ bool hasElevation(int elevation = 1);
 
 | Type | Name | Description |
 |------|------|-------------|
-| `int elevation = 1` | - | - |
+| `int` | `elevation` | Default: `1` |
 
 **Returns:**
 - `bool`
