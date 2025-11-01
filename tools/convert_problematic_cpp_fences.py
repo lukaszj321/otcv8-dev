@@ -47,6 +47,8 @@ def is_problematic_cpp(content: str) -> Tuple[bool, List[str]]:
         issues.append("doxygen_tags")
     
     # Problematic backslash sequences that aren't standard C++ escapes
+    # Pattern: \\ matches a literal backslash, [^...] matches any char NOT in the set
+    # This detects sequences like \x, \z, \[ that aren't standard C++ escapes (\n, \t, etc.)
     if re.search(r'\\[^nrtabfv0\'"\\]', content):
         issues.append("unusual_backslashes")
     
@@ -90,7 +92,15 @@ def find_cpp_fences(content: str) -> List[Dict]:
             
             # Find the closing fence
             while i < len(lines):
-                if lines[i].strip().startswith(fence_type) and not lines[i].strip().startswith(fence_type + fence_type[0]):
+                # Check if line starts with the fence marker but isn't a longer fence
+                # e.g., ``` closes ```, but ```` or ````` don't close ```
+                stripped = lines[i].strip()
+                is_closing_fence = (
+                    len(stripped) >= len(fence_type) and
+                    stripped[:len(fence_type)] == fence_type and
+                    (len(stripped) == len(fence_type) or stripped[len(fence_type)] != '`')
+                )
+                if is_closing_fence:
                     # Found closing fence
                     fence_content = '\n'.join(fence_content_lines)
                     is_prob, issues = is_problematic_cpp(fence_content)
@@ -121,7 +131,6 @@ def convert_problematic_fences(content: str, fences: List[Dict]) -> str:
     # Process in reverse order to maintain line numbers
     for fence in reversed(fences):
         start = fence['start_line']
-        end = fence['end_line']
         fence_type = fence['fence_type']
         
         # Replace opening fence marker
