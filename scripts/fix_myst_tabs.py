@@ -123,14 +123,14 @@ class TabFixer:
                     next_content = lines[j].strip()
                     if next_content.startswith('```') and not next_content.startswith('```{'):
                         # Empty tab - add placeholder
-                        fixed_lines.append('TODO: add content\n')
+                        fixed_lines.append('TODO: add content')
                         fixed_lines.append('')
                         changes += 1
                         if self.verbose:
                             print(f"    Added placeholder to empty tab: {line.strip()}")
                     elif next_content.startswith('```{tab}') or next_content.startswith('````'):
                         # Another tab follows - this tab is empty
-                        fixed_lines.append('TODO: add content\n')
+                        fixed_lines.append('TODO: add content')
                         fixed_lines.append('')
                         changes += 1
                         if self.verbose:
@@ -139,7 +139,7 @@ class TabFixer:
                         has_content = True
                 elif j >= len(lines):
                     # Tab at EOF with no content
-                    fixed_lines.append('TODO: add content\n')
+                    fixed_lines.append('TODO: add content')
                     changes += 1
                 
                 # Continue from where we left off
