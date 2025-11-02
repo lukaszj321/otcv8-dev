@@ -6,12 +6,7 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/**'
-      - 'src/**'
-      - 'modules/**'
-      - 'Doxyfile'
       - '.github/workflows/sphinx-pages.yml'
-  pull_request:
-    branches: [ main, master ]
   workflow_dispatch:
 
 permissions:
@@ -20,140 +15,61 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build docs (Sphinx)
     runs-on: ubuntu-latest
-    timeout-minutes: 90
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install system dependencies
-        run: |
-          set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends graphviz fonts-dejavu-core doxygen luarocks
+      - name: Install doc dependencies
         shell: bash
-
-      - name: Install Python doc dependencies
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip wheel setuptools
-          if [ -f docs/requirements.txt ]; then
-            python -m pip install -r docs/requirements.txt
-          else
-            python -m pip install sphinx pydata-sphinx-theme myst-parser sphinxcontrib-mermaid sphinx-design sphinx-copybutton breathe exhale
-          fi
-        env:
-          PIP_NO_CACHE_DIR: "off"
-        shell: bash
+          if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
+          pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog
+          python - << 'PY'
+          import sphinx, pydata_sphinx_theme, sphinxcontrib.mermaid
+          print("OK: sphinx", sphinx.__version__)
+          PY
 
-      - name: Prepare Doxygen output dir
-        run: mkdir -p docs/_build/doxygen
+      - name: Generate authoring pages
         shell: bash
-
-      - name: Generate Doxygen XML (non-fatal)
         run: |
           set -euo pipefail
-          if [ -f Doxyfile ]; then
-            doxygen Doxyfile || echo "doxygen failed (non-fatal)"
-          fi
-        shell: bash
+          python scripts/build_authoring_pages.py
 
-      - name: Install LDoc (local) and add to PATH (optional)
+      - name: Patch Mermaid diagrams (click → facets)
+        shell: bash
         run: |
           set -euo pipefail
-          luarocks install --local ldoc || true
-          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
-        shell: bash
+          if [ -f scripts/patch_diagrams_clicks.py ]; then python scripts/patch_diagrams_clicks.py; fi
 
-      - name: Optional: Generate Lua docs (ldoc) (non-fatal)
+      - name: Build Sphinx
+        shell: bash
         run: |
           set -euo pipefail
-          mkdir -p docs/_extra || true
-          ldoc -d docs/_extra/ldoc-modules modules || true
-          ldoc -d docs/_extra/ldoc-src src || true
-        shell: bash
+          sphinx-build -b html docs docs/_build/html
+          touch docs/_build/html/.nojekyll
 
-      - name: Build Sphinx (HTML)
-        id: build_docs
-        run: |
-          set -euo pipefail
-          mkdir -p docs/_build/html
-          # safety timeout for sphinx-build (60 minutes)
-          timeout 60m sphinx-build -E -a -j auto -b html docs docs/_build/html \
-            -D mermaid_output_format=raw \
-            -D mermaid_version=10.9.1 \
-            1> /tmp/sphinx-out.log 2> /tmp/sphinx-err.log || true
-          # ensure artifact folder has at least one file
-          touch docs/_build/html/.nojekyll || true
-        env:
-          CI: "true"
-        shell: bash
-
-      - name: Upload Sphinx stderr log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sphinx-err-log
-          path: /tmp/sphinx-err.log
-          retention-days: 7
-
-      - name: Upload Sphinx stdout log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sphinx-out-log
-          path: /tmp/sphinx-out.log
-          retention-days: 7
-
-      - name: Upload built HTML as Pages artifact
-        if: always()
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_build/html
 
-      - name: Build step summary
-        if: always()
-        run: |
-          echo "=== Build step finished ==="
-          if [ -f /tmp/sphinx-err.log ]; then
-            echo "Sphinx err log size:"; wc -c /tmp/sphinx-err.log || true
-          else
-            echo "No /tmp/sphinx-err.log"
-          fi
-          echo "HTML build dir listing:"
-          ls -la docs/_build/html || true
-        shell: bash
-
   deploy:
-    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: github-pages
-
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy Pages artifact
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - id: deployment
+        uses: actions/deploy-pages@v4
