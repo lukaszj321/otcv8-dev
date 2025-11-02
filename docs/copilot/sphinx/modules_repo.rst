@@ -3,9 +3,13 @@ Moduły — skan z repozytorium
 
 Indeks
 ------
-.. csv-table:: modules_index_repo.csv
-   :file: ../csv/modules_index_repo.csv
-   :header-rows: 1
+
+.. note::
+   CSV table temporarily disabled due to formatting issues in source data.
+
+.. .. csv-table:: modules_index_repo.csv
+..    :file: ../csv/modules_index_repo.csv
+..    :header-rows: 1
 
 Skrypty
 -------

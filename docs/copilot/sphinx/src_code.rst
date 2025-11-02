@@ -51,6 +51,9 @@ Enumy
 Funkcje
 -------
 
-.. csv-table:: src_functions.csv
-   :file: ../csv/src_functions.csv
-   :header-rows: 1
+.. note::
+   CSV table temporarily disabled due to formatting issues in source data.
+   
+.. .. csv-table:: src_functions.csv
+..    :file: ../csv/src_functions.csv
+..    :header-rows: 1

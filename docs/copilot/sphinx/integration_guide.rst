@@ -10,29 +10,35 @@ Wymagania
 Kroki dodania nowej zakładki
 ----------------------------
 1. Folder ``copilot`` znajduje się w katalogu ``docs`` w repozytorium.
-2. W głównym ``index.md`` Twojej dokumentacji dodaj odnośnik do nowej sekcji::
+2. W głównym ``index.md`` Twojej dokumentacji dodaj odnośnik do nowej sekcji:
 
-   .. toctree::
-      :maxdepth: 2
-      :caption: Copilot Docs
-      :hidden:
+   .. code-block:: rst
 
-      copilot/sphinx/index
+      .. toctree::
+         :maxdepth: 2
+         :caption: Copilot Docs
+         :hidden:
 
-3. (PyData Theme) Aby dodać zakładkę w navbarze, dopisz do ``html_theme_options`` w ``conf.py``::
+         copilot/sphinx/index
 
-   html_theme_options = {
+3. (PyData Theme) Aby dodać zakładkę w navbarze, dopisz do ``html_theme_options`` w ``conf.py``:
+
+   .. code-block:: python
+
+      html_theme_options = {
        "navbar_links": [
            {"name": "Copilot Docs", "url": "copilot/sphinx/index.html", "internal": True}
        ],
    }
 
-4. Włącz rozszerzenia w ``conf.py`` (jeśli potrzebne)::
+4. Włącz rozszerzenia w ``conf.py`` (jeśli potrzebne):
 
-   extensions = [
-       "sphinx.ext.graphviz",
-       # "sphinxcontrib.mermaid",  # jeśli używasz Mermaid
-   ]
+   .. code-block:: python
+
+      extensions = [
+          "sphinx.ext.graphviz",
+          # "sphinxcontrib.mermaid",  # jeśli używasz Mermaid
+      ]
 
 5. Zbuduj dokumentację::
 
