@@ -66,15 +66,22 @@ try:
 except ImportError:
     logger.warning("ablog not available, skipping")
 
+# Ensure autosectionlabel is enabled to generate section labels
+if 'sphinx.ext.autosectionlabel' not in globals().get('extensions', []):
+    extensions = globals().get('extensions', []) + ['sphinx.ext.autosectionlabel']
+
+# Prefix section labels with the document path to avoid collisions across documents
+autosectionlabel_prefix_document = True
+
+# Nie wywalaj buildu na brakujących celach MyST (masz dużo linków między MD)
+# Suppress duplicate-label warnings during transition to prefixed autosectionlabels
+suppress_warnings = globals().get('suppress_warnings', []) + ['myst.xref_missing', 'ref.duplicate']
+
 # Exclude patterns to avoid duplicate C++ declarations
 exclude_patterns = globals().get("exclude_patterns", []) + [
     "autoapi/cpp/*",
     "api/cpp/*",
 ]
-
-# Autosectionlabel - prefix document path to avoid label collisions
-# This prevents duplicate label errors when multiple files have sections with the same name
-autosectionlabel_prefix_document = True
 
 # Jeśli istnieje Doxygen XML – włącz breathe/exhale
 _DOXY_XML = Path(__file__).resolve().parent / "_build" / "doxygen" / "xml"
@@ -128,8 +135,7 @@ mermaid_version = os.environ.get("SPHINX_MERMAID_VERSION", "10.9.1")
 mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
 
 # Nie wywalaj buildu na brakujących celach MyST (masz dużo linków między MD)
-# Suppress duplicate label warnings during transition to prefixed autosectionlabels
-suppress_warnings = ["myst.xref_missing", "ref.duplicate"]
+# Note: suppress_warnings for ref.duplicate is configured earlier (line ~77) using globals().get() pattern
 
 # ----------------- Pygments lexer fallback for unknown languages -----------------
 from sphinx.highlighting import lexers
