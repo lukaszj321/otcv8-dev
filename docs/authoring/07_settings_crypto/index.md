@@ -116,7 +116,7 @@ click ConfigFlow "./index.html#facet-07_settings_crypto.config_flow" "Open confi
 *Facet:* [`07_settings_crypto.crypto_flow`](#facet-07_settings_crypto.crypto_flow)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}},'securityLevel':'loose'}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Input[Sensitive Data] --> Choice{Security Need?}
     
