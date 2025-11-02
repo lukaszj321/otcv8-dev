@@ -166,3 +166,9 @@ docs/_static/data/
 docs/copilot/sphinx/code/src/source_mirror/
 _site/
 _site_test/
+
+# Generated placeholder files (created by generate_placeholders.py)
+/blueprints/
+/diagrams/
+/source_mirror/
+docs/diagrams/*.mmd

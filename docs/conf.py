@@ -22,7 +22,8 @@ html_static_path = ["_static"]
 templates_path = ["_templates"]
 
 # BaseURL (CLI ma pierwszeństwo, ale dajemy fallback z ENV)
-html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "")
+# Placeholder - should be updated to actual GitHub Pages URL
+html_baseurl = os.environ.get("SPHINX_HTML_BASEURL", "https://lukaszj321.github.io/otcv8-dev")
 
 extensions = [
     # MyST (Markdown)
@@ -48,10 +49,21 @@ extensions = [
     "sphinx_codeautolink",
     "sphinxcontrib.jquery",
     "hoverxref.extension",
-    "sphinx_last_updated_by_git",
     "sphinxext.rediraffe",
-    "ablog",
 ]
+
+# Optional extensions - only load if available
+try:
+    import sphinx_last_updated_by_git
+    extensions.append("sphinx_last_updated_by_git")
+except ImportError:
+    logger.warning("sphinx_last_updated_by_git not available, skipping")
+
+try:
+    import ablog
+    extensions.append("ablog")
+except ImportError:
+    logger.warning("ablog not available, skipping")
 
 # Exclude patterns to avoid duplicate C++ declarations
 exclude_patterns = globals().get("exclude_patterns", []) + [
@@ -113,6 +125,41 @@ mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
 # Nie wywalaj buildu na brakujących celach MyST (masz dużo linków między MD)
 suppress_warnings = ["myst.xref_missing"]
 
+# ----------------- Pygments lexer fallback for unknown languages -----------------
+from sphinx.highlighting import lexers
+from pygments.lexers.special import TextLexer
+from pygments.lexers import get_lexer_by_name
+
+# Map unknown lexers to text to prevent fatal errors
+LEXER_FALLBACK_MAP = {
+    'mermaid': 'text',
+    'otml': 'text',
+    'csv': 'text',
+    'gradle': 'groovy',  # Gradle is Groovy-based
+    'otui': 'text',
+    'json5': 'json',
+}
+
+# Create a single reusable TextLexer instance for efficiency
+_text_lexer_instance = TextLexer()
+
+def _register_fallback_lexers():
+    """Register fallback lexers for languages that Pygments doesn't know."""
+    for lang, fallback in LEXER_FALLBACK_MAP.items():
+        try:
+            if fallback == 'text':
+                lexers[lang] = _text_lexer_instance
+            else:
+                # Get the fallback lexer (imported at module level)
+                lexers[lang] = get_lexer_by_name(fallback)
+            logger.info(f"[conf.py] Registered fallback lexer '{fallback}' for '{lang}'")
+        except Exception as e:
+            logger.warning(f"[conf.py] Could not register fallback for '{lang}': {e}")
+            lexers[lang] = _text_lexer_instance
+
+# Register at module load time
+_register_fallback_lexers()
+
 # ----------------- Fix 1: czyść złe dependencies (git) -----------------
 def _sanitize_dependencies(env) -> int:
     import os
@@ -161,9 +208,112 @@ def _fix_breathe_empty_blocks(app, docname, source):
         source[0] = ns
         logger.info(f"[conf.py] fixed {nsubs} empty doxygen* blocks in {docname}")
 
+# ----------------- Fix 3: Tab-item sanitizer for sphinx-design -----------------
+def _sanitize_tab_items(app, docname, source):
+    """
+    Sanitize malformed tab-item constructs before Sphinx processes them.
+    
+    This function handles both RST (.. tab-set:: / .. tab-item::) and 
+    MyST/Markdown (:::{tab-set} / :::{tab-item} Label) syntax.
+    
+    Fixes applied:
+    1. Tab-items with no body content get placeholder: "TBD: documentation content"
+    2. Tab-items missing labels get placeholder label: "Untitled"
+    """
+    s = source[0]
+    
+    # Skip if no tab constructs present
+    if "tab-item" not in s and "tab-set" not in s:
+        return
+    
+    modified = False
+    
+    # ===== MyST/Markdown tab-item handling (:::{tab-item} Label) =====
+    # Pattern: :::{tab-item} followed by optional label, optional directives, then either ::: or end
+    # Match group 1: indentation, group 2: label (optional), group 3: content until closing :::
+    myst_pattern = re.compile(
+        r'^([ \t]*)(:::)\{tab-item\}[ \t]*([^\n]*)\n'  # Opening with optional label
+        r'((?:^[ \t]*:[a-zA-Z0-9_-]+:.*\n)*?)'        # Optional directives (like :sync:)
+        r'(.*?)'                                        # Content (may be empty)
+        r'^([ \t]*)(:::)(?=\s|$)',                     # Closing :::
+        re.MULTILINE | re.DOTALL
+    )
+    
+    def _fix_myst_tab_item(match):
+        nonlocal modified
+        indent = match.group(1)
+        opening = match.group(2)  # :::
+        label = match.group(3).strip()
+        directives = match.group(4)
+        content = match.group(5)
+        closing_indent = match.group(6)
+        closing = match.group(7)  # :::
+        
+        # Check if label is missing or empty
+        if not label:
+            label = "Untitled"
+            logger.info(f"[conf.py] {docname}: Added placeholder label 'Untitled' to MyST tab-item")
+            modified = True
+        
+        # Check if content is empty or only whitespace
+        if not content.strip():
+            content = "\nTBD: documentation content\n\n"
+            logger.info(f"[conf.py] {docname}: Added placeholder content to empty MyST tab-item '{label}'")
+            modified = True
+        
+        # Reconstruct the tab-item
+        return f"{indent}{opening}{{tab-item}} {label}\n{directives}{content}{closing_indent}{closing}"
+    
+    s = myst_pattern.sub(_fix_myst_tab_item, s)
+    
+    # ===== RST tab-item handling (.. tab-item::) =====
+    # Pattern: .. tab-item:: followed by optional label, optional directives, then content
+    rst_pattern = re.compile(
+        r'^([ \t]*)\.\.\s+tab-item::[ \t]*([^\n]*)\n'  # Opening with optional label
+        r'((?:^[ \t]+:[a-zA-Z0-9_-]+:.*\n)*?)'         # Optional directives (indented)
+        r'((?:^[ \t]*\n)*?)'                            # Optional blank lines
+        r'((?:^(?:[ \t]+\S.*|[ \t]*)$\n)*?)'           # Content (indented or blank)
+        r'(?=^(?:[ \t]*\.\.|[ \t]*:::|\Z))',           # Lookahead: next directive/closing or end
+        re.MULTILINE
+    )
+    
+    def _fix_rst_tab_item(match):
+        nonlocal modified
+        indent = match.group(1)
+        label = match.group(2).strip()
+        directives = match.group(3)
+        blank_lines = match.group(4)
+        content = match.group(5)
+        
+        # Check if label is missing
+        if not label:
+            label = "Untitled"
+            logger.info(f"[conf.py] {docname}: Added placeholder label 'Untitled' to RST tab-item")
+            modified = True
+        
+        # Check if content is empty
+        content_stripped = content.strip()
+        if not content_stripped:
+            # Add indented placeholder content
+            content = f"{indent}   TBD: documentation content\n\n"
+            blank_lines = "\n"
+            logger.info(f"[conf.py] {docname}: Added placeholder content to empty RST tab-item '{label}'")
+            modified = True
+        
+        # Reconstruct the tab-item
+        return f"{indent}.. tab-item:: {label}\n{directives}{blank_lines}{content}"
+    
+    s = rst_pattern.sub(_fix_rst_tab_item, s)
+    
+    if modified:
+        source[0] = s
+        logger.info(f"[conf.py] Sanitized tab-items in {docname}")
+
 # ----------------- hooki -----------------
 def setup(app):
     # uruchom porządkowanie PRZED last_updated_by_git (niższy priorytet = wcześniej)
     app.connect("env-updated", _pre_git_filter, priority=100)
     # podmień puste bloki Breathe zaraz po wczytaniu źródła
     app.connect("source-read", _fix_breathe_empty_blocks, priority=500)
+    # sanitize tab-items before processing (run early, before sphinx-design)
+    app.connect("source-read", _sanitize_tab_items, priority=400)
