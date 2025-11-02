@@ -38,6 +38,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.autosectionlabel",  # Prevent duplicate label errors
 
     # Dodatki
     "sphinxcontrib.mermaid",
@@ -70,6 +71,10 @@ exclude_patterns = globals().get("exclude_patterns", []) + [
     "autoapi/cpp/*",
     "api/cpp/*",
 ]
+
+# Autosectionlabel - prefix document path to avoid label collisions
+# This prevents duplicate label errors when multiple files have sections with the same name
+autosectionlabel_prefix_document = True
 
 # Jeśli istnieje Doxygen XML – włącz breathe/exhale
 _DOXY_XML = Path(__file__).resolve().parent / "_build" / "doxygen" / "xml"
