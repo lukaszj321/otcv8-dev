@@ -152,7 +152,7 @@ static GLuint prog(){
 
 # 6) Render stack (diagram)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   App --> EGL
@@ -170,7 +170,7 @@ graph TD
 
 # 7) Pipeline (build → sanity → pakowanie)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   A[MSVC/CMake build] --> B[AppLocal copy DLL]

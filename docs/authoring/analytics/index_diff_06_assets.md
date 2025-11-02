@@ -8,7 +8,7 @@
 
 Line 134-159 (Asset Pipeline Flowchart):
 ```
-```{mermaid}
+```mermaid
 :caption: Asset Pipeline Flowchart
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
@@ -19,7 +19,7 @@ graph TD
 
 Line 161-199 (Texture Loading Sequence):
 ```
-```{mermaid}
+```mermaid
 :caption: Texture Loading Sequence
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram

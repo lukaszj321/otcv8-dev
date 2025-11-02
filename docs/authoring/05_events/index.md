@@ -41,8 +41,8 @@ title: 05_events - Events
 ### architecture
 *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Event Details
         E0[Event Patterns]
@@ -57,8 +57,8 @@ click Architecture "./index.html#facet-05_events.architecture" "Open architectur
 ### events_overview
 *Facet:* [`05_events.events_overview`](#facet-05_events.events_overview)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   EventOverview[05_events:events_overview] --> Data[Datasets]
   Data --> Page[Index]
@@ -70,8 +70,8 @@ click EventsOverview "./index.html#facet-05_events.events_overview" "Open events
 ### flow
 *Facet:* [`05_events.flow`](#facet-05_events.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Event Details] --> B[Data Collection]
     B --> C[Processing]

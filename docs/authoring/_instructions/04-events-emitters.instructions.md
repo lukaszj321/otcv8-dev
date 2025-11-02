@@ -75,7 +75,7 @@ Either add the dataset or update the directive.
 
 ## Diagram
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose'}}%%
 sequenceDiagram
   participant C as Client

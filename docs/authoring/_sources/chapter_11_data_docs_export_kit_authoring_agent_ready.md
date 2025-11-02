@@ -439,7 +439,7 @@ run()
 
 ### `data_flow.mmd` *(facet: 11_data.data_flow)*
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
@@ -457,7 +457,7 @@ graph TD
 
 ### `asset_linking.mmd` *(facet: 11_data.asset_linking)*
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   OTUI[OTUI property] -->|image-source / icon / font| Asset["data/** | layouts/**"]
@@ -674,8 +674,8 @@ Either add the dataset or update the directive.
 
 ### `data_flow.mmd` *(facet: 11_data.data_flow)*
 
-```{mermaid}
-%%{init: { 'theme': 'neutral' }}%%
+```mermaid
+%%{init: { 'theme': 'dark' }}%%
 flowchart LR
   A[data/*] --> B[Indexer CSV]
   B --> C[Datasets]
@@ -686,8 +686,8 @@ flowchart LR
 
 ### `asset_linking.mmd` *(facet: 11_data.asset_linking)*
 
-```{mermaid}
-%%{init: { 'theme': 'neutral' }}%%
+```mermaid
+%%{init: { 'theme': 'dark' }}%%
 graph TD
   I[OTUI property] -->|image-source/icon/font| ASSET[(Asset file)]
   ASSET --> INDEX[images.csv/fonts.csv/...]

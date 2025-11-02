@@ -9,5 +9,5 @@ Repozytorium *kanonicznych* szablonów OTUI do szybkiego użycia i przeglądu st
 - `index.md` — spis i podgląd
 
 ## Wymagania
-- Każdy diagram ma mieć `%%{init: { 'theme': 'neutral' }}%%`
+- Każdy diagram ma mieć `%%{init: { 'theme': 'dark' }}%%`
 - Każdy element w diagramie powinien linkować do odpowiedniej kotwicy `(facet-...)`

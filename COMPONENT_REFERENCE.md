@@ -28,14 +28,17 @@ More description.
 ## Tabs
 
 ````markdown
-````{tabs}
+```{tabs}
 ```{tab} Guide
+
 Content for guide tab.
 ```
 ```{tab} Reference
+
 Content for reference tab.
 ```
 ```{tab} Examples
+
 Content for examples tab.
 ```
 ````
@@ -239,12 +242,14 @@ Description of feature 2.
 :::
 :::
 
-````{tabs}
+```{tabs}
 ```{tab} Guide
+
 Guide content here.
 ```
 
 ```{tab} Examples
+
 **CSV Data**
 ```{csv-table} Sample Data
 :header-rows: 1

@@ -76,12 +76,12 @@ For each of the 3 pages above:
 Check that Sphinx `_sources` files also have correct formatting:
 
 1. Navigate to: https://lukaszj321.github.io/otcv8-dev/_sources/authoring/09_logging/index.md.txt
-2. Search for "```{mermaid}" (Ctrl+F)
+2. Search for "```mermaid" (Ctrl+F)
 3. Verify: The directive starts at the beginning of the line (column 0), no spaces before the backticks
 
 Expected (correct):
 ```
-```{mermaid}
+```mermaid
 :caption: Logger architecture
 :file: ./diagrams/logging_architecture.mmd
 ```
@@ -90,7 +90,7 @@ Expected (correct):
 **NOT** (incorrect - this was the bug):
 ```
 
-```{mermaid}
+```mermaid
     :caption: Logger architecture
     :file: ./diagrams/logging_architecture.mmd
 ```

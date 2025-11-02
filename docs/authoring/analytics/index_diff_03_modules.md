@@ -8,7 +8,7 @@
 
 Line 146-149:
 ```
-```{mermaid}
+```mermaid
 :caption: Module dependency graph with hot-reload indicators
 :file: ./diagrams/module_dependencies.mmd
 ```
@@ -16,7 +16,7 @@ Line 146-149:
 
 Line 160-163:
 ```
-```{mermaid}
+```mermaid
 :caption: Execution flow from Lua through bindings to C++ and back
 :file: ./diagrams/lua_cpp_binding_flow.mmd
 ```
@@ -30,7 +30,7 @@ Line 160-163:
 
 Line 146-149 (after Sphinx processing):
 ```
-```{mermaid}
+```mermaid
 :caption: Module dependency graph with hot-reload indicators
 :file: ./diagrams/module_dependencies.mmd
 ```
@@ -38,7 +38,7 @@ Line 146-149 (after Sphinx processing):
 
 Line 160-163 (after Sphinx processing):
 ```
-```{mermaid}
+```mermaid
 :caption: Execution flow from Lua through bindings to C++ and back
 :file: ./diagrams/lua_cpp_binding_flow.mmd
 ```

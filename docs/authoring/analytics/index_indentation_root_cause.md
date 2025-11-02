@@ -55,7 +55,7 @@ def mmd_block(p: pathlib.Path):
 
 3. **The `.strip()` trap**: The `.strip()` at the end only removes leading/trailing whitespace from the **entire string**, not from each line. So the 4 spaces before each line remained.
 
-4. **Sphinx interprets indentation as code**: In MyST Markdown, when a directive like ` ```{mermaid}` is indented by 4+ spaces, Sphinx treats it as a literal code block instead of executing the directive.
+4. **Sphinx interprets indentation as code**: In MyST Markdown, when a directive like ` ```mermaid` is indented by 4+ spaces, Sphinx treats it as a literal code block instead of executing the directive.
 
 ## The Fix
 
@@ -86,7 +86,7 @@ def mmd_block(p: pathlib.Path):
         f"### {p.stem}",
         f"*Facet:* [`{fid}`](#facet-{fid})",
         "",
-        "```{mermaid}",
+        "```mermaid",
         content,
         "```"
     ]
@@ -96,7 +96,7 @@ def mmd_block(p: pathlib.Path):
 ### Why This Works
 
 1. **Explicit control**: Each line is constructed individually with no leading whitespace
-2. **Predictable output**: The ` ```{mermaid}` and ` ```{csv-table}` directives start at column 0
+2. **Predictable output**: The ` ```mermaid` and ` ```{csv-table}` directives start at column 0
 3. **Blank line separation**: Empty string in the list ensures proper MyST directive separation
 4. **Content preservation**: Mermaid diagram content is inserted as-is without modification
 

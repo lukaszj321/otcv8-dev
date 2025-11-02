@@ -47,7 +47,7 @@ Each chapter includes:
 - Mermaid diagrams embedded with `{mermaid}` directive
 - All diagrams have the required init block:
 ```
-  %%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+  %%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 ```
 - Clickable nodes with facet anchors:
 ```

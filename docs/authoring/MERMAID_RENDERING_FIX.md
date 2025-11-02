@@ -154,7 +154,7 @@ python3 docs/authoring/_tools/generate_live_proofs.py
 **Mermaid Syntax Check:**
 ```bash
 # All content already uses correct {mermaid} directive
-$ grep -r '```{mermaid}' docs/authoring/*/index.md | wc -l
+$ grep -r '```mermaid' docs/authoring/*/index.md | wc -l
 164
 
 $ grep -r '```mermaid' docs/authoring/*/index.md | grep -v '{mermaid}' | wc -l
@@ -329,7 +329,7 @@ myst_fence_as_directive = ["mermaid"]
 
 This tells MyST parser to treat:
 ```
-​```{mermaid}
+​```mermaid
 graph TD
   A --> B
 ​```

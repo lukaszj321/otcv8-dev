@@ -43,7 +43,7 @@ The module loading process follows this sequence:
 
 ### Dependency Chain
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Client Core] --> B[game_interface]

@@ -15,7 +15,7 @@ Fixed MyST directive indentation issues that prevented Mermaid diagrams from ren
 ## What Was Fixed
 
 ### Problem
-- MyST directives like ````{mermaid}` and ````{csv-table}` were indented (typically 8 spaces)
+- MyST directives like ````mermaid` and ````{csv-table}` were indented (typically 8 spaces)
 - Sphinx/MyST requires these directives to start at **column 0**
 - Indented directives were being treated as literal code blocks instead of being processed
 
@@ -32,7 +32,7 @@ Fixed MyST directive indentation issues that prevented Mermaid diagrams from ren
 Created: `docs/authoring/_tools/myst_dedent_fix.py`
 
 **Features:**
-- Removes leading whitespace from directive openers (````{mermaid}`, ````{csv-table}`)
+- Removes leading whitespace from directive openers (````mermaid`, ````{csv-table}`)
 - Removes leading whitespace from directive closers (```)
 - Removes leading whitespace from `*Facet:*` labels
 - Ensures blank line before directives
@@ -96,8 +96,8 @@ mermaid_sanity.csv: 0 failed blocks (34 checked) ✅
 ### architecture
 *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-```{mermaid}
-        %%{init: { 'theme': 'neutral', ... }}%%
+```mermaid
+        %%{init: { 'theme': 'dark', ... }}%%
         graph LR
             ...
 ```
@@ -108,8 +108,8 @@ mermaid_sanity.csv: 0 failed blocks (34 checked) ✅
 ### architecture
 *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-```{mermaid}
-        %%{init: { 'theme': 'neutral', ... }}%%
+```mermaid
+        %%{init: { 'theme': 'dark', ... }}%%
 graph LR
     ...
 ```
@@ -121,14 +121,14 @@ graph LR
 
 ### For Developers
 1. **Always start MyST directives at column 0**
-   - ✅ Good: ````{mermaid}`
-   - ❌ Bad: `    ```{mermaid}`
+   - ✅ Good: ````mermaid`
+   - ❌ Bad: `    ```mermaid`
 
 2. **Add blank line before directives**
    ```markdown
    Some text here.
 
-```{mermaid}
+```mermaid
    graph TD
 ```
 

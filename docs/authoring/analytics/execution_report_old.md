@@ -59,7 +59,7 @@ Added MyST configuration to treat mermaid fence blocks as directives:
 myst_fence_as_directive = ["mermaid"]
 ```
 
-This configuration allows both ` ```{mermaid}` and ` ```mermaid` syntax to be properly rendered as Mermaid diagrams.
+This configuration allows both ` ```mermaid` and ` ```mermaid` syntax to be properly rendered as Mermaid diagrams.
 
 ### Fix B: Created Unescape Tool (`docs/authoring/_tools/mermaid_unescape_fix.py`)
 
@@ -106,28 +106,28 @@ After running `docs/authoring/_tools/qa_rerun.sh`:
 ### Sample File Verification
 
 **Before (logging_architecture.mmd):**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     click Console "../index.html#facet-09_logging.sinks" "Log Sinks"
 \nclick LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"\n
 ```
 
 **After (logging_architecture.mmd):**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     click Console "../index.html#facet-09_logging.sinks" "Log Sinks"
 click LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "Open logging_architecture"
 ```
 
 **Before (logging_flow.mmd - sequence diagram):**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     Note over Log: [[../index.html#facet-09_logging.flow|Logging Flow]]
 click LoggingFlow "./index.html#facet-09_logging.logging_flow" "Open logging_flow"
 ```
 
 **After (logging_flow.mmd):**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
     Note over Log: [[../index.html#facet-09_logging.flow|Logging Flow]]
     %% click LoggingFlow "./index.html#facet-09_logging.logging_flow" "Open logging_flow" %% REMOVED: click not supported in sequenceDiagram

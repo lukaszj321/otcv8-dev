@@ -46,7 +46,7 @@ def mmd_block(p: pathlib.Path):
         f"### {p.stem}",
         f"*Facet:* [`{fid}`](#facet-{fid})",
         "",  # Blank line before directive
-        "```{mermaid}",
+        "```mermaid",
         content,
         "```"
     ]
@@ -111,7 +111,7 @@ $ sphinx-build -b html docs docs/_build/html
 Build succeeded ✅
 
 $ cat docs/_build/html/_sources/authoring/03_modules/index.md.txt | grep -A 2 "mermaid"
-```{mermaid}
+```mermaid
 :caption: Module dependency graph
 :file: ./diagrams/module_dependencies.mmd
 ```
@@ -179,7 +179,7 @@ Example (correct):
 ```
 ## Section
 
-```{mermaid}
+```mermaid
 graph TD
   A --> B
 ```
@@ -190,7 +190,7 @@ Example (broken - treated as code):
 ```
 ## Section
 
-```{mermaid}
+```mermaid
     graph TD
       A --> B
 ```

@@ -68,8 +68,8 @@ title: 03_modules - Modules
 ### architecture
 *Facet:* [`03_modules.architecture`](#facet-03_modules.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Lua Modules
         E0[Modules]
@@ -84,8 +84,8 @@ click Architecture "./index.html#facet-03_modules.architecture" "Open architectu
 ### flow
 *Facet:* [`03_modules.flow`](#facet-03_modules.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Lua Modules] --> B[Data Collection]
     B --> C[Processing]
@@ -101,8 +101,8 @@ click Flow "./index.html#facet-03_modules.flow" "Open flow"
 ### lua_cpp_binding_flow
 *Facet:* [`03_modules.lua_cpp_binding_flow`](#facet-03_modules.lua_cpp_binding_flow)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant Lua as Lua Code
     participant Bind as Lua Binding Layer
@@ -133,8 +133,8 @@ sequenceDiagram
 ### module_dependencies
 *Facet:* [`03_modules.module_dependencies`](#facet-03_modules.module_dependencies)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     subgraph "Core Libraries"
         CL[corelib]
@@ -180,8 +180,8 @@ click ModuleDependencies "./index.html#facet-03_modules.module_dependencies" "Op
 ### modules_architecture
 *Facet:* [`03_modules.modules_architecture`](#facet-03_modules.modules_architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   ModuleArchitecture[03_modules:modules_architecture] --> Data[Datasets]
   Data --> Page[Index]
@@ -193,8 +193,8 @@ click ModulesArchitecture "./index.html#facet-03_modules.modules_architecture" "
 ### modules_graph
 *Facet:* [`03_modules.modules_graph`](#facet-03_modules.modules_graph)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[03_modules.modules_graph] --> B[Dataset]
     B --> C[Page]
@@ -206,7 +206,7 @@ click ModulesGraph "./index.html#facet-03_modules.modules_graph" "Open modules_g
 ### overview
 *Facet:* [`03_modules.overview`](#facet-03_modules.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Modules] --> B[Components]

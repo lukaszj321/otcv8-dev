@@ -68,7 +68,7 @@ title: 01_runtime - Runtime
 ### architecture
 *Facet:* [`01_runtime.architecture`](#facet-01_runtime.architecture)
 
-```{mermaid}
+```mermaid
 %%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Runtime
@@ -84,8 +84,8 @@ click Architecture "./index.html#facet-01_runtime.architecture" "Open architectu
 ### dispatcher_architecture
 *Facet:* [`01_runtime.dispatcher_architecture`](#facet-01_runtime.dispatcher_architecture)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Client[Client Code] -->|addEvent| ED[EventDispatcher]
     Client -->|scheduleEvent| ED
@@ -113,7 +113,7 @@ click DispatcherArchitecture "./index.html#facet-01_runtime.dispatcher_architect
 ### flow
 *Facet:* [`01_runtime.flow`](#facet-01_runtime.flow)
 
-```{mermaid}
+```mermaid
 %%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Runtime] --> B[Data Collection]
@@ -130,8 +130,8 @@ click Flow "./index.html#facet-01_runtime.flow" "Open flow"
 ### lifecycle_sequence
 *Facet:* [`01_runtime.lifecycle_sequence`](#facet-01_runtime.lifecycle_sequence)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
     participant AD as AsyncDispatcher
@@ -164,7 +164,7 @@ sequenceDiagram
 ### overview
 *Facet:* [`01_runtime.overview`](#facet-01_runtime.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Runtime System] --> B[Components]
@@ -176,7 +176,7 @@ click Overview "./index.html#facet-01_runtime.overview" "Open overview"
 ### runtime_flow
 *Facet:* [`01_runtime.runtime_flow`](#facet-01_runtime.runtime_flow)
 
-```{mermaid}
+```mermaid
 %%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   RuntimeFlow[01_runtime:runtime_flow] --> Data[Datasets]

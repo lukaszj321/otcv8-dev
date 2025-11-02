@@ -86,8 +86,8 @@ title: 07_settings_crypto - Settings crypto
 ### architecture
 *Facet:* [`07_settings_crypto.architecture`](#facet-07_settings_crypto.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Settings & Crypto
         E0[Settings]
@@ -102,8 +102,8 @@ click Architecture "./index.html#facet-07_settings_crypto.architecture" "Open ar
 ### config_flow
 *Facet:* [`07_settings_crypto.config_flow`](#facet-07_settings_crypto.config_flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[07_settings_crypto.config_flow] --> B[Dataset]
     B --> C[Page]
@@ -115,8 +115,8 @@ click ConfigFlow "./index.html#facet-07_settings_crypto.config_flow" "Open confi
 ### crypto_flow
 *Facet:* [`07_settings_crypto.crypto_flow`](#facet-07_settings_crypto.crypto_flow)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     Input[Sensitive Data] --> Choice{Security Need?}
     
@@ -155,8 +155,8 @@ click CryptoFlow "./index.html#facet-07_settings_crypto.crypto_flow" "Open crypt
 ### crypto_overview
 *Facet:* [`07_settings_crypto.crypto_overview`](#facet-07_settings_crypto.crypto_overview)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   CryptoOverview[07_settings_crypto:crypto_overview] --> Data[Datasets]
   Data --> Page[Index]
@@ -168,8 +168,8 @@ click CryptoOverview "./index.html#facet-07_settings_crypto.crypto_overview" "Op
 ### flow
 *Facet:* [`07_settings_crypto.flow`](#facet-07_settings_crypto.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Settings & Crypto] --> B[Data Collection]
     B --> C[Processing]
@@ -185,7 +185,7 @@ click Flow "./index.html#facet-07_settings_crypto.flow" "Open flow"
 ### overview
 *Facet:* [`07_settings_crypto.overview`](#facet-07_settings_crypto.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Settings & Crypto] --> B[Components]
@@ -197,8 +197,8 @@ click Overview "./index.html#facet-07_settings_crypto.overview" "Open overview"
 ### settings_encryption_flow
 *Facet:* [`07_settings_crypto.settings_encryption_flow`](#facet-07_settings_crypto.settings_encryption_flow)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant User as User Action
     participant App as Application

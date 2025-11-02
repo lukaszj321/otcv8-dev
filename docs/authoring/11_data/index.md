@@ -122,8 +122,8 @@ title: 11_data - Data
 ### asset_linking
 *Facet:* [`11_data.asset_linking`](#facet-11_data.asset_linking)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   I[OTUI property] -->|image-source/icon/font| ASSET[(Asset file)]
   ASSET --> INDEX[images.csv/fonts.csv/...]
@@ -134,8 +134,8 @@ click AssetLinking "./index.html#facet-11_data.asset_linking" "Open asset_linkin
 ### asset_to_ui
 *Facet:* [`11_data.asset_to_ui`](#facet-11_data.asset_to_ui)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral' }}%%
+```mermaid
+%%{init: { 'theme': 'dark' }}%%
 flowchart LR
   OTUI[OTUI props]-->IMG(images.csv)
   OTUI-->FNT(fonts.csv)
@@ -149,8 +149,8 @@ click AssetToUi "./index.html#facet-11_data.asset_to_ui" "Open asset_to_ui"
 ### assets_links
 *Facet:* [`11_data.assets_links`](#facet-11_data.assets_links)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     OTUI["OTUI Files<br/>(*.otui)"] --> PROPS["Properties:<br/>image-source<br/>icon<br/>font"]
     PROPS --> RESOLVE["Asset Resolver"]
@@ -171,8 +171,8 @@ click AssetsLinks "./index.html#facet-11_data.assets_links" "Open assets_links"
 ### assets_topology
 *Facet:* [`11_data.assets_topology`](#facet-11_data.assets_topology)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[OTUI widgets] --> B[Images/Textures]
     A --> C[Fonts]
@@ -184,8 +184,8 @@ click AssetsTopology "./index.html#facet-11_data.assets_topology" "Open assets_t
 ### data_flow
 *Facet:* [`11_data.data_flow`](#facet-11_data.data_flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 flowchart LR
   A[data/*] --> B[Indexer CSV]
   B --> C[Datasets]
@@ -198,8 +198,8 @@ click DataFlow "./index.html#facet-11_data.data_flow" "Open data_flow"
 ### data_overview
 *Facet:* [`11_data.data_overview`](#facet-11_data.data_overview)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     Data[data/ Root] --> Images[images/]
     Data --> Fonts[fonts/]
@@ -217,7 +217,7 @@ click DataOverview "./index.html#facet-11_data.data_overview" "Open data_overvie
 ### overview
 *Facet:* [`11_data.overview`](#facet-11_data.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Data Assets] --> B[Components]

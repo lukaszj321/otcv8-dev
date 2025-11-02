@@ -3,7 +3,7 @@
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 :caption: Actionbar
 
 graph TD
@@ -12,7 +12,7 @@ graph TD
     W2["nextPanel (RightSliders)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Alarms
 
 graph TD
@@ -22,14 +22,14 @@ graph TD
     W3["closeButton (AlarmsWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Amountwindow
 
 graph TD
     W0["buttonOk (AmountWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Analyzer
 
 graph TD
@@ -59,7 +59,7 @@ graph TD
     W23["closeButton (FeaturesWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Architecture
 
 graph LR
@@ -72,7 +72,7 @@ graph LR
     end
 ```
 
-```{mermaid}
+```mermaid
 :caption: Attackbot
 
 graph TD
@@ -88,7 +88,7 @@ graph TD
     W9["settings (AttackBotWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Basic
 
 graph TD
@@ -107,7 +107,7 @@ graph TD
     W12["SlotComboBox (SlotComboBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Battle
 
 graph TD
@@ -124,14 +124,14 @@ graph TD
     W0 --> W5
 ```
 
-```{mermaid}
+```mermaid
 :caption: Battlebutton
 
 graph TD
     W0["BattleButton (BattleButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Bot
 
 graph TD
@@ -140,7 +140,7 @@ graph TD
     W2["botPanel (BotTabBarButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Botserver
 
 graph TD
@@ -149,21 +149,21 @@ graph TD
     W2["enabled (BotServerWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Browse
 
 graph TD
     W0["filterSearchAll (MarketItemBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Bugreport
 
 graph TD
     W0["cancelButton (BugReportWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Cavebot
 
 graph TD
@@ -171,21 +171,21 @@ graph TD
     W1["showConfig (CaveBotPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Channelswindow
 
 graph TD
     W0["channelsScrollBar (ChannelListLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Characterlist
 
 graph TD
     W0["buttonCancel (CharacterWidget)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Combo
 
 graph TD
@@ -201,7 +201,7 @@ graph TD
     W9["toolsButton (ComboWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Communicationwindow
 
 graph TD
@@ -209,7 +209,7 @@ graph TD
     W1["whiteListScrollBar (WhiteListLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Conditions
 
 graph TD
@@ -221,21 +221,21 @@ graph TD
     W5["closeButton (ConditionsWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Config
 
 graph TD
     W0["remove (BotConfig)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Container
 
 graph TD
     W0["scroll (BotContainer)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Cooldown
 
 graph TD
@@ -245,14 +245,14 @@ graph TD
     W3["cooldownPanel (GroupCooldownParticles)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Countwindow
 
 graph TD
     W0["buttonOk (CountWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Creature Editor
 
 graph TD
@@ -263,7 +263,7 @@ graph TD
     W4["cancel (TargetBotCreatureEditorWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Currentoffers
 
 graph TD
@@ -275,14 +275,14 @@ graph TD
     W4["myBuyingTableScrollBar (OfferTableHeaderColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Deathwindow
 
 graph TD
     W0["buttonCancel (DeathWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Depositer Config
 
 graph TD
@@ -290,7 +290,7 @@ graph TD
     W1["CloseButton (DepositerPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Editor
 
 graph TD
@@ -298,14 +298,14 @@ graph TD
     W1["autoRecording (CaveBotEditorPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Editvip
 
 graph TD
     W0["buttonCancel (IconButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Equipper
 
 graph TD
@@ -327,7 +327,7 @@ graph TD
     W15["bossList (EquipWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Extras
 
 graph TD
@@ -338,7 +338,7 @@ graph TD
     W4["closeButton (ExtrasWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flagwindow
 
 graph TD
@@ -346,7 +346,7 @@ graph TD
     W1["cancelButton (FlagWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flow
 
 graph TD
@@ -360,7 +360,7 @@ graph TD
     F --> H
 ```
 
-```{mermaid}
+```mermaid
 :caption: Gameinterface
 
 graph TD
@@ -369,7 +369,7 @@ graph TD
     W2["gameTopBar (GameAction)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Healbot
 
 graph TD
@@ -389,7 +389,7 @@ graph TD
     W13["settingsButton (HealWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Hotkeys Manager
 
 graph TD
@@ -397,14 +397,14 @@ graph TD
     W1["cancelButton (HotkeyAssignWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Icons
 
 graph TD
     W0["text (BotIcon)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Imbuing
 
 graph TD
@@ -415,7 +415,7 @@ graph TD
     W4["balance (ClearImbue)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemdetails
 
 graph TD
@@ -423,7 +423,7 @@ graph TD
     W1["detailsTableScrollBar (DetailsTableColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemoffers
 
 graph TD
@@ -435,14 +435,14 @@ graph TD
     W4["buyingTableScrollBar (OfferTableHeaderColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemselector
 
 graph TD
     W0["cancelButton (ItemSelectorWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemstats
 
 graph TD
@@ -450,7 +450,7 @@ graph TD
     W1["sellStatsTableScrollBar (StatsTableColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Locales
 
 graph TD
@@ -458,28 +458,28 @@ graph TD
     W1["localesPanel (LocalesButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Looting
 
 graph TD
     W0["value (TargetBotLootingPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Market
 
 graph TD
     W0["resetButton (MarketWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Marketbuttons
 
 graph TD
     W0["MarketButtonBox (MarketButtonBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Marketcombobox
 
 graph TD
@@ -489,7 +489,7 @@ graph TD
     W3["MarketComboBox (MarketComboBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Markettabs
 
 graph TD
@@ -501,7 +501,7 @@ graph TD
     W5["MarketRightTabBarButton (MarketRightTabBarButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Modaldialog
 
 graph TD
@@ -512,7 +512,7 @@ graph TD
     W4["buttonsPanel (ModalDialog)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: New Healer
 
 graph TD
@@ -534,7 +534,7 @@ graph TD
     W14["closeButton (FriendHealer)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Npctrade
 
 graph TD
@@ -542,14 +542,14 @@ graph TD
     W1["tradeButton (NPCItemBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Object
 
 graph TD
     W0["buttonOk (RoundCheckBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Options
 
 graph TD
@@ -558,14 +558,14 @@ graph TD
     W2["optionsTabContent (OptionPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Outfitwindow
 
 graph TD
     W0["FloorTile (FloorTile)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Panels
 
 graph TD
@@ -582,7 +582,7 @@ graph TD
     W10["left (SwitchAndButtonPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Playerlist
 
 graph TD
@@ -593,7 +593,7 @@ graph TD
     W4["closeButton (PlayerListWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Prey
 
 graph TD
@@ -616,14 +616,14 @@ graph TD
     W16["slot3 (PreyTracker)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Pushmax
 
 graph TD
     W0["closeButton (PushMaxWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Questlogwindow
 
 graph TD
@@ -635,7 +635,7 @@ graph TD
     W5["list (QuestTracker)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Ruleviolation
 
 graph TD
@@ -644,7 +644,7 @@ graph TD
     W2["commentText (RVTextEdit)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Shop
 
 graph TD
@@ -664,7 +664,7 @@ graph TD
     W4 --> W7
 ```
 
-```{mermaid}
+```mermaid
 :caption: Sideactionbar
 
 graph TD
@@ -673,7 +673,7 @@ graph TD
     W2["nextPanel (BottomSliders)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Siolist
 
 graph TD
@@ -681,7 +681,7 @@ graph TD
     W1["closeButton (SioListWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Skills
 
 graph TD
@@ -694,14 +694,14 @@ graph TD
     W5["skillId12 (SkillPercentPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Spell
 
 graph TD
     W0["buttonOk (SpellPreview)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Spelllist
 
 graph TD
@@ -711,7 +711,7 @@ graph TD
     W3["premiumBoxYes (FilterButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Stats
 
 graph TD
@@ -719,7 +719,7 @@ graph TD
     W1["debugScroll (DebugLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Supplies
 
 graph TD
@@ -729,7 +729,7 @@ graph TD
     W3["decrement (SuppliesWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Supply
 
 graph TD
@@ -737,7 +737,7 @@ graph TD
     W1["scroll (SupplyItemList)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Target
 
 graph TD
@@ -746,7 +746,7 @@ graph TD
     W2["debug (TargetBotPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Terminal
 
 graph TD
@@ -754,7 +754,7 @@ graph TD
     W1["rightResizeBorder (TerminalSelectText)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textedit
 
 graph TD
@@ -766,21 +766,21 @@ graph TD
     W1 --> W3
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textmessage
 
 graph TD
     W0["statusLabel (TextMessageLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textwindow
 
 graph TD
     W0["cancelButton (TextWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Topbar
 
 graph TD
@@ -788,14 +788,14 @@ graph TD
     W1["skills (SkillPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Tradewindow
 
 graph TD
     W0["rejectButton (TradeWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Unjustifiedpoints
 
 graph TD
@@ -803,7 +803,7 @@ graph TD
     W1["monthSkullWidget (SkullWidget)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Viplist
 
 graph TD
@@ -813,7 +813,7 @@ graph TD
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 :caption: Actionbar
 
 graph TD
@@ -822,7 +822,7 @@ graph TD
     W2["nextPanel (RightSliders)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Alarms
 
 graph TD
@@ -832,14 +832,14 @@ graph TD
     W3["closeButton (AlarmsWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Amountwindow
 
 graph TD
     W0["buttonOk (AmountWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Analyzer
 
 graph TD
@@ -869,7 +869,7 @@ graph TD
     W23["closeButton (FeaturesWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Architecture
 
 graph LR
@@ -882,7 +882,7 @@ graph LR
     end
 ```
 
-```{mermaid}
+```mermaid
 :caption: Attackbot
 
 graph TD
@@ -898,7 +898,7 @@ graph TD
     W9["settings (AttackBotWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Basic
 
 graph TD
@@ -917,7 +917,7 @@ graph TD
     W12["SlotComboBox (SlotComboBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Battle
 
 graph TD
@@ -934,14 +934,14 @@ graph TD
     W0 --> W5
 ```
 
-```{mermaid}
+```mermaid
 :caption: Battlebutton
 
 graph TD
     W0["BattleButton (BattleButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Bot
 
 graph TD
@@ -950,7 +950,7 @@ graph TD
     W2["botPanel (BotTabBarButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Botserver
 
 graph TD
@@ -959,21 +959,21 @@ graph TD
     W2["enabled (BotServerWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Browse
 
 graph TD
     W0["filterSearchAll (MarketItemBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Bugreport
 
 graph TD
     W0["cancelButton (BugReportWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Cavebot
 
 graph TD
@@ -981,21 +981,21 @@ graph TD
     W1["showConfig (CaveBotPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Channelswindow
 
 graph TD
     W0["channelsScrollBar (ChannelListLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Characterlist
 
 graph TD
     W0["buttonCancel (CharacterWidget)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Combo
 
 graph TD
@@ -1011,7 +1011,7 @@ graph TD
     W9["toolsButton (ComboWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Communicationwindow
 
 graph TD
@@ -1019,7 +1019,7 @@ graph TD
     W1["whiteListScrollBar (WhiteListLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Conditions
 
 graph TD
@@ -1031,21 +1031,21 @@ graph TD
     W5["closeButton (ConditionsWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Config
 
 graph TD
     W0["remove (BotConfig)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Container
 
 graph TD
     W0["scroll (BotContainer)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Cooldown
 
 graph TD
@@ -1055,14 +1055,14 @@ graph TD
     W3["cooldownPanel (GroupCooldownParticles)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Countwindow
 
 graph TD
     W0["buttonOk (CountWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Creature Editor
 
 graph TD
@@ -1073,7 +1073,7 @@ graph TD
     W4["cancel (TargetBotCreatureEditorWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Currentoffers
 
 graph TD
@@ -1085,14 +1085,14 @@ graph TD
     W4["myBuyingTableScrollBar (OfferTableHeaderColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Deathwindow
 
 graph TD
     W0["buttonCancel (DeathWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Depositer Config
 
 graph TD
@@ -1100,7 +1100,7 @@ graph TD
     W1["CloseButton (DepositerPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Editor
 
 graph TD
@@ -1108,14 +1108,14 @@ graph TD
     W1["autoRecording (CaveBotEditorPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Editvip
 
 graph TD
     W0["buttonCancel (IconButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Equipper
 
 graph TD
@@ -1137,7 +1137,7 @@ graph TD
     W15["bossList (EquipWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Extras
 
 graph TD
@@ -1148,7 +1148,7 @@ graph TD
     W4["closeButton (ExtrasWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flagwindow
 
 graph TD
@@ -1156,7 +1156,7 @@ graph TD
     W1["cancelButton (FlagWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flow
 
 graph TD
@@ -1170,7 +1170,7 @@ graph TD
     F --> H
 ```
 
-```{mermaid}
+```mermaid
 :caption: Gameinterface
 
 graph TD
@@ -1179,7 +1179,7 @@ graph TD
     W2["gameTopBar (GameAction)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Healbot
 
 graph TD
@@ -1199,7 +1199,7 @@ graph TD
     W13["settingsButton (HealWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Hotkeys Manager
 
 graph TD
@@ -1207,14 +1207,14 @@ graph TD
     W1["cancelButton (HotkeyAssignWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Icons
 
 graph TD
     W0["text (BotIcon)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Imbuing
 
 graph TD
@@ -1225,7 +1225,7 @@ graph TD
     W4["balance (ClearImbue)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemdetails
 
 graph TD
@@ -1233,7 +1233,7 @@ graph TD
     W1["detailsTableScrollBar (DetailsTableColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemoffers
 
 graph TD
@@ -1245,14 +1245,14 @@ graph TD
     W4["buyingTableScrollBar (OfferTableHeaderColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemselector
 
 graph TD
     W0["cancelButton (ItemSelectorWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemstats
 
 graph TD
@@ -1260,7 +1260,7 @@ graph TD
     W1["sellStatsTableScrollBar (StatsTableColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Locales
 
 graph TD
@@ -1268,28 +1268,28 @@ graph TD
     W1["localesPanel (LocalesButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Looting
 
 graph TD
     W0["value (TargetBotLootingPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Market
 
 graph TD
     W0["resetButton (MarketWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Marketbuttons
 
 graph TD
     W0["MarketButtonBox (MarketButtonBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Marketcombobox
 
 graph TD
@@ -1299,7 +1299,7 @@ graph TD
     W3["MarketComboBox (MarketComboBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Markettabs
 
 graph TD
@@ -1311,7 +1311,7 @@ graph TD
     W5["MarketRightTabBarButton (MarketRightTabBarButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Modaldialog
 
 graph TD
@@ -1322,7 +1322,7 @@ graph TD
     W4["buttonsPanel (ModalDialog)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: New Healer
 
 graph TD
@@ -1344,7 +1344,7 @@ graph TD
     W14["closeButton (FriendHealer)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Npctrade
 
 graph TD
@@ -1352,14 +1352,14 @@ graph TD
     W1["tradeButton (NPCItemBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Object
 
 graph TD
     W0["buttonOk (RoundCheckBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Options
 
 graph TD
@@ -1368,14 +1368,14 @@ graph TD
     W2["optionsTabContent (OptionPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Outfitwindow
 
 graph TD
     W0["FloorTile (FloorTile)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Panels
 
 graph TD
@@ -1392,7 +1392,7 @@ graph TD
     W10["left (SwitchAndButtonPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Playerlist
 
 graph TD
@@ -1403,7 +1403,7 @@ graph TD
     W4["closeButton (PlayerListWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Prey
 
 graph TD
@@ -1426,14 +1426,14 @@ graph TD
     W16["slot3 (PreyTracker)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Pushmax
 
 graph TD
     W0["closeButton (PushMaxWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Questlogwindow
 
 graph TD
@@ -1445,7 +1445,7 @@ graph TD
     W5["list (QuestTracker)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Ruleviolation
 
 graph TD
@@ -1454,7 +1454,7 @@ graph TD
     W2["commentText (RVTextEdit)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Shop
 
 graph TD
@@ -1474,7 +1474,7 @@ graph TD
     W4 --> W7
 ```
 
-```{mermaid}
+```mermaid
 :caption: Sideactionbar
 
 graph TD
@@ -1483,7 +1483,7 @@ graph TD
     W2["nextPanel (BottomSliders)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Siolist
 
 graph TD
@@ -1491,7 +1491,7 @@ graph TD
     W1["closeButton (SioListWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Skills
 
 graph TD
@@ -1504,14 +1504,14 @@ graph TD
     W5["skillId12 (SkillPercentPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Spell
 
 graph TD
     W0["buttonOk (SpellPreview)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Spelllist
 
 graph TD
@@ -1521,7 +1521,7 @@ graph TD
     W3["premiumBoxYes (FilterButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Stats
 
 graph TD
@@ -1529,7 +1529,7 @@ graph TD
     W1["debugScroll (DebugLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Supplies
 
 graph TD
@@ -1539,7 +1539,7 @@ graph TD
     W3["decrement (SuppliesWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Supply
 
 graph TD
@@ -1547,7 +1547,7 @@ graph TD
     W1["scroll (SupplyItemList)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Target
 
 graph TD
@@ -1556,7 +1556,7 @@ graph TD
     W2["debug (TargetBotPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Terminal
 
 graph TD
@@ -1564,7 +1564,7 @@ graph TD
     W1["rightResizeBorder (TerminalSelectText)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textedit
 
 graph TD
@@ -1576,21 +1576,21 @@ graph TD
     W1 --> W3
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textmessage
 
 graph TD
     W0["statusLabel (TextMessageLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textwindow
 
 graph TD
     W0["cancelButton (TextWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Topbar
 
 graph TD
@@ -1598,14 +1598,14 @@ graph TD
     W1["skills (SkillPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Tradewindow
 
 graph TD
     W0["rejectButton (TradeWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Unjustifiedpoints
 
 graph TD
@@ -1613,7 +1613,7 @@ graph TD
     W1["monthSkullWidget (SkullWidget)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Viplist
 
 graph TD
@@ -1623,7 +1623,7 @@ graph TD
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 :caption: Actionbar
 
 graph TD
@@ -1632,7 +1632,7 @@ graph TD
     W2["nextPanel (RightSliders)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Alarms
 
 graph TD
@@ -1642,14 +1642,14 @@ graph TD
     W3["closeButton (AlarmsWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Amountwindow
 
 graph TD
     W0["buttonOk (AmountWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Analyzer
 
 graph TD
@@ -1679,7 +1679,7 @@ graph TD
     W23["closeButton (FeaturesWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Architecture
 
 graph LR
@@ -1692,7 +1692,7 @@ graph LR
     end
 ```
 
-```{mermaid}
+```mermaid
 :caption: Attackbot
 
 graph TD
@@ -1708,7 +1708,7 @@ graph TD
     W9["settings (AttackBotWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Basic
 
 graph TD
@@ -1727,7 +1727,7 @@ graph TD
     W12["SlotComboBox (SlotComboBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Battle
 
 graph TD
@@ -1744,14 +1744,14 @@ graph TD
     W0 --> W5
 ```
 
-```{mermaid}
+```mermaid
 :caption: Battlebutton
 
 graph TD
     W0["BattleButton (BattleButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Bot
 
 graph TD
@@ -1760,7 +1760,7 @@ graph TD
     W2["botPanel (BotTabBarButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Botserver
 
 graph TD
@@ -1769,21 +1769,21 @@ graph TD
     W2["enabled (BotServerWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Browse
 
 graph TD
     W0["filterSearchAll (MarketItemBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Bugreport
 
 graph TD
     W0["cancelButton (BugReportWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Cavebot
 
 graph TD
@@ -1791,21 +1791,21 @@ graph TD
     W1["showConfig (CaveBotPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Channelswindow
 
 graph TD
     W0["channelsScrollBar (ChannelListLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Characterlist
 
 graph TD
     W0["buttonCancel (CharacterWidget)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Combo
 
 graph TD
@@ -1821,7 +1821,7 @@ graph TD
     W9["toolsButton (ComboWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Communicationwindow
 
 graph TD
@@ -1829,7 +1829,7 @@ graph TD
     W1["whiteListScrollBar (WhiteListLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Conditions
 
 graph TD
@@ -1841,21 +1841,21 @@ graph TD
     W5["closeButton (ConditionsWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Config
 
 graph TD
     W0["remove (BotConfig)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Container
 
 graph TD
     W0["scroll (BotContainer)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Cooldown
 
 graph TD
@@ -1865,14 +1865,14 @@ graph TD
     W3["cooldownPanel (GroupCooldownParticles)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Countwindow
 
 graph TD
     W0["buttonOk (CountWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Creature Editor
 
 graph TD
@@ -1883,7 +1883,7 @@ graph TD
     W4["cancel (TargetBotCreatureEditorWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Currentoffers
 
 graph TD
@@ -1895,14 +1895,14 @@ graph TD
     W4["myBuyingTableScrollBar (OfferTableHeaderColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Deathwindow
 
 graph TD
     W0["buttonCancel (DeathWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Depositer Config
 
 graph TD
@@ -1910,7 +1910,7 @@ graph TD
     W1["CloseButton (DepositerPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Editor
 
 graph TD
@@ -1918,14 +1918,14 @@ graph TD
     W1["autoRecording (CaveBotEditorPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Editvip
 
 graph TD
     W0["buttonCancel (IconButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Equipper
 
 graph TD
@@ -1947,7 +1947,7 @@ graph TD
     W15["bossList (EquipWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Extras
 
 graph TD
@@ -1958,7 +1958,7 @@ graph TD
     W4["closeButton (ExtrasWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flagwindow
 
 graph TD
@@ -1966,7 +1966,7 @@ graph TD
     W1["cancelButton (FlagWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flow
 
 graph TD
@@ -1980,7 +1980,7 @@ graph TD
     F --> H
 ```
 
-```{mermaid}
+```mermaid
 :caption: Gameinterface
 
 graph TD
@@ -1989,7 +1989,7 @@ graph TD
     W2["gameTopBar (GameAction)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Healbot
 
 graph TD
@@ -2009,7 +2009,7 @@ graph TD
     W13["settingsButton (HealWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Hotkeys Manager
 
 graph TD
@@ -2017,14 +2017,14 @@ graph TD
     W1["cancelButton (HotkeyAssignWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Icons
 
 graph TD
     W0["text (BotIcon)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Imbuing
 
 graph TD
@@ -2035,7 +2035,7 @@ graph TD
     W4["balance (ClearImbue)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemdetails
 
 graph TD
@@ -2043,7 +2043,7 @@ graph TD
     W1["detailsTableScrollBar (DetailsTableColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemoffers
 
 graph TD
@@ -2055,14 +2055,14 @@ graph TD
     W4["buyingTableScrollBar (OfferTableHeaderColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemselector
 
 graph TD
     W0["cancelButton (ItemSelectorWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Itemstats
 
 graph TD
@@ -2070,7 +2070,7 @@ graph TD
     W1["sellStatsTableScrollBar (StatsTableColumn)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Locales
 
 graph TD
@@ -2078,28 +2078,28 @@ graph TD
     W1["localesPanel (LocalesButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Looting
 
 graph TD
     W0["value (TargetBotLootingPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Market
 
 graph TD
     W0["resetButton (MarketWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Marketbuttons
 
 graph TD
     W0["MarketButtonBox (MarketButtonBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Marketcombobox
 
 graph TD
@@ -2109,7 +2109,7 @@ graph TD
     W3["MarketComboBox (MarketComboBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Markettabs
 
 graph TD
@@ -2121,7 +2121,7 @@ graph TD
     W5["MarketRightTabBarButton (MarketRightTabBarButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Modaldialog
 
 graph TD
@@ -2132,7 +2132,7 @@ graph TD
     W4["buttonsPanel (ModalDialog)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: New Healer
 
 graph TD
@@ -2154,7 +2154,7 @@ graph TD
     W14["closeButton (FriendHealer)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Npctrade
 
 graph TD
@@ -2162,14 +2162,14 @@ graph TD
     W1["tradeButton (NPCItemBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Object
 
 graph TD
     W0["buttonOk (RoundCheckBox)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Options
 
 graph TD
@@ -2178,14 +2178,14 @@ graph TD
     W2["optionsTabContent (OptionPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Outfitwindow
 
 graph TD
     W0["FloorTile (FloorTile)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Panels
 
 graph TD
@@ -2202,7 +2202,7 @@ graph TD
     W10["left (SwitchAndButtonPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Playerlist
 
 graph TD
@@ -2213,7 +2213,7 @@ graph TD
     W4["closeButton (PlayerListWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Prey
 
 graph TD
@@ -2236,14 +2236,14 @@ graph TD
     W16["slot3 (PreyTracker)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Pushmax
 
 graph TD
     W0["closeButton (PushMaxWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Questlogwindow
 
 graph TD
@@ -2255,7 +2255,7 @@ graph TD
     W5["list (QuestTracker)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Ruleviolation
 
 graph TD
@@ -2264,7 +2264,7 @@ graph TD
     W2["commentText (RVTextEdit)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Shop
 
 graph TD
@@ -2284,7 +2284,7 @@ graph TD
     W4 --> W7
 ```
 
-```{mermaid}
+```mermaid
 :caption: Sideactionbar
 
 graph TD
@@ -2293,7 +2293,7 @@ graph TD
     W2["nextPanel (BottomSliders)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Siolist
 
 graph TD
@@ -2301,7 +2301,7 @@ graph TD
     W1["closeButton (SioListWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Skills
 
 graph TD
@@ -2314,14 +2314,14 @@ graph TD
     W5["skillId12 (SkillPercentPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Spell
 
 graph TD
     W0["buttonOk (SpellPreview)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Spelllist
 
 graph TD
@@ -2331,7 +2331,7 @@ graph TD
     W3["premiumBoxYes (FilterButton)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Stats
 
 graph TD
@@ -2339,7 +2339,7 @@ graph TD
     W1["debugScroll (DebugLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Supplies
 
 graph TD
@@ -2349,7 +2349,7 @@ graph TD
     W3["decrement (SuppliesWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Supply
 
 graph TD
@@ -2357,7 +2357,7 @@ graph TD
     W1["scroll (SupplyItemList)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Target
 
 graph TD
@@ -2366,7 +2366,7 @@ graph TD
     W2["debug (TargetBotPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Terminal
 
 graph TD
@@ -2374,7 +2374,7 @@ graph TD
     W1["rightResizeBorder (TerminalSelectText)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textedit
 
 graph TD
@@ -2386,21 +2386,21 @@ graph TD
     W1 --> W3
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textmessage
 
 graph TD
     W0["statusLabel (TextMessageLabel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Textwindow
 
 graph TD
     W0["cancelButton (TextWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Topbar
 
 graph TD
@@ -2408,14 +2408,14 @@ graph TD
     W1["skills (SkillPanel)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Tradewindow
 
 graph TD
     W0["rejectButton (TradeWindow)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Unjustifiedpoints
 
 graph TD
@@ -2423,7 +2423,7 @@ graph TD
     W1["monthSkullWidget (SkullWidget)"]
 ```
 
-```{mermaid}
+```mermaid
 :caption: Viplist
 
 graph TD

@@ -78,6 +78,7 @@ Build Android, JNI, ABI, manifesty.
 :::
 
 ```{tab} Guide
+
 **Struktura Authoring:** każdy rozdział zawiera:
 - `datasets/` — dane strukturalne (CSV) do walidacji i analiz
 - `diagrams/` — wizualizacje (Mermaid/Graphviz) w dark mode
@@ -91,6 +92,7 @@ Build Android, JNI, ABI, manifesty.
 ```
 
 ```{tab} Reference
+
 **Indeksy rozdziałów** (patrz TOC). Każdy rozdział dokumentuje:
 - Typy/klasy (Core/UI)
 - Funkcje/API (Modules/Network)
@@ -103,6 +105,7 @@ Build Android, JNI, ABI, manifesty.
 ```
 
 ```{tab} Examples
+
 **CSV Table — UI Signals**
 ```{csv-table} Signals (sample)
 :header-rows: 1
@@ -111,7 +114,7 @@ Build Android, JNI, ABI, manifesty.
 ```
 
 **Mermaid Diagram — Flow**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart LR
   A[Authoring]-->B[Datasets]

@@ -2,7 +2,7 @@
 
 ## Mermaid
 
-```{mermaid}
+```mermaid
 flowchart LR
   A[Start] --> B{{Warunek?}}
   B -->|tak| C[Akcja 1]

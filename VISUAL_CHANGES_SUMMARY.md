@@ -41,7 +41,7 @@
 - 14 — Android (Build, JNI, ABI)
 
 [Rich 3 tabs with detailed content]
-````{tabs}
+```{tabs}
 Guide Tab:
 - Structure explanation
 - Dataset/diagram/examples purpose
@@ -78,7 +78,7 @@ Links to: 04_ui · 02_events · 11_data · copilot/sphinx
 - Diagrams
 
 [Basic tabs]
-````{tabs}
+```{tabs}
 Guide: One line about pipeline
 Reference: One line about generators
 Examples: literalinclude with line numbers (1-20)
@@ -95,7 +95,7 @@ Examples: literalinclude with line numbers (1-20)
 - Diagrams (with examples badge)
 
 [Rich tabs with workflows]
-````{tabs}
+```{tabs}
 Guide Tab:
 - 4-step workflow
 - DEV-SCAN pipeline description
@@ -149,7 +149,7 @@ Simple digraph
 :::{grid} 1 1 2 2
 
 [Comprehensive tabs]
-````{tabs}
+```{tabs}
 Guide Tab:
 - Best practices list (6 items)
 - 4-step workflow
@@ -329,16 +329,19 @@ Description text
 
 All three pages have:
 ```
-````{tabs}
+```{tabs}
 ```{tab} Guide
+
 [Workflow, checklists, best practices]
 ```
 
 ```{tab} Reference
+
 [Links, parameters, configuration]
 ```
 
 ```{tab} Examples
+
 [CSV tables, diagrams, code]
 ```
 ````

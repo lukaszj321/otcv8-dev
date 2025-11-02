@@ -66,7 +66,7 @@ Compare before/after `_sources` content:
 ```
 
 2. Verify:
-   - No indented ` ```{mermaid}` directives (should be at column 0)
+   - No indented ` ```mermaid` directives (should be at column 0)
    - No literal `\n` or `\"` in mermaid blocks
    - Mermaid blocks use proper directive format
 

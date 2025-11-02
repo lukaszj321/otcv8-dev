@@ -77,7 +77,7 @@ title: 01_core - Core
 ### architecture
 *Facet:* [`01_core.architecture`](#facet-01_core.architecture)
 
-```{mermaid}
+```mermaid
 %%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     Core[Core Framework] --> Graphics[Graphics System]
@@ -93,8 +93,8 @@ click Architecture "./index.html#facet-01_core.architecture" "Open architecture"
 ### cpp_singleton_hierarchy
 *Facet:* [`01_core.cpp_singleton_hierarchy`](#facet-01_core.cpp_singleton_hierarchy)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     subgraph "Core Singletons"
         APP[g_app Application]
@@ -146,8 +146,8 @@ click CppSingletonHierarchy "./index.html#facet-01_core.cpp_singleton_hierarchy"
 ### flow
 *Facet:* [`01_core.flow`](#facet-01_core.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Core API] --> B[Data Collection]
     B --> C[Processing]
@@ -163,8 +163,8 @@ click Flow "./index.html#facet-01_core.flow" "Open flow"
 ### lua_binding_sequence
 *Facet:* [`01_core.lua_binding_sequence`](#facet-01_core.lua_binding_sequence)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant Lua as Lua Script
     participant Bind as Binding Layer
@@ -200,7 +200,7 @@ sequenceDiagram
 ### overview
 *Facet:* [`01_core.overview`](#facet-01_core.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Core C++ API] --> B[Components]

@@ -106,7 +106,7 @@ Either add the dataset or update the directive.
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
   Core[Core] --> Subsystems[Subsystems]

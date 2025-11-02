@@ -77,8 +77,8 @@ title: 02_events - Events
 ### architecture
 *Facet:* [`02_events.architecture`](#facet-02_events.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Events
         E0[Event Types]
@@ -93,8 +93,8 @@ click Architecture "./index.html#facet-02_events.architecture" "Open architectur
 ### bus
 *Facet:* [`02_events.bus`](#facet-02_events.bus)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[02_events.bus] --> B[Dataset]
     B --> C[Page]
@@ -106,8 +106,8 @@ click Bus "./index.html#facet-02_events.bus" "Open bus"
 ### event_flow
 *Facet:* [`02_events.event_flow`](#facet-02_events.event_flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   EventFlow[02_events:event_flow] --> Data[Datasets]
   Data --> Page[Index]
@@ -119,8 +119,8 @@ click EventFlow "./index.html#facet-02_events.event_flow" "Open event_flow"
 ### event_flow_map
 *Facet:* [`02_events.event_flow_map`](#facet-02_events.event_flow_map)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Server[Game Server] -->|Protocol Messages| Protocol[ProtocolGame]
     
@@ -155,8 +155,8 @@ click EventFlowMap "./index.html#facet-02_events.event_flow_map" "Open event_flo
 ### flow
 *Facet:* [`02_events.flow`](#facet-02_events.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Events] --> B[Data Collection]
     B --> C[Processing]
@@ -172,8 +172,8 @@ click Flow "./index.html#facet-02_events.flow" "Open flow"
 ### login_lifecycle
 *Facet:* [`02_events.login_lifecycle`](#facet-02_events.login_lifecycle)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant Client as Client App
     participant Server as Game Server
@@ -213,7 +213,7 @@ sequenceDiagram
 ### overview
 *Facet:* [`02_events.overview`](#facet-02_events.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Events System] --> B[Components]
@@ -225,8 +225,8 @@ click Overview "./index.html#facet-02_events.overview" "Open overview"
 ### propagation
 *Facet:* [`02_events.propagation`](#facet-02_events.propagation)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[02_events.propagation] --> B[Dataset]
     B --> C[Page]

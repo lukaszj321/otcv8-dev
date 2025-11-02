@@ -4,7 +4,7 @@ This page verifies that Mermaid diagrams render correctly in the built documenta
 
 ## Test 1: Simple Graph
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Start] --> B[Process]
@@ -13,8 +13,8 @@ graph TD
 
 ## Test 2: Sequence Diagram
 
-```{mermaid}
-%%{init: {'theme':'neutral'}}%%
+```mermaid
+%%{init: {'theme': 'dark'}}%%
 sequenceDiagram
     participant Client
     participant Server
@@ -24,7 +24,7 @@ sequenceDiagram
 
 ## Test 3: Flowchart with Click
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose'}}%%
 flowchart TD
     Start[Start] --> Process[Process Data]

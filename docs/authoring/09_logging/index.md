@@ -95,8 +95,8 @@ title: 09_logging - Logging
 ### architecture
 *Facet:* [`09_logging.architecture`](#facet-09_logging.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Logging
         E0[Log Entries]
@@ -111,8 +111,8 @@ click Architecture "./index.html#facet-09_logging.architecture" "Open architectu
 ### flow
 *Facet:* [`09_logging.flow`](#facet-09_logging.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Logging] --> B[Data Collection]
     B --> C[Processing]
@@ -128,8 +128,8 @@ click Flow "./index.html#facet-09_logging.flow" "Open flow"
 ### logging_architecture
 *Facet:* [`09_logging.logging_architecture`](#facet-09_logging.logging_architecture)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     App[Application Code] -->|log call| Logger[Logger g_logger]
     
@@ -163,8 +163,8 @@ click LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "
 ### logging_flow
 *Facet:* [`09_logging.logging_flow`](#facet-09_logging.logging_flow)
 
-```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     autonumber
     participant App as Application
@@ -199,7 +199,7 @@ sequenceDiagram
 ### overview
 *Facet:* [`09_logging.overview`](#facet-09_logging.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Logging System] --> B[Components]

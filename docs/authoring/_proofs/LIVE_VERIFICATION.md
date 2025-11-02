@@ -29,7 +29,7 @@ mermaid_output_format = "raw"  # Client-side JS rendering
 
 ### 4. Content Hygiene
 - Created `docs/authoring/_tools/mermaid_force_directive.py`
-- Converted 27 files from ` ```mermaid` to ` ```{mermaid}`
+- Converted 27 files from ` ```mermaid` to ` ```mermaid`
 - Ran all QA tools
 
 ## Verification Checklist (LIVE)
@@ -92,7 +92,7 @@ For each page, verify:
 
 1. Check `_sources` directory on LIVE:
    - https://lukaszj321.github.io/otcv8-dev/_sources/authoring/03_modules/index.md.txt
-   - Verify: Contains ` ```{mermaid}` (directive syntax, not plain fence)
+   - Verify: Contains ` ```mermaid` (directive syntax, not plain fence)
    - Verify: NO indentation before code blocks
 
 2. Source should match repo:
@@ -117,7 +117,7 @@ Save to `docs/authoring/_proofs/screenshots/`:
 <p><em>Facet:</em> <a href="#facet-03_modules.flow"><code>03_modules.flow</code></a></p>
 
 <pre  class="mermaid">
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Lua Modules] --> B[Data Collection]
     B --> C[Processing]
