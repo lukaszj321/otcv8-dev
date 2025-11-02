@@ -122,11 +122,27 @@ def create_placeholder_file(file_path: Path, file_type: str = 'unknown') -> bool
     
     comment_start, comment_end = comment_styles.get(suffix, ('# ', ''))
     
+    # Calculate relative path for display in placeholder
+    # Try to get path relative to repository root, fall back to parent if too deep
+    try:
+        # Assumes file_path is absolute and within a git repository
+        # Walk up to find a reasonable base (max 5 levels to avoid going too far)
+        rel_path = file_path
+        for parent in list(file_path.parents)[:5]:
+            if (parent / '.git').exists():
+                rel_path = file_path.relative_to(parent)
+                break
+        else:
+            # No .git found, use relative to immediate parent
+            rel_path = file_path.name
+    except (ValueError, IndexError):
+        rel_path = file_path.name
+    
     # Create placeholder content
     placeholder_content = f"""{comment_start}PLACEHOLDER FILE{comment_end}
 {comment_start}This file was auto-generated as a placeholder for documentation builds.{comment_end}
 {comment_start}Real implementation should replace this file.{comment_end}
-{comment_start}Path: {file_path.relative_to(file_path.parents[3] if len(file_path.parents) > 3 else file_path.parent)}{comment_end}
+{comment_start}Path: {rel_path}{comment_end}
 
 """
     

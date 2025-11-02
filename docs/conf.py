@@ -128,6 +128,7 @@ suppress_warnings = ["myst.xref_missing"]
 # ----------------- Pygments lexer fallback for unknown languages -----------------
 from sphinx.highlighting import lexers
 from pygments.lexers.special import TextLexer
+from pygments.lexers import get_lexer_by_name
 
 # Map unknown lexers to text to prevent fatal errors
 LEXER_FALLBACK_MAP = {
@@ -146,8 +147,7 @@ def _register_fallback_lexers():
             if fallback == 'text':
                 lexers[lang] = TextLexer()
             else:
-                # Try to get the fallback lexer
-                from pygments.lexers import get_lexer_by_name
+                # Get the fallback lexer (imported at module level)
                 lexers[lang] = get_lexer_by_name(fallback)
             logger.info(f"[conf.py] Registered fallback lexer '{fallback}' for '{lang}'")
         except Exception as e:
