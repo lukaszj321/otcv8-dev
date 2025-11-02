@@ -139,6 +139,30 @@ jobs:
             -D html_baseurl="${SPHINX_HTML_BASEURL}"
           touch docs/_build/html/.nojekyll
 
+      # ---------- SCREENSHOTS ----------
+      - name: Install Chromium for screenshots
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends chromium-browser
+
+      - name: Generate screenshots
+        run: |
+          mkdir -p docs/_build/html/screenshots
+          # Find all index.html files up to depth 3
+          find docs/_build/html -maxdepth 3 -name "index.html" -type f | while read html_file; do
+            # Get relative path from docs/_build/html
+            rel_path="${html_file#docs/_build/html/}"
+            # Create screenshot filename (replace / with _ and remove .html)
+            screenshot_name=$(echo "$rel_path" | sed 's/\//_/g' | sed 's/.html$//')
+            screenshot_path="docs/_build/html/screenshots/${screenshot_name}.png"
+            echo "📸 Generating screenshot: $screenshot_path from $html_file"
+            # Generate screenshot with chromium headless
+            chromium-browser --headless --disable-gpu --screenshot="$screenshot_path" \
+              --window-size=1920,1080 --virtual-time-budget=10000 \
+              "file://${PWD}/${html_file}" 2>/dev/null || true
+          done
+          echo "✓ Generated $(ls -1 docs/_build/html/screenshots/*.png 2>/dev/null | wc -l) screenshots"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
