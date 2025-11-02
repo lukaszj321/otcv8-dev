@@ -128,7 +128,8 @@ mermaid_version = os.environ.get("SPHINX_MERMAID_VERSION", "10.9.1")
 mermaid_output_format = os.environ.get("SPHINX_MERMAID_OUT", "raw")
 
 # Nie wywalaj buildu na brakujących celach MyST (masz dużo linków między MD)
-suppress_warnings = ["myst.xref_missing"]
+# Suppress duplicate label warnings during transition to prefixed autosectionlabels
+suppress_warnings = ["myst.xref_missing", "ref.duplicate"]
 
 # ----------------- Pygments lexer fallback for unknown languages -----------------
 from sphinx.highlighting import lexers
