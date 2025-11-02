@@ -16,12 +16,11 @@ Options:
     --verbose    Print detailed change information
 """
 
-import os
 import re
 import sys
 import argparse
 from pathlib import Path
-from typing import List, Tuple, Dict
+from typing import List, Tuple
 import shutil
 
 
@@ -111,7 +110,6 @@ class TabFixer:
             if re.match(r'^```{tab}\s+.+', line):
                 # Look ahead to find the content
                 j = i + 1
-                has_content = False
                 
                 # Skip blank lines after tab header
                 while j < len(lines) and not lines[j].strip():
@@ -135,8 +133,6 @@ class TabFixer:
                         changes += 1
                         if self.verbose:
                             print(f"    Added placeholder to empty tab: {line.strip()}")
-                    else:
-                        has_content = True
                 elif j >= len(lines):
                     # Tab at EOF with no content
                     fixed_lines.append('TODO: add content')
@@ -211,7 +207,6 @@ class TabFixer:
                 content = f.read()
             
             lines = content.split('\n')
-            original_lines = lines.copy()
             
             # Apply all fixes
             lines, blank_changes = self.fix_tab_blank_lines(lines)

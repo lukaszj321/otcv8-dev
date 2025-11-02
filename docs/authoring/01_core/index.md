@@ -147,7 +147,7 @@ click CppSingletonHierarchy "./index.html#facet-01_core.cpp_singleton_hierarchy"
 *Facet:* [`01_core.flow`](#facet-01_core.flow)
 
 ```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     A[Core API] --> B[Data Collection]
     B --> C[Processing]

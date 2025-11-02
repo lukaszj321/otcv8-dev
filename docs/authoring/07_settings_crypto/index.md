@@ -198,7 +198,7 @@ click Overview "./index.html#facet-07_settings_crypto.overview" "Open overview"
 *Facet:* [`07_settings_crypto.settings_encryption_flow`](#facet-07_settings_crypto.settings_encryption_flow)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}},'securityLevel':'loose'}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant User as User Action
     participant App as Application
