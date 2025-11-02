@@ -11,7 +11,6 @@ Usage:
 """
 
 import re
-import os
 from pathlib import Path
 from typing import Set
 import logging
@@ -35,7 +34,7 @@ def find_literalinclude_paths(docs_dir: Path) -> Set[str]:
     
     for doc_file in docs_dir.rglob('*.rst'):
         try:
-            content = doc_file.read_text(encoding='utf-8', errors='ignore')
+            content = doc_file.read_text(encoding='utf-8', errors='replace')
             for match in rst_pattern.finditer(content):
                 path_str = match.group(1).strip()
                 include_paths.add(path_str)
@@ -44,7 +43,7 @@ def find_literalinclude_paths(docs_dir: Path) -> Set[str]:
     
     for doc_file in docs_dir.rglob('*.md'):
         try:
-            content = doc_file.read_text(encoding='utf-8', errors='ignore')
+            content = doc_file.read_text(encoding='utf-8', errors='replace')
             for match in myst_pattern.finditer(content):
                 path_str = match.group(1).strip()
                 include_paths.add(path_str)
@@ -127,7 +126,6 @@ def create_placeholder_file(file_path: Path, file_type: str = 'unknown') -> bool
     try:
         # Assumes file_path is absolute and within a git repository
         # Walk up to find a reasonable base (max 5 levels to avoid going too far)
-        rel_path = file_path
         for parent in list(file_path.parents)[:5]:
             if (parent / '.git').exists():
                 rel_path = file_path.relative_to(parent)

@@ -140,19 +140,22 @@ LEXER_FALLBACK_MAP = {
     'json5': 'json',
 }
 
+# Create a single reusable TextLexer instance for efficiency
+_text_lexer_instance = TextLexer()
+
 def _register_fallback_lexers():
     """Register fallback lexers for languages that Pygments doesn't know."""
     for lang, fallback in LEXER_FALLBACK_MAP.items():
         try:
             if fallback == 'text':
-                lexers[lang] = TextLexer()
+                lexers[lang] = _text_lexer_instance
             else:
                 # Get the fallback lexer (imported at module level)
                 lexers[lang] = get_lexer_by_name(fallback)
             logger.info(f"[conf.py] Registered fallback lexer '{fallback}' for '{lang}'")
         except Exception as e:
             logger.warning(f"[conf.py] Could not register fallback for '{lang}': {e}")
-            lexers[lang] = TextLexer()
+            lexers[lang] = _text_lexer_instance
 
 # Register at module load time
 _register_fallback_lexers()

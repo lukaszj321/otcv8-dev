@@ -39,7 +39,7 @@ jobs:
           python -m pip install --upgrade pip wheel setuptools
           if [ -f docs/requirements.txt ]; then pip install -r docs/requirements.txt; fi
           # Install additional packages for unknown lexers and mermaid rendering
-          pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog pygments
+          pip install --upgrade sphinx==7.4.7 myst-parser pydata-sphinx-theme sphinx-copybutton sphinx-design sphinx-sitemap linkify-it-py sphinxext-opengraph sphinx-favicon sphinxcontrib-mermaid sphinx-codeautolink sphinx-hoverxref ablog
           python - << 'PY'
           import sphinx, pydata_sphinx_theme, sphinxcontrib.mermaid
           print("OK: sphinx", sphinx.__version__)
