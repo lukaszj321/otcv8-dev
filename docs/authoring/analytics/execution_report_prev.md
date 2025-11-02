@@ -328,8 +328,6 @@ bash docs/authoring/_tools/qa_rerun.sh
 
 ---
 
----
-
 # Previous Report: Batch 3 Execution Report
 
 **Generated**: 2025-10-18T06:02:00Z  

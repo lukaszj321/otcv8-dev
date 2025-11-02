@@ -1,7 +1,6 @@
 # Source: luafunctions_client.cpp
 
----
-# # # [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
+## [Knowledge Base] OTClient Core Lua Functions (luafunctions_client.cpp)
 
 This document provides a detailed overview of the core Lua functions, classes, and global managers registered in `luafunctions_client.cpp`. These functions are fundamental for controlling the client's behavior, managing the user interface, and handling events.
 

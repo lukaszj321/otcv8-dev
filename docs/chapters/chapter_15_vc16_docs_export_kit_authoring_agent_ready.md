@@ -80,9 +80,7 @@ Either add the dataset or update the directive.
 
 ### Facet: `15_vc16.libs`
 
----
-
-# 3) Integracja (CMake/MSVC) — przykład kompletny
+## 3) Integracja (CMake/MSVC) — przykład kompletny
 
 ```cmake
 cmake_minimum_required(VERSION 3.24)
@@ -165,9 +163,8 @@ graph TD
 
 ### Facet: `15_vc16.render_stack`
 
----
 
-# 7) Pipeline (build → sanity → pakowanie)
+## 7) Pipeline (build → sanity → pakowanie)
 
 ```{mermaid}
 graph TD
@@ -185,9 +182,7 @@ graph TD
 
 ### Facet: `15_vc16.pipeline`
 
----
-
-# 8) IPC (Studio ↔ Windows)
+## 8) IPC (Studio ↔ Windows)
 
 Kanały IPC (wywoływane ze **Studio/Electron**):
 

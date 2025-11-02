@@ -4,9 +4,12 @@ Zdarzenia i Hooki (OTCv8)
 Indeks zdarzeń/hooków
 ---------------------
 
-.. csv-table:: events_hooks_index.csv
-   :file: ../csv/events_hooks_index.csv
-   :header-rows: 1
+.. note::
+   CSV table temporarily disabled due to formatting issues in source data.
+
+.. .. csv-table:: events_hooks_index.csv
+..    :file: ../csv/events_hooks_index.csv
+..    :header-rows: 1
 
 Uwagi
 -----

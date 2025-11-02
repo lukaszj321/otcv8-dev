@@ -1,6 +1,6 @@
 # Modules Misc
----
-# game_shop
+
+## game_shop
 # Game Shop Module
 # `shop.lua`
 # Opis
@@ -67,7 +67,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_market
 # Game Market Module
 # `market.lua`
@@ -238,7 +238,7 @@
 # Wywołania API
 - `g_game`
 # `offerstatistic.lua`
----
+
 # game_questlog
 # Game Questlog Module
 # `questlog.lua`
@@ -278,7 +278,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_battle
 # Game Battle Module
 # `battle.lua`
@@ -341,7 +341,7 @@
 - `g_mouse`
 - `g_ui`
 
----
+
 # game_unjustifiedpoints
 # Game Unjustifiedpoints Module
 # `unjustifiedpoints.lua`
@@ -369,7 +369,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_imbuing
 # Game Imbuing Module
 # `imbuing.lua`
@@ -397,7 +397,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_playertrade
 # Game Playertrade Module
 # `playertrade.lua`
@@ -424,7 +424,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_playerdeath
 # Game Playerdeath Module
 # `playerdeath.lua`
@@ -446,7 +446,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_playermount
 # Game Playermount Module
 # `playermount.lua`
@@ -467,7 +467,7 @@
 - `g_game`
 - `g_keyboard`
 
----
+
 # game_prey
 # Game Prey Module
 # `prey.lua`
@@ -526,7 +526,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_protocol
 # Game Protocol Module
 # `protocol.lua`
@@ -547,7 +547,7 @@
 # Wywołania API
 - `g_game`
 
----
+
 # game_bugreport
 # Game Bugreport Module
 # `bugreport.lua`
@@ -563,7 +563,7 @@
 - `g_keyboard`
 - `g_ui`
 
----
+
 # game_modaldialog
 # Game Modaldialog Module
 # `modaldialog.lua`
@@ -585,7 +585,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_itemselector
 # Game Itemselector Module
 # `itemselector.lua`
@@ -605,7 +605,7 @@
 # Wywołania API
 - `g_ui`
 
----
+
 # game_npctrade
 # Game Npctrade Module
 # `npctrade.lua`
@@ -672,7 +672,7 @@
 - `g_mouse`
 - `g_ui`
 
----
+
 # game_ruleviolation
 # Game Ruleviolation Module
 # `ruleviolation.lua`
@@ -696,7 +696,7 @@
 - `g_keyboard`
 - `g_ui`
 
----
+
 # game_textwindow
 # Game Textwindow Module
 # `textwindow.lua`
@@ -725,7 +725,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_walking
 # Game Walking Module
 # `walking.lua`
@@ -769,7 +769,7 @@
 - `g_keyboard`
 - `g_map`
 
----
+
 # game_topbar
 # Game Topbar Module
 # `topbar.lua`
@@ -820,7 +820,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_bot
 # Game Bot Module
 # `bot.lua`
@@ -992,7 +992,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # game_healthinfo
 # Game Healthinfo Module
 # `healthinfo.lua`
@@ -1032,7 +1032,7 @@
 - `g_game`
 - `g_ui`
 
----
+
 # updater
 # Updater Module
 # `updater.lua`
