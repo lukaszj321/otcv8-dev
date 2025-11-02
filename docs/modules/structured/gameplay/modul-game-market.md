@@ -3455,7 +3455,3 @@ function OfferStatistic:getLowestPrice()
 end
 
 ```
-
----
-
-{% endraw %}

@@ -2431,7 +2431,3 @@ TargetBot.walk = function()
 end
 
 ```
-
----
-
-{% endraw %}

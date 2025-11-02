@@ -449,7 +449,3 @@ MultilineTextEditWindow < TextEditWindow
   TextEditButtons
 
 ```
-
----
-
-{% endraw %}

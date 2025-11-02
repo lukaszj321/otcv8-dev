@@ -4409,7 +4409,3 @@ UI.ConfirmationWindow = function(title, question, callback)
 end
 
 ```
-
----
-
-{% endraw %}

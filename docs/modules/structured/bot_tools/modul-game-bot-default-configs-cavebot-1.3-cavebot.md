@@ -2441,7 +2441,3 @@ CaveBot.walkTo = function(dest, maxDist, params)
 end
 
 ```
-
----
-
-{% endraw %}

@@ -27,7 +27,7 @@ KNOWN_PROBLEMATIC_FILES = [
 
 def fix_trailing_transition(file_path: Path) -> bool:
     """
-    Remove trailing '---' from a file if present.
+    Remove trailing '---' from a file if present, along with template tags.
     
     Returns:
         True if file was modified, False otherwise
@@ -41,16 +41,21 @@ def fix_trailing_transition(file_path: Path) -> bool:
     # Split into lines and check for trailing ---
     lines = content.splitlines(keepends=True)
     
-    # Work backwards to find trailing ---
+    # Work backwards to find trailing --- and template markers
     modified = False
     while lines:
         last_line = lines[-1].rstrip('\r\n')
+        stripped = last_line.strip()
         
-        # Check if last line is exactly "---" or only whitespace after it
-        if last_line.strip() == "---":
+        # Check if last line is exactly "---", template markers, or whitespace
+        if stripped == "---":
             lines.pop()
             modified = True
-        elif not last_line.strip():  # Empty line
+        elif stripped in ("{% endraw %}", "{% raw %}", "{%endraw%}", "{%raw%}"):
+            # Remove Jinja template markers
+            lines.pop()
+            modified = True
+        elif not stripped:  # Empty line
             lines.pop()
             modified = True
         else:
@@ -74,26 +79,28 @@ def fix_trailing_transition(file_path: Path) -> bool:
 
 def find_files_with_trailing_transitions(root_dir: Path, extensions=('.md', '.rst')):
     """
-    Find all files with specific extensions that end with '---'.
+    Find all files with specific extensions that end with '---' or template markers.
     
     Args:
         root_dir: Root directory to search
         extensions: Tuple of file extensions to check
     
     Yields:
-        Path objects for files ending with '---'
+        Path objects for files ending with '---' or template markers
     """
+    problematic_endings = {"---", "{% endraw %}", "{% raw %}", "{%endraw%}", "{%raw%}"}
+    
     for file_path in root_dir.rglob('*'):
         if file_path.is_file() and file_path.suffix in extensions:
             try:
                 content = file_path.read_text(encoding='utf-8')
                 lines = content.splitlines()
                 
-                # Check if file ends with --- (ignoring trailing whitespace)
+                # Check if file ends with --- or template markers (ignoring trailing whitespace/empty lines)
                 for line in reversed(lines):
                     stripped = line.strip()
                     if stripped:
-                        if stripped == "---":
+                        if stripped in problematic_endings:
                             yield file_path
                         break
             except Exception:

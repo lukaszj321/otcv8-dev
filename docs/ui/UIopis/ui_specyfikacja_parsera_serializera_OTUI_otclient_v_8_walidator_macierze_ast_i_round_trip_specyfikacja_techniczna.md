@@ -389,7 +389,3 @@ Splitter
 # 11. Indeks haseł
 
 - STRICT • AST • Macierz • Walidator • Auto‑naprawy • Round‑trip • Splitter • TabBar/TabWidget • StatusOverlay • Scroll pairing
-
-
-{% endraw %}
-
