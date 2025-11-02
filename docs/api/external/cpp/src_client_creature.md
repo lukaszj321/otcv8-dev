@@ -392,7 +392,7 @@ void addTimedSquare(uint8 color);
 
 ---
 
-(settext)=
+(settext_creature)=
 ## `setText`
 
 **Signature:**
