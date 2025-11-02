@@ -121,6 +121,21 @@ jobs:
             echo "[index-fallback] created docs/index.md"
           fi
 
+      # ---------- PRE-BUILD FIXES ----------
+      - name: Populate source mirror for Sphinx
+        shell: bash
+        run: |
+          echo "[pre-build] Running populate_source_mirror.sh"
+          ./scripts/populate_source_mirror.sh
+          echo "[pre-build] ✓ Source mirror populated"
+
+      - name: Fix trailing transitions in docs
+        shell: bash
+        run: |
+          echo "[pre-build] Running fix_trailing_transitions.py"
+          python3 ./scripts/fix_trailing_transitions.py
+          echo "[pre-build] ✓ Trailing transitions fixed"
+
       # ---------- BUILD ----------
       - name: Build Sphinx (HTML)
         env:
@@ -133,11 +148,36 @@ jobs:
           else
             echo "[build] Incremental build (using doctrees cache)"
           fi
-          sphinx-build -b html -j "${SPHINX_JOBS:-auto}" $EXTRA_OPTS docs docs/_build/html \
+          
+          # Build with warnings as errors and keep going to see all issues
+          set +e  # Don't exit on error immediately
+          sphinx-build -b html -j "${SPHINX_JOBS:-auto}" -W --keep-going $EXTRA_OPTS docs docs/_build/html \
             -D mermaid_output_format="${SPHINX_MERMAID_OUT}" \
             -D mermaid_version="${SPHINX_MERMAID_VERSION}" \
-            -D html_baseurl="${SPHINX_HTML_BASEURL}"
+            -D html_baseurl="${SPHINX_HTML_BASEURL}" \
+            2>&1 | tee docs/_build/sphinx-build.log
+          BUILD_EXIT_CODE=$?
+          set -e  # Re-enable exit on error
+          
           touch docs/_build/html/.nojekyll
+          
+          # Check build result
+          if [ $BUILD_EXIT_CODE -ne 0 ]; then
+            echo "::error::Sphinx build failed with warnings/errors (exit code: $BUILD_EXIT_CODE)"
+            echo "See docs/_build/sphinx-build.log for details"
+            exit $BUILD_EXIT_CODE
+          else
+            echo "✓ Sphinx build completed successfully with no warnings"
+          fi
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sphinx-build-logs
+          path: |
+            docs/_build/sphinx-build.log
+          retention-days: 30
 
       # ---------- SCREENSHOTS ----------
       - name: Install Chromium for screenshots
