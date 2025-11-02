@@ -8,6 +8,12 @@ on:
       - "src/**"
       - "Doxyfile"
       - ".github/workflows/docs.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "src/**"
+      - "Doxyfile"
+      - ".github/workflows/docs.yml"
   workflow_dispatch:
 
 concurrency:
