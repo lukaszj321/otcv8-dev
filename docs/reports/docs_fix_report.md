@@ -24,7 +24,7 @@ This report documents the fixes applied to resolve Sphinx documentation build er
 
 **Solution:** Created `scripts/fix_trailing_transitions.py` to remove trailing `---` markers.
 
-**Files Fixed:**
+**Files Fixed (11 total):**
 - `docs/modules/structured/bot_tools/modul-game-bot-default-configs-cavebot-1.3-cavebot.md`
 - `docs/modules/structured/bot_tools/modul-game-bot-default-configs-cavebot-1.3-targetbot.md`
 - `docs/modules/structured/bot_tools/modul-game-bot-default-configs-vbot-4.7-cavebot.md`
@@ -35,6 +35,7 @@ This report documents the fixes applied to resolve Sphinx documentation build er
 - `docs/modules/structured/dev_tools/modul-client-textedit.md`
 - `docs/modules/structured/dev_tools/modul-corelib-ui.md`
 - `docs/modules/structured/gameplay/modul-game-market.md`
+- `docs/ui/UIopis/ui_specyfikacja_parsera_serializera_OTUI_otclient_v_8_walidator_macierze_ast_i_round_trip_specyfikacja_techniczna.md`
 
 ### 3. Missing Tool Script Files
 
