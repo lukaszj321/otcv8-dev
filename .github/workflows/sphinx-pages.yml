@@ -9,14 +9,6 @@ steps:
     with:
       python-version: '3.11'
 
-  - name: Cache pip
-    uses: actions/cache@v4
-    with:
-      path: ~/.cache/pip
-      key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-      restore-keys: |
-        ${{ runner.os }}-pip-
-
   - name: Install system dependencies
     run: |
       set -euo pipefail
@@ -36,6 +28,10 @@ steps:
     env:
       PIP_NO_CACHE_DIR: "off"
     shell: bash
+
+  - name: Configure Pages (base URL)
+    id: pages
+    uses: actions/configure-pages@v5
 
   - name: Prepare Doxygen output dir
     run: mkdir -p docs/_build/doxygen
@@ -69,7 +65,7 @@ steps:
     run: |
       set -euo pipefail
       mkdir -p docs/_build/html
-      # safety timeout for sphinx-build (60m)
+      # safety timeout for sphinx-build (60 minutes)
       timeout 60m sphinx-build -E -a -j auto -b html docs docs/_build/html \
         -D mermaid_output_format=raw \
         -D mermaid_version=10.9.1 \
