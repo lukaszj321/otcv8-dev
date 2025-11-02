@@ -16,6 +16,7 @@ Kategorie nieblokujące, które będą adresowane iteracyjnie: `myst.xref_missin
 
 ## Kolejne kroki
 Każdy przyszły PR powinien skupić się na naprawieniu jednej kategorii wykluczonych plików poprzez:
-1. Usunięcie odpowiedniego wzorca z `exclude_patterns`
-2. Naprawienie błędów w plikach
-3. Weryfikację, że build Sphinx przechodzi
+1. Usunięcie odpowiedniego wzorca z `exclude_patterns` w `docs/conf.py`
+2. Naprawienie błędów w plikach poprzez poprawę formatowania lub treści
+3. Weryfikację, że build Sphinx przechodzi bez błędów
+4. Opcjonalnie: usunięcie odpowiedniej kategorii z `suppress_warnings` jeśli nie jest już potrzebna
