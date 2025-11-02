@@ -13,21 +13,21 @@ Usage:
 import re
 import os
 from pathlib import Path
-from typing import Set, List
+from typing import Set
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
 
-def find_literalinclude_paths(docs_dir: Path) -> Set[Path]:
+def find_literalinclude_paths(docs_dir: Path) -> Set[str]:
     """
     Scan all .rst and .md files for literalinclude directives and extract file paths.
     
     Returns:
-        Set of Path objects representing files referenced in literalinclude directives
+        Set of strings representing files referenced in literalinclude directives
     """
-    include_paths = set()
+    include_paths: Set[str] = set()
     
     # Patterns for both RST and MyST syntax
     rst_pattern = re.compile(r'^\s*\.\.\s+literalinclude::\s+(.+)$', re.MULTILINE)
@@ -82,7 +82,7 @@ def resolve_include_path(include_str: str, docs_dir: Path, repo_root: Path) -> P
         return repo_root / path_str.lstrip('/')
     
     # Handle relative paths from docs dir
-    return docs_dir / path_str
+    return docs_dir / Path(path_str)
 
 
 def create_placeholder_file(file_path: Path, file_type: str = 'unknown') -> bool:
