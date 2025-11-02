@@ -3,7 +3,7 @@
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 :caption: Architecture
 
 graph LR
@@ -16,7 +16,7 @@ graph LR
     end
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flow
 
 graph TD
@@ -33,7 +33,7 @@ graph TD
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 :caption: Architecture
 
 graph LR
@@ -46,7 +46,7 @@ graph LR
     end
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flow
 
 graph TD
@@ -63,7 +63,7 @@ graph TD
 
 ## Diagrams
 
-```{mermaid}
+```mermaid
 :caption: Architecture
 
 graph LR
@@ -76,7 +76,7 @@ graph LR
     end
 ```
 
-```{mermaid}
+```mermaid
 :caption: Flow
 
 graph TD

@@ -579,7 +579,7 @@ run()
 
 diagrams/modules_flow.mmd
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC scan| Inventory
@@ -592,7 +592,7 @@ graph TD
 
 diagrams/modules_relations.mmd
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   subgraph Modules

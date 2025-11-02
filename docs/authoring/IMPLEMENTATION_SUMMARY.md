@@ -48,7 +48,7 @@
 2. **Content hygiene fixers:**
    - Runs 5 fixer tools + qa_rerun.sh
    - Ensures all content properly formatted
-   - Converts any remaining ```mermaid to ```{mermaid}
+   - Converts any remaining ```mermaid to ```mermaid
 
 3. **Post-build verification:**
    - `verify_mermaid_rendering.py` - Scans HTML output

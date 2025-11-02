@@ -67,7 +67,7 @@ Extended opcodes pozwalają na:
 
 ## Diagram Przepływu
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant C as OTClient v8

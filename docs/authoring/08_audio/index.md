@@ -77,8 +77,8 @@ title: 08_audio - Audio
 ### architecture
 *Facet:* [`08_audio.architecture`](#facet-08_audio.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Audio
         E0[Sound Channels]
@@ -93,8 +93,8 @@ click Architecture "./index.html#facet-08_audio.architecture" "Open architecture
 ### audio_pipeline
 *Facet:* [`08_audio.audio_pipeline`](#facet-08_audio.audio_pipeline)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   AudioPipeline[08_audio:audio_pipeline] --> Data[Datasets]
   Data --> Page[Index]
@@ -106,7 +106,7 @@ click AudioPipeline "./index.html#facet-08_audio.audio_pipeline" "Open audio_pip
 ### audio_playback_flow
 *Facet:* [`08_audio.audio_playback_flow`](#facet-08_audio.audio_playback_flow)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
@@ -142,7 +142,7 @@ sequenceDiagram
 ### channels_hierarchy
 *Facet:* [`08_audio.channels_hierarchy`](#facet-08_audio.channels_hierarchy)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     SoundManager[SoundManager g_sounds] --> Channel1[Channel 1 - Music]
@@ -167,8 +167,8 @@ click ChannelsHierarchy "./index.html#facet-08_audio.channels_hierarchy" "Open c
 ### flow
 *Facet:* [`08_audio.flow`](#facet-08_audio.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Audio] --> B[Data Collection]
     B --> C[Processing]
@@ -184,7 +184,7 @@ click Flow "./index.html#facet-08_audio.flow" "Open flow"
 ### overview
 *Facet:* [`08_audio.overview`](#facet-08_audio.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Audio System] --> B[Components]
@@ -196,8 +196,8 @@ click Overview "./index.html#facet-08_audio.overview" "Open overview"
 ### routing
 *Facet:* [`08_audio.routing`](#facet-08_audio.routing)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[08_audio.routing] --> B[Dataset]
     B --> C[Page]

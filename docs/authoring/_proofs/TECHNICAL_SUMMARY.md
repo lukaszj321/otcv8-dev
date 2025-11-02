@@ -30,7 +30,7 @@ This setting tells sphinxcontrib-mermaid to:
 <section id="flow">
 <h3>flow</h3>
 <p><em>Facet:</em> <code>03_modules.flow</code></p>
-%%{init: { 'theme': 'neutral' }}%%
+%%{init: { 'theme': 'dark' }}%%
 graph TD
     A[Lua Modules] --> B[Data Collection]
     B --> C[Processing]
@@ -58,7 +58,7 @@ This tells sphinxcontrib-mermaid to:
 1. **Build Time** (Sphinx):
    ```html
    <pre class="mermaid">
-   %%{init: { 'theme': 'neutral' }}%%
+   %%{init: { 'theme': 'dark' }}%%
    graph TD
        A --> B
    </pre>
@@ -86,7 +86,7 @@ This tells sphinxcontrib-mermaid to:
 <h3>flow</h3>
 <p><em>Facet:</em> <code>03_modules.flow</code></p>
 <pre class="mermaid">
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Lua Modules] --> B[Data Collection]
     B --> C[Processing]
@@ -122,7 +122,7 @@ graph TD
 
 Converted fence syntax from:
 ```markdown
-```{mermaid}
+```mermaid
 graph TD
     A --> B
 ```
@@ -130,7 +130,7 @@ graph TD
 
 To directive syntax:
 ```markdown
-```{mermaid}
+```mermaid
 graph TD
     A --> B
 ```

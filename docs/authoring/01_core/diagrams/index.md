@@ -5,7 +5,7 @@
 
 :caption: Architecture
 
-```{mermaid}
+```mermaid
 graph LR
     subgraph Core API
         E0[Classes]
@@ -18,7 +18,7 @@ graph LR
 
 :caption: Flow
 
-```{mermaid}
+```mermaid
 graph TD
     A[Core API] --> B[Data Collection]
     B --> C[Processing]

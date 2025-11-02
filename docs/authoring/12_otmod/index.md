@@ -86,8 +86,8 @@ title: 12_otmod - Otmod
 ### deps
 *Facet:* [`12_otmod.deps`](#facet-12_otmod.deps)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Module A] --> B[Module B]
     A --> C[Module C]
@@ -98,8 +98,8 @@ click Deps "./index.html#facet-12_otmod.deps" "Open deps"
 ### deps_graph
 *Facet:* [`12_otmod.deps_graph`](#facet-12_otmod.deps_graph)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   game_interface --> game_skills
   game_interface --> game_inventory
@@ -111,8 +111,8 @@ click DepsGraph "./index.html#facet-12_otmod.deps_graph" "Open deps_graph"
 ### lifecycle
 *Facet:* [`12_otmod.lifecycle`](#facet-12_otmod.lifecycle)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 sequenceDiagram
   participant L as Loader
   participant M as Module(OTMOD)
@@ -129,7 +129,7 @@ sequenceDiagram
 ### module_lifecycle
 *Facet:* [`12_otmod.module_lifecycle`](#facet-12_otmod.module_lifecycle)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
     participant Client as OTClient Core
@@ -180,7 +180,7 @@ sequenceDiagram
 ### modules_deps
 *Facet:* [`12_otmod.modules_deps`](#facet-12_otmod.modules_deps)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     MOD["Module<br/>(*.otmod)"] --> MANIFEST["Manifest<br/>dependencies<br/>load-later"]
@@ -206,7 +206,7 @@ click ModulesDeps "./index.html#facet-12_otmod.modules_deps" "Open modules_deps"
 ### overview
 *Facet:* [`12_otmod.overview`](#facet-12_otmod.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[OTMOD Packages] --> B[Components]

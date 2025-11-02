@@ -8,7 +8,7 @@
 
 Line 130-133:
 ```
-```{mermaid}
+```mermaid
 :caption: Logger architecture with sinks and levels
 :file: ./diagrams/logging_architecture.mmd
 ```
@@ -16,7 +16,7 @@ Line 130-133:
 
 Line 137-140:
 ```
-```{mermaid}
+```mermaid
 :caption: Message flow from application to sinks
 :file: ./diagrams/logging_flow.mmd
 ```

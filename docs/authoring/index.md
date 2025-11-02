@@ -114,7 +114,7 @@ Build Android, JNI, ABI, manifesty.
 ```
 
 **Mermaid Diagram — Flow**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart LR
   A[Authoring]-->B[Datasets]

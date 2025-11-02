@@ -18,7 +18,7 @@ status: complete
 
 **Root Cause:** Three distinct issues:
 1. Single-line YAML front-matter with comma-separated tags (invalid YAML)
-2. Indented MyST directives (```{mermaid}, ```{csv-table}) rendering as literal text
+2. Indented MyST directives (```mermaid, ```{csv-table}) rendering as literal text
 3. `click` directives in `sequenceDiagram` blocks (unsupported by Mermaid)
 
 **Impact:** 
@@ -80,7 +80,7 @@ tags:
 ```markdown
 ## Diagram
 
-```{mermaid}
+```mermaid
    graph TD
       A --> B
 ```
@@ -93,7 +93,7 @@ tags:
 ```markdown
 ## Diagram
 
-```{mermaid}
+```mermaid
 graph TD
    A --> B
 ```
@@ -112,7 +112,7 @@ graph TD
 **Symptom:** Mermaid parse errors in sequence diagrams
 
 **Example (broken):**
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 sequenceDiagram
     participant Lua
@@ -125,7 +125,7 @@ sequenceDiagram
 
 **Fix Applied:** Commented out `click` directives in sequence diagrams:
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark'}}%%
 sequenceDiagram
     participant Lua
@@ -162,7 +162,7 @@ Created inline diagnostic in bash that:
 
 ### 2. Auto-Fixer Tool
 Created `docs/authoring/_tools/myst_dedent_fix.py`:
-- Removes leading whitespace from directive openers (```{mermaid}, ```{csv-table})
+- Removes leading whitespace from directive openers (```mermaid, ```{csv-table})
 - Removes leading whitespace from directive closers (```)
 - Removes leading whitespace from `*Facet:*` lines
 - Ensures blank line before directives for proper MyST parsing
@@ -202,8 +202,8 @@ Modified `docs/authoring/_tools/qa_rerun.sh`:
 ### architecture
 *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-```{mermaid}
-        %%{init: { 'theme': 'neutral', ... }}%%
+```mermaid
+        %%{init: { 'theme': 'dark', ... }}%%
         graph LR
             ...
 ```
@@ -214,8 +214,8 @@ Modified `docs/authoring/_tools/qa_rerun.sh`:
 ### architecture
 *Facet:* [`05_events.architecture`](#facet-05_events.architecture)
 
-```{mermaid}
-        %%{init: { 'theme': 'neutral', ... }}%%
+```mermaid
+        %%{init: { 'theme': 'dark', ... }}%%
 graph LR
     ...
 ```

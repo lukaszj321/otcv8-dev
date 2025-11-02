@@ -86,8 +86,8 @@ title: 10_game_runtime - Game runtime
 ### architecture
 *Facet:* [`10_game_runtime.architecture`](#facet-10_game_runtime.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Game Runtime
         E0[Game State]
@@ -102,8 +102,8 @@ click Architecture "./index.html#facet-10_game_runtime.architecture" "Open archi
 ### flow
 *Facet:* [`10_game_runtime.flow`](#facet-10_game_runtime.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Game Runtime] --> B[Data Collection]
     B --> C[Processing]
@@ -119,7 +119,7 @@ click Flow "./index.html#facet-10_game_runtime.flow" "Open flow"
 ### frame_sequence
 *Facet:* [`10_game_runtime.frame_sequence`](#facet-10_game_runtime.frame_sequence)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
@@ -172,7 +172,7 @@ sequenceDiagram
 ### game_loop_cycle
 *Facet:* [`10_game_runtime.game_loop_cycle`](#facet-10_game_runtime.game_loop_cycle)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Start[Frame Start] --> PollInput[Poll Input Events]
@@ -205,8 +205,8 @@ click GameLoopCycle "./index.html#facet-10_game_runtime.game_loop_cycle" "Open g
 ### loop
 *Facet:* [`10_game_runtime.loop`](#facet-10_game_runtime.loop)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[10_game_runtime.loop] --> B[Dataset]
     B --> C[Page]
@@ -218,7 +218,7 @@ click Loop "./index.html#facet-10_game_runtime.loop" "Open loop"
 ### overview
 *Facet:* [`10_game_runtime.overview`](#facet-10_game_runtime.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Game Runtime] --> B[Components]
@@ -230,8 +230,8 @@ click Overview "./index.html#facet-10_game_runtime.overview" "Open overview"
 ### runtime_loop
 *Facet:* [`10_game_runtime.runtime_loop`](#facet-10_game_runtime.runtime_loop)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   RuntimeLoop[10_game_runtime:runtime_loop] --> Data[Datasets]
   Data --> Page[Index]

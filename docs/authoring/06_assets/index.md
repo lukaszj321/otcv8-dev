@@ -86,8 +86,8 @@ title: 06_assets - Assets
 ### architecture
 *Facet:* [`06_assets.architecture`](#facet-06_assets.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Assets
         E0[Sprites]
@@ -102,7 +102,7 @@ click Architecture "./index.html#facet-06_assets.architecture" "Open architectur
 ### asset_pipeline
 *Facet:* [`06_assets.asset_pipeline`](#facet-06_assets.asset_pipeline)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Request[Asset Request] --> Cache{In Cache?}
@@ -135,8 +135,8 @@ click AssetPipeline "./index.html#facet-06_assets.asset_pipeline" "Open asset_pi
 ### assets_pipeline
 *Facet:* [`06_assets.assets_pipeline`](#facet-06_assets.assets_pipeline)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   AEtPipeline[06_assets:assets_pipeline] --> Data[Datasets]
   Data --> Page[Index]
@@ -148,8 +148,8 @@ click AssetsPipeline "./index.html#facet-06_assets.assets_pipeline" "Open assets
 ### flow
 *Facet:* [`06_assets.flow`](#facet-06_assets.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Assets] --> B[Data Collection]
     B --> C[Processing]
@@ -165,7 +165,7 @@ click Flow "./index.html#facet-06_assets.flow" "Open flow"
 ### overview
 *Facet:* [`06_assets.overview`](#facet-06_assets.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Assets Pipeline] --> B[Components]
@@ -177,8 +177,8 @@ click Overview "./index.html#facet-06_assets.overview" "Open overview"
 ### pipeline_flow
 *Facet:* [`06_assets.pipeline_flow`](#facet-06_assets.pipeline_flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[06_assets.pipeline_flow] --> B[Dataset]
     B --> C[Page]
@@ -190,7 +190,7 @@ click PipelineFlow "./index.html#facet-06_assets.pipeline_flow" "Open pipeline_f
 ### texture_loading_sequence
 *Facet:* [`06_assets.texture_loading_sequence`](#facet-06_assets.texture_loading_sequence)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application

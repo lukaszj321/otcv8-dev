@@ -277,7 +277,7 @@ Kanały IPC (używane przez Studio/Electron):
 
 ## Pipeline (build/test)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
 A[Gradle build]-->B[APK/AAB]
@@ -297,7 +297,7 @@ I-->J[android_assets.csv]
 
 ## JNI flow
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
   participant Java as Bridge(Java/Kotlin)

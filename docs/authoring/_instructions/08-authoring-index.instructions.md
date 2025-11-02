@@ -43,7 +43,7 @@ Missing CSV file: `./datasets/summary.csv`
 Either add the dataset or update the directive.
 ```
   ## Diagrams
-  ```{mermaid}
+  ```mermaid
   %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
   graph LR
     A[Source] --> B[Dataset]

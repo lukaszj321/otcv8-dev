@@ -542,7 +542,7 @@ run()
 
 diagrams/login_sequence.mmd
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 sequenceDiagram
   participant Client
@@ -563,7 +563,7 @@ sequenceDiagram
 
 diagrams/events_flow.mmd
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
   Studio[Electron Studio] -->|IPC start/stop| Sniffer

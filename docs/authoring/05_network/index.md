@@ -68,8 +68,8 @@ title: 05_network - Network
 ### architecture
 *Facet:* [`05_network.architecture`](#facet-05_network.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph Network
         E0[Network Messages]
@@ -84,8 +84,8 @@ click Architecture "./index.html#facet-05_network.architecture" "Open architectu
 ### flow
 *Facet:* [`05_network.flow`](#facet-05_network.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[Network] --> B[Data Collection]
     B --> C[Processing]
@@ -101,8 +101,8 @@ click Flow "./index.html#facet-05_network.flow" "Open flow"
 ### handshake
 *Facet:* [`05_network.handshake`](#facet-05_network.handshake)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[05_network.handshake] --> B[Dataset]
     B --> C[Page]
@@ -114,8 +114,8 @@ click Handshake "./index.html#facet-05_network.handshake" "Open handshake"
 ### network_sequence
 *Facet:* [`05_network.network_sequence`](#facet-05_network.network_sequence)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   NetworkEquence[05_network:network_sequence] --> Data[Datasets]
   Data --> Page[Index]
@@ -127,7 +127,7 @@ click NetworkSequence "./index.html#facet-05_network.network_sequence" "Open net
 ### overview
 *Facet:* [`05_network.overview`](#facet-05_network.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[Network Protocol] --> B[Components]

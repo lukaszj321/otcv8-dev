@@ -77,8 +77,8 @@ title: 04_ui - Ui
 ### AttackBot
 *Facet:* [`04_ui.AttackBot`](#facet-04_ui.AttackBot)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["remove (AttackEntry)"]
     W1["name (AttackBotBotPanel)"]
@@ -96,8 +96,8 @@ click Attackbot "./index.html#facet-04_ui.AttackBot" "Open AttackBot"
 ### BotServer
 *Facet:* [`04_ui.BotServer`](#facet-04_ui.BotServer)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["Members (BotServerData)"]
     W1["Broadcast (FeaturePanel)"]
@@ -108,8 +108,8 @@ click Botserver "./index.html#facet-04_ui.BotServer" "Open BotServer"
 ### Conditions
 *Facet:* [`04_ui.Conditions`](#facet-04_ui.Conditions)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["UturaComboBoxPopupMenu (UturaComboBoxPopupMenu)"]
     W1["UturaComboBoxPopupMenuButton (UturaComboBoxPopupMenuButton)"]
@@ -123,8 +123,8 @@ click Conditions "./index.html#facet-04_ui.Conditions" "Open Conditions"
 ### HealBot
 *Facet:* [`04_ui.HealBot`](#facet-04_ui.HealBot)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["SettingCheckBox (SettingCheckBox)"]
     W1["SpellSourceBoxPopupMenu (SpellSourceBoxPopupMenu)"]
@@ -146,8 +146,8 @@ click Healbot "./index.html#facet-04_ui.HealBot" "Open HealBot"
 ### actionbar
 *Facet:* [`04_ui.actionbar`](#facet-04_ui.actionbar)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cooldown (ActionButton)"]
     W1["image (LeftSliders)"]
@@ -158,8 +158,8 @@ click Actionbar "./index.html#facet-04_ui.actionbar" "Open actionbar"
 ### alarms
 *Facet:* [`04_ui.alarms`](#facet-04_ui.alarms)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["tick (AlarmCheckBox)"]
     W1["value (AlarmCheckBoxAndSpinBox)"]
@@ -171,8 +171,8 @@ click Alarms "./index.html#facet-04_ui.alarms" "Open alarms"
 ### amountwindow
 *Facet:* [`04_ui.amountwindow`](#facet-04_ui.amountwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonOk (AmountWindow)"]
 click Amountwindow "./index.html#facet-04_ui.amountwindow" "Open amountwindow"
@@ -181,8 +181,8 @@ click Amountwindow "./index.html#facet-04_ui.amountwindow" "Open amountwindow"
 ### analyzer
 *Facet:* [`04_ui.analyzer`](#facet-04_ui.analyzer)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cooldown (BossCreaturePanel)"]
     W1["clear (SearchPanel)"]
@@ -214,8 +214,8 @@ click Analyzer "./index.html#facet-04_ui.analyzer" "Open analyzer"
 ### architecture
 *Facet:* [`04_ui.architecture`](#facet-04_ui.architecture)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph LR
     subgraph UI (OTUI)
         E0[Widgets]
@@ -230,8 +230,8 @@ click Architecture "./index.html#facet-04_ui.architecture" "Open architecture"
 ### basic
 *Facet:* [`04_ui.basic`](#facet-04_ui.basic)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["BotButton (BotButton)"]
     W1["BotSwitch (BotSwitch)"]
@@ -252,8 +252,8 @@ click Basic "./index.html#facet-04_ui.basic" "Open basic"
 ### battle
 *Facet:* [`04_ui.battle`](#facet-04_ui.battle)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["BattleIcon (BattleIcon)"]
     W1["BattlePlayers (BattlePlayers)"]
@@ -272,8 +272,8 @@ click Battle "./index.html#facet-04_ui.battle" "Open battle"
 ### battlebutton
 *Facet:* [`04_ui.battlebutton`](#facet-04_ui.battlebutton)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["BattleButton (BattleButton)"]
 click Battlebutton "./index.html#facet-04_ui.battlebutton" "Open battlebutton"
@@ -282,8 +282,8 @@ click Battlebutton "./index.html#facet-04_ui.battlebutton" "Open battlebutton"
 ### bot
 *Facet:* [`04_ui.bot`](#facet-04_ui.bot)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["BotTabBar (BotTabBar)"]
     W1["botPanel (BotTabBarPanel)"]
@@ -294,8 +294,8 @@ click Bot "./index.html#facet-04_ui.bot" "Open bot"
 ### browse
 *Facet:* [`04_ui.browse`](#facet-04_ui.browse)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["filterSearchAll (MarketItemBox)"]
 click Browse "./index.html#facet-04_ui.browse" "Open browse"
@@ -304,8 +304,8 @@ click Browse "./index.html#facet-04_ui.browse" "Open browse"
 ### bugreport
 *Facet:* [`04_ui.bugreport`](#facet-04_ui.bugreport)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cancelButton (BugReportWindow)"]
 click Bugreport "./index.html#facet-04_ui.bugreport" "Open bugreport"
@@ -314,8 +314,8 @@ click Bugreport "./index.html#facet-04_ui.bugreport" "Open bugreport"
 ### cavebot
 *Facet:* [`04_ui.cavebot`](#facet-04_ui.cavebot)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["CaveBotAction (CaveBotAction)"]
     W1["showConfig (CaveBotPanel)"]
@@ -325,8 +325,8 @@ click Cavebot "./index.html#facet-04_ui.cavebot" "Open cavebot"
 ### channelswindow
 *Facet:* [`04_ui.channelswindow`](#facet-04_ui.channelswindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["channelsScrollBar (ChannelListLabel)"]
 click Channelswindow "./index.html#facet-04_ui.channelswindow" "Open channelswindow"
@@ -335,8 +335,8 @@ click Channelswindow "./index.html#facet-04_ui.channelswindow" "Open channelswin
 ### characterlist
 *Facet:* [`04_ui.characterlist`](#facet-04_ui.characterlist)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonCancel (CharacterWidget)"]
 click Characterlist "./index.html#facet-04_ui.characterlist" "Open characterlist"
@@ -345,8 +345,8 @@ click Characterlist "./index.html#facet-04_ui.characterlist" "Open characterlist
 ### combo
 *Facet:* [`04_ui.combo`](#facet-04_ui.combo)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["AttackComboBoxPopupMenu (AttackComboBoxPopupMenu)"]
     W1["AttackComboBoxPopupMenuButton (AttackComboBoxPopupMenuButton)"]
@@ -364,8 +364,8 @@ click Combo "./index.html#facet-04_ui.combo" "Open combo"
 ### communicationwindow
 *Facet:* [`04_ui.communicationwindow`](#facet-04_ui.communicationwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["IgnoreListLabel (IgnoreListLabel)"]
     W1["whiteListScrollBar (WhiteListLabel)"]
@@ -375,8 +375,8 @@ click Communicationwindow "./index.html#facet-04_ui.communicationwindow" "Open c
 ### config
 *Facet:* [`04_ui.config`](#facet-04_ui.config)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["remove (BotConfig)"]
 click Config "./index.html#facet-04_ui.config" "Open config"
@@ -385,8 +385,8 @@ click Config "./index.html#facet-04_ui.config" "Open config"
 ### container
 *Facet:* [`04_ui.container`](#facet-04_ui.container)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["scroll (BotContainer)"]
 click Container "./index.html#facet-04_ui.container" "Open container"
@@ -395,8 +395,8 @@ click Container "./index.html#facet-04_ui.container" "Open container"
 ### cooldown
 *Facet:* [`04_ui.cooldown`](#facet-04_ui.cooldown)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["SpellGroupIcon (SpellGroupIcon)"]
     W1["SpellIcon (SpellIcon)"]
@@ -408,8 +408,8 @@ click Cooldown "./index.html#facet-04_ui.cooldown" "Open cooldown"
 ### countwindow
 *Facet:* [`04_ui.countwindow`](#facet-04_ui.countwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonOk (CountWindow)"]
 click Countwindow "./index.html#facet-04_ui.countwindow" "Open countwindow"
@@ -418,8 +418,8 @@ click Countwindow "./index.html#facet-04_ui.countwindow" "Open countwindow"
 ### creature_editor
 *Facet:* [`04_ui.creature_editor`](#facet-04_ui.creature_editor)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["scroll (TargetBotCreatureEditorScrollBar)"]
     W1["textEdit (TargetBotCreatureEditorTextEdit)"]
@@ -432,8 +432,8 @@ click CreatureEditor "./index.html#facet-04_ui.creature_editor" "Open creature_e
 ### currentoffers
 *Facet:* [`04_ui.currentoffers`](#facet-04_ui.currentoffers)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["OfferTableRow (OfferTableRow)"]
     W1["OfferTableColumn (OfferTableColumn)"]
@@ -447,8 +447,8 @@ click Currentoffers "./index.html#facet-04_ui.currentoffers" "Open currentoffers
 ### deathwindow
 *Facet:* [`04_ui.deathwindow`](#facet-04_ui.deathwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonCancel (DeathWindow)"]
 click Deathwindow "./index.html#facet-04_ui.deathwindow" "Open deathwindow"
@@ -457,8 +457,8 @@ click Deathwindow "./index.html#facet-04_ui.deathwindow" "Open deathwindow"
 ### depositer_config
 *Facet:* [`04_ui.depositer_config`](#facet-04_ui.depositer_config)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["slot (StashItem)"]
     W1["CloseButton (DepositerPanel)"]
@@ -468,8 +468,8 @@ click DepositerConfig "./index.html#facet-04_ui.depositer_config" "Open deposite
 ### editor
 *Facet:* [`04_ui.editor`](#facet-04_ui.editor)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["autoRecording (CaveBotEditorButton)"]
     W1["autoRecording (CaveBotEditorPanel)"]
@@ -479,8 +479,8 @@ click Editor "./index.html#facet-04_ui.editor" "Open editor"
 ### editvip
 *Facet:* [`04_ui.editvip`](#facet-04_ui.editvip)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonCancel (IconButton)"]
 click Editvip "./index.html#facet-04_ui.editvip" "Open editvip"
@@ -489,8 +489,8 @@ click Editvip "./index.html#facet-04_ui.editvip" "Open editvip"
 ### equipper
 *Facet:* [`04_ui.equipper`](#facet-04_ui.equipper)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["SlotBotItem (SlotBotItem)"]
     W1["remove (BossLabel)"]
@@ -514,8 +514,8 @@ click Equipper "./index.html#facet-04_ui.equipper" "Open equipper"
 ### extras
 *Facet:* [`04_ui.extras`](#facet-04_ui.extras)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["scroll (ExtrasScrollBar)"]
     W1["textEdit (ExtrasTextEdit)"]
@@ -528,8 +528,8 @@ click Extras "./index.html#facet-04_ui.extras" "Open extras"
 ### flagwindow
 *Facet:* [`04_ui.flagwindow`](#facet-04_ui.flagwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["FlagButton (FlagButton)"]
     W1["cancelButton (FlagWindow)"]
@@ -539,8 +539,8 @@ click Flagwindow "./index.html#facet-04_ui.flagwindow" "Open flagwindow"
 ### flow
 *Facet:* [`04_ui.flow`](#facet-04_ui.flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[UI (OTUI)] --> B[Data Collection]
     B --> C[Processing]
@@ -556,8 +556,8 @@ click Flow "./index.html#facet-04_ui.flow" "Open flow"
 ### gameinterface
 *Facet:* [`04_ui.gameinterface`](#facet-04_ui.gameinterface)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["GameSidePanel (GameSidePanel)"]
     W1["GameMapPanel (GameMapPanel)"]
@@ -568,8 +568,8 @@ click Gameinterface "./index.html#facet-04_ui.gameinterface" "Open gameinterface
 ### hierarchy
 *Facet:* [`04_ui.hierarchy`](#facet-04_ui.hierarchy)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[04_ui.hierarchy] --> B[Dataset]
     B --> C[Page]
@@ -581,8 +581,8 @@ click Hierarchy "./index.html#facet-04_ui.hierarchy" "Open hierarchy"
 ### hotkeys_manager
 *Facet:* [`04_ui.hotkeys_manager`](#facet-04_ui.hotkeys_manager)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cancelButton (HotkeyListLabel)"]
     W1["cancelButton (HotkeyAssignWindow)"]
@@ -592,8 +592,8 @@ click HotkeysManager "./index.html#facet-04_ui.hotkeys_manager" "Open hotkeys_ma
 ### icons
 *Facet:* [`04_ui.icons`](#facet-04_ui.icons)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["text (BotIcon)"]
 click Icons "./index.html#facet-04_ui.icons" "Open icons"
@@ -602,8 +602,8 @@ click Icons "./index.html#facet-04_ui.icons" "Open icons"
 ### imbuing
 *Facet:* [`04_ui.imbuing`](#facet-04_ui.imbuing)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["Slot (Slot)"]
     W1["count (RequiredItem)"]
@@ -616,8 +616,8 @@ click Imbuing "./index.html#facet-04_ui.imbuing" "Open imbuing"
 ### itemdetails
 *Facet:* [`04_ui.itemdetails`](#facet-04_ui.itemdetails)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["DetailsTableRow (DetailsTableRow)"]
     W1["detailsTableScrollBar (DetailsTableColumn)"]
@@ -627,8 +627,8 @@ click Itemdetails "./index.html#facet-04_ui.itemdetails" "Open itemdetails"
 ### itemoffers
 *Facet:* [`04_ui.itemoffers`](#facet-04_ui.itemoffers)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["OfferTableRow (OfferTableRow)"]
     W1["OfferTableColumn (OfferTableColumn)"]
@@ -642,8 +642,8 @@ click Itemoffers "./index.html#facet-04_ui.itemoffers" "Open itemoffers"
 ### itemselector
 *Facet:* [`04_ui.itemselector`](#facet-04_ui.itemselector)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cancelButton (ItemSelectorWindow)"]
 click Itemselector "./index.html#facet-04_ui.itemselector" "Open itemselector"
@@ -652,8 +652,8 @@ click Itemselector "./index.html#facet-04_ui.itemselector" "Open itemselector"
 ### itemstats
 *Facet:* [`04_ui.itemstats`](#facet-04_ui.itemstats)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["StatsTableRow (StatsTableRow)"]
     W1["sellStatsTableScrollBar (StatsTableColumn)"]
@@ -663,8 +663,8 @@ click Itemstats "./index.html#facet-04_ui.itemstats" "Open itemstats"
 ### locales
 *Facet:* [`04_ui.locales`](#facet-04_ui.locales)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["LocalesMainLabel (LocalesMainLabel)"]
     W1["localesPanel (LocalesButton)"]
@@ -674,8 +674,8 @@ click Locales "./index.html#facet-04_ui.locales" "Open locales"
 ### looting
 *Facet:* [`04_ui.looting`](#facet-04_ui.looting)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["value (TargetBotLootingPanel)"]
 click Looting "./index.html#facet-04_ui.looting" "Open looting"
@@ -684,8 +684,8 @@ click Looting "./index.html#facet-04_ui.looting" "Open looting"
 ### market
 *Facet:* [`04_ui.market`](#facet-04_ui.market)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["resetButton (MarketWindow)"]
 click Market "./index.html#facet-04_ui.market" "Open market"
@@ -694,8 +694,8 @@ click Market "./index.html#facet-04_ui.market" "Open market"
 ### marketbuttons
 *Facet:* [`04_ui.marketbuttons`](#facet-04_ui.marketbuttons)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["MarketButtonBox (MarketButtonBox)"]
 click Marketbuttons "./index.html#facet-04_ui.marketbuttons" "Open marketbuttons"
@@ -704,8 +704,8 @@ click Marketbuttons "./index.html#facet-04_ui.marketbuttons" "Open marketbuttons
 ### marketcombobox
 *Facet:* [`04_ui.marketcombobox`](#facet-04_ui.marketcombobox)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["MarketComboBoxPopupMenuButton (MarketComboBoxPopupMenuButton)"]
     W1["MarketComboBoxPopupMenuSeparator (MarketComboBoxPopupMenuSeparator)"]
@@ -717,8 +717,8 @@ click Marketcombobox "./index.html#facet-04_ui.marketcombobox" "Open marketcombo
 ### markettabs
 *Facet:* [`04_ui.markettabs`](#facet-04_ui.markettabs)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["MarketTabBar (MarketTabBar)"]
     W1["MarketTabBarPanel (MarketTabBarPanel)"]
@@ -732,8 +732,8 @@ click Markettabs "./index.html#facet-04_ui.markettabs" "Open markettabs"
 ### modaldialog
 *Facet:* [`04_ui.modaldialog`](#facet-04_ui.modaldialog)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["ChoiceListLabel (ChoiceListLabel)"]
     W1["choiceList (ChoiceList)"]
@@ -746,8 +746,8 @@ click Modaldialog "./index.html#facet-04_ui.modaldialog" "Open modaldialog"
 ### new_healer
 *Facet:* [`04_ui.new_healer`](#facet-04_ui.new_healer)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["CategoryCheckBox (CategoryCheckBox)"]
     W1["scroll (HealScroll)"]
@@ -771,8 +771,8 @@ click NewHealer "./index.html#facet-04_ui.new_healer" "Open new_healer"
 ### npctrade
 *Facet:* [`04_ui.npctrade`](#facet-04_ui.npctrade)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["NPCOfferLabel (NPCOfferLabel)"]
     W1["tradeButton (NPCItemBox)"]
@@ -782,8 +782,8 @@ click Npctrade "./index.html#facet-04_ui.npctrade" "Open npctrade"
 ### object
 *Facet:* [`04_ui.object`](#facet-04_ui.object)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonOk (RoundCheckBox)"]
 click Object "./index.html#facet-04_ui.object" "Open object"
@@ -792,8 +792,8 @@ click Object "./index.html#facet-04_ui.object" "Open object"
 ### options
 *Facet:* [`04_ui.options`](#facet-04_ui.options)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["OptionCheckBox (OptionCheckBox)"]
     W1["OptionScrollbar (OptionScrollbar)"]
@@ -804,7 +804,7 @@ click Options "./index.html#facet-04_ui.options" "Open options"
 ### otui_assets_mapping
 *Facet:* [`04_ui.otui_assets_mapping`](#facet-04_ui.otui_assets_mapping)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     OTUI[OTUI Widget] -->|references| Asset[Asset Path]
@@ -844,8 +844,8 @@ click OtuiAssetsMapping "./index.html#facet-04_ui.otui_assets_mapping" "Open otu
 ### outfitwindow
 *Facet:* [`04_ui.outfitwindow`](#facet-04_ui.outfitwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["FloorTile (FloorTile)"]
 click Outfitwindow "./index.html#facet-04_ui.outfitwindow" "Open outfitwindow"
@@ -854,7 +854,7 @@ click Outfitwindow "./index.html#facet-04_ui.outfitwindow" "Open outfitwindow"
 ### overview
 *Facet:* [`04_ui.overview`](#facet-04_ui.overview)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','securityLevel':'loose','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
     A[UI/OTUI] --> B[Components]
@@ -866,8 +866,8 @@ click Overview "./index.html#facet-04_ui.overview" "Open overview"
 ### panels
 *Facet:* [`04_ui.panels`](#facet-04_ui.panels)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["text (DualScrollPanel)"]
     W1["scroll (SingleScrollItemPanel)"]
@@ -886,8 +886,8 @@ click Panels "./index.html#facet-04_ui.panels" "Open panels"
 ### playerlist
 *Facet:* [`04_ui.playerlist`](#facet-04_ui.playerlist)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["remove (PlayerLabel)"]
     W1["SettingCheckBox (SettingCheckBox)"]
@@ -900,8 +900,8 @@ click Playerlist "./index.html#facet-04_ui.playerlist" "Open playerlist"
 ### prey
 *Facet:* [`04_ui.prey`](#facet-04_ui.prey)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["shopTempButton (LockedPreyPanel)"]
     W1["Star (Star)"]
@@ -926,8 +926,8 @@ click Prey "./index.html#facet-04_ui.prey" "Open prey"
 ### pushmax
 *Facet:* [`04_ui.pushmax`](#facet-04_ui.pushmax)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["closeButton (PushMaxWindow)"]
 click Pushmax "./index.html#facet-04_ui.pushmax" "Open pushmax"
@@ -936,8 +936,8 @@ click Pushmax "./index.html#facet-04_ui.pushmax" "Open pushmax"
 ### questlogwindow
 *Facet:* [`04_ui.questlogwindow`](#facet-04_ui.questlogwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["description (QuestTrackerLabel)"]
     W1["QuestLabel (QuestLabel)"]
@@ -951,8 +951,8 @@ click Questlogwindow "./index.html#facet-04_ui.questlogwindow" "Open questlogwin
 ### ruleviolation
 *Facet:* [`04_ui.ruleviolation`](#facet-04_ui.ruleviolation)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["RVListLabel (RVListLabel)"]
     W1["RVLabel (RVLabel)"]
@@ -963,8 +963,8 @@ click Ruleviolation "./index.html#facet-04_ui.ruleviolation" "Open ruleviolation
 ### shop
 *Facet:* [`04_ui.shop`](#facet-04_ui.shop)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["name (ShopCategory)"]
     W1["item (ShopCategoryItem)"]
@@ -986,8 +986,8 @@ click Shop "./index.html#facet-04_ui.shop" "Open shop"
 ### sideactionbar
 *Facet:* [`04_ui.sideactionbar`](#facet-04_ui.sideactionbar)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cooldown (SideActionButton)"]
     W1["image (TopSliders)"]
@@ -998,7 +998,7 @@ click Sideactionbar "./index.html#facet-04_ui.sideactionbar" "Open sideactionbar
 ### signal_flow
 *Facet:* [`04_ui.signal_flow`](#facet-04_ui.signal_flow)
 
-```{mermaid}
+```mermaid
 %%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     OTUI[OTUI File] -->|defines| Widget[UI Widget]
@@ -1042,8 +1042,8 @@ click SignalFlow "./index.html#facet-04_ui.signal_flow" "Open signal_flow"
 ### siolist
 *Facet:* [`04_ui.siolist`](#facet-04_ui.siolist)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["RP (VocationPanel)"]
     W1["closeButton (SioListWindow)"]
@@ -1053,8 +1053,8 @@ click Siolist "./index.html#facet-04_ui.siolist" "Open siolist"
 ### skills
 *Facet:* [`04_ui.skills`](#facet-04_ui.skills)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["SkillFirstWidget (SkillFirstWidget)"]
     W1["SkillButton (SkillButton)"]
@@ -1069,8 +1069,8 @@ click Skills "./index.html#facet-04_ui.skills" "Open skills"
 ### spell
 *Facet:* [`04_ui.spell`](#facet-04_ui.spell)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["buttonOk (SpellPreview)"]
 click Spell "./index.html#facet-04_ui.spell" "Open spell"
@@ -1079,8 +1079,8 @@ click Spell "./index.html#facet-04_ui.spell" "Open spell"
 ### spelllist
 *Facet:* [`04_ui.spelllist`](#facet-04_ui.spelllist)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["SpellListLabel (SpellListLabel)"]
     W1["SpellInfoLabel (SpellInfoLabel)"]
@@ -1092,8 +1092,8 @@ click Spelllist "./index.html#facet-04_ui.spelllist" "Open spelllist"
 ### stats
 *Facet:* [`04_ui.stats`](#facet-04_ui.stats)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["DebugText (DebugText)"]
     W1["debugScroll (DebugLabel)"]
@@ -1103,8 +1103,8 @@ click Stats "./index.html#facet-04_ui.stats" "Open stats"
 ### supplies
 *Facet:* [`04_ui.supplies`](#facet-04_ui.supplies)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["remove (ProfileLabel)"]
     W1["SupplySpinBox (SupplySpinBox)"]
@@ -1116,8 +1116,8 @@ click Supplies "./index.html#facet-04_ui.supplies" "Open supplies"
 ### supply
 *Facet:* [`04_ui.supply`](#facet-04_ui.supply)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["max (SupplyItem)"]
     W1["scroll (SupplyItemList)"]
@@ -1127,8 +1127,8 @@ click Supply "./index.html#facet-04_ui.supply" "Open supply"
 ### target
 *Facet:* [`04_ui.target`](#facet-04_ui.target)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["TargetBotEntry (TargetBotEntry)"]
     W1["right (TargetBotDualLabel)"]
@@ -1139,8 +1139,8 @@ click Target "./index.html#facet-04_ui.target" "Open target"
 ### terminal
 *Facet:* [`04_ui.terminal`](#facet-04_ui.terminal)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["TerminalLabel (TerminalLabel)"]
     W1["rightResizeBorder (TerminalSelectText)"]
@@ -1150,8 +1150,8 @@ click Terminal "./index.html#facet-04_ui.terminal" "Open terminal"
 ### textedit
 *Facet:* [`04_ui.textedit`](#facet-04_ui.textedit)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cancel (TextEditButtons)"]
     W1["examples (TextEditWindow)"]
@@ -1165,8 +1165,8 @@ click Textedit "./index.html#facet-04_ui.textedit" "Open textedit"
 ### textmessage
 *Facet:* [`04_ui.textmessage`](#facet-04_ui.textmessage)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["statusLabel (TextMessageLabel)"]
 click Textmessage "./index.html#facet-04_ui.textmessage" "Open textmessage"
@@ -1175,8 +1175,8 @@ click Textmessage "./index.html#facet-04_ui.textmessage" "Open textmessage"
 ### textwindow
 *Facet:* [`04_ui.textwindow`](#facet-04_ui.textwindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["cancelButton (TextWindow)"]
 click Textwindow "./index.html#facet-04_ui.textwindow" "Open textwindow"
@@ -1185,8 +1185,8 @@ click Textwindow "./index.html#facet-04_ui.textwindow" "Open textwindow"
 ### topbar
 *Facet:* [`04_ui.topbar`](#facet-04_ui.topbar)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["box (StatsPanel)"]
     W1["skills (SkillPanel)"]
@@ -1196,8 +1196,8 @@ click Topbar "./index.html#facet-04_ui.topbar" "Open topbar"
 ### tradewindow
 *Facet:* [`04_ui.tradewindow`](#facet-04_ui.tradewindow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["rejectButton (TradeWindow)"]
 click Tradewindow "./index.html#facet-04_ui.tradewindow" "Open tradewindow"
@@ -1206,8 +1206,8 @@ click Tradewindow "./index.html#facet-04_ui.tradewindow" "Open tradewindow"
 ### ui_flow
 *Facet:* [`04_ui.ui_flow`](#facet-04_ui.ui_flow)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     A[04_ui.ui_flow] --> B[Dataset]
     B --> C[Page]
@@ -1219,8 +1219,8 @@ click UiFlow "./index.html#facet-04_ui.ui_flow" "Open ui_flow"
 ### unjustifiedpoints
 *Facet:* [`04_ui.unjustifiedpoints`](#facet-04_ui.unjustifiedpoints)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["SkullProgressBar (SkullProgressBar)"]
     W1["monthSkullWidget (SkullWidget)"]
@@ -1230,8 +1230,8 @@ click Unjustifiedpoints "./index.html#facet-04_ui.unjustifiedpoints" "Open unjus
 ### viplist
 *Facet:* [`04_ui.viplist`](#facet-04_ui.viplist)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
     W0["vipWindow (VipListLabel)"]
 click Viplist "./index.html#facet-04_ui.viplist" "Open viplist"
@@ -1240,8 +1240,8 @@ click Viplist "./index.html#facet-04_ui.viplist" "Open viplist"
 ### widgets_hierarchy
 *Facet:* [`04_ui.widgets_hierarchy`](#facet-04_ui.widgets_hierarchy)
 
-```{mermaid}
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
 graph TD
   WidgetHierarchy[04_ui:widgets_hierarchy] --> Data[Datasets]
   Data --> Page[Index]
