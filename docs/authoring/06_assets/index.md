@@ -103,7 +103,7 @@ click Architecture "./index.html#facet-06_assets.architecture" "Open architectur
 *Facet:* [`06_assets.asset_pipeline`](#facet-06_assets.asset_pipeline)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Request[Asset Request] --> Cache{In Cache?}
     Cache -->|Yes| Return[Return Cached Texture]
@@ -191,7 +191,7 @@ click PipelineFlow "./index.html#facet-06_assets.pipeline_flow" "Open pipeline_f
 *Facet:* [`06_assets.texture_loading_sequence`](#facet-06_assets.texture_loading_sequence)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
     participant TM as TextureManager

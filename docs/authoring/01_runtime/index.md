@@ -85,7 +85,7 @@ click Architecture "./index.html#facet-01_runtime.architecture" "Open architectu
 *Facet:* [`01_runtime.dispatcher_architecture`](#facet-01_runtime.dispatcher_architecture)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Client[Client Code] -->|addEvent| ED[EventDispatcher]
     Client -->|scheduleEvent| ED
@@ -131,7 +131,7 @@ click Flow "./index.html#facet-01_runtime.flow" "Open flow"
 *Facet:* [`01_runtime.lifecycle_sequence`](#facet-01_runtime.lifecycle_sequence)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
     participant AD as AsyncDispatcher

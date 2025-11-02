@@ -120,7 +120,7 @@ click Flow "./index.html#facet-10_game_runtime.flow" "Open flow"
 *Facet:* [`10_game_runtime.frame_sequence`](#facet-10_game_runtime.frame_sequence)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
     participant Input as InputManager
@@ -173,7 +173,7 @@ sequenceDiagram
 *Facet:* [`10_game_runtime.game_loop_cycle`](#facet-10_game_runtime.game_loop_cycle)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Start[Frame Start] --> PollInput[Poll Input Events]
     PollInput --> PollEvents[EventDispatcher Poll]

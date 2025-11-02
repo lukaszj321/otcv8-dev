@@ -129,7 +129,7 @@ click Flow "./index.html#facet-09_logging.flow" "Open flow"
 *Facet:* [`09_logging.logging_architecture`](#facet-09_logging.logging_architecture)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     App[Application Code] -->|log call| Logger[Logger g_logger]
     
@@ -164,7 +164,7 @@ click LoggingArchitecture "./index.html#facet-09_logging.logging_architecture" "
 *Facet:* [`09_logging.logging_flow`](#facet-09_logging.logging_flow)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     autonumber
     participant App as Application

@@ -805,7 +805,7 @@ click Options "./index.html#facet-04_ui.options" "Open options"
 *Facet:* [`04_ui.otui_assets_mapping`](#facet-04_ui.otui_assets_mapping)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     OTUI[OTUI Widget] -->|references| Asset[Asset Path]
     
@@ -999,7 +999,7 @@ click Sideactionbar "./index.html#facet-04_ui.sideactionbar" "Open sideactionbar
 *Facet:* [`04_ui.signal_flow`](#facet-04_ui.signal_flow)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     OTUI[OTUI File] -->|defines| Widget[UI Widget]
     Widget -->|emits| Signal[@onClick @onDoubleClick etc]

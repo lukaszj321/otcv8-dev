@@ -10,7 +10,7 @@ linkify-it-py>=2.0
 
 # Popularne rozszerzenia
 sphinxcontrib-mermaid>=1.0.0
-sphinx-design>=0.6.1
+sphinx-design>=0.6.1,<0.7.0
 sphinx-copybutton>=0.5.2
 sphinxext-opengraph>=0.13.0
 sphinx-favicon>=1.0.1

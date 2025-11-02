@@ -102,7 +102,7 @@ click Flow "./index.html#facet-03_modules.flow" "Open flow"
 *Facet:* [`03_modules.lua_cpp_binding_flow`](#facet-03_modules.lua_cpp_binding_flow)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant Lua as Lua Code
     participant Bind as Lua Binding Layer
@@ -134,7 +134,7 @@ sequenceDiagram
 *Facet:* [`03_modules.module_dependencies`](#facet-03_modules.module_dependencies)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     subgraph "Core Libraries"
         CL[corelib]

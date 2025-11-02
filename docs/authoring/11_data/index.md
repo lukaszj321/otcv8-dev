@@ -150,7 +150,7 @@ click AssetToUi "./index.html#facet-11_data.asset_to_ui" "Open asset_to_ui"
 *Facet:* [`11_data.assets_links`](#facet-11_data.assets_links)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     OTUI["OTUI Files<br/>(*.otui)"] --> PROPS["Properties:<br/>image-source<br/>icon<br/>font"]
     PROPS --> RESOLVE["Asset Resolver"]

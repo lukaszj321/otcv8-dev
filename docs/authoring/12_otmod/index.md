@@ -181,7 +181,7 @@ sequenceDiagram
 *Facet:* [`12_otmod.modules_deps`](#facet-12_otmod.modules_deps)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     MOD["Module<br/>(*.otmod)"] --> MANIFEST["Manifest<br/>dependencies<br/>load-later"]
     MOD --> LUA["Lua Scripts<br/>(*.lua)"]

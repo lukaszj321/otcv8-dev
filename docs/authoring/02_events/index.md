@@ -120,7 +120,7 @@ click EventFlow "./index.html#facet-02_events.event_flow" "Open event_flow"
 *Facet:* [`02_events.event_flow_map`](#facet-02_events.event_flow_map)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     Server[Game Server] -->|Protocol Messages| Protocol[ProtocolGame]
     
@@ -173,7 +173,7 @@ click Flow "./index.html#facet-02_events.flow" "Open flow"
 *Facet:* [`02_events.login_lifecycle`](#facet-02_events.login_lifecycle)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant Client as Client App
     participant Server as Game Server

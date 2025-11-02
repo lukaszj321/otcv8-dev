@@ -107,7 +107,7 @@ click AudioPipeline "./index.html#facet-08_audio.audio_pipeline" "Open audio_pip
 *Facet:* [`08_audio.audio_playback_flow`](#facet-08_audio.audio_playback_flow)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
     participant App as Application
     participant SM as SoundManager
@@ -143,7 +143,7 @@ sequenceDiagram
 *Facet:* [`08_audio.channels_hierarchy`](#facet-08_audio.channels_hierarchy)
 
 ```{mermaid}
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
     SoundManager[SoundManager g_sounds] --> Channel1[Channel 1 - Music]
     SoundManager --> Channel2[Channel 2 - Ambient]
