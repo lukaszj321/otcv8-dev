@@ -333,20 +333,24 @@ Termin B
 **Efekt**
 
 :::{tab-set}
+
 :::{tab-item} Kroki
 
 1. Init
 2. Build
 3. Test
-   :::
-   :::{tab-item} Wymagania
+
+:::
+
+:::{tab-item} Wymagania
 
 * Python
 * Sphinx
 * Theme
-  :::
-  :::
-  :::
+
+:::
+
+:::
 
 :::
 :::

@@ -214,7 +214,7 @@ examples/diagrams
 ## Status modułów
 
 ```{csv-table} Przegląd modułów
-:header: "Nazwa", "Opis", "Status"
+:header-rows: 1
 :file: _data/modules.csv
 :widths: 20, 60, 20
 ```

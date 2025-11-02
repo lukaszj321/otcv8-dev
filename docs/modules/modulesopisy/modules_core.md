@@ -1,6 +1,6 @@
 # Modules Core
----
-# client
+
+## client
 # Client Module
 # `client.lua`
 # Funkcje

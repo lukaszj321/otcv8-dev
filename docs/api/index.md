@@ -1,6 +1,7 @@
 # API
 
 :::{tab-set}
+
 :::{tab-item} Wygenerowane (auto)
 :sync: auto
 
@@ -15,7 +16,8 @@ external/schemas/index
 ```
 
 :::
-:::{tab-item} Opisowe (guide)
+
+:::{tab-item} Opisové (guide)
 :sync: guide
 
 ```{toctree}
@@ -30,6 +32,7 @@ external/schemas/index
 ```
 
 :::
+
 :::
 
 ## Snippety (przykład)

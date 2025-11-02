@@ -1,6 +1,6 @@
 # Modules Game 2
----
-# game_hotkeys
+
+## game_hotkeys
 # Game Hotkeys Module
 # `hotkeys_extra.lua`
 # Funkcje
