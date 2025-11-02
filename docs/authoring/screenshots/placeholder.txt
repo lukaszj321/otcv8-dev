@@ -1,0 +1,33 @@
+# Screenshots Placeholder
+
+This directory is intended for storing screenshots of successful documentation builds.
+
+## Purpose
+
+Screenshots stored here serve as:
+- Visual verification that the documentation builds correctly
+- Reference material for documentation maintainers
+- Historical record of documentation appearance over time
+
+## How to Add Screenshots
+
+Please refer to `docs/authoring/BUILD_VERIFICATION.md` for detailed instructions on:
+- How to extract screenshots from CI artifacts
+- Proper naming conventions (build-YYYYMMDD-<branch>.png)
+- Screenshot guidelines (resolution, format, content)
+
+## Replacing This Placeholder
+
+Once you add actual screenshots produced by the CI workflow or captured manually:
+1. Follow the naming convention specified in BUILD_VERIFICATION.md
+2. Add descriptive commit messages indicating what build the screenshot represents
+3. This placeholder file can remain as documentation, or you can replace it with a README.md
+
+## CI Screenshot Generation
+
+The docs workflow (`.github/workflows/docs.yml`) automatically generates screenshots of:
+- All index.html files up to depth 3 in the built documentation
+- Screenshots are saved in the Pages artifact under `screenshots/`
+- Extract them from the artifact and copy relevant ones here for permanent storage
+
+For more information, see: `docs/authoring/BUILD_VERIFICATION.md`
