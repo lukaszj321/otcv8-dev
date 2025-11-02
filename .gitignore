@@ -163,5 +163,6 @@ node_modules
 #################
 docs/_build/
 docs/_static/data/
+docs/copilot/sphinx/code/src/source_mirror/
 _site/
 _site_test/

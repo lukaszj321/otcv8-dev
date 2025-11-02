@@ -5961,8 +5961,3 @@ CaveBot.Extensions.Withdraw.setup = function()
 end
 
 ```
-
----
-
-{% endraw %}
-

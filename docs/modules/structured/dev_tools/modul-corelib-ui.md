@@ -6961,8 +6961,3 @@ function UIWindow:onDragMove(mousePos, mouseMoved)
 end
 
 ```
-
----
-
-{% endraw %}
-
