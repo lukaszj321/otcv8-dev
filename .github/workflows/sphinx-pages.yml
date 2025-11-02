@@ -5,7 +5,7 @@ steps:
       fetch-depth: 0
 
   - name: Set up Python
-    uses: actions/setup-python@v5
+    uses: actions/setup-python@v4
     with:
       python-version: '3.11'
 
@@ -17,30 +17,25 @@ steps:
       restore-keys: |
         ${{ runner.os }}-pip-
 
-  - name: Install system deps
+  - name: Install system dependencies
     run: |
       set -euo pipefail
       sudo apt-get update
-      sudo apt-get install -y --no-install-recommends \
-        graphviz fonts-dejavu-core doxygen luarocks
+      sudo apt-get install -y --no-install-recommends graphviz fonts-dejavu-core doxygen luarocks
     shell: bash
 
-  - name: Install doc dependencies
+  - name: Install Python doc dependencies
     run: |
       set -euo pipefail
       python -m pip install --upgrade pip wheel setuptools
       if [ -f docs/requirements.txt ]; then
-        pip install -r docs/requirements.txt
+        python -m pip install -r docs/requirements.txt
       else
-        pip install sphinx pydata-sphinx-theme myst-parser sphinxcontrib-mermaid sphinx-design sphinx_copybutton breathe exhale
+        python -m pip install sphinx pydata-sphinx-theme myst-parser sphinxcontrib-mermaid sphinx-design sphinx-copybutton breathe exhale
       fi
     env:
       PIP_NO_CACHE_DIR: "off"
     shell: bash
-
-  - name: Configure Pages (base URL)
-    id: pages
-    uses: actions/configure-pages@v5
 
   - name: Prepare Doxygen output dir
     run: mkdir -p docs/_build/doxygen
@@ -54,17 +49,17 @@ steps:
       fi
     shell: bash
 
-  - name: Install LDoc (local) and add to PATH
+  - name: Install LDoc (local) and add to PATH (optional)
     run: |
       set -euo pipefail
       luarocks install --local ldoc || true
       echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
     shell: bash
 
-  - name: Optional: Generate Lua docs
+  - name: Optional: Generate Lua docs (ldoc) (non-fatal)
     run: |
       set -euo pipefail
-      mkdir -p docs/_extra
+      mkdir -p docs/_extra || true
       ldoc -d docs/_extra/ldoc-modules modules || true
       ldoc -d docs/_extra/ldoc-src src || true
     shell: bash
@@ -73,14 +68,13 @@ steps:
     id: build_docs
     run: |
       set -euo pipefail
-      mkdir -p docs/_build
-      # safety timeout for sphinx-build: 60 minutes
+      mkdir -p docs/_build/html
+      # safety timeout for sphinx-build (60m)
       timeout 60m sphinx-build -E -a -j auto -b html docs docs/_build/html \
         -D mermaid_output_format=raw \
         -D mermaid_version=10.9.1 \
-        -D html_baseurl="${{ steps.pages.outputs.base_url }}" \
         1> /tmp/sphinx-out.log 2> /tmp/sphinx-err.log || true
-      # ensure artifact folder has something
+      # ensure artifact folder has at least one file
       touch docs/_build/html/.nojekyll || true
     env:
       CI: "true"
