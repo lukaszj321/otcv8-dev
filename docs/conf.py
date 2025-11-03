@@ -75,7 +75,7 @@ autosectionlabel_prefix_document = True
 
 # Nie wywalaj buildu na brakujących celach MyST (masz dużo linków między MD)
 # Suppress duplicate-label warnings during transition to prefixed autosectionlabels
-suppress_warnings = globals().get('suppress_warnings', []) + ['myst.xref_missing', 'ref.duplicate']
+suppress_warnings = globals().get('suppress_warnings', []) + ['myst.xref_missing', 'ref.duplicate', 'autosectionlabel.*']
 
 # Exclude patterns to avoid duplicate C++ declarations
 exclude_patterns = globals().get("exclude_patterns", []) + [
