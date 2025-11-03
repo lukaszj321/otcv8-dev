@@ -71,7 +71,7 @@ jobs:
           set -euo pipefail
           python docs/scripts/generate_placeholders.py
 
-      - name: Make MyST labels unique
+      - name: Normalize generated MyST labels
         shell: bash
         run: |
           set -euo pipefail
