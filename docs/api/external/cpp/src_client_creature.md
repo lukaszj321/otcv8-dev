@@ -409,7 +409,7 @@ void setText(const std::string& text, const Color& color);
 
 ---
 
-(gettext)=
+(gettext_creature)=
 ## `getText`
 
 **Signature:**
