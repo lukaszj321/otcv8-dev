@@ -1,3 +1,13 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{module.mmd};
-    B --> C[End];
+    A[Load Module] --> B{Parse Manifest};
+    B --> C[Load Dependencies];
+    C --> D[Execute 'init.lua'];
+    D --> E[Register Callbacks];
+    E --> F(Running);
+    F -- on unload --> G[Execute 'terminate.lua'];
+    G --> H[Unload];
+
+    click A "../../../01_core/api/cpp/framework/core/modulemanager.md" "ModuleManager"
+    click F "../../../03_modules/index.md" "Module Examples"
+    style F fill:#3a3,stroke:#282,stroke-width:2px

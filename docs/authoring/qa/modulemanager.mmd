@@ -1,3 +1,13 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{modulemanager.mmd};
-    B --> C[End];
+    A[Application Start] --> B(ModuleManager);
+    B -- scan() --> C[Discover Modules];
+    C --> D{Load all modules};
+
+    subgraph ModuleLifecycle
+        D -- load() --> E[Module 'init.lua'];
+        E --> F[Module is running];
+        F -- unload() --> G[Module 'terminate.lua'];
+    end
+
+    click B "../../../01_core/api/cpp/framework/core/modulemanager.md" "ModuleManager API"

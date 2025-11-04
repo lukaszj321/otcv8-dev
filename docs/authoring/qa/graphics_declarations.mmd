@@ -1,0 +1,14 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph GraphicsDeclarations [Graphics Declarations]
+        A[Enums e.g., DrawMode]
+        B[Typedefs e.g., TexturePtr]
+        C[Structs e.g., Rect]
+        D[Forward Declarations e.g., class Painter;]
+    end
+
+    subgraph Consumers
+        E[Graphics Engine] --> A & B & C & D;
+        F[UI System] --> A & B & C & D;
+        G[Game Modules] --> A & B & C & D;
+    end

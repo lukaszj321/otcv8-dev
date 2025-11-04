@@ -1,3 +1,15 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{resourcemanager.mmd};
-    B --> C[End];
+    A[Application] -- "g_resources.addSearchPath(...)" --> B(ResourceManager);
+
+    subgraph SearchPaths
+        P1[/data/]
+        P2[/mods/my_mod/]
+    end
+
+    B --> P1 & P2;
+
+    C[Module Code] -- "g_resources.openFile(...)" --> B;
+    B -- "Finds file in search paths" --> D[File Handle];
+    C --> D;
+    click B "../../../01_core/api/cpp/framework/core/resourcemanager.md" "ResourceManager API"

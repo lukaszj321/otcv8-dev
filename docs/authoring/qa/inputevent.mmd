@@ -1,15 +1,14 @@
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class InputEvent {
-        <<abstract>>
-        EventType type
-    }
-    class KeyEvent {
-        KeyCode key
-    }
-    class MouseEvent {
-        Point position
-        MouseButton button
-    }
-    InputEvent <|-- KeyEvent
-    InputEvent <|-- MouseEvent
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant OS as Operating System
+    participant Window as WindowManager
+    participant Dispatcher as EventDispatcher
+    participant Listeners
+
+    OS->>Window: Hardware Input (e.g., Key Press)
+    Window->>Window: Create InputEvent object
+    Window->>Dispatcher: dispatchEvent(InputEvent)
+    activate Dispatcher
+    Dispatcher->>Listeners: notify(InputEvent)
+    deactivate Dispatcher
+    Listeners->>Listeners: Process Event

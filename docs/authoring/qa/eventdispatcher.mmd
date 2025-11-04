@@ -1,15 +1,17 @@
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-sequenceDiagram
-    participant MainLoop
-    participant EventDispatcher
-    participant EventHandler
-
-    MainLoop->>EventDispatcher: poll()
-    EventDispatcher->>EventDispatcher: Check event queue
-    alt Events in queue
-        EventDispatcher->>EventHandler: execute(event)
-        EventHandler-->>EventDispatcher: Done
-    else No events
-        EventDispatcher-->>MainLoop: Idle
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph EventFlow [Event Dispatch Flow]
+        A[Event Source] -- Creates --> B(Event);
+        B -- Dispatches to --> C{EventDispatcher};
+        C -- Notifies --> D[Registered Listeners];
     end
-    MainLoop->>MainLoop: Continue loop...
+
+    subgraph Registration
+        E[Listener] -- Registers with --> C;
+    end
+
+    D --> F[Handle Event];
+
+    click C "../../../01_core/api/cpp/framework/core/eventdispatcher.md" "EventDispatcher API"
+    click B "../../../01_core/api/cpp/framework/core/event.md" "Event Object API"
+    style C fill:#3a5,stroke:#282,stroke-width:2px

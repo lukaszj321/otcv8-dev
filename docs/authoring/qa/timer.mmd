@@ -1,3 +1,10 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{timer.mmd};
-    B --> C[End];
+    A[Create Timer] --> B{Start};
+    B -- Time passes --> C{Get Elapsed Time};
+    C --> D[Milliseconds];
+    B --> E{Reset};
+    E --> B;
+
+    style A fill:#3a5,stroke:#282
+    style C fill:#5a3,stroke:#482

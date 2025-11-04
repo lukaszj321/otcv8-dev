@@ -1,14 +1,15 @@
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[File on Disk]
+    A[Application] -- Requests file operation --> B(FileStream);
+    B -- open(filePath, mode) --> C{File on Disk};
 
-    subgraph FileStream
-        B[FileStream Object]
-        B -- "read(bytes)" --> C[Data Buffer]
-        B -- "write(buffer)" --> A
-        B -- "seek(position)" --> B
+    subgraph Operations
+        direction LR
+        D[read]
+        E[write]
+        F[seek]
     end
 
-    A -- "open()" --> B
-
-    click B "../api/cpp/framework/core/filestream.html" "FileStream Class"
+    C -- Interaction --> Operations;
+    Operations -- Interaction --> C;
+    B -- close() --> G[Release Handle];

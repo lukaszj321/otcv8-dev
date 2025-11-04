@@ -1,0 +1,14 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph DrawCache [Drawing Cache]
+        A[Caches drawing operations for reuse]
+        B{Start Recording};
+        C[Painter draws objects];
+        D{Stop Recording};
+        E[Replay Cached Draw];
+        B --> C --> D;
+    end
+
+    F[Complex UI Widget] -- "On first render" --> B;
+    F -- "On subsequent renders" --> E;
+    E -- "Executes recorded commands" --> C;

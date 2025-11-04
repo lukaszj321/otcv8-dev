@@ -1,3 +1,15 @@
-graph TD
-    A[Start] --> B{scheduledevent.mmd};
-    B --> C[End];
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant UserCode as User Code
+    participant Scheduler as g_scheduler
+    participant GameLoop as Game Loop
+
+    UserCode->>Scheduler: scheduleEvent(callback, delay)
+    activate Scheduler
+    Scheduler->>Scheduler: Store event with timestamp
+    deactivate Scheduler
+
+    loop Every Tick
+        GameLoop->>Scheduler: poll()
+        Scheduler-->>UserCode: execute expired events
+    end

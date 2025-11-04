@@ -1,0 +1,11 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+graph TD
+    subgraph DepthArray
+        A[Array of float values]
+        B[Represents per-vertex depth (Z-value)]
+        A --> B;
+    end
+
+    C[Painter] -- "setDepthArray(array)" --> A;
+    C -- "draw..." --> D[GPU with Depth Test];
+    A -- "Sent with vertices" --> D;
