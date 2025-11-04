@@ -97,4 +97,4 @@ Plik OTUI definiujący interfejs użytkownika dla itemoffers.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/itemoffers.mmd](../diagrams/itemoffers.mmd)
+Zobacz: [../diagrams/itemoffers.mmd](..\diagrams\itemoffers.mmd)

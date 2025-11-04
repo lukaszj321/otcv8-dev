@@ -70,4 +70,4 @@ Plik OTUI definiujący interfejs użytkownika dla depositer_config.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/depositer_config.mmd](../diagrams/depositer_config.mmd)
+Zobacz: [../diagrams/depositer_config.mmd](..\diagrams\depositer_config.mmd)

@@ -57,4 +57,4 @@ Plik OTUI definiujący interfejs użytkownika dla stats.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/stats.mmd](../diagrams/stats.mmd)
+Zobacz: [../diagrams/stats.mmd](..\diagrams\stats.mmd)

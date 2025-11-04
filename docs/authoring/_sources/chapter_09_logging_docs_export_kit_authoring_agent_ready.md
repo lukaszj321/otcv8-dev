@@ -173,18 +173,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdzial normalizuje logi z klienta i/lub plikow zewnetrznych, zapewnia polityke prywatnosci (hash wiadomosci) i korelacje.
 
 Table of contents
-- [0. Logging basics](./sections/00_logging_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model logu (slownik)](./sections/02_log_model.md)
-- [3. Zbieranie (proxy + tail)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. Logging basics
+- 1. Wprowadzenie
+- 2. Model logu (slownik)
+- 3. Zbieranie (proxy + tail)
+- 4. Jakosc i ograniczenia
+- 5. Jak czytac statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [logs.schema.json](./logs.schema.json)
-- NDJSON: [datasets/logs.dataset.jsonl](./datasets/logs.dataset.jsonl)
-- CSV: [datasets/logs.dataset.csv](./datasets/logs.dataset.csv)
+- Schema: logs.schema.json
+- NDJSON: datasets/logs.dataset.jsonl
+- CSV: datasets/logs.dataset.csv
 - Diagrams: [diagrams/logging_flow.mmd](./diagrams/logging_flow.mmd), [diagrams/error_timeline.mmd](./diagrams/error_timeline.mmd)
 
 Crosslinks

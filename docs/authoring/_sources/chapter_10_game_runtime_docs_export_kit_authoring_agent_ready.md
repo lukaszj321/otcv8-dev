@@ -175,18 +175,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdzial zbiera cykliczne snapshoty stanu gry i publikuje je w formacie przyjaznym dla BI i RAG. Bezpiecznie: bez danych wrazliwych.
 
 Table of contents
-- [0. Game runtime basics](./sections/00_game_runtime_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model snapshotu (slownik)](./sections/02_game_runtime_model.md)
-- [3. Zbieranie (snapshot tick)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. Game runtime basics
+- 1. Wprowadzenie
+- 2. Model snapshotu (slownik)
+- 3. Zbieranie (snapshot tick)
+- 4. Jakosc i ograniczenia
+- 5. Jak czytac statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [game_runtime.schema.json](./game_runtime.schema.json)
-- NDJSON: [datasets/game_runtime.dataset.jsonl](./datasets/game_runtime.dataset.jsonl)
-- CSV: [datasets/game_runtime.dataset.csv](./datasets/game_runtime.dataset.csv)
+- Schema: game_runtime.schema.json
+- NDJSON: datasets/game_runtime.dataset.jsonl
+- CSV: datasets/game_runtime.dataset.csv
 - Diagrams: [diagrams/game_runtime_flow.mmd](./diagrams/game_runtime_flow.mmd)
 
 Crosslinks
@@ -420,7 +420,7 @@ end
 
 local function trymethod(obj, name)
   local ok, res = pcall(function()
-    if obj and type(obj[name]) == 'function' then return obj[name](obj) end
+    if obj and type(obj[name]) == 'function' then return objname end
     return nil
   end)
   if ok then return res end

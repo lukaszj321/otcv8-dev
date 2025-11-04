@@ -37,4 +37,4 @@ Plik OTUI definiujący interfejs użytkownika dla deathwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/deathwindow.mmd](../diagrams/deathwindow.mmd)
+Zobacz: [../diagrams/deathwindow.mmd](..\diagrams\deathwindow.mmd)

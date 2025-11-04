@@ -55,4 +55,4 @@ Plik OTUI definiujący interfejs użytkownika dla locales.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/locales.mmd](../diagrams/locales.mmd)
+Zobacz: [../diagrams/locales.mmd](..\diagrams\locales.mmd)

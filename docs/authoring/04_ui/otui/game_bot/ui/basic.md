@@ -154,4 +154,4 @@ Plik OTUI definiujący interfejs użytkownika dla basic.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/basic.mmd](../diagrams/basic.mmd)
+Zobacz: [../diagrams/basic.mmd](..\diagrams\basic.mmd)

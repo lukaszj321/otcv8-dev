@@ -189,18 +189,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdział zbiera metryki runtime i tłumaczy, jak je czytać. Używaj jako kontekstu przy pracy nad UI, automatyzacji (vBot) i analizach wydajności.
 
 Table of contents
-- [0. OTClient - podstawy](./sections/00_otclient_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model danych (słownik)](./sections/02_runtime_model.md)
-- [3. Zbieranie danych (ekstraktory)](./sections/03_collection_methods.md)
-- [4. Jakość i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytać statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. OTClient - podstawy
+- 1. Wprowadzenie
+- 2. Model danych (słownik)
+- 3. Zbieranie danych (ekstraktory)
+- 4. Jakość i ograniczenia
+- 5. Jak czytać statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [runtime.schema.json](./runtime.schema.json)
-- NDJSON: [datasets/runtime.dataset.jsonl](./datasets/runtime.dataset.jsonl)
-- CSV: [datasets/runtime.dataset.csv](./datasets/runtime.dataset.csv)
+- Schema: runtime.schema.json
+- NDJSON: datasets/runtime.dataset.jsonl
+- CSV: datasets/runtime.dataset.csv
 - Diagram: [diagrams/runtime_stack.mmd](./diagrams/runtime_stack.mmd)
 
 Crosslinks

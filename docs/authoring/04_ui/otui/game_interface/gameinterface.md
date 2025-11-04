@@ -73,4 +73,4 @@ Plik OTUI definiujący interfejs użytkownika dla gameinterface.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/gameinterface.mmd](../diagrams/gameinterface.mmd)
+Zobacz: [../diagrams/gameinterface.mmd](..\diagrams\gameinterface.mmd)

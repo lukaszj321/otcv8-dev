@@ -69,4 +69,4 @@ Plik OTUI definiujący interfejs użytkownika dla editor.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/editor.mmd](../diagrams/editor.mmd)
+Zobacz: [../diagrams/editor.mmd](..\diagrams\editor.mmd)

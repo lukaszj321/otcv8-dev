@@ -57,4 +57,4 @@ Plik OTUI definiujący interfejs użytkownika dla browse.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/browse.mmd](../diagrams/browse.mmd)
+Zobacz: [../diagrams/browse.mmd](..\diagrams\browse.mmd)

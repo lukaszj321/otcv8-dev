@@ -42,4 +42,4 @@ Plik OTUI definiujący interfejs użytkownika dla countwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/countwindow.mmd](../diagrams/countwindow.mmd)
+Zobacz: [../diagrams/countwindow.mmd](..\diagrams\countwindow.mmd)

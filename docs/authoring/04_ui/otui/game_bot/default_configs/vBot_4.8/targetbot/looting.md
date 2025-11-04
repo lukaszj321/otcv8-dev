@@ -42,4 +42,4 @@ Plik OTUI definiujący interfejs użytkownika dla looting.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/looting.mmd](../diagrams/looting.mmd)
+Zobacz: [../diagrams/looting.mmd](..\diagrams\looting.mmd)

@@ -58,4 +58,4 @@ Plik OTUI definiujący interfejs użytkownika dla spell.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/spell.mmd](../diagrams/spell.mmd)
+Zobacz: [../diagrams/spell.mmd](..\diagrams\spell.mmd)

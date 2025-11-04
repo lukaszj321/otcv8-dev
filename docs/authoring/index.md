@@ -2,7 +2,7 @@
 title: Authoring (Chapters)
 ---
 
-# Authoring (Chapters)
+## Authoring (Chapters)
 
 ```{toctree}
 :hidden:
@@ -24,8 +24,8 @@ title: Authoring (Chapters)
 13_layouts/index
 14_android/index
 15_vc16/index
-analytics/summary
-qa/summary
+analytics/index
+qa/index
 ```
 
 :::{grid} 1 1 2 3
@@ -113,7 +113,8 @@ Build Android, JNI, ABI, manifesty.
 :widths: 20, 20, 30, 30
 ```
 
-**Mermaid Diagram — Flow**
+**Mermaid Diagram — Flow:**
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart LR
@@ -125,16 +126,17 @@ flowchart LR
   D-->G[Literalinclude]
 ```
 
-**Graphviz Diagram — Structure**
+**Graphviz Diagram — Structure:**
+
 ```{graphviz}
 :align: center
 
-digraph G { 
+digraph G {
   rankdir=LR;
   bgcolor="transparent";
   node [style=filled, fillcolor="#1e1e1e", fontcolor="#ddd"];
   edge [color="#9aa0a6"];
-  
+
   Authoring -> Datasets;
   Authoring -> Diagrams;
   Authoring -> Examples;
@@ -144,14 +146,16 @@ digraph G {
 }
 ```
 
-**Literalinclude — C++ Example**
+**Literalinclude — C++ Example:**
+
 ```{literalinclude} ../../src/framework/xml/tinyxml.cpp
 :language: cpp
 :start-after: // region file_open_example
 :end-before: // endregion file_open_example
 ```
 
-**Literalinclude — Lua Example**
+**Literalinclude — Lua Example:**
+
 ```{literalinclude} ../../modules/corelib/globals.lua
 :language: lua
 :start-after: -- region schedule_event_example

@@ -1,0 +1,10 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[Engine] --> B[Event Dispatcher]
+  B --> C[Input Events]
+  B --> D[Network Events]
+  B --> E[UI Events]
+  C --> F[Lua Handlers]
+  D --> F
+  E --> F
+  F --> G[State Updates]

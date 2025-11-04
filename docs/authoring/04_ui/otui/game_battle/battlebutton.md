@@ -31,4 +31,4 @@ Plik OTUI definiujący interfejs użytkownika dla battlebutton.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/battlebutton.mmd](../diagrams/battlebutton.mmd)
+Zobacz: [../diagrams/battlebutton.mmd](..\diagrams\battlebutton.mmd)

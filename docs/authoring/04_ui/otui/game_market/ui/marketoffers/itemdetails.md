@@ -67,4 +67,4 @@ Plik OTUI definiujący interfejs użytkownika dla itemdetails.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/itemdetails.mmd](../diagrams/itemdetails.mmd)
+Zobacz: [../diagrams/itemdetails.mmd](..\diagrams\itemdetails.mmd)

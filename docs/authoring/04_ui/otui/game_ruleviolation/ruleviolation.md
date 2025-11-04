@@ -63,4 +63,4 @@ Plik OTUI definiujący interfejs użytkownika dla ruleviolation.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/ruleviolation.mmd](../diagrams/ruleviolation.mmd)
+Zobacz: [../diagrams/ruleviolation.mmd](..\diagrams\ruleviolation.mmd)

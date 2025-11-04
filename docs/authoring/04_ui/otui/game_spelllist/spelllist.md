@@ -86,4 +86,4 @@ Plik OTUI definiujący interfejs użytkownika dla spelllist.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/spelllist.mmd](../diagrams/spelllist.mmd)
+Zobacz: [../diagrams/spelllist.mmd](..\diagrams\spelllist.mmd)

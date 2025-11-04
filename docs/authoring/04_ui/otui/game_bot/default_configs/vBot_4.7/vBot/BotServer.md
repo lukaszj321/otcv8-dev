@@ -76,4 +76,4 @@ Plik OTUI definiujący interfejs użytkownika dla BotServer.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/BotServer.mmd](../diagrams/BotServer.mmd)
+Zobacz: [../diagrams/BotServer.mmd](..\diagrams\BotServer.mmd)

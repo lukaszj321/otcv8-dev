@@ -203,4 +203,4 @@ Plik OTUI definiujący interfejs użytkownika dla AttackBot.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/AttackBot.mmd](../diagrams/AttackBot.mmd)
+Zobacz: [../diagrams/AttackBot.mmd](..\diagrams\AttackBot.mmd)

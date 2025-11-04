@@ -62,4 +62,4 @@ Plik OTUI definiujący interfejs użytkownika dla communicationwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/communicationwindow.mmd](../diagrams/communicationwindow.mmd)
+Zobacz: [../diagrams/communicationwindow.mmd](..\diagrams\communicationwindow.mmd)

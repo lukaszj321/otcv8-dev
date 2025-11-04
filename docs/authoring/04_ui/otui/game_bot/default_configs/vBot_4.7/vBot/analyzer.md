@@ -329,4 +329,4 @@ Plik OTUI definiujący interfejs użytkownika dla analyzer.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/analyzer.mmd](../diagrams/analyzer.mmd)
+Zobacz: [../diagrams/analyzer.mmd](..\diagrams\analyzer.mmd)

@@ -146,4 +146,4 @@ Plik OTUI definiujący interfejs użytkownika dla shop.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/shop.mmd](../diagrams/shop.mmd)
+Zobacz: [../diagrams/shop.mmd](..\diagrams\shop.mmd)

@@ -35,4 +35,4 @@ Plik OTUI definiujący interfejs użytkownika dla outfitwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/outfitwindow.mmd](../diagrams/outfitwindow.mmd)
+Zobacz: [../diagrams/outfitwindow.mmd](..\diagrams\outfitwindow.mmd)

@@ -70,4 +70,4 @@ Plik OTUI definiujący interfejs użytkownika dla target.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/target.mmd](../diagrams/target.mmd)
+Zobacz: [../diagrams/target.mmd](..\diagrams\target.mmd)

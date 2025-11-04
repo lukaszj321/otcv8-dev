@@ -175,3 +175,5 @@ docs/diagrams/*.mmd
 
 # Backup files created by fix_myst_tabs.py
 *.bak
+
+.fake

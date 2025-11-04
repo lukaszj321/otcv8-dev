@@ -209,4 +209,4 @@ Plik OTUI definiujący interfejs użytkownika dla HealBot.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/HealBot.mmd](../diagrams/HealBot.mmd)
+Zobacz: [../diagrams/HealBot.mmd](..\diagrams\HealBot.mmd)

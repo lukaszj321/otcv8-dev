@@ -100,4 +100,4 @@ Plik OTUI definiujący interfejs użytkownika dla extras.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/extras.mmd](../diagrams/extras.mmd)
+Zobacz: [../diagrams/extras.mmd](..\diagrams\extras.mmd)

@@ -181,18 +181,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdzial inwentaryzuje widzety i buduje drzewa UI z wybranych plikow OTUI.
 
 Table of contents
-- [0. UI basics](./sections/00_ui_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model widzetu (slownik)](./sections/02_widget_model.md)
-- [3. Zbieranie (targets, displayUI)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. UI basics
+- 1. Wprowadzenie
+- 2. Model widzetu (slownik)
+- 3. Zbieranie (targets, displayUI)
+- 4. Jakosc i ograniczenia
+- 5. Jak czytac statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schemas: [widget.schema.json](./widget.schema.json), [widget_tree.schema.json](./widget_tree.schema.json)
-- NDJSON: [datasets/widgets.dataset.jsonl](./datasets/widgets.dataset.jsonl)
-- CSV: [datasets/widgets.dataset.csv](./datasets/widgets.dataset.csv)
+- Schemas: widget.schema.json, widget_tree.schema.json
+- NDJSON: datasets/widgets.dataset.jsonl
+- CSV: datasets/widgets.dataset.csv
 - Diagrams: [diagrams/ui_flow.mmd](./diagrams/ui_flow.mmd)
 
 Crosslinks

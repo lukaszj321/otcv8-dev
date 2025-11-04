@@ -42,4 +42,4 @@ Plik OTUI definiujący interfejs użytkownika dla amountwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/amountwindow.mmd](../diagrams/amountwindow.mmd)
+Zobacz: [../diagrams/amountwindow.mmd](..\diagrams\amountwindow.mmd)

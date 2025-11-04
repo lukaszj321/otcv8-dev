@@ -51,4 +51,4 @@ Plik OTUI definiujący interfejs użytkownika dla unjustifiedpoints.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/unjustifiedpoints.mmd](../diagrams/unjustifiedpoints.mmd)
+Zobacz: [../diagrams/unjustifiedpoints.mmd](..\diagrams\unjustifiedpoints.mmd)

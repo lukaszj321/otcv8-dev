@@ -71,4 +71,4 @@ Plik OTUI definiujący interfejs użytkownika dla hotkeys_manager.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/hotkeys_manager.mmd](../diagrams/hotkeys_manager.mmd)
+Zobacz: [../diagrams/hotkeys_manager.mmd](..\diagrams\hotkeys_manager.mmd)

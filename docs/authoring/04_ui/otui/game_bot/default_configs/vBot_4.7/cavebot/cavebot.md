@@ -55,4 +55,4 @@ Plik OTUI definiujący interfejs użytkownika dla cavebot.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/cavebot.mmd](../diagrams/cavebot.mmd)
+Zobacz: [../diagrams/cavebot.mmd](..\diagrams\cavebot.mmd)

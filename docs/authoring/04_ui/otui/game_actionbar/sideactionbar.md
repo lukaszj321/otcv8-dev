@@ -98,4 +98,4 @@ Plik OTUI definiujący interfejs użytkownika dla sideactionbar.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/sideactionbar.mmd](../diagrams/sideactionbar.mmd)
+Zobacz: [../diagrams/sideactionbar.mmd](..\diagrams\sideactionbar.mmd)

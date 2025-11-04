@@ -43,4 +43,4 @@ Plik OTUI definiujący interfejs użytkownika dla market.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/market.mmd](../diagrams/market.mmd)
+Zobacz: [../diagrams/market.mmd](..\diagrams\market.mmd)

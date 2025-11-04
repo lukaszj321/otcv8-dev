@@ -45,4 +45,4 @@ Plik OTUI definiujący interfejs użytkownika dla viplist.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/viplist.mmd](../diagrams/viplist.mmd)
+Zobacz: [../diagrams/viplist.mmd](..\diagrams\viplist.mmd)

@@ -52,4 +52,4 @@ Plik OTUI definiujący interfejs użytkownika dla tradewindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/tradewindow.mmd](../diagrams/tradewindow.mmd)
+Zobacz: [../diagrams/tradewindow.mmd](..\diagrams\tradewindow.mmd)

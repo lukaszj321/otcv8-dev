@@ -91,4 +91,4 @@ Plik OTUI definiujący interfejs użytkownika dla battle.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/battle.mmd](../diagrams/battle.mmd)
+Zobacz: [../diagrams/battle.mmd](..\diagrams\battle.mmd)

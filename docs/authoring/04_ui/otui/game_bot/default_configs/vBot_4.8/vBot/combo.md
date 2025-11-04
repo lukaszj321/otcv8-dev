@@ -145,4 +145,4 @@ Plik OTUI definiujący interfejs użytkownika dla combo.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/combo.mmd](../diagrams/combo.mmd)
+Zobacz: [../diagrams/combo.mmd](..\diagrams\combo.mmd)

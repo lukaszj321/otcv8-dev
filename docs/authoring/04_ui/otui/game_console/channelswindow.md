@@ -47,4 +47,4 @@ Plik OTUI definiujący interfejs użytkownika dla channelswindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/channelswindow.mmd](../diagrams/channelswindow.mmd)
+Zobacz: [../diagrams/channelswindow.mmd](..\diagrams\channelswindow.mmd)

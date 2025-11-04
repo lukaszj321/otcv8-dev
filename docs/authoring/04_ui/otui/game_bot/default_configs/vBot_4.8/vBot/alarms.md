@@ -100,4 +100,4 @@ Plik OTUI definiujący interfejs użytkownika dla alarms.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/alarms.mmd](../diagrams/alarms.mmd)
+Zobacz: [../diagrams/alarms.mmd](..\diagrams\alarms.mmd)

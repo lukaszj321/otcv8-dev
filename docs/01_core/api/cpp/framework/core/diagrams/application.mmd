@@ -1,0 +1,7 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[Application] --> B[Init]
+  B --> C[Load Config]
+  C --> D[Init Modules]
+  D --> E[Run Loop]
+  E --> F[Shutdown]

@@ -107,4 +107,4 @@ Plik OTUI definiujący interfejs użytkownika dla imbuing.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/imbuing.mmd](../diagrams/imbuing.mmd)
+Zobacz: [../diagrams/imbuing.mmd](..\diagrams\imbuing.mmd)

@@ -66,4 +66,4 @@ Plik OTUI definiujący interfejs użytkownika dla config.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/config.mmd](../diagrams/config.mmd)
+Zobacz: [../diagrams/config.mmd](..\diagrams\config.mmd)

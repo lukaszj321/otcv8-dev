@@ -95,4 +95,4 @@ Plik OTUI definiujący interfejs użytkownika dla supplies.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/supplies.mmd](../diagrams/supplies.mmd)
+Zobacz: [../diagrams/supplies.mmd](..\diagrams\supplies.mmd)

@@ -55,4 +55,4 @@ Plik OTUI definiujący interfejs użytkownika dla options.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/options.mmd](../diagrams/options.mmd)
+Zobacz: [../diagrams/options.mmd](..\diagrams\options.mmd)

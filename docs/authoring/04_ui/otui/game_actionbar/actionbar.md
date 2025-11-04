@@ -97,4 +97,4 @@ Plik OTUI definiujący interfejs użytkownika dla actionbar.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/actionbar.mmd](../diagrams/actionbar.mmd)
+Zobacz: [../diagrams/actionbar.mmd](..\diagrams\actionbar.mmd)

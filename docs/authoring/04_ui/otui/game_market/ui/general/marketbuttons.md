@@ -38,4 +38,4 @@ Plik OTUI definiujący interfejs użytkownika dla marketbuttons.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/marketbuttons.mmd](../diagrams/marketbuttons.mmd)
+Zobacz: [../diagrams/marketbuttons.mmd](..\diagrams\marketbuttons.mmd)

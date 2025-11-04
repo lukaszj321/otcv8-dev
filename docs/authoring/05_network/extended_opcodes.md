@@ -391,3 +391,13 @@ end
 - [Packet Structure](./packet_structure.md)
 - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
 - [Bot Integration](../03_modules/bot_integration.md)
+
+## Diagram: bot_integration
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ../03_modules/bot_integration.md
+flowchart LR
+  A[Start] --> B[bot_integration]
+  B --> C[End]
+```

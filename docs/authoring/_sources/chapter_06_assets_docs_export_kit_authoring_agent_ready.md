@@ -171,18 +171,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdzial inwentaryzuje zasoby (assets) i podaje ich stan, rozmiar, checksum i kategorie. Wyniki sa pod BI, RAG i kontrola spojnosc builda.
 
 Table of contents
-- [0. Assets basics](./sections/00_assets_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model assetu (slownik)](./sections/02_asset_model.md)
-- [3. Zbieranie (targets, listy plikow)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. Assets basics
+- 1. Wprowadzenie
+- 2. Model assetu (slownik)
+- 3. Zbieranie (targets, listy plikow)
+- 4. Jakosc i ograniczenia
+- 5. Jak czytac statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [assets.schema.json](./assets.schema.json)
-- NDJSON: [datasets/assets.dataset.jsonl](./datasets/assets.dataset.jsonl)
-- CSV: [datasets/assets.dataset.csv](./datasets/assets.dataset.csv)
+- Schema: assets.schema.json
+- NDJSON: datasets/assets.dataset.jsonl
+- CSV: datasets/assets.dataset.csv
 - Diagrams: [diagrams/assets_flow.mmd](./diagrams/assets_flow.mmd)
 
 Crosslinks

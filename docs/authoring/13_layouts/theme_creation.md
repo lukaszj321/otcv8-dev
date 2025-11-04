@@ -375,3 +375,23 @@ Font
 - [Image Properties](./image_properties.md)
 - [OTUI Reference](../04_ui/index.md)
 - [Asset Management](../11_data/index.md)
+
+## Diagram: override_resolution
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ./override_resolution.md
+flowchart LR
+  A[Start] --> B[override_resolution]
+  B --> C[End]
+```
+
+## Diagram: image_properties
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ./image_properties.md
+flowchart LR
+  A[Start] --> B[image_properties]
+  B --> C[End]
+```

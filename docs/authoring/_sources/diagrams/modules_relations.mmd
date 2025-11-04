@@ -1,0 +1,17 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  subgraph Core
+    A[Core] --> B[Net]
+    A --> C[Graphics]
+    A --> D[Lua]
+  end
+  subgraph Game
+    E[Game Interface]
+    F[Inventory]
+    G[Market]
+  end
+  D --> E
+  B --> E
+  C --> E
+  E --> F
+  E --> G

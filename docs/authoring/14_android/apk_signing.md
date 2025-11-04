@@ -277,5 +277,5 @@ keytool -list -keystore otclient-release.keystore
 ## See Also
 
 - [ABI Configuration](./abi_configuration.md)
-- [Asset Packaging](./asset_packaging.md)
-- [Android Build Pipeline](./build_pipeline.md)
+- [Asset Packaging](./diagrams/android_build.mmd)
+- [Android Build Pipeline](./diagrams/build_pipeline.mmd)

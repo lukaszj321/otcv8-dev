@@ -124,4 +124,4 @@ Plik OTUI definiujący interfejs użytkownika dla questlogwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/questlogwindow.mmd](../diagrams/questlogwindow.mmd)
+Zobacz: [../diagrams/questlogwindow.mmd](..\diagrams\questlogwindow.mmd)

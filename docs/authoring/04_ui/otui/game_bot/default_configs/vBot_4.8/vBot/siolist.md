@@ -58,4 +58,4 @@ Plik OTUI definiujący interfejs użytkownika dla siolist.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/siolist.mmd](../diagrams/siolist.mmd)
+Zobacz: [../diagrams/siolist.mmd](..\diagrams\siolist.mmd)

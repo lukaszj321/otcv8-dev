@@ -80,4 +80,4 @@ Plik OTUI definiujący interfejs użytkownika dla terminal.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/terminal.mmd](../diagrams/terminal.mmd)
+Zobacz: [../diagrams/terminal.mmd](..\diagrams\terminal.mmd)

@@ -85,4 +85,4 @@ Plik OTUI definiujący interfejs użytkownika dla skills.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/skills.mmd](../diagrams/skills.mmd)
+Zobacz: [../diagrams/skills.mmd](..\diagrams\skills.mmd)

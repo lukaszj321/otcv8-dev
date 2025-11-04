@@ -1,0 +1,6 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[AsyncDispatcher] --> B[Queue Task]
+  B --> C[Worker Thread]
+  C --> D[Execute]
+  D --> E[Callback]

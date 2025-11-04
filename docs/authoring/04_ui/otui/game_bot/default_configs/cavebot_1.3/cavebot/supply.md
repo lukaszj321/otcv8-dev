@@ -55,4 +55,4 @@ Plik OTUI definiujący interfejs użytkownika dla supply.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/supply.mmd](../diagrams/supply.mmd)
+Zobacz: [../diagrams/supply.mmd](..\diagrams\supply.mmd)

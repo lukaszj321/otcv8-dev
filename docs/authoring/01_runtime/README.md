@@ -9,7 +9,7 @@
 - [Index](./index.md) - Main documentation
 - [Datasets](./datasets/) - Data exports
 - [Diagrams](./diagrams/) - Architecture diagrams
-- [Blueprints](./blueprints/) - Reusable templates
+- Blueprints - Reusable templates
 
 ## Quick Links
 

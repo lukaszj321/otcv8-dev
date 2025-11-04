@@ -256,4 +256,4 @@ Plik OTUI definiujący interfejs użytkownika dla new_healer.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/new_healer.mmd](../diagrams/new_healer.mmd)
+Zobacz: [../diagrams/new_healer.mmd](..\diagrams\new_healer.mmd)

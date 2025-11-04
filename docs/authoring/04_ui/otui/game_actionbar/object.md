@@ -46,4 +46,4 @@ Plik OTUI definiujący interfejs użytkownika dla object.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/object.mmd](../diagrams/object.mmd)
+Zobacz: [../diagrams/object.mmd](..\diagrams\object.mmd)

@@ -164,19 +164,19 @@ encoding: UTF-8 (no BOM)
 Short: rozdział rejestruje i tłumaczy zdarzenia, w tym sekwencje logowania. Dane pod RAG i analizy.
 
 Table of contents
-- [0. OTClient - events basics](./sections/00_otclient_events_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model eventu (słownik)](./sections/02_event_model.md)
-- [3. Zbieranie (connect, sygnały)](./sections/03_collection_methods.md)
-- [4. Jakość i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Wzorce i sekwencje](./sections/05_patterns_and_sequences.md)
-- [6. Jak czytać statystyki](./sections/06_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. OTClient - events basics
+- 1. Wprowadzenie
+- 2. Model eventu (słownik)
+- 3. Zbieranie (connect, sygnały)
+- 4. Jakość i ograniczenia
+- 5. Wzorce i sekwencje
+- 6. Jak czytać statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [events.schema.json](./events.schema.json)
-- NDJSON: [datasets/events.dataset.jsonl](./datasets/events.dataset.jsonl)
-- CSV: [datasets/events.dataset.csv](./datasets/events.dataset.csv)
+- Schema: events.schema.json
+- NDJSON: datasets/events.dataset.jsonl
+- CSV: datasets/events.dataset.csv
 - Diagrams: [diagrams/login_sequence.mmd](./diagrams/login_sequence.mmd), [diagrams/events_flow.mmd](./diagrams/events_flow.mmd)
 
 Crosslinks

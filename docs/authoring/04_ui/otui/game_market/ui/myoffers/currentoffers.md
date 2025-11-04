@@ -97,4 +97,4 @@ Plik OTUI definiujący interfejs użytkownika dla currentoffers.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/currentoffers.mmd](../diagrams/currentoffers.mmd)
+Zobacz: [../diagrams/currentoffers.mmd](..\diagrams\currentoffers.mmd)

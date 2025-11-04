@@ -46,4 +46,4 @@ Plik OTUI definiujący interfejs użytkownika dla textwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/textwindow.mmd](../diagrams/textwindow.mmd)
+Zobacz: [../diagrams/textwindow.mmd](..\diagrams\textwindow.mmd)

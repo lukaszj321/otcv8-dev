@@ -1,0 +1,13 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+sequenceDiagram
+  autonumber
+  participant U as User
+  participant UI as Client UI
+  participant NET as Network
+  participant S as Server
+  U->>UI: Enter credentials
+  UI->>NET: Build login packet
+  NET->>S: Connect & send login
+  S-->>NET: Auth response
+  NET-->>UI: Session token
+  UI-->>U: Enter game

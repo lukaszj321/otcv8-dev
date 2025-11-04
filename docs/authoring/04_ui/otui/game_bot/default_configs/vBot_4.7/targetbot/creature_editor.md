@@ -95,4 +95,4 @@ Plik OTUI definiujący interfejs użytkownika dla creature_editor.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/creature_editor.mmd](../diagrams/creature_editor.mmd)
+Zobacz: [../diagrams/creature_editor.mmd](..\diagrams\creature_editor.mmd)

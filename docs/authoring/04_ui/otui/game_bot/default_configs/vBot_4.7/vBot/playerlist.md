@@ -100,4 +100,4 @@ Plik OTUI definiujący interfejs użytkownika dla playerlist.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/playerlist.mmd](../diagrams/playerlist.mmd)
+Zobacz: [../diagrams/playerlist.mmd](..\diagrams\playerlist.mmd)

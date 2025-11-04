@@ -89,4 +89,4 @@ Plik OTUI definiujący interfejs użytkownika dla modaldialog.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/modaldialog.mmd](../diagrams/modaldialog.mmd)
+Zobacz: [../diagrams/modaldialog.mmd](..\diagrams\modaldialog.mmd)

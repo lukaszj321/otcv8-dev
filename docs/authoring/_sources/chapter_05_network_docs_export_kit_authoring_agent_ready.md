@@ -361,7 +361,7 @@ end
 
 local function trymethod(obj, name)
   local ok, res = pcall(function()
-    if obj and type(obj[name]) == 'function' then return obj[name](obj) end
+    if obj and type(obj[name]) == 'function' then return objname end
     return nil
   end)
   if ok then return res end

@@ -40,4 +40,4 @@ Plik OTUI definiujący interfejs użytkownika dla bugreport.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/bugreport.mmd](../diagrams/bugreport.mmd)
+Zobacz: [../diagrams/bugreport.mmd](..\diagrams\bugreport.mmd)

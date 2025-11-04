@@ -43,4 +43,4 @@ Plik OTUI definiujący interfejs użytkownika dla textmessage.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/textmessage.mmd](../diagrams/textmessage.mmd)
+Zobacz: [../diagrams/textmessage.mmd](..\diagrams\textmessage.mmd)

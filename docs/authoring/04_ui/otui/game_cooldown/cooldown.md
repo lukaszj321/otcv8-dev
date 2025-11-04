@@ -75,4 +75,4 @@ Plik OTUI definiujący interfejs użytkownika dla cooldown.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/cooldown.mmd](../diagrams/cooldown.mmd)
+Zobacz: [../diagrams/cooldown.mmd](..\diagrams\cooldown.mmd)

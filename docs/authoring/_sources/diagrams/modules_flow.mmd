@@ -1,0 +1,10 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[Module Manager] --> B[Core Modules]
+  A --> C[Game Modules]
+  A --> D[UI Modules]
+  B --> E[Init]
+  C --> F[Enable]
+  D --> G[Bind UI]
+  F --> H[Runtime]
+  G --> H

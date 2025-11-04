@@ -40,4 +40,4 @@ Plik OTUI definiujący interfejs użytkownika dla container.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/container.mmd](../diagrams/container.mmd)
+Zobacz: [../diagrams/container.mmd](..\diagrams\container.mmd)

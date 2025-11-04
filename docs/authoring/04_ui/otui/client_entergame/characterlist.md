@@ -51,4 +51,4 @@ Plik OTUI definiujący interfejs użytkownika dla characterlist.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/characterlist.mmd](../diagrams/characterlist.mmd)
+Zobacz: [../diagrams/characterlist.mmd](..\diagrams\characterlist.mmd)

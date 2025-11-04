@@ -44,4 +44,4 @@ Plik OTUI definiujący interfejs użytkownika dla itemselector.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/itemselector.mmd](../diagrams/itemselector.mmd)
+Zobacz: [../diagrams/itemselector.mmd](..\diagrams\itemselector.mmd)

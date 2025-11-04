@@ -296,4 +296,4 @@ Plik OTUI definiujący interfejs użytkownika dla prey.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/prey.mmd](../diagrams/prey.mmd)
+Zobacz: [../diagrams/prey.mmd](..\diagrams\prey.mmd)

@@ -75,4 +75,4 @@ Plik OTUI definiujący interfejs użytkownika dla textedit.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/textedit.mmd](../diagrams/textedit.mmd)
+Zobacz: [../diagrams/textedit.mmd](..\diagrams\textedit.mmd)

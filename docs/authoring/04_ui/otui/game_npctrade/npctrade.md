@@ -70,4 +70,4 @@ Plik OTUI definiujący interfejs użytkownika dla npctrade.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/npctrade.mmd](../diagrams/npctrade.mmd)
+Zobacz: [../diagrams/npctrade.mmd](..\diagrams\npctrade.mmd)

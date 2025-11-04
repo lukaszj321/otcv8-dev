@@ -67,4 +67,4 @@ Plik OTUI definiujący interfejs użytkownika dla marketcombobox.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/marketcombobox.mmd](../diagrams/marketcombobox.mmd)
+Zobacz: [../diagrams/marketcombobox.mmd](..\diagrams\marketcombobox.mmd)

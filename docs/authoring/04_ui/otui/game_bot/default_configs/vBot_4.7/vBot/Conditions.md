@@ -101,4 +101,4 @@ Plik OTUI definiujący interfejs użytkownika dla Conditions.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/Conditions.mmd](../diagrams/Conditions.mmd)
+Zobacz: [../diagrams/Conditions.mmd](..\diagrams\Conditions.mmd)

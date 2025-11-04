@@ -3259,17 +3259,17 @@ Moduł Lua zawierający funkcje i logikę dla feedback.
 
 **Wywołanie:** `feedbackWindow = g_ui.displayUI('feedback')`
 ","2025-10-09T10:29:04Z"
-"lua-spec-617027ff48f4","modules/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_0","0","5","spec","lua","# game_healthbars/healthbars.lua
+"lua-spec-617027ff48f4","mods/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_0","0","5","spec","lua","# game_healthbars/healthbars.lua
 ","2025-10-09T10:29:04Z"
-"lua-spec-617027ff48f4","modules/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_1","1","5","spec","lua","## Overview
+"lua-spec-617027ff48f4","mods/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_1","1","5","spec","lua","## Overview
 
 Moduł Lua zawierający funkcje i logikę dla healthbars.
 ","2025-10-09T10:29:04Z"
-"lua-spec-617027ff48f4","modules/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_2","2","5","spec","lua","## Functions
+"lua-spec-617027ff48f4","mods/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_2","2","5","spec","lua","## Functions
 ","2025-10-09T10:29:04Z"
-"lua-spec-617027ff48f4","modules/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_3","3","5","spec","lua","### `init()`
+"lua-spec-617027ff48f4","mods/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_3","3","5","spec","lua","### `init()`
 ","2025-10-09T10:29:04Z"
-"lua-spec-617027ff48f4","modules/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_4","4","5","spec","lua","### `terminate()`
+"lua-spec-617027ff48f4","mods/game_healthbars/healthbars.lua","3ead5ec","lua-spec-617027ff48f4_4","4","5","spec","lua","### `terminate()`
 ","2025-10-09T10:29:04Z"
 "lua-spec-cdf48bcdfe26","modules/game_skills/skills.lua","3ead5ec","lua-spec-cdf48bcdfe26_0","0","83","spec","lua","# game_skills/skills.lua
 ","2025-10-09T10:29:06Z"

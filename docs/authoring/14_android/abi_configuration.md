@@ -233,6 +233,6 @@ adb install app-arm64-v8a-release.apk
 
 ## See Also
 
-- [Android Build Pipeline](./build_pipeline.md)
+- [Android Build Pipeline](./diagrams/build_pipeline.mmd)
 - [APK Signing Process](./apk_signing.md)
-- [Asset Packaging](./asset_packaging.md)
+- [Asset Packaging](./diagrams/android_build.mmd)

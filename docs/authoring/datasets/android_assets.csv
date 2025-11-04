@@ -1,4 +1,4 @@
-asset_id,source_path,target_path,hashing,description
-data,android/assets/data,assets/data,bundle,Wspólne style/obrazy/otui
-shaders,android/assets/shaders,assets/shaders,bundle,GLSL do efektów post-processingu
-configs,android/assets/configs,assets/configs,bundle,"Profile startowe, np. config.json"
+asset_id,source_path,asset_target,hashing,description
+data,data,assets/data,bundle,Wspólne style/obrazy/otui
+shaders,data/shaders,assets/shaders,bundle,GLSL do efektów post-processingu
+configs,,assets/configs,bundle,"Profile startowe, np. config.json"

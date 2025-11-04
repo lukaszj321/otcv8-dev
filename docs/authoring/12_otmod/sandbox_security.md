@@ -393,3 +393,23 @@ This will enable:
 - [Module Dependencies](./module_dependencies.md)
 - [Lua API Reference](../03_modules/index.md)
 - [Security Best Practices](../01_core/security.md)
+
+## Diagram: module_dependencies
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ./module_dependencies.md
+flowchart LR
+  A[Start] --> B[module_dependencies]
+  B --> C[End]
+```
+
+## Diagram: security
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ../01_core/security.md
+flowchart LR
+  A[Start] --> B[security]
+  B --> C[End]
+```

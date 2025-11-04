@@ -470,3 +470,13 @@ Or add to PATH environment variable.
 - [DLL Deployment Checklist](./dll_deployment.md)
 - [VC16 Build Configuration](../15_vc16/index.md)
 - [Graphics Core](../01_core/graphics.md)
+
+## Diagram: graphics
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ../01_core/graphics.md
+flowchart LR
+  A[Start] --> B[graphics]
+  B --> C[End]
+```

@@ -69,4 +69,4 @@ Plik OTUI definiujący interfejs użytkownika dla topbar.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/topbar.mmd](../diagrams/topbar.mmd)
+Zobacz: [../diagrams/topbar.mmd](..\diagrams\topbar.mmd)

@@ -425,3 +425,13 @@ tcp_table:add(7171, otclient_proto)
 - [Extended Opcodes](./extended_opcodes.md)
 - [Network Classes](../01_core/network.md)
 - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
+
+## Diagram: network
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ../01_core/network.md
+flowchart LR
+  A[Start] --> B[network]
+  B --> C[End]
+```

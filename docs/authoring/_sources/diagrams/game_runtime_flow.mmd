@@ -1,0 +1,7 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[Game Loop] --> B[Process Input]
+  B --> C[Update State]
+  C --> D[Network Sync]
+  D --> E[Render]
+  E --> A

@@ -43,4 +43,4 @@ Plik OTUI definiujący interfejs użytkownika dla pushmax.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/pushmax.mmd](../diagrams/pushmax.mmd)
+Zobacz: [../diagrams/pushmax.mmd](..\diagrams\pushmax.mmd)

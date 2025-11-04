@@ -174,20 +174,20 @@ encoding: UTF-8 (no BOM)
 Short: rozdzial zbiera whitelisted settings oraz metadane crypto/protocol. Dane sa pod BI, RAG i audyt zgodnosci.
 
 Table of contents
-- [0. Settings basics](./sections/00_settings_basics.md)
-- [1. Crypto/Protocol basics](./sections/01_crypto_protocol_basics.md)
-- [2. Modele danych](./sections/02_models.md)
-- [3. Zbieranie (whitelist, bezpieczenstwo)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. Settings basics
+- 1. Crypto/Protocol basics
+- 2. Modele danych
+- 3. Zbieranie (whitelist, bezpieczenstwo)
+- 4. Jakosc i ograniczenia
+- 5. Jak czytac statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schemas: [settings.schema.json](./settings.schema.json), [crypto.schema.json](./crypto.schema.json)
-- Settings NDJSON: [datasets/settings.dataset.jsonl](./datasets/settings.dataset.jsonl)
-- Settings CSV: [datasets/settings.dataset.csv](./datasets/settings.dataset.csv)
-- Crypto NDJSON: [datasets/crypto.dataset.jsonl](./datasets/crypto.dataset.jsonl)
-- Crypto CSV: [datasets/crypto.dataset.csv](./datasets/crypto.dataset.csv)
+- Schemas: settings.schema.json, crypto.schema.json
+- Settings NDJSON: datasets/settings.dataset.jsonl
+- Settings CSV: datasets/settings.dataset.csv
+- Crypto NDJSON: datasets/crypto.dataset.jsonl
+- Crypto CSV: datasets/crypto.dataset.csv
 - Diagrams: [diagrams/settings_crypto_flow.mmd](./diagrams/settings_crypto_flow.mmd)
 
 Crosslinks

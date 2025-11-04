@@ -168,18 +168,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdzial zbiera stan audio (kanaly, odtwarzanie, glosnosci, mute). Jesli API nie dostepne, korzysta z fallbacku (lista kanalow).
 
 Table of contents
-- [0. Audio basics](./sections/00_audio_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model audio (slownik)](./sections/02_audio_model.md)
-- [3. Zbieranie (runtime API, fallback)](./sections/03_collection_methods.md)
-- [4. Jakosc i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytac statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. Audio basics
+- 1. Wprowadzenie
+- 2. Model audio (slownik)
+- 3. Zbieranie (runtime API, fallback)
+- 4. Jakosc i ograniczenia
+- 5. Jak czytac statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [audio.schema.json](./audio.schema.json)
-- NDJSON: [datasets/audio.dataset.jsonl](./datasets/audio.dataset.jsonl)
-- CSV: [datasets/audio.dataset.csv](./datasets/audio.dataset.csv)
+- Schema: audio.schema.json
+- NDJSON: datasets/audio.dataset.jsonl
+- CSV: datasets/audio.dataset.csv
 - Diagrams: [diagrams/audio_flow.mmd](./diagrams/audio_flow.mmd)
 
 Crosslinks
@@ -385,7 +385,7 @@ end
 
 local function trymethod(obj, name)
   local ok, res = pcall(function()
-    if obj and type(obj[name]) == 'function' then return obj[name](obj) end
+    if obj and type(obj[name]) == 'function' then return objname end
     return nil
   end)
   if ok then return res end

@@ -57,4 +57,4 @@ Plik OTUI definiujący interfejs użytkownika dla flagwindow.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/flagwindow.mmd](../diagrams/flagwindow.mmd)
+Zobacz: [../diagrams/flagwindow.mmd](..\diagrams\flagwindow.mmd)

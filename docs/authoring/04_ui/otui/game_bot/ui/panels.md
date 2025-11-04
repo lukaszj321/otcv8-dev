@@ -173,4 +173,4 @@ Plik OTUI definiujący interfejs użytkownika dla panels.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/panels.mmd](../diagrams/panels.mmd)
+Zobacz: [../diagrams/panels.mmd](..\diagrams\panels.mmd)

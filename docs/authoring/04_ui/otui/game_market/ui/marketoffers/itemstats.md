@@ -65,4 +65,4 @@ Plik OTUI definiujący interfejs użytkownika dla itemstats.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/itemstats.mmd](../diagrams/itemstats.mmd)
+Zobacz: [../diagrams/itemstats.mmd](..\diagrams\itemstats.mmd)

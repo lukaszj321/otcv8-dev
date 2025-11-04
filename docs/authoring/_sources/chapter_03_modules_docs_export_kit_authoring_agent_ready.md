@@ -171,18 +171,18 @@ encoding: UTF-8 (no BOM)
 Short: rozdział kataloguje moduły (.otmod), ich metadane i relacje. Dane są pod RAG i analizy oraz do walidacji spójności builda.
 
 Table of contents
-- [0. OTClient - modules basics](./sections/00_otclient_modules_basics.md)
-- [1. Wprowadzenie](./sections/01_introduction.md)
-- [2. Model modułu (słownik)](./sections/02_module_model.md)
-- [3. Zbieranie (skan .otmod)](./sections/03_collection_methods.md)
-- [4. Jakość i ograniczenia](./sections/04_quality_and_limits.md)
-- [5. Jak czytać statystyki](./sections/05_how_to_read_stats.md)
-- [Statystyki](./stats/stats.md) - [Datasety](./datasets/) - [Analizy](./analysis/findings.md)
+- 0. OTClient - modules basics
+- 1. Wprowadzenie
+- 2. Model modułu (słownik)
+- 3. Zbieranie (skan .otmod)
+- 4. Jakość i ograniczenia
+- 5. Jak czytać statystyki
+- Statystyki - Datasety - Analizy
 
 Quick links
-- Schema: [modules.schema.json](./modules.schema.json)
-- NDJSON: [datasets/modules.dataset.jsonl](./datasets/modules.dataset.jsonl)
-- CSV: [datasets/modules.dataset.csv](./datasets/modules.dataset.csv)
+- Schema: modules.schema.json
+- NDJSON: datasets/modules.dataset.jsonl
+- CSV: datasets/modules.dataset.csv
 - Diagrams: [diagrams/modules_flow.mmd](./diagrams/modules_flow.mmd), [diagrams/modules_relations.mmd](./diagrams/modules_relations.mmd)
 
 Crosslinks

@@ -46,4 +46,4 @@ Plik OTUI definiujący interfejs użytkownika dla icons.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/icons.mmd](../diagrams/icons.mmd)
+Zobacz: [../diagrams/icons.mmd](..\diagrams\icons.mmd)

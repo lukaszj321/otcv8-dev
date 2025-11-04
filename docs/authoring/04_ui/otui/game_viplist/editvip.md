@@ -54,4 +54,4 @@ Plik OTUI definiujący interfejs użytkownika dla editvip.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/editvip.mmd](../diagrams/editvip.mmd)
+Zobacz: [../diagrams/editvip.mmd](..\diagrams\editvip.mmd)

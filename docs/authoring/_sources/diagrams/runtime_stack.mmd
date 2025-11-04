@@ -1,0 +1,13 @@
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+graph TD
+  A[OTClient v8 Runtime] --> B[Core Engine]
+  A --> C[Lua VM]
+  A --> D[Modules]
+  D --> E[UI]
+  D --> F[Network]
+  D --> G[Assets]
+  B --> H[Platform]
+  H --> I[Win32/X11/SDL]
+  C --> J[Scripts]
+  F --> K[Protocol]
+  E --> L[Widgets]

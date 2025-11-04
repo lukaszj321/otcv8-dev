@@ -86,4 +86,4 @@ Plik OTUI definiujący interfejs użytkownika dla bot.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/bot.mmd](../diagrams/bot.mmd)
+Zobacz: [../diagrams/bot.mmd](..\diagrams\bot.mmd)

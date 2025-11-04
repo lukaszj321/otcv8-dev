@@ -258,4 +258,4 @@ Plik OTUI definiujący interfejs użytkownika dla equipper.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/equipper.mmd](../diagrams/equipper.mmd)
+Zobacz: [../diagrams/equipper.mmd](..\diagrams\equipper.mmd)

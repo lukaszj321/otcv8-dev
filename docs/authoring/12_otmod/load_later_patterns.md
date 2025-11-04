@@ -289,3 +289,13 @@ Best practices:
 - [Sandbox Security](./sandbox_security.md)
 - [OTMOD Manifest Reference](./blueprints/otmod_template.md)
 - [Datasets: module_deps.csv](./datasets/module_deps.csv)
+
+## Diagram: module_dependencies
+
+```mermaid
+%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%% TODO: Uzupełnij treść diagramu lub podmień na include z ./module_dependencies.md
+flowchart LR
+  A[Start] --> B[module_dependencies]
+  B --> C[End]
+```

@@ -83,4 +83,4 @@ Plik OTUI definiujący interfejs użytkownika dla markettabs.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/markettabs.mmd](../diagrams/markettabs.mmd)
+Zobacz: [../diagrams/markettabs.mmd](..\diagrams\markettabs.mmd)
