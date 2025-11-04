@@ -1,3 +1,14 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    A[Start] --> B{filestream.mmd};
-    B --> C[End];
+    A[File on Disk]
+
+    subgraph FileStream
+        B[FileStream Object]
+        B -- "read(bytes)" --> C[Data Buffer]
+        B -- "write(buffer)" --> A
+        B -- "seek(position)" --> B
+    end
+
+    A -- "open()" --> B
+
+    click B "../api/cpp/framework/core/filestream.html" "FileStream Class"

@@ -1,3 +1,19 @@
-graph TD
-    A[Start] --> B{graphicalapplication.mmd};
-    B --> C[End];
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+classDiagram
+    direction LR
+    class Application {
+        +init()
+        +run()
+        +terminate()
+    }
+    class GraphicalApplication {
+        +init()
+        +run()
+        +terminate()
+        -poll()
+        -tick()
+        -render()
+    }
+    Application <|-- GraphicalApplication
+
+    note for GraphicalApplication "Manages the main loop for a GUI application, handling rendering and input."

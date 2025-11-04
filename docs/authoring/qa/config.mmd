@@ -1,3 +1,13 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{config.mmd};
-    B --> C[End];
+    A[config.lua] --> B{ConfigManager};
+    B --> C[Get/Set Value];
+
+    subgraph Modules
+        M1[Module A] --> C;
+        M2[Module B] --> C;
+    end
+
+    B --> D[Save to File];
+
+    click B "../../../01_core/api/cpp/framework/core/configmanager.md" "ConfigManager"

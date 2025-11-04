@@ -1,3 +1,16 @@
-graph TD
-    A[Start] --> B{asyncdispatcher.mmd};
-    B --> C[End];
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+sequenceDiagram
+    participant MainThread as Main Thread
+    participant WorkerThread as Worker Thread
+    participant Dispatcher as AsyncDispatcher
+
+    MainThread->>Dispatcher: addTask(heavyTask)
+    activate Dispatcher
+    Dispatcher->>WorkerThread: execute(heavyTask)
+    deactivate Dispatcher
+    Note right of WorkerThread: Processing...
+
+    WorkerThread-->>Dispatcher: taskComplete(result)
+    activate Dispatcher
+    Dispatcher-->>MainThread: onTaskComplete(result)
+    deactivate Dispatcher

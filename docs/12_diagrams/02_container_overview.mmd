@@ -1,0 +1,41 @@
+---
+title: Container Overview – otclientv8
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+C4Container
+title Container Overview – otclientv8
+
+Person(player, "Player")
+System_Boundary(client, "OTClientV8") {
+  Container(gui, "GUI Layer", "Lua/ImGui", "UI, HUD, interactions")
+  Container(game, "Game Core", "C++/Lua", "Protocol, game state, entities")
+  Container(render, "Renderer", "OpenGL/Vulkan", "Drawing, shaders, effects")
+  Container(audio, "Audio", "OpenAL", "Sound playback")
+  Container(data, "Data/Assets", "File system", "Images, fonts, styles, locales")
+}
+System_Ext(server, "OT Server", "C++")
+System_Ext(cdn, "Assets CDN", "HTTP")
+
+click gui "../modules/client/index.html" "Docs: client module"
+click game "../modules/corelib/index.html" "Docs: corelib"
+click render "../docs/cpp/shaders.html" "Docs: shaders"
+click audio "../docs/cpp/audio.html" "Docs: audio"
+click data "../docs/data/index.html" "Docs: data/assets"
+click server "../docs/overview/server.html" "Docs: server"
+click cdn "../docs/data/assets.html" "Docs: CDN/assets"
+
+Rel(player, gui, "Clicks, hotkeys")
+Rel(gui, game, "Commands, state queries")
+Rel(game, render, "Scene graph, draw calls")
+Rel(game, audio, "Play sounds")
+Rel(game, server, "Game protocol")
+Rel(render, data, "Load shaders/textures")
+Rel(gui, data, "Load styles/locales")
+Rel(game, data, "Load things/sprites")
+Rel_Neighbor(data, cdn, "Optional remote download")
+
+UpdateRelStyle(game, server, "solid")
+UpdateRelStyle(render, data, "dotted")
+UpdateRelStyle(gui, data, "dotted")
+```

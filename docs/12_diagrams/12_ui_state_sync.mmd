@@ -1,0 +1,20 @@
+---
+title: UI <-> Game State Sync
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+sequenceDiagram
+  participant UI as UI Widgets
+  participant GC as Game Core
+  participant R as Renderer
+
+  UI->>GC: Dispatch action (e.g., move, equip)
+  GC->>GC: Validate, update state
+  GC-->>UI: State diff
+  GC->>R: Render frame
+  UI-->>R: UI overlay
+
+  rect rgba(100,255,100,0.05)
+  note over UI,R: Frame n
+  end
+```

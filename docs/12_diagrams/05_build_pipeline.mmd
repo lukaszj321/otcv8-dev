@@ -1,0 +1,20 @@
+---
+title: Build Pipeline
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+flowchart LR
+    A[Source Code] --> B[CMake Configure]
+    click A "../../CMakeLists.txt" "CMakeLists.txt"
+    B --> C[Generate VS Solution]
+    C --> D[Build (vc16)]
+    D --> E[Artifacts]
+    E --> F[Run Tests]
+    F -->|pass| G[Package]
+    F -->|fail| H[Report Failure]
+
+    style A fill:#263238,stroke:#546e7a
+    style D fill:#283593,stroke:#3949ab
+    style G fill:#1b5e20,stroke:#2e7d32
+    style H fill:#3d1f1f,stroke:#6b3535
+```

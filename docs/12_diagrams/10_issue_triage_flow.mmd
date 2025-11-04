@@ -1,0 +1,19 @@
+---
+title: Issue/Link Triage Flow
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+flowchart TD
+  A[New link/issue] --> B{Valid?}
+  B -- No --> C[Close/Archive]
+  B -- Yes --> D{Docs or Code?}
+  D -- Docs --> E[Add to docs/authoring/qa]
+  D -- Code --> F[Create bug/feature]
+  E --> G[Review]
+  F --> G
+  G --> H[Done]
+
+  style E fill:#263238,stroke:#546e7a
+  style F fill:#263238,stroke:#546e7a
+  style H fill:#1b5e20,stroke:#2e7d32
+```

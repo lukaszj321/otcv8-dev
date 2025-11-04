@@ -1,0 +1,16 @@
+---
+title: Release Flow
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+flowchart LR
+  dev[Development] --> rc[Release Candidate]
+  rc --> test[Regression Tests]
+  test -->|pass| tag[Tag + Changelog]
+  test -->|fail| fix[Fix + Rebuild]
+  tag --> build[Build Artifacts]
+  build --> publish[Publish]
+
+  style tag fill:#263238,stroke:#546e7a
+  style publish fill:#1b5e20,stroke:#2e7d32
+```

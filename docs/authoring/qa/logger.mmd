@@ -1,3 +1,20 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    A[Start] --> B{logger.mmd};
-    B --> C[End];
+    subgraph Application
+        A[g_logger.log("message")]
+        B[g_logger.error("error message")]
+    end
+
+    subgraph Logger
+        C[Logger Singleton]
+    end
+
+    subgraph Sinks
+        D[Console Sink]
+        E[File Sink]
+        F[Callback Sink]
+    end
+
+    A --> C;
+    B --> C;
+    C --> D & E & F;

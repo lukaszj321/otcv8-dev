@@ -1,3 +1,15 @@
-graph TD
-    A[Start] --> B{inputevent.mmd};
-    B --> C[End];
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+classDiagram
+    class InputEvent {
+        <<abstract>>
+        EventType type
+    }
+    class KeyEvent {
+        KeyCode key
+    }
+    class MouseEvent {
+        Point position
+        MouseButton button
+    }
+    InputEvent <|-- KeyEvent
+    InputEvent <|-- MouseEvent

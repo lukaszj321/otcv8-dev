@@ -1,3 +1,13 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{event.mmd};
-    B --> C[End];
+    A[Event Source] -- Creates --> B(Event Object);
+    B -- Contains --> C[Event Data];
+    B -- Dispatches to --> D{EventDispatcher};
+
+    subgraph Listeners
+        L1[Listener 1]
+        L2[Listener 2]
+    end
+
+    D -- Notifies --> L1 & L2
+    click D "../../../01_core/api/cpp/framework/core/eventdispatcher.md" "EventDispatcher"

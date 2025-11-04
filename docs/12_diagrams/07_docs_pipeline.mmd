@@ -1,0 +1,23 @@
+---
+title: Docs Generation Pipeline
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+sequenceDiagram
+    participant Dev as Developer
+    participant Repo as Git Repo
+    participant Mk as MkDocs/Sphinx
+    participant GH as Pages/Artifacts
+    link GH: "../index.html"
+    %%{config: {"fontFamily":"Inter,Segoe UI,Arial"}}%%
+
+    Dev->>Repo: Commit docs + diagrams
+    Repo-->>Mk: CI triggers build
+    Mk->>Mk: Render Markdown, Mermaid, AutoAPI
+    Mk->>GH: Publish site
+    GH-->>Dev: Preview/Deploy
+
+    rect rgba(100,255,100,0.05)
+    note over Mk,GH: Rendering & Publish Stage
+    end
+```

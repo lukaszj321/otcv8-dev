@@ -1,3 +1,18 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{binarytree.mmd};
-    B --> C[End];
+    subgraph BinaryTree
+        A((10))
+        A --> B((5))
+        A --> C((15))
+        B --> D((2))
+        B --> E((7))
+        C --> F((12))
+        C --> G((20))
+    end
+
+    subgraph Operations
+        Op1[Insert]
+        Op2[Search]
+        Op3[Delete]
+    end
+    Operations --> A

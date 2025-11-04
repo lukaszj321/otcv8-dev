@@ -1,3 +1,19 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{adaptiverenderer.mmd};
-    B --> C[End];
+    subgraph AdaptiveRenderer [Adaptive Renderer]
+        direction LR
+        A[Start Frame] --> B{Measure FPS};
+        B --> C{FPS < Target?};
+        C -- Yes --> D[Lower Quality Settings];
+        C -- No --> E[Maintain/Increase Quality];
+        D --> F[Render Frame];
+        E --> F;
+    end
+
+    subgraph Engine
+        G[Game Loop] --> A;
+        F --> H[Present Frame];
+    end
+
+    click G "../../../01_core/api/cpp/framework/core/application.md" "Application Lifecycle"
+    click F "../../../01_core/api/cpp/framework/graphics/painter.md" "Painter API"

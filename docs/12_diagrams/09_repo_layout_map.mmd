@@ -1,0 +1,30 @@
+---
+title: Repo Layout Map
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TD
+  A[Root] --> B[modules/]
+  A --> C[docs/]
+  A --> D[data/]
+  A --> E[src/]
+  A --> F[tools/]
+  A --> G[ci/]
+
+  B --> B1[client_*]
+  B --> B2[game_*]
+  B --> B3[corelib/gamelib]
+
+  C --> C1[guides/]
+  C --> C2[diagrams/]
+  click C2 "../diagrams/index.html" "Open Diagrams"
+  C --> C3[autoapi/]
+  C --> C4[blog/]
+
+  style B fill:#263238,stroke:#546e7a
+  style C fill:#263238,stroke:#546e7a
+  style D fill:#263238,stroke:#546e7a
+  style E fill:#263238,stroke:#546e7a
+  style F fill:#263238,stroke:#546e7a
+  style G fill:#263238,stroke:#546e7a
+```

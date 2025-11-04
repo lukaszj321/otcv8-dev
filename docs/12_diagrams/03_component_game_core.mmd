@@ -1,0 +1,27 @@
+---
+title: Component – Game Core
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+flowchart TB
+  subgraph GameCore
+    proto[Protocol Handler]\nparses packets
+    state[Game State]\nentities, map, player
+    logic[Game Logic]\nactions, cooldowns, skills
+    net[Network IO]\nsockets
+  end
+
+  proto --> state
+  logic --> state
+  state --> logic
+  net --> proto
+
+  gui[GUI Layer] -. user cmds .-> logic
+  logic --> renderer[Renderer]
+  logic --> audio[Audio]
+
+  style proto fill:#263238,stroke:#546e7a
+  style state fill:#1b5e20,stroke:#2e7d32
+  style logic fill:#283593,stroke:#3949ab
+  style net fill:#4e342e,stroke:#6d4c41
+```

@@ -1,0 +1,20 @@
+---
+title: CI Jobs Topology
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TD
+  trigger[Push/PR] --> lint[Lint]
+  click docs "../index.html" "Docs index"
+  click lint "../process/quality.html" "Quality Guidelines"
+  trigger --> build[Build]
+  trigger --> docs[Build Docs]
+  build --> tests[Unit/Integration Tests]
+  tests --> artifacts[Upload Artifacts]
+  docs --> publishDocs[Publish Docs]
+  artifacts --> release[Draft Release]
+
+  style build fill:#283593,stroke:#3949ab
+  style tests fill:#263238,stroke:#546e7a
+  style publishDocs fill:#1b5e20,stroke:#2e7d32
+```

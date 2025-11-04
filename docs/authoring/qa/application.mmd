@@ -1,3 +1,20 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{application.mmd};
-    B --> C[End];
+    A[Start Application] --> B[Initialize Core Systems];
+    B --> C[Load Configuration];
+    C --> D[Initialize Window & Graphics];
+    D --> E[Load Resources];
+    E --> F[Load Modules];
+    F --> G[Enter Main Loop];
+    G --> H{Event Polling};
+    H --> I[Update Logic];
+    I --> J[Render Frame];
+    J --> G;
+    G --> K[Shutdown Signal];
+    K --> L[Terminate];
+
+    click C "../../../01_core/api/cpp/framework/core/configmanager.md" "ConfigManager"
+    click D "../../../01_core/api/cpp/framework/graphics/graphics.md" "Graphics"
+    click E "../../../01_core/api/cpp/framework/core/resourcemanager.md" "ResourceManager"
+    click F "../../../01_core/api/cpp/framework/core/modulemanager.md" "ModuleManager"
+    click H "../../../01_core/api/cpp/framework/core/eventdispatcher.md" "EventDispatcher"

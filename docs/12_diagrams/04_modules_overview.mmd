@@ -1,0 +1,89 @@
+---
+title: Modules Overview (modules/)
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph LR
+  subgraph Client Modules
+    A[client] --> Abg[client_background]
+    A --> Ae[client_entergame]
+    A --> Al[client_locales]
+    A --> Am[client_mobile]
+    A --> Ao[client_options]
+    A --> Ap[client_profiles]
+    A --> As[client_stats]
+    A --> Ast[client_styles]
+    A --> At[client_terminal]
+    A --> Ate[client_textedit]
+    A --> Atm[client_topmenu]
+  end
+
+  click A "../modules/client/index.html" "client"
+  click Abg "../modules/client_background/index.html" "client_background"
+  click Ae "../modules/client_entergame/index.html" "client_entergame"
+  click Al "../modules/client_locales/index.html" "client_locales"
+  click Am "../modules/client_mobile/index.html" "client_mobile"
+  click Ao "../modules/client_options/index.html" "client_options"
+  click Ap "../modules/client_profiles/index.html" "client_profiles"
+  click As "../modules/client_stats/index.html" "client_stats"
+  click Ast "../modules/client_styles/index.html" "client_styles"
+  click At "../modules/client_terminal/index.html" "client_terminal"
+  click Ate "../modules/client_textedit/index.html" "client_textedit"
+  click Atm "../modules/client_topmenu/index.html" "client_topmenu"
+
+  subgraph Game Modules
+    G[game_*] --> Gact[game_actionbar]
+    G --> Gbat[game_battle]
+    G --> Gbot[game_bot]
+    G --> Gcon[game_console]
+    G --> Gcont[game_containers]
+    G --> Gcd[game_cooldown]
+    G --> Ghi[game_healthinfo]
+    G --> Ghk[game_hotkeys]
+    G --> Ginv[game_inventory]
+    G --> Gmin[game_minimap]
+    G --> Gmkt[game_market]
+    G --> Gmod[game_modaldialog]
+    G --> Gout[game_outfit]
+    G --> Gpry[game_prey]
+    G --> Gq[game_questlog]
+    G --> Gshd[game_shaders]
+    G --> Gshop[game_shop]
+    G --> Gsk[game_skills]
+    G --> Gst[game_stats]
+    G --> Gtxt[game_textmessage]
+    G --> Gtw[game_textwindow]
+    G --> Gtop[game_topbar]
+    G --> Gvip[game_viplist]
+  end
+
+  click Gcon "../modules/game_console/index.html" "game_console"
+  click Gcont "../modules/game_containers/index.html" "game_containers"
+  click Gcd "../modules/game_cooldown/index.html" "game_cooldown"
+  click Ghi "../modules/game_healthinfo/index.html" "game_healthinfo"
+  click Ghk "../modules/game_hotkeys/index.html" "game_hotkeys"
+  click Ginv "../modules/game_inventory/index.html" "game_inventory"
+  click Gmin "../modules/game_minimap/index.html" "game_minimap"
+  click Gmkt "../modules/game_market/index.html" "game_market"
+  click Gmod "../modules/game_modaldialog/index.html" "game_modaldialog"
+  click Gout "../modules/game_outfit/index.html" "game_outfit"
+  click Gpry "../modules/game_prey/index.html" "game_prey"
+  click Gq "../modules/game_questlog/index.html" "game_questlog"
+  click Gshd "../modules/game_shaders/index.html" "game_shaders"
+  click Gshop "../modules/game_shop/index.html" "game_shop"
+  click Gsk "../modules/game_skills/index.html" "game_skills"
+  click Gst "../modules/game_stats/index.html" "game_stats"
+  click Gtxt "../modules/game_textmessage/index.html" "game_textmessage"
+  click Gtw "../modules/game_textwindow/index.html" "game_textwindow"
+  click Gtop "../modules/game_topbar/index.html" "game_topbar"
+  click Gvip "../modules/game_viplist/index.html" "game_viplist"
+
+  Core[corelib/gamelib] --> Client Modules
+  Core --> Game Modules
+
+  click Core "../modules/corelib/index.html" "corelib/gamelib"
+
+  style A fill:#263238,stroke:#546e7a
+  style G fill:#263238,stroke:#546e7a
+  style Core fill:#1b5e20,stroke:#2e7d32
+```

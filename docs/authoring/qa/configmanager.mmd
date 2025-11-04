@@ -1,3 +1,16 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{configmanager.mmd};
-    B --> C[End];
+    A[File: config.lua] --> B(ConfigManager);
+    B -- load() --> C{In-memory settings};
+
+    subgraph Consumers
+        Lua[Lua Scripts] --> D{get()};
+        Cpp[C++ Code] --> D;
+    end
+
+    C --> D;
+    D --> Lua;
+    D --> Cpp;
+
+    E{set()} --> C;
+    C -- save() --> A;

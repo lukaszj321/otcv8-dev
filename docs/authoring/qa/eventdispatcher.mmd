@@ -1,3 +1,15 @@
-graph TD
-    A[Start] --> B{eventdispatcher.mmd};
-    B --> C[End];
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+sequenceDiagram
+    participant MainLoop
+    participant EventDispatcher
+    participant EventHandler
+
+    MainLoop->>EventDispatcher: poll()
+    EventDispatcher->>EventDispatcher: Check event queue
+    alt Events in queue
+        EventDispatcher->>EventHandler: execute(event)
+        EventHandler-->>EventDispatcher: Done
+    else No events
+        EventDispatcher-->>MainLoop: Idle
+    end
+    MainLoop->>MainLoop: Continue loop...

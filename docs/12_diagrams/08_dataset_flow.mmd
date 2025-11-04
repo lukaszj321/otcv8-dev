@@ -1,0 +1,17 @@
+---
+title: Dataset Flow (docs/datasets, docs/_rag)
+---
+```mermaid
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+flowchart TB
+  A[Raw data: csv/json] --> B[docs/datasets preprocess]
+  B --> C[docs/_rag indexing]
+  C --> D[Embeddings store]
+  D --> E[RAG Query]
+  E --> F[Augmented answers in docs/tools]
+
+  style B fill:#263238,stroke:#546e7a
+  style C fill:#283593,stroke:#3949ab
+  style D fill:#4e342e,stroke:#6d4c41
+  style E fill:#1b5e20,stroke:#2e7d32
+```

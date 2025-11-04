@@ -1,3 +1,10 @@
+%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
 graph TD
-    A[Start] --> B{consoleapplication.mmd};
-    B --> C[End];
+    A[Application] -- inherits --> B[ConsoleApplication];
+    B --> C[Initialize Console];
+    C --> D[Process Command Line Args];
+    D --> E[Run Main Logic];
+    E --> F[Exit];
+
+    style B fill:#3a3,stroke:#282,stroke-width:2px
+    click A "../../../01_core/api/cpp/framework/core/application.md" "Base Application"
