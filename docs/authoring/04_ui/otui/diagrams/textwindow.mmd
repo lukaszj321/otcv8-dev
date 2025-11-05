@@ -1,0 +1,17 @@
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TB
+    subgraph "textwindow Widget"
+        W["textwindow"]
+        W --> Props["Properties"]
+        W --> Events["Events"]
+        W --> Children["Child Widgets"]
+    end
+    
+    Props --> Render["Render"]
+    Events --> Handlers["Event Handlers"]
+    Children --> Layout["Layout"]
+    
+    style W fill:#2d5016,stroke:#4a7f2a
+    style Props fill:#1a1a2e,stroke:#4a7f2a
+    style Events fill:#1a1a2e,stroke:#8b7332
+    style Children fill:#1a1a2e,stroke:#6b3535

@@ -1,7 +1,68 @@
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  A[UI Manager] --> B[Layouts]
-  A --> C[Widgets]
-  B --> D[Theme]
-  C --> E[Events]
-  E --> F[Lua Callbacks]
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TB
+    subgraph Core["UI Core"]
+        UIMGR["UI Manager"]
+        PARSER["OTUI Parser"]
+        FACTORY["Widget Factory"]
+    end
+    
+    subgraph Widgets["Widget Hierarchy"]
+        BASE["UIWidget<br/>(Base Class)"]
+        WINDOW["UIWindow"]
+        BUTTON["UIButton"]
+        LABEL["UILabel"]
+        TEXTEDIT["UITextEdit"]
+        LIST["UIList"]
+        CUSTOM["Custom Widgets"]
+    end
+    
+    subgraph Layout["Layout System"]
+        ANCHOR["Anchor Layout"]
+        VERTICAL["Vertical Layout"]
+        HORIZONTAL["Horizontal Layout"]
+        GRID["Grid Layout"]
+    end
+    
+    subgraph Events["Event System"]
+        MOUSE["Mouse Events"]
+        KEYBOARD["Keyboard Events"]
+        FOCUS["Focus Events"]
+        CHANGE["Change Events"]
+    end
+    
+    subgraph Rendering["Rendering"]
+        DRAW["Draw Queue"]
+        STYLE["Style System"]
+        THEME["Theme Manager"]
+    end
+    
+    UIMGR --> PARSER
+    PARSER --> FACTORY
+    FACTORY --> BASE
+    
+    BASE --> WINDOW
+    BASE --> BUTTON
+    BASE --> LABEL
+    BASE --> TEXTEDIT
+    BASE --> LIST
+    BASE --> CUSTOM
+    
+    WINDOW --> ANCHOR
+    BUTTON --> STYLE
+    
+    ANCHOR --> DRAW
+    VERTICAL --> DRAW
+    HORIZONTAL --> DRAW
+    GRID --> DRAW
+    
+    MOUSE --> BASE
+    KEYBOARD --> BASE
+    FOCUS --> BASE
+    CHANGE --> BASE
+    
+    DRAW --> THEME
+    STYLE --> THEME
+    
+    style UIMGR fill:#2d5016,stroke:#4a7f2a
+    style BASE fill:#1a1a2e,stroke:#4a7f2a
+    style DRAW fill:#5c4a1f,stroke:#8b7332

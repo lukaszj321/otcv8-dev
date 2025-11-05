@@ -1,0 +1,14 @@
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+classDiagram
+    class Session {
+        +start
+        +cancel
+        +on_resolve
+        +on_connect
+        +on_request_sent
+        +on_read_header
+        +on_read
+        +close
+        +onTimeout
+        +onError
+    }

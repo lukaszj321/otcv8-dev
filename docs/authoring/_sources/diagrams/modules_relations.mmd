@@ -1,17 +1,63 @@
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  subgraph Core
-    A[Core] --> B[Net]
-    A --> C[Graphics]
-    A --> D[Lua]
-  end
-  subgraph Game
-    E[Game Interface]
-    F[Inventory]
-    G[Market]
-  end
-  D --> E
-  B --> E
-  C --> E
-  E --> F
-  E --> G
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TB
+    subgraph Core["Core Modules"]
+        CLIENT["client_*<br/>Core Client"]
+        LOCALES["client_locales<br/>Translations"]
+        OPTIONS["client_options<br/>Settings"]
+        TERMINAL["client_terminal<br/>Console"]
+    end
+    
+    subgraph GameBase["Game Foundation"]
+        INTERFACE["game_interface<br/>Main UI"]
+        CONSOLE["game_console<br/>Chat/Commands"]
+        TEXTWINDOW["game_textwindow<br/>Dialogs"]
+    end
+    
+    subgraph GameFeatures["Game Features"]
+        SKILLS["game_skills<br/>Character Stats"]
+        INVENTORY["game_inventory<br/>Items"]
+        BATTLE["game_battle<br/>Combat"]
+        MINIMAP["game_minimap<br/>Map View"]
+        OUTFIT["game_outfit<br/>Appearance"]
+    end
+    
+    subgraph Advanced["Advanced Features"]
+        BOT["game_bot<br/>Automation"]
+        ACTIONBAR["game_actionbar<br/>Hotkeys"]
+        MARKET["game_market<br/>Trading"]
+        SHOP["game_shop<br/>Store"]
+    end
+    
+    subgraph Network["Network Layer"]
+        PROTOCOL["Protocol Handler"]
+        PACKETS["Packet Processing"]
+    end
+    
+    CLIENT --> INTERFACE
+    LOCALES --> INTERFACE
+    OPTIONS --> INTERFACE
+    TERMINAL --> CONSOLE
+    
+    INTERFACE --> SKILLS
+    INTERFACE --> INVENTORY
+    INTERFACE --> BATTLE
+    INTERFACE --> MINIMAP
+    
+    CONSOLE --> TEXTWINDOW
+    TEXTWINDOW --> OUTFIT
+    
+    SKILLS --> BOT
+    INVENTORY --> BOT
+    BATTLE --> BOT
+    
+    INTERFACE --> ACTIONBAR
+    INTERFACE --> MARKET
+    INTERFACE --> SHOP
+    
+    INTERFACE --> PROTOCOL
+    PROTOCOL --> PACKETS
+    
+    style CLIENT fill:#2d5016,stroke:#4a7f2a
+    style INTERFACE fill:#1a1a2e,stroke:#4a7f2a
+    style BOT fill:#5c4a1f,stroke:#8b7332
+    style PROTOCOL fill:#3d1f1f,stroke:#6b3535

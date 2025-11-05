@@ -1,8 +1,61 @@
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  A[Asset Pipeline] --> B[Sprites]
-  A --> C[Sounds]
-  A --> D[Fonts]
-  B --> E[Atlas]
-  C --> F[Sound Manager]
-  D --> G[Text Renderer]
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TB
+    subgraph Manager["Asset Manager"]
+        ASSETMGR["Asset Manager"]
+        LOADER["Resource Loader"]
+        CACHE["Asset Cache"]
+    end
+    
+    subgraph Types["Asset Types"]
+        IMG["Images<br/>(PNG, BMP)"]
+        SND["Sounds<br/>(OGG)"]
+        FONT["Fonts<br/>(TTF, OTF)"]
+        DAT["Game Data<br/>(.dat, .spr)"]
+        LAYOUT["Layouts<br/>(.otui)"]
+    end
+    
+    subgraph Loading["Loading Pipeline"]
+        SCAN["Scan Directories"]
+        PARSE["Parse Metadata"]
+        LOAD["Load Binary"]
+        DECODE["Decode Format"]
+        STORE["Store in Cache"]
+    end
+    
+    subgraph Usage["Asset Usage"]
+        TEXTURE["Texture System"]
+        AUDIO["Audio System"]
+        FONTREN["Font Renderer"]
+        SPRITES["Sprite Manager"]
+        UIPARSE["UI Parser"]
+    end
+    
+    ASSETMGR --> LOADER
+    LOADER --> CACHE
+    
+    LOADER --> IMG
+    LOADER --> SND
+    LOADER --> FONT
+    LOADER --> DAT
+    LOADER --> LAYOUT
+    
+    IMG --> SCAN
+    SND --> SCAN
+    FONT --> SCAN
+    DAT --> SCAN
+    LAYOUT --> SCAN
+    
+    SCAN --> PARSE
+    PARSE --> LOAD
+    LOAD --> DECODE
+    DECODE --> STORE
+    
+    STORE --> TEXTURE
+    STORE --> AUDIO
+    STORE --> FONTREN
+    STORE --> SPRITES
+    STORE --> UIPARSE
+    
+    style ASSETMGR fill:#2d5016,stroke:#4a7f2a
+    style IMG fill:#1a1a2e,stroke:#8b7332
+    style TEXTURE fill:#5c4a1f,stroke:#8b7332

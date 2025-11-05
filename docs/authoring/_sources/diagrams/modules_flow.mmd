@@ -1,10 +1,69 @@
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  A[Module Manager] --> B[Core Modules]
-  A --> C[Game Modules]
-  A --> D[UI Modules]
-  B --> E[Init]
-  C --> F[Enable]
-  D --> G[Bind UI]
-  F --> H[Runtime]
-  G --> H
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TB
+    subgraph Manager["Module Manager"]
+        MGR["Module Manager"]
+        LOADER["Module Loader"]
+        REGISTRY["Module Registry"]
+    end
+    
+    subgraph Discovery["Module Discovery"]
+        SCAN["Scan Directories"]
+        PARSE["Parse .otmod"]
+        DEPS["Resolve Dependencies"]
+    end
+    
+    subgraph Types["Module Types"]
+        CORE["Core Modules<br/>(client_*, game_interface)"]
+        GAME["Game Modules<br/>(game_*, bot_*)"]
+        UI["UI Modules<br/>(widgets, layouts)"]
+    end
+    
+    subgraph Lifecycle["Module Lifecycle"]
+        INIT["Initialize"]
+        LOAD["Load Resources"]
+        ENABLE["Enable Module"]
+        BIND["Bind UI/Events"]
+        RUN["Runtime Active"]
+        DISABLE["Disable"]
+        UNLOAD["Unload"]
+    end
+    
+    subgraph Runtime["Runtime Integration"]
+        LUA["Lua Environment"]
+        EVENTS["Event System"]
+        UIMGR["UI Manager"]
+        ASSETS["Asset Manager"]
+    end
+    
+    MGR --> LOADER
+    LOADER --> SCAN
+    SCAN --> PARSE
+    PARSE --> DEPS
+    DEPS --> REGISTRY
+    
+    REGISTRY --> CORE
+    REGISTRY --> GAME
+    REGISTRY --> UI
+    
+    CORE --> INIT
+    GAME --> INIT
+    UI --> INIT
+    
+    INIT --> LOAD
+    LOAD --> ENABLE
+    ENABLE --> BIND
+    BIND --> RUN
+    
+    RUN --> LUA
+    RUN --> EVENTS
+    RUN --> UIMGR
+    RUN --> ASSETS
+    
+    RUN --> DISABLE
+    DISABLE --> UNLOAD
+    
+    style MGR fill:#2d5016,stroke:#4a7f2a
+    style CORE fill:#1a1a2e,stroke:#4a7f2a
+    style GAME fill:#1a1a2e,stroke:#8b7332
+    style UI fill:#1a1a2e,stroke:#6b3535
+    style RUN fill:#5c4a1f,stroke:#8b7332

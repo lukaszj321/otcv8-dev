@@ -1,13 +1,53 @@
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 sequenceDiagram
-  autonumber
-  participant U as User
-  participant UI as Client UI
-  participant NET as Network
-  participant S as Server
-  U->>UI: Enter credentials
-  UI->>NET: Build login packet
-  NET->>S: Connect & send login
-  S-->>NET: Auth response
-  NET-->>UI: Session token
-  UI-->>U: Enter game
+    autonumber
+    participant U as User
+    participant UI as Client UI
+    participant LUA as Lua Module
+    participant NET as Network Layer
+    participant PROTO as Protocol Handler
+    participant S as Game Server
+    
+    Note over U,S: Login Flow
+    
+    U->>UI: Enter credentials
+    UI->>LUA: onLogin event
+    LUA->>LUA: Validate input
+    
+    LUA->>NET: Request connection
+    NET->>PROTO: Initialize protocol
+    PROTO->>S: TCP Connect
+    
+    Note over PROTO,S: Handshake
+    
+    S-->>PROTO: Server info
+    PROTO-->>NET: Connection ready
+    
+    NET->>PROTO: Build login packet
+    PROTO->>S: Send credentials
+    
+    Note over S: Authentication
+    
+    alt Authentication Success
+        S-->>PROTO: Session token + character list
+        PROTO-->>NET: Parse response
+        NET-->>LUA: onLoginSuccess
+        LUA->>UI: Show character selection
+        UI-->>U: Display characters
+        
+        U->>UI: Select character
+        UI->>LUA: onCharacterSelect
+        LUA->>NET: Enter game request
+        NET->>PROTO: Build enter game packet
+        PROTO->>S: Send enter game
+        S-->>PROTO: Game world data
+        PROTO-->>LUA: onGameStart
+        LUA->>UI: Initialize game interface
+        UI-->>U: Enter game world
+    else Authentication Failed
+        S-->>PROTO: Error message
+        PROTO-->>NET: Parse error
+        NET-->>LUA: onLoginError
+        LUA->>UI: Show error dialog
+        UI-->>U: Display error
+    end

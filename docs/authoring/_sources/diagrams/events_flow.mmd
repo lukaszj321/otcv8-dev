@@ -1,10 +1,62 @@
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-graph TD
-  A[Engine] --> B[Event Dispatcher]
-  B --> C[Input Events]
-  B --> D[Network Events]
-  B --> E[UI Events]
-  C --> F[Lua Handlers]
-  D --> F
-  E --> F
-  F --> G[State Updates]
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
+graph TB
+    subgraph Core["Core Engine"]
+        ENGINE["Event Engine"]
+        DISPATCHER["Event Dispatcher"]
+    end
+    
+    subgraph Sources["Event Sources"]
+        INPUT["Input Events<br/>(Keyboard, Mouse)"]
+        NETWORK["Network Events<br/>(Packets)"]
+        UI["UI Events<br/>(Widget Actions)"]
+        TIMER["Timer Events<br/>(Scheduled)"]
+    end
+    
+    subgraph Processing["Event Processing"]
+        QUEUE["Event Queue"]
+        FILTER["Event Filters"]
+        ROUTER["Event Router"]
+    end
+    
+    subgraph Handlers["Event Handlers"]
+        LUA["Lua Handlers<br/>(Scripts)"]
+        CPP["C++ Handlers<br/>(Native)"]
+        MODULE["Module Handlers<br/>(Game Logic)"]
+    end
+    
+    subgraph State["State Management"]
+        UPDATE["State Updates"]
+        RENDER["Render Queue"]
+        SYNC["State Sync"]
+    end
+    
+    ENGINE --> DISPATCHER
+    
+    INPUT --> QUEUE
+    NETWORK --> QUEUE
+    UI --> QUEUE
+    TIMER --> QUEUE
+    
+    QUEUE --> FILTER
+    FILTER --> ROUTER
+    
+    ROUTER --> LUA
+    ROUTER --> CPP
+    ROUTER --> MODULE
+    
+    LUA --> UPDATE
+    CPP --> UPDATE
+    MODULE --> UPDATE
+    
+    UPDATE --> RENDER
+    UPDATE --> SYNC
+    
+    style ENGINE fill:#2d5016,stroke:#4a7f2a
+    style DISPATCHER fill:#2d5016,stroke:#4a7f2a
+    style INPUT fill:#1a1a2e,stroke:#8b7332
+    style NETWORK fill:#1a1a2e,stroke:#8b7332
+    style UI fill:#1a1a2e,stroke:#8b7332
+    style TIMER fill:#1a1a2e,stroke:#8b7332
+    style LUA fill:#5c4a1f,stroke:#8b7332
+    style CPP fill:#5c4a1f,stroke:#8b7332
+    style MODULE fill:#5c4a1f,stroke:#8b7332
