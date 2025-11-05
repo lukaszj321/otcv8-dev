@@ -1,15 +1,52 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Otmlnode {
-        +create
-        +create
-        +tag
-        +size
-        +source
-        +rawValue
-        +isUnique
-        +isNull
-        +hasTag
-        +hasValue
-        +... (30 more methods)
+        +create()
+        +create()
+        +tag()
+        +size()
+        +source()
+        +rawValue()
+        +isUnique()
+        +isNull()
+        +hasTag()
+        +hasValue()
+        +hasChildren()
+        +hasChildAt()
+        +getIndex()
+        +setTag()
+        +setValue()
+        +setNull()
+        +setUnique()
+        +setSource()
+        +setIndex()
+        +lockTag()
+        +get()
+        +getIndex()
+        +at()
+        +addChild()
+        +removeChild()
+        +copy()
+        +merge()
+        +clear()
+        +children()
+        +clone()
+        +value()
+        +valueAt()
+        +valueAtIndex()
+        +valueAt()
+        +valueAtIndex()
+        +write()
+        +writeAt()
+        +writeIn()
+        +asOTMLNode()
+        +OTMLException()
+        +emit()
+        +m_tag()
+        +m_value()
+        +m_source()
+        +m_index()
+        +m_unique()
+        +m_null()
+        +m_tagLocked()
     }

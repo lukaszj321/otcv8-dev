@@ -1,15 +1,39 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Protocol {
-        +connect
-        +disconnect
-        +setRecorder
-        +playRecord
-        +isConnected
-        +isConnecting
-        +getElapsedTicksSinceLastRead
-        +getConnection
-        +setConnection
-        +generateXteaKey
-        +... (15 more methods)
+        +connect()
+        +disconnect()
+        +setRecorder()
+        +playRecord()
+        +isConnected()
+        +isConnecting()
+        +getElapsedTicksSinceLastRead()
+        +getConnection()
+        +setConnection()
+        +generateXteaKey()
+        +setXteaKey()
+        +getXteaKey()
+        +enableXteaEncryption()
+        +enableChecksum()
+        +enabledSequencedPackets()
+        +enableBigPackets()
+        +enableCompression()
+        +asProtocol()
+        +onProxyPacket()
+        +onPlayerPacket()
+        +onLocalDisconnected()
+        +internalRecvHeader()
+        +internalRecvData()
+        +xteaDecrypt()
+        +xteaEncrypt()
+        +send()
+        +recv()
+        +onConnect()
+        +onRecv()
+        +onError()
+        +m_disconnected()
+        +m_proxy()
+        +m_packetNumber()
+        +m_player()
+        +m_recorder()
     }

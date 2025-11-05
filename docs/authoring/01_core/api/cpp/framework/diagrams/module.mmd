@@ -1,15 +1,24 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Module {
-        +load
-        +unload
-        +reload
-        +canUnload
-        +canReload
-        +isLoaded
-        +isReloadable
-        +isDependent
-        +isSandboxed
-        +hasDependency
-        +... (10 more methods)
+        +load()
+        +unload()
+        +reload()
+        +canUnload()
+        +canReload()
+        +isLoaded()
+        +isReloadable()
+        +isDependent()
+        +isSandboxed()
+        +hasDependency()
+        +getSandbox()
+        +getDescription()
+        +getName()
+        +getAuthor()
+        +getWebsite()
+        +getVersion()
+        +isAutoLoad()
+        +getAutoLoadPriority()
+        +asModule()
+        +discover()
     }

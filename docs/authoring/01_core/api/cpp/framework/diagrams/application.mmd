@@ -1,15 +1,42 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Application {
-        +restart
-        +restartArgs
-        +setName
-        +setCompactName
-        +setVersion
-        +isRunning
-        +isStopping
-        +isTerminated
-        +getCharset
-        +getBuildCompiler
-        +... (11 more methods)
+        +restart()
+        +restartArgs()
+        +setName()
+        +setCompactName()
+        +setVersion()
+        +isRunning()
+        +isStopping()
+        +isTerminated()
+        +getCharset()
+        +getBuildCompiler()
+        +getBuildDate()
+        +getBuildRevision()
+        +getBuildCommit()
+        +getBuildType()
+        +getBuildType()
+        +getBuildArch()
+        +getAuthor()
+        +getOs()
+        +getStartupOptions()
+        +isMobile()
+        +registerLuaFunctions()
+        +init()
+        +deinit()
+        +terminate()
+        +run()
+        +poll()
+        +exit()
+        +quick_exit()
+        +close()
+        +m_mobile()
+        +m_charset()
+        +m_appName()
+        +m_appCompactName()
+        +m_appVersion()
+        +m_startupOptions()
+        +m_running()
+        +m_stopping()
+        +m_terminated()
     }

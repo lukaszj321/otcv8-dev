@@ -1,15 +1,37 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Inputmessage {
-        +setBuffer
-        +getBuffer
-        +getBodyBuffer
-        +skipBytes
-        +setReadPos
-        +getU8
-        +getU16
-        +getU32
-        +getU64
-        +getString
-        +... (23 more methods)
+        +setBuffer()
+        +getBuffer()
+        +getBodyBuffer()
+        +skipBytes()
+        +setReadPos()
+        +getU8()
+        +getU16()
+        +getU32()
+        +getU64()
+        +getString()
+        +getDouble()
+        +peekU8()
+        +peekU16()
+        +peekU32()
+        +peekU64()
+        +decryptRsa()
+        +getHeaderPos()
+        +getHeaderSize()
+        +getReadSize()
+        +getReadPos()
+        +getUnreadSize()
+        +getMessageSize()
+        +eof()
+        +reset()
+        +fillBuffer()
+        +setHeaderSize()
+        +setMessageSize()
+        +readSize()
+        +readChecksum()
+        +addZlibFooter()
+        +canRead()
+        +checkRead()
+        +checkWrite()
     }

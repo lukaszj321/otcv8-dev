@@ -1,15 +1,21 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Config {
-        +load
-        +unload
-        +save
-        +clear
-        +setValue
-        +setList
-        +getValue
-        +getList
-        +setNode
-        +mergeNode
-        +... (7 more methods)
+        +load()
+        +unload()
+        +save()
+        +clear()
+        +setValue()
+        +setList()
+        +getValue()
+        +getList()
+        +setNode()
+        +mergeNode()
+        +getNode()
+        +getNodeSize()
+        +exists()
+        +remove()
+        +getFileName()
+        +isLoaded()
+        +asConfig()
     }

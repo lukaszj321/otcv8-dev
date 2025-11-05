@@ -1,15 +1,40 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Uimanager {
-        +init
-        +terminate
-        +render
-        +resize
-        +inputEvent
-        +updatePressedWidget
-        +updateDraggingWidget
-        +updateHoveredWidget
-        +clearStyles
-        +importStyle
-        +... (26 more methods)
+        +init()
+        +terminate()
+        +render()
+        +resize()
+        +inputEvent()
+        +updatePressedWidget()
+        +updateDraggingWidget()
+        +updateHoveredWidget()
+        +clearStyles()
+        +importStyle()
+        +importStyleFromString()
+        +importStyleFromOTML()
+        +getStyle()
+        +getStyleClass()
+        +loadUIFromString()
+        +loadUI()
+        +displayUI()
+        +createWidget()
+        +createWidgetFromOTML()
+        +setMouseReceiver()
+        +setKeyboardReceiver()
+        +setDebugBoxesDrawing()
+        +resetMouseReceiver()
+        +resetKeyboardReceiver()
+        +getMouseReceiver()
+        +getKeyboardReceiver()
+        +getDraggingWidget()
+        +getHoveredWidget()
+        +getPressedWidget()
+        +getRootWidget()
+        +isMouseGrabbed()
+        +isKeyboardGrabbed()
+        +isDrawingDebugBoxes()
+        +onWidgetAppear()
+        +onWidgetDisappear()
+        +onWidgetDestroy()
     }

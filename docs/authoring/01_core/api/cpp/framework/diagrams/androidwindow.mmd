@@ -1,15 +1,46 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Androidwindow {
-        +EventType
-        +NativeMessage
-        +internalInitGL
-        +internalDestroyGL
-        +internalCheckGL
-        +internalChooseGL
-        +internalCreateGLContext
-        +internalDestroyGLContext
-        +internalConnectGLContext
-        +init
-        +... (32 more methods)
+        +EventType()
+        +NativeMessage()
+        +internalInitGL()
+        +internalDestroyGL()
+        +internalCheckGL()
+        +internalChooseGL()
+        +internalCreateGLContext()
+        +internalDestroyGLContext()
+        +internalConnectGLContext()
+        +init()
+        +init()
+        +terminate()
+        +move()
+        +resize()
+        +show()
+        +hide()
+        +minimize()
+        +maximize()
+        +poll()
+        +swapBuffers()
+        +showMouse()
+        +hideMouse()
+        +setMouseCursor()
+        +restoreMouseCursor()
+        +setTitle()
+        +setMinimumSize()
+        +setFullscreen()
+        +setVerticalSync()
+        +setIcon()
+        +setClipboardText()
+        +getDisplaySize()
+        +getClipboardText()
+        +getPlatformType()
+        +displayFatalError()
+        +showTextEditor()
+        +handleCmd()
+        +handleInput()
+        +updateSize()
+        +handleTextInput()
+        +openUrl()
+        +internalLoadMouseCursor()
+        +getClazz()
     }

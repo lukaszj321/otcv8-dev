@@ -1,15 +1,41 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Filestream {
-        +close
-        +flush
-        +write
-        +read
-        +seek
-        +skip
-        +size
-        +tell
-        +eof
-        +name
-        +... (27 more methods)
+        +close()
+        +flush()
+        +write()
+        +read()
+        +seek()
+        +skip()
+        +size()
+        +tell()
+        +eof()
+        +name()
+        +getU8()
+        +getU16()
+        +getU32()
+        +getU64()
+        +get8()
+        +get16()
+        +get32()
+        +get64()
+        +getString()
+        +getBinaryTree()
+        +startNode()
+        +endNode()
+        +addU8()
+        +addU16()
+        +addU32()
+        +addU64()
+        +add8()
+        +add16()
+        +add32()
+        +add64()
+        +addString()
+        +addPos()
+        +addPoint()
+        +asFileStream()
+        +initFromGzip()
+        +checkWrite()
+        +throwError()
     }

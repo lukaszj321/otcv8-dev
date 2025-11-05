@@ -1,15 +1,44 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Connection {
-        +poll
-        +terminate
-        +connect
-        +close
-        +write
-        +read
-        +read_until
-        +read_some
-        +setErrorCallback
-        +getIp
-        +... (16 more methods)
+        +poll()
+        +terminate()
+        +connect()
+        +close()
+        +write()
+        +read()
+        +read_until()
+        +read_some()
+        +setErrorCallback()
+        +getIp()
+        +getError()
+        +isConnecting()
+        +isConnected()
+        +getElapsedTicksSinceLastRead()
+        +asConnection()
+        +internal_connect()
+        +internal_write()
+        +onResolve()
+        +onConnect()
+        +onCanWrite()
+        +onWrite()
+        +onRecv()
+        +onTimeout()
+        +handleError()
+        +ErrorCallback()
+        +RecvCallback()
+        +m_connectCallback()
+        +m_errorCallback()
+        +m_recvCallback()
+        +m_readTimer()
+        +m_writeTimer()
+        +m_delayedWriteTimer()
+        +m_resolver()
+        +m_socket()
+        +m_outputStream()
+        +m_inputStream()
+        +m_connected()
+        +m_connecting()
+        +m_error()
+        +m_activityTimer()
     }

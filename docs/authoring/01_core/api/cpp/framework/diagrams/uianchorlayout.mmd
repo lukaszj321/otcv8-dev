@@ -1,15 +1,24 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Uianchorlayout {
-        +getAnchoredEdge
-        +getHookedEdge
-        +addAnchor
-        +isUpdated
-        +setUpdated
-        +removeAnchors
-        +hasAnchors
-        +centerIn
-        +fill
-        +addWidget
-        +... (2 more methods)
+        +getAnchoredEdge()
+        +getHookedEdge()
+        +addAnchor()
+        +isUpdated()
+        +setUpdated()
+        +removeAnchors()
+        +hasAnchors()
+        +centerIn()
+        +fill()
+        +addWidget()
+        +removeWidget()
+        +isUIAnchorLayout()
+        +getHookedWidget()
+        +getHookedPoint()
+        +m_anchoredEdge()
+        +m_hookedEdge()
+        +m_hookedWidgetId()
+        +internalUpdate()
+        +updateWidget()
+        +m_anchorsGroups()
     }

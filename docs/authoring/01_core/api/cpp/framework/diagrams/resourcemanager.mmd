@@ -1,15 +1,54 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Resourcemanager {
-        +init
-        +terminate
-        +launchCorrect
-        +setupWriteDir
-        +setup
-        +getCompactName
-        +loadDataFromSelf
-        +fileExists
-        +directoryExists
-        +readFileStream
-        +... (39 more methods)
+        +init()
+        +terminate()
+        +launchCorrect()
+        +setupWriteDir()
+        +setup()
+        +getCompactName()
+        +loadDataFromSelf()
+        +fileExists()
+        +directoryExists()
+        +readFileStream()
+        +readFileContents()
+        +readFileContentsSafe()
+        +isFileEncryptedOrCompressed()
+        +writeFileBuffer()
+        +writeFileContents()
+        +writeFileStream()
+        +openFile()
+        +appendFile()
+        +createFile()
+        +deleteFile()
+        +makeDir()
+        +listDirectoryFiles()
+        +resolvePath()
+        +getWorkDir()
+        +getWriteDir()
+        +getBinaryName()
+        +getWriteDir()
+        +getBinaryName()
+        +guessFilePath()
+        +isFileType()
+        +isLoadedFromArchive()
+        +isLoadedFromMemory()
+        +fileChecksum()
+        +filesChecksums()
+        +selfChecksum()
+        +readCrashLog()
+        +deleteCrashLog()
+        +updateData()
+        +updateExecutable()
+        +createArchive()
+        +decompressArchive()
+        +encrypt()
+        +encryptBuffer()
+        +decryptBuffer()
+        +installDlls()
+        +setLayout()
+        +getLayout()
+        +mountMemoryData()
+        +unmountMemoryData()
+        +m_layout()
     }

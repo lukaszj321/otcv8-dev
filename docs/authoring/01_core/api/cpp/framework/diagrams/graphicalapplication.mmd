@@ -1,15 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Graphicalapplication {
-        +init
-        +deinit
-        +terminate
-        +run
-        +poll
-        +pollGraphics
-        +close
-        +willRepaint
-        +repaint
-        +setMaxFps
-        +... (14 more methods)
+        +init()
+        +deinit()
+        +terminate()
+        +run()
+        +poll()
+        +pollGraphics()
+        +close()
+        +willRepaint()
+        +repaint()
+        +setMaxFps()
+        +getMaxFps()
+        +getFps()
+        +getGraphicsFps()
+        +getProcessingFps()
+        +isOnInputEvent()
+        +getIteration()
+        +doScreenshot()
+        +scaleUp()
+        +scaleDown()
+        +scale()
+        +setSmooth()
+        +doMapScreenshot()
+        +resize()
+        +inputEvent()
+        +m_iteration()
     }

@@ -1,15 +1,27 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Platform {
-        +processArgs
-        +spawnProcess
-        +getProcessId
-        +isProcessRunning
-        +killProcess
-        +getTempPath
-        +getCurrentDir
-        +copyFile
-        +fileExists
-        +removeFile
-        +... (13 more methods)
+        +processArgs()
+        +spawnProcess()
+        +getProcessId()
+        +isProcessRunning()
+        +killProcess()
+        +getTempPath()
+        +getCurrentDir()
+        +copyFile()
+        +fileExists()
+        +removeFile()
+        +getFileModificationTime()
+        +openUrl()
+        +openDir()
+        +getCPUName()
+        +getTotalSystemMemory()
+        +getMemoryUsage()
+        +getOSName()
+        +traceback()
+        +getMacAddresses()
+        +getUserName()
+        +getDlls()
+        +getProcesses()
+        +getWindows()
     }

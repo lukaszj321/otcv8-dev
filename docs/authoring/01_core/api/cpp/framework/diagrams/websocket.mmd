@@ -1,15 +1,16 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Websocket {
-        +WebsocketCallbackType
-        +start
-        +send
-        +close
-        +on_resolve
-        +on_connect
-        +on_handshake
-        +on_send
-        +on_read
-        +onTimeout
-        +... (2 more methods)
+        +WebsocketCallbackType()
+        +start()
+        +send()
+        +close()
+        +on_resolve()
+        +on_connect()
+        +on_handshake()
+        +on_send()
+        +on_read()
+        +onTimeout()
+        +onError()
+        +WebsocketSession_cb()
     }

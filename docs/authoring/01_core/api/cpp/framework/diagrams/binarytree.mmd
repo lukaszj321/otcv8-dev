@@ -1,15 +1,27 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 classDiagram
     class Binarytree {
-        +seek
-        +skip
-        +tell
-        +size
-        +getU8
-        +getU16
-        +getU32
-        +getU64
-        +getString
-        +getPoint
-        +... (13 more methods)
+        +seek()
+        +skip()
+        +tell()
+        +size()
+        +getU8()
+        +getU16()
+        +getU32()
+        +getU64()
+        +getString()
+        +getPoint()
+        +getChildren()
+        +canRead()
+        +unserialize()
+        +skipNodes()
+        +addU8()
+        +addU16()
+        +addU32()
+        +addString()
+        +addPos()
+        +addPoint()
+        +startNode()
+        +endNode()
+        +write()
     }
