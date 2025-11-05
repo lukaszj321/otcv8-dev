@@ -1,40 +1,34 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["X11Window Class"]
-        MAIN["X11Window"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["Size getDisplaySize()"]
-        Getters_1["std::string getClipboardText()"]
-        Getters_2["std::string getPlatformType()"]
+graph TD
+    subgraph Creation["Window Creation"]
+        A[Platform Init] --> B[Create X11Window]
+        B --> C[Set Properties]
+        C --> D[Initialize Graphics Context]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setMouseCursor(int cursorId)"]
-        Setters_1["setTitle(const std::string& title)"]
-        Setters_2["setMinimumSize(const Size& minimumSize)"]
-        Setters_3["setFullscreen(bool fullscreen)"]
-        Setters_4["setVerticalSync(bool enable)"]
-        Setters_5["setIcon(const std::string& file)"]
-        Setters_6["setClipboardText(const std::string& text)"]
+    subgraph Events["Event Handling"]
+        E[OS Events] --> F[Input Processing]
+        F --> G[Keyboard Events]
+        F --> H[Mouse Events]
+        F --> I[Window Events]
     end
 
-    subgraph Other["Other"]
-        Other_0["init()"]
-        Other_1["terminate()"]
-        Other_2["move(const Point& pos)"]
-        Other_3["resize(const Size& size)"]
-        Other_4["show()"]
-        Other_5["hide()"]
-        Other_6["minimize()"]
-        Other_7["maximize()"]
-        Other_MORE["+ 7 more..."]
+    subgraph Rendering["Rendering Loop"]
+        D --> J[Make Context Current]
+        J --> K[Render Frame]
+        K --> L[Swap Buffers]
+        L --> J
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Control["Window Control"]
+        M[Show/Hide]
+        N[Resize]
+        O[Fullscreen Toggle]
+        P[Close]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    B --> E
+    I --> Control
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style K fill:#e67e22,stroke:#fff,stroke-width:2px

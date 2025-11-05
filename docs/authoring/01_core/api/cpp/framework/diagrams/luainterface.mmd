@@ -1,58 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Luainterface Class"]
-        MAIN["Luainterface"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string getCurrentSourcePath(int level = 0)"]
-        Getters_1["std::string getCurrentFunction(int level = 0)"]
-        Getters_2["getStackFunction(int level = 0)"]
-        Getters_3["getRef(int ref)"]
-        Getters_4["getWeakRef(int weakRef)"]
-        Getters_5["int getGlobalEnvironment()"]
-        Getters_6["getMetatable(int index = -1)"]
-        Getters_7["getField(const char* key, int index ...)"]
-        Getters_MORE["+ 22 more..."]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Luainterface]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setGlobalEnvironment(int env)"]
-        Setters_1["setMetatable(int index = -2)"]
-        Setters_2["setField(const char* key, int index ...)"]
-        Setters_3["setField(const std::string& key, int...)"]
-        Setters_4["setTable(int index = -3)"]
-        Setters_5["setEnv(int index = -2)"]
-        Setters_6["setGlobal(const std::string& key)"]
-        Setters_7["setGlobalEnvironment(int env)"]
-        Setters_MORE["+ 6 more..."]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Static["Static"]
-        Static_0["registerClassStaticFunction(const std::string& function...)"]
-        Static_1["bindClassStaticFunction(const std::string& function...)"]
-        Static_2["bindClassStaticFunction(const std::string& classNam...)"]
-        Static_3["registerClassStaticFunction(const std::string& function...)"]
-        Static_4["bindClassStaticFunction(const std::string& function...)"]
-        Static_5["bindClassStaticFunction(const std::string& classNam...)"]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    subgraph Other["Other"]
-        Other_0["init()"]
-        Other_1["terminate()"]
-        Other_2["registerFunctions()"]
-        Other_3["registerSingletonClass(const std::string& className)"]
-        Other_4["registerClass(const std::string& classNam...)"]
-        Other_5["registerClass()"]
-        Other_6["registerClassMemberFunction(const std::string& function...)"]
-        Other_7["bindSingletonFunction(const std::string& function...)"]
-        Other_MORE["+ 192 more..."]
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
     end
 
-    MAIN --> Getters & Setters & Static & Other
-
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Static fill:#5c4a1f,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

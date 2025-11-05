@@ -1,30 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Stats Class"]
-        MAIN["Stats"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string get(int type, int limit, bool p...)"]
-        Getters_1["std::string getSlow(int type, int limit, unsign...)"]
-        Getters_2["int64_t getSleepTime()"]
-        Getters_3["std::string getWidgetsInfo(int limit, bool pretty)"]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Stats]
     end
 
-    subgraph Other["Other"]
-        Other_0["add(int type, Stat* stats)"]
-        Other_1["clear(int type)"]
-        Other_2["clearAll()"]
-        Other_3["clearSlow(int type)"]
-        Other_4["int types()"]
-        Other_5["return m_sleepTime()"]
-        Other_6["resetSleepTime()"]
-        Other_7["int64_t m_sleepTime = 0()"]
-        Other_MORE["+ 8 more..."]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    MAIN --> Getters & Other
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

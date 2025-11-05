@@ -1,19 +1,35 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Eventdispatcher Class"]
-        MAIN["Eventdispatcher"]
-    end
-    
-    subgraph Other["Other"]
-        Other_0["shutdown()"]
-        Other_1["poll()"]
-        Other_2["EventPtr addEventEx(const std::string& function...)"]
-        Other_3["ScheduledEventPtr scheduleEventEx(const std::string& function...)"]
-        Other_4["ScheduledEventPtr cycleEventEx(const std::string& function...)"]
-        Other_5["bool isBotSafe()"]
+graph TD
+    subgraph Sources["Event Sources"]
+        A["Input Events"] --> B[Event Queue]
+        C["Network Events"] --> B
+        D["Timer Events"] --> B
+        E["UI Events"] --> B
     end
 
-    MAIN --> Other
+    subgraph Processing["Event Processing"]
+        B --> F{Event Type}
+        F -.Keyboard.-> G["Input Handler"]
+        F -.Mouse.-> G
+        F -.Network.-> H["Network Handler"]
+        F -.Timer.-> I["Timer Handler"]
+        F -.UI.-> J["UI Handler"]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Dispatch["Event Dispatch"]
+        G --> K["C++ Callbacks"]
+        H --> K
+        I --> K
+        J --> K
+        K --> L["Lua Event Handlers"]
+    end
+
+    subgraph Results["Event Results"]
+        L --> M["State Updates"]
+        M --> N["Render Updates"]
+        M --> O["Network Responses"]
+    end
+
+    style B fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style F fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style L fill:#e67e22,stroke:#fff,stroke-width:2px

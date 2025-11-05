@@ -1,41 +1,33 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Connection Class"]
-        MAIN["Connection"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["int getIp()"]
-        Getters_1["boost::system::error_code getError()"]
-        Getters_2["ticks_t getElapsedTicksSinceLastRead()"]
+graph TD
+    subgraph Establishment["Connection Establishment"]
+        A["Connect Request"] --> B{DNS Lookup}
+        B --> C["TCP Socket"]
+        C --> D["TLS Handshake"]
+        D --> E[Connected]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setErrorCallback(const ErrorCallback& errorC...)"]
+    subgraph Communication["Data Communication"]
+        E --> F["Send Messages"]
+        E --> G["Receive Messages"]
+        F --> H[Output Buffer]
+        H --> I["Network Send"]
+        J["Network Receive"] --> K[Input Buffer]
+        K --> G
     end
 
-    subgraph Static["Static"]
-        Static_0["static void poll()"]
-        Static_1["static void terminate()"]
-        Static_2["ConnectionPtr asConnection()"]
+    subgraph Protocol["Protocol Layer"]
+        F -.Uses.-> L["Protocol Handler"]
+        G -.Uses.-> L
+        L --> M["Packet Encoding"]
+        L --> N["Packet Decoding"]
     end
 
-    subgraph Other["Other"]
-        Other_0["connect(const std::string& host, ui...)"]
-        Other_1["close()"]
-        Other_2["write(uint8* buffer, size_t size)"]
-        Other_3["read(uint32 bytes, const RecvCal...)"]
-        Other_4["read_until(const std::string& what, co...)"]
-        Other_5["read_some(const RecvCallback& callback)"]
-        Other_6["bool isConnecting()"]
-        Other_7["bool isConnected()"]
-        Other_MORE["+ 23 more..."]
+    subgraph Termination["Connection Termination"]
+        E -.Error/Close.-> O["Disconnect"]
+        O --> P["Cleanup"]
     end
 
-    MAIN --> Getters & Setters & Static & Other
-
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Static fill:#5c4a1f,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style E fill:#27ae60,stroke:#fff,stroke-width:2px
+    style L fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style O fill:#e74c3c,stroke:#fff,stroke-width:2px

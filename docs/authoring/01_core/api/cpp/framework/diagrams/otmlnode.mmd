@@ -1,46 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Otmlnode Class"]
-        MAIN["Otmlnode"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["size_t getIndex()"]
-        Getters_1["OTMLNodePtr get(const std::string& childTag)"]
-        Getters_2["OTMLNodePtr getIndex(int childIndex)"]
+graph TD
+    subgraph Loading["Configuration Loading"]
+        A[Config File] --> B[Parse Otmlnode]
+        B --> C[Validate Structure]
+        C --> D[Build Tree]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setTag(const std::string& tag)"]
-        Setters_1["setValue(const std::string& value)"]
-        Setters_2["setNull(bool null)"]
-        Setters_3["setUnique(bool unique)"]
-        Setters_4["setSource(const std::string& source)"]
-        Setters_5["setIndex(size_t index)"]
+    subgraph Access["Data Access"]
+        D --> E[Read Values]
+        E --> F[Type Conversion]
+        F --> G[Return to Application]
     end
 
-    subgraph Static["Static"]
-        Static_0["static OTMLNodePtr create()"]
-        Static_1["static OTMLNodePtr create()"]
-        Static_2["OTMLNodePtr asOTMLNode()"]
+    subgraph Modification["Modification"]
+        H[Update Values] --> D
+        I[Add Nodes] --> D
+        J[Remove Nodes] --> D
     end
 
-    subgraph Other["Other"]
-        Other_0["std::string tag()"]
-        Other_1["int size()"]
-        Other_2["std::string source()"]
-        Other_3["std::string rawValue()"]
-        Other_4["bool isUnique()"]
-        Other_5["bool isNull()"]
-        Other_6["bool hasTag()"]
-        Other_7["bool hasValue()"]
-        Other_MORE["+ 27 more..."]
+    subgraph Persistence["Save Configuration"]
+        D --> K[Serialize]
+        K --> L[Format Output]
+        L --> M[Write to File]
     end
 
-    MAIN --> Getters & Setters & Static & Other
-
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Static fill:#5c4a1f,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style D fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style M fill:#27ae60,stroke:#fff,stroke-width:2px

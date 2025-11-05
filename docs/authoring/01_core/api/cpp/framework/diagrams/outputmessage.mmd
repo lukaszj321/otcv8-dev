@@ -1,36 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Outputmessage Class"]
-        MAIN["Outputmessage"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string getBuffer()"]
-        Getters_1["uint32 getWritePos()"]
-        Getters_2["uint32 getMessageSize()"]
+graph TD
+    subgraph Creation["Message Creation"]
+        A[Game Event] --> B[OutputMessage]
+        B --> C[Add Header]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setBuffer(const std::string& buffer)"]
-        Setters_1["setWritePos(uint32 writePos)"]
-        Setters_2["setMessageSize(uint32 messageSize)"]
+    subgraph Writing["Data Writing"]
+        C --> D[Write U8/U16/U32]
+        C --> E[Write String]
+        C --> F[Write Position]
+        C --> G[Write Custom Data]
     end
 
-    subgraph Other["Other"]
-        Other_0["reset()"]
-        Other_1["addU8(uint8 value)"]
-        Other_2["addU16(uint16 value)"]
-        Other_3["addU32(uint32 value)"]
-        Other_4["addU64(uint64 value)"]
-        Other_5["addString(const std::string& buffer)"]
-        Other_6["addRawString(const std::string& buffer)"]
-        Other_7["addPaddingBytes(int bytes, uint8 byte = 0)"]
-        Other_MORE["+ 4 more..."]
+    subgraph Preparation["Message Preparation"]
+        D --> H[Calculate Size]
+        E --> H
+        F --> H
+        G --> H
+        H --> I[Add Checksum]
+        I --> J[Encrypt if needed]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Sending["Message Sending"]
+        J --> K[Output Buffer]
+        K --> L[Connection Send]
+        L --> M[Network Transmit]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style K fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style M fill:#27ae60,stroke:#fff,stroke-width:2px

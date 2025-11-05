@@ -1,28 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Point Class"]
-        MAIN["Point"]
-    end
-    
-    subgraph Operators["Operators"]
-        Operators_0["bool operator==()"]
-        Operators_1["bool operator==()"]
+graph TD
+    subgraph Creation["Creation & Initialization"]
+        A[Constructor] --> B[Point Object]
+        C[From Values] --> B
     end
 
-    subgraph Other["Other"]
-        Other_0["bool isNull()"]
-        Other_1["TSize<T> toSize()"]
-        Other_2["float length()"]
-        Other_3["T manhattanLength()"]
-        Other_4["float distanceFrom(const TPoint<T>& other)"]
-        Other_5["bool isNull()"]
-        Other_6["TSize<T> toSize()"]
-        Other_7["float length()"]
-        Other_MORE["+ 2 more..."]
+    subgraph Operations["Mathematical Operations"]
+        B --> D[Arithmetic Ops]
+        B --> E[Comparison]
+        B --> F[Transformation]
     end
 
-    MAIN --> Operators & Other
+    subgraph Usage["Common Usage"]
+        F --> G[Geometry Calculations]
+        F --> H[Collision Detection]
+        F --> I[Rendering Positions]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Operators fill:#1a1a2e,stroke:#6b3535
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#27ae60,stroke:#fff,stroke-width:2px

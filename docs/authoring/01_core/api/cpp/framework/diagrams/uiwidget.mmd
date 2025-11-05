@@ -1,48 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Uiwidget Class"]
-        MAIN["Uiwidget"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["int getChildIndex(const UIWidgetPtr& child)"]
-        Getters_1["Rect getPaddingRect()"]
-        Getters_2["Rect getMarginRect()"]
-        Getters_3["Rect getChildrenRect()"]
-        Getters_4["UIAnchorLayoutPtr getAnchoredLayout()"]
-        Getters_5["UIWidgetPtr getRootParent()"]
-        Getters_6["UIWidgetPtr getChildAfter(const UIWidgetPtr& relative...)"]
-        Getters_7["UIWidgetPtr getChildBefore(const UIWidgetPtr& relative...)"]
-        Getters_MORE["+ 88 more..."]
+graph TD
+    subgraph Hierarchy["Widget Hierarchy"]
+        A[UIWidget<br/>Base Class] --> B[UIWindow]
+        A --> C[UIButton]
+        A --> D[UILabel]
+        A --> E[UITextEdit]
+        A --> F[UIList]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setId(const std::string& id)"]
-        Setters_1["setParent(const UIWidgetPtr& parent)"]
-        Setters_2["setLayout(const UILayoutPtr& layout)"]
-        Setters_3["bool setRect(const Rect& rect)"]
-        Setters_4["setStyle(const std::string& styleName)"]
-        Setters_5["setStyleFromNode(const OTMLNodePtr& styleNode)"]
-        Setters_6["setEnabled(bool enabled)"]
-        Setters_7["setVisible(bool visible)"]
-        Setters_MORE["+ 101 more..."]
+    subgraph Lifecycle["Widget Lifecycle"]
+        G[Create] --> H[Add to Parent]
+        H --> I[Layout]
+        I --> J[Show/Visible]
+        J --> K[Render]
+        K -.Update.-> I
+        J -.Hide.-> L[Destroy]
     end
 
-    subgraph Other["Other"]
-        Other_0["virtual void draw()"]
-        Other_1["virtual void drawSelf()"]
-        Other_2["virtual void drawChildren()"]
-        Other_3["std::string m_id()"]
-        Other_4["std::string m_source()"]
-        Other_5["Rect m_rect()"]
-        Other_6["Point m_virtualOffset()"]
-        Other_7["stdext::boolean<true> m_autoDraw()"]
-        Other_MORE["+ 181 more..."]
+    subgraph Events["Event Flow"]
+        M[User Input] --> N{Event Handler}
+        N --> O[Widget Handler]
+        O --> P[Lua Callback]
+        P --> Q[State Update]
     end
 
-    MAIN --> Getters & Setters & Other
+    A -.Instance.-> G
+    Q -.Triggers.-> K
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style A fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style J fill:#27ae60,stroke:#fff,stroke-width:2px
+    style P fill:#e67e22,stroke:#fff,stroke-width:2px

@@ -1,38 +1,31 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Module Class"]
-        MAIN["Module"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["int getSandbox(LuaInterface *lua)"]
-        Getters_1["std::string getDescription()"]
-        Getters_2["std::string getName()"]
-        Getters_3["std::string getAuthor()"]
-        Getters_4["std::string getWebsite()"]
-        Getters_5["std::string getVersion()"]
-        Getters_6["int getAutoLoadPriority()"]
+graph TD
+    subgraph Discovery["Module Discovery"]
+        A[Scan Directories] --> B[Find .otmod Files]
+        B --> C[Parse Manifest]
+        C --> D[Check Dependencies]
     end
 
-    subgraph Static["Static"]
-        Static_0["ModulePtr asModule()"]
+    subgraph Loading["Module Loading"]
+        D --> E{Dependencies Met?}
+        E -.Yes.-> F[Load Module]
+        E -.No.-> G[Wait/Skip]
+        F --> H[Execute init.lua]
     end
 
-    subgraph Other["Other"]
-        Other_0["bool load()"]
-        Other_1["unload()"]
-        Other_2["bool reload()"]
-        Other_3["bool canUnload()"]
-        Other_4["bool canReload()"]
-        Other_5["bool isLoaded()"]
-        Other_6["bool isReloadable()"]
-        Other_7["bool isDependent()"]
-        Other_MORE["+ 4 more..."]
+    subgraph Runtime["Runtime Integration"]
+        H --> I[Register Functions]
+        I --> J[Bind UI Elements]
+        J --> K[Register Events]
+        K --> L[Module Active]
     end
 
-    MAIN --> Getters & Static & Other
+    subgraph Unloading["Module Unloading"]
+        L -.Terminate.-> M[Execute terminate.lua]
+        M --> N[Cleanup Resources]
+        N --> O[Unregister]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Static fill:#5c4a1f,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style F fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style L fill:#27ae60,stroke:#fff,stroke-width:2px
+    style M fill:#e74c3c,stroke:#fff,stroke-width:2px

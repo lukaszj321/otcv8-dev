@@ -1,8 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class PacketPlayer {
-        +start
-        +stop
-        +onOutputPacket
-        +process
-    }
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Packet_Player]
+    end
+
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
+    end
+
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
+    end
+
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

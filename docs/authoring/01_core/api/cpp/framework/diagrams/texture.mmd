@@ -1,44 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Texture Class"]
-        MAIN["Texture"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["uint getId()"]
-        Getters_1["uint getUniqueId()"]
-        Getters_2["ticks_t getTime()"]
-        Getters_3["int getWidth()"]
-        Getters_4["int getHeight()"]
+graph TD
+    subgraph Loading["Texture Loading"]
+        A["Image File<br/>(PNG/BMP)"] --> B["Load from Disk"]
+        B --> C["Decode Image Data"]
+        C --> D[Texture Object]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["virtual void setUpsideDown()"]
-        Setters_1["virtual void setSmooth()"]
-        Setters_2["virtual void setRepeat()"]
-        Setters_3["setTime(ticks_t time)"]
-        Setters_4["setCanCache(bool canCache)"]
-        Setters_5["setupSize(const Size& size)"]
-        Setters_6["setupWrap()"]
-        Setters_7["setupFilters()"]
-        Setters_MORE["+ 2 more..."]
+    subgraph GPU["GPU Management"]
+        D --> E["Upload to GPU"]
+        E --> F["Texture ID<br/>(OpenGL)"]
+        F --> G["Bind to Texture Unit"]
     end
 
-    subgraph Other["Other"]
-        Other_0["virtual void replace()"]
-        Other_1["resize(const Size& size)"]
-        Other_2["virtual void update()"]
-        Other_3["virtual bool buildHardwareMipmaps()"]
-        Other_4["bool isEmpty()"]
-        Other_5["bool hasRepeat()"]
-        Other_6["bool hasMipmaps()"]
-        Other_7["bool canCache()"]
-        Other_MORE["+ 15 more..."]
+    subgraph Rendering["Rendering Pipeline"]
+        G --> H["Shader Access"]
+        H --> I["Fragment Sampling"]
+        I --> J["Rendered Output"]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Memory["Memory Management"]
+        D --> K["CPU Memory"]
+        F --> L["GPU Memory"]
+        L -.Cleanup.-> M["Release Resources"]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style D fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style F fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style J fill:#27ae60,stroke:#fff,stroke-width:2px

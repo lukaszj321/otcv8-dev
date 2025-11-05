@@ -1,20 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Pngunpacker Class"]
-        MAIN["Pngunpacker"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["uint32_t getOffset()"]
-        Getters_1["uint32_t getFileSize()"]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Pngunpacker]
     end
 
-    subgraph Static["Static"]
-        Static_0["static std::unordered_map<uint32_t, std::string> unpack()"]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    MAIN --> Getters & Static
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Static fill:#5c4a1f,stroke:#8b7332
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

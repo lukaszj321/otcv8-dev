@@ -1,16 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Oggsoundfile Class"]
-        MAIN["Oggsoundfile"]
-    end
-    
-    subgraph Other["Other"]
-        Other_0["bool prepareOgg()"]
-        Other_1["int read(void *buffer, int bufferSize)"]
-        Other_2["reset()"]
+graph TD
+    subgraph Loading["Audio Loading"]
+        A[Audio File] --> B[Decode]
+        B --> C[Oggsoundfile]
     end
 
-    MAIN --> Other
+    subgraph Playback["Playback Control"]
+        C --> D[Play]
+        C --> E[Pause]
+        C --> F[Stop]
+        D --> G[Playing State]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Properties["Audio Properties"]
+        C --> H[Volume]
+        C --> I[Pitch]
+        C --> J[Looping]
+        C --> K[Position 3D]
+    end
+
+    subgraph Output["Audio Output"]
+        G --> L[Audio Mixer]
+        L --> M[OpenAL]
+        M --> N[Audio Device]
+    end
+
+    style C fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style G fill:#27ae60,stroke:#fff,stroke-width:2px
+    style M fill:#e67e22,stroke:#fff,stroke-width:2px

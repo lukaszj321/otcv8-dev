@@ -1,32 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Uilayout Class"]
-        MAIN["Uilayout"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["UIWidgetPtr getParentWidget()"]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Uilayout]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setParent(UIWidgetPtr parentWidget)"]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Other["Other"]
-        Other_0["update()"]
-        Other_1["updateLater()"]
-        Other_2["virtual void applyStyle()"]
-        Other_3["virtual void addWidget()"]
-        Other_4["virtual void removeWidget()"]
-        Other_5["disableUpdates()"]
-        Other_6["enableUpdates()"]
-        Other_7["bool isUpdateDisabled()"]
-        Other_MORE["+ 11 more..."]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

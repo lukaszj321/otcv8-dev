@@ -1,42 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Soundsource Class"]
-        MAIN["Soundsource"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string getName()"]
-        Getters_1["uchar getChannel()"]
-        Getters_2["float getGain()"]
+graph TD
+    subgraph Loading["Audio Loading"]
+        A[Audio File] --> B[Decode]
+        B --> C[Soundsource]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setName(const std::string& name)"]
-        Setters_1["virtual void setLooping()"]
-        Setters_2["virtual void setRelative()"]
-        Setters_3["virtual void setReferenceDistance()"]
-        Setters_4["virtual void setGain()"]
-        Setters_5["virtual void setPitch()"]
-        Setters_6["virtual void setPosition()"]
-        Setters_7["virtual void setVelocity()"]
-        Setters_MORE["+ 3 more..."]
+    subgraph Playback["Playback Control"]
+        C --> D[Play]
+        C --> E[Pause]
+        C --> F[Stop]
+        D --> G[Playing State]
     end
 
-    subgraph Other["Other"]
-        Other_0["virtual void play()"]
-        Other_1["virtual void stop()"]
-        Other_2["virtual bool isBuffering()"]
-        Other_3["virtual bool isPlaying()"]
-        Other_4["virtual void update()"]
-        Other_5["uint m_sourceId()"]
-        Other_6["uchar m_channel()"]
-        Other_7["std::string m_name()"]
-        Other_MORE["+ 6 more..."]
+    subgraph Properties["Audio Properties"]
+        C --> H[Volume]
+        C --> I[Pitch]
+        C --> J[Looping]
+        C --> K[Position 3D]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Output["Audio Output"]
+        G --> L[Audio Mixer]
+        L --> M[OpenAL]
+        M --> N[Audio Device]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style C fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style G fill:#27ae60,stroke:#fff,stroke-width:2px
+    style M fill:#e67e22,stroke:#fff,stroke-width:2px

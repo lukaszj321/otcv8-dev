@@ -1,35 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Graphics Class"]
-        MAIN["Graphics"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["int getMaxTextureSize()"]
-        Getters_1["std::string getVendor()"]
-        Getters_2["std::string getRenderer()"]
-        Getters_3["std::string getVersion()"]
-        Getters_4["std::string getExtensions()"]
-        Getters_5["int getMaxTextureSize()"]
-        Getters_6["std::string getVendor()"]
-        Getters_7["std::string getRenderer()"]
-        Getters_MORE["+ 2 more..."]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Graphics]
     end
 
-    subgraph Other["Other"]
-        Other_0["init()"]
-        Other_1["terminate()"]
-        Other_2["resize(const Size& size)"]
-        Other_3["checkDepthSupport()"]
-        Other_4["bool ok()"]
-        Other_5["checkForError(const std::string& function...)"]
-        Other_6["init()"]
-        Other_7["terminate()"]
-        Other_MORE["+ 4 more..."]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    MAIN --> Getters & Other
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

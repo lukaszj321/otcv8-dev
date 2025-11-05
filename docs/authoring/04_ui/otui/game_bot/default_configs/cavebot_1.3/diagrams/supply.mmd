@@ -1,72 +1,41 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Widget["Supply Widget"]
-        W["Supply<br/>UI Component"]
+graph TD
+    subgraph Definition["Widget Definition"]
+        A[OTUI File] --> B[Supply]
+        B --> C[Parse Properties]
+        C --> D[Create Instance]
     end
-    
+
     subgraph Structure["Widget Structure"]
-        BASE["UIWidget<br/>(Base Class)"]
-        LAYOUT["Layout System"]
-        ANCHORS["Anchor Points"]
+        D --> E[Layout Rules]
+        D --> F[Style Properties]
+        D --> G[Event Bindings]
     end
-    
-    subgraph Properties["Properties & State"]
-        VISIBLE["Visibility"]
-        ENABLED["Enabled State"]
-        FOCUS["Focus State"]
-        SIZE["Size & Position"]
-        STYLE["Style Attributes"]
-    end
-    
-    subgraph Events["Event Handlers"]
-        MOUSE["Mouse Events<br/>(Click, Hover)"]
-        KEYBOARD["Keyboard Events"]
-        FOCUS_EV["Focus Events"]
-        CUSTOM["Custom Events"]
-    end
-    
-    subgraph Children["Child Management"]
-        ADD["Add Child"]
-        REMOVE["Remove Child"]
-        ITERATE["Iterate Children"]
-        DESTROY["Destroy Children"]
-    end
-    
+
     subgraph Rendering["Rendering"]
-        DRAW["Draw Queue"]
-        STYLE_RENDER["Apply Styles"]
-        CLIP["Clipping Region"]
-        TRANSFORM["Transformations"]
+        E --> H[Calculate Geometry]
+        F --> I[Apply Styles]
+        H --> J[Position Widget]
+        I --> J
+        J --> K[Draw to Screen]
     end
-    
-    W --> BASE
-    BASE --> LAYOUT
-    BASE --> ANCHORS
-    
-    W --> VISIBLE
-    W --> ENABLED
-    W --> SIZE
-    VISIBLE --> STYLE
-    
-    W --> MOUSE
-    W --> KEYBOARD
-    MOUSE --> FOCUS_EV
-    KEYBOARD --> FOCUS_EV
-    FOCUS_EV --> CUSTOM
-    
-    W --> ADD
-    ADD --> ITERATE
-    ITERATE --> REMOVE
-    REMOVE --> DESTROY
-    
-    W --> DRAW
-    DRAW --> STYLE_RENDER
-    STYLE_RENDER --> CLIP
-    CLIP --> TRANSFORM
-    
-    style W fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style BASE fill:#1a1a2e,stroke:#4a7f2a
-    style VISIBLE fill:#1a1a2e,stroke:#8b7332
-    style MOUSE fill:#5c4a1f,stroke:#8b7332
-    style ADD fill:#1a1a2e,stroke:#6b3535
-    style DRAW fill:#3d1f1f,stroke:#6b3535
+
+    subgraph Interaction["User Interaction"]
+        L[User Input] --> M{Event Type?}
+        M -.Click.-> N[onClick Handler]
+        M -.Hover.-> O[onHover Handler]
+        M -.Key.-> P[onKey Handler]
+        N --> Q[Lua Callback]
+        O --> Q
+        P --> Q
+    end
+
+    subgraph Updates["Dynamic Updates"]
+        Q --> R[Update State]
+        R --> H
+        S[Data Change] --> R
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style K fill:#27ae60,stroke:#fff,stroke-width:2px
+    style Q fill:#e67e22,stroke:#fff,stroke-width:2px

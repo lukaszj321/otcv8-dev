@@ -1,28 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Fontmanager Class"]
-        MAIN["Fontmanager"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["BitmapFontPtr getFont(const std::string& fontName)"]
-        Getters_1["BitmapFontPtr getDefaultFont()"]
+graph TD
+    subgraph Initialization["Initialization"]
+        A[System Start] --> B[Fontmanager<br/>Singleton]
+        B --> C[Load Configuration]
+        C --> D[Initialize Resources]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setDefaultFont(const std::string& fontName)"]
+    subgraph Management["Resource Management"]
+        D --> E[Create Resources]
+        E --> F[Cache/Store]
+        F --> G[Retrieve/Query]
+        G --> H[Update/Modify]
     end
 
-    subgraph Other["Other"]
-        Other_0["terminate()"]
-        Other_1["clearFonts()"]
-        Other_2["importFont(std::string file)"]
-        Other_3["bool fontExists(const std::string& fontName)"]
+    subgraph Lifecycle["Resource Lifecycle"]
+        E --> I[Active Resources]
+        I --> J[Reference Counting]
+        J -.No Refs.-> K[Cleanup/Release]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Operations["Operations"]
+        G --> L[Query Operations]
+        H --> M[Modify Operations]
+        K --> N[Cleanup Operations]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#27ae60,stroke:#fff,stroke-width:2px

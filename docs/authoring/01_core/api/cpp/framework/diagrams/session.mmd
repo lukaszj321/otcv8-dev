@@ -1,15 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Session Class"]
-        MAIN["Session"]
-    end
-    
-    subgraph Other["Other"]
-        Other_0["start()"]
-        Other_1["cancel()"]
+graph TD
+    subgraph Setup["Connection Setup"]
+        A[Initialize] --> B[Session]
+        B --> C[Configure]
+        C --> D[Connect]
     end
 
-    MAIN --> Other
+    subgraph Communication["Data Communication"]
+        D --> E[Send Data]
+        D --> F[Receive Data]
+        E --> G[Output Buffer]
+        F --> H[Input Buffer]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Processing["Data Processing"]
+        H --> I[Parse/Decode]
+        I --> J[Dispatch to Handlers]
+        K[Prepare Data] --> E
+    end
+
+    subgraph State["Connection State"]
+        D --> L[Connected]
+        L -.Error.-> M[Disconnected]
+        L -.Close.-> M
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style L fill:#27ae60,stroke:#fff,stroke-width:2px
+    style M fill:#e74c3c,stroke:#fff,stroke-width:2px

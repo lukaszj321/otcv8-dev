@@ -1,22 +1,37 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Shader Class"]
-        MAIN["Shader"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["uint getShaderId()"]
-        Getters_1["ShaderType getShaderType()"]
+graph TD
+    subgraph Loading["Shader Loading"]
+        A[Vertex Shader<br/>Source] --> B[Compile]
+        C[Fragment Shader<br/>Source] --> D[Compile]
+        B --> E[Link Program]
+        D --> E
     end
 
-    subgraph Other["Other"]
-        Other_0["bool compileSourceCode(const std::string& sourceCode)"]
-        Other_1["bool compileSourceFile(const std::string& sourceFile)"]
-        Other_2["std::string log()"]
+    subgraph Uniforms["Uniform Management"]
+        E --> F[Query Uniforms]
+        F --> G[Set Matrices]
+        F --> H[Set Textures]
+        F --> I[Set Colors]
+        F --> J[Set Custom Values]
     end
 
-    MAIN --> Getters & Other
+    subgraph Rendering["Shader Usage"]
+        E --> K[Bind Shader]
+        G --> K
+        H --> K
+        I --> K
+        J --> K
+        K --> L[Draw Call]
+        L --> M[GPU Execution]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Pipeline["Graphics Pipeline"]
+        M --> N[Vertex Processing]
+        N --> O[Rasterization]
+        O --> P[Fragment Processing]
+        P --> Q[Output Pixels]
+    end
+
+    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style K fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style M fill:#e67e22,stroke:#fff,stroke-width:2px

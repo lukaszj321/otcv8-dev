@@ -1,40 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Resourcemanager Class"]
-        MAIN["Resourcemanager"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string getCompactName()"]
-        Getters_1["std::string getWorkDir()"]
-        Getters_2["std::string getWriteDir()"]
-        Getters_3["std::string getBinaryName()"]
-        Getters_4["std::string getWriteDir()"]
-        Getters_5["std::string getBinaryName()"]
-        Getters_6["std::string getLayout()"]
+graph TD
+    subgraph Initialization["Initialization"]
+        A[System Start] --> B[Resourcemanager<br/>Singleton]
+        B --> C[Load Configuration]
+        C --> D[Initialize Resources]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["bool setupWriteDir(const std::string& product,...)"]
-        Setters_1["bool setup()"]
-        Setters_2["setLayout(std::string layout)"]
+    subgraph Management["Resource Management"]
+        D --> E[Create Resources]
+        E --> F[Cache/Store]
+        F --> G[Retrieve/Query]
+        G --> H[Update/Modify]
     end
 
-    subgraph Other["Other"]
-        Other_0["init(const char *argv0)"]
-        Other_1["terminate()"]
-        Other_2["bool launchCorrect(const std::string& product,...)"]
-        Other_3["bool loadDataFromSelf(bool unmountIfMounted = false)"]
-        Other_4["bool fileExists(const std::string& fileName)"]
-        Other_5["bool directoryExists(const std::string& director...)"]
-        Other_6["readFileStream(const std::string& fileName...)"]
-        Other_7["std::string readFileContents(const std::string& fileName...)"]
-        Other_MORE["+ 30 more..."]
+    subgraph Lifecycle["Resource Lifecycle"]
+        E --> I[Active Resources]
+        I --> J[Reference Counting]
+        J -.No Refs.-> K[Cleanup/Release]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Operations["Operations"]
+        G --> L[Query Operations]
+        H --> M[Modify Operations]
+        K --> N[Cleanup Operations]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#27ae60,stroke:#fff,stroke-width:2px

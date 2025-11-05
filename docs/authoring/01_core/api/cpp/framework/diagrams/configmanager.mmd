@@ -1,27 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Configmanager Class"]
-        MAIN["Configmanager"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["ConfigPtr getSettings()"]
-        Getters_1["ConfigPtr get(const std::string& file)"]
+graph TD
+    subgraph Loading["Configuration Loading"]
+        A[Config File] --> B[Parse Configmanager]
+        B --> C[Validate Structure]
+        C --> D[Build Tree]
     end
 
-    subgraph Other["Other"]
-        Other_0["init()"]
-        Other_1["terminate()"]
-        Other_2["ConfigPtr create(const std::string& file)"]
-        Other_3["ConfigPtr loadSettings(const std::string file)"]
-        Other_4["ConfigPtr load(const std::string& file)"]
-        Other_5["bool unload(const std::string& file)"]
-        Other_6["remove(const ConfigPtr config)"]
-        Other_7["ConfigPtr m_settings()"]
+    subgraph Access["Data Access"]
+        D --> E[Read Values]
+        E --> F[Type Conversion]
+        F --> G[Return to Application]
     end
 
-    MAIN --> Getters & Other
+    subgraph Modification["Modification"]
+        H[Update Values] --> D
+        I[Add Nodes] --> D
+        J[Remove Nodes] --> D
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Persistence["Save Configuration"]
+        D --> K[Serialize]
+        K --> L[Format Output]
+        L --> M[Write to File]
+    end
+
+    style D fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style M fill:#27ae60,stroke:#fff,stroke-width:2px

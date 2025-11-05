@@ -1,14 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Otmlparser Class"]
-        MAIN["Otmlparser"]
-    end
-    
-    subgraph Other["Other"]
-        Other_0["parse()"]
+graph TD
+    subgraph Loading["Configuration Loading"]
+        A[Config File] --> B[Parse Otmlparser]
+        B --> C[Validate Structure]
+        C --> D[Build Tree]
     end
 
-    MAIN --> Other
+    subgraph Access["Data Access"]
+        D --> E[Read Values]
+        E --> F[Type Conversion]
+        F --> G[Return to Application]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Modification["Modification"]
+        H[Update Values] --> D
+        I[Add Nodes] --> D
+        J[Remove Nodes] --> D
+    end
+
+    subgraph Persistence["Save Configuration"]
+        D --> K[Serialize]
+        K --> L[Format Output]
+        L --> M[Write to File]
+    end
+
+    style D fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style M fill:#27ae60,stroke:#fff,stroke-width:2px

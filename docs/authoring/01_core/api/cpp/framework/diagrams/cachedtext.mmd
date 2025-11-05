@@ -1,32 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Cachedtext Class"]
-        MAIN["Cachedtext"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["Size getTextSize()"]
-        Getters_1["std::string getText()"]
-        Getters_2["BitmapFontPtr getFont()"]
-        Getters_3["Fw::AlignmentFlag getAlign()"]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Cachedtext]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setFont(const BitmapFontPtr& font)"]
-        Setters_1["setText(const std::string& text)"]
-        Setters_2["setColoredText(const std::vector<std::stri...)"]
-        Setters_3["setAlign(Fw::AlignmentFlag align)"]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Other["Other"]
-        Other_0["draw(const Rect& rect, const Col...)"]
-        Other_1["wrapText(int maxWidth)"]
-        Other_2["bool hasText()"]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

@@ -1,33 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Size Class"]
-        MAIN["Size"]
-    end
-    
-    subgraph Setters["Setters"]
-        Setters_0["setWidth(T w)"]
-        Setters_1["setHeight(T h)"]
+graph TD
+    subgraph Creation["Creation & Initialization"]
+        A[Constructor] --> B[Size Object]
+        C[From Values] --> B
     end
 
-    subgraph Operators["Operators"]
-        Operators_0["bool operator==()"]
+    subgraph Operations["Mathematical Operations"]
+        B --> D[Arithmetic Ops]
+        B --> E[Comparison]
+        B --> F[Transformation]
     end
 
-    subgraph Other["Other"]
-        Other_0["TPoint<T> toPoint()"]
-        Other_1["bool isNull()"]
-        Other_2["bool isEmpty()"]
-        Other_3["bool isValid()"]
-        Other_4["T width()"]
-        Other_5["T height()"]
-        Other_6["resize(T w, T h)"]
-        Other_7["TSize<T> expandedTo()"]
-        Other_MORE["+ 7 more..."]
+    subgraph Usage["Common Usage"]
+        F --> G[Geometry Calculations]
+        F --> H[Collision Detection]
+        F --> I[Rendering Positions]
     end
 
-    MAIN --> Setters & Operators & Other
-
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Operators fill:#1a1a2e,stroke:#6b3535
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#27ae60,stroke:#fff,stroke-width:2px

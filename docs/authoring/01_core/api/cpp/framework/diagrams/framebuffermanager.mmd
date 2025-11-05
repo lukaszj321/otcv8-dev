@@ -1,20 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Framebuffermanager Class"]
-        MAIN["Framebuffermanager"]
-    end
-    
-    subgraph Other["Other"]
-        Other_0["init()"]
-        Other_1["terminate()"]
-        Other_2["clear()"]
-        Other_3["FrameBufferPtr createFrameBuffer(bool withDepth = false)"]
-        Other_4["FrameBufferPtr m_temporaryFramebuffer()"]
-        Other_5["FrameBufferPtr m_drawQueueTemporaryFramebuffer()"]
-        Other_6["std::vector<FrameBufferPtr> m_framebuffers()"]
+graph TD
+    subgraph Initialization["Initialization"]
+        A[System Start] --> B[Framebuffermanager<br/>Singleton]
+        B --> C[Load Configuration]
+        C --> D[Initialize Resources]
     end
 
-    MAIN --> Other
+    subgraph Management["Resource Management"]
+        D --> E[Create Resources]
+        E --> F[Cache/Store]
+        F --> G[Retrieve/Query]
+        G --> H[Update/Modify]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Lifecycle["Resource Lifecycle"]
+        E --> I[Active Resources]
+        I --> J[Reference Counting]
+        J -.No Refs.-> K[Cleanup/Release]
+    end
+
+    subgraph Operations["Operations"]
+        G --> L[Query Operations]
+        H --> M[Modify Operations]
+        K --> N[Cleanup Operations]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#27ae60,stroke:#fff,stroke-width:2px

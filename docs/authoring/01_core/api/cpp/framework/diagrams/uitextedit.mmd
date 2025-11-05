@@ -1,48 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Uitextedit Class"]
-        MAIN["Uitextedit"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string getDisplayedText()"]
-        Getters_1["std::string getSelection()"]
-        Getters_2["int getTextPos(Point pos)"]
-        Getters_3["int getCursorPos()"]
-        Getters_4["Point getTextVirtualOffset()"]
-        Getters_5["Size getTextVirtualSize()"]
-        Getters_6["Size getTextTotalSize()"]
-        Getters_7["uint getMaxLength()"]
-        Getters_MORE["+ 4 more..."]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Uitextedit]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setCursorPos(int pos)"]
-        Setters_1["setSelection(int start, int end)"]
-        Setters_2["setCursorVisible(bool enable)"]
-        Setters_3["setTextHidden(bool hidden)"]
-        Setters_4["setValidCharacters(const std::string validChar...)"]
-        Setters_5["setShiftNavigation(bool enable)"]
-        Setters_6["setMultiline(bool enable)"]
-        Setters_7["setMaxLength(uint maxLength)"]
-        Setters_MORE["+ 11 more..."]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Other["Other"]
-        Other_0["drawSelf(Fw::DrawPane drawPane)"]
-        Other_1["moveCursorHorizontally(bool right)"]
-        Other_2["moveCursorVertically(bool up)"]
-        Other_3["appendText(std::string text)"]
-        Other_4["appendCharacter(char c)"]
-        Other_5["removeCharacter(bool right)"]
-        Other_6["blinkCursor()"]
-        Other_7["del(bool right = false)"]
-        Other_MORE["+ 25 more..."]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

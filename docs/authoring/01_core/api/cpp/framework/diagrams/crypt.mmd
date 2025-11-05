@@ -1,32 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Crypt Class"]
-        MAIN["Crypt"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["std::string getMachineUUID()"]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Crypt]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["bool setMachineUUID(std::string uuidstr)"]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Other["Other"]
-        Other_0["std::string base64Encode(const std::string& decoded_...)"]
-        Other_1["std::string base64Decode(const std::string& encoded_...)"]
-        Other_2["std::string xorCrypt(const std::string& buffer, ...)"]
-        Other_3["std::string encrypt(const std::string& decrypte...)"]
-        Other_4["std::string decrypt(const std::string& encrypte...)"]
-        Other_5["std::string genUUID()"]
-        Other_6["std::string md5Encode(const std::string& decoded_...)"]
-        Other_7["std::string sha1Encode(const std::string& decoded_...)"]
-        Other_MORE["+ 12 more..."]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

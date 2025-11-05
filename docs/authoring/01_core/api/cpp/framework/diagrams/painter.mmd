@@ -1,92 +1,37 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Painter {
-        +BlendEquation()
-        +CompositionMode()
-        +DepthFunc()
-        +DrawMode()
-        +bind()
-        +unbind()
-        +resetState()
-        +refreshState()
-        +saveState()
-        +saveAndResetState()
-        +restoreSavedState()
-        +clear()
-        +clearRect()
-        +setTransformMatrix()
-        +setProjectionMatrix()
-        +setTextureMatrix()
-        +setCompositionMode()
-        +setBlendEquation()
-        +setDepthFunc()
-        +setClipRect()
-        +setShaderProgram()
-        +setTexture()
-        +setAlphaWriting()
-        +setResolution()
-        +scale()
-        +translate()
-        +rotate()
-        +rotate()
-        +pushTransformMatrix()
-        +popTransformMatrix()
-        +getTransformMatrix()
-        +getProjectionMatrix()
-        +getTextureMatrix()
-        +getBlendEquation()
-        +getAlphaWriting()
-        +resetBlendEquation()
-        +resetTexture()
-        +resetAlphaWriting()
-        +resetTransformMatrix()
-        +drawCoords()
-        +drawFillCoords()
-        +drawTextureCoords()
-        +drawTexturedRect()
-        +drawTexturedRect()
-        +drawColorOnTexturedRect()
-        +drawUpsideDownTexturedRect()
-        +drawRepeatedTexturedRect()
-        +drawFilledRect()
-        +setDrawProgram()
-        +hasShaders()
-        +drawText()
-        +drawText()
-        +drawLine()
-        +setSecondTexture()
-        +setOffset()
-        +setAtlasTextures()
-        +drawCache()
-        +setColor()
-        +setShaderProgram()
-        +scale()
-        +translate()
-        +rotate()
-        +setDepth()
-        +getDepth()
-        +getDepthFunc()
-        +resetDepth()
-        +resetDepthFunc()
-        +getResolution()
-        +getColor()
-        +getClipRect()
-        +getCompositionMode()
-        +resetClipRect()
-        +resetCompositionMode()
-        +resetColor()
-        +resetShaderProgram()
-        +draws()
-        +calls()
-        +resetDraws()
-        +setDrawColorOnTextureShaderProgram()
-        +setMatrixColor()
-        +setDrawOutfitLayersProgram()
-        +updateGlTexture()
-        +updateGlCompositionMode()
-        +updateGlBlendEquation()
-        +updateGlClipRect()
-        +updateGlAlphaWriting()
-        +updateGlViewport()
-        +updateDepthFunc()
-    }
+graph TD
+    subgraph Setup["Drawing Setup"]
+        A["Set Color"] --> B[Painter State]
+        C["Set Texture"] --> B
+        D["Set Shader"] --> B
+        E["Set Clip Rect"] --> B
+    end
+
+    subgraph Drawing["Drawing Operations"]
+        B --> F["Draw Rectangle"]
+        B --> G["Draw Textured Rect"]
+        B --> H["Draw Triangle"]
+        B --> I["Draw Line"]
+        B --> J["Draw Text"]
+    end
+
+    subgraph Batching["Render Batching"]
+        F --> K[Geometry Buffer]
+        G --> K
+        H --> K
+        I --> K
+        J --> L[Text Buffer]
+        K --> M["Batch Draw Call"]
+        L --> M
+    end
+
+    subgraph Output["Final Output"]
+        M --> N["OpenGL Commands"]
+        N --> O["Frame Buffer"]
+        O --> P["Screen Display"]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style K fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style M fill:#e67e22,stroke:#fff,stroke-width:2px
+    style P fill:#27ae60,stroke:#fff,stroke-width:2px

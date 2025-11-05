@@ -1,34 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Framebuffer Class"]
-        MAIN["Framebuffer"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["TexturePtr getTexture()"]
-        Getters_1["Size getSize()"]
-        Getters_2["uint getDepthRenderBuffer()"]
+graph TD
+    subgraph Creation["FBO Creation"]
+        A[Create Framebuffer] --> B[Attach Texture]
+        B --> C[Attach Depth Buffer]
+        C --> D[Check Completeness]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setSmooth(bool enabled)"]
+    subgraph Rendering["Render to Texture"]
+        D --> E[Bind FBO]
+        E --> F[Set Viewport]
+        F --> G[Draw Scene]
+        G --> H[Unbind FBO]
     end
 
-    subgraph Other["Other"]
-        Other_0["resize(const Size& size)"]
-        Other_1["bind(const FrameBufferPtr& depth...)"]
-        Other_2["release()"]
-        Other_3["draw()"]
-        Other_4["draw(const Rect& dest)"]
-        Other_5["draw(const Rect& dest, const Rec...)"]
-        Other_6["bool isSmooth()"]
-        Other_7["bool hasDepth()"]
-        Other_MORE["+ 2 more..."]
+    subgraph Usage["Texture Usage"]
+        H --> I[FBO Texture]
+        I --> J[Post-Processing]
+        I --> K[UI Rendering]
+        I --> L[Effects<br/>(Blur, Glow)]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Output["Final Output"]
+        J --> M[Screen FBO]
+        K --> M
+        L --> M
+        M --> N[Display]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style N fill:#27ae60,stroke:#fff,stroke-width:2px

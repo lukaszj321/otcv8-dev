@@ -1,42 +1,34 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Sdlwindow {
-        +EventType()
-        +NativeMessage()
-        +internalInitGL()
-        +internalDestroyGL()
-        +internalCheckGL()
-        +internalChooseGL()
-        +internalCreateGLContext()
-        +internalDestroyGLContext()
-        +internalConnectGLContext()
-        +init()
-        +terminate()
-        +move()
-        +resize()
-        +show()
-        +hide()
-        +minimize()
-        +maximize()
-        +poll()
-        +swapBuffers()
-        +showMouse()
-        +hideMouse()
-        +setMouseCursor()
-        +restoreMouseCursor()
-        +setTitle()
-        +setMinimumSize()
-        +setFullscreen()
-        +setVerticalSync()
-        +setIcon()
-        +setClipboardText()
-        +getDisplaySize()
-        +getClipboardText()
-        +getPlatformType()
-        +displayFatalError()
-        +showTextEditor()
-        +updateSize()
-        +handleTextInput()
-        +openUrl()
-        +internalLoadMouseCursor()
-    }
+graph TD
+    subgraph Creation["Window Creation"]
+        A[Platform Init] --> B[Create Sdlwindow]
+        B --> C[Set Properties]
+        C --> D[Initialize Graphics Context]
+    end
+
+    subgraph Events["Event Handling"]
+        E[OS Events] --> F[Input Processing]
+        F --> G[Keyboard Events]
+        F --> H[Mouse Events]
+        F --> I[Window Events]
+    end
+
+    subgraph Rendering["Rendering Loop"]
+        D --> J[Make Context Current]
+        J --> K[Render Frame]
+        K --> L[Swap Buffers]
+        L --> J
+    end
+
+    subgraph Control["Window Control"]
+        M[Show/Hide]
+        N[Resize]
+        O[Fullscreen Toggle]
+        P[Close]
+    end
+
+    B --> E
+    I --> Control
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style K fill:#e67e22,stroke:#fff,stroke-width:2px

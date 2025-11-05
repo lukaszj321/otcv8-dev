@@ -1,31 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["ProxyClient Class"]
-        MAIN["ProxyClient"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["uint32_t getPing()"]
-        Getters_1["uint32_t getRealPing()"]
-        Getters_2["uint32_t getPriority()"]
-        Getters_3["std::string getHost()"]
-        Getters_4["uint16_t getPort()"]
-        Getters_5["std::string getDebugInfo()"]
+graph TD
+    subgraph Setup["Connection Setup"]
+        A[Initialize] --> B[Proxy_Client]
+        B --> C[Configure]
+        C --> D[Connect]
     end
 
-    subgraph Other["Other"]
-        Other_0[": m_io(io)"]
-        Other_1["start()"]
-        Other_2["terminate()"]
-        Other_3["bool isConnected()"]
-        Other_4["bool isActive()"]
-        Other_5["addSession(uint32_t id, int m_port)"]
-        Other_6["removeSession(uint32_t id)"]
-        Other_7["send(const ProxyPacketPtr& packet)"]
+    subgraph Communication["Data Communication"]
+        D --> E[Send Data]
+        D --> F[Receive Data]
+        E --> G[Output Buffer]
+        F --> H[Input Buffer]
     end
 
-    MAIN --> Getters & Other
+    subgraph Processing["Data Processing"]
+        H --> I[Parse/Decode]
+        I --> J[Dispatch to Handlers]
+        K[Prepare Data] --> E
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph State["Connection State"]
+        D --> L[Connected]
+        L -.Error.-> M[Disconnected]
+        L -.Close.-> M
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style L fill:#27ae60,stroke:#fff,stroke-width:2px
+    style M fill:#e74c3c,stroke:#fff,stroke-width:2px

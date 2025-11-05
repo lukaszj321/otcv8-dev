@@ -1,31 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Luabinder {
-        +luabinder()
-        +call()
-        +call()
-        +call()
-        +call()
-        +bind_fun_specializer()
-        +bind_fun()
-        +bind_fun()
-        +call()
-        +decltype()
-        +bind_fun()
-        +bind_fun()
-        +LuaException()
-        +mf()
-        +LuaException()
-        +make_mem_func_singleton()
-        +make_mem_func_singleton()
-        +bind_mem_fun()
-        +bind_singleton_mem_fun()
-        +bind_mem_fun()
-        +mf()
-        +ValueType()
-        +Tuple()
-        +Tuple()
-        +F()
-        +Tuple()
-        +Tuple()
-    }
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Luabinder]
+    end
+
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
+    end
+
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
+    end
+
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

@@ -1,30 +1,33 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Bitmapfont Class"]
-        MAIN["Bitmapfont"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["int getId()"]
-        Getters_1["std::string getName()"]
-        Getters_2["int getGlyphHeight()"]
-        Getters_3["int getYOffset()"]
-        Getters_4["Size getGlyphSpacing()"]
+graph TD
+    subgraph Loading["Font Loading"]
+        A[Font File<br/>(.otfont)] --> B[Parse Metadata]
+        B --> C[Load Glyph Atlas]
+        C --> D[BitmapFont Object]
     end
 
-    subgraph Other["Other"]
-        Other_0["load(const OTMLNodePtr& fontNode)"]
-        Other_1["drawText(const std::string& text, co...)"]
-        Other_2["void drawText()"]
-        Other_3["void drawColoredText()"]
-        Other_4["void calculateDrawTextCoords()"]
-        Other_5["Fw::AlignmentFlag align = Fw::AlignTopLeft,()"]
-        Other_6["Size calculateTextRectSize(const std::string& text)"]
-        Other_7["std::string wrapText(const std::string& text, in...)"]
+    subgraph Glyphs["Glyph Data"]
+        D --> E[Glyph Positions]
+        D --> F[Glyph Sizes]
+        D --> G[Kerning Data]
+        D --> H[Texture Atlas]
     end
 
-    MAIN --> Getters & Other
+    subgraph Rendering["Text Rendering"]
+        I[Text String] --> J[Calculate Layout]
+        E --> J
+        F --> J
+        G --> J
+        J --> K[Generate Quads]
+        K --> L[Texture Coords]
+        H --> L
+        L --> M[Draw Text]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Other fill:#1a1a2e,stroke:#6b3535
+    subgraph Output["Rendered Text"]
+        M --> N[Text on Screen]
+    end
+
+    style D fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style K fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style N fill:#27ae60,stroke:#fff,stroke-width:2px

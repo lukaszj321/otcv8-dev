@@ -1,42 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Image Class"]
-        MAIN["Image"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["int getPixelCount()"]
-        Getters_1["int getWidth()"]
-        Getters_2["int getHeight()"]
-        Getters_3["int getBpp()"]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Image]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setPixel(int x, int y, uint8 *pixel)"]
-        Setters_1["setPixel(int x, int y, uint32_t argb)"]
-        Setters_2["setPixel(int x, int y, const Color& ...)"]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Static["Static"]
-        Static_0["static ImagePtr load()"]
-        Static_1["static ImagePtr loadPNG()"]
-        Static_2["static ImagePtr loadPNG()"]
-        Static_3["static ImagePtr fromQRCode()"]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    subgraph Other["Other"]
-        Other_0["savePNG(const std::string& fileName)"]
-        Other_1["blit(const Point& dest, const Im...)"]
-        Other_2["paste(const ImagePtr& other)"]
-        Other_3["ImagePtr upscale()"]
-        Other_4["resize(const Size& size)"]
-        Other_5["bool nextMipmap()"]
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
     end
 
-    MAIN --> Getters & Setters & Static & Other
-
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Static fill:#5c4a1f,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

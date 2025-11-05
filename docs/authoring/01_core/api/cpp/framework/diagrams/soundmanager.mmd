@@ -1,32 +1,31 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Soundmanager Class"]
-        MAIN["Soundmanager"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["SoundChannelPtr getChannel(int channel)"]
+graph TD
+    subgraph Loading["Sound Loading"]
+        A["Sound File<br/>(OGG)"] --> B["Decode Audio"]
+        B --> C["Sound Buffer"]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setAudioEnabled(bool enable)"]
+    subgraph Playback["Sound Playback"]
+        C --> D["Create Source"]
+        D --> E{Source Type}
+        E -.Static.-> F["Buffer Source"]
+        E -.Streaming.-> G["Stream Source"]
     end
 
-    subgraph Other["Other"]
-        Other_0["init()"]
-        Other_1["terminate()"]
-        Other_2["poll()"]
-        Other_3["bool isAudioEnabled()"]
-        Other_4["enableAudio()"]
-        Other_5["disableAudio()"]
-        Other_6["stopAll()"]
-        Other_7["preload(std::string filename)"]
-        Other_MORE["+ 3 more..."]
+    subgraph Mixing["Audio Mixing"]
+        F --> H["Audio Mixer"]
+        G --> H
+        H --> I["Channel Management"]
+        I --> J["Volume Control"]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Output["Audio Output"]
+        J --> K["OpenAL Backend"]
+        K --> L["Audio Device"]
+        L --> M["Speakers/Headphones"]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style C fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style K fill:#e67e22,stroke:#fff,stroke-width:2px
+    style M fill:#27ae60,stroke:#fff,stroke-width:2px

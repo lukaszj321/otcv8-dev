@@ -1,41 +1,28 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Filestream Class"]
-        MAIN["Filestream"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["uint8 getU8()"]
-        Getters_1["uint16 getU16()"]
-        Getters_2["uint32 getU32()"]
-        Getters_3["uint64 getU64()"]
-        Getters_4["int8 get8()"]
-        Getters_5["int16 get16()"]
-        Getters_6["int32 get32()"]
-        Getters_7["int64 get64()"]
-        Getters_MORE["+ 12 more..."]
+graph TD
+    subgraph Interface["Public Interface"]
+        A[Application Code] --> B[Filestream]
     end
 
-    subgraph Static["Static"]
-        Static_0["FileStreamPtr asFileStream()"]
-        Static_1["FileStreamPtr asFileStream()"]
+    subgraph Operations["Core Operations"]
+        B --> C[Primary Function]
+        B --> D[Helper Functions]
+        B --> E[Utility Methods]
     end
 
-    subgraph Other["Other"]
-        Other_0["close()"]
-        Other_1["flush()"]
-        Other_2["write(const void *buffer, uint count)"]
-        Other_3["int read(void *buffer, uint size, ui...)"]
-        Other_4["seek(uint pos)"]
-        Other_5["skip(uint len)"]
-        Other_6["uint size()"]
-        Other_7["uint tell()"]
-        Other_MORE["+ 38 more..."]
+    subgraph Processing["Data Processing"]
+        C --> F[Process Input]
+        F --> G[Transform Data]
+        G --> H[Return Result]
     end
 
-    MAIN --> Getters & Static & Other
+    subgraph Integration["System Integration"]
+        H --> I[Used by Components]
+        I --> J[Game Logic]
+        I --> K[Rendering]
+        I --> L[Networking]
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Static fill:#5c4a1f,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style H fill:#27ae60,stroke:#fff,stroke-width:2px

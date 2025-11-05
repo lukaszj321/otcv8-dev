@@ -1,17 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Proxy {
-        +init()
-        +terminate()
-        +clear()
-        +setMaxActiveProxies()
-        +isActive()
-        +addProxy()
-        +removeProxy()
-        +addSession()
-        +removeSession()
-        +send()
-        +getProxies()
-        +getProxiesDebugInfo()
-        +getPing()
-    }
+graph TD
+    subgraph Setup["Connection Setup"]
+        A[Initialize] --> B[Proxy]
+        B --> C[Configure]
+        C --> D[Connect]
+    end
+
+    subgraph Communication["Data Communication"]
+        D --> E[Send Data]
+        D --> F[Receive Data]
+        E --> G[Output Buffer]
+        F --> H[Input Buffer]
+    end
+
+    subgraph Processing["Data Processing"]
+        H --> I[Parse/Decode]
+        I --> J[Dispatch to Handlers]
+        K[Prepare Data] --> E
+    end
+
+    subgraph State["Connection State"]
+        D --> L[Connected]
+        L -.Error.-> M[Disconnected]
+        L -.Close.-> M
+    end
+
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style L fill:#27ae60,stroke:#fff,stroke-width:2px
+    style M fill:#e74c3c,stroke:#fff,stroke-width:2px

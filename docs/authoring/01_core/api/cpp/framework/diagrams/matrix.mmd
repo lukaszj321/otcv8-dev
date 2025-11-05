@@ -1,27 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Matrix Class"]
-        MAIN["Matrix"]
-    end
-    
-    subgraph Setters["Setters"]
-        Setters_0["setIdentity()"]
+graph TD
+    subgraph Creation["Creation & Initialization"]
+        A[Constructor] --> B[Matrix Object]
+        C[From Values] --> B
     end
 
-    subgraph Operators["Operators"]
-        Operators_0["T operator()"]
-        Operators_1["bool operator==()"]
+    subgraph Operations["Mathematical Operations"]
+        B --> D[Arithmetic Ops]
+        B --> E[Comparison]
+        B --> F[Transformation]
     end
 
-    subgraph Other["Other"]
-        Other_0["bool isIdentity()"]
-        Other_1["fill(T value)"]
-        Other_2["Matrix<M,N,T> transposed()"]
+    subgraph Usage["Common Usage"]
+        F --> G[Geometry Calculations]
+        F --> H[Collision Detection]
+        F --> I[Rendering Positions]
     end
 
-    MAIN --> Setters & Operators & Other
-
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Operators fill:#1a1a2e,stroke:#6b3535
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style I fill:#27ae60,stroke:#fff,stroke-width:2px

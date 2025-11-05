@@ -1,39 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TB
-    subgraph Class["Uigridlayout Class"]
-        MAIN["Uigridlayout"]
-    end
-    
-    subgraph Getters["Getters"]
-        Getters_0["Size getCellSize()"]
-        Getters_1["int getCellSpacing()"]
-        Getters_2["int getNumColumns()"]
-        Getters_3["int getNumLines()"]
+graph TD
+    subgraph Configuration["Layout Configuration"]
+        A[Widget Tree] --> B[Uigridlayout]
+        B --> C[Parse Rules]
     end
 
-    subgraph Setters["Setters"]
-        Setters_0["setCellSize(const Size& size)"]
-        Setters_1["setCellWidth(int width)"]
-        Setters_2["setCellHeight(int height)"]
-        Setters_3["setCellSpacing(int spacing)"]
-        Setters_4["setNumColumns(int columns)"]
-        Setters_5["setNumLines(int lines)"]
-        Setters_6["setAutoSpacing(bool enable)"]
-        Setters_7["setFitChildren(bool enable)"]
-        Setters_MORE["+ 1 more..."]
+    subgraph Calculation["Layout Calculation"]
+        C --> D[Measure Widgets]
+        D --> E[Calculate Positions]
+        E --> F[Calculate Sizes]
+        F --> G[Apply Constraints]
     end
 
-    subgraph Other["Other"]
-        Other_0["applyStyle(const OTMLNodePtr& styleNode)"]
-        Other_1["removeWidget(const UIWidgetPtr& widget)"]
-        Other_2["addWidget(const UIWidgetPtr& widget)"]
-        Other_3["virtual bool isUIGridLayout()"]
-        Other_4["bool internalUpdate()"]
+    subgraph Application["Apply Layout"]
+        G --> H[Update Widget Geometry]
+        H --> I[Position Children]
+        I --> J[Trigger Render]
     end
 
-    MAIN --> Getters & Setters & Other
+    subgraph Updates["Dynamic Updates"]
+        K[Widget Added/Removed] --> D
+        L[Window Resize] --> D
+        M[Content Change] --> D
+    end
 
-    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
-    style Getters fill:#1a1a2e,stroke:#4a7f2a
-    style Setters fill:#1a1a2e,stroke:#8b7332
-    style Other fill:#1a1a2e,stroke:#6b3535
+    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
+    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
+    style J fill:#27ae60,stroke:#fff,stroke-width:2px
