@@ -1,20 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Vertexarray {
-        +addVertex()
-        +addTriangle()
-        +addRect()
-        +addRect()
-        +addQuad()
-        +addUpsideDownQuad()
-        +clear()
-        +vertexCount()
-        +size()
-        +cache()
-        +isCached()
-        +m_hardwareBuffer()
-        +top()
-        +right()
-        +bottom()
-        +left()
-    }
+graph TB
+    subgraph Class["Vertexarray Class"]
+        MAIN["Vertexarray"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["delete m_hardwareBuffer()"]
+        Other_1["inline void addVertex()"]
+        Other_2["inline void addTriangle()"]
+        Other_3["inline void addRect()"]
+        Other_4["float top = rect.top()"]
+        Other_5["float right = rect.right()"]
+        Other_6["float bottom = rect.bottom()"]
+        Other_7["float left = rect.left()"]
+        Other_MORE["+ 20 more..."]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

@@ -1,18 +1,29 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Coordsbuffer {
-        +clear()
-        +addTriangle()
-        +addRect()
-        +addRect()
-        +addRect()
-        +addQuad()
-        +addUpsideDownQuad()
-        +addBoudingRect()
-        +addRepeatedRects()
-        +getVertexCount()
-        +getTextureCoordCount()
-        +unlock()
-        +cache()
-        +getTextureRect()
-    }
+graph TB
+    subgraph Class["Coordsbuffer Class"]
+        MAIN["Coordsbuffer"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int getVertexCount()"]
+        Getters_1["int getTextureCoordCount()"]
+        Getters_2["Rect getTextureRect()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["clear()"]
+        Other_1["addTriangle(const Point& a, const Point...)"]
+        Other_2["addRect(const Rect& dest)"]
+        Other_3["addRect(const Rect& dest, const Rec...)"]
+        Other_4["addRect(const RectF& dest, const Re...)"]
+        Other_5["addQuad(const Rect& dest, const Rec...)"]
+        Other_6["addUpsideDownQuad(const Rect& dest, const Rec...)"]
+        Other_7["addBoudingRect(const Rect& dest, int inner...)"]
+        Other_MORE["+ 3 more..."]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

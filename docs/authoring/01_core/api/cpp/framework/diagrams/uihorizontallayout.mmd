@@ -1,8 +1,23 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uihorizontallayout {
-        +applyStyle
-        +setAlignRight
-        +isUIHorizontalLayout
-        +internalUpdate
-    }
+graph TB
+    subgraph Class["Uihorizontallayout Class"]
+        MAIN["Uihorizontallayout"]
+    end
+    
+    subgraph Setters["Setters"]
+        Setters_0["setAlignRight(bool aliginRight)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["applyStyle(const OTMLNodePtr& styleNode)"]
+        Other_1["bool isUIHorizontalLayout()"]
+        Other_2["bool internalUpdate()"]
+        Other_3["Fw::AlignmentFlag m_alignChidren()"]
+        Other_4["stdext::boolean<false> m_alignRight()"]
+    end
+
+    MAIN --> Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

@@ -1,11 +1,42 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Soundsource {
-        +FadeState
-        +setName
-        +getName
-        +getChannel
-        +getGain
-        +setBuffer
-        +setChannel
-    }
+graph TB
+    subgraph Class["Soundsource Class"]
+        MAIN["Soundsource"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getName()"]
+        Getters_1["uchar getChannel()"]
+        Getters_2["float getGain()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setName(const std::string& name)"]
+        Setters_1["virtual void setLooping()"]
+        Setters_2["virtual void setRelative()"]
+        Setters_3["virtual void setReferenceDistance()"]
+        Setters_4["virtual void setGain()"]
+        Setters_5["virtual void setPitch()"]
+        Setters_6["virtual void setPosition()"]
+        Setters_7["virtual void setVelocity()"]
+        Setters_MORE["+ 3 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["virtual void play()"]
+        Other_1["virtual void stop()"]
+        Other_2["virtual bool isBuffering()"]
+        Other_3["virtual bool isPlaying()"]
+        Other_4["virtual void update()"]
+        Other_5["uint m_sourceId()"]
+        Other_6["uchar m_channel()"]
+        Other_7["std::string m_name()"]
+        Other_MORE["+ 6 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

@@ -1,16 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Cachedtext {
-        +draw()
-        +wrapText()
-        +setFont()
-        +setText()
-        +setColoredText()
-        +setAlign()
-        +getTextSize()
-        +getText()
-        +getFont()
-        +getAlign()
-        +hasText()
-        +update()
-    }
+graph TB
+    subgraph Class["Cachedtext Class"]
+        MAIN["Cachedtext"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["Size getTextSize()"]
+        Getters_1["std::string getText()"]
+        Getters_2["BitmapFontPtr getFont()"]
+        Getters_3["Fw::AlignmentFlag getAlign()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setFont(const BitmapFontPtr& font)"]
+        Setters_1["setText(const std::string& text)"]
+        Setters_2["setColoredText(const std::vector<std::stri...)"]
+        Setters_3["setAlign(Fw::AlignmentFlag align)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["draw(const Rect& rect, const Col...)"]
+        Other_1["wrapText(int maxWidth)"]
+        Other_2["bool hasText()"]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

@@ -1,17 +1,27 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Matrix {
-        +setIdentity()
-        +isIdentity()
-        +fill()
-        +transposed()
-        +operator()
-        +result()
-        +c()
-        +Matrix4x4()
-        +Matrix3x3()
-        +Matrix2x2()
-        +Matrix4()
-        +Matrix3()
-        +Matrix2()
-    }
+graph TB
+    subgraph Class["Matrix Class"]
+        MAIN["Matrix"]
+    end
+    
+    subgraph Setters["Setters"]
+        Setters_0["setIdentity()"]
+    end
+
+    subgraph Operators["Operators"]
+        Operators_0["T operator()"]
+        Operators_1["bool operator==()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["bool isIdentity()"]
+        Other_1["fill(T value)"]
+        Other_2["Matrix<M,N,T> transposed()"]
+    end
+
+    MAIN --> Setters & Operators & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Operators fill:#1a1a2e,stroke:#6b3535
+    style Other fill:#1a1a2e,stroke:#6b3535

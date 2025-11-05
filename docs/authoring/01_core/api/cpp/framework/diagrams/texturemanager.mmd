@@ -1,11 +1,24 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Texturemanager {
-        +init
-        +terminate
-        +clearCache
-        +reload
-        +preload
-        +getTexture
-        +loadTexture
-    }
+graph TB
+    subgraph Class["Texturemanager Class"]
+        MAIN["Texturemanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["TexturePtr getTexture(const std::string& fileName)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["clearCache()"]
+        Other_3["reload()"]
+        Other_4["preload(const std::string& fileName)"]
+        Other_5["TexturePtr loadTexture(std::stringstream& file, co...)"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

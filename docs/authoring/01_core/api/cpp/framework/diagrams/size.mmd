@@ -1,24 +1,33 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Size {
-        +toPoint()
-        +isNull()
-        +isEmpty()
-        +isValid()
-        +width()
-        +height()
-        +resize()
-        +setWidth()
-        +setHeight()
-        +expandedTo()
-        +boundedTo()
-        +scale()
-        +scale()
-        +ratio()
-        +area()
-        +Size()
-        +SizeF()
-        +operator()
-        +useHeight()
-        +rw()
-    }
+graph TB
+    subgraph Class["Size Class"]
+        MAIN["Size"]
+    end
+    
+    subgraph Setters["Setters"]
+        Setters_0["setWidth(T w)"]
+        Setters_1["setHeight(T h)"]
+    end
+
+    subgraph Operators["Operators"]
+        Operators_0["bool operator==()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["TPoint<T> toPoint()"]
+        Other_1["bool isNull()"]
+        Other_2["bool isEmpty()"]
+        Other_3["bool isValid()"]
+        Other_4["T width()"]
+        Other_5["T height()"]
+        Other_6["resize(T w, T h)"]
+        Other_7["TSize<T> expandedTo()"]
+        Other_MORE["+ 7 more..."]
+    end
+
+    MAIN --> Setters & Operators & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Operators fill:#1a1a2e,stroke:#6b3535
+    style Other fill:#1a1a2e,stroke:#6b3535

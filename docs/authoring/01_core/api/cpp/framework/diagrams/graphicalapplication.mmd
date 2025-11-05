@@ -1,29 +1,37 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Graphicalapplication {
-        +init()
-        +deinit()
-        +terminate()
-        +run()
-        +poll()
-        +pollGraphics()
-        +close()
-        +willRepaint()
-        +repaint()
-        +setMaxFps()
-        +getMaxFps()
-        +getFps()
-        +getGraphicsFps()
-        +getProcessingFps()
-        +isOnInputEvent()
-        +getIteration()
-        +doScreenshot()
-        +scaleUp()
-        +scaleDown()
-        +scale()
-        +setSmooth()
-        +doMapScreenshot()
-        +resize()
-        +inputEvent()
-        +m_iteration()
-    }
+graph TB
+    subgraph Class["Graphicalapplication Class"]
+        MAIN["Graphicalapplication"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int getMaxFps()"]
+        Getters_1["int getFps()"]
+        Getters_2["int getGraphicsFps()"]
+        Getters_3["int getProcessingFps()"]
+        Getters_4["int getIteration()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setMaxFps(int maxFps)"]
+        Setters_1["setSmooth(bool value)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init(std::vector<std::string>& args)"]
+        Other_1["deinit()"]
+        Other_2["terminate()"]
+        Other_3["run()"]
+        Other_4["poll()"]
+        Other_5["pollGraphics()"]
+        Other_6["close()"]
+        Other_7["bool willRepaint()"]
+        Other_MORE["+ 10 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

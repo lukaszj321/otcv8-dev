@@ -1,21 +1,42 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Config {
-        +load()
-        +unload()
-        +save()
-        +clear()
-        +setValue()
-        +setList()
-        +getValue()
-        +getList()
-        +setNode()
-        +mergeNode()
-        +getNode()
-        +getNodeSize()
-        +exists()
-        +remove()
-        +getFileName()
-        +isLoaded()
-        +asConfig()
-    }
+graph TB
+    subgraph Class["Config Class"]
+        MAIN["Config"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getValue(const std::string& key)"]
+        Getters_1["std::vector<std::string> getList()"]
+        Getters_2["OTMLNodePtr getNode(const std::string& key)"]
+        Getters_3["int getNodeSize(const std::string& key)"]
+        Getters_4["std::string getFileName()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setValue(const std::string& key, con...)"]
+        Setters_1["setList(const std::string& key, con...)"]
+        Setters_2["setNode(const std::string& key, con...)"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["ConfigPtr asConfig()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["bool load(const std::string& file)"]
+        Other_1["bool unload()"]
+        Other_2["bool save()"]
+        Other_3["clear()"]
+        Other_4["mergeNode(const std::string& key, con...)"]
+        Other_5["bool exists(const std::string& key)"]
+        Other_6["remove(const std::string& key)"]
+        Other_7["bool isLoaded()"]
+    end
+
+    MAIN --> Getters & Setters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

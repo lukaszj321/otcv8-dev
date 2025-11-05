@@ -1,44 +1,41 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Connection {
-        +poll()
-        +terminate()
-        +connect()
-        +close()
-        +write()
-        +read()
-        +read_until()
-        +read_some()
-        +setErrorCallback()
-        +getIp()
-        +getError()
-        +isConnecting()
-        +isConnected()
-        +getElapsedTicksSinceLastRead()
-        +asConnection()
-        +internal_connect()
-        +internal_write()
-        +onResolve()
-        +onConnect()
-        +onCanWrite()
-        +onWrite()
-        +onRecv()
-        +onTimeout()
-        +handleError()
-        +ErrorCallback()
-        +RecvCallback()
-        +m_connectCallback()
-        +m_errorCallback()
-        +m_recvCallback()
-        +m_readTimer()
-        +m_writeTimer()
-        +m_delayedWriteTimer()
-        +m_resolver()
-        +m_socket()
-        +m_outputStream()
-        +m_inputStream()
-        +m_connected()
-        +m_connecting()
-        +m_error()
-        +m_activityTimer()
-    }
+graph TB
+    subgraph Class["Connection Class"]
+        MAIN["Connection"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int getIp()"]
+        Getters_1["boost::system::error_code getError()"]
+        Getters_2["ticks_t getElapsedTicksSinceLastRead()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setErrorCallback(const ErrorCallback& errorC...)"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static void poll()"]
+        Static_1["static void terminate()"]
+        Static_2["ConnectionPtr asConnection()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["connect(const std::string& host, ui...)"]
+        Other_1["close()"]
+        Other_2["write(uint8* buffer, size_t size)"]
+        Other_3["read(uint32 bytes, const RecvCal...)"]
+        Other_4["read_until(const std::string& what, co...)"]
+        Other_5["read_some(const RecvCallback& callback)"]
+        Other_6["bool isConnecting()"]
+        Other_7["bool isConnected()"]
+        Other_MORE["+ 23 more..."]
+    end
+
+    MAIN --> Getters & Setters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

@@ -1,5 +1,14 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Otmlemitter {
-        +emitNode
-    }
+graph TB
+    subgraph Class["Otmlemitter Class"]
+        MAIN["Otmlemitter"]
+    end
+    
+    subgraph Static["Static"]
+        Static_0["static std::string emitNode()"]
+    end
+
+    MAIN --> Static
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Static fill:#5c4a1f,stroke:#8b7332

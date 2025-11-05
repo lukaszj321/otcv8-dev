@@ -1,8 +1,16 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Graph {
-        +GraphType
-        +draw
-        +clear
-        +addValue
-    }
+graph TB
+    subgraph Class["Graph Class"]
+        MAIN["Graph"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["draw(const Rect& dest)"]
+        Other_1["clear()"]
+        Other_2["addValue(int value, bool ignoreSmall...)"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

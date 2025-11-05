@@ -1,84 +1,48 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Platformwindow {
-        +loadMouseCursor()
-        +hasVerticalSync()
-        +getDisplayWidth()
-        +getDisplayHeight()
-        +getUnmaximizedSize()
-        +getSize()
-        +getMinimumSize()
-        +getWidth()
-        +getHeight()
-        +getUnmaximizedPos()
-        +getPosition()
-        +getX()
-        +getY()
-        +getMousePosition()
-        +getKeyboardModifiers()
-        +isKeyPressed()
-        +isMouseButtonPressed()
-        +isVisible()
-        +isMaximized()
-        +isFullscreen()
-        +hasFocus()
-        +setOnClose()
-        +setOnResize()
-        +setOnInputEvent()
-        +setScaling()
-        +updateUnmaximizedCoords()
-        +processKeyDown()
-        +processKeyUp()
-        +releaseAllKeys()
-        +fireKeysPress()
-        +OnResizeCallback()
-        +OnInputEventCallback()
-        +init()
-        +terminate()
-        +move()
-        +resize()
-        +show()
-        +hide()
-        +minimize()
-        +maximize()
-        +poll()
-        +swapBuffers()
-        +showMouse()
-        +hideMouse()
-        +displayFatalError()
-        +setMouseCursor()
-        +restoreMouseCursor()
-        +setTitle()
-        +setMinimumSize()
-        +setFullscreen()
-        +setVerticalSync()
-        +setIcon()
-        +setClipboardText()
-        +getDisplaySize()
-        +getClipboardText()
-        +getPlatformType()
-        +showTextEditor()
-        +handleTextInput()
-        +flash()
-        +internalLoadMouseCursor()
-        +m_keyMap()
-        +m_firstKeysPress()
-        +m_lastKeysPress()
-        +m_keyPressTimer()
-        +m_size()
-        +m_minimumSize()
-        +m_position()
-        +m_unmaximizedSize()
-        +m_unmaximizedPos()
-        +m_inputEvent()
-        +m_created()
-        +m_visible()
-        +m_focused()
-        +m_fullscreen()
-        +m_maximized()
-        +m_verticalSync()
-        +m_scaling()
-        +m_onClose()
-        +m_onResize()
-        +m_onInputEvent()
-    }
+graph TB
+    subgraph Class["Platformwindow Class"]
+        MAIN["Platformwindow"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["virtual Size getDisplaySize()"]
+        Getters_1["virtual std::string getClipboardText()"]
+        Getters_2["virtual std::string getPlatformType()"]
+        Getters_3["int getDisplayWidth()"]
+        Getters_4["int getDisplayHeight()"]
+        Getters_5["Size getUnmaximizedSize()"]
+        Getters_6["Size getSize()"]
+        Getters_7["Size getMinimumSize()"]
+        Getters_MORE["+ 8 more..."]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["virtual void setMouseCursor()"]
+        Setters_1["virtual void setTitle()"]
+        Setters_2["virtual void setMinimumSize()"]
+        Setters_3["virtual void setFullscreen()"]
+        Setters_4["virtual void setVerticalSync()"]
+        Setters_5["virtual void setIcon()"]
+        Setters_6["virtual void setClipboardText()"]
+        Setters_7["setOnClose(const std::function<void()"]
+        Setters_MORE["+ 3 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["virtual void init()"]
+        Other_1["virtual void terminate()"]
+        Other_2["virtual void move()"]
+        Other_3["virtual void resize()"]
+        Other_4["virtual void show()"]
+        Other_5["virtual void hide()"]
+        Other_6["virtual void minimize()"]
+        Other_7["virtual void maximize()"]
+        Other_MORE["+ 43 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

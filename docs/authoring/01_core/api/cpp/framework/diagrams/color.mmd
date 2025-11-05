@@ -1,34 +1,64 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Color {
-        +a()
-        +b()
-        +g()
-        +r()
-        +aF()
-        +bF()
-        +gF()
-        +rF()
-        +setRed()
-        +setGreen()
-        +setBlue()
-        +setAlpha()
-        +setRed()
-        +setGreen()
-        +setBlue()
-        +setAlpha()
-        +setRGBA()
-        +setRGBA()
-        +opacity()
-        +Color()
-        +Color()
-        +toHex()
-        +to8bit()
-        +from8bit()
-        +Color()
-        +Color()
-        +getOutfitColor()
-        +operator()
-        +true()
-        +c()
-    }
+graph TB
+    subgraph Class["Color Class"]
+        MAIN["Color"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint8 a()"]
+        Getters_1["uint8 b()"]
+        Getters_2["uint8 g()"]
+        Getters_3["uint8 r()"]
+        Getters_4["float aF()"]
+        Getters_5["float bF()"]
+        Getters_6["float gF()"]
+        Getters_7["float rF()"]
+        Getters_MORE["+ 3 more..."]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setRed(int r)"]
+        Setters_1["setGreen(int g)"]
+        Setters_2["setBlue(int b)"]
+        Setters_3["setAlpha(int a)"]
+        Setters_4["setRed(float r)"]
+        Setters_5["setGreen(float g)"]
+        Setters_6["setBlue(float b)"]
+        Setters_7["setAlpha(float a)"]
+        Setters_MORE["+ 2 more..."]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static uint8 to8bit()"]
+        Static_1["static Color from8bit()"]
+        Static_2["static Color getOutfitColor()"]
+    end
+
+    subgraph Operators["Operators"]
+        Operators_0["bool operator==()"]
+    end
+
+    subgraph Constructors["Constructors"]
+        Constructors_0["return Color(m_r, m_g, m_b, m_a * opacity)"]
+        Constructors_1["return Color(std::min<float>(1.0f, m_r +...)"]
+        Constructors_2["return Color(0, 0, 0)"]
+        Constructors_3["return Color(r, g, b)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["Color opacity(float opacity)"]
+        Other_1["return true()"]
+        Other_2["std::string toHex()"]
+        Other_3["uint8 c = 0()"]
+        Other_4["return c()"]
+    end
+
+    MAIN --> Getters & Setters & Static & Operators & Constructors & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Operators fill:#1a1a2e,stroke:#6b3535
+    style Constructors fill:#1a1a2e,stroke:#6b3535
+    style Other fill:#1a1a2e,stroke:#6b3535

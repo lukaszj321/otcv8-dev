@@ -1,39 +1,41 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Protocol {
-        +connect()
-        +disconnect()
-        +setRecorder()
-        +playRecord()
-        +isConnected()
-        +isConnecting()
-        +getElapsedTicksSinceLastRead()
-        +getConnection()
-        +setConnection()
-        +generateXteaKey()
-        +setXteaKey()
-        +getXteaKey()
-        +enableXteaEncryption()
-        +enableChecksum()
-        +enabledSequencedPackets()
-        +enableBigPackets()
-        +enableCompression()
-        +asProtocol()
-        +onProxyPacket()
-        +onPlayerPacket()
-        +onLocalDisconnected()
-        +internalRecvHeader()
-        +internalRecvData()
-        +xteaDecrypt()
-        +xteaEncrypt()
-        +send()
-        +recv()
-        +onConnect()
-        +onRecv()
-        +onError()
-        +m_disconnected()
-        +m_proxy()
-        +m_packetNumber()
-        +m_player()
-        +m_recorder()
-    }
+graph TB
+    subgraph Class["Protocol Class"]
+        MAIN["Protocol"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["ticks_t getElapsedTicksSinceLastRead()"]
+        Getters_1["ConnectionPtr getConnection()"]
+        Getters_2["std::vector<uint32> getXteaKey()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setRecorder(PacketRecorderPtr recorder)"]
+        Setters_1["setConnection(const ConnectionPtr& connec...)"]
+        Setters_2["setXteaKey(uint32 a, uint32 b, uint32 ...)"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["ProtocolPtr asProtocol()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["connect(const std::string& host, ui...)"]
+        Other_1["disconnect()"]
+        Other_2["playRecord(PacketPlayerPtr player)"]
+        Other_3["bool isConnected()"]
+        Other_4["bool isConnecting()"]
+        Other_5["generateXteaKey()"]
+        Other_6["enableXteaEncryption()"]
+        Other_7["enableChecksum()"]
+        Other_MORE["+ 16 more..."]
+    end
+
+    MAIN --> Getters & Setters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

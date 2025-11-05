@@ -1,11 +1,24 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Shadermanager {
-        +init
-        +terminate
-        +createShader
-        +createOutfitShader
-        +createShader
-        +addTexture
-        +getShader
-    }
+graph TB
+    subgraph Class["Shadermanager Class"]
+        MAIN["Shadermanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["PainterShaderProgramPtr getShader(const std::string& name)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["createShader(const std::string& name, st...)"]
+        Other_3["createOutfitShader(const std::string& name, st...)"]
+        Other_4["return createShader(name, vertex, fragment, true)"]
+        Other_5["addTexture(const std::string& name, co...)"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

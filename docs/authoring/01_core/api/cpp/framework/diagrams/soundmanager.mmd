@@ -1,18 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Soundmanager {
-        +init()
-        +terminate()
-        +poll()
-        +setAudioEnabled()
-        +isAudioEnabled()
-        +enableAudio()
-        +disableAudio()
-        +stopAll()
-        +preload()
-        +play()
-        +getChannel()
-        +resolveSoundFile()
-        +ensureContext()
-        +createSoundSource()
-    }
+graph TB
+    subgraph Class["Soundmanager Class"]
+        MAIN["Soundmanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["SoundChannelPtr getChannel(int channel)"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setAudioEnabled(bool enable)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["poll()"]
+        Other_3["bool isAudioEnabled()"]
+        Other_4["enableAudio()"]
+        Other_5["disableAudio()"]
+        Other_6["stopAll()"]
+        Other_7["preload(std::string filename)"]
+        Other_MORE["+ 3 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

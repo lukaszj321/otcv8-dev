@@ -1,7 +1,20 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Soundbuffer {
-        +fillBuffer
-        +fillBuffer
-        +getBufferId
-    }
+graph TB
+    subgraph Class["Soundbuffer Class"]
+        MAIN["Soundbuffer"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint getBufferId()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["bool fillBuffer(const SoundFilePtr& soundFile)"]
+        Other_1["bool fillBuffer(ALenum sampleFormat, const ...)"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

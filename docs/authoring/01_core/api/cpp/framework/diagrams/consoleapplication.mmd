@@ -1,5 +1,14 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Consoleapplication {
-        +run
-    }
+graph TB
+    subgraph Class["Consoleapplication Class"]
+        MAIN["Consoleapplication"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["run()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

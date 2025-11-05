@@ -1,14 +1,23 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Streamsoundsource {
-        +DownMix
-        +play
-        +stop
-        +isPlaying
-        +setSoundFile
-        +downMix
-        +update
-        +queueBuffers
-        +unqueueBuffers
-        +fillBufferAndQueue
-    }
+graph TB
+    subgraph Class["Streamsoundsource Class"]
+        MAIN["Streamsoundsource"]
+    end
+    
+    subgraph Setters["Setters"]
+        Setters_0["setSoundFile(const SoundFilePtr& soundFile)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["play()"]
+        Other_1["stop()"]
+        Other_2["bool isPlaying()"]
+        Other_3["downMix(DownMix downMix)"]
+        Other_4["update()"]
+    end
+
+    MAIN --> Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

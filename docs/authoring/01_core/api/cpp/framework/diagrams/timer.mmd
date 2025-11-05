@@ -1,11 +1,20 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Timer {
-        +restart
-        +stop
-        +adjust
-        +startTicks
-        +ticksElapsed
-        +timeElapsed
-        +running
-    }
+graph TB
+    subgraph Class["Timer Class"]
+        MAIN["Timer"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["restart()"]
+        Other_1["stop()"]
+        Other_2["adjust(ticks_t value)"]
+        Other_3["ticks_t startTicks()"]
+        Other_4["ticks_t ticksElapsed()"]
+        Other_5["float timeElapsed()"]
+        Other_6["bool running()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

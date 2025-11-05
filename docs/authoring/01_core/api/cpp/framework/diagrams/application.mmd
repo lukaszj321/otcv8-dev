@@ -1,42 +1,42 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Application {
-        +restart()
-        +restartArgs()
-        +setName()
-        +setCompactName()
-        +setVersion()
-        +isRunning()
-        +isStopping()
-        +isTerminated()
-        +getCharset()
-        +getBuildCompiler()
-        +getBuildDate()
-        +getBuildRevision()
-        +getBuildCommit()
-        +getBuildType()
-        +getBuildType()
-        +getBuildArch()
-        +getAuthor()
-        +getOs()
-        +getStartupOptions()
-        +isMobile()
-        +registerLuaFunctions()
-        +init()
-        +deinit()
-        +terminate()
-        +run()
-        +poll()
-        +exit()
-        +quick_exit()
-        +close()
-        +m_mobile()
-        +m_charset()
-        +m_appName()
-        +m_appCompactName()
-        +m_appVersion()
-        +m_startupOptions()
-        +m_running()
-        +m_stopping()
-        +m_terminated()
-    }
+graph TB
+    subgraph Class["Application Class"]
+        MAIN["Application"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getCharset()"]
+        Getters_1["std::string getBuildCompiler()"]
+        Getters_2["std::string getBuildDate()"]
+        Getters_3["std::string getBuildRevision()"]
+        Getters_4["std::string getBuildCommit()"]
+        Getters_5["std::string getBuildType()"]
+        Getters_6["std::string getBuildType()"]
+        Getters_7["std::string getBuildArch()"]
+        Getters_MORE["+ 3 more..."]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setName(const std::string& name)"]
+        Setters_1["setCompactName(const std::string& compactName)"]
+        Setters_2["setVersion(const std::string& version)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["virtual void init()"]
+        Other_1["virtual void deinit()"]
+        Other_2["virtual void terminate()"]
+        Other_3["virtual void run()"]
+        Other_4["virtual void poll()"]
+        Other_5["virtual void exit()"]
+        Other_6["virtual void quick_exit()"]
+        Other_7["virtual void close()"]
+        Other_MORE["+ 17 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

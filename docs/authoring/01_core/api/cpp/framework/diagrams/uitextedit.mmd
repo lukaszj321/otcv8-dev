@@ -1,72 +1,48 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uitextedit {
-        +drawSelf()
-        +update()
-        +setCursorPos()
-        +setSelection()
-        +setCursorVisible()
-        +setTextHidden()
-        +setValidCharacters()
-        +setShiftNavigation()
-        +setMultiline()
-        +setMaxLength()
-        +setTextVirtualOffset()
-        +setEditable()
-        +setSelectable()
-        +setSelectionColor()
-        +setSelectionBackgroundColor()
-        +setAutoScroll()
-        +setAutoSubmit()
-        +setPlaceholder()
-        +setPlaceholderColor()
-        +setPlaceholderAlign()
-        +setPlaceholderFont()
-        +moveCursorHorizontally()
-        +moveCursorVertically()
-        +appendText()
-        +appendCharacter()
-        +removeCharacter()
-        +blinkCursor()
-        +del()
-        +paste()
-        +copy()
-        +cut()
-        +selectAll()
-        +clearSelection()
-        +wrapText()
-        +getDisplayedText()
-        +getSelection()
-        +getTextPos()
-        +getCursorPos()
-        +getTextVirtualOffset()
-        +getTextVirtualSize()
-        +getTextTotalSize()
-        +getMaxLength()
-        +getSelectionStart()
-        +getSelectionEnd()
-        +getSelectionColor()
-        +getSelectionBackgroundColor()
-        +hasSelection()
-        +isCursorVisible()
-        +isTextHidden()
-        +isShiftNavigation()
-        +isMultiline()
-        +isEditable()
-        +isSelectable()
-        +isAutoScrolling()
-        +updateText()
-        +disableUpdates()
-        +enableUpdates()
-        +recacheGlyphs()
-        +onStyleApply()
-        +onGeometryChange()
-        +onFocusChange()
-        +onKeyText()
-        +onKeyPress()
-        +onMousePress()
-        +onMouseRelease()
-        +onMouseMove()
-        +onDoubleClick()
-        +onTextAreaUpdate()
-    }
+graph TB
+    subgraph Class["Uitextedit Class"]
+        MAIN["Uitextedit"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getDisplayedText()"]
+        Getters_1["std::string getSelection()"]
+        Getters_2["int getTextPos(Point pos)"]
+        Getters_3["int getCursorPos()"]
+        Getters_4["Point getTextVirtualOffset()"]
+        Getters_5["Size getTextVirtualSize()"]
+        Getters_6["Size getTextTotalSize()"]
+        Getters_7["uint getMaxLength()"]
+        Getters_MORE["+ 4 more..."]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setCursorPos(int pos)"]
+        Setters_1["setSelection(int start, int end)"]
+        Setters_2["setCursorVisible(bool enable)"]
+        Setters_3["setTextHidden(bool hidden)"]
+        Setters_4["setValidCharacters(const std::string validChar...)"]
+        Setters_5["setShiftNavigation(bool enable)"]
+        Setters_6["setMultiline(bool enable)"]
+        Setters_7["setMaxLength(uint maxLength)"]
+        Setters_MORE["+ 11 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["drawSelf(Fw::DrawPane drawPane)"]
+        Other_1["moveCursorHorizontally(bool right)"]
+        Other_2["moveCursorVertically(bool up)"]
+        Other_3["appendText(std::string text)"]
+        Other_4["appendCharacter(char c)"]
+        Other_5["removeCharacter(bool right)"]
+        Other_6["blinkCursor()"]
+        Other_7["del(bool right = false)"]
+        Other_MORE["+ 25 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

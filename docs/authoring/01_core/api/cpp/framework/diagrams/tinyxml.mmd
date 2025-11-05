@@ -1,127 +1,60 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Tinyxml {
-        +TiXmlEncoding()
-        +NodeType()
-        +Clear()
-        +Accept()
-        +SetCondenseWhiteSpace()
-        +IsWhiteSpaceCondensed()
-        +Row()
-        +Column()
-        +SetUserData()
-        +EncodeString()
-        +IsWhiteSpace()
-        +IsWhiteSpace()
-        +IsWhiteSpace()
-        +StreamWhiteSpace()
-        +StreamTo()
-        +GetEntity()
-        +if()
-        +IsAlpha()
-        +IsAlphaNum()
-        +ToLower()
-        +tolower()
-        +ConvertUTF32ToUTF8()
-        +TiXmlElement()
-        +SetValue()
-        +SetValue()
-        +Clear()
-        +owned()
-        +RemoveChild()
-        +Type()
-        +NoChildren()
-        +CopyTo()
-        +IntValue()
-        +DoubleValue()
-        +QueryIntValue()
-        +QueryDoubleValue()
-        +SetName()
-        +SetValue()
-        +SetIntValue()
-        +SetDoubleValue()
-        +SetName()
-        +SetValue()
-        +Print()
-        +SetDocument()
-        +Add()
-        +Remove()
-        +readType()
-        +T()
-        +sstream()
-        +QueryValueAttribute()
-        +Attribute()
-        +Attribute()
-        +Attribute()
-        +SetAttribute()
-        +SetAttribute()
-        +RemoveAttribute()
-        +GetText()
-        +CopyTo()
-        +ClearThis()
-        +CopyTo()
-        +CDATA()
-        +SetCDATA()
-        +CopyTo()
-        +Blank()
-        +CopyTo()
-        +CopyTo()
-        +LoadFile()
-        +SaveFile()
-        +LoadFile()
-        +SaveFile()
-        +LoadFile()
-        +SaveFile()
-        +LoadFile()
-        +LoadFile()
-        +SaveFile()
-        +SaveFile()
-        +Error()
-        +ErrorId()
-        +ErrorRow()
-        +ErrorCol()
-        +SetTabSize()
-        +TabSize()
-        +ClearError()
-        +Print()
-        +SetError()
-        +CopyTo()
-        +docHandle()
-        +FirstChild()
-        +FirstChild()
-        +FirstChildElement()
-        +FirstChildElement()
-        +Child()
-        +Child()
-        +ChildElement()
-        +ChildElement()
-        +FirstChild()
-        +FirstChildElement()
-        +Child()
-        +ChildElement()
-        +tab()
-        +SetIndent()
-        +SetLineBreak()
-        +SetStreamPrinting()
-        +Size()
-        +DoIndent()
-        +DoLineBreak()
-        +VisitEnter()
-        +VisitExit()
-        +Visit()
-        +operator()
-        +false()
-        +0()
-        +location()
-        +v()
-        +printer()
-        +StreamIn()
-        +type()
-        +value()
-        +ret()
-        +r()
-        +TIXML_NO_ATTRIBUTE()
-        +TIXML_SUCCESS()
-        +TIXML_WRONG_TYPE()
-        +doc()
-    }
+graph TB
+    subgraph Class["Tinyxml Class"]
+        MAIN["Tinyxml"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int r = QueryValueAttribute()"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static void SetCondenseWhiteSpace()"]
+        Static_1["static bool IsWhiteSpaceCondensed()"]
+        Static_2["static void EncodeString()"]
+        Static_3["static bool    StreamWhiteSpace()"]
+        Static_4["static bool StreamTo()"]
+        Static_5["static int IsAlpha()"]
+        Static_6["static int IsAlphaNum()"]
+        Static_7["static void ConvertUTF32ToUTF8()"]
+    end
+
+    subgraph Operators["Operators"]
+        Operators_0["void operator=()"]
+        Operators_1["void operator=()"]
+        Operators_2["bool operator==()"]
+        Operators_3["TiXmlHandle operator=()"]
+    end
+
+    subgraph Constructors["Constructors"]
+        Constructors_0["virtual bool VisitEnter()"]
+        Constructors_1["virtual bool VisitExit()"]
+        Constructors_2["virtual bool VisitEnter()"]
+        Constructors_3["virtual bool VisitExit()"]
+        Constructors_4["virtual bool Visit()"]
+        Constructors_5["virtual bool Visit()"]
+        Constructors_6["virtual bool Visit()"]
+        Constructors_7["virtual bool Visit()"]
+        Constructors_MORE["+ 124 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["return false;    // Again, only truly correct for English/Latin...but usually works.()"]
+        Other_1["else if(*length)"]
+        Other_2["return 0()"]
+        Other_3["TiXmlCursor location()"]
+        Other_4["return v()"]
+        Other_5["return tolower(v)"]
+        Other_6["henceforth owned(and deleted)"]
+        Other_7["TiXmlPrinter printer()"]
+        Other_MORE["+ 8 more..."]
+    end
+
+    MAIN --> Getters & Static & Operators & Constructors & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Operators fill:#1a1a2e,stroke:#6b3535
+    style Constructors fill:#1a1a2e,stroke:#6b3535
+    style Other fill:#1a1a2e,stroke:#6b3535

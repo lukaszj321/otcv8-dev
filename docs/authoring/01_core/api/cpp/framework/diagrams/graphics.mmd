@@ -1,16 +1,35 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Graphics {
-        +init()
-        +terminate()
-        +resize()
-        +checkDepthSupport()
-        +getMaxTextureSize()
-        +getVendor()
-        +getRenderer()
-        +getVersion()
-        +getExtensions()
-        +ok()
-        +checkForError()
-        +checkDepthSupport()
-    }
+graph TB
+    subgraph Class["Graphics Class"]
+        MAIN["Graphics"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int getMaxTextureSize()"]
+        Getters_1["std::string getVendor()"]
+        Getters_2["std::string getRenderer()"]
+        Getters_3["std::string getVersion()"]
+        Getters_4["std::string getExtensions()"]
+        Getters_5["int getMaxTextureSize()"]
+        Getters_6["std::string getVendor()"]
+        Getters_7["std::string getRenderer()"]
+        Getters_MORE["+ 2 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["resize(const Size& size)"]
+        Other_3["checkDepthSupport()"]
+        Other_4["bool ok()"]
+        Other_5["checkForError(const std::string& function...)"]
+        Other_6["init()"]
+        Other_7["terminate()"]
+        Other_MORE["+ 4 more..."]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

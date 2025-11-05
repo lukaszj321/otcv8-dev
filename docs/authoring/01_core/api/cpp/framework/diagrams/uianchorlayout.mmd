@@ -1,24 +1,35 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uianchorlayout {
-        +getAnchoredEdge()
-        +getHookedEdge()
-        +addAnchor()
-        +isUpdated()
-        +setUpdated()
-        +removeAnchors()
-        +hasAnchors()
-        +centerIn()
-        +fill()
-        +addWidget()
-        +removeWidget()
-        +isUIAnchorLayout()
-        +getHookedWidget()
-        +getHookedPoint()
-        +m_anchoredEdge()
-        +m_hookedEdge()
-        +m_hookedWidgetId()
-        +internalUpdate()
-        +updateWidget()
-        +m_anchorsGroups()
-    }
+graph TB
+    subgraph Class["Uianchorlayout Class"]
+        MAIN["Uianchorlayout"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["Fw::AnchorEdge getAnchoredEdge()"]
+        Getters_1["Fw::AnchorEdge getHookedEdge()"]
+        Getters_2["virtual UIWidgetPtr getHookedWidget()"]
+        Getters_3["virtual int getHookedPoint()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setUpdated(bool updated)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["Fw::AnchorEdge m_anchoredEdge()"]
+        Other_1["Fw::AnchorEdge m_hookedEdge()"]
+        Other_2["std::string m_hookedWidgetId()"]
+        Other_3["addAnchor(const UIAnchorPtr& anchor)"]
+        Other_4["bool isUpdated()"]
+        Other_5["removeAnchors(const UIWidgetPtr& anchored...)"]
+        Other_6["bool hasAnchors(const UIWidgetPtr& anchored...)"]
+        Other_7["centerIn(const UIWidgetPtr& anchored...)"]
+        Other_MORE["+ 7 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

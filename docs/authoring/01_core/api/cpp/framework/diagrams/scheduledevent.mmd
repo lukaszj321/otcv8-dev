@@ -1,12 +1,20 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Scheduledevent {
-        +execute
-        +nextCycle
-        +ticks
-        +remainingTicks
-        +delay
-        +cyclesExecuted
-        +maxCycles
-        +operator
-    }
+graph TB
+    subgraph Class["Scheduledevent Class"]
+        MAIN["Scheduledevent"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["execute()"]
+        Other_1["bool nextCycle()"]
+        Other_2["int ticks()"]
+        Other_3["int remainingTicks()"]
+        Other_4["int delay()"]
+        Other_5["int cyclesExecuted()"]
+        Other_6["int maxCycles()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

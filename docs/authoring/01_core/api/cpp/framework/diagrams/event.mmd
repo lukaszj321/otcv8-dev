@@ -1,8 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Event {
-        +cancel
-        +isCanceled
-        +isExecuted
-        +isBotSafe
-    }
+graph TB
+    subgraph Class["Event Class"]
+        MAIN["Event"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["virtual void execute()"]
+        Other_1["cancel()"]
+        Other_2["bool isCanceled()"]
+        Other_3["bool isExecuted()"]
+        Other_4["bool isBotSafe()"]
+        Other_5["std::string m_function()"]
+        Other_6["std::function<void()"]
+        Other_7["bool m_canceled()"]
+        Other_MORE["+ 2 more..."]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

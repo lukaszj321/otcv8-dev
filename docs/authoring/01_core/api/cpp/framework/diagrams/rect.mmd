@@ -1,106 +1,49 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Rect {
-        +isNull()
-        +isEmpty()
-        +isValid()
-        +left()
-        +top()
-        +right()
-        +bottom()
-        +horizontalCenter()
-        +verticalCenter()
-        +x()
-        +y()
-        +topLeft()
-        +bottomRight()
-        +topRight()
-        +bottomLeft()
-        +topCenter()
-        +bottomCenter()
-        +centerLeft()
-        +centerRight()
-        +center()
-        +width()
-        +height()
-        +size()
-        +reset()
-        +clear()
-        +setLeft()
-        +setTop()
-        +setRight()
-        +setBottom()
-        +setX()
-        +setY()
-        +setTopLeft()
-        +setBottomRight()
-        +setTopRight()
-        +setBottomLeft()
-        +setWidth()
-        +setHeight()
-        +setSize()
-        +setRect()
-        +setCoords()
-        +expandLeft()
-        +expandTop()
-        +expandRight()
-        +expandBottom()
-        +expand()
-        +expand()
-        +translate()
-        +translate()
-        +resize()
-        +resize()
-        +move()
-        +move()
-        +moveLeft()
-        +moveTop()
-        +moveRight()
-        +moveBottom()
-        +moveTopLeft()
-        +moveBottomRight()
-        +moveTopRight()
-        +moveBottomLeft()
-        +moveTopCenter()
-        +moveBottomCenter()
-        +moveCenterLeft()
-        +moveCenterRight()
-        +translated()
-        +translated()
-        +expanded()
-        +moveCenter()
-        +moveHorizontalCenter()
-        +moveVerticalCenter()
-        +contains()
-        +contains()
-        +intersects()
-        +united()
-        +intersection()
-        +bind()
-        +alignIn()
-        +if()
-        +if()
-        +if()
-        +if()
-        +if()
-        +if()
-        +if()
-        +if()
-        +Rect()
-        +RectF()
-        +w()
-        +h()
-        +false()
-        +true()
-        +l1()
-        +r1()
-        +l2()
-        +r2()
-        +t1()
-        +b1()
-        +t2()
-        +b2()
-        +tmp()
-        +r()
-        +operator()
-    }
+graph TB
+    subgraph Class["Rect Class"]
+        MAIN["Rect"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["return r()"]
+        Getters_1["return r()"]
+        Getters_2["return r()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setLeft(T pos)"]
+        Setters_1["setTop(T pos)"]
+        Setters_2["setRight(T pos)"]
+        Setters_3["setBottom(T pos)"]
+        Setters_4["setX(T x)"]
+        Setters_5["setY(T y)"]
+        Setters_6["setTopLeft(const TPoint<T> &p)"]
+        Setters_7["setBottomRight(const TPoint<T> &p)"]
+        Setters_MORE["+ 37 more..."]
+    end
+
+    subgraph Operators["Operators"]
+        Operators_0["bool operator==()"]
+        Operators_1["bool operator==()"]
+        Operators_2["bool operator==()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["bool isNull()"]
+        Other_1["bool isEmpty()"]
+        Other_2["bool isValid()"]
+        Other_3["inline T left()"]
+        Other_4["inline T top()"]
+        Other_5["inline T right()"]
+        Other_6["inline T bottom()"]
+        Other_7["inline T horizontalCenter()"]
+        Other_MORE["+ 307 more..."]
+    end
+
+    MAIN --> Getters & Setters & Operators & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Operators fill:#1a1a2e,stroke:#6b3535
+    style Other fill:#1a1a2e,stroke:#6b3535

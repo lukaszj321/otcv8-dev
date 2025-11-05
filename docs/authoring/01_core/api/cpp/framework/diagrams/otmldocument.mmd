@@ -1,10 +1,23 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Otmldocument {
-        +create
-        +parse
-        +parseString
-        +parse
-        +emit
-        +save
-    }
+graph TB
+    subgraph Class["Otmldocument Class"]
+        MAIN["Otmldocument"]
+    end
+    
+    subgraph Static["Static"]
+        Static_0["static OTMLDocumentPtr create()"]
+        Static_1["static OTMLDocumentPtr parse()"]
+        Static_2["static OTMLDocumentPtr parseString()"]
+        Static_3["static OTMLDocumentPtr parse()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["std::string emit()"]
+        Other_1["bool save(const std::string& fileName)"]
+    end
+
+    MAIN --> Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

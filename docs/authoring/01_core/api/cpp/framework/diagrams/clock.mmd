@@ -1,10 +1,19 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Clock {
-        +update
-        +micros
-        +millis
-        +seconds
-        +realMicros
-        +realMillis
-    }
+graph TB
+    subgraph Class["Clock Class"]
+        MAIN["Clock"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["update()"]
+        Other_1["ticks_t micros()"]
+        Other_2["ticks_t millis()"]
+        Other_3["float seconds()"]
+        Other_4["ticks_t realMicros()"]
+        Other_5["ticks_t realMillis()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

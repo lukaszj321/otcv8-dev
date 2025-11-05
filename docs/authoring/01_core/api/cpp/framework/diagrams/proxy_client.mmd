@@ -1,46 +1,31 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class ProxyClient {
-        +ProxyState()
-        +m_io()
-        +start()
-        +terminate()
-        +getPing()
-        +getRealPing()
-        +getPriority()
-        +isConnected()
-        +getHost()
-        +getPort()
-        +getDebugInfo()
-        +isActive()
-        +addSession()
-        +removeSession()
-        +send()
-        +check()
-        +connect()
-        +disconnect()
-        +ping()
-        +onPing()
-        +readHeader()
-        +onHeader()
-        +onPacket()
-        +onSent()
-        +m_io()
-        +m_io()
-        +getId()
-        +start()
-        +terminate()
-        +onPacket()
-        +onProxyPacket()
-        +check()
-        +selectProxies()
-        +readTibia12Header()
-        +readHeader()
-        +onHeader()
-        +onBody()
-        +onSent()
-        +ProxyPacket()
-        +ProxyPacketPtr()
-        +SessionPtr()
-        +ProxyPtr()
-    }
+graph TB
+    subgraph Class["ProxyClient Class"]
+        MAIN["ProxyClient"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint32_t getPing()"]
+        Getters_1["uint32_t getRealPing()"]
+        Getters_2["uint32_t getPriority()"]
+        Getters_3["std::string getHost()"]
+        Getters_4["uint16_t getPort()"]
+        Getters_5["std::string getDebugInfo()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0[": m_io(io)"]
+        Other_1["start()"]
+        Other_2["terminate()"]
+        Other_3["bool isConnected()"]
+        Other_4["bool isActive()"]
+        Other_5["addSession(uint32_t id, int m_port)"]
+        Other_6["removeSession(uint32_t id)"]
+        Other_7["send(const ProxyPacketPtr& packet)"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

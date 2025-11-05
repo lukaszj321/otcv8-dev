@@ -1,19 +1,33 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Http {
-        +init()
-        +terminate()
-        +get()
-        +post()
-        +download()
-        +ws()
-        +wsSend()
-        +wsClose()
-        +cancel()
-        +clearDownloads()
-        +getFile()
-        +setUserAgent()
-        +m_downloads()
-        +it()
-        +nullptr()
-    }
+graph TB
+    subgraph Class["Http Class"]
+        MAIN["Http"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int get(const std::string& url, int...)"]
+        Getters_1["HttpResult_ptr getFile(std::string path)"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setUserAgent(const std::string& userAgent)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["int post(const std::string& url, con...)"]
+        Other_3["int download(const std::string& url, std...)"]
+        Other_4["int ws(const std::string& url, int...)"]
+        Other_5["bool wsSend(int operationId, std::strin...)"]
+        Other_6["bool wsClose(int operationId)"]
+        Other_7["bool cancel(int id)"]
+        Other_MORE["+ 4 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

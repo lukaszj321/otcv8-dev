@@ -1,22 +1,39 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uigridlayout {
-        +applyStyle()
-        +removeWidget()
-        +addWidget()
-        +setCellSize()
-        +setCellWidth()
-        +setCellHeight()
-        +setCellSpacing()
-        +setNumColumns()
-        +setNumLines()
-        +setAutoSpacing()
-        +setFitChildren()
-        +setFlow()
-        +getCellSize()
-        +getCellSpacing()
-        +getNumColumns()
-        +getNumLines()
-        +internalUpdate()
-        +isUIGridLayout()
-    }
+graph TB
+    subgraph Class["Uigridlayout Class"]
+        MAIN["Uigridlayout"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["Size getCellSize()"]
+        Getters_1["int getCellSpacing()"]
+        Getters_2["int getNumColumns()"]
+        Getters_3["int getNumLines()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setCellSize(const Size& size)"]
+        Setters_1["setCellWidth(int width)"]
+        Setters_2["setCellHeight(int height)"]
+        Setters_3["setCellSpacing(int spacing)"]
+        Setters_4["setNumColumns(int columns)"]
+        Setters_5["setNumLines(int lines)"]
+        Setters_6["setAutoSpacing(bool enable)"]
+        Setters_7["setFitChildren(bool enable)"]
+        Setters_MORE["+ 1 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["applyStyle(const OTMLNodePtr& styleNode)"]
+        Other_1["removeWidget(const UIWidgetPtr& widget)"]
+        Other_2["addWidget(const UIWidgetPtr& widget)"]
+        Other_3["virtual bool isUIGridLayout()"]
+        Other_4["bool internalUpdate()"]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

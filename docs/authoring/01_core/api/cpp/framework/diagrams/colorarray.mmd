@@ -1,10 +1,19 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Colorarray {
-        +addColor
-        +addColor
-        +clear
-        +colorCount
-        +count
-        +size
-    }
+graph TB
+    subgraph Class["Colorarray Class"]
+        MAIN["Colorarray"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["inline void addColor()"]
+        Other_1["inline void addColor()"]
+        Other_2["clear()"]
+        Other_3["int colorCount()"]
+        Other_4["int count()"]
+        Other_5["int size()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

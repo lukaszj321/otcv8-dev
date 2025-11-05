@@ -1,12 +1,36 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Soundfile {
-        +loadSoundFile
-        +eof
-        +getSampleFormat
-        +getChannels
-        +getRate
-        +getBps
-        +getSize
-        +getName
-    }
+graph TB
+    subgraph Class["Soundfile Class"]
+        MAIN["Soundfile"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["ALenum getSampleFormat()"]
+        Getters_1["int getChannels()"]
+        Getters_2["int getRate()"]
+        Getters_3["int getBps()"]
+        Getters_4["int getSize()"]
+        Getters_5["std::string getName()"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static SoundFilePtr loadSoundFile()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["virtual int read()"]
+        Other_1["virtual void reset()"]
+        Other_2["bool eof()"]
+        Other_3["FileStreamPtr m_file()"]
+        Other_4["int m_channels()"]
+        Other_5["int m_rate()"]
+        Other_6["int m_bps()"]
+        Other_7["int m_size()"]
+    end
+
+    MAIN --> Getters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

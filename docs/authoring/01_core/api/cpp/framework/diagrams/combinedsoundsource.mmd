@@ -1,19 +1,36 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Combinedsoundsource {
-        +addSource()
-        +getSources()
-        +play()
-        +stop()
-        +isBuffering()
-        +isPlaying()
-        +setLooping()
-        +setRelative()
-        +setReferenceDistance()
-        +setGain()
-        +setPitch()
-        +setPosition()
-        +setVelocity()
-        +setFading()
-        +update()
-    }
+graph TB
+    subgraph Class["Combinedsoundsource Class"]
+        MAIN["Combinedsoundsource"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::vector<SoundSourcePtr> getSources()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setLooping(bool looping)"]
+        Setters_1["setRelative(bool relative)"]
+        Setters_2["setReferenceDistance(float distance)"]
+        Setters_3["setGain(float gain)"]
+        Setters_4["setPitch(float pitch)"]
+        Setters_5["setPosition(const Point& pos)"]
+        Setters_6["setVelocity(const Point& velocity)"]
+        Setters_7["setFading(FadeState state, float fade...)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["addSource(const SoundSourcePtr& source)"]
+        Other_1["play()"]
+        Other_2["stop()"]
+        Other_3["bool isBuffering()"]
+        Other_4["bool isPlaying()"]
+        Other_5["virtual void update()"]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

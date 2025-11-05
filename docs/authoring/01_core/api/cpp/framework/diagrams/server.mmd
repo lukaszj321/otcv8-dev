@@ -1,8 +1,21 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Server {
-        +create
-        +isOpen
-        +close
-        +acceptNext
-    }
+graph TB
+    subgraph Class["Server Class"]
+        MAIN["Server"]
+    end
+    
+    subgraph Static["Static"]
+        Static_0["static ServerPtr create()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["bool isOpen()"]
+        Other_1["close()"]
+        Other_2["acceptNext()"]
+    end
+
+    MAIN --> Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

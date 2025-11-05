@@ -1,9 +1,23 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uiverticallayout {
-        +applyStyle
-        +setAlignBottom
-        +isAlignBottom
-        +isUIVerticalLayout
-        +internalUpdate
-    }
+graph TB
+    subgraph Class["Uiverticallayout Class"]
+        MAIN["Uiverticallayout"]
+    end
+    
+    subgraph Setters["Setters"]
+        Setters_0["setAlignBottom(bool aliginBottom)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["applyStyle(const OTMLNodePtr& styleNode)"]
+        Other_1["bool isAlignBottom()"]
+        Other_2["bool isUIVerticalLayout()"]
+        Other_3["bool internalUpdate()"]
+        Other_4["stdext::boolean<false> m_alignBottom()"]
+    end
+
+    MAIN --> Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

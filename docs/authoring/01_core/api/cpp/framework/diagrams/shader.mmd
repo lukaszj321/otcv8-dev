@@ -1,10 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Shader {
-        +ShaderType
-        +compileSourceCode
-        +compileSourceFile
-        +log
-        +getShaderId
-        +getShaderType
-    }
+graph TB
+    subgraph Class["Shader Class"]
+        MAIN["Shader"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint getShaderId()"]
+        Getters_1["ShaderType getShaderType()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["bool compileSourceCode(const std::string& sourceCode)"]
+        Other_1["bool compileSourceFile(const std::string& sourceFile)"]
+        Other_2["std::string log()"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

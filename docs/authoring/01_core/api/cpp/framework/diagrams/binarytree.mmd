@@ -1,27 +1,33 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Binarytree {
-        +seek()
-        +skip()
-        +tell()
-        +size()
-        +getU8()
-        +getU16()
-        +getU32()
-        +getU64()
-        +getString()
-        +getPoint()
-        +getChildren()
-        +canRead()
-        +unserialize()
-        +skipNodes()
-        +addU8()
-        +addU16()
-        +addU32()
-        +addString()
-        +addPos()
-        +addPoint()
-        +startNode()
-        +endNode()
-        +write()
-    }
+graph TB
+    subgraph Class["Binarytree Class"]
+        MAIN["Binarytree"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint8 getU8()"]
+        Getters_1["uint16 getU16()"]
+        Getters_2["uint32 getU32()"]
+        Getters_3["uint64 getU64()"]
+        Getters_4["std::string getString(uint16 len = 0)"]
+        Getters_5["Point getPoint()"]
+        Getters_6["BinaryTreeVec getChildren()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["seek(uint pos)"]
+        Other_1["skip(uint len)"]
+        Other_2["uint tell()"]
+        Other_3["uint size()"]
+        Other_4["bool canRead()"]
+        Other_5["addU8(uint8 v)"]
+        Other_6["addU16(uint16 v)"]
+        Other_7["addU32(uint32 v)"]
+        Other_MORE["+ 6 more..."]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

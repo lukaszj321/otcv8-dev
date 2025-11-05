@@ -1,18 +1,34 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Logger {
-        +log()
-        +logFunc()
-        +debug()
-        +info()
-        +warning()
-        +error()
-        +fatal()
-        +fireOldMessages()
-        +setLogFile()
-        +setOnLog()
-        +getLastLog()
-        +setTestingMode()
-        +OnLogCallback()
-        +m_lastLog()
-    }
+graph TB
+    subgraph Class["Logger Class"]
+        MAIN["Logger"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getLastLog()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setLogFile(const std::string& file)"]
+        Setters_1["setOnLog(const OnLogCallback& onLog)"]
+        Setters_2["setTestingMode()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["log(Fw::LogLevel level, const s...)"]
+        Other_1["logFunc(Fw::LogLevel level, const s...)"]
+        Other_2["debug(const std::string& what)"]
+        Other_3["info(const std::string& what)"]
+        Other_4["warning(const std::string& what)"]
+        Other_5["error(const std::string& what)"]
+        Other_6["fatal(const std::string& what)"]
+        Other_7["fireOldMessages()"]
+        Other_MORE["+ 1 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

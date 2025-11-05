@@ -1,12 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uilayout {
-        +update
-        +updateLater
-        +disableUpdates
-        +enableUpdates
-        +setParent
-        +getParentWidget
-        +isUpdateDisabled
-        +isUpdating
-    }
+graph TB
+    subgraph Class["Uilayout Class"]
+        MAIN["Uilayout"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["UIWidgetPtr getParentWidget()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setParent(UIWidgetPtr parentWidget)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["update()"]
+        Other_1["updateLater()"]
+        Other_2["virtual void applyStyle()"]
+        Other_3["virtual void addWidget()"]
+        Other_4["virtual void removeWidget()"]
+        Other_5["disableUpdates()"]
+        Other_6["enableUpdates()"]
+        Other_7["bool isUpdateDisabled()"]
+        Other_MORE["+ 11 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

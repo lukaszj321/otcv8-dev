@@ -1,24 +1,36 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Outputmessage {
-        +reset()
-        +setBuffer()
-        +getBuffer()
-        +addU8()
-        +addU16()
-        +addU32()
-        +addU64()
-        +addString()
-        +addRawString()
-        +addPaddingBytes()
-        +encryptRsa()
-        +getWritePos()
-        +getMessageSize()
-        +setWritePos()
-        +setMessageSize()
-        +writeChecksum()
-        +writeSequence()
-        +writeMessageSize()
-        +canWrite()
-        +checkWrite()
-    }
+graph TB
+    subgraph Class["Outputmessage Class"]
+        MAIN["Outputmessage"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getBuffer()"]
+        Getters_1["uint32 getWritePos()"]
+        Getters_2["uint32 getMessageSize()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setBuffer(const std::string& buffer)"]
+        Setters_1["setWritePos(uint32 writePos)"]
+        Setters_2["setMessageSize(uint32 messageSize)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["reset()"]
+        Other_1["addU8(uint8 value)"]
+        Other_2["addU16(uint16 value)"]
+        Other_3["addU32(uint32 value)"]
+        Other_4["addU64(uint64 value)"]
+        Other_5["addString(const std::string& buffer)"]
+        Other_6["addRawString(const std::string& buffer)"]
+        Other_7["addPaddingBytes(int bytes, uint8 byte = 0)"]
+        Other_MORE["+ 4 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

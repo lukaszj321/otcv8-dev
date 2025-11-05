@@ -1,11 +1,16 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Oggsoundfile {
-        +prepareOgg
-        +read
-        +reset
-        +cb_read
-        +cb_seek
-        +cb_close
-        +cb_tell
-    }
+graph TB
+    subgraph Class["Oggsoundfile Class"]
+        MAIN["Oggsoundfile"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["bool prepareOgg()"]
+        Other_1["int read(void *buffer, int bufferSize)"]
+        Other_2["reset()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

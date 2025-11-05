@@ -1,54 +1,40 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Resourcemanager {
-        +init()
-        +terminate()
-        +launchCorrect()
-        +setupWriteDir()
-        +setup()
-        +getCompactName()
-        +loadDataFromSelf()
-        +fileExists()
-        +directoryExists()
-        +readFileStream()
-        +readFileContents()
-        +readFileContentsSafe()
-        +isFileEncryptedOrCompressed()
-        +writeFileBuffer()
-        +writeFileContents()
-        +writeFileStream()
-        +openFile()
-        +appendFile()
-        +createFile()
-        +deleteFile()
-        +makeDir()
-        +listDirectoryFiles()
-        +resolvePath()
-        +getWorkDir()
-        +getWriteDir()
-        +getBinaryName()
-        +getWriteDir()
-        +getBinaryName()
-        +guessFilePath()
-        +isFileType()
-        +isLoadedFromArchive()
-        +isLoadedFromMemory()
-        +fileChecksum()
-        +filesChecksums()
-        +selfChecksum()
-        +readCrashLog()
-        +deleteCrashLog()
-        +updateData()
-        +updateExecutable()
-        +createArchive()
-        +decompressArchive()
-        +encrypt()
-        +encryptBuffer()
-        +decryptBuffer()
-        +installDlls()
-        +setLayout()
-        +getLayout()
-        +mountMemoryData()
-        +unmountMemoryData()
-        +m_layout()
-    }
+graph TB
+    subgraph Class["Resourcemanager Class"]
+        MAIN["Resourcemanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getCompactName()"]
+        Getters_1["std::string getWorkDir()"]
+        Getters_2["std::string getWriteDir()"]
+        Getters_3["std::string getBinaryName()"]
+        Getters_4["std::string getWriteDir()"]
+        Getters_5["std::string getBinaryName()"]
+        Getters_6["std::string getLayout()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["bool setupWriteDir(const std::string& product,...)"]
+        Setters_1["bool setup()"]
+        Setters_2["setLayout(std::string layout)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init(const char *argv0)"]
+        Other_1["terminate()"]
+        Other_2["bool launchCorrect(const std::string& product,...)"]
+        Other_3["bool loadDataFromSelf(bool unmountIfMounted = false)"]
+        Other_4["bool fileExists(const std::string& fileName)"]
+        Other_5["bool directoryExists(const std::string& director...)"]
+        Other_6["readFileStream(const std::string& fileName...)"]
+        Other_7["std::string readFileContents(const std::string& fileName...)"]
+        Other_MORE["+ 30 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

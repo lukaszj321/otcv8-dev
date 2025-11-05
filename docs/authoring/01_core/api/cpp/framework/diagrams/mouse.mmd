@@ -1,12 +1,21 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Mouse {
-        +init
-        +terminate
-        +loadCursors
-        +addCursor
-        +pushCursor
-        +popCursor
-        +isCursorChanged
-        +isPressed
-    }
+graph TB
+    subgraph Class["Mouse Class"]
+        MAIN["Mouse"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["loadCursors(std::string filename)"]
+        Other_3["addCursor(const std::string& name, co...)"]
+        Other_4["pushCursor(const std::string& name)"]
+        Other_5["popCursor(const std::string& name)"]
+        Other_6["bool isCursorChanged()"]
+        Other_7["bool isPressed(Fw::MouseButton mouseButton)"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

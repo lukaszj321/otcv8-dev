@@ -1,10 +1,25 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uiboxlayout {
-        +applyStyle
-        +addWidget
-        +removeWidget
-        +setSpacing
-        +setFitChildren
-        +isUIBoxLayout
-    }
+graph TB
+    subgraph Class["Uiboxlayout Class"]
+        MAIN["Uiboxlayout"]
+    end
+    
+    subgraph Setters["Setters"]
+        Setters_0["setSpacing(int spacing)"]
+        Setters_1["setFitChildren(bool fitParent)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["applyStyle(const OTMLNodePtr& styleNode)"]
+        Other_1["addWidget(const UIWidgetPtr& widget)"]
+        Other_2["removeWidget(const UIWidgetPtr& widget)"]
+        Other_3["bool isUIBoxLayout()"]
+        Other_4["stdext::boolean<false> m_fitChildren()"]
+        Other_5["int m_spacing()"]
+    end
+
+    MAIN --> Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

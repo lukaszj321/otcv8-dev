@@ -1,40 +1,41 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Uimanager {
-        +init()
-        +terminate()
-        +render()
-        +resize()
-        +inputEvent()
-        +updatePressedWidget()
-        +updateDraggingWidget()
-        +updateHoveredWidget()
-        +clearStyles()
-        +importStyle()
-        +importStyleFromString()
-        +importStyleFromOTML()
-        +getStyle()
-        +getStyleClass()
-        +loadUIFromString()
-        +loadUI()
-        +displayUI()
-        +createWidget()
-        +createWidgetFromOTML()
-        +setMouseReceiver()
-        +setKeyboardReceiver()
-        +setDebugBoxesDrawing()
-        +resetMouseReceiver()
-        +resetKeyboardReceiver()
-        +getMouseReceiver()
-        +getKeyboardReceiver()
-        +getDraggingWidget()
-        +getHoveredWidget()
-        +getPressedWidget()
-        +getRootWidget()
-        +isMouseGrabbed()
-        +isKeyboardGrabbed()
-        +isDrawingDebugBoxes()
-        +onWidgetAppear()
-        +onWidgetDisappear()
-        +onWidgetDestroy()
-    }
+graph TB
+    subgraph Class["Uimanager Class"]
+        MAIN["Uimanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["OTMLNodePtr getStyle(const std::string& styleName)"]
+        Getters_1["std::string getStyleClass(const std::string& styleName)"]
+        Getters_2["UIWidgetPtr getMouseReceiver()"]
+        Getters_3["UIWidgetPtr getKeyboardReceiver()"]
+        Getters_4["UIWidgetPtr getDraggingWidget()"]
+        Getters_5["UIWidgetPtr getHoveredWidget()"]
+        Getters_6["UIWidgetPtr getPressedWidget()"]
+        Getters_7["UIWidgetPtr getRootWidget()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setMouseReceiver(const UIWidgetPtr& widget)"]
+        Setters_1["setKeyboardReceiver(const UIWidgetPtr& widget)"]
+        Setters_2["setDebugBoxesDrawing(bool enabled)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["render(Fw::DrawPane drawPane)"]
+        Other_3["resize(const Size& size)"]
+        Other_4["inputEvent(const InputEvent& event)"]
+        Other_5["updatePressedWidget(const Fw::MouseButton butto...)"]
+        Other_6["bool updateDraggingWidget(const UIWidgetPtr& dragging...)"]
+        Other_7["updateHoveredWidget(bool now = false)"]
+        Other_MORE["+ 17 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

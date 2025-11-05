@@ -1,143 +1,58 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Luainterface {
-        +int()
-        +init()
-        +terminate()
-        +registerFunctions()
-        +registerSingletonClass()
-        +registerClass()
-        +registerClass()
-        +registerClassStaticFunction()
-        +registerClassMemberFunction()
-        +bindSingletonFunction()
-        +bindSingletonFunction()
-        +bindSingletonFunction()
-        +bindClassStaticFunction()
-        +bindClassStaticFunction()
-        +bindClassMemberFunction()
-        +bindClassMemberFunction()
-        +bindClassMemberField()
-        +bindClassMemberField()
-        +bindClassMemberGetField()
-        +bindClassMemberGetField()
-        +bindClassMemberSetField()
-        +bindClassMemberSetField()
-        +bindGlobalFunction()
-        +luaObjectGetEvent()
-        +luaObjectSetEvent()
-        +luaObjectEqualEvent()
-        +luaObjectCollectEvent()
-        +safeRunScript()
-        +runScript()
-        +runBuffer()
-        +loadScript()
-        +loadFunction()
-        +evaluateExpression()
-        +traceback()
-        +throwError()
-        +getCurrentSourcePath()
-        +getCurrentFunction()
-        +safeCall()
-        +signalCall()
-        +newSandboxEnv()
-        +luaCallGlobalField()
-        +callGlobalField()
-        +callGlobalField()
-        +isInCppCallback()
-        +luaScriptLoader()
-        +lua_dofile()
-        +lua_dofiles()
-        +lua_loadfile()
-        +luaErrorHandler()
-        +luaCppFunctionCallback()
-        +luaCollectCppFunction()
-        +createLuaState()
-        +closeLuaState()
-        +collectGarbage()
-        +loadBuffer()
-        +generateByteCode()
-        +pcall()
-        +call()
-        +error()
-        +ref()
-        +weakRef()
-        +unref()
-        +useValue()
-        +functionSourcePath()
-        +functionSource()
-        +insert()
-        +remove()
-        +next()
-        +checkStack()
-        +getStackFunction()
-        +getRef()
-        +getWeakRef()
-        +getGlobalEnvironment()
-        +setGlobalEnvironment()
-        +resetGlobalEnvironment()
-        +setMetatable()
-        +getMetatable()
-        +getField()
-        +getField()
-        +setField()
-        +setField()
-        +getTable()
-        +setTable()
-        +clearTable()
-        +getEnv()
-        +setEnv()
-        +getGlobal()
-        +getGlobalField()
-        +setGlobal()
-        +rawGet()
-        +rawGeti()
-        +rawSet()
-        +rawSeti()
-        +newTable()
-        +createTable()
-        +pop()
-        +popInteger()
-        +popNumber()
-        +popBoolean()
-        +popString()
-        +popObject()
-        +pushNil()
-        +pushInteger()
-        +pushNumber()
-        +pushBoolean()
-        +pushCString()
-        +pushString()
-        +pushLightUserdata()
-        +pushThread()
-        +pushValue()
-        +pushObject()
-        +pushCFunction()
-        +pushCppFunction()
-        +isNil()
-        +isBoolean()
-        +isNumber()
-        +isString()
-        +isTable()
-        +isFunction()
-        +isCFunction()
-        +isLuaFunction()
-        +isUserdata()
-        +toBoolean()
-        +toInteger()
-        +toNumber()
-        +toString()
-        +toObject()
-        +getTop()
-        +stackSize()
-        +clearStack()
-        +hasIndex()
-        +getSource()
-        +loadFiles()
-        +polymorphicPush()
-        +polymorphicPush()
-        +castValue()
-        +polymorphicPop()
-        +LuaBadValueCastException()
-        +s()
-    }
+graph TB
+    subgraph Class["Luainterface Class"]
+        MAIN["Luainterface"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getCurrentSourcePath(int level = 0)"]
+        Getters_1["std::string getCurrentFunction(int level = 0)"]
+        Getters_2["getStackFunction(int level = 0)"]
+        Getters_3["getRef(int ref)"]
+        Getters_4["getWeakRef(int weakRef)"]
+        Getters_5["int getGlobalEnvironment()"]
+        Getters_6["getMetatable(int index = -1)"]
+        Getters_7["getField(const char* key, int index ...)"]
+        Getters_MORE["+ 22 more..."]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setGlobalEnvironment(int env)"]
+        Setters_1["setMetatable(int index = -2)"]
+        Setters_2["setField(const char* key, int index ...)"]
+        Setters_3["setField(const std::string& key, int...)"]
+        Setters_4["setTable(int index = -3)"]
+        Setters_5["setEnv(int index = -2)"]
+        Setters_6["setGlobal(const std::string& key)"]
+        Setters_7["setGlobalEnvironment(int env)"]
+        Setters_MORE["+ 6 more..."]
+    end
+
+    subgraph Static["Static"]
+        Static_0["registerClassStaticFunction(const std::string& function...)"]
+        Static_1["bindClassStaticFunction(const std::string& function...)"]
+        Static_2["bindClassStaticFunction(const std::string& classNam...)"]
+        Static_3["registerClassStaticFunction(const std::string& function...)"]
+        Static_4["bindClassStaticFunction(const std::string& function...)"]
+        Static_5["bindClassStaticFunction(const std::string& classNam...)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["registerFunctions()"]
+        Other_3["registerSingletonClass(const std::string& className)"]
+        Other_4["registerClass(const std::string& classNam...)"]
+        Other_5["registerClass()"]
+        Other_6["registerClassMemberFunction(const std::string& function...)"]
+        Other_7["bindSingletonFunction(const std::string& function...)"]
+        Other_MORE["+ 192 more..."]
+    end
+
+    MAIN --> Getters & Setters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

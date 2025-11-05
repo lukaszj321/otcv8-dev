@@ -1,7 +1,20 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Pngunpacker {
-        +getOffset
-        +getFileSize
-        +unpack
-    }
+graph TB
+    subgraph Class["Pngunpacker Class"]
+        MAIN["Pngunpacker"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint32_t getOffset()"]
+        Getters_1["uint32_t getFileSize()"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static std::unordered_map<uint32_t, std::string> unpack()"]
+    end
+
+    MAIN --> Getters & Static
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Static fill:#5c4a1f,stroke:#8b7332

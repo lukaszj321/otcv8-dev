@@ -1,27 +1,35 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Platform {
-        +processArgs()
-        +spawnProcess()
-        +getProcessId()
-        +isProcessRunning()
-        +killProcess()
-        +getTempPath()
-        +getCurrentDir()
-        +copyFile()
-        +fileExists()
-        +removeFile()
-        +getFileModificationTime()
-        +openUrl()
-        +openDir()
-        +getCPUName()
-        +getTotalSystemMemory()
-        +getMemoryUsage()
-        +getOSName()
-        +traceback()
-        +getMacAddresses()
-        +getUserName()
-        +getDlls()
-        +getProcesses()
-        +getWindows()
-    }
+graph TB
+    subgraph Class["Platform Class"]
+        MAIN["Platform"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int getProcessId()"]
+        Getters_1["std::string getTempPath()"]
+        Getters_2["std::string getCurrentDir()"]
+        Getters_3["ticks_t getFileModificationTime(std::string file)"]
+        Getters_4["std::string getCPUName()"]
+        Getters_5["double getTotalSystemMemory()"]
+        Getters_6["double getMemoryUsage()"]
+        Getters_7["std::string getOSName()"]
+        Getters_MORE["+ 5 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["processArgs(std::vector<std::string>& args)"]
+        Other_1["bool spawnProcess(std::string process, const ...)"]
+        Other_2["bool isProcessRunning(const std::string& name)"]
+        Other_3["bool killProcess(const std::string& name)"]
+        Other_4["bool copyFile(std::string from, std::stri...)"]
+        Other_5["bool fileExists(std::string file)"]
+        Other_6["bool removeFile(std::string file)"]
+        Other_7["bool openUrl(std::string url, bool now =...)"]
+        Other_MORE["+ 2 more..."]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

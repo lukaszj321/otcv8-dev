@@ -1,27 +1,44 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Luaobject {
-        +luabinder()
-        +connectLuaField()
-        +luaCallLuaField()
-        +callLuaField()
-        +callLuaField()
-        +hasLuaField()
-        +setLuaField()
-        +getLuaField()
-        +releaseLuaFieldsTable()
-        +luaSetField()
-        +luaGetField()
-        +luaGetMetatable()
-        +luaGetFieldsTable()
-        +getUseCount()
-        +getClassName()
-        +asLuaObject()
-        +connect()
-        +connect()
-        +call()
-        +decltype()
-        +s()
-        +F()
-        +operator()
-    }
+graph TB
+    subgraph Class["Luaobject Class"]
+        MAIN["Luaobject"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["T getLuaField(const std::string& key)"]
+        Getters_1["int getUseCount()"]
+        Getters_2["std::string getClassName()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setLuaField(const std::string& key, con...)"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["LuaObjectPtr asLuaObject()"]
+    end
+
+    subgraph Operators["Operators"]
+        Operators_0["void operator=()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["connectLuaField(const std::string& field, c...)"]
+        Other_1["int luaCallLuaField(const std::string& field, c...)"]
+        Other_2["R callLuaField(const std::string& field, c...)"]
+        Other_3["callLuaField(const std::string& field, c...)"]
+        Other_4["bool hasLuaField(const std::string& field)"]
+        Other_5["releaseLuaFieldsTable()"]
+        Other_6["luaSetField(const std::string& key)"]
+        Other_7["luaGetField(const std::string& key)"]
+        Other_MORE["+ 2 more..."]
+    end
+
+    MAIN --> Getters & Setters & Static & Operators & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Operators fill:#1a1a2e,stroke:#6b3535
+    style Other fill:#1a1a2e,stroke:#6b3535

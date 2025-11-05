@@ -1,42 +1,45 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Win32Window {
-        +internalSetupTimerAccuracy()
-        +internalCreateWindow()
-        +internalCreateGLContext()
-        +internalDestroyGLContext()
-        +internalRestoreGLContext()
-        +isExtensionSupported()
-        +windowProc()
-        +dispatcherWindowProc()
-        +retranslateVirtualKey()
-        +init()
-        +terminate()
-        +move()
-        +resize()
-        +show()
-        +hide()
-        +minimize()
-        +maximize()
-        +poll()
-        +swapBuffers()
-        +showMouse()
-        +hideMouse()
-        +displayFatalError()
-        +setMouseCursor()
-        +restoreMouseCursor()
-        +setTitle()
-        +setMinimumSize()
-        +setFullscreen()
-        +setVerticalSync()
-        +setIcon()
-        +setClipboardText()
-        +getDisplaySize()
-        +getClipboardText()
-        +getPlatformType()
-        +flash()
-        +internalLoadMouseCursor()
-        +getClientRect()
-        +getWindowRect()
-        +adjustWindowRect()
-    }
+graph TB
+    subgraph Class["Win32Window Class"]
+        MAIN["Win32Window"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["Size getDisplaySize()"]
+        Getters_1["std::string getClipboardText()"]
+        Getters_2["std::string getPlatformType()"]
+        Getters_3["Size getDisplaySize()"]
+        Getters_4["std::string getClipboardText()"]
+        Getters_5["std::string getPlatformType()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setMouseCursor(int cursorId)"]
+        Setters_1["setTitle(const std::string& title)"]
+        Setters_2["setMinimumSize(const Size& minimumSize)"]
+        Setters_3["setFullscreen(bool fullscreen)"]
+        Setters_4["setVerticalSync(bool enable)"]
+        Setters_5["setIcon(const std::string& file)"]
+        Setters_6["setClipboardText(const std::string& text)"]
+        Setters_7["setMouseCursor(int cursorId)"]
+        Setters_MORE["+ 6 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["move(const Point& pos)"]
+        Other_3["resize(const Size& size)"]
+        Other_4["show()"]
+        Other_5["hide()"]
+        Other_6["minimize()"]
+        Other_7["maximize()"]
+        Other_MORE["+ 24 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

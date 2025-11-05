@@ -1,52 +1,46 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Otmlnode {
-        +create()
-        +create()
-        +tag()
-        +size()
-        +source()
-        +rawValue()
-        +isUnique()
-        +isNull()
-        +hasTag()
-        +hasValue()
-        +hasChildren()
-        +hasChildAt()
-        +getIndex()
-        +setTag()
-        +setValue()
-        +setNull()
-        +setUnique()
-        +setSource()
-        +setIndex()
-        +lockTag()
-        +get()
-        +getIndex()
-        +at()
-        +addChild()
-        +removeChild()
-        +copy()
-        +merge()
-        +clear()
-        +children()
-        +clone()
-        +value()
-        +valueAt()
-        +valueAtIndex()
-        +valueAt()
-        +valueAtIndex()
-        +write()
-        +writeAt()
-        +writeIn()
-        +asOTMLNode()
-        +OTMLException()
-        +emit()
-        +m_tag()
-        +m_value()
-        +m_source()
-        +m_index()
-        +m_unique()
-        +m_null()
-        +m_tagLocked()
-    }
+graph TB
+    subgraph Class["Otmlnode Class"]
+        MAIN["Otmlnode"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["size_t getIndex()"]
+        Getters_1["OTMLNodePtr get(const std::string& childTag)"]
+        Getters_2["OTMLNodePtr getIndex(int childIndex)"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setTag(const std::string& tag)"]
+        Setters_1["setValue(const std::string& value)"]
+        Setters_2["setNull(bool null)"]
+        Setters_3["setUnique(bool unique)"]
+        Setters_4["setSource(const std::string& source)"]
+        Setters_5["setIndex(size_t index)"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static OTMLNodePtr create()"]
+        Static_1["static OTMLNodePtr create()"]
+        Static_2["OTMLNodePtr asOTMLNode()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["std::string tag()"]
+        Other_1["int size()"]
+        Other_2["std::string source()"]
+        Other_3["std::string rawValue()"]
+        Other_4["bool isUnique()"]
+        Other_5["bool isNull()"]
+        Other_6["bool hasTag()"]
+        Other_7["bool hasValue()"]
+        Other_MORE["+ 27 more..."]
+    end
+
+    MAIN --> Getters & Setters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

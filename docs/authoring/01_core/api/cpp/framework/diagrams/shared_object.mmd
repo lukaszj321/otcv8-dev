@@ -1,18 +1,22 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class SharedObject {
-        +stdext()
-        +std()
-        +add_ref()
-        +dec_ref()
-        +ref_count()
-        +reset()
-        +reset()
-        +swap()
-        +use_count()
-        +is_unique()
-        +unspecified_bool_type()
-        +add_ref()
-        +dec_ref()
-        +element_type()
-    }
+graph TB
+    subgraph Class["SharedObject Class"]
+        MAIN["SharedObject"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["add_ref()"]
+        Other_1["dec_ref()"]
+        Other_2["refcount_t ref_count()"]
+        Other_3["add_ref()"]
+        Other_4["dec_ref()"]
+        Other_5["refcount_t ref_count()"]
+        Other_6["reset()"]
+        Other_7["reset(T* rhs)"]
+        Other_MORE["+ 4 more..."]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

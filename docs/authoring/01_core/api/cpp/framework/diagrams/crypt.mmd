@@ -1,30 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Crypt {
-        +base64Encode()
-        +base64Decode()
-        +xorCrypt()
-        +encrypt()
-        +decrypt()
-        +genUUID()
-        +setMachineUUID()
-        +getMachineUUID()
-        +md5Encode()
-        +sha1Encode()
-        +sha256Encode()
-        +sha512Encode()
-        +crc32()
-        +rsaGenerateKey()
-        +rsaSetPublicKey()
-        +rsaSetPrivateKey()
-        +rsaCheckKey()
-        +rsaEncrypt()
-        +rsaDecrypt()
-        +rsaGetSize()
-        +bencrypt()
-        +bdecrypt()
-        +_encrypt()
-        +_decrypt()
-        +getCryptKey()
-        +RSA()
-    }
+graph TB
+    subgraph Class["Crypt Class"]
+        MAIN["Crypt"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getMachineUUID()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["bool setMachineUUID(std::string uuidstr)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["std::string base64Encode(const std::string& decoded_...)"]
+        Other_1["std::string base64Decode(const std::string& encoded_...)"]
+        Other_2["std::string xorCrypt(const std::string& buffer, ...)"]
+        Other_3["std::string encrypt(const std::string& decrypte...)"]
+        Other_4["std::string decrypt(const std::string& encrypte...)"]
+        Other_5["std::string genUUID()"]
+        Other_6["std::string md5Encode(const std::string& decoded_...)"]
+        Other_7["std::string sha1Encode(const std::string& decoded_...)"]
+        Other_MORE["+ 12 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

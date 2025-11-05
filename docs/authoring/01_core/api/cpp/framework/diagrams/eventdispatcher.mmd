@@ -1,10 +1,19 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Eventdispatcher {
-        +shutdown
-        +poll
-        +addEventEx
-        +scheduleEventEx
-        +cycleEventEx
-        +isBotSafe
-    }
+graph TB
+    subgraph Class["Eventdispatcher Class"]
+        MAIN["Eventdispatcher"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["shutdown()"]
+        Other_1["poll()"]
+        Other_2["EventPtr addEventEx(const std::string& function...)"]
+        Other_3["ScheduledEventPtr scheduleEventEx(const std::string& function...)"]
+        Other_4["ScheduledEventPtr cycleEventEx(const std::string& function...)"]
+        Other_5["bool isBotSafe()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

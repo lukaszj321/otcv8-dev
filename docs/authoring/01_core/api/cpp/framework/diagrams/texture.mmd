@@ -1,42 +1,44 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Texture {
-        +resize()
-        +setTime()
-        +setCanCache()
-        +getId()
-        +getUniqueId()
-        +getTime()
-        +getWidth()
-        +getHeight()
-        +isEmpty()
-        +hasRepeat()
-        +hasMipmaps()
-        +canCache()
-        +uploadPixels()
-        +setupSize()
-        +setupWrap()
-        +setupFilters()
-        +setupTranformMatrix()
-        +setupPixels()
-        +replace()
-        +update()
-        +setUpsideDown()
-        +setSmooth()
-        +setRepeat()
-        +buildHardwareMipmaps()
-        +isAnimatedTexture()
-        +m_id()
-        +m_uniqueId()
-        +m_time()
-        +m_size()
-        +m_transformMatrix()
-        +m_hasMipmaps()
-        +m_smooth()
-        +m_upsideDown()
-        +m_repeat()
-        +m_buildHardwareMipmaps()
-        +m_needsUpdate()
-        +m_canCache()
-        +m_image()
-    }
+graph TB
+    subgraph Class["Texture Class"]
+        MAIN["Texture"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["uint getId()"]
+        Getters_1["uint getUniqueId()"]
+        Getters_2["ticks_t getTime()"]
+        Getters_3["int getWidth()"]
+        Getters_4["int getHeight()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["virtual void setUpsideDown()"]
+        Setters_1["virtual void setSmooth()"]
+        Setters_2["virtual void setRepeat()"]
+        Setters_3["setTime(ticks_t time)"]
+        Setters_4["setCanCache(bool canCache)"]
+        Setters_5["setupSize(const Size& size)"]
+        Setters_6["setupWrap()"]
+        Setters_7["setupFilters()"]
+        Setters_MORE["+ 2 more..."]
+    end
+
+    subgraph Other["Other"]
+        Other_0["virtual void replace()"]
+        Other_1["resize(const Size& size)"]
+        Other_2["virtual void update()"]
+        Other_3["virtual bool buildHardwareMipmaps()"]
+        Other_4["bool isEmpty()"]
+        Other_5["bool hasRepeat()"]
+        Other_6["bool hasMipmaps()"]
+        Other_7["bool canCache()"]
+        Other_MORE["+ 15 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

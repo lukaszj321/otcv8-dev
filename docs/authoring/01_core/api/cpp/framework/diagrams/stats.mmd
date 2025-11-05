@@ -1,26 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Stats {
-        +StatsTypes()
-        +add()
-        +get()
-        +clear()
-        +clearAll()
-        +getSlow()
-        +clearSlow()
-        +types()
-        +getSleepTime()
-        +resetSleepTime()
-        +addWidget()
-        +removeWidget()
-        +getWidgetsInfo()
-        +addTexture()
-        +removeTexture()
-        +addThing()
-        +removeThing()
-        +addCreature()
-        +removeCreature()
-        +StatsMap()
-        +StatsList()
-        +m_sleepTime()
-    }
+graph TB
+    subgraph Class["Stats Class"]
+        MAIN["Stats"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string get(int type, int limit, bool p...)"]
+        Getters_1["std::string getSlow(int type, int limit, unsign...)"]
+        Getters_2["int64_t getSleepTime()"]
+        Getters_3["std::string getWidgetsInfo(int limit, bool pretty)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["add(int type, Stat* stats)"]
+        Other_1["clear(int type)"]
+        Other_2["clearAll()"]
+        Other_3["clearSlow(int type)"]
+        Other_4["int types()"]
+        Other_5["return m_sleepTime()"]
+        Other_6["resetSleepTime()"]
+        Other_7["int64_t m_sleepTime = 0()"]
+        Other_MORE["+ 8 more..."]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

@@ -1,15 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Soundchannel {
-        +play()
-        +stop()
-        +enqueue()
-        +enable()
-        +disable()
-        +setGain()
-        +getGain()
-        +setEnabled()
-        +isEnabled()
-        +getId()
-        +update()
-    }
+graph TB
+    subgraph Class["Soundchannel Class"]
+        MAIN["Soundchannel"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["float getGain()"]
+        Getters_1["int getId()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setGain(float gain)"]
+        Setters_1["setEnabled(bool enable)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["SoundSourcePtr play(const std::string& filename...)"]
+        Other_1["stop(float fadetime = 0)"]
+        Other_2["enqueue(const std::string& filename...)"]
+        Other_3["enable()"]
+        Other_4["disable()"]
+        Other_5["bool isEnabled()"]
+        Other_6["update()"]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

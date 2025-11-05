@@ -1,8 +1,20 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Framebuffermanager {
-        +init
-        +terminate
-        +clear
-        +createFrameBuffer
-    }
+graph TB
+    subgraph Class["Framebuffermanager Class"]
+        MAIN["Framebuffermanager"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["clear()"]
+        Other_3["FrameBufferPtr createFrameBuffer(bool withDepth = false)"]
+        Other_4["FrameBufferPtr m_temporaryFramebuffer()"]
+        Other_5["FrameBufferPtr m_drawQueueTemporaryFramebuffer()"]
+        Other_6["std::vector<FrameBufferPtr> m_framebuffers()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

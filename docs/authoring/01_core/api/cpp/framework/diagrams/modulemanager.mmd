@@ -1,14 +1,27 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Modulemanager {
-        +clear
-        +discoverModules
-        +autoLoadModules
-        +discoverModule
-        +ensureModuleLoaded
-        +unloadModules
-        +reloadModules
-        +getModule
-        +getModules
-        +updateModuleLoadOrder
-    }
+graph TB
+    subgraph Class["Modulemanager Class"]
+        MAIN["Modulemanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["ModulePtr getModule(const std::string& moduleName)"]
+        Getters_1["std::deque<ModulePtr> getModules()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["clear()"]
+        Other_1["discoverModules()"]
+        Other_2["autoLoadModules(int maxPriority)"]
+        Other_3["ModulePtr discoverModule(const std::string& moduleFile)"]
+        Other_4["ensureModuleLoaded(const std::string& moduleName)"]
+        Other_5["unloadModules()"]
+        Other_6["reloadModules()"]
+        Other_7["updateModuleLoadOrder(ModulePtr module)"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535

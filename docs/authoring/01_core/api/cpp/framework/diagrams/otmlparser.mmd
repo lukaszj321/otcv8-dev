@@ -1,9 +1,14 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Otmlparser {
-        +parse
-        +getNextLine
-        +getLineDepth
-        +parseLine
-        +parseNode
-    }
+graph TB
+    subgraph Class["Otmlparser Class"]
+        MAIN["Otmlparser"]
+    end
+    
+    subgraph Other["Other"]
+        Other_0["parse()"]
+    end
+
+    MAIN --> Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Other fill:#1a1a2e,stroke:#6b3535

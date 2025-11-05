@@ -1,21 +1,42 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Image {
-        +load()
-        +loadPNG()
-        +loadPNG()
-        +savePNG()
-        +blit()
-        +paste()
-        +upscale()
-        +resize()
-        +nextMipmap()
-        +setPixel()
-        +setPixel()
-        +setPixel()
-        +getPixelCount()
-        +getWidth()
-        +getHeight()
-        +getBpp()
-        +fromQRCode()
-    }
+graph TB
+    subgraph Class["Image Class"]
+        MAIN["Image"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["int getPixelCount()"]
+        Getters_1["int getWidth()"]
+        Getters_2["int getHeight()"]
+        Getters_3["int getBpp()"]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setPixel(int x, int y, uint8 *pixel)"]
+        Setters_1["setPixel(int x, int y, uint32_t argb)"]
+        Setters_2["setPixel(int x, int y, const Color& ...)"]
+    end
+
+    subgraph Static["Static"]
+        Static_0["static ImagePtr load()"]
+        Static_1["static ImagePtr loadPNG()"]
+        Static_2["static ImagePtr loadPNG()"]
+        Static_3["static ImagePtr fromQRCode()"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["savePNG(const std::string& fileName)"]
+        Other_1["blit(const Point& dest, const Im...)"]
+        Other_2["paste(const ImagePtr& other)"]
+        Other_3["ImagePtr upscale()"]
+        Other_4["resize(const Size& size)"]
+        Other_5["bool nextMipmap()"]
+    end
+
+    MAIN --> Getters & Setters & Static & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Static fill:#5c4a1f,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

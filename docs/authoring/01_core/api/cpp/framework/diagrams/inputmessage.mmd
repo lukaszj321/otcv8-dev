@@ -1,37 +1,43 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Inputmessage {
-        +setBuffer()
-        +getBuffer()
-        +getBodyBuffer()
-        +skipBytes()
-        +setReadPos()
-        +getU8()
-        +getU16()
-        +getU32()
-        +getU64()
-        +getString()
-        +getDouble()
-        +peekU8()
-        +peekU16()
-        +peekU32()
-        +peekU64()
-        +decryptRsa()
-        +getHeaderPos()
-        +getHeaderSize()
-        +getReadSize()
-        +getReadPos()
-        +getUnreadSize()
-        +getMessageSize()
-        +eof()
-        +reset()
-        +fillBuffer()
-        +setHeaderSize()
-        +setMessageSize()
-        +readSize()
-        +readChecksum()
-        +addZlibFooter()
-        +canRead()
-        +checkRead()
-        +checkWrite()
-    }
+graph TB
+    subgraph Class["Inputmessage Class"]
+        MAIN["Inputmessage"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["std::string getBuffer()"]
+        Getters_1["std::string getBodyBuffer()"]
+        Getters_2["uint8 getU8()"]
+        Getters_3["uint16 getU16()"]
+        Getters_4["uint32 getU32()"]
+        Getters_5["uint64 getU64()"]
+        Getters_6["std::string getString()"]
+        Getters_7["double getDouble()"]
+        Getters_MORE["+ 6 more..."]
+    end
+
+    subgraph Setters["Setters"]
+        Setters_0["setBuffer(const std::string& buffer)"]
+        Setters_1["setReadPos(uint32 readPos)"]
+        Setters_2["setHeaderSize(uint32 size)"]
+        Setters_3["setMessageSize(uint32 size)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["skipBytes(uint32 bytes)"]
+        Other_1["uint8 peekU8()"]
+        Other_2["uint16 peekU16()"]
+        Other_3["uint32 peekU32()"]
+        Other_4["uint64 peekU64()"]
+        Other_5["bool decryptRsa(int size)"]
+        Other_6["bool eof()"]
+        Other_7["reset()"]
+        Other_MORE["+ 4 more..."]
+    end
+
+    MAIN --> Getters & Setters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Setters fill:#1a1a2e,stroke:#8b7332
+    style Other fill:#1a1a2e,stroke:#6b3535

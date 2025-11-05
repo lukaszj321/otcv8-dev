@@ -1,13 +1,27 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-classDiagram
-    class Configmanager {
-        +init
-        +terminate
-        +getSettings
-        +get
-        +create
-        +loadSettings
-        +load
-        +unload
-        +remove
-    }
+graph TB
+    subgraph Class["Configmanager Class"]
+        MAIN["Configmanager"]
+    end
+    
+    subgraph Getters["Getters"]
+        Getters_0["ConfigPtr getSettings()"]
+        Getters_1["ConfigPtr get(const std::string& file)"]
+    end
+
+    subgraph Other["Other"]
+        Other_0["init()"]
+        Other_1["terminate()"]
+        Other_2["ConfigPtr create(const std::string& file)"]
+        Other_3["ConfigPtr loadSettings(const std::string file)"]
+        Other_4["ConfigPtr load(const std::string& file)"]
+        Other_5["bool unload(const std::string& file)"]
+        Other_6["remove(const ConfigPtr config)"]
+        Other_7["ConfigPtr m_settings()"]
+    end
+
+    MAIN --> Getters & Other
+
+    style MAIN fill:#2d5016,stroke:#4a7f2a,stroke-width:3px
+    style Getters fill:#1a1a2e,stroke:#4a7f2a
+    style Other fill:#1a1a2e,stroke:#6b3535
