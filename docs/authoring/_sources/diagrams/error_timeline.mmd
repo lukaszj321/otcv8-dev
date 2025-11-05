@@ -1,7 +1,45 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-timeline
-  title Error Timeline
-  section Startup
-    Init -> Config -> Modules
-  section Runtime
-    Input -> Network -> UI -> Shutdown
+sequenceDiagram
+    autonumber
+    participant APP as Application
+    participant ERR as Error Handler
+    participant LOG as Logger
+    participant UI as UI Dialog
+    participant CRASH as Crash Reporter
+    participant USER as User
+    
+    Note over APP,USER: Error Handling Flow
+    
+    APP->>APP: Exception occurs
+    APP->>ERR: Throw exception
+    
+    alt Recoverable Error
+        ERR->>LOG: Log error details
+        LOG->>LOG: Write to file
+        ERR->>UI: Show error dialog
+        UI->>USER: Display message
+        USER->>UI: Acknowledge
+        UI->>APP: Continue execution
+    else Fatal Error
+        ERR->>LOG: Log critical error
+        LOG->>LOG: Flush all buffers
+        ERR->>CRASH: Generate crash report
+        CRASH->>CRASH: Collect stack trace
+        CRASH->>CRASH: Save memory dump
+        CRASH->>UI: Show crash dialog
+        UI->>USER: Display crash info
+        USER->>UI: Choose action
+        alt Send Report
+            UI->>CRASH: Send to server
+            CRASH-->>USER: Report sent
+        else Don't Send
+            UI->>USER: Report saved locally
+        end
+        UI->>APP: Terminate gracefully
+    else Lua Error
+        ERR->>LOG: Log Lua error
+        LOG->>LOG: Include stack trace
+        ERR->>UI: Show in console
+        UI->>USER: Display in terminal
+        APP->>APP: Continue (non-fatal)
+    end

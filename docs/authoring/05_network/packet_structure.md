@@ -421,10 +421,10 @@ tcp_table:add(7171, otclient_proto)
 
 ## See Also
 
-- [Protocol Versions](./protocol_versions.md)
-- [Extended Opcodes](./extended_opcodes.md)
-- [Network Classes](../01_core/network.md)
-- [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
+<!-- - [Protocol Versions](./protocol_versions.md) TODO: Create this document -->
+<!-- - [Extended Opcodes](./extended_opcodes.md) TODO: Create this document -->
+<!-- - [Network Classes](../01_core/network.md) TODO: Create this document -->
+<!-- - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md) TODO: Create this document -->
 
 ## Diagram: network
 

@@ -1,7 +1,65 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-  A[Settings] --> B[Profiles]
-  B --> C[Secrets]
-  C --> D[Encryption]
-  D --> E[Key Store]
-  E --> F[Usage]
+graph TB
+    subgraph Settings["Settings System"]
+        CONFIG["Config Manager"]
+        STORAGE["Settings Storage"]
+        CACHE["Settings Cache"]
+    end
+    
+    subgraph Categories["Setting Categories"]
+        GRAPHICS["Graphics<br/>(Resolution, FPS)"]
+        AUDIO["Audio<br/>(Volume, Mute)"]
+        NETWORK["Network<br/>(Host, Port)"]
+        GAME["Game<br/>(Hotkeys, UI)"]
+    end
+    
+    subgraph Persistence["Persistence Layer"]
+        OTML["OTML Parser<br/>(config.otml)"]
+        XML["XML Parser<br/>(settings.xml)"]
+        JSON["JSON<br/>(preferences.json)"]
+    end
+    
+    subgraph Crypto["Cryptography"]
+        ENCRYPT["Encryption<br/>(Passwords)"]
+        DECRYPT["Decryption"]
+        HASH["Hashing<br/>(Integrity)"]
+        RSA["RSA Keys<br/>(Auth)"]
+    end
+    
+    subgraph Security["Security Features"]
+        VALIDATE["Input Validation"]
+        SANITIZE["Sanitization"]
+        SECURE["Secure Storage"]
+    end
+    
+    CONFIG --> STORAGE
+    STORAGE --> CACHE
+    
+    CONFIG --> GRAPHICS
+    CONFIG --> AUDIO
+    CONFIG --> NETWORK
+    CONFIG --> GAME
+    
+    STORAGE --> OTML
+    STORAGE --> XML
+    STORAGE --> JSON
+    
+    OTML --> ENCRYPT
+    XML --> ENCRYPT
+    JSON --> ENCRYPT
+    
+    ENCRYPT --> DECRYPT
+    ENCRYPT --> HASH
+    ENCRYPT --> RSA
+    
+    DECRYPT --> VALIDATE
+    HASH --> VALIDATE
+    VALIDATE --> SANITIZE
+    SANITIZE --> SECURE
+    
+    SECURE --> CACHE
+    
+    style CONFIG fill:#2d5016,stroke:#4a7f2a
+    style ENCRYPT fill:#3d1f1f,stroke:#6b3535
+    style SECURE fill:#3d1f1f,stroke:#6b3535
+    style CACHE fill:#5c4a1f,stroke:#8b7332

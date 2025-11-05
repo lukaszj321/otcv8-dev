@@ -1,7 +1,81 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-  A[Game Loop] --> B[Process Input]
-  B --> C[Update State]
-  C --> D[Network Sync]
-  D --> E[Render]
-  E --> A
+graph TB
+    subgraph Init["Initialization"]
+        BOOT["Boot Sequence"]
+        LOADCORE["Load Core"]
+        LOADMODS["Load Modules"]
+        INITUI["Initialize UI"]
+    end
+    
+    subgraph MainLoop["Main Game Loop"]
+        INPUT["Process Input"]
+        UPDATE["Update State"]
+        RENDER["Render Frame"]
+        EVENTS["Handle Events"]
+    end
+    
+    subgraph GameState["Game State"]
+        WORLD["World State<br/>(Map, Creatures)"]
+        PLAYER["Player State<br/>(Stats, Inventory)"]
+        UI_STATE["UI State<br/>(Windows, Widgets)"]
+        NET_STATE["Network State<br/>(Connection)"]
+    end
+    
+    subgraph Systems["Game Systems"]
+        COMBAT["Combat System"]
+        MOVEMENT["Movement System"]
+        INVENTORY_SYS["Inventory System"]
+        CHAT["Chat System"]
+        MINIMAP["Minimap System"]
+    end
+    
+    subgraph Network["Network Integration"]
+        RECV["Receive Packets"]
+        PROCESS["Process Protocol"]
+        SEND["Send Packets"]
+    end
+    
+    subgraph Scripts["Script Integration"]
+        LUA_UPDATE["Lua Update Hooks"]
+        BOT_UPDATE["Bot Scripts"]
+        MODULE_UPDATE["Module Updates"]
+    end
+    
+    BOOT --> LOADCORE
+    LOADCORE --> LOADMODS
+    LOADMODS --> INITUI
+    INITUI --> INPUT
+    
+    INPUT --> EVENTS
+    EVENTS --> UPDATE
+    UPDATE --> RENDER
+    RENDER --> INPUT
+    
+    UPDATE --> WORLD
+    UPDATE --> PLAYER
+    UPDATE --> UI_STATE
+    UPDATE --> NET_STATE
+    
+    WORLD --> COMBAT
+    WORLD --> MOVEMENT
+    PLAYER --> INVENTORY_SYS
+    UI_STATE --> CHAT
+    WORLD --> MINIMAP
+    
+    NET_STATE --> RECV
+    RECV --> PROCESS
+    PROCESS --> SEND
+    
+    UPDATE --> LUA_UPDATE
+    UPDATE --> BOT_UPDATE
+    UPDATE --> MODULE_UPDATE
+    
+    LUA_UPDATE --> WORLD
+    BOT_UPDATE --> COMBAT
+    MODULE_UPDATE --> UI_STATE
+    
+    style BOOT fill:#2d5016,stroke:#4a7f2a
+    style INPUT fill:#1a1a2e,stroke:#4a7f2a
+    style UPDATE fill:#1a1a2e,stroke:#8b7332
+    style RENDER fill:#5c4a1f,stroke:#8b7332
+    style RECV fill:#3d1f1f,stroke:#6b3535

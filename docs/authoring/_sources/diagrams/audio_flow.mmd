@@ -1,6 +1,70 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-  A[Audio System] --> B[SoundManager]
-  B --> C[SoundBuffer]
-  C --> D[SoundChannel]
-  D --> E[Playback]
+graph TB
+    subgraph Manager["Audio Manager"]
+        AUDIOMGR["Audio Manager"]
+        MIXER["Audio Mixer"]
+        CHANNELS["Channel Manager"]
+    end
+    
+    subgraph Sources["Audio Sources"]
+        STREAM["Stream Source<br/>(OGG Streaming)"]
+        BUFFER["Buffer Source<br/>(Loaded Sounds)"]
+        COMBINED["Combined Source<br/>(Multiple Sounds)"]
+    end
+    
+    subgraph Files["File Formats"]
+        OGG["OGG/Vorbis<br/>(Music, Ambience)"]
+        WAV["WAV<br/>(Short Effects)"]
+    end
+    
+    subgraph Processing["Audio Processing"]
+        DECODE["Decoder"]
+        RESAMPLE["Resampler"]
+        EFFECTS["Effects<br/>(Volume, Fade)"]
+    end
+    
+    subgraph Output["Audio Output"]
+        OPENAL["OpenAL<br/>Backend"]
+        DEVICE["Audio Device"]
+        SPEAKERS["Speakers/Headphones"]
+    end
+    
+    subgraph Control["Playback Control"]
+        PLAY["Play/Pause"]
+        VOLUME["Volume Control"]
+        LOOP["Loop Control"]
+        POSITION["Position/Seek"]
+    end
+    
+    AUDIOMGR --> MIXER
+    MIXER --> CHANNELS
+    
+    CHANNELS --> STREAM
+    CHANNELS --> BUFFER
+    CHANNELS --> COMBINED
+    
+    OGG --> DECODE
+    WAV --> DECODE
+    
+    DECODE --> STREAM
+    DECODE --> BUFFER
+    
+    STREAM --> RESAMPLE
+    BUFFER --> RESAMPLE
+    COMBINED --> RESAMPLE
+    
+    RESAMPLE --> EFFECTS
+    EFFECTS --> MIXER
+    MIXER --> OPENAL
+    OPENAL --> DEVICE
+    DEVICE --> SPEAKERS
+    
+    PLAY --> CHANNELS
+    VOLUME --> EFFECTS
+    LOOP --> STREAM
+    POSITION --> STREAM
+    
+    style AUDIOMGR fill:#2d5016,stroke:#4a7f2a
+    style STREAM fill:#1a1a2e,stroke:#8b7332
+    style OPENAL fill:#5c4a1f,stroke:#8b7332
+    style DEVICE fill:#3d1f1f,stroke:#6b3535

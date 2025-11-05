@@ -1,8 +1,61 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-  A[Logger] --> B[Console]
-  A --> C[File]
-  A --> D[UI Panel]
-  B --> E[Info]
-  C --> F[Warnings/Errors]
-  D --> G[Live View]
+graph TB
+    subgraph Sources["Log Sources"]
+        CPP["C++ Code<br/>(g_logger)"]
+        LUA["Lua Scripts<br/>(print, error)"]
+        NET["Network Events"]
+        UI["UI Events"]
+    end
+    
+    subgraph Logger["Logger Core"]
+        LOGGER["Logger Instance"]
+        LEVEL["Log Level Filter<br/>(DEBUG, INFO, WARN, ERROR)"]
+        FORMAT["Log Formatter"]
+    end
+    
+    subgraph Processing["Log Processing"]
+        BUFFER["Log Buffer"]
+        FILTER["Message Filter"]
+        TIMESTAMP["Timestamp"]
+        THREAD["Thread ID"]
+    end
+    
+    subgraph Outputs["Log Outputs"]
+        CONSOLE["Terminal Console"]
+        FILE["Log File<br/>(otclient.log)"]
+        INGAME["In-Game Terminal"]
+        CALLBACK["Lua Callbacks"]
+    end
+    
+    subgraph Management["Log Management"]
+        ROTATE["Log Rotation"]
+        ARCHIVE["Archive Old Logs"]
+        CLEANUP["Cleanup"]
+    end
+    
+    CPP --> LOGGER
+    LUA --> LOGGER
+    NET --> LOGGER
+    UI --> LOGGER
+    
+    LOGGER --> LEVEL
+    LEVEL --> FORMAT
+    
+    FORMAT --> BUFFER
+    BUFFER --> FILTER
+    FILTER --> TIMESTAMP
+    TIMESTAMP --> THREAD
+    
+    THREAD --> CONSOLE
+    THREAD --> FILE
+    THREAD --> INGAME
+    THREAD --> CALLBACK
+    
+    FILE --> ROTATE
+    ROTATE --> ARCHIVE
+    ARCHIVE --> CLEANUP
+    
+    style LOGGER fill:#2d5016,stroke:#4a7f2a
+    style CPP fill:#1a1a2e,stroke:#4a7f2a
+    style LUA fill:#1a1a2e,stroke:#8b7332
+    style FILE fill:#5c4a1f,stroke:#8b7332
