@@ -18,7 +18,7 @@ Kolor węzła reprezentuje jego przynależność do jednej z predefiniowanych wa
 | **Platforma** | 🔳 Szary | `platform` | Kod specyficzny dla danej platformy.<br/>*Katalogi: [`../14_android/`](../14_android/)* |
 
 **Definicje CSS-podobne (`classDef`):**
-```mermaid
+```plaintext
 classDef core fill:#3498db,stroke:#fff,color:#fff
 classDef subsystem fill:#2ecc71,stroke:#fff,color:#fff
 classDef game fill:#e67e22,stroke:#fff,color:#fff
