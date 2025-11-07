@@ -1,231 +1,210 @@
-# Biblioteka Wzorców Projektowych Diagramów
+# Biblioteka Wzorców Projektowych — Przewodnik po adaptacji (uzupełniony)
 
-## 1. Cel i Filozofia
+## 1. Cel i filozofia
 
-Ten katalog to zbiór gotowych do użycia **wzorców projektowych ("przepisów")** dla szerokiej gamy zadań wizualizacyjnych. Działa jak "książka kucharska" dla twórców diagramów, pokazując, jak wybrać odpowiednie narzędzie (typ diagramu) do konkretnego problemu i jak zaimplementować je zgodnie ze standardami zdefiniowanymi w nadrzędnych dokumentach:
+Ten katalog to zbiór praktycznych wzorców (przykładów) do tworzenia diagramów Mermaid. Służy jako "książka kucharska" — pokazuje sprawdzone techniki i układy, które należy ADAPTOWAĆ do konkretnego dokumentu.  
+Wzorce nie są szablonami 1:1 — kopiowanie bez analizy prowadzi do niespójności stylistycznych i semantycznych.
 
-*   **[../01_DESIGN_PHILOSOPHY.md](../01_DESIGN_PHILOSOPHY.md):** Określa, **dlaczego** tworzymy diagramy w określony sposób.
-*   **[../02_VISUAL_GUIDELINES.md](../02_VISUAL_GUIDELINES.md):** Definiuje, **jak** mają wyglądać (nasza paleta stylów).
-
-Wzorce są pogrupowane tematycznie w dedykowane pliki, aby ułatwić nawigację i zapewnić wydajność renderowania.
-
-### 1.1. Wzorce jako Przykłady, Nie Szablony
-
-**Ważne:** Pliki w tym katalogu (`03_DESIGN_PATTERNS/`) zawierają **przykładowe wzorce i techniki**, nie sztywne szablony do bezpośredniego kopiowania. 
-
-**Różnica między wzorcem a szablonem:**
-- **Szablon** = gotowy kod do skopiowania 1:1.
-- **Wzorzec** = **koncepcja projektowa** + przykład implementacji, który należy **zaadaptować** do konkretnego przypadku użycia.
-
-**Jak używać wzorców:**
-1. Przeczytaj opis wzorca, aby zrozumieć jego cel i strukturę.
-2. Przeanalizuj przykładowy kod i zidentyfikuj kluczowe elementy (inicjalizacja, typy węzłów, relacje).
-3. **Zaadaptuj** przykład do swojej dokumentacji:
-   - Zmień nazwy węzłów na rzeczywiste komponenty z projektu.
-   - Dostosuj warstwy architektoniczne (`classDef`) do faktycznej lokalizacji kodu.
-   - Dodaj/usuń węzły według potrzeb.
-4. Zachowaj style i konwencje wizualne zdefiniowane w `02_VISUAL_GUIDELINES.md`.
-
-### 1.2. Jak Wybrać Najbliższy Wzorzec
-
-**Algorytm wyboru wzorca:**
-
-1. **Zidentyfikuj typ treści** (patrz: [README.md, Sekcja 5](../README.md#5-mapping-treści--typ-diagramu)).
-2. **Sprawdź tagi wzorców** w indeksie poniżej (Sekcja 2).
-3. **Dopasuj nazwę sekcji dokumentacji** do kategorii wzorca:
-   - Dokumentujesz przepływ danych? → Część A (Flows and Processes).
-   - Pokazujesz strukturę klas/modułów? → Część B (Structure and Relations).
-   - Tworzysz harmonogram/oś czasu? → Część C (Time and Planning).
-   - Prezentujesz statystyki/analizę? → Część D (Data and Analysis).
-4. **Przeczytaj 2-3 wzorce** z wybranej kategorii.
-5. **Wybierz wzorzec**, który najbardziej przypomina Twoją sytuację (liczba aktorów, złożoność, kierunek przepływu).
-
-**Heurystyka oparta na tagach:**
-
-| Twoja Dokumentacja Zawiera | Szukaj Wzorca z Tagami |
-| :--- | :--- |
-| Komunikacja klient-serwer | `sequenceDiagram`, `interaction`, `protocol` |
-| Cykl życia obiektu | `stateDiagram-v2`, `lifecycle`, `state-machine` |
-| Hierarchia modułów/klas | `flowchart`, `structure`, `hierarchy` |
-| Zależności między plikami | `graph`, `dependencies`, `imports` |
-| Alokacja zasobów (z wartościami) | `sankey-beta`, `resources`, `flow` |
-| Harmonogram wersji | `gantt`, `timeline`, `planning` |
-| Udział kategorii | `pie`, `distribution`, `statistics` |
-
-**Przykład:**
-- **Cel:** Zadokumentować, jak moduły w `12_otmod` zależą od siebie.
-- **Typ treści:** Zależności między modułami (struktura).
-- **Tagi:** `dependencies`, `structure`, `modules`.
-- **Wybór:** [Część B: Struktura i Relacje](./B_Structure_and_Relations.md) → Wzorzec "Struktura Klas" (zaadaptowany na moduły).
-
-## 2. Szczegółowy Indeks Wzorców
-
-Poniżej znajduje się kompletny spis treści tej biblioteki. Każdy link prowadzi do odpowiedniego pliku i nagłówka (anchora), umożliwiając szybką nawigację do konkretnego wzorca.
-
-### [Część A: Przepływy i Procesy](./A_Flows_and_Processes.md)
-*   [Wzorzec Przepływu Danych (`flowchart`)](./A_Flows_and_Processes.md#wzorzec-przepływu-danych-flowchart--graph)
-*   [Wzorzec Sekwencji Interakcji (`sequenceDiagram`)](./A_Flows_and_Processes.md#wzorzec-sekwencji-interakcji-sequencediagram)
-*   [Wzorzec Maszyny Stanów (`stateDiagram-v2`)](./A_Flows_and_Processes.md#wzorzec-maszyny-stanow-statediagram-v2)
-*   [Wzorzec Podróży Użytkownika/Systemu (`journey`)](./A_Flows_and_Processes.md#wzorzec-podrozy-uzytkownikssystemu-journey)
-*   [Wzorzec Analizy Przepływu Zasobów (`sankey-beta`)](./A_Flows_and_Processes.md#wzorzec-analizy-przepływu-zasobow-sankey-beta)
-
-### [Część B: Struktura i Relacje](./B_Structure_and_Relations.md)
-*   [Wzorzec Struktury Klas (symulowany `flowchart`)](./B_Structure_and_Relations.md#wzorzec-struktury-klas-symulowany-za-pomocą-flowchart)
-*   [Wzorzec Modelu Danych (`erDiagram`)](./B_Structure_and_Relations.md#wzorzec-modelu-danych-erdiagram)
-*   [Wzorzec Mapy Myśli (`mindmap`)](./B_Structure_and_Relations.md#wzorzec-mapy-mysli-mindmap)
-
-### [Część C: Czas i Planowanie](./C_Time_and_Planning.md)
-*   [Wzorzec Osi Czasu Zdarzeń (`timeline`)](./C_Time_and_Planning.md#wzorzec-osi-czasu-zdarzen-timeline)
-*   [Wzorzec Harmonogramu Projektu (`gantt`)](./C_Time_and_Planning.md#wzorzec-harmonogramu-projektu-gantt)
-*   [Wzorzec Historii Wersji (`gitGraph`)](./C_Time_and_Planning.md#wzorzec-historii-wersji-gitgraph)
-
-### [Część D: Wizualizacja Danych i Analiza](./D_Data_and_Analysis.md)
-*   [Wzorzec Dystrybucji Danych (`pie`)](./D_Data_and_Analysis.md#wzorzec-dystrybucji-danych-pie)
-*   [Wzorzec Analizy Strategicznej (`quadrantChart`)](./D_Data_and_Analysis.md#wzorzec-analizy-strategicznej-quadrantchart)
-*   [Wzorzec Danych XY (`xychart-beta`)](./D_Data_and_Analysis.md#wzorzec-danych-xy-xychart-beta)
-
-### [Część E: Techniki Zaawansowane](./E_Advanced_Techniques.md)
-*   [Złożony Wzorzec Wizualizacji (Łączenie Diagramów)](./E_Advanced_Techniques.md#zlozony-wzorzec-wizualizacji-laczenie-diagramow)
+Zanim zaczniesz:
+- Przeczytaj: ../README.md (system projektowania, canonical init, idempotency, frontmatter).
+- Przeczytaj: ../02_VISUAL_GUIDELINES.md (classDef, kolory, reguły łamania etykiet).
 
 ---
 
-## 3. Praktyczne Przykłady Adaptacji Wzorców
+## 2. Kluczowa różnica: wzorzec ≠ szablon
 
-### 3.1. Scenariusz: Dokumentowanie Zależności Modułów
+- Wzorzec = koncepcja + przykład implementacji. Pokazuje, jak zorganizować elementy, jakie mają role i jakie style są użyte.
+- Szablon = gotowy kod do skopiowania.
 
-**Cel:** Pokazać, jak moduły w katalogu `modules/` zależą od siebie.
+Reguła: zawsze adaptuj
+1. Zmień nazwy węzłów na faktyczne nazwy z dokumentu.
+2. Dostosuj classDef zgodnie z lokalizacją komponentów (patrz 02_VISUAL_GUIDELINES).
+3. Dodaj idempotency marker jeśli diagram jest generowany automatycznie.
+4. Zadbaj o frontmatter (jeśli dodajesz/uzupełniasz w .md) zgodnie z canonical schema (README).
 
-**Krok 1: Wybór wzorca**
-- Typ treści: Struktura i relacje między modułami.
-- Wybór: [Część B: Wzorzec Struktury Klas](./B_Structure_and_Relations.md).
+---
 
-**Krok 2: Analiza danych**
-- Źródło: `docs/authoring/12_otmod/datasets/module_deps.csv`.
-- Kolumny: `module`, `dependencies[]`.
+## 3. Jak wybrać najbliższy wzorzec — algorytm wyboru
 
-**Krok 3: Adaptacja**
+1. Określ typ treści według heurystyk z głównego README (flows → flowchart, interakcje → sequenceDiagram, encje → erDiagram, harmonogram → gantt).
+2. Przeszukaj katalog 03_DESIGN_PATTERNS po tagach/nazwach (sekcje A..E). Szukaj wzorców z podobną liczbą grup/subgraph i typem relacji.
+3. Dopasuj:
+   - liczba głównych elementów (np. 3 główne moduły → wybierz wzorzec z 3 subgraph)
+   - typ relacji (synchronizacja / asynchroniczna / zależności)
+4. Jeśli kilka wzorców pasuje, wybierz ten o najbliższej strukturze i opisz decyzję w commit message/PR.
+5. Jeśli brak dobrego dopasowania — wybierz najbliższy typ (np. flowchart zamiast sequence) i oznacz to w opisie zmian.
+
+Heurystyka pomocnicza (tag scoring):
+- dopasuj wzorzec, który dzieli elementy tak, jak Twoja dokumentacja (np. proces→A_Flows, struktura→B_Structure).
+
+---
+
+## 4. Jak adaptować wzorzec — krok po kroku
+
+1. Analiza celu: co diagram ma przekazać (jedna historia).
+2. Weź przykład z odpowiedniej sekcji (A..E).
+3. Zastąp etykiety węzłów rzeczywistymi nazwami; stosuj `<br/>` do łamania długich etykiet.
+4. Znormalizuj node-id (lowercase, spaces→underscore) i opcjonalnie prefiksuj `doc_id_` przy generatorach.
+5. Zastosuj canonical init header (README sekcja 12.1).
+6. Dopasuj classDef zgodnie z 02_VISUAL_GUIDELINES (core/module/ui/data/event).
+7. Dodaj idempotency marker nad blokiem jeśli diagram generowany.
+8. Dodaj fallback linki pod diagramem, jeśli używasz `click`.
+9. Przetestuj: render w GitHub Preview i lokalne `mmdc`/`mermaid-lint`.
+10. W commit/PR opisz: wzorzec źródłowy, powody adaptacji, liczba węzłów, decyzję o podziale (jeśli dotyczy).
+
+Przykładowy commit message:
+```
+diagram: adapt A_Flows_and_Processes -> docs/authoring/xyz.md
+- used flowchart pattern; added classDef core/ui
+- reason: document describes stepwise processing
+```
+
+---
+
+## 5. Struktura katalogu i szybka nawigacja
+
+Sekcje tematyczne:
+- A_Flows_and_Processes.md — flowchart, sequenceDiagram, stateDiagram-v2, sankey
+- B_Structure_and_Relations.md — classDiagram (symulowany), erDiagram, mindmap
+- C_Time_and_Planning.md — gantt, timeline, gitGraph
+- D_Data_and_Analysis.md — pie, quadrantChart, xychart
+- E_Advanced_Techniques.md — łączenie diagramów (overview + details), multi-perspective dashboards
+
+Zawsze zaczynaj od pliku README w tym katalogu — ma indeks i wskazówki jak dopasować.
+
+---
+
+## 6. Przykłady adaptacji (konkretne)
+
+Przykład 1 — Zależności modułów (adaptacja z B_Structure_and_Relations):
+- Cel: pokazać zależności modułów w `12_otmod`.
+- Wybór: flowchart (pattern: structure-as-graph).
+- Działania adaptacyjne:
+  - Zamień etykiety na faktyczne moduły (game_skills, game_inventory).
+  - Zastosuj `classDef game` do wszystkich modułów.
+  - Dodaj click do facet anchors z fallbackiem.
+  - Dodaj marker idempotencyjny jeśli diagram wygenerowany.
+
+Przykład 2 — Przepływ autoryzacji (adaptacja z A_Flows_and_Processes):
+- Cel: pokazać sekwencję request/response między Client a LoginServer.
+- Wybór: sequenceDiagram.
+- Działania:
+  - Użyj `sequenceDiagram` (bez classDef).
+  - Dodaj init z themeVariables dla kolorów aktorów.
+  - Test renderu w GitHub (sequenceDiagram może nie wspierać click — użyj fallbacków).
+
+Przykład 3 — Placeholder dla przyszłego diagramu:
+- Wybierz Podejście A lub B z głównego README (placeholder .mmd lub TODO comment).
+- Umieść krótką listę planowanych elementów w komentarzu.
+
+---
+
+## 7. Reguły adaptacyjne i ograniczenia
+
+- Nie kopiuj kodu wzorca 1:1 — usuń zbędne przykładowe węzły, dopasuj poziom szczegółu.
+- Nie używaj `classDef` w typach, które go nie wspierają (np. sequenceDiagram, erDiagram) — zamiast tego stylizuj przez `init`.
+- Jeśli diagram przekracza progi czytelności (więcej niż 12 węzłów lub >3 poziomy), podziel go na overview + details.
+- Zawsze dodaj fallback dla `click`.
+
+---
+
+## 8. Wzorzec dokumentacji zmian (co wpisywać w PR)
+
+W opisie PR/commicie należy umieścić:
+- Który wzorzec adaptowano (plik i sekcja).
+- Dlaczego ten wzorzec (heurystyka).
+- Krótkie porównanie: oryginalny przykład ↔ zaadaptowany diagram (co zmieniono).
+- Statystyki: liczba węzłów, czy dodano marker idempotencyjny, czy zmodyfikowano frontmatter.
+- Lista plików wymagających manualnej weryfikacji (np. brakujące anchor-y, nieistniejące pliki doc).
+
+---
+
+## 9. Współpraca z generatorami / automatyzacją
+
+Wzorce mają być łatwe do adaptacji przez ludzi i boty. Aby to ułatwić:
+- Upewnij się, że wzorzec zawiera:
+  - Canonical init header (README sekcja 12.1).
+  - Przykładowe classDef zgodne z 02_VISUAL_GUIDELINES.
+  - Przykładowy idempotency marker i wzmiankę o frontmatter.
+- Dodaj komentarze w przykładach opisujące które linie powinny być zmienione przy adaptacji (np. `%% REPLACE: labels, classDef if needed`).
+
+Generator powinien:
+- Normalizować node-id.
+- Rozpoznawać i aktualizować istniejące bloki po idempotency markerze.
+- Tworzyć raport o wszystkich zmianach i o plikach wymagających ręcznej interwencji.
+
+---
+
+## 10. Testowanie adaptowanych wzorców
+
+Przed commitem:
+- Render test: GitHub Preview + lokalne `mmdc`/`mermaid-lint`.
+- Sprawdź, że click targets istnieją (albo są wykazane w PR jako brakujące).
+- Upewnij się, że frontmatter (jeśli dodany) jest zgodny z canonical schema.
+
+Przykładowe polecenia:
+```bash
+# lint (opcjonalne)
+npx mermaid-lint docs/authoring/**.mmd
+
+# render example file
+npx @mermaid-js/mermaid-cli -i docs/authoring/.../diagram.mmd -o /tmp/test.svg
+```
+
+---
+
+## 11. Checklist adaptacji wzorca (szybko)
+
+- [ ] Wybrano właściwy wzorzec zgodnie z heurystyką.
+- [ ] Etykiety zastąpione rzeczywistymi nazwami i sformatowane (<br/>).
+- [ ] Node-id znormalizowane i unikatowe.
+- [ ] classDef dopasowane do warstw (02_VISUAL_GUIDELINES).
+- [ ] Canonical init header obecny.
+- [ ] Idempotency marker dodany (jeśli generowane).
+- [ ] Click → fallback oraz weryfikacja targetów.
+- [ ] Local render i mermaid-lint OK.
+- [ ] Commit/PR opisuje decyzje adaptacyjne i wskazuje pliki do manualnej weryfikacji.
+
+---
+
+## 12. Gdzie dodać nowe wzorce?
+
+Jeśli chcesz dodać nowy wzorzec:
+1. Stwórz plik w odpowiadającej sekcji (A..E) z opisem celu, przykładem i wariantami.
+2. Użyj canonical init header i dołącz sample classDef.
+3. Dodaj tagi (na górze pliku) — ułatwia wyszukiwanie wg heurystyk.
+4. Otwórz PR z opisem: dlaczego wzorzec jest potrzebny i przykłady zastosowań.
+
+---
+
+## 13. Przykładowy minimalny snippet adaptacyjny (do kopiowania)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=d98152d96da9ca8c14f42b06ebd9bc3e4833769d; generated_at=2025-11-07T09:00:00Z -->
 ```mermaid
-%%{init: {'theme':'dark','securityLevel':'loose'}}%%
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "primaryTextColor": "#ddd",
+    "lineColor": "#9aa0a6"
+  },
+  "securityLevel": "loose"
+}}%%
 graph TD
-    %% Moduły z dependencies z CSV
-    A["game_interface"]
-    B["game_skills"]
-    C["game_inventory"]
-    D["game_textmessage"]
-    
-    %% Relacje (z kolumny dependencies)
-    A --> B
-    A --> C
-    B --> D
-    
-    %% Click links do facetów
-    click B "./index.html#facet-12_otmod.game_skills" "Open game_skills"
-    click C "./index.html#facet-12_otmod.game_inventory" "Open game_inventory"
-    
-    %% Style (wszystkie to moduły Lua = warstwa 'game')
-    classDef game fill:#e67e22,stroke:#fff,color:#fff
-    class A,B,C,D game
+  subgraph "Core Layer"
+    engine["Engine<br/>Core"]:::core
+    world["World State"]:::core
+  end
+  engine --> world
+  classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd;
 ```
+<!-- /mermaid-diagram -->
 
-**Krok 4: Weryfikacja**
-- ✅ Użyto standardowego `init` z `securityLevel:'loose'`.
-- ✅ Wszystkie moduły mają klasę `game` (warstwa architektury).
-- ✅ Dodano click links do facetów.
-- ✅ Diagram renderuje się w GitHub.
+Kluczowe:
 
-### 3.2. Scenariusz: Wizualizacja Przepływu Autoryzacji
-
-**Cel:** Pokazać interakcję między klientem a serwerem podczas logowania.
-
-**Krok 1: Wybór wzorca**
-- Typ treści: Interakcja w czasie.
-- Wybór: [Część A: Wzorzec Sekwencji Interakcji](./A_Flows_and_Processes.md#wzorzec-sekwencji-interakcji-sequencediagram).
-
-**Krok 2: Analiza danych**
-- Źródło: Dokumentacja protokołu w `docs/authoring/05_network/`.
-- Aktorzy: `Client`, `LoginServer`, `GameServer`.
-
-**Krok 3: Adaptacja**
-```mermaid
-%%{init: {'theme':'dark','securityLevel':'loose'}}%%
-sequenceDiagram
-    participant C as Client
-    participant LS as LoginServer
-    participant GS as GameServer
-    
-    C->>LS: Connect (RSA key)
-    LS-->>C: Challenge token
-    C->>LS: Login(username, password)
-    LS-->>C: CharacterList
-    C->>LS: SelectCharacter(id)
-    LS->>GS: TransferClient(session)
-    GS-->>C: EnterGame(world data)
-```
-
-**Krok 4: Weryfikacja**
-- ✅ Używa `sequenceDiagram` (nie `flowchart`).
-- ✅ Standardowy `init` z `securityLevel:'loose'`.
-- ✅ Bez `classDef` (nieobsługiwane w sequenceDiagram).
-- ✅ Strzałki `->>`/`-->>` zgodnie z semantyką.
-
-### 3.3. Scenariusz: Placeholder dla Przyszłego Diagramu
-
-**Cel:** Zarezerwować miejsce na diagram "Android JNI Flow", który jeszcze nie został zaprojektowany.
-
-**Krok 1: Wybór podejścia**
-- Użyj [Sekcji 6 z README.md](../README.md#6-obsługa-placeholderów-i-brakujących-plików) → Placeholder Diagram.
-
-**Krok 2: Implementacja**
-```mermaid
-%%{init: {'theme':'dark','securityLevel':'loose'}}%%
-graph TD
-    TODO["🚧 Android JNI Flow<br/>Diagram w przygotowaniu"]
-    INFO["Planowane elementy:<br/>- Java → C++ calls<br/>- JNI signatures<br/>- Thread handling"]
-    TODO -.-> INFO
-    
-    classDef note fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3
-    class TODO,INFO note
-```
-
-**Krok 3: Dodaj TODO w dokumentacji**
-```markdown
-<!-- TODO: Replace placeholder with full JNI sequence diagram -->
-<!-- Source: docs/authoring/14_android/datasets/jni_signatures.csv -->
-```
+- Komentarze HTML nie mogą być w środku ```mermaid.
+- Info typu `generated-by`, `source_sha` trzymaj w komentarzu nad/po bloku albo w opisie PR, nie mieszaj z kodem diagramu.
+::contentReference[oaicite:0]{index=0}
 
 ---
 
-## 4. Checklist Adaptacji Wzorca
-
-Przed zatwierdzeniem zaadaptowanego diagramu:
-
--   [ ] **Przeczytałem wzorzec źródłowy** i zrozumiałem jego strukturę.
--   [ ] **Zidentyfikowałem źródło danych** (CSV, kod, dokumentacja).
--   [ ] **Zmieniłem nazwy węzłów** na rzeczywiste komponenty z projektu.
--   [ ] **Zastosowałem odpowiednie klasy `classDef`** zgodnie z warstwami architektonicznymi.
--   [ ] **Dodałem linki `click`** (jeśli obsługiwane i dostępne pliki).
--   [ ] **Usunąłem zbędne elementy** z przykładu wzorca (nie kopiuję 1:1).
--   [ ] **Zweryfikowałem renderowanie** w GitHub i lokalnie (jeśli możliwe).
--   [ ] **Dodałem frontmatter** do pliku `.md` (jeśli diagram jest osadzony).
-
----
-
-## 5. Wskazówki Zaawansowane
-
-### 5.1. Łączenie Wielu Wzorców
-
-Możesz łączyć elementy z różnych wzorców w jednym dokumencie:
-- **Przykład:** `flowchart` (overview) + `sequenceDiagram` (szczegóły interakcji) + `gantt` (harmonogram implementacji).
-
-### 5.2. Generowanie Diagramów z CSV
-
-Jeśli masz dane w CSV, rozważ napisanie skryptu do automatycznego generowania diagramów:
-- Użyj markera `AUTO-GENERATED` (patrz: [Sekcja 7 w README.md](../README.md#7-idempotencja-i-marker-generowanego-bloku)).
-- Przykładowy generator: `scripts/generate_module_deps_diagram.js`.
-
-### 5.3. Kiedy NIE Używać Wzorca
-
-Nie kopiuj wzorca, jeśli:
-- Twój przypadek użycia jest **zbyt prosty** (np. 2 węzły i 1 połączenie → za mały do pełnego wzorca).
-- **Nie pasuje** typ diagramu (np. nie używaj `sequenceDiagram` dla struktury klas).
-- **Dane są niekompletne** → użyj placeholder (Sekcja 3.3).
+Dzięki za utrzymywanie wzorców w porządku — poprawna adaptacja wzorca jest kluczowa, żeby diagramy automatyczne i ręczne były spójne, czytelne i łatwe w utrzymaniu.
