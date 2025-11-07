@@ -5,6 +5,7 @@ name: Validate Mermaid Diagrams (docs)
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     paths:
       - 'docs/**/*.mmd'
       - 'docs/**/*.md'
@@ -32,7 +33,6 @@ jobs:
       - name: Determine changed files in the PR
         id: changed
         run: |
-          # Ensure base ref is available
           BASE_REF="${{ github.base_ref }}"
           if [ -n "$BASE_REF" ]; then
             git fetch origin "$BASE_REF" --depth=1 || true
@@ -43,6 +43,7 @@ jobs:
           echo "changed_files<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Show changed files (debug)
         run: |
           echo "Changed files:"
@@ -54,10 +55,33 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install JS tools (if needed)
-        id: install_tools
+      - name: Prepare list of changed doc files
+        id: files
         run: |
-          # If repo provides package.json, prefer project deps via npm ci (deterministic).
+          CHANGED="${{ steps.changed.outputs.changed_files }}"
+          FILES=$(echo "$CHANGED" | tr ' ' '\n' | sed '/^$/d' || true)
+          echo "$FILES" > changed_list.txt
+          MMD_CHANGED=$(echo "$FILES" | grep -E '\.mmd$' || true)
+          MD_CHANGED=$(echo "$FILES" | grep -E '\.md$' || true)
+          if [ -n "$MMD_CHANGED" ] || [ -n "$MD_CHANGED" ]; then
+            echo "has_docs=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_docs=false" >> $GITHUB_OUTPUT
+          fi
+          echo "mmd_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$MMD_CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "md_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$MD_CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # SECURITY NOTE:
+      # Avoid running repo-provided code (npm ci / arbitrary scripts) for PRs from forks.
+      # The following condition ensures installation & rendering run only for PRs originating from same-repo.
+      - name: Install JS tools (if needed) [skipped for forks]
+        id: install_tools
+        if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+        run: |
           if [ -f package.json ]; then
             echo "Using repository package.json -> npm ci"
             npm ci
@@ -68,37 +92,12 @@ jobs:
             echo "tool_install_mode=global" >> $GITHUB_OUTPUT
           fi
 
-      - name: Prepare list of changed doc files
-        id: files
-        run: |
-          CHANGED="${{ steps.changed.outputs.changed_files }}"
-          # Normalize to one-per-line
-          FILES=$(echo "$CHANGED" | tr ' ' '\n' | sed '/^$/d' || true)
-          echo "$FILES" > changed_list.txt
-          MMD_CHANGED=$(echo "$FILES" | grep -E '\.mmd$' || true)
-          MD_CHANGED=$(echo "$FILES" | grep -E '\.md$' || true)
-          if [ -n "$MMD_CHANGED" ] || [ -n "$MD_CHANGED" ]; then
-            echo "has_docs=true" >> $GITHUB_OUTPUT
-          else
-            echo "has_docs=false" >> $GITHUB_OUTPUT
-          fi
-          # Provide lists for later steps
-          echo "mmd_files<<EOF" >> $GITHUB_OUTPUT
-          echo "$MMD_CHANGED" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          echo "md_files<<EOF" >> $GITHUB_OUTPUT
-          echo "$MD_CHANGED" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
       - name: Run mermaid-lint (if docs changed)
         if: ${{ steps.files.outputs.has_docs == 'true' }}
         run: |
-          # Prefer local mermaid-lint if installed in project, otherwise use global
           if command -v mermaid-lint >/dev/null 2>&1; then
             echo "Running mermaid-lint (installed)"
-            # Lint only .mmd files to save time; if none exist, exit 0
             if [ -n "${{ steps.files.outputs.mmd_files }}" ]; then
-              # run on changed .mmd files
               echo "${{ steps.files.outputs.mmd_files }}" | tr ' ' '\n' | while read f; do
                 if [ -f "$f" ]; then
                   echo "Linting $f"
@@ -106,7 +105,6 @@ jobs:
                 fi
               done
             else
-              # No .mmd changed — lint all .mmd under docs/authoring to ensure quality (optional)
               echo "No changed .mmd files; running mermaid-lint on docs/authoring/**/*.mmd"
               sh -c 'ls docs/authoring/**/*.mmd 2>/dev/null || true' | xargs -r mermaid-lint || true
             fi
@@ -133,8 +131,8 @@ jobs:
           echo "Link-check report:"
           cat /tmp/diagram_links_report.json || true
 
-      - name: Render changed .mmd files (smoke tests)
-        if: ${{ steps.files.outputs.mmd_files != '' }}
+      - name: Render changed .mmd files (smoke tests) [only same-repo PRs]
+        if: ${{ steps.files.outputs.mmd_files != '' && github.event.pull_request.head.repo.full_name == github.repository }}
         run: |
           echo "Rendering changed .mmd files for smoke test..."
           echo "${{ steps.files.outputs.mmd_files }}" | tr ' ' '\n' | while read f; do
@@ -148,7 +146,7 @@ jobs:
             fi
           done
 
-      - name: Upload reports (if any)
+      - name: Upload reports (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
