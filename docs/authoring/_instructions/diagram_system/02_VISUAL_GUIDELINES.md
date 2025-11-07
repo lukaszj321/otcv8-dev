@@ -155,7 +155,28 @@ classDef stateTransition stroke-width:2px,stroke:#3b82f6
 | **Kluczowy przepływ danych**    | `==>`    | Główna ścieżka danych w diagramie.                                      |
 | **Niewidzialny link sterujący** | `~~~`    | Używany do **manualnego kontrolowania układu** i pozycjonowania węzłów. |
 
+#### Kolorowanie Linii
+
 Do kolorowania linii należy używać `linkStyle`, zgodnie z przykładami w **[Bibliotece Wzorców](./03_DESIGN_PATTERNS/)**.
+
+**Przykład:**
+```mermaid
+graph LR
+    A --> B
+    B --> C
+    C -.-> D
+    linkStyle 0 stroke:#2ecc71,stroke-width:2px
+    linkStyle 1 stroke:#3498db,stroke-width:2px
+    linkStyle 2 stroke:#e67e22,stroke-width:1px,stroke-dasharray:5 5
+```
+
+**Rekomendowane kolory dla linii:**
+- Zielony (`#2ecc71`): Przepływ sukcesu / happy path
+- Niebieski (`#3498db`): Przepływ standardowy
+- Pomarańczowy (`#e67e22`): Przepływ asynchroniczny / zdarzenie
+- Czerwony (`#c0392b`): Przepływ błędu / exception
+- Szary (`#4b5563`): Przepływ opcjonalny / warunkowy
+
 
 ---
 
