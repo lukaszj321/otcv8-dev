@@ -1,176 +1,139 @@
-# System Projektowania Diagramów: Przewodnik dla Twórców (finalna, skonsolidowana wersja)
+# System Projektowania Diagramów: Przewodnik dla Twórców (zaktualizowane odwołania do narzędzi)
 
-## 1. Wprowadzenie
+Ta wersja README zawiera kompletne wytyczne projektowe oraz precyzyjne odniesienia do narzędzi walidacyjnych i schematów, które znajdują się w repo. Zawiera instrukcje jak używać: JSON Schema frontmatter, konfiguracji `mermaid-lint`, skryptów do walidacji linków i normalizacji node-id.
 
-Witaj w systemie projektowania diagramów. Ten zbiór dokumentów jest kompletnym przewodnikiem do tworzenia spójnych, czytelnych i semantycznie bogatych diagramów Mermaid dla naszego projektu. Celem jest, aby diagramy były nie tylko ilustracją, ale narzędziem inżynierskim.
-
-Zanim zaczniesz: zapoznaj się z kolejnością dokumentów:
-1. 01_DESIGN_PHILOSOPHY.md — dlaczego tak projektujemy,
-2. 02_VISUAL_GUIDELINES.md — jak ma wyglądać,
-3. 03_DESIGN_PATTERNS/ — jak to zrobić (wzorce do adaptacji).
+Uwaga: wszystkie operacje walidacyjne (lint, render, link-check) wykonuj lokalnie lub w CI przed otwarciem PR; poniższe przykłady zakładają środowisko z Python 3.8+ i Node.js 18–20.
 
 ---
 
-## 2. Proces Tworzenia Wizualizacji — skrót procedury
-
-1. Analiza celu: Jaka jest jedna historia, którą diagram ma opowiedzieć?
-2. Wybór strategii: prosty diagram czy system overview+details?
-3. Wybór wzorca: przeszukaj 03_DESIGN_PATTERNS i dopasuj wzorzec (zaadaptuj, nie kopiuj 1:1).
-4. Implementacja: napisz kod Mermaid stosując canonical init i classDef z 02_VISUAL_GUIDELINES.
-5. Walidacja: mermaid-lint / mmdc lokalnie i preview w GitHub.
-6. PR: opisz decyzje, statystyki i pliki wymagające ręcznej weryfikacji.
-
----
-
-## 3. Checklista jakości (skrót)
-
-Przed commitem sprawdź minimum:
-- diagram opowiada jedną historię;
-- canonical init header obecny;
-- idempotency marker (jeśli wygenerowano);
-- fallbacky dla `click` i weryfikacja targetów;
-- frontmatter zgodny ze specyfikacją (jeśli dodany);
-- diagram renderuje się w GitHub Preview i przechodzi mermaid-lint/mmdc.
-
-Pełna, rozbudowana checklista znajduje się w sekcji 11.
+## Spis treści (skrót)
+1. Wprowadzenie (filozofia i porządek plików)  
+2. Gdzie znajdują się nowe pliki narzędzi i schematów  
+3. Jak lokalnie zweryfikować frontmatter (JSON Schema)  
+4. Jak uruchomić mermaid-lint z projektem (konfiguracja)  
+5. Jak sprawdzić linki `click` (skrypt validate_diagram_links.py)  
+6. Jak normalizować node-id (skrypt node_id_normalizer.py)  
+7. Propozycja kroku CI (przykład workflow — dodawać tylko, gdy repo nie ma równoważnego)  
+8. Zaktualizowana checklista i wskazówki PR
 
 ---
 
-## 4. Mapping treści → wybór typu diagramu (heurystyki i scoring)
-
-Używamy deterministycznej heurystyki opartej na słowach-kluczach z prostym scoringiem.
-
-Przykładowe słowa-klucze i wagi (+2 = silne dopasowanie):
-- flowchart: steps, krok, proces, next, then, -> (+2)
-- sequenceDiagram: request, response, client, server, actor (+2)
-- erDiagram/classDiagram: entity, table, field, schema, column, relation (+2)
-- gantt: date, milestone, schedule, plan (+2)
-- sankey-beta: flow, value, amount, proportion (+2)
-
-Algorytm:
-1. Zlicz punkty dla każdego typu.
-2. Wybierz najwyższy wynik.
-3. Przy remisie zastosuj tie-breaker: sequenceDiagram > flowchart > erDiagram > gantt.
-4. Jeśli wynik bliski/niejednoznaczny, wygeneruj notkę w PR o potrzebie manualnej weryfikacji.
-
----
-
-## 5. Obsługa placeholderów i brakujących plików
-
-Zasady:
-- Jeżeli plik .md zawiera placeholder (np. `<!-- TODO: mermaid -->`), agent domyślnie:
-  - może wygenerować diagram zgodnie z heurystyką i wstawić go, albo
-  - pozostawić placeholder i dodać komentarz TODO w PR (konfigurowalne).
-- Jeśli CSV wskazuje na nieistniejący plik .md: NIE tworzysz pełnych kontentowych plików automatycznie — raportuj brak w PR. Tworzenie minimalnych placeholderów z frontmatter wymaga wyraźnej zgody.
-- Placeholder .mmd: minimalny przykład znajduje się w 03_DESIGN_PATTERNS.
-
----
-
-## 6. Idempotencja (marker) i wykrywanie bloków generowanych
-
-Obowiązkowy marker nad blokiem Mermaid wygenerowanym automatycznie:
-```text
-<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=d98152d96da9ca8c14f42b06ebd9bc3e4833769d; generated_at=2025-11-07T09:00:00Z -->
-```
-
-Regex wykrywania (do użycia w narzędziach):
-```
-/<!--\s*mermaid-diagram:\s*generated-by=[^;]+;\s*source_sha=[0-9a-f]{40};\s*generated_at=[0-9T:\-\.Z]+?\s*-->/
-```
-
-Ręczna edycja:
-- Jeśli ktoś edytuje wygenerowany blok ręcznie, dodać komentarz `%% MANUALLY EDITED: <reason>`, a najlepiej usunąć/zmodyfikować marker `generated-by`, by generator go nie nadpisał.
-
----
-
-## 7. Canonical frontmatter — schemat i walidacja
-
-Canonical frontmatter (wymagane pola/formaty tam, gdzie dodajemy frontmatter):
-
-```yaml
----
-doc_id: "authoring/game-engine"               # opcjonalny; zachowaj istniejący jeśli występuje
-source_path: "docs/authoring/game-engine.md"  # względna ścieżka
-source_sha: "d98152d96da9ca8c14f42b06ebd9bc3e4833769d"  # 40-znakowy SHA hex
-last_sync_iso: "2025-11-07T09:00:00Z"         # ISO8601 UTC
-doc_class: "guide"
-language: "pl"
-title: "Game Engine — przegląd"
-summary: "Krótki opis: co pokazuje diagram i jaka jest jego jednostka."
-tags: ["architecture","core"]
----
-```
-
-Walidacja frontmatter:
-- `source_sha`: 40-znakowy hex,
-- `last_sync_iso`: ISO8601 UTC (YYYY-MM-DDTHH:MM:SSZ).
-- Reguła MERGE: jeśli frontmatter istnieje, uzupełnij braki i nie nadpisuj pól `title` ani `summary` bez uzasadnienia.
-
-Opcjonalny JSON Schema (do wbudowanej walidacji, przykład do wklejenia w narzędziu CI — nie dodajemy pliku automatycznie tutaj):
-```json
-{
-  "type": "object",
-  "properties": {
-    "doc_id": {"type": "string"},
-    "source_path": {"type": "string"},
-    "source_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-    "last_sync_iso": {"type": "string", "format": "date-time"},
-    "doc_class": {"type": "string"},
-    "language": {"type": "string"},
-    "title": {"type": "string"},
-    "summary": {"type": "string"},
-    "tags": {"type": "array", "items": {"type": "string"}}
-  },
-  "required": ["source_path","last_sync_iso","doc_class","language"]
-}
-```
-
----
-
-## 8. Canonical init header (dokładny format)
-
-Wszystkie diagramy MUSZĄ zaczynać się od tego nagłówka (dokładny zapis):
-
+## 1. Przypomnienie kluczowych zasad
+- Wszystkie diagramy Mermaid powinny używać canonical init header:
 ```text
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
 ```
-
-Uwagi:
-- Jeżeli środowisko docsite nie wspiera `securityLevel:'loose'`, użyj fallbacku (usuń interaktywność i dodaj fallback linki) i opisz to w PR.
+- Każdy automatycznie wygenerowany blok musi mieć idempotency marker:
+```text
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=<40hex>; generated_at=<ISO8601> -->
+```
+- Frontmatter w plikach `.md` związanych z diagramami powinien być zgodny ze schematem JSON umieszczonym w repo.
 
 ---
 
-## 9. Click / interaktywność i obowiązkowe fallbacki
+## 2. Lokalizacje plików narzędzi i schematu (aktualne)
+Uwaga: pliki zostały umieszczone w następujących ścieżkach w repo. README i przykłady uruchomień poniżej odnoszą się do tych ścieżek.
 
-Reguła:
-- `click` dozwolony w `graph`/`flowchart`/`mindmap`.
-- Dla każdego `click` obowiązkowy fallback: lista „Powiązane dokumenty” pod diagramem (markdown linki).
-- CI powinno sprawdzić istnienie pliku target (dla relatywnych ścieżek) lub ostrzec w raporcie.
+- JSON Schema frontmatter:
+  - `docs/authoring/_instructions/diagram_system/frontmatter.schema.json`
 
-Przykład fallbacku pod diagramem:
-```markdown
-Powiązane dokumenty:
-- Engine — ./index.html#facet-01_core.engine
+- mermaid-lint configuration:
+  - `docs/authoring/_instructions/diagram_system/.mermaid-lintrc`
+
+- Skrypty narzędzi (validator i normalizer):
+  - `docs/scripts/diagram-tools/validate_diagram_links.py`
+  - `docs/scripts/diagram-tools/node_id_normalizer.py`
+
+Jeżeli używasz lokalnych instrukcji lub generatorów, upewnij się, że odniesienia w generatorze wskazują dokładnie te ścieżki (z prefiksem `docs/`).
+
+---
+
+## 3. Walidacja frontmatter (JSON Schema)
+
+Plik schematu:
+- `docs/authoring/_instructions/diagram_system/frontmatter.schema.json`
+
+Jak zweryfikować frontmatter w plikach `.md`:
+1. Wyodrębnij frontmatter YAML z nagłówka `---` w pliku `.md` (np. przy pomocy prostego skryptu Python albo narzędzia YAML).
+2. Przekonwertuj YAML na JSON i użyj walidatora JSON Schema (np. `ajv` lub `jsonschema` w Pythonie) przeciw plikowi `frontmatter.schema.json`.
+
+Przykładowe podejście z Pythonem:
+- Parsuj frontmatter z pliku `.md` (biblioteka `python-frontmatter` lub własny parser).
+- Waliduj z `jsonschema.validate(instance, schema)` przy użyciu pliku `docs/authoring/_instructions/diagram_system/frontmatter.schema.json`.
+
+Zalecenie: uruchamiać walidację frontmatter w CI na wszystkich zmienionych plikach `.md` przed mergem.
+
+---
+
+## 4. mermaid-lint — konfiguracja i uruchomienie
+
+Konfiguracja znajduje się w:
+- `docs/authoring/_instructions/diagram_system/.mermaid-lintrc`
+
+Przykładowe uruchomienie lokalne:
+1. Zainstaluj mermaid-lint (globalnie lub jako devDependency):
+   - `npm install -D @mermaid-js/mermaid-lint` (lub odpowiedni pakiet dla używanej wersji)
+2. Jeśli masz pliki `.mmd`:
+   - `npx mermaid-lint "docs/authoring/**/*.mmd"`
+3. Jeżeli diagramy są osadzone w plikach `.md`, wyodrębnij bloki ```mermaid``` do tymczasowych `.mmd` lub użyj skryptu, który skanuje `.md` i uruchamia linter na fragmentach.
+
+Zalecenie: dodać do CI krok uruchamiający mermaid-lint nad repozytorium diagramów.
+
+---
+
+## 5. Sprawdzanie linków `click` — validate_diagram_links.py
+
+Skrypt:
+- `docs/scripts/diagram-tools/validate_diagram_links.py`
+
+Co robi:
+- Przeszukuje pliki `.md` (domyślnie katalog `docs/`) i wyciąga wystąpienia `click NodeID "path" "tooltip"`.
+- Dla relatywnych ścieżek sprawdza, czy plik istnieje (próbuje dopasować `.md` jeśli target wskazuje `.html`).
+- Dla fragmentów `file#anchor` próbuje dopasować anchor do nagłówków w pliku `.md` (heurystyka slugify).
+- Zwraca raport JSON (opcjonalnie) i kod wyjścia ≠0 jeśli wykryje braki.
+
+Przykładowe użycie:
+```bash
+# z repo root
+python3 docs/scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json
 ```
 
+Interpretacja exit code:
+- 0 — wszystkie linki znalezione,
+- 2 — brakujące pliki,
+- 3 — brakujące anchor-y (lub kombinacja z brakującymi plikami).
+
+W CI: uruchom ten skrypt i wykorzystaj raport do generowania komentarzy/ostrzeżeń w PR lub do failowania jobu, jeśli chcesz.
+
 ---
 
-## 10. Wersja Mermaid i kompatybilność rendererów
+## 6. Normalizacja node-id — node_id_normalizer.py
 
-- Docelowo: Mermaid v10+. Jeśli docsite używa innej wersji — opisać w PR konieczność dostosowania.
-- Uwaga: niektóre funkcje (np. click) mogą być ignorowane przez mermaid-cli lub Sphinx. Testuj w co najmniej dwóch rendererach: GitHub + mermaid-cli (lokalnie).
+Skrypt:
+- `docs/scripts/diagram-tools/node_id_normalizer.py`
+
+Co robi:
+- Normalizuje etykietę do bezpiecznego node-id: lowercase, spaces → underscore, usuwa niedozwolone znaki.
+- Może skanować katalog (`--dir`) i wygenerować mapping oryginal → znormalizowany (przydatne przy masowych zmianach).
+
+Przykłady:
+```bash
+# jednorazowo - zgeneruje normalized id dla etykiety
+python3 docs/scripts/diagram-tools/node_id_normalizer.py "Game Engine v2"
+
+# skanuje katalog i zapisuje mapę
+python3 docs/scripts/diagram-tools/node_id_normalizer.py --dir docs/authoring --report /tmp/node_id_map.json
+```
+
+Generatorzy i skrypty aktualizujące diagramy powinni stosować tę normalizację lub identyczny algorytm, żeby zapewnić zgodność z regex `^[a-z0-9_:-]+$`.
 
 ---
 
-## 11. Walidacja i CI — reguła „nie dodawaj, jeśli istnieje”
+## 7. Proponowany krok CI: validate-diagrams (dodawać tylko gdy repo nie ma równoważnego workflow)
 
-Zasada: przed dodaniem workflow sprawdź, czy repo zawiera już workflow walidujący diagramy. Jeżeli tak — zaproponuj aktualizację zamiast tworzyć duplikat.
+Zasada: zanim dodasz workflow do `.github/workflows`, sprawdź czy istnieje już workflow walidujący diagramy (search w `.github/workflows` na `mermaid`, `mmdc`, `mermaid-lint`, `validate-diagrams`). Jeśli istnieje — zaproponuj jego rozbudowę.
 
-Proponowany krok w PR:
-- W PR napisz, który workflow istnieje i co proponujesz dodać/zmienić.
-- Jeśli brak workflow — proponujemy plik `.github/workflows/validate-diagrams.yml` (przykład poniżej). Dodajemy go tylko gdy repo nie ma równoważnego.
-
-Przykładowy job (do wklejenia tylko jeśli dodajemy workflow):
+Przykładowy fragment jobu CI (dodawać tylko jeśli brak równoważnego):
 ```yaml
 name: Validate Mermaid Diagrams
 on:
@@ -184,85 +147,55 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
-      - run: npm ci
-      - run: npx mermaid-lint docs/authoring/** || true
-      - name: Render found .mmd files
+        with:
+          node-version: '20'
+      - name: Install JS deps
+        run: npm ci
+      - name: Run mermaid-lint
+        run: npx mermaid-lint "docs/authoring/**/*.mmd" || true
+      - name: Validate click targets
+        run: |
+          python3 docs/scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json || exit $?
+      - name: Render .mmd (smoke test)
         run: |
           find docs -name '*.mmd' -type f | while read f; do
-            echo "Validating $f"
-            npx @mermaid-js/mermaid-cli -i "$f" -o /tmp/mermaid_validate.svg || exit 1
+            npx @mermaid-js/mermaid-cli -i "$f" -o /tmp/$(basename "$f").svg || echo "render fail: $f" && exit 1
           done
 ```
 
 ---
 
-## 12. Rozszerzona checklista (pełna)
+## 8. Zaktualizowana checklista (wersja do stosowania przed PR)
 
-Faza planowania:
-- [ ] Typ diagramu zgodny z heurystyką.
-- [ ] Źródła danych zidentyfikowane.
-
-Faza implementacji:
-- [ ] Canonical init obecny.
-- [ ] Idempotency marker dodany (jeśli diagram generowany).
-- [ ] Frontmatter poprawny (merge zamiast overwrite).
-- [ ] Node-id znormalizowane.
-- [ ] Etykiety łamane z `<br/>` (max 3 linie).
-
-Faza walidacji:
-- [ ] Diagram renderuje się w GitHub Preview.
-- [ ] Meramid-lint / mmdc przechodzi.
-- [ ] Wszystkie `click` mają fallback i linki istnieją.
-
-Faza PR:
-- [ ] W opisie PR: statystyki (przejrzane, naprawione, wygenerowane, brakujące), pliki wymagające ręcznej weryfikacji i decyzje adaptacyjne.
+- [ ] Wszystkie zmiany dotyczą wyłącznie `docs/authoring/**` (scope).
+- [ ] Diagramy zawierają canonical init header.
+- [ ] Automatycznie wygenerowane diagramy mają idempotency marker.
+- [ ] Frontmatter jest zgodny ze schematem: `docs/authoring/_instructions/diagram_system/frontmatter.schema.json`.
+- [ ] Uruchomiono mermaid-lint z regułami z `.mermaid-lintrc` i naprawiono krytyczne błędy.
+- [ ] Uruchomiono `python3 docs/scripts/diagram-tools/validate_diagram_links.py` i poprawiono/zgłoszono znalezione braki.
+- [ ] Node-id zostały znormalizowane (dołącz mapę zmian, jeśli generator rolował je automatycznie).
+- [ ] Wszystkie `click` mają dodatkowy fallback (lista "Powiązane dokumenty" pod diagramem).
+- [ ] Krótki opis (1–2 zdania) jest dodany pod diagramem (accessibility).
+- [ ] PR zawiera statystyki: liczba plików przejrzanych, naprawionych, wygenerowanych, brakujących plików oraz lista elementów wymagających ręcznej weryfikacji.
+- [ ] Jeśli workflow walidacji jest proponowany — potwierdzono, że repo nie ma równoważnego workflow.
 
 ---
 
-## 13. Przykładowe snippet-y (canonical)
+## 9. Najczęściej spotykane problemy i szybkie rozwiązania
 
-Canonical init header:
-```text
-%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
-```
-
-Idempotency marker:
-```text
-<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=d98152d96da9ca8c14f42b06ebd9bc3e4833769d; generated_at=2025-11-07T09:00:00Z -->
-```
-
-Minimalny flowchart z subgraph + click + fallback:
-```mermaid
-%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
-graph TD
-  subgraph "Core Layer"
-    engine["Engine<br/>Core"]
-  end
-  engine --> engine
-  click engine "./index.html#facet-01_core.engine" "Open Engine"
-  %% Fallback: Engine -> ./index.html#facet-01_core.engine
-```
+- `click` powoduje brak renderu w mermaid-cli:
+  - Usuń/zakomentuj `click`, pozostaw fallback markdown i opisz w PR gdzie oczekujesz klikalności w docsite (GitHub może obsługiwać `click`, mermaid-cli może nie).
+- Duplikaty node-id z generatora:
+  - Użyj `node_id_normalizer.py` lub upewnij się, że generator dopisuje unikalny prefiks (`doc_id_`).
+- Frontmatter nie przechodzi walidacji:
+  - Uruchom walidację frontmatter lokalnie i popraw `source_sha` / `last_sync_iso` formatu.
 
 ---
 
-## 14. FAQ i często zadawane kwestie
-
-Q: Co jeśli `click` psuje render?  
-A: Usuń `click`, pozostaw komentarz fallback i opisz problem w PR.
-
-Q: Czy generator może tworzyć pełne pliki .md?  
-A: Nie bez wyraźnej zgody; domyślnie raportujemy brakujące pliki i tworzymy tylko minimalne placeholdery po uzgodnieniu.
-
-Q: Co zrobić przy niejednoznacznym wyborze typu diagramu?  
-A: Wybierz typ według heurystyk i dodaj notkę w PR z prośbą o manualny review.
+## 10. Dalsze uwagi
+- Pliki narzędziowe znajdują się w repo pod prefiksem `docs/` (tzn. `docs/scripts/...`). README/CI i generator powinny odnosić się do faktycznych ścieżek w repo — zwróć szczególną uwagę, gdy kopiujesz przykłady z zewnętrznych instrukcji.
+- Jeżeli chcesz, by generator używał innej lokalizacji (np. `scripts/diagram-tools/` bez `docs/`), dostosuj ścieżki w generatorze lub przenieś pliki skryptów zgodnie z preferencją organizacyjną.
 
 ---
 
-## 15. Kontakt / Review
-
-Każdy automatyczny PR dotyczący diagramów powinien mieć co najmniej jednego recenzenta dokumentacji. W razie wątpliwości oznacz opiekuna dokumentacji w PR.
-
----
-
-Dziękujemy za stosowanie reguł — ta wersja README zawiera wszystkie elementy wymagane do bezpiecznej i powtarzalnej automatyzacji diagramów (idempotencja, frontmatter, heurystyki, fallbacki i zasada „nie dodawaj workflow jeśli istnieje”). Jeśli chcesz, wygeneruję teraz finalne patch-e (commit) z tymi treściami do gałęzi i otworzę PR — daj znać czy kontynuować (mogę przygotować patchy lub utworzyć PR, zgodnie z Twoim uprawnieniem).
+Powyższy README aktualizuje odwołania do narzędzi zgodnie z aktualnym układem plików w repo i zawiera praktyczne instrukcje uruchomienia oraz zaktualizowaną checklistę.
