@@ -1,22 +1,11 @@
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-C4Context
-title System Context – otclientv8;
-    
-Person(player, "Player", "Uses the game client")
-System(otclient, "OTClientV8", "Game client rendering the world and communicating with servers")
-System_Ext(otserver, "OT Server", "Authoritative game server")
-System_Ext(contentCdn, "Content CDN", "Provides assets such as images, sounds, styles")
-System_Ext(crashSvc, "Crash Reporter", "Collects crash reports")
+architecture-beta
+    group api(cloud)[API]
 
-    click otclient "../index.html" "Docs: OTClientV8";
-    click contentCdn "../data/index.html" "Docs: Assets/Data";
-    click crashSvc "../modules/crash_reporter/index.html" "Docs: Crash Reporter";
+    service db(database)[Database] in api
+    service disk1(disk)[Storage] in api
+    service disk2(disk)[Storage] in api
+    service server(server)[Server] in api
 
-    Rel(player, otclient, "Inputs, UI interactions");
-    Rel(otclient, otserver, "Game protocol", "TCP/UDP");
-    Rel(otclient, contentCdn, "Download assets", "HTTP(S)");
-    Rel(otclient, crashSvc, "Send crash reports", "HTTP(S)");
-
-    UpdateRelStyle(otclient, otserver, "solid");
-    UpdateRelStyle(otclient, contentCdn, "dashed");
-    UpdateRelStyle(otclient, crashSvc, "dashed");
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
