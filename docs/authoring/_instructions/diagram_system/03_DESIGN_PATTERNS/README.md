@@ -14,7 +14,7 @@ Ten katalog to zbiór gotowych do użycia **wzorców projektowych ("przepisów")
 1. **Zidentyfikuj typ treści:** Co chcesz zwizualizować? (przepływ, strukturę, czas, dane?)
 2. **Wybierz najbliższy wzorzec:** Użyj poniższego indeksu aby znaleźć odpowiednią kategorię
 3. **Adaptuj przykład:** Skopiuj kod, zmień nazwy węzłów, dostosuj kolory warstw
-4. **Waliduj:** Sprawdź zgodność z checklistą w [../README.md](../README.md#9-checklista-jakości-diagramu)
+4. **Waliduj:** Sprawdź zgodność z checklistą w [../README.md](../README.md#9-checklista-jakosci-diagramu)
 
 ### 1.2. Adaptacja Wzorców do Twojego Dokumentu
 
@@ -46,6 +46,7 @@ Ten katalog to zbiór gotowych do użycia **wzorców projektowych ("przepisów")
 
 **Wzorzec (oryginalny):**
 ```mermaid
+%%{init: {'theme': 'dark', 'securityLevel': 'loose'}}%%
 graph TD
     A[UserManager] --> B[Database]
     class A game
@@ -54,6 +55,7 @@ graph TD
 
 **Twoja adaptacja:**
 ```mermaid
+%%{init: {'theme': 'dark', 'securityLevel': 'loose'}}%%
 graph TD
     Inventory[PlayerInventory] --> Cache[ItemCache]
     Cache --> DB[SQLite Database]

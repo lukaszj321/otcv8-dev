@@ -81,7 +81,7 @@ Wybór odpowiedniego typu diagramu Mermaid jest kluczowy dla skutecznej komunika
 ### 5.1. Pliki `.mmd` vs Bloki Wbudowane
 
 **Zasada:** Diagramy Mermaid mogą być przechowywane jako:
-- **Pliki `.mmd`** w katalogu `diagrams/` (dla dużych, reużywalnych diagramów)
+- **Pliki `.mmd`** w katalogu `diagrams/` (dla dużych, wielokrotnego użytku diagramów)
 - **Bloki wbudowane** w dokumentacji Markdown (dla prostych, kontekstowych wizualizacji)
 
 ### 5.2. Gdy Plik Diagramu Nie Istnieje
@@ -90,7 +90,7 @@ Jeśli dokumentacja referencuje nieistniejący plik diagramu (np. `diagrams/miss
 
 1. **Wygeneruj placeholder z metadanymi:**
    ```mermaid
-   %%{init: {'theme': 'dark'}}%%
+   %%{init: {'theme': 'dark', 'securityLevel': 'loose'}}%%
    graph TD
        TODO["🚧 Diagram do wygenerowania"]
        style TODO fill:#f59e0b,stroke:#fff,color:#000
@@ -122,6 +122,8 @@ Każdy diagram wygenerowany automatycznie (przez agenta lub skrypt) MUSI zawiera
 ## 6. Specyfikacja Frontmatter dla Plików `.mmd`
 
 Każdy samodzielny plik `.mmd` w katalogu `diagrams/` POWINIEN zaczynać się od komentarza YAML frontmatter:
+
+> **Uwaga o zgodności:** Ta specyfikacja frontmatter dla plików `.mmd` różni się od repo-wide standardu (używającego `doc_id`, `source_sha`, `last_sync_iso`), ponieważ diagramy mają inne wymagania trackingowe - potrzebują śledzenia typu diagramu, warstw architektonicznych i metadanych renderowania. Pola zostały dostosowane do specyfiki wizualizacji Mermaid.
 
 ```yaml
 ---
@@ -269,7 +271,7 @@ def validate_frontmatter(file_path):
     content = file_path.read_text()
     
     # Extract frontmatter (between first two '---')
-    match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
+    match = re.search(r'^---\n(.*?)\n---', content, re.DOTALL | re.MULTILINE)
     if not match:
         return f"Missing frontmatter in {file_path}"
     
@@ -281,7 +283,7 @@ def validate_frontmatter(file_path):
             return f"Missing required field '{field}' in {file_path}"
     
     # Validate ISO 8601 date format for last_updated
-    date_match = re.search(r'last_updated:\s*"([^"]+)"', frontmatter)
+    date_match = re.search(r'last_updated:\s*["\']?([^\n"\']+)["\']?', frontmatter)
     if date_match:
         try:
             datetime.fromisoformat(date_match.group(1).replace('Z', '+00:00'))

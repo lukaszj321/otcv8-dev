@@ -239,7 +239,7 @@ Jeśli `click` nie działa w danym środowisku (np. starsza wersja renderera):
 
 **Przykład:**
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme': 'dark', 'securityLevel': 'loose'}}%%
 graph TB
     subgraph CoreLayer["Core Layer"]
         direction LR
