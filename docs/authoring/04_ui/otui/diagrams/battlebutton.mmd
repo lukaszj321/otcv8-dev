@@ -1,41 +1,65 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Definition["Widget Definition"]
-        A[OTUI File] --> B[Battlebutton]
-        B --> C[Parse Properties]
-        C --> D[Create Instance]
+    %% Architectural Layer: UI (Purple)
+    classDef ui fill:#9b59b6,stroke:#fff,color:#fff
+    classDef game fill:#e67e22,stroke:#fff,color:#fff
+    classDef core fill:#3498db,stroke:#fff,color:#fff
+    
+    subgraph Definition["fa:fa-file-code-o Definition (OTUI)"]
+        OTUI["fa:fa-file-alt battle.otui<br/>BattleButton"]:::ui
+        PROPS["fa:fa-list-ul Properties<br/>size, anchors, icons"]:::ui
+        EVENTS["fa:fa-bolt Event Bindings<br/>onClick, onHover"]:::ui
+        
+        OTUI -- "Parse" --> PROPS
+        OTUI -- "Parse" --> EVENTS
     end
 
-    subgraph Structure["Widget Structure"]
-        D --> E[Layout Rules]
-        D --> F[Style Properties]
-        D --> G[Event Bindings]
+    subgraph Structure["fa:fa-sitemap Widget Structure"]
+        WIDGET["fa:fa-cogs BattleButton<br/>Widget Instance"]:::ui
+        LAYOUT["fa:fa-arrows-alt Layout<br/>anchors, margins"]:::ui
+        STYLE["fa:fa-paint-brush Styles<br/>images, colors"]:::ui
+        
+        PROPS -- "Create" --> WIDGET
+        WIDGET --> LAYOUT
+        WIDGET --> STYLE
     end
 
-    subgraph Rendering["Rendering"]
-        E --> H[Calculate Geometry]
-        F --> I[Apply Styles]
-        H --> J[Position Widget]
-        I --> J
-        J --> K[Draw to Screen]
+    subgraph Rendering["fa:fa-desktop Rendering Cycle"]
+        CALC["fa:fa-calculator Calculate<br/>Geometry (x,y,w,h)"]:::ui
+        APPLY["fa:fa-magic Apply<br/>Styles & Icons"]:::ui
+        DRAW["fa:fa-pencil-square-o Draw<br/>to Screen"]:::ui
+        
+        LAYOUT -- "Compute position" --> CALC
+        STYLE -- "Load textures" --> APPLY
+        CALC --> DRAW
+        APPLY --> DRAW
     end
 
-    subgraph Interaction["User Interaction"]
-        L[User Input] --> M{Event Type?}
-        M -.Click.-> N[onClick Handler]
-        M -.Hover.-> O[onHover Handler]
-        M -.Key.-> P[onKey Handler]
-        N --> Q[Lua Callback]
-        O --> Q
-        P --> Q
+    subgraph Interaction["fa:fa-hand-pointer-o User Interaction"]
+        INPUT["fa:fa-mouse-pointer User Input<br/>(mouse, key)"]:::core
+        DISPATCH{fa:fa-random Dispatch<br/>Event Type}:::ui
+        CLICK["fa:fa-hand-pointer-o onClick<br/>Handler"]:::ui
+        HOVER["fa:fa-eye onHover<br/>Handler"]:::ui
+        KEY["fa:fa-keyboard-o onKeyPress<br/>Handler"]:::ui
+        
+        INPUT -- "Detect" --> DISPATCH
+        DISPATCH -- "Click event" --> CLICK
+        DISPATCH -- "Hover event" --> HOVER
+        DISPATCH -- "Key event" --> KEY
     end
 
-    subgraph Updates["Dynamic Updates"]
-        Q --> R[Update State]
-        R --> H
-        S[Data Change] --> R
+    subgraph Callbacks["fa:fa-code Lua Integration"]
+        LUA["fa:fa-code Lua Callback<br/>game logic"]:::game
+        STATE["fa:fa-refresh Update State<br/>(toggle, enable)"]:::ui
+        
+        CLICK --> LUA
+        HOVER --> LUA
+        KEY --> LUA
+        EVENTS -- "Bind to" --> LUA
+        LUA -- "Modify widget" --> STATE
+        STATE -- "Re-render" --> CALC
     end
 
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style K fill:#27ae60,stroke:#fff,stroke-width:2px
-    style Q fill:#e67e22,stroke:#fff,stroke-width:2px
+    linkStyle 0,1,2,3,4,5 stroke:#9b59b6,stroke-width:2px
+    linkStyle 6,7,8,9 stroke:#3498db,stroke-width:2px
+    linkStyle 10,11,12,13,14,15,16 stroke:#e67e22,stroke-width:2px

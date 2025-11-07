@@ -1,33 +1,51 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Establishment["Connection Establishment"]
-        A["Connect Request"] --> B{DNS Lookup}
-        B --> C["TCP Socket"]
-        C --> D["TLS Handshake"]
-        D --> E[Connected]
+    %% Architectural Layers: Network/Security (Red)
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff
+    classDef active fill:#27ae60,stroke:#fff,color:#fff
+    classDef critical fill:#e74c3c,stroke:#fff,color:#fff
+    
+    subgraph States["fa:fa-bolt Connection States"]
+        DISCONNECTED["fa:fa-times-circle DISCONNECTED<br/>Initial State"]:::netsec
+        CONNECTING["fa:fa-spinner CONNECTING<br/>Establishing..."]:::netsec
+        CONNECTED["fa:fa-check-circle CONNECTED<br/>Active"]:::active
+        DISCONNECTING["fa:fa-power-off DISCONNECTING<br/>Closing..."]:::netsec
+        ERROR["fa:fa-exclamation-triangle ERROR<br/>Failed"]:::critical
     end
 
-    subgraph Communication["Data Communication"]
-        E --> F["Send Messages"]
-        E --> G["Receive Messages"]
-        F --> H[Output Buffer]
-        H --> I["Network Send"]
-        J["Network Receive"] --> K[Input Buffer]
-        K --> G
+    subgraph Operations["fa:fa-exchange Connection Operations"]
+        direction LR
+        SEND["fa:fa-upload Send<br/>Packet"]:::netsec
+        RECEIVE["fa:fa-download Receive<br/>Packet"]:::netsec
+        ENCODE["fa:fa-lock Encode<br/>(Protocol)"]:::netsec
+        DECODE["fa:fa-unlock Decode<br/>(Protocol)"]:::netsec
     end
 
-    subgraph Protocol["Protocol Layer"]
-        F -.Uses.-> L["Protocol Handler"]
-        G -.Uses.-> L
-        L --> M["Packet Encoding"]
-        L --> N["Packet Decoding"]
+    subgraph Resources["fa:fa-plug Network Resources"]
+        SOCKET["fa:fa-plug TCP Socket"]:::netsec
+        BUFFER_IN["fa:fa-inbox Input Buffer"]:::netsec
+        BUFFER_OUT["fa:fa-outbox Output Buffer"]:::netsec
     end
 
-    subgraph Termination["Connection Termination"]
-        E -.Error/Close.-> O["Disconnect"]
-        O --> P["Cleanup"]
-    end
+    %% State Transitions
+    DISCONNECTED -- "connect()<br/>request" --> CONNECTING
+    CONNECTING -- "DNS + TLS<br/>handshake OK" --> CONNECTED
+    CONNECTING -- "Timeout or<br/>handshake fail" --> ERROR
+    CONNECTED -- "disconnect()<br/>or close" --> DISCONNECTING
+    CONNECTED -- "Network error<br/>or timeout" --> ERROR
+    DISCONNECTING -- "Cleanup<br/>complete" --> DISCONNECTED
+    ERROR -- "reset()<br/>retry" --> DISCONNECTED
 
-    style E fill:#27ae60,stroke:#fff,stroke-width:2px
-    style L fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style O fill:#e74c3c,stroke:#fff,stroke-width:2px
+    %% Active Operations (only in CONNECTED state)
+    CONNECTED -.-> SEND
+    CONNECTED -.-> RECEIVE
+    SEND --> ENCODE
+    ENCODE --> BUFFER_OUT
+    BUFFER_OUT -- "Write to" --> SOCKET
+    SOCKET -- "Read from" --> BUFFER_IN
+    BUFFER_IN --> DECODE
+    DECODE --> RECEIVE
+
+    linkStyle 0,1,3 stroke:#27ae60,stroke-width:2px
+    linkStyle 2,4,6 stroke:#e74c3c,stroke-width:2px
+    linkStyle 5 stroke:#666,stroke-width:2px
