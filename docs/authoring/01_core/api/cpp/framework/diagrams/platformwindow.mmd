@@ -1,34 +1,43 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Creation["Window Creation"]
-        A[Platform Init] --> B[Create Platformwindow]
-        B --> C[Set Properties]
-        C --> D[Initialize Graphics Context]
+    subgraph Creation["1. Window Creation"]
+        direction LR
+        A["fa:fa-desktop Platform<br/>Init"] --> B["fa:fa-cogs Create<br/>PlatformWindow"]
+        B --> C["fa:fa-sliders Set Properties<br/>title, size, flags"]
+        C --> D["fa:fa-cube Initialize<br/>GL Context"]
     end
 
-    subgraph Events["Event Handling"]
-        E[OS Events] --> F[Input Processing]
-        F --> G[Keyboard Events]
-        F --> H[Mouse Events]
-        F --> I[Window Events]
+    subgraph Events["2. Event Processing"]
+        direction TB
+        E["fa:fa-external-link-alt OS Events"] --> F{"fa:fa-bolt Event<br/>Dispatcher"}
+        F -.keyboard.-> G["fa:fa-keyboard Keyboard<br/>Events"]
+        F -.mouse.-> H["fa:fa-mouse Mouse<br/>Events"]
+        F -.window.-> I["fa:fa-window-maximize Window<br/>Events"]
     end
 
-    subgraph Rendering["Rendering Loop"]
-        D --> J[Make Context Current]
-        J --> K[Render Frame]
-        K --> L[Swap Buffers]
-        L --> J
+    subgraph Rendering["3. Rendering Loop"]
+        direction TB
+        D --> J["fa:fa-check Make Context<br/>Current"]
+        J --> K["fa:fa-paint-brush Render<br/>Frame"]
+        K --> L["fa:fa-sync Swap<br/>Buffers"]
+        L -.next frame.-> J
     end
 
-    subgraph Control["Window Control"]
-        M[Show/Hide]
-        N[Resize]
-        O[Fullscreen Toggle]
-        P[Close]
+    subgraph Control["4. Window Control"]
+        direction TB
+        I --> M["fa:fa-eye Show/Hide"]
+        I --> N["fa:fa-expand Resize"]
+        I --> O["fa:fa-arrows-alt Fullscreen<br/>Toggle"]
+        I --> P["fa:fa-times Close"]
     end
 
+    %% Connect sections
     B --> E
-    I --> Control
-
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style K fill:#e67e22,stroke:#fff,stroke-width:2px
+    
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    classDef subsystem fill:#2ecc71,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class B,C,D,J,K,L core
+    class E,F,G,H,I,M,N,O,P subsystem

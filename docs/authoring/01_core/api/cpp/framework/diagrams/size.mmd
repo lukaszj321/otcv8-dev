@@ -1,22 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-    subgraph Creation["Creation & Initialization"]
-        A[Constructor] --> B[Size Object]
-        C[From Values] --> B
+graph LR
+    subgraph Creation["1. Creation"]
+        direction TB
+        A["fa:fa-code Constructor<br/>Size(w, h)"] --> D["fa:fa-database Size Object<br/>width, height"]
+        B["fa:fa-copy Copy<br/>Constructor"] --> D
+        C["fa:fa-equals Default<br/>Size(0, 0)"] --> D
     end
 
-    subgraph Operations["Mathematical Operations"]
-        B --> D[Arithmetic Ops]
-        B --> E[Comparison]
-        B --> F[Transformation]
+    subgraph Operations["2. Operations"]
+        direction TB
+        D --> E["fa:fa-calculator Arithmetic<br/>+, -, *, /"]
+        D --> F["fa:fa-balance-scale Comparison<br/>==, !=, <, >"]
+        D --> G["fa:fa-expand Scaling<br/>resize, scale"]
+        D --> H["fa:fa-check Validation<br/>isEmpty, isValid"]
     end
 
-    subgraph Usage["Common Usage"]
-        F --> G[Geometry Calculations]
-        F --> H[Collision Detection]
-        F --> I[Rendering Positions]
+    subgraph Usage["3. Usage in Systems"]
+        direction TB
+        E --> I["fa:fa-shapes Geometry<br/>Calculations"]
+        E --> J["fa:fa-vector-square Collision<br/>Detection"]
+        E --> K["fa:fa-paint-brush Rendering<br/>Layout"]
+        E --> L["fa:fa-window-maximize Window<br/>Management"]
     end
 
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style F fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style I fill:#27ae60,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class D,E,F,G,H,I,J,K,L core

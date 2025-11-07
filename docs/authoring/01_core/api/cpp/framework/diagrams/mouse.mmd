@@ -1,28 +1,36 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-    subgraph Interface["Public Interface"]
-        A[Application Code] --> B[Mouse]
+graph LR
+    subgraph Input["1. Mouse Input"]
+        direction TB
+        A["fa:fa-mouse Hardware<br/>Mouse"] --> B["fa:fa-bolt OS Events"]
+        B --> C{"fa:fa-exchange-alt Event<br/>Type"}
+        C -.move.-> D["fa:fa-arrows-alt Position<br/>Update"]
+        C -.click.-> E["fa:fa-hand-pointer Button<br/>Event"]
+        C -.scroll.-> F["fa:fa-arrows-alt-v Wheel<br/>Delta"]
     end
 
-    subgraph Operations["Core Operations"]
-        B --> C[Primary Function]
-        B --> D[Helper Functions]
-        B --> E[Utility Methods]
+    subgraph Processing["2. State Processing"]
+        direction TB
+        D --> G["fa:fa-database Mouse<br/>State"]
+        E --> G
+        F --> G
+        G --> H["fa:fa-crosshairs Current<br/>Position"]
+        G --> I["fa:fa-toggle-on Button<br/>States"]
+        G --> J["fa:fa-clock Hover<br/>Detection"]
     end
 
-    subgraph Processing["Data Processing"]
-        C --> F[Process Input]
-        F --> G[Transform Data]
-        G --> H[Return Result]
+    subgraph Usage["3. Application Usage"]
+        direction TB
+        H --> K["fa:fa-hand-pointer UI Click<br/>Detection"]
+        H --> L["fa:fa-eye Cursor<br/>Rendering"]
+        I --> M["fa:fa-gamepad Game<br/>Controls"]
+        J --> N["fa:fa-question-circle Tooltip<br/>Display"]
     end
 
-    subgraph Integration["System Integration"]
-        H --> I[Used by Components]
-        I --> J[Game Logic]
-        I --> K[Rendering]
-        I --> L[Networking]
-    end
-
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style H fill:#27ae60,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    classDef subsystem fill:#2ecc71,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class B,C,D,E,F,G,H,I,J core
+    class K,L,M,N subsystem

@@ -1,32 +1,38 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Creation["FBO Creation"]
-        A[Create Framebuffer] --> B[Attach Texture]
-        B --> C[Attach Depth Buffer]
-        C --> D[Check Completeness]
+    subgraph Creation["1. FBO Creation"]
+        direction LR
+        A["fa:fa-plus Create<br/>Framebuffer"] --> B["fa:fa-image Attach Color<br/>Texture"]
+        B --> C["fa:fa-layer-group Attach Depth<br/>Buffer"]
+        C --> D["fa:fa-check-circle Check<br/>Completeness"]
     end
 
-    subgraph Rendering["Render to Texture"]
-        D --> E[Bind FBO]
-        E --> F[Set Viewport]
-        F --> G[Draw Scene]
-        G --> H[Unbind FBO]
+    subgraph Rendering["2. Render to Texture"]
+        direction TB
+        D --> E["fa:fa-link Bind<br/>FBO"]
+        E --> F["fa:fa-expand Set<br/>Viewport"]
+        F --> G["fa:fa-paint-brush Draw<br/>Scene"]
+        G --> H["fa:fa-unlink Unbind<br/>FBO"]
     end
 
-    subgraph Usage["Texture Usage"]
-        H --> I[FBO Texture]
-        I --> J[Post-Processing]
-        I --> K[UI Rendering]
-        I --> L[Effects<br/>(Blur, Glow)]
+    subgraph Texture["3. Texture Access"]
+        direction TB
+        H --> I["fa:fa-file-image FBO<br/>Texture"]
+        I --> J["fa:fa-magic Post-<br/>Processing"]
+        I --> K["fa:fa-th UI<br/>Rendering"]
+        I --> L["fa:fa-star Effects<br/>Blur, Glow"]
     end
 
-    subgraph Output["Final Output"]
-        J --> M[Screen FBO]
+    subgraph Output["4. Final Composition"]
+        direction LR
+        J --> M["fa:fa-desktop Screen<br/>FBO"]
         K --> M
         L --> M
-        M --> N[Display]
+        M --> N["fa:fa-tv Display<br/>Output"]
     end
 
-    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style I fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style N fill:#27ae60,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N core

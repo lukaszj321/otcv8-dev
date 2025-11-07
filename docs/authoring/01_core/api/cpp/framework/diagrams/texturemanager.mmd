@@ -1,28 +1,45 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Interface["Public Interface"]
-        A[Application Code] --> B[Texturemanager]
+    subgraph Initialization["1. Manager Initialization"]
+        direction LR
+        A["fa:fa-power-off Initialize"] --> B["fa:fa-cogs TextureManager<br/>Singleton"]
+        B --> C["fa:fa-memory GPU Context<br/>Setup"]
     end
 
-    subgraph Operations["Core Operations"]
-        B --> C[Primary Function]
-        B --> D[Helper Functions]
-        B --> E[Utility Methods]
+    subgraph Loading["2. Texture Loading"]
+        direction TB
+        D["fa:fa-file-image Image File"] --> E["fa:fa-file-alt Load from<br/>Disk"]
+        E --> F["fa:fa-compress Decode<br/>Format"]
+        F --> G["fa:fa-database Texture<br/>Object"]
     end
 
-    subgraph Processing["Data Processing"]
-        C --> F[Process Input]
-        F --> G[Transform Data]
-        G --> H[Return Result]
+    subgraph Management["3. Texture Management"]
+        direction TB
+        B --> H["fa:fa-search getTexture<br/>(path)"]
+        H -.exists.-> I["fa:fa-check Return<br/>Cached"]
+        H -.not found.-> E
+        G --> J["fa:fa-save Cache<br/>Texture"]
+        J --> K["fa:fa-list-ul Texture<br/>Registry"]
     end
 
-    subgraph Integration["System Integration"]
-        H --> I[Used by Components]
-        I --> J[Game Logic]
-        I --> K[Rendering]
-        I --> L[Networking]
+    subgraph GPU["4. GPU Operations"]
+        direction TB
+        G --> L["fa:fa-upload Upload to<br/>GPU Memory"]
+        L --> M["fa:fa-microchip Generate<br/>Mipmaps"]
+        M --> N["fa:fa-image Texture<br/>Ready"]
     end
 
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style H fill:#27ae60,stroke:#fff,stroke-width:2px
+    subgraph Usage["5. Rendering Usage"]
+        direction LR
+        N --> O["fa:fa-paint-brush Painter"]
+        O --> P["fa:fa-th UI<br/>Widgets"]
+        O --> Q["fa:fa-gamepad Game<br/>Objects"]
+    end
+
+    %% Architectural Layer Colors
+    classDef subsystem fill:#2ecc71,stroke:#fff,stroke-width:2px
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class B,H,J,K subsystem
+    class G,L,M,N,O,P,Q core

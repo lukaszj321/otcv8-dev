@@ -1,31 +1,40 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-    subgraph Input["Log Input"]
-        A["Log Message"] --> B{Log Level}
-        B -.DEBUG.-> C[Logger]
-        B -.INFO.-> C
-        B -.WARNING.-> C
-        B -.ERROR.-> C
+graph LR
+    subgraph Input["1. Log Input"]
+        direction TB
+        A["fa:fa-code Application<br/>Code"] --> B["fa:fa-bolt Log Event"]
+        B --> C{"fa:fa-exclamation-triangle Log Level"}
+        C -.DEBUG.-> D["fa:fa-cogs Logger"]
+        C -.INFO.-> D
+        C -.WARNING.-> D
+        C -.ERROR.-> D
     end
 
-    subgraph Processing["Message Processing"]
-        C --> D["Format Message"]
-        D --> E["Add Timestamp"]
-        E --> F["Add Context"]
+    subgraph Processing["2. Message Processing"]
+        direction TB
+        D --> E["fa:fa-edit Format<br/>Message"]
+        E --> F["fa:fa-clock Add<br/>Timestamp"]
+        F --> G["fa:fa-tag Add Context<br/>&amp; Module Info"]
     end
 
-    subgraph Output["Log Output"]
-        F --> G["Console Output"]
-        F --> H["File Output<br/>(otclient.log)"]
-        F --> I["In-Game Terminal"]
-        F --> J["Callbacks<br/>(Lua Handlers)"]
+    subgraph Output["3. Output Channels"]
+        direction TB
+        G --> H["fa:fa-terminal Console<br/>Output"]
+        G --> I["fa:fa-file-alt Log File<br/>otclient.log"]
+        G --> J["fa:fa-gamepad In-Game<br/>Terminal"]
+        G --> K["fa:fa-plug Lua<br/>Callbacks"]
     end
 
-    subgraph Management["Log Management"]
-        H --> K["Log Rotation"]
-        K --> L["Archive Old Logs"]
+    subgraph Management["4. File Management"]
+        direction TB
+        I --> L["fa:fa-redo Log<br/>Rotation"]
+        L --> M["fa:fa-archive Archive<br/>Old Logs"]
     end
 
-    style C fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style G fill:#27ae60,stroke:#fff,stroke-width:2px
-    style H fill:#e67e22,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef subsystem fill:#2ecc71,stroke:#fff,stroke-width:2px
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class D,E,F,G subsystem
+    class H,I,J,K,L,M core
