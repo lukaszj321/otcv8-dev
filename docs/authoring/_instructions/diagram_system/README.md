@@ -153,7 +153,55 @@ Bezpieczeństwo i koszty — przypomnienie
 
 ---
 
-## 8. Zaktualizowana checklista (wersja do stosowania przed PR)
+## 8. Reguły dla LLM — generowanie diagramów bez skrótów
+
+Poniższe zasady są obowiązujące dla agenta/LLM generującego bloki Mermaid. Eliminują skracanie list (np. „... 38 more”) i zapewniają pełne, walidowalne diagramy.
+
+Zasady
+- Zakaz skrótów: nie używaj „... N more”, „… N more” ani żadnych wielokropków w miejsce pełnych list.
+- Wypisuj jawnie każdy węzeł i każde połączenie. Nie odwołuj się do „reszty”; wymień wszystkie elementy.
+- Zwracaj wyłącznie poprawne, ogrodzone bloki Mermaid (```mermaid ... ```). Poza blokami dopuszczalny jest tylko krótki fallback Markdown dla linków `click`.
+- Każdy blok musi zaczynać się od canonical init header:
+```text
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
+```
+- Normalizacja identyfikatorów węzłów: lowercase; spacje → underscore; usuń znaki poza [a-z0-9_\-:]. Wymagany regex: `^[a-z0-9_:-]+$`.
+- Długie etykiety łam za pomocą `<br/>` (maksymalnie 3 linie).
+- Jeśli używasz `click`, pod blokiem dodaj sekcję „Powiązane dokumenty:” z listą tych samych linków (fallback).
+- Próg czytelności: jeśli liczba węzłów > 12, podziel wynik:
+  - 1 diagram „overview” (z grupowaniem/subgraph),
+  - osobne diagramy „details” dla grup; żaden pojedynczy diagram nie może mieć > 12 węzłów.
+- Jeśli nie możesz zwrócić pełnych danych z powodu limitu tokenów: nie używaj wielokropków. Zwróć zamiast tego dokładnie ten obiekt (poza blokami Mermaid) i przerwij:
+```text
+{"status":"truncated","reason":"token_limit","recommendation":"split_input","max_nodes":12}
+```
+- Nad każdym wygenerowanym blokiem dodaj marker idempotencji:
+```text
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=<sha40>; generated_at=<ISO8601> -->
+```
+- Nie używaj mechanizmów pretty-print/inspect, które skracają kolekcje. Generuj zawartość diagramu przez jawne iteracje po elementach.
+
+Wzorcowy fragment prompta (do użycia z LLM)
+```text
+Generate Mermaid diagrams under STRICT rules:
+- DO NOT truncate/abbreviate. Do NOT output "... N more" or "… N more".
+- Output ONLY valid fenced Mermaid code blocks (```mermaid ... ```). Optionally add a short Markdown fallback list for click links under the block.
+- Each block must start with:
+  %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
+- Normalize node ids (lowercase, spaces->underscore, allowed chars [a-z0-9_:-]).
+- Wrap long labels with <br/> (max 3 lines).
+- If using click, also include a Markdown "Powiązane dokumenty" list with the same targets below the block.
+- If nodes > 12, split into one overview (with subgraphs) plus per-group details; no diagram > 12 nodes.
+- If token limits prevent full output, DO NOT use ellipses. Output exactly:
+  {"status":"truncated","reason":"token_limit","recommendation":"split_input","max_nodes":12}
+- Prepend every block with:
+  <!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=<sha40>; generated_at=<ISO8601> -->
+- Do not output any other text outside the Mermaid blocks or the JSON truncation object.
+```
+
+---
+
+## 9. Zaktualizowana checklista (wersja do stosowania przed PR)
 
 - [ ] Wszystkie zmiany dotyczą wyłącznie `docs/authoring/**` (scope).
 - [ ] Diagramy zawierają canonical init header.
@@ -169,7 +217,7 @@ Bezpieczeństwo i koszty — przypomnienie
 
 ---
 
-## 9. Najczęściej spotykane problemy i szybkie rozwiązania
+## 10. Najczęściej spotykane problemy i szybkie rozwiązania
 
 - `click` powoduje brak renderu w mermaid-cli:
   - Usuń/zakomentuj `click`, pozostaw fallback markdown i opisz w PR gdzie oczekujesz klikalności w docsite (GitHub może obsługiwać `click`, mermaid-cli może nie).
@@ -180,7 +228,7 @@ Bezpieczeństwo i koszty — przypomnienie
 
 ---
 
-## 10. Dalsze uwagi
+## 11. Dalsze uwagi
 - Pliki narzędziowe znajdują się w repo pod prefiksem `docs/` (tzn. `docs/scripts/diagram-tools/...`). README/CI i generator powinny odnosić się do faktycznych ścieżek w repo — zwróć szczególną uwagę, gdy kopiujesz przykłady z zewnętrznych instrukcji.
 - Jeżeli chcesz, by generator używał innej lokalizacji (np. `scripts/diagram-tools/` bez `docs/`), dostosuj ścieżki w generatorze lub przenieś pliki skryptów zgodnie z preferencją organizacyjną.
 
