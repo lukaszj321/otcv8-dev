@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Diagram frontmatter schema",
+  "type": "object",
+  "properties": {
+    "doc_id": { "type": "string" },
+    "source_path": { "type": "string" },
+    "source_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "last_sync_iso": { "type": "string", "format": "date-time" },
+    "doc_class": { "type": "string" },
+    "language": { "type": "string" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["source_path", "last_sync_iso", "doc_class", "language"],
+  "additionalProperties": true
+}
