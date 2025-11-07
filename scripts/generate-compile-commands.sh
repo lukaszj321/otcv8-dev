@@ -19,5 +19,9 @@ else
   echo "  - Check that CMakeLists.txt exists in the project root."
   echo "  - Ensure that the CMake configuration step succeeded (see output above)."
   echo "  - Make sure you are using CMake 3.5+ (required for CMAKE_EXPORT_COMPILE_COMMANDS)."
+  echo "Troubleshooting:"
+  echo "  - Check that CMakeLists.txt exists in the project root."
+  echo "  - Ensure that the CMake configuration step succeeded (see output above)."
+  echo "  - Make sure you are using CMake 3.5+ (required for CMAKE_EXPORT_COMPILE_COMMANDS)."
   exit 2
 fi
