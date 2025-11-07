@@ -39,7 +39,14 @@ echo "Generating compile_commands.json (CMake)..."
 # 2) Collect headers list for libclang helper
 echo "Collecting header files..."
 # adjust globs as necessary
-mapfile -t HEADERS < <(find src include modules data vc16 -type f \( -iname '*.h' -o -iname '*.hpp' -o -iname '*.hxx' \) -print)
+HEADERS=()
+for dir in src include modules data vc16; do
+  if [ -d "$dir" ]; then
+    while IFS= read -r header; do
+      HEADERS+=("$header")
+    done < <(find "$dir" -type f \( -iname '*.h' -o -iname '*.hpp' -o -iname '*.hxx' \) -print)
+  fi
+done
 if [ ${#HEADERS[@]} -eq 0 ]; then
   echo "No headers found with default globs. Please adjust the find paths."
 else
@@ -52,12 +59,15 @@ if [ "$USE_LIBCLANG" = true ]; then
   PY=python3
   if ! command -v $PY >/dev/null 2>&1; then
     echo "Python3 not found in PATH. Install python3 and clang python bindings (pip install clang)."
+    echo "Skipping libclang extraction."
   else
     # create tmp dir
     mkdir -p tmp
-    # Call helper; pass compile_commands.json path and headers list
+    # Write header list to file to avoid ARG_MAX issues
+    printf '%s\n' "${HEADERS[@]}" > tmp/headers.txt
+    # Call helper; pass compile_commands.json path and header list file
     if [ -f compile_commands.json ]; then
-      "$PY" tools/clang-extract/clang_extract.py compile_commands.json "${HEADERS[@]}" > tmp/clang_entities.json || {
+      "$PY" tools/clang-extract/clang_extract.py compile_commands.json tmp/headers.txt > tmp/clang_entities.json || {
         echo "clang_extract.py failed (check python clang.cindex / libclang). See tmp/clang_entities.json (partial or empty)."
       }
       echo "libclang output -> tmp/clang_entities.json"
@@ -78,15 +88,20 @@ if ! command -v $NODE_CMD >/dev/null 2>&1; then
 fi
 
 EXTRACT_ARGS=()
-$RUN_LUA_BINDGEN && EXTRACT_ARGS+=("--run-lua-bindgen")
+if [ "$RUN_LUA_BINDGEN" = true ]; then EXTRACT_ARGS+=("--run-lua-bindgen"); fi
 # If you want the extractor to try installing tree-sitter automatically, pass --install-deps
+# NOTE: Forwarding --install-deps to the Node extractor is currently disabled because
+# the extractor's install logic may conflict with the npm install step above, or may
+# not handle all required dependencies reliably. Enable this line only if the extractor
+# is updated to safely handle dependency installation, or if you want to delegate all
+# install logic to the Node extractor.
 # $INSTALL_DEPS && EXTRACT_ARGS+=("--install-deps")
 # enable libclang path flag
 EXTRACT_ARGS+=("--use-libclang")
 
 # Run extractor and capture stdout/stderr to log
 mkdir -p tmp
-"$NODE_CMD" scripts/extract-api.mjs "${EXTRACT_ARGS[@]}" > tmp/extract-api.log 2>&1 || {
+"$NODE_CMD" scripts/extract-api.mjs "${EXTRACT_ARGS[@]}" 2>&1 | tee tmp/extract-api.log || {
   echo "Node extractor failed; see tmp/extract-api.log"
 }
 echo "Extractor finished. Logs -> tmp/extract-api.log"
