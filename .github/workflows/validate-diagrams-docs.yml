@@ -1,0 +1,158 @@
+# Recommended workflow: validate-diagrams-docs.yml
+# Triggers only for PRs touching docs/**/*.md or docs/**/*.mmd.
+# Optimized to avoid unnecessary installs and runs; caches npm and only runs checks when files exist.
+name: Validate Mermaid Diagrams (docs)
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**/*.mmd'
+      - 'docs/**/*.md'
+
+concurrency:
+  group: validate-diagrams-docs-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -o pipefail
+
+    steps:
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine changed files in the PR
+        id: changed
+        run: |
+          # Ensure base ref is available
+          BASE_REF="${{ github.base_ref }}"
+          if [ -n "$BASE_REF" ]; then
+            git fetch origin "$BASE_REF" --depth=1 || true
+            CHANGED=$(git diff --name-only "origin/$BASE_REF...HEAD" || git diff --name-only HEAD^ HEAD)
+          else
+            CHANGED=$(git diff --name-only HEAD^ HEAD)
+          fi
+          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: Show changed files (debug)
+        run: |
+          echo "Changed files:"
+          echo "${{ steps.changed.outputs.changed_files }}"
+
+      - name: Setup Node.js (with npm cache)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install JS tools (if needed)
+        id: install_tools
+        run: |
+          # If repo provides package.json, prefer project deps via npm ci (deterministic).
+          if [ -f package.json ]; then
+            echo "Using repository package.json -> npm ci"
+            npm ci
+            echo "tool_install_mode=project" >> $GITHUB_OUTPUT
+          else
+            echo "No package.json: installing minimal global tools"
+            npm install -g @mermaid-js/mermaid-cli@^10.0.0 mermaid-lint@^1.0.0 || true
+            echo "tool_install_mode=global" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Prepare list of changed doc files
+        id: files
+        run: |
+          CHANGED="${{ steps.changed.outputs.changed_files }}"
+          # Normalize to one-per-line
+          FILES=$(echo "$CHANGED" | tr ' ' '\n' | sed '/^$/d' || true)
+          echo "$FILES" > changed_list.txt
+          MMD_CHANGED=$(echo "$FILES" | grep -E '\.mmd$' || true)
+          MD_CHANGED=$(echo "$FILES" | grep -E '\.md$' || true)
+          if [ -n "$MMD_CHANGED" ] || [ -n "$MD_CHANGED" ]; then
+            echo "has_docs=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_docs=false" >> $GITHUB_OUTPUT
+          fi
+          # Provide lists for later steps
+          echo "mmd_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$MMD_CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "md_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$MD_CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run mermaid-lint (if docs changed)
+        if: ${{ steps.files.outputs.has_docs == 'true' }}
+        run: |
+          # Prefer local mermaid-lint if installed in project, otherwise use global
+          if command -v mermaid-lint >/dev/null 2>&1; then
+            echo "Running mermaid-lint (installed)"
+            # Lint only .mmd files to save time; if none exist, exit 0
+            if [ -n "${{ steps.files.outputs.mmd_files }}" ]; then
+              # run on changed .mmd files
+              echo "${{ steps.files.outputs.mmd_files }}" | tr ' ' '\n' | while read f; do
+                if [ -f "$f" ]; then
+                  echo "Linting $f"
+                  mermaid-lint "$f" || exit 1
+                fi
+              done
+            else
+              # No .mmd changed — lint all .mmd under docs/authoring to ensure quality (optional)
+              echo "No changed .mmd files; running mermaid-lint on docs/authoring/**/*.mmd"
+              sh -c 'ls docs/authoring/**/*.mmd 2>/dev/null || true' | xargs -r mermaid-lint || true
+            fi
+          else
+            echo "mermaid-lint not found; attempting npx"
+            if [ -n "${{ steps.files.outputs.mmd_files }}" ]; then
+              echo "${{ steps.files.outputs.mmd_files }}" | tr ' ' '\n' | while read f; do
+                if [ -f "$f" ]; then
+                  npx --yes mermaid-lint "$f" || exit 1
+                fi
+              done
+            else
+              npx --yes mermaid-lint "docs/authoring/**/*.mmd" || true
+            fi
+          fi
+
+      - name: Validate click targets (if docs changed)
+        if: ${{ steps.files.outputs.has_docs == 'true' }}
+        env:
+          PYTHONUNBUFFERED: 1
+        run: |
+          echo "Running link-check script on docs..."
+          python3 docs/scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json
+          echo "Link-check report:"
+          cat /tmp/diagram_links_report.json || true
+
+      - name: Render changed .mmd files (smoke tests)
+        if: ${{ steps.files.outputs.mmd_files != '' }}
+        run: |
+          echo "Rendering changed .mmd files for smoke test..."
+          echo "${{ steps.files.outputs.mmd_files }}" | tr ' ' '\n' | while read f; do
+            if [ -f "$f" ]; then
+              echo "Rendering $f"
+              if command -v mmdc >/dev/null 2>&1; then
+                mmdc -i "$f" -o "/tmp/$(basename "$f").svg" || { echo "Render failed: $f"; exit 1; }
+              else
+                npx --yes @mermaid-js/mermaid-cli -i "$f" -o "/tmp/$(basename "$f").svg" || { echo "Render failed via npx: $f"; exit 1; }
+              fi
+            fi
+          done
+
+      - name: Upload reports (if any)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mermaid-validate-reports
+          path: |
+            /tmp/diagram_links_report.json
+            /tmp/*.svg
