@@ -1,13 +1,9 @@
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryTextColor":"#ddd","lineColor":"#9aa0a6"}}}%%
 graph TD
-    subgraph Clock
-        A[System Time] --> B(Clock Source)
-        B --> C{Get Elapsed Time}
-        C --> D["Delta Time (ms)"]
-    end
+  A[System Time] --> B(Clock Source)
+  B --> C{Get Elapsed Time}
+  C --> D["Delta Time (ms)"]
 
-    subgraph Usage
-        E[Game Loop] --> C
-        F[Animation] --> D
-        G[Physics] --> D
-    end
+  E[Game Loop] --> C
+  F[Animation] --> D
+  G[Physics] --> D
