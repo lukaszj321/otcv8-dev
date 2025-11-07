@@ -1,13 +1,31 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
-sequenceDiagram
-    participant User
-    participant Client
-    participant System
-    participant Server
+flowchart TD
+    classDef core fill:#3498db,stroke:#fff,color:#fff;
+    classDef process fill:#3498db,color:#fff;
+    classDef data fill:#27ae60,color:#000;
+    classDef error fill:#c0392b,color:#fff;
     
-    User->>Client: Initiate
-    Client->>System: Process
-    System->>Server: Request
-    Server-->>System: Response
-    System-->>Client: Update
-    Client-->>User: Display
+    subgraph "Log Sources"
+        App[Application]:::core
+        Net[Network]:::core
+        UI[UI System]:::core
+    end
+    
+    subgraph "Logger Core"
+        Logger[Logger<br/>────────────<br/>+ log(level, msg)<br/>+ error()<br/>+ warning()<br/>+ info()<br/>+ debug()]:::process
+        Formatter[Formatter]:::process
+    end
+    
+    subgraph "Log Destinations"
+        Console[Console Output]:::data
+        File[Log File]:::data
+    end
+    
+    App --> Logger
+    Net --> Logger
+    UI --> Logger
+    Logger --> Formatter
+    Formatter --> Console
+    Formatter --> File
+    
+    Logger -.->|error level| ErrorHandler[Error Handler]:::error

@@ -1,13 +1,23 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
 sequenceDiagram
-    participant User
-    participant Client
-    participant System
-    participant Server
+    participant Client as Protocol Client
+    participant Parser as Packet Parser
+    participant Handler as Message Handler
+    participant Server as Remote Server
     
-    User->>Client: Initiate
-    Client->>System: Process
-    System->>Server: Request
-    Server-->>System: Response
-    System-->>Client: Update
-    Client-->>User: Display
+    Note over Client,Server: Connection & Authentication
+    Client->>Server: Connect
+    Server-->>Client: Challenge
+    Client->>Parser: Parse Challenge
+    Parser-->>Client: Parsed Data
+    Client->>Server: Auth Response
+    Server-->>Client: Auth OK
+    
+    Note over Client,Server: Message Exchange
+    Server->>Client: Game Message
+    Client->>Parser: Parse Message
+    Parser->>Handler: Dispatch
+    Handler-->>Client: Process Complete
+    
+    Client->>Server: Player Action
+    Server-->>Client: Action Result

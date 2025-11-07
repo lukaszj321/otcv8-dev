@@ -1,13 +1,32 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
-sequenceDiagram
-    participant User
-    participant Client
-    participant System
-    participant Server
+graph TD
+    classDef ui fill:#9b59b6,stroke:#fff,color:#fff;
+    classDef layout fill:#3498db,stroke:#fff,color:#fff;
     
-    User->>Client: Initiate
-    Client->>System: Process
-    System->>Server: Request
-    Server-->>System: Response
-    System-->>Client: Update
-    Client-->>User: Display
+    UIGridLayout["UIGridLayout<br/>────────────<br/>+ numColumns<br/>+ numLines<br/>+ cellSize<br/>+ cellSpacing<br/>+ flow (horizontal/vertical)"]:::layout
+    
+    subgraph "Layout Properties"
+        Cols[Column Count]:::ui
+        Rows[Row Count]:::ui
+        CellW[Cell Width]:::ui
+        CellH[Cell Height]:::ui
+        Space[Cell Spacing]:::ui
+    end
+    
+    subgraph "Child Widgets"
+        W1[Widget 1]:::ui
+        W2[Widget 2]:::ui
+        W3[Widget 3]:::ui
+        WN[Widget N...]:::ui
+    end
+    
+    UIGridLayout --> Cols
+    UIGridLayout --> Rows
+    UIGridLayout --> CellW
+    UIGridLayout --> CellH
+    UIGridLayout --> Space
+    
+    UIGridLayout -.manages.-> W1
+    UIGridLayout -.manages.-> W2
+    UIGridLayout -.manages.-> W3
+    UIGridLayout -.manages.-> WN

@@ -1,13 +1,30 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
-sequenceDiagram
-    participant User
-    participant Client
-    participant System
-    participant Server
+flowchart LR
+    classDef process fill:#3498db,color:#fff;
+    classDef data fill:#27ae60,color:#000;
+    classDef network fill:#c0392b,stroke:#fff,color:#fff;
     
-    User->>Client: Initiate
-    Client->>System: Process
-    System->>Server: Request
-    Server-->>System: Response
-    System-->>Client: Update
-    Client-->>User: Display
+    subgraph "Message Creation"
+        Create[Create OutputMessage]:::process
+        AddHeader[Add Header]:::process
+        AddData[Add Data<br/>addU8/addU16<br/>addString]:::process
+    end
+    
+    subgraph "Serialization"
+        Serialize[Serialize to Bytes]:::process
+        Encrypt[Encrypt (optional)]:::process
+        Compress[Compress (optional)]:::process
+    end
+    
+    subgraph "Transmission"
+        Buffer[Buffer]:::data
+        Send[Send to Network]:::network
+    end
+    
+    Create --> AddHeader
+    AddHeader --> AddData
+    AddData --> Serialize
+    Serialize --> Encrypt
+    Encrypt --> Compress
+    Compress --> Buffer
+    Buffer --> Send
