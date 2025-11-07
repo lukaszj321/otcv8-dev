@@ -361,7 +361,7 @@ Poniższa checklista integruje wszystkie reguły z sekcji 5-10 i powinna być st
 -   [ ] **Renderowanie GitHub:** Czy diagram renderuje się poprawnie w GitHub Markdown preview?
 -   [ ] **Renderowanie Sphinx:** Czy diagram renderuje się w lokalnym build Sphinx (jeśli dotyczy)?
 -   [ ] **Syntaktyka:** Czy diagram przechodzi walidację `mmdc` / `mermaid-lint`?
--   [ ] **Linki:** Czy wszystkie linki `click` prowadzą do istniejących plików?
+-   [ ] **Linki:** Czy wszystkie linki `click` prowadzą do istniejących plików lub facet anchors (format: `./index.html#facet-<chapter>.<stem>` dla datasetów)?
 
 ### Faza 4: Dokumentacja
 -   [ ] **Kontekst:** Czy diagram ma towarzyszący opis wyjaśniający jego cel?
@@ -378,6 +378,7 @@ Poniższa checklista integruje wszystkie reguły z sekcji 5-10 i powinna być st
 
 ### 12.1. Standardowy Init Header
 
+**Format pełny** (z zaawansowaną stylizacją):
 ```mermaid
 %%{init: {
   "theme": "dark",
@@ -385,9 +386,17 @@ Poniższa checklista integruje wszystkie reguły z sekcji 5-10 i powinna być st
     "primaryTextColor": "#e5e7eb",
     "lineColor": "#4b5563",
     "fontFamily": "Inter, system-ui, sans-serif"
-  }
+  },
+  "securityLevel": "loose"
 }}%%
 ```
+
+**Format minimalny** (dla większości przypadków):
+```mermaid
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
+```
+
+> **Uwaga:** `securityLevel:'loose'` jest wymagane dla funkcjonalności `click` i innych interaktywnych elementów.
 
 ### 12.2. Komentarz Idempotencji (Generowany)
 
@@ -401,7 +410,7 @@ Poniższa checklista integruje wszystkie reguły z sekcji 5-10 i powinna być st
 ### 12.3. Minimalny Flowchart z Subgraph, Style i Click
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
     subgraph "Core Layer"
         A["Engine"]
@@ -417,7 +426,7 @@ graph TD
     C --> D
     B -.-> C
     
-    click D "docs/authoring/12_otmod/modules/game_skills.md" "Open game_skills"
+    click D "./index.html#facet-12_otmod.game_skills" "Open game_skills"
     
     classDef core fill:#3498db,stroke:#fff,color:#fff
     classDef game fill:#e67e22,stroke:#fff,color:#fff
@@ -429,7 +438,7 @@ graph TD
 ### 12.4. Placeholder dla Brakującego Diagramu
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
     TODO["🚧 Network Protocol Flow<br/>Diagram w przygotowaniu"]
     INFO["Planowane elementy:<br/>- Client handshake<br/>- Server authentication<br/>- Data encryption"]

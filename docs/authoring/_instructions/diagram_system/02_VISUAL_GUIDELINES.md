@@ -121,7 +121,7 @@ B["Long Module Name<br/>with Multiple Lines<br/>of Text"]
 #### Przykłady Poprawnego Formatowania
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph LR
     A["UIManager<br/>(Singleton)"]
     B["game_skills<br/>Lua Module"]
@@ -137,7 +137,7 @@ graph LR
     class B,C game
 ```
 
-### 2.4. Modyfikatory Stanu (`stateDiagram-v2`)
+### 2.5. Modyfikatory Stanu (`stateDiagram-v2`)
 W diagramach stanów, **kolor tła** nadal reprezentuje warstwę. **Stan** jest komunikowany przez **styl obramowania**.
 
 **Oficjalne modyfikatory `classDef` dla stanów:**
@@ -147,7 +147,7 @@ classDef stateInactive stroke-dasharray:5 5,stroke-width:2px,stroke:#ef4444
 classDef stateTransition stroke-width:2px,stroke:#3b82f6
 ```
 
-### 2.5. Style Linii i Połączeń (`graph`)
+### 2.6. Style Linii i Połączeń (`graph`)
 | Typ                             | Składnia | Znaczenie Semantyczne                                                   |
 | :------------------------------ | :------- | :---------------------------------------------------------------------- |
 | **Wywołanie synchroniczne**     | `-->`    | Przepływ blokujący lub twarda zależność.                                |
@@ -203,9 +203,9 @@ Wiele typów diagramów **nie wspiera** `classDef` w rendererze GitHuba. W takic
 
 #### Składnia `click` z Fallbackiem
 
-**Podstawowa składnia:**
+**Podstawowa składnia (dla facet anchors):**
 ```mermaid
-click NodeID "relative/path/to/file.md" "Tooltip text"
+click NodeID "./index.html#facet-<chapter>.<stem>" "Tooltip text"
 ```
 
 **Fallback dla rendererów bez obsługi `click`:**
@@ -213,7 +213,7 @@ click NodeID "relative/path/to/file.md" "Tooltip text"
 Jeśli diagram jest używany w środowisku, które nie wspiera interaktywności (np. `mermaid-cli`, Sphinx), dodaj komentarz z linkiem:
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
     A["Component A"]
     B["Component B"]
@@ -221,17 +221,18 @@ graph TD
     A --> B
     
     %% INTERACTIVE LINKS (fallback: see comments)
-    click A "docs/components/A.md" "Open Component A docs"
-    %% Fallback: Component A -> docs/components/A.md
+    click A "./index.html#facet-01_core.component_a" "Open Component A docs"
+    %% Fallback: Component A -> ./index.html#facet-01_core.component_a
     
-    click B "docs/components/B.md" "Open Component B docs"
-    %% Fallback: Component B -> docs/components/B.md
+    click B "./index.html#facet-01_core.component_b" "Open Component B docs"
+    %% Fallback: Component B -> ./index.html#facet-01_core.component_b
 ```
 
 **Zasady:**
-1. **Zawsze dodawaj komentarz fallback** dla każdego linku.
-2. **Testuj w GitHub** przed commitem (najczęstszy renderer).
-3. **Jeśli `click` blokuje renderowanie**, usuń `click` i zostaw tylko komentarz.
+1. **Używaj formatu facet anchor** dla diagramów z datasetami: `./index.html#facet-<chapter>.<stem>`
+2. **Zawsze dodawaj komentarz fallback** dla każdego linku.
+3. **Testuj w GitHub** przed commitem (najczęstszy renderer).
+4. **Jeśli `click` blokuje renderowanie**, usuń `click` i zostaw tylko komentarz.
 
 ### 4.2. Użycie `subgraph` do Grupowania Komponentów
 
@@ -268,7 +269,7 @@ graph TD
 #### Przykład: Architektura Warstwowa z Subgraph
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
     subgraph "Core Engine Layer"
         direction LR
@@ -293,7 +294,7 @@ graph TD
     Skills --> UIManager
     UIManager --> Widgets
     
-    click Skills "docs/authoring/12_otmod/modules/game_skills.md" "Open Skills"
+    click Skills "./index.html#facet-12_otmod.game_skills" "Open Skills"
     
     classDef core fill:#3498db,stroke:#fff,color:#fff
     classDef game fill:#e67e22,stroke:#fff,color:#fff
@@ -304,11 +305,11 @@ graph TD
     class UIManager,Widgets ui
 ```
 
-### 4.2. Kompozycja i Dzielenie Diagramów
+### 4.3. Kompozycja i Dzielenie Diagramów
 *   Zamiast jednego, przeładowanego diagramu, **zawsze preferuj system połączonych wizualizacji**: jeden diagram `overview` + kilka diagramów szczegółowych.
 *   Ta technika jest szczegółowo opisana jako **[Złożony Wzorzec Wizualizacji](./03_DESIGN_PATTERNS/E_Advanced_Techniques.md)** i jest fundamentem naszego podejścia.
 
-### 4.3. Antywzorce i "Pułapki" Składni (Czego Unikamy)
+### 4.4. Antywzorce i "Pułapki" Składni (Czego Unikamy)
 *   **Nie używamy `classDef`** w typach, które go nie wspierają stabilnie (`sequenceDiagram`, `mindmap`, `erDiagram` itp.).
 *   **Nie używamy cudzysłowów (`"`)** wewnątrz etykiet na liniach połączeń (np. `|log("message")|`). Używaj bezpiecznej alternatywy (np. `|log: message|`).
 *   **Nie używamy niestandardowych grotów strzałek** w diagramach `graph` (np. `--|>`). Używaj standardowych strzałek (`-->`, `-.->`) z etykietą tekstową.

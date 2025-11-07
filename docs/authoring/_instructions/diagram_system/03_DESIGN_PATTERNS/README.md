@@ -105,7 +105,7 @@ Poniżej znajduje się kompletny spis treści tej biblioteki. Każdy link prowad
 
 **Krok 3: Adaptacja**
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
     %% Moduły z dependencies z CSV
     A["game_interface"]
@@ -118,14 +118,19 @@ graph TD
     A --> C
     B --> D
     
+    %% Click links do facetów
+    click B "./index.html#facet-12_otmod.game_skills" "Open game_skills"
+    click C "./index.html#facet-12_otmod.game_inventory" "Open game_inventory"
+    
     %% Style (wszystkie to moduły Lua = warstwa 'game')
     classDef game fill:#e67e22,stroke:#fff,color:#fff
     class A,B,C,D game
 ```
 
 **Krok 4: Weryfikacja**
-- ✅ Użyto standardowego `init`.
+- ✅ Użyto standardowego `init` z `securityLevel:'loose'`.
 - ✅ Wszystkie moduły mają klasę `game` (warstwa architektury).
+- ✅ Dodano click links do facetów.
 - ✅ Diagram renderuje się w GitHub.
 
 ### 3.2. Scenariusz: Wizualizacja Przepływu Autoryzacji
@@ -142,7 +147,7 @@ graph TD
 
 **Krok 3: Adaptacja**
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 sequenceDiagram
     participant C as Client
     participant LS as LoginServer
@@ -159,7 +164,8 @@ sequenceDiagram
 
 **Krok 4: Weryfikacja**
 - ✅ Używa `sequenceDiagram` (nie `flowchart`).
-- ✅ Bez `classDef` (nieobsługiwane).
+- ✅ Standardowy `init` z `securityLevel:'loose'`.
+- ✅ Bez `classDef` (nieobsługiwane w sequenceDiagram).
 - ✅ Strzałki `->>`/`-->>` zgodnie z semantyką.
 
 ### 3.3. Scenariusz: Placeholder dla Przyszłego Diagramu
@@ -171,7 +177,7 @@ sequenceDiagram
 
 **Krok 2: Implementacja**
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
     TODO["🚧 Android JNI Flow<br/>Diagram w przygotowaniu"]
     INFO["Planowane elementy:<br/>- Java → C++ calls<br/>- JNI signatures<br/>- Thread handling"]
