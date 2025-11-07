@@ -3,7 +3,7 @@ C4Container
 
     Person(player, "Player")
     System_Boundary(client, "OTClientV8") {
-      Container(gui, "GUI Layer", "Lua/ImGui", "UI, HUD, interactions"),
+      Container(gui, "GUI Layer", "Lua/ImGui", "UI, HUD, interactions")
       Container(game, "Game Core", "C++/Lua", "Protocol, game state, entities"),
       Container(render, "Renderer", "OpenGL/Vulkan", "Drawing, shaders, effects"),
       Container(audio, "Audio", "OpenAL", "Sound playback"),
