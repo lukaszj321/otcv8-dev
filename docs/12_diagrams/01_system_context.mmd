@@ -1,22 +1,23 @@
-%%{init: {'theme':'dark','themeVariables':{'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 C4Context
     title System Context - otclientv8
 
-    Person(player, "Player", "Uses the game client");
-    System(otclient, "OTClientV8", "Game client rendering the world and communicating with servers");
-    System_Ext(otserver, "OT Server", "Authoritative game server");
-    System_Ext(contentCdn, "Content CDN", "Provides assets such as images, sounds, styles");
-    System_Ext(crashSvc, "Crash Reporter", "Collects crash reports");
+    Person(player, "Player", "Uses the game client")
+    System(otclient, "OTClientV8", "Game client rendering the world and communicating with servers")
+    System_Ext(otserver, "OT Server", "Authoritative game server")
+    System_Ext(contentCdn, "Content CDN", "Provides assets such as images, sounds, styles")
+    System_Ext(crashSvc, "Crash Reporter", "Collects crash reports")
 
-    click otclient "../index.html" "Docs: OTClientV8";
-    click contentCdn "../data/index.html" "Docs: Assets/Data";
-    click crashSvc "../modules/crash_reporter/index.html" "Docs: Crash Reporter";
+    Rel(player, otclient, "Inputs, UI interactions")
+    Rel(otclient, otserver, "Game protocol", "TCP/UDP")
+    Rel(otclient, contentCdn, "Download assets", "HTTP(S)")
+    Rel(otclient, crashSvc, "Send crash reports", "HTTP(S)")
 
-    Rel(player, otclient, "Inputs, UI interactions");
-    Rel(otclient, otserver, "Game protocol", "TCP/UDP");
-    Rel(otclient, contentCdn, "Download assets", "HTTP(S)");
-    Rel(otclient, crashSvc, "Send crash reports", "HTTP(S)");
-
-    UpdateRelStyle(otclient, otserver, "solid");
-    UpdateRelStyle(otclient, contentCdn, "dashed");
-    UpdateRelStyle(otclient, crashSvc, "dashed");
+    %% --- Styling using supported commands ---
+    %% Note: C4 diagrams do not support `init` or `classDef`. We use UpdateElementStyle.
+    %% Colors are taken from our 02_VISUAL_GUIDELINES.md for consistency.
+    
+    UpdateElementStyle(player, $bgColor="#7f8c8d", $fontColor="#fff")         %% Platform color for external actor
+    UpdateElementStyle(otclient, $bgColor="#3498db", $fontColor="#fff")       %% Core color for our main system
+    UpdateElementStyle(otserver, $bgColor="#c0392b", $fontColor="#fff")       %% Netsec color for game server
+    UpdateElementStyle(contentCdn, $bgColor="#2ecc71", $fontColor="#000")     %% Subsystem color for assets
+    UpdateElementStyle(crashSvc, $bgColor="#e67e22", $fontColor="#fff")       %% Game Logic color for crash service
