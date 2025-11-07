@@ -58,6 +58,26 @@ classDef note fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3
 ```
 > **Uwaga:** Dla `subsystem` (zielony) używamy ciemnego tekstu (`#111827`) dla lepszego kontrastu.
 
+#### Szczegółowe Mapowanie Typów Elementów
+
+Poniższa tabela szczegółowo mapuje typy elementów na odpowiednie klasy stylów, wraz z przykładowymi wartościami kolorów i przypadkami użycia:
+
+| Typ Elementu | Klasa `classDef` | Kolor Fill (Hex) | Kolor Stroke | Kolor Tekstu | Przykładowe Użycie |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Silnik C++** | `core` | `#3498db` (niebieski) | `#fff` | `#fff` | `Engine`, `Renderer`, `PhysicsCore` |
+| **Moduł Lua** | `game` | `#e67e22` (pomarańczowy) | `#fff` | `#fff` | `game_skills`, `game_inventory` |
+| **Komponent UI** | `ui` | `#9b59b6` (fioletowy) | `#fff` | `#fff` | `UIManager`, `Widget`, `Layout` |
+| **Event/Signal** | `game` + `fa-bolt` | `#e67e22` | `#fff` | `#fff` | `onSkillUpdate`, `onInventoryChange` |
+| **Asset/Data** | `subsystem` | `#2ecc71` (zielony) | `#111827` | `#111827` | `images.csv`, `fonts.csv`, `data/**` |
+| **Network Protocol** | `netsec` | `#c0392b` (czerwony) | `#fff` | `#fff` | `LoginPacket`, `Encryption`, `SSL` |
+| **Platform Code** | `platform` | `#7f8c8d` (szary) | `#fff` | `#fff` | `AndroidJNI`, `iOS-specific` |
+| **Notatka/TODO** | `note` | `#4b5563` (ciemnoszary) | `#9ca3af` | `#e5e7eb` | Komentarze, placeholdery |
+
+**Zasady wyboru klasy:**
+1. **Lokalizacja w kodzie/plikach** → główny wyznacznik warstwy (katalog źródłowy).
+2. **Rola techniczna** → ikona (`fa-*`).
+3. **Stan/krytyczność** → modyfikatory (np. `critical` dla błędów).
+
 ### 2.2. Wymiar 2: Typy Komponentów (Ikona)
 Ikona wewnątrz węzła reprezentuje jego techniczną rolę. Używamy ikon z [Font Awesome 4.7](https://fontawesome.com/v4.7.0/icons/).
 
@@ -80,6 +100,42 @@ Kształt węzła dodaje kolejną warstwę informacji o jego naturze.
 | **Prostokąt**   | `A["Tekst"]` | **Domyślny kształt.** Używany dla większości komponentów, klas i aktorów.     |
 | **Zaokrąglony** | `B("Tekst")` | **Proces / Akcja.** Używany do oznaczania kroków w procesie lub funkcji.      |
 | **Romb**        | `C{"Tekst"}` | **Decyzja / Warunek.** Używany do pokazywania rozgałęzień logiki (`if/else`). |
+
+### 2.4. Łamanie Etykiet i Formatowanie Tekstu
+
+#### Zasady Użycia `<br>` w Etykietach
+
+Długie etykiety węzłów mogą obniżać czytelność. Używaj `<br>` do łamania linii:
+
+```mermaid
+A["Component Name<br/>(Short Description)"]
+B["Long Module Name<br/>with Multiple Lines<br/>of Text"]
+```
+
+**Reguły:**
+- **Maksymalnie 3 linie** na etykietę węzła.
+- **Preferuj 1-2 linie** dla flowchartów; 2-3 dla mindmap.
+- **Nie łam** w środku słowa lub identyfikatora (np. `game_<br/>skills` ❌).
+- **Używaj nawiasów** dla kontekstu: `Module Name<br/>(Type: Lua)`.
+
+#### Przykłady Poprawnego Formatowania
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph LR
+    A["UIManager<br/>(Singleton)"]
+    B["game_skills<br/>Lua Module"]
+    C["Network<br/>Protocol<br/>Handler"]
+    
+    A --> B
+    B --> C
+    
+    classDef core fill:#3498db,stroke:#fff,color:#fff
+    classDef game fill:#e67e22,stroke:#fff,color:#fff
+    
+    class A core
+    class B,C game
+```
 
 ### 2.4. Modyfikatory Stanu (`stateDiagram-v2`)
 W diagramach stanów, **kolor tła** nadal reprezentuje warstwę. **Stan** jest komunikowany przez **styl obramowania**.
@@ -144,6 +200,109 @@ Wiele typów diagramów **nie wspiera** `classDef` w rendererze GitHuba. W takic
 *   `click` jest **dozwolony i rekomendowany** tylko w diagramach `graph` / `flowchart` i `mindmap`.
 *   Linki powinny prowadzić do plików `.md` w repozytorium lub do konkretnych nagłówków (anchorów).
 *   **Jeśli `click` lub `link` psuje renderowanie, priorytetem jest poprawny diagram, nie klikalność.**
+
+#### Składnia `click` z Fallbackiem
+
+**Podstawowa składnia:**
+```mermaid
+click NodeID "relative/path/to/file.md" "Tooltip text"
+```
+
+**Fallback dla rendererów bez obsługi `click`:**
+
+Jeśli diagram jest używany w środowisku, które nie wspiera interaktywności (np. `mermaid-cli`, Sphinx), dodaj komentarz z linkiem:
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TD
+    A["Component A"]
+    B["Component B"]
+    
+    A --> B
+    
+    %% INTERACTIVE LINKS (fallback: see comments)
+    click A "docs/components/A.md" "Open Component A docs"
+    %% Fallback: Component A -> docs/components/A.md
+    
+    click B "docs/components/B.md" "Open Component B docs"
+    %% Fallback: Component B -> docs/components/B.md
+```
+
+**Zasady:**
+1. **Zawsze dodawaj komentarz fallback** dla każdego linku.
+2. **Testuj w GitHub** przed commitem (najczęstszy renderer).
+3. **Jeśli `click` blokuje renderowanie**, usuń `click` i zostaw tylko komentarz.
+
+### 4.2. Użycie `subgraph` do Grupowania Komponentów
+
+`subgraph` pozwala grupować powiązane węzły i dodawać hierarchię wizualną.
+
+#### Podstawowa Składnia
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TD
+    subgraph "Layer Name"
+        direction LR
+        A["Component 1"]
+        B["Component 2"]
+    end
+    
+    subgraph "Another Layer"
+        C["Component 3"]
+    end
+    
+    A --> B --> C
+```
+
+#### Zasady Użycia `subgraph`
+
+| Zasada | Opis |
+| :--- | :--- |
+| **Nazwy warstw** | Używaj nazw odzwierciedlających warstwy architektoniczne: `"Core Layer"`, `"Game Logic"`, `"UI Components"`. |
+| **Direction** | Kontroluj układ wewnętrzny: `direction TB` (top-bottom), `direction LR` (left-right). |
+| **Maksymalna głębokość** | Nie zagnieżdżaj więcej niż **2 poziomy** subgraphów (czytelność). |
+| **Style subgraphów** | GitHub renderuje subgraphy z domyślnym obramowaniem; nie można ich stylizować przez `classDef`. |
+| **Fallback** | Jeśli `subgraph` psuje layout, **usuń go** i użyj komentarzy `%%` do zaznaczenia granic. |
+
+#### Przykład: Architektura Warstwowa z Subgraph
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TD
+    subgraph "Core Engine Layer"
+        direction LR
+        Engine["Engine Core"]
+        Renderer["Renderer"]
+    end
+    
+    subgraph "Game Logic Layer"
+        direction LR
+        GameLoop["Game Loop"]
+        Skills["Skills System"]
+    end
+    
+    subgraph "UI Layer"
+        UIManager["UI Manager"]
+        Widgets["Widgets"]
+    end
+    
+    Engine --> Renderer
+    Renderer -.-> GameLoop
+    GameLoop --> Skills
+    Skills --> UIManager
+    UIManager --> Widgets
+    
+    click Skills "docs/authoring/12_otmod/modules/game_skills.md" "Open Skills"
+    
+    classDef core fill:#3498db,stroke:#fff,color:#fff
+    classDef game fill:#e67e22,stroke:#fff,color:#fff
+    classDef ui fill:#9b59b6,stroke:#fff,color:#fff
+    
+    class Engine,Renderer core
+    class GameLoop,Skills game
+    class UIManager,Widgets ui
+```
 
 ### 4.2. Kompozycja i Dzielenie Diagramów
 *   Zamiast jednego, przeładowanego diagramu, **zawsze preferuj system połączonych wizualizacji**: jeden diagram `overview` + kilka diagramów szczegółowych.
