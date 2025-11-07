@@ -2,11 +2,11 @@
 C4Context
     title System Context – otclientv8;
 
-    Person(player, "Player", "Uses the game client");
-    System(otclient, "OTClientV8", "Game client rendering the world and communicating with servers");
-    System_Ext(otserver, "OT Server", "Authoritative game server");
-    System_Ext(contentCdn, "Content CDN", "Provides assets such as images, sounds, styles");
-    System_Ext(crashSvc, "Crash Reporter", "Collects crash reports");
+    Person(player, "Player", "Uses the game client")
+    System(otclient, "OTClientV8", "Game client rendering the world and communicating with servers")
+    System_Ext(otserver, "OT Server", "Authoritative game server")
+    System_Ext(contentCdn, "Content CDN", "Provides assets such as images, sounds, styles")
+    System_Ext(crashSvc, "Crash Reporter", "Collects crash reports")
 
     click otclient "../index.html" "Docs: OTClientV8";
     click contentCdn "../data/index.html" "Docs: Assets/Data";
