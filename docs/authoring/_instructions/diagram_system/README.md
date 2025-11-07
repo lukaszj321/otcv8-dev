@@ -44,7 +44,7 @@ Uwaga: pliki zostały umieszczone w następujących ścieżkach w repo. README i
   - `scripts/diagram-tools/validate_diagram_links.py`
   - `scripts/diagram-tools/node_id_normalizer.py`
 
-Jeżeli używasz lokalnych instrukcji lub generatorów, upewnij się, że odniesienia w generatorze wskazują dokładnie te ścieżki (z prefiksem `docs/`).
+Jeżeli używasz lokalnych instrukcji lub generatorów, upewnij się, że odniesienia w generatorze wskazują dokładnie te ścieżki (bez prefiksu `docs/` dla skryptów).
 
 ---
 
@@ -193,8 +193,8 @@ jobs:
 ---
 
 ## 10. Dalsze uwagi
-- Pliki narzędziowe znajdują się w repo pod prefiksem `docs/` (tzn. `scripts/...`). README/CI i generator powinny odnosić się do faktycznych ścieżek w repo — zwróć szczególną uwagę, gdy kopiujesz przykłady z zewnętrznych instrukcji.
-- Jeżeli chcesz, by generator używał innej lokalizacji (np. `scripts/diagram-tools/` bez `docs/`), dostosuj ścieżki w generatorze lub przenieś pliki skryptów zgodnie z preferencją organizacyjną.
+- Pliki narzędziowe znajdują się w repo pod prefiksem `scripts/` (tzn. `scripts/diagram-tools/...`). README/CI i generator powinny odnosić się do faktycznych ścieżek w repo — zwróć szczególną uwagę, gdy kopiujesz przykłady z zewnętrznych instrukcji.
+- Jeżeli chcesz, by generator używał innej lokalizacji (np. `docs/scripts/`), dostosuj ścieżki w generatorze lub przenieś pliki skryptów zgodnie z preferencją organizacyjną.
 
 ---
 
