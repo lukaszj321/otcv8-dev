@@ -4,7 +4,7 @@ graph TD
     B -- load() --> C{In-memory settings};
 
     subgraph Consumers
-        Lua[Lua Scripts] --> D{get()};
+        Lua[Lua Scripts] --> D{"get()"};
         Cpp[C++ Code] --> D;
     end
 
