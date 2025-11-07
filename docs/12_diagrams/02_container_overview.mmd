@@ -16,13 +16,13 @@ System_Boundary(client, "OTClientV8") {
 System_Ext(server, "OT Server", "C++")
 System_Ext(cdn, "Assets CDN", "HTTP")
 
-click gui "../modules/client/index.html" "Docs: client module"
-click game "../modules/corelib/index.html" "Docs: corelib"
-click render "../docs/cpp/shaders.html" "Docs: shaders"
-click audio "../docs/cpp/audio.html" "Docs: audio"
-click data "../docs/data/index.html" "Docs: data/assets"
-click server "../docs/overview/server.html" "Docs: server"
-click cdn "../docs/data/assets.html" "Docs: CDN/assets"
+click gui "../modules/client/index.html" "Docs: client module";
+click game "../modules/corelib/index.html" "Docs: corelib";
+click render "../docs/cpp/shaders.html" "Docs: shaders";
+click audio "../docs/cpp/audio.html" "Docs: audio";
+click data "../docs/data/index.html" "Docs: data/assets";
+click server "../docs/overview/server.html" "Docs: server";
+click cdn "../docs/data/assets.html" "Docs: CDN/assets";
 
 Rel(player, gui, "Clicks, hotkeys")
 Rel(gui, game, "Commands, state queries")
