@@ -2,29 +2,25 @@
 
 ## 1. Wprowadzenie
 
-Witaj w systemie projektowania diagramów. Ten zbiór dokumentów stanowi kompletny przewodnik do tworzenia spójnych, czytelnych i semantycznie bogatych diagramów Mermaid dla naszego projektu. Został zaprojektowany tak, aby mógł być interpretowany zarówno przez ludzi, jak i przez zautomatyzowanych agentów AI.
+Witaj w systemie projektowania diagramów. Ten zbiór dokumentów stanowi kompletny przewodnik do tworzenia spójnych, czytelnych i semantycznie bogatych diagramów Mermaid dla naszego projektu.
 
-**Celem tego systemu jest transformacja diagramów z pasywnych ilustracji w aktywne narzędzia inżynierskie.**
+Celem tego systemu jest transformacja diagramów z pasywnych ilustracji w aktywne narzędzia inżynierskie.
 
 ## 2. Struktura Systemu
 
 Ten system składa się z trzech fundamentalnych filarów, które razem tworzą kompletny, hierarchiczny framework:
 
 *   **[01_DESIGN_PHILOSOPHY.md](./01_DESIGN_PHILOSOPHY.md)**: **"Dlaczego?"** - Definiuje nasze podstawowe zasady myślowe. Przeczytaj go, aby zrozumieć, co sprawia, że diagram jest skuteczny.
+*   **[02_VISUAL_GUIDELINES.md](./02_VISUAL_GUIDELINES.md)**: **"Jak ma wyglądać?"** - Ścisła specyfikacja techniczna wszystkich elementów wizualnych (kolory, ikony, style). To jest Twoja paleta i konwencja.
+*   **[Biblioteka Wzorców Projektowych](./03_DESIGN_PATTERNS/) (`03_DESIGN_PATTERNS/`)**: **"Jak to zrobić?"** - Zbiór gotowych do użycia, praktycznych wzorców. Działa jak "książka kucharska".
 
-*   **[02_VISUAL_GUIDELINES.md](./02_VISUAL_GUIDELINES.md)**: **"Jak ma wyglądać?"** - Ścisła specyfikacja techniczna wszystkich elementów wizualnych (kolory, ikony, style). To jest Twoja paleta narzędzi.
+Zanim zaczniesz tworzyć lub automatycznie generować diagramy, zapoznaj się kolejno z tą triadą: filozofia → wytyczne wizualne → wzorce.
 
-*   **[Biblioteka Wzorców Projektowych](./03_DESIGN_PATTERNS/) (`03_DESIGN_PATTERNS/`)**: **"Jak to zrobić?"** - Zbiór gotowych do użycia, praktycznych wzorców. Działa jak "książka kucharska" dla twórców diagramów. Składa się z następujących plików:
-    *   **[README.md](./03_DESIGN_PATTERNS/README.md):** Główny **spis treści** i przewodnik po całej bibliotece wzorców. **Zawsze zaczynaj tutaj.**
-    *   **[A_Flows_and_Processes.md](./03_DESIGN_PATTERNS/A_Flows_and_Processes.md):** Wzorce do wizualizacji dynamicznych procesów, logiki i interakcji w czasie (`flowchart`, `sequenceDiagram`, etc.).
-    *   **[B_Structure_and_Relations.md](./03_DESIGN_PATTERNS/B_Structure_and_Relations.md):** Wzorce do pokazywania statycznej architektury i relacji (`classDiagram`, `erDiagram`).
-    *   **[C_Time_and_Planning.md](./03_DESIGN_PATTERNS/C_Time_and_Planning.md):** Wzorce do wizualizacji harmonogramów i zdarzeń w czasie (`gantt`, `timeline`).
-    *   **[D_Data_and_Analysis.md](./03_DESIGN_PATTERNS/D_Data_and_Analysis.md):** Wzorce do prezentacji danych ilościowych i analizy strategicznej (`pie`, `quadrantChart`).
-    *   **[E_Advanced_Techniques.md](./03_DESIGN_PATTERNS/E_Advanced_Techniques.md):** Wzorce pokazujące, jak łączyć różne typy diagramów w spójne systemy.
+---
 
 ## 3. Proces Tworzenia Wizualizacji: Algorytm dla AI i Deweloperów
 
-Aby stworzyć nową wizualizację, postępuj zgodnie z poniższym, strategicznym procesem. Na końcu tego dokumentu znajduje się **[Checklista Jakości](#4-checklista-jakości-diagramu)**, której należy użyć do weryfikacji finalnego rezultatu.
+Aby stworzyć nową wizualizację, postępuj zgodnie z poniższym, strategicznym procesem.
 
 ### Krok 1: Analiza i Definicja Celu
 Zanim napiszesz kod, odpowiedz: Co chcę pokazać? Jaka jest główna "historia"? Do której warstwy architektonicznej należy główny komponent?
@@ -32,418 +28,326 @@ Zanim napiszesz kod, odpowiedz: Co chcę pokazać? Jaka jest główna "historia"
 ### Krok 2: Wybór Strategii — Jeden Diagram czy System Diagramów?
 To jest najważniejsza decyzja projektowa. Zgodnie z naszą Złotą Regułą: **Nigdy nie twórz "Boskiego Diagramu"**.
 
-*   **Scenariusz A (Prosty):** Tworzysz jeden, skupiony diagram.
-*   **Scenariusz B (Złożony):** Projektujesz system połączonych diagramów (np. `overview` + `details`).
+*   **Scenariusz A (Prosty):** Jeden, skupiony diagram.
+*   **Scenariusz B (Złożony):** System połączonych diagramów (np. `overview` + `details`).
 
 ### Krok 3: Wybór Wzorca Projektowego
-Przejdź do **[indeksu biblioteki wzorców](./03_DESIGN_PATTERNS/README.md)**, wybierz odpowiednią kategorię i plik, a następnie zaadaptuj wariant, który najlepiej pasuje do diagramu, który aktualnie tworzysz.
+Przejdź do indeksu biblioteki wzorców (03_DESIGN_PATTERNS), wybierz odpowiednią kategorię i plik, a następnie zaadaptuj wariant, który najlepiej pasuje do celu diagramu. Wzorce są przykładami — wymagają adaptacji, nie kopiowania 1:1.
 
 ### Krok 4: Implementacja i Zastosowanie Stylu
-Napisz kod Mermaid, implementując strukturę z wzorca i stosując style z **[02_VISUAL_GUIDELINES.md](./02_VISUAL_GUIDELINES.md)**.
+Napisz kod Mermaid, implementując strukturę z wzorca i stosując style z 02_VISUAL_GUIDELINES.md. Upewnij się, że każdy diagram rozpoczyna się od canonical init header (sekcja 12.1 przykładów).
 
 ### Krok 5: Przegląd i Refaktoryzacja
-Sprawdź, czy diagram jest czytelny i zgodny z zasadami z **[01_DESIGN_PHILOSOPHY.md](./01_DESIGN_PHILOSOPHY.md)**.
+Sprawdź, czy diagram jest czytelny i zgodny z zasadami z 01_DESIGN_PHILOSOPHY.md. Użyj checklisty jakości (sekcja 11).
 
 ### Krok 6: Kompozycja Wizualna (dla Scenariusza B)
-Jeśli projektujesz system diagramów, zaplanuj, jak zostaną one ułożone na stronie, używając jednej z technik kompozycji (np. Wiele Perspektyw, Deska Rozdzielcza).
+Jeśli projektujesz system diagramów, zaplanuj układ (overview + details). Zastosuj spójną nawigację (click + fallback linki).
 
 ---
 
-## 4. Checklista Jakości Diagramu
+## 4. Checklista Jakości Diagramu (skrót)
 
 Użyj tej checklisty przed zatwierdzeniem każdego nowego diagramu. Diagram jest gotowy, jeśli możesz odpowiedzieć "TAK" na wszystkie poniższe pytania.
 
-### Część 1: Filozofia i Cel
--   [ ] **Jedna Historia:** Czy diagram opowiada jedną, jasno zdefiniowaną historię?
--   [ ] **Czytelność w 5 Sekund:** Czy główny cel i kluczowe komponenty są zrozumiałe na pierwszy rzut oka?
--   [ ] **Wartość Dodana:** Czy diagram wizualizuje coś, czego nie widać od razu po przeczytaniu kodu (np. relacje, przepływy)?
--   [ ] **Odpowiednie Narzędzie:** Czy typ diagramu (np. `flowchart`, `sequenceDiagram`) jest właściwie dobrany do "historii", którą opowiada?
+- Jedna Historia: Czy diagram opowiada jedną, jasno zdefiniowaną historię?  
+- Czytelność w 5 sekund: Czy główny cel i kluczowe komponenty są zrozumiałe na pierwszy rzut oka?  
+- Odpowiednie narzędzie: Czy typ diagramu jest właściwy (flowchart/sequence/er/gantt/...)?  
+- Globalny init: Czy diagram zaczyna się od canonical init header?  
+- Idempotencja: Czy automatycznie wygenerowane bloki mają marker identyfikujący generator?  
+- Renderowanie: Czy diagram renderuje się bez błędów parsera w docsite (przede wszystkim GitHub Preview)?  
+- Interaktywność: Jeśli użyto `click`, czy dodano fallback linki i czy linki istnieją?  
+- Frontmatter: Czy frontmatter (jeśli dodany) jest poprawny i zawiera wymagane pola?
 
-### Część 2: Zgodność z Systemem Wizualnym
--   [ ] **Globalny `init`:** Czy diagram zaczyna się od standardowego bloku `%%{init: {'theme': 'dark', ...}}%%`?
--   [ ] **Kolory Warstw:** Czy wszystkie węzły `graph` mają poprawnie przypisany kolor warstwy architektonicznej (np. `core`, `game`, `ui`)?
--   [ ] **Ikony Komponentów:** Czy kluczowe węzły mają przypisane ikony (`fa-...`) zgodnie z ich techniczną rolą?
--   [ ] **Style Linii:** Czy style linii (`-->`, `-.->`, `==>`) i ich kolory (`linkStyle`) są użyte poprawnie i zgodnie ze znaczeniem?
--   [ ] **Zgodność z Ograniczeniami:** Czy diagram przestrzega ograniczeń stylizacji dla swojego typu (np. nie używa `classDef` w `sequenceDiagram`)?
-
-### Część 3: Poprawność i Kompletność
--   [ ] **Renderowanie:** Czy diagram renderuje się poprawnie bez błędów parsera?
--   [ ] **Poprawność Merytoryczna:** Czy diagram wiernie odzwierciedla działanie lub strukturę opisywanego systemu?
--   [ ] **Interaktywność:** Czy kluczowe komponenty mają dodane linki `click` (jeśli są wspierane) do odpowiedniej dokumentacji?
--   [ ] **Kontekst:** Czy pod diagramem (lub w jego tytule) znajduje się krótki opis wyjaśniający, co on przedstawia i jaka jest używana jednostka (dla diagramów analitycznych)?
-
-### Część 4: Kompozycja (jeśli dotyczy)
--   [ ] **Podział Złożoności:** Jeśli diagram jest bardzo skomplikowany, czy na pewno nie powinien być podzielony na mniejszy system `overview` + `details`?
--   [ ] **Spójność Systemu:** Jeśli diagram jest częścią większego systemu wizualizacji, czy jego linki i narracja są spójne z pozostałymi częściami?
+Szczegółowa i rozszerzona checklista jest w sekcji 11.
 
 ---
 
-## 5. Mapping Treści → Typ Diagramu
+## 5. Mapping Treści → Typ Diagramu (heurystyki wyboru)
 
-Wybór odpowiedniego typu diagramu jest kluczowy dla skutecznej komunikacji. Poniższe heurystyki pomogą wybrać właściwe narzędzie wizualizacyjne w zależności od treści, którą chcesz przedstawić.
+Wybór typu diagramu jest kluczowy. Poniższe reguły pomagają zautomatyzować wybór i standaryzują decyzję.
 
-### 5.1. Heurystyki Wyboru Typu Diagramu
+### 5.1. Tabela rekomendacji
+| Rodzaj treści | Rekomendowany typ |
+|---|---|
+| Przepływ procesu / kroki / instrukcja | flowchart / graph |
+| Interakcja w czasie między aktorami | sequenceDiagram |
+| Stany i przejścia | stateDiagram-v2 |
+| Struktura klas/encje/relacje | erDiagram / classDiagram |
+| Harmonogram / milestoness | gantt / timeline |
+| Analiza rozkładu / udziały | pie / quadrantChart |
+| Historia Git | gitGraph |
+| Przepływ zasobów wartościowych | sankey-beta |
 
-| Rodzaj Treści | Rekomendowany Typ | Kiedy Użyć |
-| :--- | :--- | :--- |
-| **Przepływ danych/kontroli** | `flowchart` / `graph` | Wizualizacja transformacji danych, algorytmów, lub przepływu sterowania między komponentami. |
-| **Interakcja w czasie** | `sequenceDiagram` | Komunikacja między aktorami/systemami z wyraźną osią czasu (request-response, protokoły). |
-| **Stany i przejścia** | `stateDiagram-v2` | Cykle życia obiektów, automaty stanowe, workflow ze stanami. |
-| **Struktura klas/modeli** | `flowchart` (symulowany) / `erDiagram` | Hierarchie dziedziczenia, relacje między encjami, modele danych. |
-| **Hierarchia koncepcyjna** | `mindmap` | Kategoryzacja tematów, struktura dokumentacji, brainstorming. |
-| **Harmonogram/milestones** | `gantt` / `timeline` | Planowanie projektu, historia wersji, wydarzenia na osi czasu. |
-| **Dystrybucja/proporcje** | `pie` / `quadrantChart` | Procentowy udział kategorii, analiza strategiczna (priorytet/wartość). |
-| **Przepływ zasobów** | `sankey-beta` | Alokacja zasobów, transformacje energii/danych z wartościami liczbowymi. |
-| **Historia wersji** | `gitGraph` | Branches, merge'e, historia commitów. |
+### 5.2. Deterministyczna heurystyka (scoring)
+Aby umożliwić automatyczne decyzje, stosujemy prosty scoring oparty na słowach-kluczach.
 
-### 5.2. Algorytm Decyzyjny
+Przykładowy zestaw słów-kluczy i wagi (+2 = silne dopasowanie):
+- flowchart: [steps, krok, proces, następnie, then, next, ->] (+2)
+- sequenceDiagram: [request, response, client, server, actor, sends, receives] (+2)
+- erDiagram/classDiagram: [entity, table, field, schema, column, relation, id] (+2)
+- gantt: [date, day, week, milestone, schedule, plan] (+2)
+- sankey-beta: [flow, value, amount, proportion] (+2)
 
-1. **Czy wizualizujesz interakcję w czasie między aktorami?** → `sequenceDiagram`
-2. **Czy pokazujesz stany i przejścia między nimi?** → `stateDiagram-v2`
-3. **Czy prezentujesz dane liczbowe (przepływ z wartościami)?** → `sankey-beta`
-4. **Czy pokazujesz proporcje/dystrybucję?** → `pie` lub `quadrantChart`
-5. **Czy wizualizujesz harmonogram lub oś czasu?** → `gantt` lub `timeline`
-6. **Czy to historia Git?** → `gitGraph`
-7. **Czy to hierarchia/taksonomia bez przepływu?** → `mindmap`
-8. **W pozostałych przypadkach** (przepływ, architektura, relacje) → `flowchart` / `graph`
-
-### 5.3. Przykład Zastosowania
-
-**Scenariusz:** "Muszę zadokumentować, jak moduł `game_skills` ładuje dane z serwera."
-
-- **Analiza:** Występuje interakcja między komponentami (klient ↔ serwer) z wyraźną sekwencją kroków.
-- **Wybór:** `sequenceDiagram` (pokazuje komunikację w czasie).
-- **Alternatywa:** Jeśli kluczowa jest transformacja danych (nie aktorzy), użyj `flowchart` z `graph TD`.
+Algorytm:
+1. Zlicz wystąpienia słów-kluczy w treści .md (nagłówki, sekcje, listy).
+2. Wybierz typ z najwyższym wynikiem.  
+3. Przy remisie zastosuj tie-breaker: sequenceDiagram > flowchart > erDiagram > gantt.  
+4. Jeśli wybór jest niejednoznaczny (różnica punktów mała), wygeneruj komentarz w PR/commit z informacją, że wybór wymaga przeglądu manualnego.
 
 ---
 
 ## 6. Obsługa Placeholderów i Brakujących Plików
 
-### 6.1. Strategia dla Brakujących Diagramów
+Przy automatycznym procesie natrafimy na braki — trzeba to ustandaryzować.
 
-Jeśli dokumentacja odnosi się do diagramu, który jeszcze nie istnieje, zastosuj jeden z poniższych podejść:
+### 6.1. Zasady dla placeholderów
+- Jeśli w pliku .md znajdziesz placeholder (np. `<!-- TODO: mermaid -->`), domyślnie agent:
+  - może wygenerować diagram według heurystyki i wstawić go,
+  - lub (opcjonalnie, konfiguracja) pozostawić placeholder i dodać komentarz TODO do PR.
+- Jeśli preferujesz ręczne uzupełnienie, wybierz opcję "report only" (agent raportuje brak w PR).
 
-#### Podejście A: Placeholder Diagram
-Utwórz plik `.mmd` z prostym placeholderem:
+### 6.2. Brak pliku wymienionego w CSV
+- Nie tworzymy nowych pełnych dokumentów .md automatycznie. Tylko:
+  - raportujemy brakujące pliki w PR,
+  - (opcjonalnie) tworzymy mały placeholder z frontmatter i komentarzem TODO — tylko po wyraźnej zgodzie.
 
+### 6.3. Placeholder .mmd (jeśli stosujemy)
+Przykład prostego placeholdera:
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme':'dark','securityLevel':'loose'}}%%
 graph TD
-    TODO["🚧 Diagram w przygotowaniu"]
-    classDef note fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3
-    class TODO note
+  TODO["🚧 Diagram w przygotowaniu"]
+  INFO["Planowane elementy:<br/>- Client<br/>- Server<br/>- Auth flow"]
+  TODO -.-> INFO
+  classDef note fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3
+  class TODO,INFO note
 ```
-
-**Kiedy użyć:** Jeśli wiadomo, czego diagram będzie dotyczył, ale szczegóły są w trakcie projektowania.
-
-#### Podejście B: Komentarz TODO
-Dodaj w dokumentacji Markdown komentarz:
-
-```markdown
-<!-- TODO: Diagram przepływu autoryzacji (sequenceDiagram) -->
-<!-- Planowane elementy: Client, AuthServer, Database -->
-```
-
-**Kiedy użyć:** Jeśli diagram wymaga dogłębnej analizy lub zbierania danych.
-
-### 6.2. Walidacja Referencji do Diagramów
-
-Przed commitowaniem zmian upewnij się, że:
-- Wszystkie referencje `![](./diagrams/*.mmd)` wskazują na istniejące pliki.
-- Jeśli plik nie istnieje, jest zastąpiony placeholderem lub TODO.
 
 ---
 
 ## 7. Idempotencja i Marker Generowanego Bloku
 
-### 7.1. Zasada Idempotencji
+Aby uniknąć duplikatów i umożliwić aktualizację diagramów, wprowadzamy obowiązkowy marker.
 
-Diagramy mogą być generowane automatycznie przez narzędzia/agentów. Aby zapewnić idempotencję (wielokrotne uruchamienie generatora daje ten sam wynik), stosujemy markery.
-
-### 7.2. Marker Generowanego Bloku
-
-Każdy automatycznie generowany diagram **powinien** zawierać komentarz na początku pliku:
-
-```plaintext
-%% AUTO-GENERATED: Do not edit manually
-%% Generator: <nazwa_narzędzia_lub_agenta>
-%% Source: <ścieżka_do_źródła_danych>
-%% Generated: <ISO 8601 timestamp>
+### 7.1. Wzorzec markera
+Nad każdym blokiem Mermaid wygenerowanym automatycznie umieszczamy komentarz:
+```text
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=d98152d96da9ca8c14f42b06ebd9bc3e4833769d; generated_at=2025-11-07T09:00:00Z -->
 ```
 
-**Przykład:**
-```mermaid
-%% AUTO-GENERATED: Do not edit manually
-%% Generator: diagram-generator-v1.2
-%% Source: docs/authoring/12_otmod/datasets/module_deps.csv
-%% Generated: 2025-11-07T08:00:00Z
+### 7.2. Reguła rozpoznawania
+Agent rozpoznaje istniejący, generowany blok używając tego znacznika. Zaktualizuje istniejący blok zamiast wstawiać nowy.
 
-%%{init: {'theme': 'dark'}}%%
-graph TD
-    A --> B
+### 7.3. Regex wykrywania (do narzędzi)
+```
+/<!--\s*mermaid-diagram:\s*generated-by=[^;]+;\s*source_sha=[0-9a-f]{40};\s*generated_at=[0-9T:\-\.Z]+?\s*-->/
 ```
 
-### 7.3. Workflow dla Ręcznie Edytowanych Diagramów
-
-Jeśli diagram został pierwotnie wygenerowany, ale wymaga ręcznych poprawek:
-1. Usuń marker `AUTO-GENERATED`.
-2. Dodaj komentarz: `%% MANUALLY EDITED: <data> - <powód zmian>`.
+### 7.4. Ręczne edycje
+Jeżeli ktoś ręcznie edytuje wygenerowany blok:
+- Usuń lub zmodyfikuj marker `generated-by` (dodaj `MANUALLY EDITED` komentarz), aby uniknąć nadpisania przez generator.
 
 ---
 
-## 8. Specyfikacja Frontmatter
+## 8. Specyfikacja Frontmatter (canonical schema)
 
-### 8.1. Wymagane Pola
+Jeśli dodajemy lub uzupełniamy frontmatter w plikach .md zawierających diagramy, stosujemy jednolity schemat:
 
-Jeśli diagram jest osadzony w pliku Markdown, **zaleca się** dodanie frontmatter na początku pliku `.md`:
-
+Przykład canonical frontmatter:
 ```yaml
 ---
-diagram_id: "module-deps-overview"
-type: "flowchart"
-source: "docs/authoring/12_otmod/datasets/module_deps.csv"
-last_updated: "2025-11-07T08:00:00Z"
-author: "diagram-generator-v1.2"
-tags: ["otmod", "dependencies", "architecture"]
+doc_id: "authoring/game-engine"
+source_path: "docs/authoring/game-engine.md"
+source_sha: "d98152d96da9ca8c14f42b06ebd9bc3e4833769d"
+last_sync_iso: "2025-11-07T09:00:00Z"
+doc_class: "guide"
+language: "pl"
+title: "Game Engine — przegląd"
+summary: "Krótki opis: co pokazuje diagram i jaka jest jego jednostka."
+tags: ["architecture","core"]
 ---
 ```
 
-### 8.2. Opis Pól
-
-| Pole | Typ | Wymagane | Opis |
-| :--- | :--- | :---: | :--- |
-| `diagram_id` | string | ✅ | Unikalny identyfikator diagramu (kebab-case). |
-| `type` | string | ✅ | Typ diagramu Mermaid (`flowchart`, `sequenceDiagram`, itp.). |
-| `source` | string | ❌ | Ścieżka do źródła danych (jeśli diagram jest generowany). |
-| `last_updated` | ISO 8601 | ✅ | Data ostatniej aktualizacji (format: `YYYY-MM-DDTHH:MM:SSZ`). |
-| `author` | string | ❌ | Nazwa narzędzia/osoby, która utworzyła diagram. |
-| `tags` | array | ✅ | Lista tagów dla kategoryzacji (min. 1 tag). |
-
-### 8.3. Format Daty ISO 8601
-
-**Obowiązujący format:** `YYYY-MM-DDTHH:MM:SSZ` (UTC)
-
-**Przykłady:**
-- ✅ Poprawny: `2025-11-07T08:00:00Z`
-- ✅ Poprawny: `2025-11-07T14:30:15Z`
-- ❌ Błędny: `2025-11-07` (brak czasu)
-- ❌ Błędny: `07-11-2025 08:00` (błędny format)
+Reguły:
+- `source_sha` musi być 40-znakowym SHA (hex) — w przykładach używamy wskazanego commit OID.
+- `last_sync_iso` — ISO8601 UTC (YYYY-MM-DDTHH:MM:SSZ).
+- Jeśli frontmatter już istnieje — MERGUJ: nie nadpisuj pól `title` ani `summary` bez wyraźnego powodu.
 
 ---
 
 ## 9. Wersja Mermaid i Kompatybilność Rendererów
 
-### 9.1. Obsługiwana Wersja Mermaid
+### 9.1. Wersja docelowa
+Docelowo nasze diagramy są zgodne z **Mermaid v10+**. Jeśli Twoje środowisko docsite używa starszej wersji, odnotuj wymóg dostosowania w PR.
 
-Projekt docelowo wspiera **Mermaid v10.6+**. Wszystkie diagramy powinny być zgodne z tą wersją.
-
-### 9.2. Różnice Między Rendererami
-
-| Renderer | Obsługa `classDef` | Obsługa `click` | Uwagi |
-| :--- | :---: | :---: | :--- |
-| **GitHub** | ✅ (tylko `graph`) | ✅ (tylko `graph`, `mindmap`) | Najczęściej używany; priorytet kompatybilności. |
-| **Sphinx (sphinxcontrib-mermaid)** | ✅ | ❌ (ignorowane) | Używany do generowania dokumentacji HTML. |
-| **MkDocs** | ✅ | ✅ | Obsługa zależy od konfiguracji pluginu. |
-| **mermaid-cli** | ✅ | ❌ (ignorowane) | Używany w CI/CD do walidacji. |
-
-### 9.3. Reguły Kompatybilności
-
-1. **Priorytet: Poprawne renderowanie na GitHub.**
-2. Jeśli funkcjonalność (np. `click`) psuje renderowanie w jednym z rendererów, **usuń ją** lub użyj komentarza TODO.
-3. Testuj diagramy w co najmniej dwóch środowiskach przed commitem.
-
-### 9.4. Fallback dla `click`
-
-Jeśli `click` nie jest wspierany:
-```mermaid
-%% FALLBACK: Use comment instead of click
-graph TD
-    A["Component A"]
-    %% Link to: docs/components/A.md
-```
+### 9.2. Kompatybilność i ograniczenia
+- `click` i inne interaktywne funkcje mogą nie być obsługiwane przez mermaid-cli lub Sphinx; w takich wypadkach wymagamy fallbacków (sekcja 5).
+- Nie wszystkie typy diagramów wspierają `classDef` (np. sequenceDiagram, erDiagram) — stosuj globalny blok `init` do stylizacji tam, gdzie `classDef` nie działa.
 
 ---
 
-## 10. Walidacja i CI
+## 10. Walidacja i CI — zasada "nie dodawaj workflow, jeśli już istnieje"
 
-### 10.1. Automatyczna Walidacja Diagramów
+Mamy proponowany GitHub Actions workflow do walidacji diagramów, ale instalujemy go tylko jeśli repo nie ma równoważnego rozwiązania.
 
-Zalecamy skonfigurowanie GitHub Actions do automatycznej walidacji syntaktyki Mermaid przy każdym PR. Poniżej przykładowa implementacja.
+### 10.1. Reguła dodawania workflow
+- Przed utworzeniem nowego workflow sprawdź: czy istnieje plik w `.github/workflows` który:
+  - wykonuje `mmdc` / `mermaid-cli` lub `mermaid-lint` lub
+  - posiada zadanie odniesione do `docs/**/*.mmd` lub `docs/**/*.md`.
+- Jeśli taki workflow istnieje — nie dodawaj nowego. Zamiast tego zaproponuj aktualizację istniejącego workflow (opisać w PR, jakie kroki dodać/zmodyfikować).
+- Jeśli nie istnieje — w PR możesz zaproponować nowy plik `.github/workflows/validate-diagrams.yml` z tematem walidacji.
 
-### 10.2. Propozycja GitHub Actions Workflow
-
-Utwórz plik `.github/workflows/validate-diagrams.yml`:
-
+### 10.2. Proponowany job (do wklejenia, ale tylko dodać gdy repo jeszcze nie ma równoważnego)
 ```yaml
 name: Validate Mermaid Diagrams
-
 on:
   pull_request:
     paths:
       - 'docs/**/*.mmd'
       - 'docs/**/*.md'
-
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Install Mermaid CLI
-        run: npm install -g @mermaid-js/mermaid-cli
-
-      - name: Find all .mmd files
-        id: find-files
+      - run: npm ci
+      - run: npx @mermaid-js/mermaid-cli -v
+      - name: Find and validate .mmd files
         run: |
-          echo "files=$(find docs -name '*.mmd' -type f | tr '\n' ' ')" >> $GITHUB_OUTPUT
-
-      - name: Validate Mermaid syntax
-        run: |
-          for file in ${{ steps.find-files.outputs.files }}; do
-            echo "Validating $file"
-            mmdc -i "$file" -o /tmp/output.svg || exit 1
+          find docs -name '*.mmd' -type f | while read f; do
+            echo "Validating $f"
+            npx @mermaid-js/mermaid-cli -i "$f" -o /tmp/mermaid_validate.svg || exit 1
           done
-
-      - name: Check frontmatter (optional)
-        run: |
-          # Add custom script to validate frontmatter in .md files
-          echo "Frontmatter validation placeholder"
 ```
 
-### 10.3. Narzędzia Alternatywne
+Dodatkowo rozważ `mermaid-lint` dla szybszej statycznej walidacji.
 
-- **mermaid-lint:** Statyczna analiza syntaktyki (szybsza niż pełne renderowanie).
-  ```bash
-  npm install -g mermaid-lint
-  mermaid-lint docs/**/*.mmd
-  ```
+---
 
-- **markdownlint:** Walidacja formatowania plików Markdown (w tym osadzonych diagramów).
-  ```bash
-  npx markdownlint-cli docs/**/*.md
-  ```
+## 11. Rozszerzona Checklista Weryfikacji Diagramu (pełna)
 
-### 10.4. Lokalna Walidacja
+Faza 1: Planowanie
+- [ ] Wybór typu zgodny z heuristicami.
+- [ ] Zidentyfikowano źródła danych.
+- [ ] Jeśli diagram nie jest gotowy — placeholder/TODO.
 
-Przed commitowaniem uruchom lokalnie:
-```bash
-# Walidacja pojedynczego pliku
-mmdc -i docs/authoring/12_otmod/diagrams/deps.mmd -o /tmp/test.svg
+Faza 2: Implementacja
+- [ ] Diagram zaczyna się od canonical init header.
+- [ ] Jeśli wygenerowany — posiada idempotency marker.
+- [ ] Frontmatter dodany/zmodyfikowany zgodnie ze specyfikacją (merguj, nie nadpisuj).
+- [ ] Etykiety łamane z użyciem `<br/>` jeśli dłuższe niż ~28 znaków; max 3 linie.
+- [ ] Node-id normalized (lowercase, spaces→underscore, usuń niebezpieczne znaki).
 
-# Walidacja wszystkich diagramów
-find docs -name '*.mmd' -exec mmdc -i {} -o /tmp/test.svg \;
+Faza 3: Walidacja
+- [ ] Diagram renderuje się w GitHub Preview.
+- [ ] Diagram przechodzi lokalne `mmdc` lub `mermaid-lint`.
+- [ ] Wszystkie `click` linki mają fallback w postaci listy pod diagramem i wskazują na istniejące pliki/anchors.
+
+Faza 4: Dokumentacja
+- [ ] Krótki opis (1–2 zdania) pod diagramem, wyjaśniający co przedstawia.
+- [ ] Tagowanie frontmatter (min. 1 tag).
+- [ ] Cross-references (overview ↔ details) tam gdzie dotyczy.
+
+Faza 5: CI/CD
+- [ ] Workflow walidacji diagramów istnieje lub zaproponowano dodanie w PR.
+- [ ] PR zawiera raport o plikach z problemami (jeśli występują).
+
+---
+
+## 12. Przykłady Snippetów (canonical references)
+
+### 12.1. Canonical init header (używaj jak standard)
+```text
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
+```
+
+### 12.2. Idempotency marker (przykład)
+```text
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=d98152d96da9ca8c14f42b06ebd9bc3e4833769d; generated_at=2025-11-07T09:00:00Z -->
+```
+
+### 12.3. Minimalny flowchart z subgraph/style/click i fallback
+```mermaid
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
+graph TD
+  subgraph "Core Layer"
+    A["Engine<br/>Core"]
+    B["World State"]
+  end
+  subgraph "UI Layer"
+    C["Input Handler"]
+  end
+  A --> B
+  C --> A
+  classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd;
+  class A,B core
+  click A "./index.html#facet-01_core.engine" "Open Engine docs"
+  %% Fallback: Engine -> ./index.html#facet-01_core.engine
+```
+
+Pod diagramem (markdown fallback):
+```markdown
+Powiązane dokumenty:
+- Engine — ./index.html#facet-01_core.engine
+```
+
+### 12.4. Frontmatter example (do wklejenia w pliku .md)
+```yaml
+---
+doc_id: "authoring/game-engine"
+source_path: "docs/authoring/game-engine.md"
+source_sha: "d98152d96da9ca8c14f42b06ebd9bc3e4833769d"
+last_sync_iso: "2025-11-07T09:00:00Z"
+doc_class: "guide"
+language: "pl"
+title: "Game Engine — przegląd"
+summary: "Krótki opis: co pokazuje diagram."
+tags: ["architecture","core"]
+---
 ```
 
 ---
 
-## 11. Rozszerzona Checklista Weryfikacji Diagramu
+## 13. Dobre praktyki dla generatorów / agentów
 
-Poniższa checklista integruje wszystkie reguły z sekcji 5-10 i powinna być stosowana przed finalnym zatwierdzeniem każdego diagramu.
-
-### Faza 1: Planowanie
--   [ ] **Wybór Typu:** Czy typ diagramu został wybrany zgodnie z heurystykami z Sekcji 5?
--   [ ] **Źródła Danych:** Czy zidentyfikowano wszystkie źródła danych (CSV, kod, manifesty)?
--   [ ] **Placeholder:** Jeśli diagram nie jest gotowy, czy użyto placeholder lub TODO?
-
-### Faza 2: Implementacja
--   [ ] **Init Block:** Czy diagram zawiera standardowy blok `%%{init: ...}%%`?
--   [ ] **Marker:** Jeśli diagram jest generowany, czy zawiera marker `AUTO-GENERATED`?
--   [ ] **Frontmatter:** Czy plik `.md` zawiera poprawny frontmatter z datą ISO 8601?
--   [ ] **Style:** Czy wszystkie węzły mają przypisane `classDef` zgodnie z warstwami architektonicznymi?
-
-### Faza 3: Walidacja
--   [ ] **Renderowanie GitHub:** Czy diagram renderuje się poprawnie w GitHub Markdown preview?
--   [ ] **Renderowanie Sphinx:** Czy diagram renderuje się w lokalnym build Sphinx (jeśli dotyczy)?
--   [ ] **Syntaktyka:** Czy diagram przechodzi walidację `mmdc` / `mermaid-lint`?
--   [ ] **Linki:** Czy wszystkie linki `click` prowadzą do istniejących plików lub facet anchors (format: `./index.html#facet-<chapter>.<stem>` dla datasetów)?
-
-### Faza 4: Dokumentacja
--   [ ] **Kontekst:** Czy diagram ma towarzyszący opis wyjaśniający jego cel?
--   [ ] **Tags:** Czy frontmatter zawiera co najmniej 1 tag?
--   [ ] **Cross-references:** Czy diagram jest powiązany z innymi diagramami (jeśli jest częścią systemu)?
-
-### Faza 5: CI/CD
--   [ ] **Pre-commit Hook:** Czy uruchomiono lokalną walidację przed commitem?
--   [ ] **PR Check:** Czy pipeline CI przeszedł bez błędów walidacji diagramów?
+- Zawsze stosuj idempotency marker i canonical init header.  
+- Nie nadpisuj ręcznie edytowanych diagramów (rozpoznaj marker MANUALLY EDITED).  
+- Przy remisie heurystyk zostaw notkę w commicie/PR ze wskazaniem wybranej opcji i prośbą o manualną weryfikację.  
+- Nie twórz workflow jeśli repo ma już równoważny — zamiast tego zaproponuj aktualizację.  
+- Testuj w co najmniej 2 rendererach (GitHub + loklany mermaid-cli).
 
 ---
 
-## 12. Przykładowe Snippety
+## 14. Checklista przed otwarciem PR (dla automatycznych zmian)
 
-### 12.1. Standardowy Init Header
+- [ ] Zaktualizowano tylko pliki w scope: `docs/authoring/**` (jeśli to ograniczenie projektu).  
+- [ ] Wszystkie generowane bloki mają idempotency marker.  
+- [ ] Wszystkie nowe/zmodyfikowane diagramy przechodzą `mermaid-lint` / `mmdc`.  
+- [ ] PR zawiera raport: liczba plików przejrzanych, naprawionych, wygenerowanych, brakujących plików oraz lista plików wymagających ręcznej interwencji.  
+- [ ] Jeśli workflow jest proponowany — sprawdzono, że repo nie ma równoważnego pliku w `.github/workflows`.  
 
-**Format pełny** (z zaawansowaną stylizacją):
-```mermaid
-%%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "primaryTextColor": "#e5e7eb",
-    "lineColor": "#4b5563",
-    "fontFamily": "Inter, system-ui, sans-serif"
-  },
-  "securityLevel": "loose"
-}}%%
-```
+---
 
-**Format minimalny** (dla większości przypadków):
-```mermaid
-%%{init: {'theme':'dark','securityLevel':'loose'}}%%
-```
+## 15. FAQ — typowe wątpliwości
 
-> **Uwaga:** `securityLevel:'loose'` jest wymagane dla funkcjonalności `click` i innych interaktywnych elementów.
+Q: Co jeśli `click` psuje render?  
+A: Usuń `click`, zostaw komentarz fallback (sekcja 5). PR powinien opisać powód i wskazać plik/testy.
 
-### 12.2. Komentarz Idempotencji (Generowany)
+Q: Czy mogę tworzyć pliki .mmd osobno?  
+A: Możesz, ale preferujemy osadzanie bloków Mermaid bezpośrednio w plikach .md, chyba że projekt wymaga oddzielnych plików .mmd (wtedy również stosuj marker).
 
-```plaintext
-%% AUTO-GENERATED: Do not edit manually
-%% Generator: otmod-dependency-mapper
-%% Source: docs/authoring/12_otmod/datasets/module_deps.csv
-%% Generated: 2025-11-07T08:15:00Z
-```
+Q: Co robić przy niejednoznacznym wyborze typu diagramu?  
+A: Wybierz najbardziej zbliżony typ według heurystyk i oznacz decyzję w PR/commicie do manualnej weryfikacji.
 
-### 12.3. Minimalny Flowchart z Subgraph, Style i Click
+---
 
-```mermaid
-%%{init: {'theme':'dark','securityLevel':'loose'}}%%
-graph TD
-    subgraph "Core Layer"
-        A["Engine"]
-        B["Graphics"]
-    end
-    
-    subgraph "Game Layer"
-        C["Game Logic"]
-        D["Skills Module"]
-    end
-    
-    A --> B
-    C --> D
-    B -.-> C
-    
-    click D "./index.html#facet-12_otmod.game_skills" "Open game_skills"
-    
-    classDef core fill:#3498db,stroke:#fff,color:#fff
-    classDef game fill:#e67e22,stroke:#fff,color:#fff
-    
-    class A,B core
-    class C,D game
-```
+## 16. Kontakt / Review
 
-### 12.4. Placeholder dla Brakującego Diagramu
+Jeśli masz wątpliwości co do automatycznych zmian, zostaw komentarz w PR i poproś o review od opiekuna dokumentacji. Każdy automatyczny PR dotyczący diagramów powinien otrzymać przynajmniej jednego recenzenta przed mergem.
 
-```mermaid
-%%{init: {'theme':'dark','securityLevel':'loose'}}%%
-graph TD
-    TODO["🚧 Network Protocol Flow<br/>Diagram w przygotowaniu"]
-    INFO["Planowane elementy:<br/>- Client handshake<br/>- Server authentication<br/>- Data encryption"]
-    TODO -.-> INFO
-    
-    classDef note fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3
-    class TODO,INFO note
-```
+---
+
+Dziękujemy za współtworzenie spójnego i użytecznego systemu diagramów. Stosowanie tych reguł pozwoli na bezpieczną automatyzację i znaczące usprawnienie jakości dokumentacji.
