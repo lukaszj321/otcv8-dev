@@ -1,30 +1,23 @@
-# Specyfikacja Wizualna Diagramów (uzupełniona, canonical)
+# Specyfikacja Wizualna Diagramów (canonical, kompletna)
 
-Ten dokument jest ścisłą specyfikacją techniczną i jedynym źródłem prawdy dla elementów wizualnych w diagramach Mermaid w repozytorium. Wszystkie diagramy powinny przestrzegać poniższych reguł — to zapewnia spójność, czytelność i zgodność z systemem dokumentacji.
-
-Przed użyciem: zapoznaj się też z głównym README systemu diagramów (README.md) i biblioteką wzorców (03_DESIGN_PATTERNS). Wzorce dostosowuj (nie kopiuj 1:1).
+Ten dokument jest jedynym źródłem prawdy dla stylów, klas i reguł wizualnych dla diagramów Mermaid w repozytorium. Upewnij się, że adaptacje wzorców z [03_DESIGN_PATTERNS](./03_DESIGN_PATTERNS/) oraz diagramy osadzone w dokumentach respektują poniższe zasady.
 
 ---
 
-## 1. Globalny blok inicjalizujący (canonical init)
+## 1. Canonical init header (przypomnienie)
 
-Wszystkie bloki Mermaid w repo muszą zaczynać się od tego canonical headera (dokładne formatowanie):
-
+Wszystkie diagramy MUSZĄ używać canonical init header:
 ```text
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
 ```
 
-Uwaga:
-- `securityLevel:'loose'` jest wymagane tam, gdzie używamy `click` i innych elementów interaktywnych. Jeśli docsite nie akceptuje `loose`, zamieść fallback linki pod diagramem i opisz to w PR.
-- Jeśli wyjątkowo potrzebujesz innych `themeVariables`, dodaj krótkie uzasadnienie w commit/PR i upewnij się, że zmiana jest akceptowalna przez maintainerów.
+Jeśli wymagana jest inna paleta — opisz to w PR i uzasadnij.
 
 ---
 
-## 2. Oficjalne classDef-y i paleta (canonical classDef)
+## 2. Oficjalne classDef (kopiuj do diagramu `graph`/`flowchart`)
 
-Aby utrzymać spójność, używamy predefiniowanych klas dla najczęstszych warstw i ról. Dla `graph`/`flowchart` preferujemy `classDef`. Tam, gdzie `classDef` nie jest wspierany (np. `sequenceDiagram`, `erDiagram`), używamy `themeVariables` w init lub fallbacków.
-
-Zalecane definicje do kopiowania w każdym diagramie `graph` (przykład):
+Używaj tych definicji by zachować spójność:
 
 ```text
 classDef core     fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
@@ -36,235 +29,311 @@ classDef critical fill:#c0392b,stroke:#ffffff,color:#fff;
 classDef note     fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3;
 ```
 
-Przykładowe użycie:
+Przykład użycia:
 ```mermaid
+%%{init:{
+  "theme":"dark",
+  "themeVariables":{
+    "primaryTextColor":"#e5e7eb",
+    "lineColor":"#9aa0a6"
+  }
+}}%%
 graph LR
   A["Engine<br/>Core"]:::core
   B["game_skills<br/>Lua Module"]:::module
-  C["UI<br/>Panel"]:::ui
+  C["UI Overlay"]:::ui
+  D["Damage Event"]:::event
+  E["Player Data"]:::data
+  F["Critical Handler"]:::critical
+  N["TODO: refine flow"]:::note
+
+  A --> B --> D --> E
+  A --> C
+  D --> F
+
+  classDef core     fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+  classDef module   fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+  classDef ui       fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+  classDef event    fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+  classDef data     fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+  classDef critical fill:#c0392b,stroke:#ffffff,color:#fff;
+  classDef note     fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3;
 ```
 
 Reguły:
-- Wybierz klasę na podstawie katalogu źródłowego (lokacja pliku) i roli technicznej (opis elementu).
-- `critical` używaj tylko gdy element reprezentuje błąd/stan krytyczny.
-- `note` przeznaczony dla placeholderów/TODO.
+- Decyduj o klasie na podstawie katalogu źródłowego i roli elementu.
+- `note` wyłącznie dla placeholderów/TODO.
+- Komentarz dla czytelnika (tekstem, nie w kodzie)
 
 ---
 
-## 3. Mapowanie typów elementów na style i ikony
+## 3. Mapowanie typów elementów, ikony i kształty
 
-Tabela skrócona (konkretne mapowania):
+- core — silnik / niskopoziomowe API (use `core`).
+- module — moduły / biblioteki (use `module`).
+- ui — komponenty interfejsu (use `ui`).
+- event — zdarzenia / callback (use `event`).
+- data — pliki i bazy danych (use `data`).
+- critical — błędy / wyjątki (use `critical`).
+- note — placeholdery (use `note`).
 
-- core — silnik, framework, niskopoziomowe API (kolor: #2b2f33)
-- module — moduły / biblioteki (kolor: #24343a)
-- ui — elementy UI, panele, widgety (kolor: #22303a)
-- event — zdarzenia / sygnały (kolor: #2a3a2f)
-- data — zasoby / pliki / bazy danych (kolor: #2b2f36)
-- critical — wyjątki / błędy (kolor: #c0392b)
-- note — placeholdery, wskazówki (kolor: #4b5563)
+Ikony: stosuj Font Awesome 4.7 (`fa-*`) tylko jeśli ikona zwiększa zrozumiałość.
 
-Ikony:
-- Używamy Font Awesome 4.7 (`fa-*`) tam, gdzie to ma sens (np. `fa-database` dla danych). Dodawaj ikonę w etykiecie tylko jeśli zwiększa czytelność.
-
----
-
-## 4. Format etykiet i łamanie tekstu
-
-Zasady:
-- Długie etykiety łamiemy przy użyciu `<br/>`. Maksymalnie 3 linie w etykiecie, preferowane 1–2 linie.
-- Nie łam słowa w środku; łam w miejscach logicznych (oddzielne słowa, nawiasy).
-- Dla identyfikatorów użyj formatu: `Name<br/>(Type)` zamiast `Name (Type)` jeśli potrzeba przewidzieć długość.
-
-Przykłady:
-```mermaid
-A["Component Name<br/>(Short Description)"]
-B["Long Module Name<br/>with Multiple Lines<br/>of Text"]
-```
-
-Reguła praktyczna: jeśli etykieta > 28 znaków, rozważ dodanie `<br/>`.
+Kształty:
+- Prostokąt A["Text"] — domyślny,
+- Zaokrąglony B("Text") — proces / akcja,
+- Romb C{"Text"} — decyzja / warunek.
 
 ---
 
-## 5. Node-id: nazewnictwo i normalizacja (ważne dla generatorów)
+## 4. Etykiety i łamanie tekstu
 
-Aby uniknąć konfliktów i problemów z parserami, stosuj następujące reguły dla identyfikatorów węzłów (node-id):
-
-- Normalizacja:
-  - lowercase
-  - spaces → underscore
-  - usuń znaki niealfanumeryczne poza underscore i minus
-  - prefiks opcjonalny: `<doc_id>_` (przy automatycznym generowaniu, aby zapewnić unikalność)
-- Przykład: `Game Engine` → `game_engine`; `game-skills.v2` → `game_skills_v2`
-- Regex akceptowalny (proponowany): `^[a-z0-9_:-]+$` po normalizacji
-
-Zalecenie: generatory powinny normalizować nazwę przed wykorzystaniem jako node-id i zachować mapę oryginalnej etykiety (do wyświetlenia).
-
----
-
-## 6. Subgraph: użycie i ograniczenia
-
-`subgraph` służy do logicznego grupowania powiązanych elementów.
-
-Zasady:
-- Nadaj subgraphowi tytuł opisowy (1–4 słowa).
-- Kontroluj układ wewnętrzny za pomocą `direction LR` / `direction TB`.
-- Nie zagnieżdżaj więcej niż 2 poziomy subgraphów (czytelność).
-- GitHub renderuje subgraphy w ograniczony sposób — nie polegaj na stylizowaniu subgraphów przez `classDef` (często ignorowane). Jeśli subgraph psuje layout, zastąp go komentarzem `%%` z granicą.
+- Używaj `<br/>` do łamania długich etykiet. Maksymalnie 3 linie.
+- Nie łam słowa w środku.
+- Jeśli etykieta > 28 znaków, rozważ łamanie lub przeniesienie szczegółów do opisu pod diagramem.
 
 Przykład:
 ```mermaid
-graph TD
+%%{init:{
+  "theme":"dark",
+  "themeVariables":{
+    "primaryTextColor":"#e5e7eb",
+    "lineColor":"#9aa0a6"
+  }
+}}%%
+graph LR
+  A["Component Name<br/>(Short Description)"]:::core
+  B["Inventory Service<br/>(Read / Write Items)"]:::module
+  C["Too Long Component Name<br/>(Monitoring & Alerts)<br/>(Move details below)"]:::long
+
+  A --> B --> C
+
+  classDef core   fill:#2b2f33,stroke:#9aa0a6,color:#e5e7eb,stroke-width:1px;
+  classDef module fill:#24343a,stroke:#8fa2a8,color:#e5e7eb,stroke-width:1px;
+  classDef long   fill:#24343a,stroke:#e67e22,color:#e5e7eb,stroke-width:1px,stroke-dasharray:4 2;
+```
+
+**Interpretacja do opisu pod punktem:**
+  - A/B = poprawne użycie <br/> (2 linie).
+  - C = specjalnie za długie + przerywana ramka jako sygnał „to przenieś do tekstu pod diagramem”.
+
+---
+
+## 5. Node-id: normalizacja i regex
+
+Standard normalizacji (generator powinien to stosować):
+- lowercase,
+- spaces → underscore,
+- usuń znaki inne niż [a-z0-9_\-:],
+- opcjonalny prefiks doc_id_ przy automatycznym generowaniu.
+
+Akceptowalny regex po normalizacji:
+```
+^[a-z0-9_:-]+$
+```
+
+Generator powinien utrzymywać mapę oryginalnych etykiet → node-id (dla czytelności).
+
+---
+
+## 6. Subgraph: zasady i ograniczenia
+
+- Nadaj tytuł (1–4 słowa).
+- Użyj `direction LR` / `direction TB` dla kontroli układu.
+- Nie zagnieżdżaj więcej niż 2 poziomy subgraph.
+- Nie polegaj na stylowaniu subgraph przez `classDef` (często ignorowane przez renderery).
+
+Przykład:
+```mermaid
+%%{init:{
+  "theme":"dark",
+  "themeVariables":{
+    "primaryTextColor":"#e5e7eb",
+    "lineColor":"#9aa0a6"
+  }
+}}%%
+graph LR
+  Client["Client"]:::ui --> engine
+
   subgraph "Core Layer"
     direction LR
-    engine["Engine"]:::core
-    renderer["Renderer"]:::core
+    engine["Engine<br/>(Core loop)"]:::corePrimary
+    world["World State"]:::core
   end
+
+  engine --> world
+  Client -.-> world
+
+  classDef core        fill:#2b2f33,stroke:#9aa0a6,color:#e5e7eb,stroke-width:1px;
+  classDef corePrimary fill:#2b2f33,stroke:#3b82f6,color:#e5e7eb,stroke-width:1.5px;
+  classDef ui          fill:#22303a,stroke:#6a8b92,color:#e5e7eb,stroke-width:1px,stroke-dasharray:4 2;
+
+  %% 0: Client-->engine, 1: engine-->world, 2: Client-.->world
+  linkStyle 2 stroke:#e67e22,stroke-width:1px,stroke-dasharray:5 3;
 ```
+
+**Co tu demonstrujesz jednocześnie:**
+  - subgraph z tytułem i własnym direction LR,
+  - różne klasy węzłów (ui, core, corePrimary z niebieską ramką dla Engine),
+  - etykietę wielolinijkową przy Engine (<br/>(Core loop)),
+  - alternatywną, asynchroniczną ścieżkę (kropkowana -.-> + linkStyle).
 
 ---
 
-## 7. Style linii i semantyka połączeń
+## 7. Style linii i semantyka (linkStyle)
 
-Semantyka:
-- `-->` : wywołanie synchroniczne / główny przepływ
-- `-.->` : asynchroniczne / zdarzenie / callback
-- `==>` : silne zależności / główna ścieżka danych
-- `~~~` : invisible link / manual layout control (stosować oszczędnie)
+Semantyka strzałek:
+- `-->` — synchronizacja / główny przepływ,
+- `-.->` — asynchroniczny / zdarzenie,
+- `==>` — silne zależności / główna ścieżka danych.
 
-Stosowanie `linkStyle`:
-- Numeruj połączenia w kolejności deklaracji (linkStyle 0, 1, ...).
-- Przykładowe kolory:
-  - zielony `#2ecc71` — happy path / sukces
-  - niebieski `#3498db` — standardowy przepływ
-  - pomarańczowy `#e67e22` — asynchroniczny / event
-  - czerwony `#c0392b` — błąd / wyjątek
-  - szary `#9ca3af` — opcjonalny
+Przykładowe `linkStyle`:
+```mermaid
+%%{init:{
+  "theme":"dark",
+  "themeVariables":{
+    "primaryTextColor":"#e5e7eb"
+  }
+}}%%
+graph LR
+  A[Client] --> B[API]
+  A -.-> C[Async Event]
+  A ==> D[Critical Path]
+
+  %% indexowane wg kolejności krawędzi:
+  %% 0: A-->B, 1: A-.->C, 2: A==>D
+  linkStyle 0 stroke:#3498db,stroke-width:2px;
+  linkStyle 1 stroke:#e67e22,stroke-width:1px,stroke-dasharray:5 5;
+  linkStyle 2 stroke:#c0392b,stroke-width:2px;
+
+```
+
+Rekomendowane kolory: zielony #2ecc71 (happy path), niebieski #3498db (standard), pomarańcz #e67e22 (event), czerwony #c0392b (error), szary #9ca3af (opcjonalny).
+
+---
+
+## 8. Click + fallback (dokładna procedura)
+
+1. Jeśli używasz `click node "path" "tooltip"`:
+   - Dodaj komentarz fallback w linii `%% Fallback: Node -> path`.
+   - Pod diagramem dodaj sekcję markdown "Powiązane dokumenty" z listą linków.
+2. CI: sprawdź istnienie pliku target (dla relatywnych ścieżek) lub oznacz brak w raporcie PR.
 
 Przykład:
 ```mermaid
-A --> B
-B -.-> C
-linkStyle 0 stroke:#3498db,stroke-width:2px
-linkStyle 1 stroke:#e67e22,stroke-width:1px,stroke-dasharray:5 5
+%%{init:{
+  "theme":"dark",
+  "themeVariables":{
+    "primaryTextColor":"#e5e7eb",
+    "lineColor":"#9aa0a6"
+  },
+  "securityLevel":"loose"
+}}%%
+graph LR
+  Engine["Engine"]:::core --> Docs["Engine docs"]:::doc
+
+  %% Klikalne przejście do dokumentacji
+  click Engine "./index.html#facet-01_core.engine" "Open Engine docs"
+  %% Fallback: Engine -> ./index.html#facet-01_core.engine
+
+  classDef core fill:#2b2f33,stroke:#3b82f6,color:#e5e7eb,stroke-width:1.5px;
+  classDef doc  fill:#2b2f33,stroke:#9aa0a6,color:#e5e7eb,stroke-width:1px,stroke-dasharray:4 2;
 ```
 
----
-
-## 8. Click (interaktywność) i fallback
-
-`click` jest dozwolony i rekomendowany w `graph`/`flowchart` i `mindmap` tam, gdzie ma sens, ale wymaga fallbacku.
-
-Reguły:
-1. Jeśli używasz `click node "path" "tooltip"`, dodaj pod diagramem listę fallback linków w formacie markdown (Powiązane dokumenty).
-2. Fallback powinien zawierać relatywną ścieżkę lub pełen URL do zasobu.
-3. Przed commitem waliduj, że target istnieje (jeśli odwołuje się do pliku w repo). Jeśli anchor nie istnieje, oznacz w raporcie PR.
-
-Przykład w diagramie:
-```mermaid
-click engine "./index.html#facet-01_core.engine" "Open Engine docs"
-%% Fallback: Engine -> ./index.html#facet-01_core.engine
-```
-
-Pod diagramem (markdown fallback):
+Fallback w Markdown (poza blokiem):
 ```markdown
 Powiązane dokumenty:
-- Engine — ./index.html#facet-01_core.engine
+- Engine — `./index.html#facet-01_core.engine`
 ```
 
 ---
 
-## 9. Typy diagramów bez wsparcia classDef
+## 9. Typy diagramów bez wsparcia `classDef`
 
-Niektóre typy diagramów (np. `sequenceDiagram`, `erDiagram`, `gantt`, `mindmap`) nie wspierają `classDef` w rendererach. Dla nich:
+Dla `sequenceDiagram`, `erDiagram`, `gantt`, `mindmap`:
+- Nie używaj `classDef` — użyj `init` themeVariables.
+- Dodaj pod diagramem notę wyjaśniającą ograniczenia stylu, jeśli to ważne.
 
-- Używaj globalnych `themeVariables` w `init` do ujednolicenia kolorów.
-- Unikaj `classDef` w tych diagramach; zamiast tego stosuj predefiniowany styl tekstu w etykietach i opisach.
-- Jeśli konieczne, dołącz krótką instrukcję poniżej diagramu o warunkach stylu (np. 'This diagram uses themeVariables because classDef not supported').
-
-Przykład init dla `sequenceDiagram`:
+Przykład init dla sequenceDiagram:
 ```text
 %%{init: {'theme':'dark','themeVariables': {'actorBorder':'#9b59b6','signalColor':'#2ecc71'}, 'securityLevel':'loose'}}%%
 ```
 
 ---
 
-## 10. Node-count / dzielenie diagramów (próg czytelności)
+## 10. Progi dzielenia diagramów (czytelność)
 
-Reguły dzielenia:
-- Jeśli diagram ma więcej niż 12 węzłów OR więcej niż 3 poziomy zagnieżdżenia, rozważ:
-  - stwórz `overview` (poziom wyżej, grupujący subgraphy),
-  - i wydziel `details` dla każdego głównego modułu.
-- W PR dodaj cytat decision: "Podzielono diagram z powodu N węzłów" wraz z krótkim opisem.
+- Próg: >12 węzłów lub >3 poziomy zagnieżdżenia → rozważ overview + details.
+- W PR opisz, że diagram został podzielony i dlaczego (liczba węzłów).
 
 ---
 
-## 11. Accessibility (ALT / opis)
+## 11. Accessibility i opis pod diagramem
 
-Każdy diagram musi mieć krótki opis (1–2 zdania) bezpośrednio pod nim — to służy jako alternatywny tekst i szybkie wyjaśnienie dla osób korzystających z czytników ekranu.
+Każdy diagram wymaga krótkiego opisu (1–2 zdania) bezpośrednio pod nim — to pełni rolę alt-text i kontekstu.
 
 Format:
 ```markdown
-**Opis diagramu:** Krótkie zdanie opisujące, co diagram przedstawia i jaka jest jednostka (np. komponenty systemu, przepływ autoryzacji).
+**Opis diagramu:** Krótkie zdanie opisujące, co diagram przedstawia.
 ```
 
 ---
 
-## 12. Node-id uniqueness i konflikty między diagramami
+## 12. Walidacja stylów (linter / mmdc)
 
-- Przy generatorach: prefixuj node-id nazwą dokumentu (`doc_id_`) przy generowaniu wielu diagramów w jednym repo, aby uniknąć kolizji przy łączeniu diagramów.
-- W przypadku ręcznej edycji: upewnij się, że node-id są unikatowe w obrębie danego diagramu.
+Rekomendacje:
+- mermaid-lint: wykrywanie duplikatów id, długości etykiet, brak fallbacku.
+- mmdc (mermaid-cli): render testowy SVG.
+
+Sugestia konfiguracji lintera (przykład do zewnętrznego pliku .mermaid-lintrc):
+- require-fallback-for-click: true
+- max-label-lines: 3
+- no-duplicate-node-ids: true
 
 ---
 
-## 13. Przykładowe snippet-y i wzorce (do kopiowania)
+## 13. Przykłady i snippet-y (gotowe do kopiowania)
 
-Canonical init + minimalny flowchart z subgraph/classDef/click/fallback:
-
+Canonical init + classDef + subgraph + click + fallback:
 ```mermaid
-%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
-graph TD
+%%{init:{
+  "theme":"dark",
+  "themeVariables":{
+    "primaryTextColor":"#ddd",
+    "lineColor":"#9aa0a6"
+  },
+  "securityLevel":"loose"
+}}%%
+graph LR
+  Client["Client"]:::ui --> engine
+
   subgraph "Core Layer"
-    engine["Engine<br/>Core"]:::core
+    direction LR
+    engine["Engine<br/>Core"]:::corePrimary
     world["World State"]:::core
-  end
-  subgraph "UI Layer"
-    input["Input Handler"]:::ui
   end
 
   engine --> world
-  input --> engine
 
-  classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd;
-  classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd;
-
+  %% Klikalny węzeł do dokumentacji
   click engine "./index.html#facet-01_core.engine" "Open Engine docs"
   %% Fallback: Engine -> ./index.html#facet-01_core.engine
+
+  classDef core        fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+  classDef corePrimary fill:#2b2f33,stroke:#3b82f6,color:#ffffff,stroke-width:1.5px;
+  classDef ui          fill:#22303a,stroke:#6a8b92,color:#e5e7eb,stroke-width:1px,stroke-dasharray:4 2;
 ```
 
----
-
-## 14. Walidacja stylów i linter
-
-Rekomendujemy:
-- `mermaid-lint` do szybkich zasad syntaktycznych (np. brak duplikatów id, długość etykiet).
-- `mmdc` (mermaid-cli) do renderowania testowego SVG jako część CI.
-
-Przykładowe reguły lintera (sugestia):
-- Brak duplikowanych node-id.
-- Max 3 linie w etykiecie.
-- Każdy `click` ma odpowiadający fallback link.
-- Każdy wygenerowany diagram posiada marker idempotencyjny (README wymaga).
+**To pokazuje w jednym strzale: init, theme, klasy, subgraph, direction, <br/>, klik, fallback**
 
 ---
 
-## 15. Konwencje commit/PR przy adaptacji wzorców
+## 14. Commit/PR: co zawrzeć przy adaptacji wzorca
 
-W commit message/PR opisz:
-- który wzorzec z 03_DESIGN_PATTERNS adaptowano,
-- dlaczego dany typ diagramu został wybrany (heurystyka),
-- liczba węzłów i decyzja o podziale (jeśli dotyczy),
-- informację o zmianach frontmatter (jeśli były),
-- listę plików, które wymagają ręcznej weryfikacji.
+- Wskaż źródłowy wzorzec z 03_DESIGN_PATTERNS,
+- Opisz heurystykę wyboru typu diagramu,
+- Podaj liczbę węzłów i decyzję o podziale,
+- Wymień pliki wymagające ręcznej weryfikacji (brakujące anchor-y, nieistniejące targety).
 
 Przykład commit message:
 ```
@@ -275,25 +344,13 @@ diagram: adapt A_Flows_and_Processes -> docs/authoring/xyz.md
 
 ---
 
-## 16. FAQ i antywzorce
+## 15. Dobre praktyki i antywzorce
 
-- Nie kopiuj wzorca 1:1 — wzorce są przykładami, nie szablonami.
-- Nie używaj `classDef` w diagramach które go nie wspierają — zamiast tego użyj `themeVariables`.
-- Jeśli `click` psuje render, usuń `click`, dodaj fallback i opisz to w PR.
-- Nie twórz niestandardowych stylów globalnych poza tymi zdefiniowanymi (prośba: dodania nowych kolorów / klas — otwórz issue i zaproponuj aktualizację dokumentu).
-
----
-
-## 17. Narzędzia i wersje
-
-- Target: Mermaid v10+ (mermaid-cli / mermaid-lint zgodne z tą wersją).
-- W CI używaj `@mermaid-js/mermaid-cli` oraz opcjonalnie `mermaid-lint`.
-- Jeśli docsite używa innej wersji, zgłoś to w PR — może wymagać dostosowania init i funkcji.
+- Nie kopiuj wzorca 1:1; adaptuj.
+- Nie używaj `classDef` w diagramach, które go nie wspierają.
+- Nie wprowadzaj nowych globalnych stylów bez PR do tego pliku.
+- Zawsze dodaj idempotency marker przy automatycznym generowaniu.
 
 ---
 
-Konieczne przypomnienie
-- Wszystkie zmiany w stylach diagramów należy wykonywać poprzez aktualizację tego dokumentu. Jeżeli potrzebujesz nowej klasy semantycznej — zgłoś PR z propozycją nowej `classDef` i przykładowym użyciem.
-- Dla generatorów: stosuj node-id normalization, idempotency marker oraz canonical init header — to gwarantuje spójność i idempotencję przy wielokrotnych uruchomieniach.
-
-Dziękujemy za dbanie o spójność wizualną dokumentacji — te zasady ułatwiają automatyzację i poprawiają jakość przeglądania dokumentów przez użytkowników.
+Dzięki — ten dokument zawiera kompletną i spójną specyfikację wizualną, gotową do stosowania przez ludzi i narzędzia automatyzujące.
