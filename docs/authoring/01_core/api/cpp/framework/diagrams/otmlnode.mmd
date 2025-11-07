@@ -1,29 +1,38 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-    subgraph Loading["Configuration Loading"]
-        A[Config File] --> B[Parse Otmlnode]
-        B --> C[Validate Structure]
-        C --> D[Build Tree]
+graph LR
+    subgraph Loading["1. Load Configuration"]
+        direction TB
+        A["fa:fa-file-alt Config<br/>File"] --> B["fa:fa-file-code Parse<br/>OTML"]
+        B --> C["fa:fa-check Validate<br/>Structure"]
+        C --> D["fa:fa-sitemap Build<br/>Tree"]
     end
 
-    subgraph Access["Data Access"]
-        D --> E[Read Values]
-        E --> F[Type Conversion]
-        F --> G[Return to Application]
+    subgraph Tree["2. Node Tree"]
+        direction TB
+        D --> E["fa:fa-database OTMLNode<br/>Tree"]
+        E --> F["fa:fa-folder Parent<br/>Nodes"]
+        E --> G["fa:fa-file Child<br/>Nodes"]
+        E --> H["fa:fa-tag Attributes<br/>&amp; Values"]
     end
 
-    subgraph Modification["Modification"]
-        H[Update Values] --> D
-        I[Add Nodes] --> D
-        J[Remove Nodes] --> D
+    subgraph Operations["3. Tree Operations"]
+        direction TB
+        E --> I["fa:fa-search Query<br/>readValue"]
+        I --> J["fa:fa-exchange-alt Type<br/>Conversion"]
+        E --> K["fa:fa-edit Modify<br/>setValue"]
+        E --> L["fa:fa-plus Add<br/>addChild"]
+        E --> M["fa:fa-minus Remove<br/>removeChild"]
     end
 
-    subgraph Persistence["Save Configuration"]
-        D --> K[Serialize]
-        K --> L[Format Output]
-        L --> M[Write to File]
+    subgraph Persistence["4. Save & Export"]
+        direction TB
+        E --> N["fa:fa-code Serialize<br/>to OTML"]
+        N --> O["fa:fa-file-export Format<br/>Output"]
+        O --> P["fa:fa-save Write<br/>to File"]
     end
 
-    style D fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style E fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style M fill:#27ae60,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P core

@@ -1,28 +1,43 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-    subgraph Interface["Public Interface"]
-        A[Application Code] --> B[Filestream]
+graph LR
+    subgraph Open["1. File Opening"]
+        direction TB
+        A["fa:fa-file Path<br/>Specification"] --> B{"fa:fa-question Access<br/>Mode"}
+        B -.read.-> C["fa:fa-book Open<br/>Read"]
+        B -.write.-> D["fa:fa-edit Open<br/>Write"]
+        B -.append.-> E["fa:fa-plus Open<br/>Append"]
+        C --> F["fa:fa-stream FileStream<br/>Object"]
+        D --> F
+        E --> F
     end
 
-    subgraph Operations["Core Operations"]
-        B --> C[Primary Function]
-        B --> D[Helper Functions]
-        B --> E[Utility Methods]
+    subgraph Operations["2. Stream Operations"]
+        direction TB
+        F --> G["fa:fa-download Read<br/>Operations"]
+        F --> H["fa:fa-upload Write<br/>Operations"]
+        F --> I["fa:fa-compass Seek<br/>Position"]
+        G --> J["fa:fa-align-left Read<br/>bytes, lines"]
+        H --> K["fa:fa-pen Write<br/>data, strings"]
+        I --> L["fa:fa-map-marker-alt Set<br/>Position"]
     end
 
-    subgraph Processing["Data Processing"]
-        C --> F[Process Input]
-        F --> G[Transform Data]
-        G --> H[Return Result]
+    subgraph Buffering["3. Buffer Management"]
+        direction TB
+        J --> M["fa:fa-memory Internal<br/>Buffer"]
+        K --> M
+        M --> N["fa:fa-sync Flush<br/>to Disk"]
+        N --> O["fa:fa-check Data<br/>Persisted"]
     end
 
-    subgraph Integration["System Integration"]
-        H --> I[Used by Components]
-        I --> J[Game Logic]
-        I --> K[Rendering]
-        I --> L[Networking]
+    subgraph Close["4. Resource Cleanup"]
+        direction LR
+        F --> P["fa:fa-times Close<br/>Stream"]
+        P --> Q["fa:fa-trash Release<br/>Resources"]
+        Q --> R["fa:fa-lock File<br/>Unlocked"]
     end
 
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style H fill:#27ae60,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class F,G,H,I,J,K,L,M,N,O,P,Q,R core

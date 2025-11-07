@@ -1,28 +1,39 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Interface["Public Interface"]
-        A[Application Code] --> B[Asyncdispatcher]
+    subgraph Queue["1. Task Queue"]
+        direction LR
+        A["fa:fa-code Main<br/>Thread"] -- enqueue --> B["fa:fa-list Task<br/>Queue"]
+        C["fa:fa-network-wired Network<br/>Thread"] -- enqueue --> B
+        D["fa:fa-gamepad Game<br/>Thread"] -- enqueue --> B
     end
 
-    subgraph Operations["Core Operations"]
-        B --> C[Primary Function]
-        B --> D[Helper Functions]
-        B --> E[Utility Methods]
+    subgraph Dispatcher["2. Async Dispatcher"]
+        direction TB
+        B --> E["fa:fa-cogs AsyncDispatcher"]
+        E --> F{"fa:fa-clock Scheduling"}
+        F -.immediate.-> G["fa:fa-bolt Execute<br/>Now"]
+        F -.delayed.-> H["fa:fa-hourglass Schedule<br/>Later"]
+        F -.periodic.-> I["fa:fa-redo Repeat<br/>Interval"]
     end
 
-    subgraph Processing["Data Processing"]
-        C --> F[Process Input]
-        F --> G[Transform Data]
-        G --> H[Return Result]
+    subgraph Execution["3. Task Execution"]
+        direction TB
+        G --> J["fa:fa-microchip Worker<br/>Thread"]
+        H --> J
+        I --> J
+        J --> K["fa:fa-play Execute<br/>Task"]
+        K --> L["fa:fa-check Task<br/>Complete"]
     end
 
-    subgraph Integration["System Integration"]
-        H --> I[Used by Components]
-        I --> J[Game Logic]
-        I --> K[Rendering]
-        I --> L[Networking]
+    subgraph Callback["4. Result Handling"]
+        direction LR
+        L --> M["fa:fa-bell Callback<br/>Notification"]
+        M --> N["fa:fa-arrow-left Return to<br/>Main Thread"]
+        N --> O["fa:fa-sync Update<br/>Application"]
     end
 
-    style B fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style G fill:#8e44ad,stroke:#fff,stroke-width:2px
-    style H fill:#27ae60,stroke:#fff,stroke-width:2px
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,stroke-width:2px
+    
+    %% Apply styles
+    class B,E,F,G,H,I,J,K,L,M,N,O core
