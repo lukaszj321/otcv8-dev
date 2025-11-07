@@ -36,14 +36,14 @@ Kolor tła węzła (`fill`) reprezentuje jego przynależność do jednej z prede
 
 #### Warstwy Architektoniczne (Kolor)
 
-| Kolor | Warstwa | Opis i Katalogi |
-| :--- | :--- | :--- |
-| 🟦 | **Core Engine** | Niskopoziomowy silnik, framework i podstawowe API.<br/>*Katalogi: [`01_core`](./01_core/), [`01_runtime`](./01_runtime/), [`15_vc16`](./15_vc16/)* |
-| 🟩 | **Subsystemy** | Wyspecjalizowane, niezależne podsystemy.<br/>*Katalogi: [`06_assets`](./06_assets/), [`08_audio`](./08_audio/), [`09_logging`](./09_logging/), [`11_data`](./11_data/)* |
-| 🟧 | **Logika Gry & Moduły** | Logika specyficzna dla gry, system modułów i zdarzeń.<br/>*Katalogi: [`02_events`](./02_events/), [`03_modules`](./03_modules/), [`05_events`](./05_events/), [`10_game_runtime`](./10_game_runtime/), [`12_otmod`](./12_otmod/)* |
-| 🟪 | **User Interface (UI)** | Komponenty interfejsu użytkownika, layouty i OTUI.<br/>*Katalogi: [`04_ui`](./04_ui/), [`13_layouts`](./13_layouts/)* |
-| 🟥 | **Networking & Security** | Komunikacja sieciowa, protokoły i szyfrowanie.<br/>*Katalogi: [`05_network`](./05_network/), [`07_settings_crypto`](./07_settings_crypto/)* |
-| 🔳 | **Platforma** | Kod specyficzny dla danej platformy.<br/>*Katalogi: [`14_android`](./14_android/)* |
+| Kolor | Warstwa | Opis i Katalogi | Hex Fill |
+| :--- | :--- | :--- | :--- |
+| 🟦 | **Core Engine** | Niskopoziomowy silnik, framework i podstawowe API.<br/>*Katalogi: [`01_core`](./01_core/), [`01_runtime`](./01_runtime/), [`15_vc16`](./15_vc16/)* | `#3498db` |
+| 🟩 | **Subsystemy** | Wyspecjalizowane, niezależne podsystemy.<br/>*Katalogi: [`06_assets`](./06_assets/), [`08_audio`](./08_audio/), [`09_logging`](./09_logging/), [`11_data`](./11_data/)* | `#2ecc71` |
+| 🟧 | **Logika Gry & Moduły** | Logika specyficzna dla gry, system modułów i zdarzeń.<br/>*Katalogi: [`02_events`](./02_events/), [`03_modules`](./03_modules/), [`05_events`](./05_events/), [`10_game_runtime`](./10_game_runtime/), [`12_otmod`](./12_otmod/)* | `#e67e22` |
+| 🟪 | **User Interface (UI)** | Komponenty interfejsu użytkownika, layouty i OTUI.<br/>*Katalogi: [`04_ui`](./04_ui/), [`13_layouts`](./13_layouts/)* | `#9b59b6` |
+| 🟥 | **Networking & Security** | Komunikacja sieciowa, protokoły i szyfrowanie.<br/>*Katalogi: [`05_network`](./05_network/), [`07_settings_crypto`](./07_settings_crypto/)* | `#c0392b` |
+| 🔳 | **Platforma** | Kod specyficzny dla danej platformy.<br/>*Katalogi: [`14_android`](./14_android/)* | `#7f8c8d` |
 
 **Oficjalne definicje `classDef` do skopiowania:**
 ```plaintext
@@ -55,8 +55,25 @@ classDef netsec fill:#c0392b,stroke:#fff,color:#fff
 classDef platform fill:#7f8c8d,stroke:#fff,color:#fff
 classDef critical fill:#e74c3c,stroke:#fff,color:#fff
 classDef note fill:#4b5563,color:#e5e7eb,stroke:#9ca3af,stroke-dasharray:3 3
+classDef data fill:#16a34a,stroke:#fff,color:#fff
+classDef event fill:#f59e0b,stroke:#111827,color:#111827
 ```
-> **Uwaga:** Dla `subsystem` (zielony) używamy ciemnego tekstu (`#111827`) dla lepszego kontrastu.
+> **Uwaga:** Dla `subsystem` (zielony) i `event` (pomarańczowy) używamy ciemnego tekstu (`#111827`) dla lepszego kontrastu.
+
+#### Mapowanie Typów Elementów na `classDef`
+
+| Typ Elementu | Rekomendowana Klasa | Przykłady |
+| :----------- | :------------------ | :-------- |
+| Klasa/Komponent silnika | `core` | `Engine`, `Application`, `GraphicsDevice` |
+| Moduł gry | `game` | `GameModule`, `CombatSystem`, `InventoryManager` |
+| Widget UI | `ui` | `UIWindow`, `Button`, `Label` |
+| Zdarzenie/Event | `event` | `onClick`, `onConnect`, `onDamage` |
+| Struktura danych | `data` | `PlayerData`, `ItemDB`, `ConfigFile` |
+| Protokół sieciowy | `netsec` | `LoginPacket`, `EncryptionHandler` |
+| Podsystem niezależny | `subsystem` | `AudioManager`, `LogSystem`, `AssetLoader` |
+| Platforma Android/iOS | `platform` | `AndroidBridge`, `JNI_Init` |
+| Operacja krytyczna | `critical` | `Save`, `AuthenticateUser`, `HandlePayment` |
+| Komentarz/notka | `note` | Wyjaśnienia, ostrzeżenia |
 
 ### 2.2. Wymiar 2: Typy Komponentów (Ikona)
 Ikona wewnątrz węzła reprezentuje jego techniczną rolę. Używamy ikon z [Font Awesome 4.7](https://fontawesome.com/v4.7.0/icons/).
@@ -75,11 +92,28 @@ Ikona wewnątrz węzła reprezentuje jego techniczną rolę. Używamy ikon z [Fo
 ### 2.3. Wymiar 3: Kształt Węzła
 Kształt węzła dodaje kolejną warstwę informacji o jego naturze.
 
-| Kształt         | Składnia     | Znaczenie Semantyczne                                                         |
-| :-------------- | :----------- | :---------------------------------------------------------------------------- |
-| **Prostokąt**   | `A["Tekst"]` | **Domyślny kształt.** Używany dla większości komponentów, klas i aktorów.     |
-| **Zaokrąglony** | `B("Tekst")` | **Proces / Akcja.** Używany do oznaczania kroków w procesie lub funkcji.      |
-| **Romb**        | `C{"Tekst"}` | **Decyzja / Warunek.** Używany do pokazywania rozgałęzień logiki (`if/else`). |
+| Kształt         | Składnia     | Znaczenie Semantyczne                                                         | Przykładowe Użycie |
+| :-------------- | :----------- | :---------------------------------------------------------------------------- | :----------------- |
+| **Prostokąt**   | `A["Tekst"]` | **Domyślny kształt.** Używany dla większości komponentów, klas i aktorów.     | `Engine["Engine"]` |
+| **Zaokrąglony** | `B("Tekst")` | **Proces / Akcja.** Używany do oznaczania kroków w procesie lub funkcji.      | `Init("Initialize")` |
+| **Romb**        | `C{"Tekst"}` | **Decyzja / Warunek.** Używany do pokazywania rozgałęzień logiki (`if/else`). | `Check{"Is Valid?"}` |
+| **Sześciokąt**  | `D{{"Tekst"}}` | **Przygotowanie danych.** Używany dla operacji input/output.                | `Load{{"Load Config"}}` |
+| **Cylinder**    | `E[("Tekst")]` | **Baza danych / storage.** Używany dla trwałego przechowywania.             | `DB[("Database")]` |
+
+#### Łamanie Etykiet (Line Breaking)
+
+Dla długich tekstów w węzłach, używaj `<br>` do łamania linii:
+
+```mermaid
+graph TD
+    A["User Authentication<br>and Authorization<br>Manager"]
+    B("Process Login<br>Request")
+```
+
+**Zasady:**
+- Maksymalnie 3-4 linie na węzeł
+- Łam przy naturalnych granicach (przecinki, "and", "or")
+- Unikaj łamania w środku słowa lub nazwy klasy
 
 ### 2.4. Modyfikatory Stanu (`stateDiagram-v2`)
 W diagramach stanów, **kolor tła** nadal reprezentuje warstwę. **Stan** jest komunikowany przez **styl obramowania**.
@@ -92,14 +126,34 @@ classDef stateTransition stroke-width:2px,stroke:#3b82f6
 ```
 
 ### 2.5. Style Linii i Połączeń (`graph`)
-| Typ                             | Składnia | Znaczenie Semantyczne                                                   |
-| :------------------------------ | :------- | :---------------------------------------------------------------------- |
-| **Wywołanie synchroniczne**     | `-->`    | Przepływ blokujący lub twarda zależność.                                |
-| **Wywołanie asynchroniczne**    | `-.->`   | Zdarzenie, callback, przepływ nieblokujący.                             |
-| **Kluczowy przepływ danych**    | `==>`    | Główna ścieżka danych w diagramie.                                      |
-| **Niewidzialny link sterujący** | `~~~`    | Używany do **manualnego kontrolowania układu** i pozycjonowania węzłów. |
+| Typ                             | Składnia | Znaczenie Semantyczne                                                   | Przykład |
+| :------------------------------ | :------- | :---------------------------------------------------------------------- | :------- |
+| **Wywołanie synchroniczne**     | `-->`    | Przepływ blokujący lub twarda zależność.                                | `A --> B` |
+| **Wywołanie asynchroniczne**    | `-.->`   | Zdarzenie, callback, przepływ nieblokujący.                             | `A -.-> B` |
+| **Kluczowy przepływ danych**    | `==>`    | Główna ścieżka danych w diagramie.                                      | `A ==> B` |
+| **Niewidzialny link sterujący** | `~~~`    | Używany do **manualnego kontrolowania układu** i pozycjonowania węzłów. | `A ~~~ B` |
+
+#### Kolorowanie Linii
 
 Do kolorowania linii należy używać `linkStyle`, zgodnie z przykładami w **[Bibliotece Wzorców](./03_DESIGN_PATTERNS/)**.
+
+**Przykład:**
+```mermaid
+graph LR
+    A --> B
+    B --> C
+    C -.-> D
+    linkStyle 0 stroke:#2ecc71,stroke-width:2px
+    linkStyle 1 stroke:#3498db,stroke-width:2px
+    linkStyle 2 stroke:#e67e22,stroke-width:1px,stroke-dasharray:5 5
+```
+
+**Rekomendowane kolory dla linii:**
+- Zielony (`#2ecc71`): Przepływ sukcesu / happy path
+- Niebieski (`#3498db`): Przepływ standardowy
+- Pomarańczowy (`#e67e22`): Przepływ asynchroniczny / zdarzenie
+- Czerwony (`#c0392b`): Przepływ błędu / exception
+- Szary (`#4b5563`): Przepływ opcjonalny / warunkowy
 
 ---
 
@@ -145,9 +199,73 @@ Wiele typów diagramów **nie wspiera** `classDef` w rendererze GitHuba. W takic
 *   Linki powinny prowadzić do plików `.md` w repozytorium lub do konkretnych nagłówków (anchorów).
 *   **Jeśli `click` lub `link` psuje renderowanie, priorytetem jest poprawny diagram, nie klikalność.**
 
+#### Fallback dla `click`
+
+Jeśli `click` nie działa w danym środowisku (np. starsza wersja renderera):
+
+1. **Usuń `click` i dodaj komentarz w kodzie:**
+   ```mermaid
+   %% Note: Click handlers removed for compatibility
+   graph TD
+       A[Component]
+   ```
+
+2. **Dodaj linkowanie w opisie tekstowym pod diagramem:**
+   ```markdown
+   **Powiązane dokumenty:**
+   - [Component Details](./component.md)
+   - [API Reference](./api.md)
+   ```
+
+3. **Użyj URL jako etykiety węzła** (dla krytycznych linków):
+   ```mermaid
+   graph TD
+       A["Component<br>(see: component.md)"]
+   ```
+
 ### 4.2. Kompozycja i Dzielenie Diagramów
 *   Zamiast jednego, przeładowanego diagramu, **zawsze preferuj system połączonych wizualizacji**: jeden diagram `overview` + kilka diagramów szczegółowych.
 *   Ta technika jest szczegółowo opisana jako **[Złożony Wzorzec Wizualizacji](./03_DESIGN_PATTERNS/E_Advanced_Techniques.md)** i jest fundamentem naszego podejścia.
+
+#### Użycie `subgraph` do Grupowania
+
+`subgraph` pozwala na logiczne grupowanie węzłów w diagramie `flowchart`:
+
+**Zasady użycia:**
+1. **Jeden poziom zagnieżdżenia:** Unikaj `subgraph` w `subgraph` (ograniczenie renderera)
+2. **Nazewnictwo:** Używaj CamelCase dla ID subgrafu, opisowy tytuł w nawiasach
+3. **Maksymalnie 3-4 subgrafy** na diagram (dla czytelności)
+4. **Kierunek:** Określ `direction` (TB, LR) dla każdego subgrafu jeśli różni się od głównego
+
+**Przykład:**
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TB
+    subgraph CoreLayer["Core Layer"]
+        direction LR
+        Engine["Engine"]
+        Graphics["Graphics Device"]
+    end
+    
+    subgraph GameLayer["Game Layer"]
+        direction LR
+        GameModule["Game Module"]
+        CombatSystem["Combat System"]
+    end
+    
+    CoreLayer --> GameLayer
+    
+    classDef core fill:#3498db,stroke:#fff,color:#fff
+    classDef game fill:#e67e22,stroke:#fff,color:#fff
+    
+    class Engine,Graphics core
+    class GameModule,CombatSystem game
+```
+
+**Stylizacja subgrafów:**
+- Subgrafy **nie** przyjmują `classDef` bezpośrednio
+- Stylizuj zawartość subgrafu, nie kontener
+- Użyj `style SubgraphID fill:#1f2937,stroke:#4b5563` dla jawnej stylizacji kontenera (opcjonalnie)
 
 ### 4.3. Antywzorce i "Pułapki" Składni (Czego Unikamy)
 *   **Nie używamy `classDef`** w typach, które go nie wspierają stabilnie (`sequenceDiagram`, `mindmap`, `erDiagram` itp.).
