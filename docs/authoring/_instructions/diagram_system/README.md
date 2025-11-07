@@ -129,39 +129,27 @@ Generatorzy i skrypty aktualizujące diagramy powinni stosować tę normalizacj�
 
 ---
 
-## 7. Proponowany krok CI: validate-diagrams (dodawać tylko gdy repo nie ma równoważnego workflow)
+## 7. Validate-diagrams CI — co jest w repo i jak postępować
 
-Zasada: zanim dodasz workflow do `.github/workflows`, sprawdź czy istnieje już workflow walidujący diagramy (search w `.github/workflows` na `mermaid`, `mmdc`, `mermaid-lint`, `validate-diagrams`). Jeśli istnieje — zaproponuj jego rozbudowę.
+W repo znajduje się zoptymalizowany workflow walidujący diagramy: `.github/workflows/validate-diagrams-docs.yml`.
 
-Przykładowy fragment jobu CI (dodawać tylko jeśli brak równoważnego):
-```yaml
-name: Validate Mermaid Diagrams
-on:
-  pull_request:
-    paths:
-      - 'docs/**/*.mmd'
-      - 'docs/**/*.md'
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install JS deps
-        run: npm ci
-      - name: Run mermaid-lint
-        run: npx mermaid-lint "docs/authoring/**/*.mmd" || true
-      - name: Validate click targets
-        run: |
-          python3 docs/scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json || exit $?
-      - name: Render .mmd (smoke test)
-        run: |
-          find docs -name '*.mmd' -type f | while read f; do
-            npx @mermaid-js/mermaid-cli -i "$f" -o /tmp/$(basename "$f").svg || echo "render fail: $f" && exit 1
-          done
-```
+Co robi ten workflow (skrót)
+- uruchamia się tylko dla PR-ów zmieniających pliki w katalogu `docs` (paths filter),
+- wykrywa zmienione pliki w PR i uruchamia kroki jedynie gdy dotyczy to `.md`/`.mmd`,
+- używa cache npm i `npm ci` gdy repo zawiera `package.json`, w przeciwnym razie instaluje minimalne narzędzia globalnie,
+- wykonuje `mermaid-lint`, sprawdza `click` targety (`validate_diagram_links.py`) i przeprowadza smoke‑render tylko dla zmienionych `.mmd`,
+- instalacja zależności i renderowanie są pomijane dla PR‑ów z forków (bezpieczeństwo),
+- stosuje `concurrency + cancel-in-progress` i upload‑uje raporty/artefakty (raport link‑check, SVG).
+
+Zasady postępowania przy dodawaniu/zmianie workflow
+1. Przed dodaniem nowego workflow sprawdź istniejące pliki w `.github/workflows` (szukaj: `mermaid`, `mmdc`, `mermaid-lint`, `validate-diagrams*`).  
+2. Jeśli istnieje workflow o równoważnej funkcji — zamiast dodawać nowy plik, zaproponuj rozbudowę istniejącego (PR z opisem zmian i uzasadnieniem).  
+3. Jeśli repo nie ma równoważnego workflow i zamierzasz dodać nowy, użyj obecnego pliku jako wzorca i przestrzegaj reguł: ograniczony trigger (paths), `concurrency`, zabezpieczenia dla forków, cache npm, minimalny zakres renderów.  
+4. Przy modyfikacji workflow: opisz zmiany w README (ten punkt 7), przetestuj na prywatnej gałęzi lub wewnętrznym PR i zamieść w PR krótki raport co i dlaczego zostało zmienione.
+
+Bezpieczeństwo i koszty — przypomnienie
+- Nie uruchamiaj `npm ci` ani pełnego renderu dla PR‑ów z forków bez ochrony — uruchamiaj je tylko dla PR‑ów z tego repo albo w trybie report‑only dla forków.  
+- Nie usuwaj `paths` ani `concurrency` bez uzasadnienia — to kluczowe dla ograniczenia niepotrzebnych uruchomień i kosztów.
 
 ---
 
