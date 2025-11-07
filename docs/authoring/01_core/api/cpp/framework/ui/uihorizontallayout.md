@@ -49,4 +49,30 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uihorizontallayout.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uihorizontallayout.mmd](../diagrams/uihorizontallayout.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UIHorizontalLayout["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UIHorizontalLayout</div><hr/>
+            <b>Configuration:</b><br/>
+            + setAlignRight(alignRight)<br/>
+            <b>Style:</b><br/>
+            + applyStyle(styleNode)<br/>
+            <b>Internal:</b><br/>
+            + internalUpdate()
+        </div>
+    "]:::ui;
+    
+    UIBoxLayout["UIBoxLayout<br/><i>base class</i>"]:::core
+    
+    UIHorizontalLayout --> |"extends"| UIBoxLayout
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

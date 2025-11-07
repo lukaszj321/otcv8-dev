@@ -169,4 +169,38 @@ Plik nagłówkowy C++ zawierający definicje dla modułu color.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/color.mmd](../diagrams/color.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Color["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Color</div><hr/>
+            <b>RGBA Access (uint8):</b><br/>
+            + r(), g(), b(), a()<br/>
+            <b>RGBA Access (float):</b><br/>
+            + rF(), gF(), bF(), aF()<br/>
+            <b>Setters:</b><br/>
+            + setRed(r), setGreen(g)<br/>
+            + setBlue(b), setAlpha(a)<br/>
+            + setRGBA(r, g, b, a)<br/>
+            <b>Operations:</b><br/>
+            + opacity(value)<br/>
+            + operator==(other)<br/>
+            <b>Utilities:</b><br/>
+            + toHex()<br/>
+            + to8bit()<br/>
+            + from8bit(color)<br/>
+            + getOutfitColor(color)
+        </div>
+    "]:::core;
+    
+    Color --> |"contains"| RGBA["RGBA Values<br/>m_r, m_g, m_b, m_a"]:::data
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

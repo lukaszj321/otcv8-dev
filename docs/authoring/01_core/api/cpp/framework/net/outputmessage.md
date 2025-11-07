@@ -125,4 +125,84 @@ Plik nagłówkowy C++ zawierający definicje dla modułu outputmessage.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/outputmessage.mmd](../diagrams/outputmessage.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    OutputMessage["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>OutputMessage</div><hr/>
+            <b>Buffer Management:</b><br/>
+            + reset()<br/>
+            + setBuffer(buffer)<br/>
+            + getBuffer()<br/>
+            <b>Writing Primitives:</b><br/>
+            + addU8(value)<br/>
+            + addU16(value)<br/>
+            + addU32(value)<br/>
+            + addU64(value)<br/>
+            + addString(buffer)<br/>
+            + addRawString(buffer)<br/>
+            <b>Position Control:</b><br/>
+            + setWritePos(pos)<br/>
+            + setMessageSize(size)<br/>
+            <b>Message Building:</b><br/>
+            + writeMessageSize(bigSize)<br/>
+            + writeChecksum()<br/>
+            + writeSequence(sequence)<br/>
+            <b>Security:</b><br/>
+            + encryptRsa()<br/>
+            + addPaddingBytes(bytes)
+        </div>
+    "]:::netsec;
+    
+    Buffer["Buffer<br/>m_buffer"]:::data
+    
+    OutputMessage --> |"contains"| Buffer
+    
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: OutputMessage Packet Structure
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+packet-beta
+    0,16,Header Space (reserved for Length)
+    16,24,Opcode (1 byte)
+    24,32,Sequence (optional, 4 bytes)
+    32,64,Payload Data (variable)
+    64,96,Checksum (optional, 4 bytes)
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Message Serialization Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart LR
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    App["Application"]:::core
+    OutputMsg["OutputMessage<br/>addU8/U16/U32/String"]:::netsec
+    Build["Build Packet<br/>writeMessageSize<br/>writeChecksum"]:::netsec
+    Encrypt["Encrypt<br/>encryptRsa<br/>xteaEncrypt"]:::netsec
+    Send["Send to<br/>Connection"]:::netsec
+    
+    App --> |"create"| OutputMsg
+    OutputMsg --> |"finalize"| Build
+    Build --> |"secure"| Encrypt
+    Encrypt --> |"transmit"| Send
+    
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

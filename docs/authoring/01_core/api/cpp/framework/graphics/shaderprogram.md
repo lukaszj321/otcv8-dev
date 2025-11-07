@@ -212,4 +212,44 @@ Plik nagłówkowy C++ zawierający definicje dla modułu shaderprogram.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/shaderprogram.mmd](../diagrams/shaderprogram.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    ShaderProgram["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>ShaderProgram</div><hr/>
+            <b>Creation:</b><br/>
+            + create(name, vertex, fragment, colorMatrix)<br/>
+            <b>Shader Management:</b><br/>
+            + addShader(shader)<br/>
+            + addShaderFromSourceCode(type, code)<br/>
+            + addShaderFromSourceFile(type, file)<br/>
+            + removeShader(shader)<br/>
+            + removeAllShaders()<br/>
+            <b>Usage:</b><br/>
+            + bind()<br/>
+            + release()<br/>
+            <b>Attributes:</b><br/>
+            + enableAttributeArray(name/location)<br/>
+            + disableAttributeArray(name/location)<br/>
+            + getAttributeLocation(name)<br/>
+            <b>Uniforms:</b><br/>
+            + setUniformValue(name, value)<br/>
+            + getUniformLocation(name)<br/>
+            <b>Information:</b><br/>
+            + log()
+        </div>
+    "]:::core;
+    
+    VertexShader["Vertex Shader"]:::core
+    FragmentShader["Fragment Shader"]:::core
+    
+    ShaderProgram --> |"contains"| VertexShader
+    ShaderProgram --> |"contains"| FragmentShader
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

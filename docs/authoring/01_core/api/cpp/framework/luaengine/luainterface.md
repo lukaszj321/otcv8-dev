@@ -890,4 +890,99 @@ Collect bound cpp function pointers
 
 ## Class Diagram
 
-Zobacz: [../diagrams/luainterface.mmd](../diagrams/luainterface.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef lua fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    LuaInterface["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>LuaInterface</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>Registration:</b><br/>
+            + registerFunctions()<br/>
+            + registerClass(className, baseClass)<br/>
+            + registerSingletonClass(className)<br/>
+            <b>Binding:</b><br/>
+            + bindGlobalFunction(name, function)<br/>
+            + bindClassMemberFunction(name, function)<br/>
+            + bindClassStaticFunction(name, function)<br/>
+            <b>Script Execution:</b><br/>
+            + runScript(fileName)<br/>
+            + safeRunScript(fileName)<br/>
+            + runBuffer(buffer, source)<br/>
+            <b>Call Management:</b><br/>
+            + safeCall(args, rets)<br/>
+            + signalCall(args, rets)<br/>
+            <b>Error Handling:</b><br/>
+            + traceback(message)<br/>
+            + throwError(message)
+        </div>
+    "]:::lua;
+    
+    lua_State["lua_State"]:::lua
+    LuaObject["LuaObject"]:::lua
+    
+    LuaInterface --> |"manages"| lua_State
+    LuaInterface --> |"registers"| LuaObject
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef lua fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Lua Script Execution Flow (Advanced Sequence)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+sequenceDiagram
+    participant App
+    participant LuaInterface
+    participant lua_State
+    participant Script
+    participant CppFunction
+    
+    Note over App,CppFunction: Script Loading
+    App->>LuaInterface: runScript(fileName)
+    LuaInterface->>lua_State: loadScript(fileName)
+    lua_State->>Script: Load and compile
+    Script-->>lua_State: Compiled function
+    lua_State-->>LuaInterface: Function on stack
+    
+    Note over App,CppFunction: Script Execution
+    critical Script execution must succeed
+        LuaInterface->>lua_State: safeCall(args, rets)
+        lua_State->>Script: Execute script
+        loop For each function call in script
+            Script->>lua_State: Call function
+            alt C++ function call
+                lua_State->>CppFunction: Execute bound function
+                CppFunction-->>lua_State: Return value
+            else Lua function call
+                lua_State->>Script: Execute Lua function
+                Script-->>lua_State: Return value
+            end
+        end
+        Script-->>lua_State: Script complete
+        lua_State-->>LuaInterface: Success
+    option Error occurred
+        lua_State->>LuaInterface: Error on stack
+        LuaInterface->>LuaInterface: traceback(error)
+        LuaInterface-->>App: LuaException
+    end
+    
+    opt Safe execution mode
+        App->>LuaInterface: safeRunScript(fileName)
+        alt Script succeeds
+            LuaInterface-->>App: true
+        else Script fails
+            LuaInterface-->>App: false
+        end
+    end
+```
+<!-- /mermaid-diagram -->

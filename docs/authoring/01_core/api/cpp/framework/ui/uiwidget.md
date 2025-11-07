@@ -1693,4 +1693,69 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uiwidget.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uiwidget.mmd](../diagrams/uiwidget.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    UIWidget["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UIWidget</div><hr/>
+            <b>Rendering:</b><br/>
+            + draw(visibleRect, drawPane)<br/>
+            + drawSelf(drawPane)<br/>
+            + drawChildren(visibleRect, drawPane)<br/>
+            <b>Layout:</b><br/>
+            + updateLayout()<br/>
+            + addAnchor(edge, widgetId, edge)<br/>
+            <b>Children:</b><br/>
+            + addChild(child)<br/>
+            + removeChild(child)<br/>
+            + focusChild(child, reason)<br/>
+            <b>State:</b><br/>
+            + focus()<br/>
+            + enable()<br/>
+            + show()<br/>
+            + hide()
+        </div>
+    "]:::ui;
+    
+    UILayout["UILayout"]:::core
+    Parent["Parent Widget"]:::ui
+    Children["Children Widgets"]:::ui
+    
+    UIWidget --> |"has"| UILayout
+    UIWidget --> |"parent"| Parent
+    UIWidget --> |"contains"| Children
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Widget Hierarchy
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    
+    RootWidget["RootWidget<br/>UIManager"]:::ui
+    Container["Container Widget<br/>Panel"]:::ui
+    Button["Button Widget"]:::ui
+    Label["Label Widget"]:::ui
+    Input["Input Widget"]:::ui
+    
+    RootWidget --> |"contains"| Container
+    Container --> |"contains"| Button
+    Container --> |"contains"| Label
+    Container --> |"contains"| Input
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+```
+<!-- /mermaid-diagram -->

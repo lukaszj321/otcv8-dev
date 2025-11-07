@@ -102,4 +102,83 @@ Plik nagłówkowy C++ zawierający definicje dla modułu graphics.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/graphics.mmd](../diagrams/graphics.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    Graphics["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Graphics</div><hr/>
+            <b>Initialization:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>Configuration:</b><br/>
+            + resize(size)<br/>
+            + checkDepthSupport()<br/>
+            <b>Information:</b><br/>
+            + getMaxTextureSize()<br/>
+            + getVendor()<br/>
+            + getRenderer()<br/>
+            + getVersion()<br/>
+            + getExtensions()<br/>
+            <b>State:</b><br/>
+            + ok()<br/>
+            + checkForError(function, file, line)
+        </div>
+    "]:::core;
+    
+    Painter["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Painter</div><hr/>
+            <b>Initialization:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>Configuration:</b><br/>
+            + resize(size)<br/>
+            + checkDepthSupport()<br/>
+            <b>Information:</b><br/>
+            + getMaxTextureSize()<br/>
+            + getVendor()<br/>
+            + getRenderer()<br/>
+            + getVersion()<br/>
+            + getExtensions()<br/>
+            <b>State:</b><br/>
+            + ok()<br/>
+            + checkForError(function, file, line)
+        </div>
+    "]:::core;
+    
+    Graphics --> |"uses"| Painter
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Graphics System Architecture (C4 Component)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Component
+    title Graphics System Component Diagram
+    
+    Container_Boundary(otclient, "OTClient Application") {
+        Component(graphics, "Graphics", "C++", "Graphics system manager")
+        Component(painter, "Painter", "C++", "Rendering operations")
+        Component(texturemanager, "TextureManager", "C++", "Texture management")
+        Component(shadermanager, "ShaderManager", "C++", "Shader management")
+        Component(framebuffermanager, "FramebufferManager", "C++", "Framebuffer management")
+    }
+    System_Ext(opengl, "OpenGL/ES", "Graphics API")
+    System_Ext(angle, "ANGLE", "Windows OpenGL wrapper")
+    
+    Rel(graphics, painter, "Uses")
+    Rel(graphics, texturemanager, "Manages")
+    Rel(graphics, shadermanager, "Manages")
+    Rel(graphics, framebuffermanager, "Manages")
+    Rel(painter, opengl, "Renders via")
+    Rel(opengl, angle, "Uses on Windows")
+```
+<!-- /mermaid-diagram -->

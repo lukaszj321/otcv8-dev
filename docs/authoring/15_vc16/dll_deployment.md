@@ -407,9 +407,66 @@ int main() {
 }
 ```
 
+## Diagram: DLL Deployment Architecture
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Deployment
+    title DLL Deployment Diagram
+    
+    Deployment_Node(windows, "Windows System", "Windows 10/11") {
+        Deployment_Node(appdir, "Application Directory", "OTClient Installation") {
+            Container(otclient, "OTClient.exe", "C++", "Main executable")
+            ContainerDb(angle_egl, "libEGL.dll", "DLL", "ANGLE EGL library")
+            ContainerDb(angle_gles, "libGLESv2.dll", "DLL", "ANGLE OpenGL ES library")
+            ContainerDb(d3dcompiler, "d3dcompiler_47.dll", "DLL", "D3D Shader Compiler")
+            ContainerDb(vcruntime, "MSVCR*.dll", "DLL", "Visual C++ Runtime")
+        }
+        Deployment_Node(system32, "System32", "Windows System") {
+            SystemDb(system_dlls, "System DLLs", "Windows DLLs")
+        }
+    }
+    
+    Rel(otclient, angle_egl, "Loads")
+    Rel(otclient, angle_gles, "Loads")
+    Rel(otclient, d3dcompiler, "Loads")
+    Rel(otclient, vcruntime, "Requires")
+    Rel(angle_gles, d3dcompiler, "Uses")
+    Rel(angle_egl, system_dlls, "May use")
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: DLL Dependency Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef platform fill:#7f8c8d,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    OTClient["OTClient.exe"]:::core
+    libEGL["libEGL.dll<br/>ANGLE EGL"]:::platform
+    libGLESv2["libGLESv2.dll<br/>ANGLE OpenGL ES"]:::platform
+    d3dcompiler["d3dcompiler_47.dll<br/>Shader Compiler"]:::platform
+    VCRuntime["MSVCR*.dll<br/>Visual C++ Runtime"]:::platform
+    SystemDLLs["System DLLs<br/>Windows"]:::platform
+    
+    OTClient --> |"loads"| libEGL
+    OTClient --> |"loads"| libGLESv2
+    OTClient --> |"requires"| VCRuntime
+    libGLESv2 --> |"uses"| d3dcompiler
+    libEGL --> |"may use"| SystemDLLs
+    
+    classDef platform fill:#7f8c8d,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->
+
 ## See Also
 
 - [ANGLE Integration Guide](./angle_integration.md)
 - [EGL Initialization](./egl_initialization.md)
 - [VC16 Build Configuration](./index.md)
-- [Deployment Guide](../14_android/deployment.md)
+- [Android Deployment](../14_android/index.md)

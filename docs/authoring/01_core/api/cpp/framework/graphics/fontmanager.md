@@ -62,4 +62,36 @@ Plik nagłówkowy C++ zawierający definicje dla modułu fontmanager.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/fontmanager.mmd](../diagrams/fontmanager.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    FontManager["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>FontManager</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + terminate()<br/>
+            <b>Font Management:</b><br/>
+            + clearFonts()<br/>
+            + importFont(file)<br/>
+            + fontExists(fontName)<br/>
+            + getFont(fontName)<br/>
+            <b>Default Font:</b><br/>
+            + getDefaultFont()<br/>
+            + setDefaultFont(fontName)
+        </div>
+    "]:::core;
+    
+    BitmapFont["BitmapFont"]:::data
+    FontCache["Font Cache"]:::data
+    
+    FontManager --> |"manages"| BitmapFont
+    FontManager --> |"uses"| FontCache
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

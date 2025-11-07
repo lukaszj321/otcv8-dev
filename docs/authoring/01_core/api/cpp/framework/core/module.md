@@ -127,4 +127,46 @@ Plik nagłówkowy C++ zawierający definicje dla modułu module.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/module.mmd](../diagrams/module.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    
+    Module["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Module</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + load()<br/>
+            + unload()<br/>
+            + reload()<br/>
+            <b>State:</b><br/>
+            + isLoaded()<br/>
+            + isReloadable()<br/>
+            + isDependent()<br/>
+            + isSandboxed()<br/>
+            + canUnload()<br/>
+            + canReload()<br/>
+            <b>Dependencies:</b><br/>
+            + hasDependency(name, recursive)<br/>
+            <b>Metadata:</b><br/>
+            + getName()<br/>
+            + getDescription()<br/>
+            + getAuthor()<br/>
+            + getVersion()<br/>
+            <b>Configuration:</b><br/>
+            + discover(moduleNode)
+        </div>
+    "]:::module;
+    
+    ModuleManager["ModuleManager"]:::core
+    LuaInterface["LuaInterface"]:::core
+    
+    ModuleManager --> |"manages"| Module
+    Module --> |"uses"| LuaInterface
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

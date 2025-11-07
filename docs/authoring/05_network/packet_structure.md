@@ -423,15 +423,52 @@ tcp_table:add(7171, otclient_proto)
 
 - [Protocol Versions](./protocol_versions.md)
 - [Extended Opcodes](./extended_opcodes.md)
-- [Network Classes](../01_core/network.md)
+- [Network Protocol](./index.md)
 - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
 
-## Diagram: network
+## Diagram: Packet Structure
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ../01_core/network.md
-flowchart LR
-  A[Start] --> B[network]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+packet-beta
+    0,16,Length (2 bytes, big-endian)
+    16,24,Opcode (1 byte)
+    24,32,Payload (variable length)
 ```
+<!-- /mermaid-diagram -->
+
+## Diagram: Network Protocol Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart LR
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Client["Client<br/>Application"]:::core
+    OutputMsg["OutputMessage<br/>Serialization"]:::netsec
+    Packet["Packet<br/>Length + Opcode + Payload"]:::netsec
+    Network["Network<br/>Connection"]:::netsec
+    Server["Server<br/>Game Server"]:::core
+    
+    InputMsg["InputMessage<br/>Deserialization"]:::netsec
+    Handler["Protocol<br/>Handler"]:::netsec
+    
+    Client --> |"create"| OutputMsg
+    OutputMsg --> |"serialize"| Packet
+    Packet --> |"send"| Network
+    Network --> |"receive"| Packet
+    Packet --> |"deserialize"| InputMsg
+    InputMsg --> |"parse"| Handler
+    Handler --> |"process"| Client
+    
+    Network <--> Server
+    
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

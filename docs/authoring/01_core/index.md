@@ -90,6 +90,47 @@ graph TD
 click Architecture "./index.html#facet-01_core.architecture" "Open architecture"
 ```
 
+### api_structure_treemap
+*Facet:* [`01_core.api_structure_treemap`](#facet-01_core.api_structure_treemap)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+treemap
+    title Core API Structure
+    Core Framework : 100
+        Core : 30
+            Application : 5
+            EventDispatcher : 5
+            ModuleManager : 5
+            ConfigManager : 5
+            ResourceManager : 5
+            Logger : 5
+        Graphics : 25
+            Graphics : 5
+            Painter : 5
+            Texture : 5
+            Shader : 5
+            FrameBuffer : 5
+        UI : 20
+            UIManager : 5
+            UIWidget : 5
+            UILayout : 5
+            Layouts : 5
+        Network : 15
+            Protocol : 5
+            Connection : 5
+            InputMessage : 3
+            OutputMessage : 2
+        Sound : 5
+            SoundManager : 3
+            SoundSource : 2
+        Lua : 5
+            LuaInterface : 3
+            LuaObject : 2
+```
+<!-- /mermaid-diagram -->
+
 ### cpp_singleton_hierarchy
 *Facet:* [`01_core.cpp_singleton_hierarchy`](#facet-01_core.cpp_singleton_hierarchy)
 

@@ -112,4 +112,47 @@ Plik nagłówkowy C++ zawierający definicje dla modułu config.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/config.mmd](../diagrams/config.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Config["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Config</div><hr/>
+            <b>File Operations:</b><br/>
+            + load(file)<br/>
+            + unload()<br/>
+            + save()<br/>
+            + clear()<br/>
+            <b>Value Access:</b><br/>
+            + setValue(key, value)<br/>
+            + getValue(key)<br/>
+            + setList(key, list)<br/>
+            + getList(key)<br/>
+            <b>Node Operations:</b><br/>
+            + setNode(key, node)<br/>
+            + mergeNode(key, node)<br/>
+            + getNode(key)<br/>
+            <b>Management:</b><br/>
+            + exists(key)<br/>
+            + remove(key)<br/>
+            + getNodeSize(key)<br/>
+            <b>State:</b><br/>
+            + isLoaded()<br/>
+            + getFileName()
+        </div>
+    "]:::core;
+    
+    OTMLNode["OTMLNode"]:::data
+    ConfigManager["ConfigManager"]:::core
+    
+    Config --> |"contains"| OTMLNode
+    ConfigManager --> |"manages"| Config
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

@@ -469,14 +469,53 @@ Or add to PATH environment variable.
 - [EGL Initialization](./egl_initialization.md)
 - [DLL Deployment Checklist](./dll_deployment.md)
 - [VC16 Build Configuration](../15_vc16/index.md)
-- [Graphics Core](../01_core/graphics.md)
+- [Graphics Core](../01_core/api/cpp/framework/graphics/graphics.md)
 
-## Diagram: graphics
+## Diagram: ANGLE Integration Architecture
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ../01_core/graphics.md
-flowchart LR
-  A[Start] --> B[graphics]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Component
+    title ANGLE Integration Component Diagram
+    
+    Container_Boundary(otclient, "OTClient v8 Windows") {
+        Component(graphics, "Graphics Engine", "C++", "OpenGL rendering")
+        Component(angle, "ANGLE", "C++", "OpenGL ES to D3D11 translator")
+        Component(egl, "EGL", "C++", "Graphics context management")
+    }
+    System_Ext(d3d11, "Direct3D 11", "Windows Graphics API")
+    System_Ext(opengles, "OpenGL ES", "Graphics API")
+    
+    Rel(graphics, egl, "Uses")
+    Rel(egl, angle, "Initializes")
+    Rel(angle, d3d11, "Translates to")
+    Rel(graphics, opengles, "Calls")
+    Rel(opengles, angle, "Implemented by")
 ```
+<!-- /mermaid-diagram -->
+
+## Diagram: ANGLE Graphics Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart LR
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef platform fill:#7f8c8d,stroke:#fff,color:#fff;
+    
+    App["OTClient<br/>Application"]:::core
+    Graphics["Graphics<br/>Engine"]:::core
+    EGL["EGL<br/>Context Manager"]:::platform
+    ANGLE["ANGLE<br/>OpenGL ES → D3D11"]:::platform
+    D3D11["Direct3D 11<br/>Windows API"]:::platform
+    
+    App --> Graphics
+    Graphics --> EGL
+    EGL --> ANGLE
+    ANGLE --> D3D11
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef platform fill:#7f8c8d,stroke:#fff,color:#fff;
+```
+<!-- /mermaid-diagram -->

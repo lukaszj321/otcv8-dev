@@ -105,4 +105,39 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uianchorlayout.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uianchorlayout.mmd](../diagrams/uianchorlayout.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UIAnchorLayout["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UIAnchorLayout</div><hr/>
+            <b>Widget Management:</b><br/>
+            + addWidget(widget)<br/>
+            + removeWidget(widget)<br/>
+            <b>Anchors:</b><br/>
+            + removeAnchors(widget)<br/>
+            + hasAnchors(widget)<br/>
+            + centerIn(widget, hookedId)<br/>
+            + fill(widget, hookedId)<br/>
+            <b>Internal:</b><br/>
+            + internalUpdate()<br/>
+            + updateWidget(widget, anchorGroup)
+        </div>
+    "]:::ui;
+    
+    UIAnchor["UIAnchor<br/>anchoredEdge<br/>hookedEdge<br/>hookedWidgetId"]:::core
+    UIAnchorGroup["UIAnchorGroup"]:::core
+    UILayout["UILayout<br/><i>base class</i>"]:::core
+    
+    UIAnchorLayout --> |"extends"| UILayout
+    UIAnchorLayout --> |"uses"| UIAnchorGroup
+    UIAnchorGroup --> |"contains"| UIAnchor
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

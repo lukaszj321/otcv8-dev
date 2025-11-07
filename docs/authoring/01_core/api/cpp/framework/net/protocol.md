@@ -158,4 +158,89 @@ Plik nagłówkowy C++ zawierający definicje dla modułu protocol.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/protocol.mmd](../diagrams/protocol.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Protocol["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Protocol</div><hr/>
+            <b>Connection:</b><br/>
+            + connect(host, port)<br/>
+            + disconnect()<br/>
+            + isConnected()<br/>
+            <b>I/O:</b><br/>
+            + send(outputMessage)<br/>
+            + recv()<br/>
+            <b>Encryption:</b><br/>
+            + generateXteaKey()<br/>
+            + setXteaKey(a, b, c, d)<br/>
+            + enableXteaEncryption()<br/>
+            <b>Features:</b><br/>
+            + enableChecksum()<br/>
+            + enableCompression()<br/>
+            + enabledSequencedPackets()<br/>
+            <b>Recording:</b><br/>
+            + setRecorder(recorder)<br/>
+            + playRecord(player)
+        </div>
+    "]:::netsec;
+    
+    Connection["Connection"]:::netsec
+    OutputMessage["OutputMessage"]:::data
+    InputMessage["InputMessage"]:::data
+    PacketRecorder["PacketRecorder"]:::data
+    PacketPlayer["PacketPlayer"]:::data
+    
+    Protocol --> |"uses"| Connection
+    Protocol --> |"creates"| OutputMessage
+    Protocol --> |"receives"| InputMessage
+    Protocol --> |"records"| PacketRecorder
+    Protocol --> |"plays"| PacketPlayer
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Protocol Communication Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+sequenceDiagram
+    participant App
+    participant Protocol
+    participant Connection
+    participant Server
+    
+    Note over App,Server: Connection Phase
+    App->>Protocol: connect(host, port)
+    Protocol->>Connection: connect(host, port)
+    Connection->>Server: TCP Connect
+    Server-->>Connection: Connection Established
+    Connection-->>Protocol: onConnect()
+    Protocol->>Protocol: generateXteaKey()
+    Protocol-->>App: onConnect()
+    
+    Note over App,Server: Sending Data
+    App->>Protocol: send(outputMessage)
+    Protocol->>Protocol: xteaEncrypt()
+    Protocol->>Protocol: addChecksum()
+    Protocol->>Connection: write(buffer)
+    Connection->>Server: Send Packet
+    
+    Note over App,Server: Receiving Data
+    Server->>Connection: Receive Packet
+    Connection->>Protocol: onRecv()
+    Protocol->>Protocol: verifyChecksum()
+    Protocol->>Protocol: xteaDecrypt()
+    Protocol->>Protocol: onRecv(inputMessage)
+    Protocol-->>App: onRecv(inputMessage)
+```
+<!-- /mermaid-diagram -->

@@ -390,14 +390,82 @@ end
 - [Protocol Versions](./protocol_versions.md)
 - [Packet Structure](./packet_structure.md)
 - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
-- [Bot Integration](../03_modules/bot_integration.md)
+- [Bot Integration](../03_modules/lua/game_bot/bot.md)
 
-## Diagram: bot_integration
+## Diagram: Extended Opcode Packet Structure
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ../03_modules/bot_integration.md
-flowchart LR
-  A[Start] --> B[bot_integration]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+packet-beta
+    0,8,Extended Opcode (1 byte)
+    8,16,Sub-opcode (1 byte)
+    16,32,Data Length (2 bytes)
+    32,64,Data Buffer (variable, JSON/Text/Binary)
 ```
+<!-- /mermaid-diagram -->
+
+## Diagram: Extended Opcodes Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+sequenceDiagram
+    participant Client
+    participant Protocol
+    participant Server
+    participant Handler
+    
+    Note over Client,Handler: Registration Phase
+    Client->>Protocol: ExtendedOpcode(0, "")
+    Protocol->>Server: Send Registration
+    Server->>Handler: onExtendedOpcode(0, "")
+    Handler->>Server: sendExtendedOpcode(0, "OK")
+    Server->>Protocol: Response
+    Protocol->>Client: Registration Confirmed
+    
+    Note over Client,Handler: Custom Opcode Usage
+    Client->>Protocol: ExtendedOpcode(opcode, data)
+    Protocol->>Server: Send Custom Opcode
+    Server->>Handler: onExtendedOpcode(opcode, buffer)
+    Handler->>Handler: Process Custom Logic
+    Handler->>Server: sendExtendedOpcode(opcode, response)
+    Server->>Protocol: Response
+    Protocol->>Client: Handle Response
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Extended Opcodes Use Cases
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    
+    ExtendedOpcode["Extended Opcode<br/>System"]:::netsec
+    
+    ServerInfo["Opcode 1<br/>Server Info"]:::module
+    UIUpdate["Opcode 2<br/>UI Updates"]:::ui
+    BotControl["Opcode 10<br/>Bot Commands"]:::module
+    QuestSystem["Opcode 20<br/>Quest Updates"]:::module
+    
+    ExtendedOpcode --> ServerInfo
+    ExtendedOpcode --> UIUpdate
+    ExtendedOpcode --> BotControl
+    ExtendedOpcode --> QuestSystem
+    
+    ServerInfo --> |"JSON: name, version, features"| ClientApp["Client<br/>Application"]:::core
+    UIUpdate --> |"JSON: type, value, max"| UIComponents["UI<br/>Components"]:::ui
+    BotControl --> |"JSON: action, status"| BotModule["Bot<br/>Module"]:::module
+    QuestSystem --> |"JSON: quests array"| GameLogic["Game<br/>Logic"]:::core
+    
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+```
+<!-- /mermaid-diagram -->

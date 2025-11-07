@@ -73,4 +73,37 @@ Plik nagłówkowy C++ zawierający definicje dla modułu configmanager.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/configmanager.mmd](../diagrams/configmanager.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    ConfigManager["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>ConfigManager</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>Config Access:</b><br/>
+            + getSettings()<br/>
+            + get(file)<br/>
+            + create(file)<br/>
+            <b>Loading:</b><br/>
+            + loadSettings(file)<br/>
+            + load(file)<br/>
+            <b>Management:</b><br/>
+            + unload(file)<br/>
+            + remove(config)
+        </div>
+    "]:::core;
+    
+    Config["Config"]:::data
+    
+    ConfigManager --> |"manages"| Config
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

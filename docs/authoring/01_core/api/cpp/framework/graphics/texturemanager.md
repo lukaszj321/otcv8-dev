@@ -62,4 +62,36 @@ Plik nagłówkowy C++ zawierający definicje dla modułu texturemanager.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/texturemanager.mmd](../diagrams/texturemanager.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    TextureManager["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>TextureManager</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>Cache Management:</b><br/>
+            + clearCache()<br/>
+            + reload()<br/>
+            <b>Loading:</b><br/>
+            + getTexture(fileName)<br/>
+            + loadTexture(file, source)<br/>
+            + preload(fileName)
+        </div>
+    "]:::core;
+    
+    Texture["Texture"]:::data
+    Cache["Texture Cache"]:::data
+    
+    TextureManager --> |"manages"| Texture
+    TextureManager --> |"uses"| Cache
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

@@ -171,4 +171,37 @@ Plik nagłówkowy C++ zawierający definicje dla modułu connection.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/connection.mmd](../diagrams/connection.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    
+    Connection["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Connection</div><hr/>
+            <b>Connection:</b><br/>
+            + connect(host, port, callback)<br/>
+            + close()<br/>
+            <b>I/O:</b><br/>
+            + write(buffer, size)<br/>
+            + read(bytes, callback)<br/>
+            + read_until(what, callback)<br/>
+            + read_some(callback)<br/>
+            <b>State:</b><br/>
+            + isConnected()<br/>
+            + isConnecting()<br/>
+            + getIp()<br/>
+            <b>Callbacks:</b><br/>
+            + setErrorCallback(callback)
+        </div>
+    "]:::netsec;
+    
+    Connection --> |"uses"| Socket["asio::socket"]
+    Connection --> |"uses"| Resolver["asio::resolver"]
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+```
+<!-- /mermaid-diagram -->

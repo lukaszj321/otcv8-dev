@@ -234,4 +234,50 @@ Plik nagłówkowy C++ zawierający definicje dla modułu otmlnode.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/otmlnode.mmd](../diagrams/otmlnode.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    OTMLNode["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>OTMLNode</div><hr/>
+            <b>Creation:</b><br/>
+            + create(tag, unique/value)<br/>
+            <b>Properties:</b><br/>
+            + tag()<br/>
+            + rawValue()<br/>
+            + source()<br/>
+            + size()<br/>
+            <b>State:</b><br/>
+            + isNull()<br/>
+            + isUnique()<br/>
+            + hasTag()<br/>
+            + hasValue()<br/>
+            + hasChildren()<br/>
+            <b>Children:</b><br/>
+            + get(childTag)<br/>
+            + getIndex(index)<br/>
+            + at(childTag)<br/>
+            + addChild(child)<br/>
+            + removeChild(child)<br/>
+            + children()<br/>
+            <b>Operations:</b><br/>
+            + copy(node)<br/>
+            + merge(node)<br/>
+            + clone()<br/>
+            <b>Value Access:</b><br/>
+            + value&lt;T&gt;()<br/>
+            + valueAt&lt;T&gt;(key)<br/>
+            + write&lt;T&gt;(value)
+        </div>
+    "]:::core;
+    
+    OTMLNode --> |"contains"| Children["Children Nodes"]:::data
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

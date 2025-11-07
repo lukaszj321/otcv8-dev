@@ -59,4 +59,32 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uiboxlayout.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uiboxlayout.mmd](../diagrams/uiboxlayout.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UIBoxLayout["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UIBoxLayout</div><hr/>
+            <b>Widget Management:</b><br/>
+            + addWidget(widget)<br/>
+            + removeWidget(widget)<br/>
+            <b>Configuration:</b><br/>
+            + setSpacing(spacing)<br/>
+            + setFitChildren(fitParent)<br/>
+            <b>Style:</b><br/>
+            + applyStyle(styleNode)
+        </div>
+    "]:::ui;
+    
+    UILayout["UILayout<br/><i>base class</i>"]:::core
+    
+    UIBoxLayout --> |"extends"| UILayout
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

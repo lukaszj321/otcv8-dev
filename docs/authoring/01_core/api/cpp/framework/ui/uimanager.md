@@ -207,4 +207,74 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uimanager.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uimanager.mmd](../diagrams/uimanager.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    
+    UIManager["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UIManager</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>Rendering:</b><br/>
+            + render(drawPane)<br/>
+            + resize(size)<br/>
+            <b>Input:</b><br/>
+            + inputEvent(event)<br/>
+            + updatePressedWidget()<br/>
+            + updateDraggingWidget()<br/>
+            + updateHoveredWidget()<br/>
+            <b>Widget Management:</b><br/>
+            + loadUI(file, parent)<br/>
+            + createWidget(styleName, parent)<br/>
+            + displayUI(file)<br/>
+            <b>Style Management:</b><br/>
+            + importStyle(file)<br/>
+            + getStyle(styleName)<br/>
+            <b>Focus:</b><br/>
+            + setMouseReceiver(widget)<br/>
+            + setKeyboardReceiver(widget)
+        </div>
+    "]:::core;
+    
+    UIWidget["UIWidget"]:::ui
+    RootWidget["RootWidget"]:::ui
+    
+    UIManager --> |"manages"| UIWidget
+    UIManager --> |"owns"| RootWidget
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: UI Manager Architecture (C4 Component)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Component
+    title UI Manager Component Diagram
+    
+    Container_Boundary(otclient, "OTClient Application") {
+        Component(uimanager, "UIManager", "C++", "UI system manager")
+        Component(widgettree, "Widget Tree", "C++", "Hierarchical widget structure")
+        Component(styleloader, "Style Loader", "C++", "OTUI style parser")
+        Component(inputhandler, "Input Handler", "C++", "Mouse/keyboard event routing")
+        Component(renderer, "UI Renderer", "C++", "Widget rendering")
+    }
+    SystemDb_Ext(otui, "OTUI Files", "UI definition files")
+    System_Ext(graphics, "Graphics Engine", "Rendering")
+    
+    Rel(uimanager, widgettree, "Manages")
+    Rel(uimanager, styleloader, "Uses")
+    Rel(uimanager, inputhandler, "Routes events via")
+    Rel(uimanager, renderer, "Renders via")
+    Rel(styleloader, otui, "Reads from")
+    Rel(renderer, graphics, "Renders using")
+```
+<!-- /mermaid-diagram -->

@@ -112,4 +112,40 @@ Plik nagłówkowy C++ zawierający definicje dla modułu image.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/image.mmd](../diagrams/image.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Image["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Image</div><hr/>
+            <b>Loading:</b><br/>
+            + load(file)<br/>
+            + loadPNG(file)<br/>
+            + loadPNG(data, size)<br/>
+            <b>Saving:</b><br/>
+            + savePNG(fileName)<br/>
+            <b>Manipulation:</b><br/>
+            + blit(dest, other)<br/>
+            + paste(other)<br/>
+            + resize(size)<br/>
+            + upscale()<br/>
+            + nextMipmap()<br/>
+            <b>Pixel Operations:</b><br/>
+            + setPixel(x, y, color)<br/>
+            + getWidth()<br/>
+            + getHeight()<br/>
+            <b>Utilities:</b><br/>
+            + fromQRCode(code, border)
+        </div>
+    "]:::core;
+    
+    Image --> |"contains"| Pixels["Pixel Data"]:::data
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

@@ -271,4 +271,41 @@ Plik nagłówkowy C++ zawierający definicje dla modułu resourcemanager.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/resourcemanager.mmd](../diagrams/resourcemanager.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    ResourceManager["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>ResourceManager</div><hr/>
+            <b>Initialization:</b><br/>
+            + init(argv0)<br/>
+            + setup()<br/>
+            + setupWriteDir(product, app)<br/>
+            <b>File Operations:</b><br/>
+            + readFileContents(file)<br/>
+            + writeFileContents(file, data)<br/>
+            + openFile(file)<br/>
+            + deleteFile(file)<br/>
+            + makeDir(directory)<br/>
+            <b>Path Management:</b><br/>
+            + resolvePath(path)<br/>
+            + getWorkDir()<br/>
+            + getWriteDir()<br/>
+            <b>Archive:</b><br/>
+            + createArchive(files)<br/>
+            + decompressArchive(data)
+        </div>
+    "]:::core;
+    
+    FileStream["FileStream"]:::data
+    
+    ResourceManager --> |"creates"| FileStream
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

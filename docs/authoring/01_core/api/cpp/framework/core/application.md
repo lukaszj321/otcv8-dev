@@ -150,4 +150,84 @@ Plik nagłówkowy C++ zawierający definicje dla modułu application.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/application.mmd](../diagrams/application.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    Application["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Application</div><hr/>
+            <i>&lt;&lt;abstract base&gt;&gt;</i><br/>
+            <b>Lifecycle:</b><br/>
+            + init(args)<br/>
+            + run()*<br/>
+            + poll()<br/>
+            + deinit()<br/>
+            + terminate()<br/>
+            + exit()<br/>
+            + close()<br/>
+            <b>State:</b><br/>
+            + isRunning()<br/>
+            + isStopping()<br/>
+            + isTerminated()<br/>
+            <b>Metadata:</b><br/>
+            + setName(name)<br/>
+            + setVersion(version)<br/>
+            + getBuildInfo()
+        </div>
+    "]:::core;
+    
+    Application --> |"virtual"| RunMethod["run() = 0<br/><i>pure virtual</i>"]
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Application Architecture (C4 Container)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Container
+    title Application Container Diagram
+    
+    Person(user, "User", "OTClient user")
+    System_Boundary(otclient, "OTClient v8") {
+        Container(application, "Application", "C++", "Main application lifecycle manager")
+        Container(graphics, "Graphics Engine", "C++", "Rendering and graphics")
+        Container(network, "Network Layer", "C++", "Protocol and connection handling")
+        Container(modules, "Module System", "Lua", "Lua modules and scripts")
+        Container(ui, "UI System", "OTUI", "User interface widgets")
+    }
+    System_Ext(server, "Game Server", "Tibia server")
+    
+    Rel(user, application, "Uses")
+    Rel(application, graphics, "Manages")
+    Rel(application, network, "Manages")
+    Rel(application, modules, "Loads")
+    Rel(application, ui, "Renders")
+    Rel(network, server, "Connects to")
+    Rel(modules, network, "Uses")
+    Rel(ui, graphics, "Renders via")
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Application Lifecycle Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+stateDiagram-v2
+    [*] --> Initialized: init(args)
+    Initialized --> Running: run()
+    Running --> Polling: poll()
+    Polling --> Running: continue
+    Running --> Stopping: exit()
+    Stopping --> Terminated: terminate()
+    Terminated --> [*]: cleanup
+    Running --> Restarting: restart()
+    Restarting --> Initialized: reinit
+```
+<!-- /mermaid-diagram -->

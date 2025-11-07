@@ -109,4 +109,42 @@ Plik nagłówkowy C++ zawierający definicje dla modułu framebuffer.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/framebuffer.mmd](../diagrams/framebuffer.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    FrameBuffer["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>FrameBuffer</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + resize(size)<br/>
+            <b>Rendering:</b><br/>
+            + bind(depthFramebuffer)<br/>
+            + release()<br/>
+            + draw()<br/>
+            + draw(dest)<br/>
+            + draw(dest, src)<br/>
+            <b>Configuration:</b><br/>
+            + setSmooth(enabled)<br/>
+            <b>Access:</b><br/>
+            + getTexture()<br/>
+            + getSize()<br/>
+            + isSmooth()<br/>
+            + hasDepth()<br/>
+            <b>Utilities:</b><br/>
+            + readPixels()<br/>
+            + doScreenshot(fileName)
+        </div>
+    "]:::core;
+    
+    Texture["Texture"]:::data
+    
+    FrameBuffer --> |"contains"| Texture
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

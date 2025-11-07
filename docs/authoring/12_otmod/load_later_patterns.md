@@ -285,17 +285,71 @@ Best practices:
 
 ## See Also
 
-- [Module Dependencies](./module_dependencies.md)
+- [Module Dependencies](./diagrams/module_dependencies.mmd)
 - [Sandbox Security](./sandbox_security.md)
 - [OTMOD Manifest Reference](./blueprints/otmod_template.md)
 - [Datasets: module_deps.csv](./datasets/module_deps.csv)
 
-## Diagram: module_dependencies
+## Diagram: Module Dependencies
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ./module_dependencies.md
-flowchart LR
-  A[Start] --> B[module_dependencies]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef loadlater fill:#46a,stroke:#68c,stroke-width:2px;
+    
+    ClientCore["Client Core"]:::core
+    GameInterface["game_interface"]:::module
+    GameSkills["game_skills"]:::module
+    GameInventory["game_inventory"]:::module
+    CustomSkills["my_custom_skills"]:::module
+    CustomInventory["my_custom_inventory"]:::module
+    ExtendedUI["Extended UI Module<br/><i>load-later: true</i>"]:::loadlater
+    
+    ClientCore --> GameInterface
+    GameInterface --> GameSkills
+    GameInterface --> GameInventory
+    GameSkills --> CustomSkills
+    GameInventory --> CustomInventory
+    CustomSkills --> ExtendedUI
+    CustomInventory --> ExtendedUI
+    
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef loadlater fill:#46a,stroke:#68c,stroke-width:2px;
 ```
+<!-- /mermaid-diagram -->
+
+## Diagram: Load-Later Module Lifecycle
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+sequenceDiagram
+    participant Manager
+    participant CoreModules
+    participant RegularModules
+    participant LoadLaterModules
+    participant GameState
+    
+    Note over Manager,GameState: Phase 1: Core Modules
+    Manager->>CoreModules: Load corelib, game, client
+    CoreModules-->>Manager: Initialized
+    
+    Note over Manager,GameState: Phase 2: Regular Modules
+    Manager->>RegularModules: Load standard modules
+    RegularModules-->>Manager: Initialized
+    
+    Note over Manager,GameState: Phase 3: Game State Ready
+    Manager->>GameState: Wait for game interface
+    GameState-->>Manager: Game interface loaded
+    
+    Note over Manager,GameState: Phase 4: Load-Later Modules
+    Manager->>LoadLaterModules: Load deferred modules
+    LoadLaterModules->>GameState: Access game interface
+    GameState-->>LoadLaterModules: Interface available
+    LoadLaterModules-->>Manager: Initialized
+```
+<!-- /mermaid-diagram -->

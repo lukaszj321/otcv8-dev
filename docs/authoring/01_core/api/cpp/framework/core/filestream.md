@@ -248,4 +248,46 @@ Plik nagłówkowy C++ zawierający definicje dla modułu filestream.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/filestream.mmd](../diagrams/filestream.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    FileStream["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>FileStream</div><hr/>
+            <b>File Operations:</b><br/>
+            + close()<br/>
+            + flush()<br/>
+            <b>Reading:</b><br/>
+            + read(buffer, size, nmemb)<br/>
+            + seek(pos)<br/>
+            + skip(len)<br/>
+            + tell()<br/>
+            + eof()<br/>
+            <b>Writing:</b><br/>
+            + write(buffer, count)<br/>
+            <b>Primitives:</b><br/>
+            + getU8/U16/U32/U64()<br/>
+            + get8/16/32/64()<br/>
+            + getString()<br/>
+            + addU8/U16/U32/U64()<br/>
+            + add8/16/32/64()<br/>
+            + addString()<br/>
+            <b>Utilities:</b><br/>
+            + size()<br/>
+            + name()<br/>
+            + getBinaryTree()
+        </div>
+    "]:::core;
+    
+    PHYSFS_File["PHYSFS_File<br/><i>struct</i>"]:::data
+    
+    FileStream --> |"wraps"| PHYSFS_File
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

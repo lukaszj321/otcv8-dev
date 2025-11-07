@@ -70,4 +70,20 @@ Plik nagłówkowy C++ zawierający definicje dla modułu databuffer.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/databuffer.mmd](../diagrams/databuffer.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    DataBuffer["DataBuffer&lt;T&gt;<br/><i>template class</i>"]:::core
+    
+    DataBuffer --> |"contains"| Buffer["Buffer<br/>m_data"]:::data
+    DataBuffer --> |"tracks"| Size["Size<br/>m_size"]:::data
+    DataBuffer --> |"tracks"| Capacity["Capacity<br/>m_capacity"]:::data
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

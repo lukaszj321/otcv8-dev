@@ -80,4 +80,50 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uilayout.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uilayout.mmd](../diagrams/uilayout.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UILayout["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UILayout</div><hr/>
+            <i>&lt;&lt;abstract base&gt;&gt;</i><br/>
+            <b>Update:</b><br/>
+            + update()<br/>
+            + updateLater()<br/>
+            + disableUpdates()<br/>
+            + enableUpdates()<br/>
+            <b>Widget Management:</b><br/>
+            + addWidget(widget)*<br/>
+            + removeWidget(widget)*<br/>
+            <b>Style:</b><br/>
+            + applyStyle(styleNode)*<br/>
+            <b>State:</b><br/>
+            + isUpdateDisabled()<br/>
+            + isUpdating()<br/>
+            <b>Type Checks:</b><br/>
+            + isUIAnchorLayout()<br/>
+            + isUIBoxLayout()<br/>
+            + isUIGridLayout()
+        </div>
+    "]:::core;
+    
+    UIAnchorLayout["UIAnchorLayout"]:::ui
+    UIBoxLayout["UIBoxLayout"]:::ui
+    UIGridLayout["UIGridLayout"]:::ui
+    UIHorizontalLayout["UIHorizontalLayout"]:::ui
+    UIVerticalLayout["UIVerticalLayout"]:::ui
+    
+    UILayout --> |"base class"| UIAnchorLayout
+    UILayout --> |"base class"| UIBoxLayout
+    UILayout --> |"base class"| UIGridLayout
+    UIBoxLayout --> |"extends"| UIHorizontalLayout
+    UIBoxLayout --> |"extends"| UIVerticalLayout
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

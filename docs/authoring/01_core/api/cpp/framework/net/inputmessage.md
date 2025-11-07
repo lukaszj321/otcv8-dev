@@ -189,4 +189,60 @@ Plik nagłówkowy C++ zawierający definicje dla modułu inputmessage.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/inputmessage.mmd](../diagrams/inputmessage.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    InputMessage["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>InputMessage</div><hr/>
+            <b>Buffer Management:</b><br/>
+            + setBuffer(buffer)<br/>
+            + getBuffer()<br/>
+            + fillBuffer(buffer, size)<br/>
+            <b>Reading Primitives:</b><br/>
+            + getU8()<br/>
+            + getU16()<br/>
+            + getU32()<br/>
+            + getU64()<br/>
+            + getString()<br/>
+            + getDouble()<br/>
+            <b>Position Control:</b><br/>
+            + setReadPos(pos)<br/>
+            + skipBytes(bytes)<br/>
+            + peekU8/U16/U32/U64()<br/>
+            <b>Message Info:</b><br/>
+            + getMessageSize()<br/>
+            + getReadSize()<br/>
+            + getUnreadSize()<br/>
+            + eof()<br/>
+            <b>Security:</b><br/>
+            + decryptRsa(size)<br/>
+            + readChecksum()
+        </div>
+    "]:::netsec;
+    
+    Buffer["Buffer<br/>m_buffer"]:::data
+    
+    InputMessage --> |"contains"| Buffer
+    
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: InputMessage Packet Structure
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+packet-beta
+    0,16,Header (2 bytes: Length)
+    16,24,Opcode (1 byte)
+    24,32,Checksum (optional, 4 bytes)
+    32,64,Payload Data (variable)
+```
+<!-- /mermaid-diagram -->

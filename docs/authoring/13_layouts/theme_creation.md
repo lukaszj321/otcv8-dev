@@ -371,27 +371,81 @@ Font
 
 ## See Also
 
-- [Override Resolution](./override_resolution.md)
-- [Image Properties](./image_properties.md)
+- [Override Resolution](./diagrams/override_resolution.mmd)
+- [Layouts Overview](./index.md)
 - [OTUI Reference](../04_ui/index.md)
 - [Asset Management](../11_data/index.md)
 
-## Diagram: override_resolution
+## Diagram: Theme Override Resolution
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ./override_resolution.md
-flowchart LR
-  A[Start] --> B[override_resolution]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Request["Asset Request<br/>/images/ui/button.png"]:::ui
+    DefaultTheme["Default Theme<br/>Priority: 0"]:::data
+    CustomTheme["Custom Theme<br/>Priority: 10"]:::data
+    Resolver["Theme Resolver"]:::ui
+    Result["Resolved Asset"]:::ui
+    
+    Request --> Resolver
+    Resolver --> |"check"| DefaultTheme
+    Resolver --> |"check"| CustomTheme
+    CustomTheme --> |"higher priority"| Result
+    DefaultTheme --> |"fallback"| Result
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
 ```
+<!-- /mermaid-diagram -->
 
-## Diagram: image_properties
+## Diagram: Theme Structure
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ./image_properties.md
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
 flowchart LR
-  A[Start] --> B[image_properties]
-  B --> C[End]
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Theme["Theme<br/>theme.otml"]:::ui
+    Images["Images<br/>data/images/ui/"]:::data
+    Styles["Styles<br/>data/styles/"]:::data
+    Fonts["Fonts<br/>data/fonts/"]:::data
+    Modules["Modules<br/>modules/game_interface/"]:::ui
+    
+    Theme --> Images
+    Theme --> Styles
+    Theme --> Fonts
+    Theme --> Modules
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
 ```
+<!-- /mermaid-diagram -->
+
+## Diagram: Image Properties Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    ImageFile["Image File<br/>button.png"]:::data
+    Loader["Image Loader"]:::ui
+    Properties["Image Properties<br/>- image-source<br/>- image-clip<br/>- image-border"]:::ui
+    Widget["UI Widget<br/>Button"]:::ui
+    
+    ImageFile --> Loader
+    Loader --> Properties
+    Properties --> Widget
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

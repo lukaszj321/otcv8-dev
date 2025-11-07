@@ -137,4 +137,39 @@ Plik nagłówkowy C++ zawierający definicje dla modułu texture.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/texture.mmd](../diagrams/texture.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    Texture["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Texture</div><hr/>
+            <b>Image Operations:</b><br/>
+            + replace(image)<br/>
+            + uploadPixels(image, mipmaps, compress)<br/>
+            <b>Configuration:</b><br/>
+            + resize(size)<br/>
+            + setSmooth(smooth)<br/>
+            + setRepeat(repeat)<br/>
+            + setUpsideDown(upsideDown)<br/>
+            + buildHardwareMipmaps()<br/>
+            <b>Properties:</b><br/>
+            + getId()<br/>
+            + getWidth()<br/>
+            + getHeight()<br/>
+            + hasMipmaps()<br/>
+            + canCache()
+        </div>
+    "]:::core;
+    
+    Image["Image"]:::data
+    
+    Texture --> |"uses"| Image
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

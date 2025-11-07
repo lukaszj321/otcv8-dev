@@ -390,26 +390,84 @@ This will enable:
 ## See Also
 
 - [Load-Later Patterns](./load_later_patterns.md)
-- [Module Dependencies](./module_dependencies.md)
+- [Module Dependencies](./diagrams/module_dependencies.mmd)
 - [Lua API Reference](../03_modules/index.md)
-- [Security Best Practices](../01_core/security.md)
+- [Core API](../01_core/index.md)
 
-## Diagram: module_dependencies
+## Diagram: Module Dependencies
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ./module_dependencies.md
-flowchart LR
-  A[Start] --> B[module_dependencies]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    ModuleA["Module A"]:::module
+    ModuleB["Module B"]:::module
+    ModuleC["Module C"]:::module
+    CoreLib["corelib"]:::core
+    
+    ModuleA --> |"depends on"| ModuleB
+    ModuleA --> |"depends on"| CoreLib
+    ModuleB --> |"depends on"| ModuleC
+    ModuleC --> |"depends on"| CoreLib
+    
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
 ```
+<!-- /mermaid-diagram -->
 
-## Diagram: security
+## Diagram: Sandbox Security Architecture
 
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
 ```mermaid
-%%{init: { 'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6' } }}%%
-%% TODO: Uzupełnij treść diagramu lub podmień na include z ../01_core/security.md
-flowchart LR
-  A[Start] --> B[security]
-  B --> C[End]
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Component
+    title Sandbox Security Component Diagram
+    
+    Container_Boundary(otclient, "OTClient Application") {
+        Component(sandbox, "Sandbox Layer", "Lua", "Security isolation layer")
+        Component(permissioncheck, "Permission Checker", "Lua", "Validates module permissions")
+        Component(safeapi, "Safe API", "Lua", "Restricted API access")
+        Component(module, "User Module", "Lua", "Sandboxed user code")
+    }
+    SystemDb_Ext(filesystem, "File System", "Restricted access")
+    System_Ext(network, "Network", "Restricted access")
+    System_Ext(coreapi, "Core API", "Full access")
+    
+    Rel(module, sandbox, "Runs in")
+    Rel(sandbox, permissioncheck, "Validates via")
+    Rel(permissioncheck, safeapi, "Grants access to")
+    Rel(safeapi, coreapi, "Limited access to")
+    Rel(safeapi, filesystem, "Restricted")
+    Rel(safeapi, network, "Restricted")
 ```
+<!-- /mermaid-diagram -->
+
+## Diagram: Security Flow
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart TD
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef critical fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UserModule["User Module<br/>Request"]:::module
+    Sandbox["Sandbox Layer"]:::core
+    PermissionCheck{"Permission<br/>Check"}:::core
+    Allowed["Safe API<br/>Access Granted"]:::core
+    Denied["Access Denied<br/>Error"]:::critical
+    
+    UserModule --> Sandbox
+    Sandbox --> PermissionCheck
+    PermissionCheck --> |"Allowed"| Allowed
+    PermissionCheck --> |"Blocked"| Denied
+    
+    classDef module fill:#24343a,stroke:#8fa2a8,color:#ddd,stroke-width:1px;
+    classDef critical fill:#c0392b,stroke:#fff,color:#fff;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

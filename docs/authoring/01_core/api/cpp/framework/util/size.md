@@ -117,4 +117,25 @@ Plik nagłówkowy C++ zawierający definicje dla modułu size.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/size.mmd](../diagrams/size.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    TSize["TSize&lt;T&gt;<br/><i>template class</i>"]:::core
+    TPoint["TPoint&lt;T&gt;"]:::core
+    Size["Size<br/>TSize&lt;int&gt;"]:::core
+    SizeF["SizeF<br/>TSize&lt;float&gt;"]:::core
+    
+    TSize --> |"converts to"| TPoint
+    TSize --> |"typedef"| Size
+    TSize --> |"typedef"| SizeF
+    
+    TSize --> |"contains"| Dimensions["Dimensions<br/>wd, ht"]:::data
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->

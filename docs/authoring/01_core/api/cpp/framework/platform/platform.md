@@ -142,4 +142,75 @@ Plik nagłówkowy C++ zawierający definicje dla modułu platform.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/platform.mmd](../diagrams/platform.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef platform fill:#7f8c8d,stroke:#fff,color:#fff;
+    
+    Platform["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Platform</div><hr/>
+            <b>Process Management:</b><br/>
+            + spawnProcess(process, args)<br/>
+            + getProcessId()<br/>
+            + isProcessRunning(name)<br/>
+            + killProcess(name)<br/>
+            <b>File Operations:</b><br/>
+            + copyFile(from, to)<br/>
+            + fileExists(file)<br/>
+            + removeFile(file)<br/>
+            + getFileModificationTime(file)<br/>
+            <b>System Info:</b><br/>
+            + getCPUName()<br/>
+            + getTotalSystemMemory()<br/>
+            + getMemoryUsage()<br/>
+            + getOSName()<br/>
+            + getUserName()<br/>
+            <b>Utilities:</b><br/>
+            + openUrl(url)<br/>
+            + openDir(path)<br/>
+            + traceback(where, level)
+        </div>
+    "]:::platform;
+    
+    OS["Operating System"]:::platform
+    
+    Platform --> |"interacts with"| OS
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef platform fill:#7f8c8d,stroke:#fff,color:#fff;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Platform Abstraction Architecture (C4 Component)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+C4Component
+    title Platform Abstraction Component Diagram
+    
+    Container_Boundary(otclient, "OTClient Application") {
+        Component(platform, "Platform", "C++", "Cross-platform abstraction layer")
+        Component(win32window, "Win32Window", "C++", "Windows window implementation")
+        Component(sdlwindow, "SDLWindow", "C++", "SDL window implementation")
+        Component(x11window, "X11Window", "C++", "Linux X11 window implementation")
+        Component(androidwindow, "AndroidWindow", "C++", "Android window implementation")
+    }
+    System_Ext(win32, "Windows API", "Win32")
+    System_Ext(sdl, "SDL2", "Simple DirectMedia Layer")
+    System_Ext(x11, "X11", "X Window System")
+    System_Ext(android, "Android NDK", "Android Native")
+    
+    Rel(platform, win32window, "Uses on Windows")
+    Rel(platform, sdlwindow, "Uses on Linux/Mac")
+    Rel(platform, x11window, "Uses on Linux")
+    Rel(platform, androidwindow, "Uses on Android")
+    Rel(win32window, win32, "Calls")
+    Rel(sdlwindow, sdl, "Calls")
+    Rel(x11window, x11, "Calls")
+    Rel(androidwindow, android, "Calls")
+```
+<!-- /mermaid-diagram -->

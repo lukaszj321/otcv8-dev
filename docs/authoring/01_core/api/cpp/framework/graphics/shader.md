@@ -61,4 +61,32 @@ Plik nagłówkowy C++ zawierający definicje dla modułu shader.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/shader.mmd](../diagrams/shader.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    Shader["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Shader</div><hr/>
+            <b>Compilation:</b><br/>
+            + compileSourceCode(sourceCode)<br/>
+            + compileSourceFile(sourceFile)<br/>
+            <b>Information:</b><br/>
+            + log()<br/>
+            + getShaderId()<br/>
+            + getShaderType()<br/>
+            <b>Types:</b><br/>
+            - Vertex<br/>
+            - Fragment
+        </div>
+    "]:::core;
+    
+    ShaderProgram["ShaderProgram"]:::core
+    
+    Shader --> |"used by"| ShaderProgram
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

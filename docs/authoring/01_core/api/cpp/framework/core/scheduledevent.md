@@ -68,4 +68,80 @@ Plik nagłówkowy C++ zawierający definicje dla modułu scheduledevent.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/scheduledevent.mmd](../diagrams/scheduledevent.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef event fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    ScheduledEvent["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>ScheduledEvent</div><hr/>
+            <b>Execution:</b><br/>
+            + execute()<br/>
+            + nextCycle()<br/>
+            <b>Time Access:</b><br/>
+            + ticks()<br/>
+            + remainingTicks()<br/>
+            + delay()<br/>
+            <b>Cycle Info:</b><br/>
+            + cyclesExecuted()<br/>
+            + maxCycles()
+        </div>
+    "]:::event;
+    
+    Event["Event<br/><i>base class</i>"]:::event
+    EventDispatcher["EventDispatcher"]:::core
+    
+    ScheduledEvent --> |"extends"| Event
+    EventDispatcher --> |"manages"| ScheduledEvent
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef event fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Scheduled Event Lifecycle (Advanced Sequence)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+sequenceDiagram
+    participant Dispatcher
+    participant ScheduledEvent
+    participant Clock
+    participant Callback
+    
+    Note over Dispatcher,Callback: Event Scheduling
+    Dispatcher->>ScheduledEvent: scheduleEventEx(callback, delay)
+    ScheduledEvent->>Clock: Get current ticks
+    Clock-->>ScheduledEvent: currentTicks
+    ScheduledEvent->>ScheduledEvent: Calculate execution ticks
+    
+    Note over Dispatcher,Callback: Event Execution Loop
+    loop Until maxCycles or cancelled
+        Dispatcher->>Clock: Get current ticks
+        Clock-->>Dispatcher: currentTicks
+        alt Remaining ticks <= 0
+            Dispatcher->>ScheduledEvent: execute()
+            ScheduledEvent->>Callback: Execute callback
+            Callback-->>ScheduledEvent: Return
+            ScheduledEvent->>ScheduledEvent: nextCycle()
+            alt Has more cycles
+                ScheduledEvent->>ScheduledEvent: Schedule next cycle
+                ScheduledEvent-->>Dispatcher: Continue
+            else Max cycles reached
+                ScheduledEvent-->>Dispatcher: Complete
+            end
+        else Not yet time
+            ScheduledEvent-->>Dispatcher: Wait
+        end
+    end
+    
+    opt Event cancelled
+        Dispatcher->>ScheduledEvent: cancel()
+        ScheduledEvent->>ScheduledEvent: Mark as cancelled
+    end
+```
+<!-- /mermaid-diagram -->

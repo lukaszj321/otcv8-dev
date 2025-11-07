@@ -57,4 +57,35 @@ Plik nagłówkowy C++ zawierający definicje dla modułu eventdispatcher.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/eventdispatcher.mmd](../diagrams/eventdispatcher.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef event fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    EventDispatcher["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>EventDispatcher</div><hr/>
+            <b>Event Management:</b><br/>
+            + addEventEx(function, callback)<br/>
+            + scheduleEventEx(function, callback, delay)<br/>
+            + cycleEventEx(function, callback, delay)<br/>
+            <b>Control:</b><br/>
+            + poll()<br/>
+            + shutdown()<br/>
+            <b>State:</b><br/>
+            + isBotSafe()
+        </div>
+    "]:::core;
+    
+    Event["Event"]:::event
+    ScheduledEvent["ScheduledEvent"]:::event
+    
+    EventDispatcher --> |"creates"| Event
+    EventDispatcher --> |"creates"| ScheduledEvent
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef event fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

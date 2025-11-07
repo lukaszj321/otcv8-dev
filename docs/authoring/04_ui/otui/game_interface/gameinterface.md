@@ -73,4 +73,48 @@ Plik OTUI definiujący interfejs użytkownika dla gameinterface.
 
 ## Hierarchy Diagram
 
-Zobacz: [../diagrams/gameinterface.mmd](..\diagrams\gameinterface.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UIMiniWindowContainer["UIMiniWindowContainer<br/><i>base class</i>"]:::core
+    UIGameMap["UIGameMap<br/><i>base class</i>"]:::core
+    UIButton["UIButton<br/><i>base class</i>"]:::core
+    
+    GameSidePanel["GameSidePanel<br/>image-source=/images/ui/panel_side<br/>image-border=4<br/>padding=0"]:::ui
+    GameMapPanel["GameMapPanel<br/>image-source=/images/ui/panel_map<br/>image-border=4"]:::ui
+    GameTopBar["gameTopBar<br/>GameAction<br/>size=48 48<br/>visible=false"]:::ui
+    
+    UIMiniWindowContainer --> |"extends"| GameSidePanel
+    UIGameMap --> |"extends"| GameMapPanel
+    UIButton --> |"extends"| GameTopBar
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: Game Interface Layout
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+flowchart LR
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    
+    subgraph "Game Interface Layout"
+        direction TB
+        TopBar["gameTopBar<br/>Top Action Bar<br/>visible=false"]:::ui
+        MapPanel["GameMapPanel<br/>Main Game View<br/>image-border=4"]:::ui
+        SidePanel["GameSidePanel<br/>Side Panel<br/>width=200<br/>padding=0"]:::ui
+    end
+    
+    TopBar --> MapPanel
+    MapPanel --> SidePanel
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+```
+<!-- /mermaid-diagram -->

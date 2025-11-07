@@ -92,4 +92,116 @@ Plik nagłówkowy C++ zawierający definicje dla modułu http.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/http.mmd](../diagrams/http.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    
+    Http["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Http</div><hr/>
+            <b>Lifecycle:</b><br/>
+            + init()<br/>
+            + terminate()<br/>
+            <b>HTTP Methods:</b><br/>
+            + get(url, timeout)<br/>
+            + post(url, data, timeout, isJson)<br/>
+            <b>Download:</b><br/>
+            + download(url, path, timeout)<br/>
+            <b>WebSocket:</b><br/>
+            + ws(url, timeout)<br/>
+            + wsSend(operationId, message)<br/>
+            + wsClose(operationId)<br/>
+            <b>Control:</b><br/>
+            + cancel(id)<br/>
+            + setUserAgent(userAgent)
+        </div>
+    "]:::netsec;
+    
+    WebsocketSession["WebsocketSession"]:::netsec
+    HttpResult["HttpResult"]:::core
+    
+    Http --> |"manages"| WebsocketSession
+    Http --> |"creates"| HttpResult
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+```
+<!-- /mermaid-diagram -->
+
+## Diagram: HTTP Request Flow (Advanced Sequence)
+
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+sequenceDiagram
+    participant App
+    participant Http
+    participant Session
+    participant Server
+    participant Callback
+    
+    Note over App,Callback: HTTP GET Request
+    App->>Http: get(url, timeout)
+    Http->>Session: Create session
+    Session->>Server: HTTP GET request
+    alt Request succeeds
+        Server-->>Session: HTTP 200 OK + data
+        Session->>Session: Parse response
+        Session->>Callback: onSuccess(result)
+        Callback-->>App: HttpResult
+    else Request timeout
+        Session->>Session: Timeout occurred
+        Session->>Callback: onError(timeout)
+        Callback-->>App: Error result
+    else Request failed
+        Session->>Session: Connection error
+        Session->>Callback: onError(error)
+        Callback-->>App: Error result
+    end
+    
+    Note over App,Callback: HTTP POST Request
+    App->>Http: post(url, data, timeout, isJson)
+    Http->>Session: Create session
+    opt JSON data
+        Session->>Session: Set Content-Type: application/json
+    end
+    Session->>Server: HTTP POST request + data
+    Server-->>Session: HTTP response
+    Session->>Callback: onComplete(result)
+    Callback-->>App: HttpResult
+    
+    Note over App,Callback: WebSocket Connection
+    App->>Http: ws(url, timeout)
+    Http->>Session: Create WebSocket session
+    Session->>Server: WebSocket handshake
+    alt Handshake succeeds
+        Server-->>Session: WebSocket accepted
+        Session->>Session: Upgrade to WebSocket
+        Session-->>App: operationId
+        par WebSocket communication
+            loop While connected
+                App->>Session: wsSend(operationId, message)
+                Session->>Server: Send message
+                Server-->>Session: Receive message
+                Session->>Callback: onMessage(message)
+            end
+        and Server messages
+            loop While connected
+                Server->>Session: Send message
+                Session->>Callback: onMessage(message)
+            end
+        end
+        opt Close connection
+            App->>Session: wsClose(operationId)
+            Session->>Server: Close frame
+            Server-->>Session: Close acknowledgment
+        end
+    else Handshake failed
+        Session->>Callback: onError(handshake failed)
+        Callback-->>App: Error
+    end
+```
+<!-- /mermaid-diagram -->

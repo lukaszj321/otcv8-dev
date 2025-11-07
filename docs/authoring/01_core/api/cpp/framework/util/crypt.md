@@ -155,4 +155,39 @@ Plik nagłówkowy C++ zawierający definicje dla modułu crypt.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/crypt.mmd](../diagrams/crypt.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+    
+    Crypt["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Crypt</div><hr/>
+            <b>Encoding:</b><br/>
+            + base64Encode/Decode()<br/>
+            <b>Hashing:</b><br/>
+            + md5Encode()<br/>
+            + sha1Encode()<br/>
+            + sha256Encode()<br/>
+            + sha512Encode()<br/>
+            + crc32()<br/>
+            <b>Encryption:</b><br/>
+            + encrypt/decrypt()<br/>
+            + xorCrypt()<br/>
+            + bencrypt/bdecrypt()<br/>
+            <b>RSA:</b><br/>
+            + rsaGenerateKey()<br/>
+            + rsaSetPublicKey/PrivateKey()<br/>
+            + rsaEncrypt/Decrypt()<br/>
+            <b>UUID:</b><br/>
+            + genUUID()<br/>
+            + getMachineUUID()
+        </div>
+    "]:::netsec;
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef netsec fill:#c0392b,stroke:#fff,color:#fff;
+```
+<!-- /mermaid-diagram -->

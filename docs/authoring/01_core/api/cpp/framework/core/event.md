@@ -53,4 +53,39 @@ Plik nagłówkowy C++ zawierający definicje dla modułu event.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/event.mmd](../diagrams/event.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef event fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    Event["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>Event</div><hr/>
+            <i>&lt;&lt;base class&gt;&gt;</i><br/>
+            <b>Execution:</b><br/>
+            + execute()*<br/>
+            <b>Control:</b><br/>
+            + cancel()<br/>
+            <b>State:</b><br/>
+            + isCanceled()<br/>
+            + isExecuted()<br/>
+            + isBotSafe()<br/>
+            <b>Data:</b><br/>
+            - m_function<br/>
+            - m_callback<br/>
+            - m_canceled<br/>
+            - m_executed<br/>
+            - m_botSafe
+        </div>
+    "]:::event;
+    
+    ScheduledEvent["ScheduledEvent<br/><i>extends Event</i>"]:::event
+    
+    Event --> |"base class"| ScheduledEvent
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef event fill:#2a3a2f,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

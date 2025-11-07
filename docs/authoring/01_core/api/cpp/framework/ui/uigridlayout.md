@@ -113,4 +113,43 @@ Plik nagłówkowy C++ zawierający definicje dla modułu uigridlayout.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/uigridlayout.mmd](../diagrams/uigridlayout.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    
+    UIGridLayout["
+        <div style='text-align:left; padding:5px;'>
+            <div style='font-size:16px; font-weight:bold;'>UIGridLayout</div><hr/>
+            <b>Widget Management:</b><br/>
+            + addWidget(widget)<br/>
+            + removeWidget(widget)<br/>
+            <b>Cell Configuration:</b><br/>
+            + setCellSize(size)<br/>
+            + setCellWidth(width)<br/>
+            + setCellHeight(height)<br/>
+            + setCellSpacing(spacing)<br/>
+            <b>Grid Configuration:</b><br/>
+            + setNumColumns(columns)<br/>
+            + setNumLines(lines)<br/>
+            + setAutoSpacing(enable)<br/>
+            + setFitChildren(enable)<br/>
+            + setFlow(enable)<br/>
+            <b>Access:</b><br/>
+            + getCellSize()<br/>
+            + getCellSpacing()<br/>
+            + getNumColumns()<br/>
+            + getNumLines()
+        </div>
+    "]:::ui;
+    
+    UILayout["UILayout<br/><i>base class</i>"]:::core
+    
+    UIGridLayout --> |"extends"| UILayout
+    
+    classDef ui fill:#22303a,stroke:#6a8b92,color:#ddd,stroke-dasharray:4 2;
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+```
+<!-- /mermaid-diagram -->

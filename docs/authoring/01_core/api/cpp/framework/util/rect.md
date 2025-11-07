@@ -759,4 +759,27 @@ Plik nagłówkowy C++ zawierający definicje dla modułu rect.
 
 ## Class Diagram
 
-Zobacz: [../diagrams/rect.mmd](../diagrams/rect.mmd)
+<!-- mermaid-diagram: generated-by=diagram-agent v1; source_sha=3ead5ec; generated_at=2025-01-27T00:00:00Z -->
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryTextColor': '#ddd', 'lineColor': '#9aa0a6'}, 'securityLevel': 'loose'}}%%
+graph TD
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+    
+    TRect["TRect&lt;T&gt;<br/><i>template class</i>"]:::core
+    TPoint["TPoint&lt;T&gt;"]:::core
+    TSize["TSize&lt;T&gt;"]:::core
+    Rect["Rect<br/>TRect&lt;int&gt;"]:::core
+    RectF["RectF<br/>TRect&lt;float&gt;"]:::core
+    
+    TRect --> |"uses"| TPoint
+    TRect --> |"uses"| TSize
+    TRect --> |"typedef"| Rect
+    TRect --> |"typedef"| RectF
+    
+    TRect --> |"contains"| Coords["Coordinates<br/>x1, y1, x2, y2"]:::data
+    
+    classDef core fill:#2b2f33,stroke:#9aa0a6,color:#ddd,stroke-width:1px;
+    classDef data fill:#2b2f36,stroke:#7b9aa0,color:#ddd;
+```
+<!-- /mermaid-diagram -->
