@@ -146,6 +146,13 @@ jobs:
             fi
           done
 
+      - name: Check generated Mermaid for truncation
+        if: ${{ steps.files.outputs.has_docs == 'true' }}
+        run: |
+          python3 docs/scripts/diagram-tools/check_truncation.py docs --report /tmp/check_truncation_report.json
+          echo "Truncation report:"
+          cat /tmp/check_truncation_report.json || true
+
       - name: Upload reports (always)
         if: always()
         uses: actions/upload-artifact@v4
@@ -153,4 +160,5 @@ jobs:
           name: mermaid-validate-reports
           path: |
             /tmp/diagram_links_report.json
+            /tmp/check_truncation_report.json
             /tmp/*.svg
