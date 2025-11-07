@@ -15,9 +15,14 @@ C4Context
     %% --- Styling using supported commands ---
     %% Note: C4 diagrams do not support `init` or `classDef`. We use UpdateElementStyle.
     %% Colors are taken from our 02_VISUAL_GUIDELINES.md for consistency.
-    
-    UpdateElementStyle(player, $bgColor="#7f8c8d", $fontColor="#fff")         %% Platform color for external actor
-    UpdateElementStyle(otclient, $bgColor="#3498db", $fontColor="#fff")       %% Core color for our main system
-    UpdateElementStyle(otserver, $bgColor="#c0392b", $fontColor="#fff")       %% Netsec color for game server
-    UpdateElementStyle(contentCdn, $bgColor="#2ecc71", $fontColor="#000")     %% Subsystem color for assets
-    UpdateElementStyle(crashSvc, $bgColor="#e67e22", $fontColor="#fff")       %% Game Logic color for crash service
+
+    %% Platform color for external actor
+    UpdateElementStyle(player, $bgColor="#7f8c8d", $fontColor="#fff")
+    %% Core color for our main system
+    UpdateElementStyle(otclient, $bgColor="#3498db", $fontColor="#fff")
+    %% Netsec color for game server
+    UpdateElementStyle(otserver, $bgColor="#c0392b", $fontColor="#fff")
+    %% Subsystem color for assets
+    UpdateElementStyle(contentCdn, $bgColor="#2ecc71", $fontColor="#000")
+    %% Game Logic color for crash service
+    UpdateElementStyle(crashSvc, $bgColor="#e67e22", $fontColor="#fff")
