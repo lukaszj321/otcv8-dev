@@ -1,31 +1,53 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
 graph TD
-    subgraph Initialization["Initialization Phase"]
-        A["Start Application"] --> B["Initialize Core Systems"]
-        B --> C["Load Configuration"]
-        C --> D["Initialize Window & Graphics"]
-        D --> E["Load Resources"]
-        E --> F["Load Modules"]
+    %% Architectural Layer Colors
+    classDef core fill:#3498db,stroke:#fff,color:#fff
+    classDef subsystem fill:#2ecc71,stroke:#333,color:#000
+    classDef game fill:#e67e22,stroke:#fff,color:#fff
+    
+    subgraph Initialization["fa:fa-power-off 1. Initialization Phase"]
+        direction LR
+        A["fa:fa-cogs Start<br/>Application"]:::core
+        B["fa:fa-cogs Initialize<br/>Core Systems"]:::core
+        C["fa:fa-file-alt Load<br/>Configuration"]:::core
+        D["fa:fa-desktop Initialize<br/>Window &amp; Graphics"]:::core
+        E["fa:fa-folder-open Load<br/>Resources"]:::subsystem
+        F["fa:fa-puzzle-piece Load<br/>Modules"]:::game
+        
+        A -- "Bootstrap" --> B
+        B -- "Read settings" --> C
+        C -- "Create context" --> D
+        D -- "Load assets" --> E
+        E -- "Discover & init" --> F
     end
 
-    subgraph MainLoop["Main Loop"]
+    subgraph MainLoop["fa:fa-sync-alt 2. Main Loop"]
         direction TB
-        G["Enter Main Loop"] --> H{Event Polling}
-        H --> I[Update Logic]
-        I --> J[Render Frame]
-        J --> G
+        G["fa:fa-cogs Enter<br/>Main Loop"]:::core
+        H{"fa:fa-bolt Event<br/>Polling?"}:::core
+        I["fa:fa-calculator Update<br/>Logic"]:::game
+        J["fa:fa-paint-brush Render<br/>Frame"]:::core
+        
+        G -- "Poll OS events" --> H
+        H -- "Process inputs" --> I
+        I -- "Draw scene" --> J
+        J -- "Next iteration" --> G
     end
 
-    subgraph Shutdown["Shutdown Phase"]
-        K["Shutdown Signal"] --> L["Terminate"]
+    subgraph Shutdown["fa:fa-sign-out-alt 3. Shutdown Phase"]
+        direction LR
+        K["fa:fa-exclamation-triangle Shutdown<br/>Signal"]:::core
+        L["fa:fa-stop Cleanup<br/>Resources"]:::subsystem
+        M["fa:fa-power-off Terminate"]:::core
+        
+        K -- "Graceful exit" --> L
+        L -- "Final cleanup" --> M
     end
 
-    F --> G
-    G -.Exit.-> K
+    F -- "Ready to run" --> G
+    G -.->|"Exit condition met"| K
 
-    style G fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style H fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style I fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style J fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style A fill:#2d5016,stroke:#4a7f2a
-    style K fill:#3d1f1f,stroke:#6b3535
+    linkStyle 0,1,2,3,4,5 stroke:#3498db,stroke-width:2px
+    linkStyle 6,7,8,9 stroke:#e67e22,stroke-width:2px
+    linkStyle 10,11 stroke:#c0392b,stroke-width:2px
+    linkStyle 12,13 stroke:#9aa0a6,stroke-width:1px,stroke-dasharray:3

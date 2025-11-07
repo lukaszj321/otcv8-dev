@@ -1,26 +1,46 @@
 %%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'},'securityLevel':'loose'}}%%
-graph TD
-    subgraph Creation["Color Creation"]
-        A["RGBA Values<br/>(255, 0, 0, 255)"] --> B[Color Object]
-        C["HEX String<br/>('#FF0000')"] --> B
-        D["8-bit Color<br/>(216)"] --> B
+graph LR
+    %% Architectural Layer Colors (Core Engine = Data Structure)
+    classDef core fill:#3498db,stroke:#fff,color:#fff
+    classDef subsystem fill:#2ecc71,stroke:#fff,color:#fff
+    
+    subgraph Input["fa:fa-database Input Sources"]
+        A["fa:fa-hashtag RGBA Values<br/>(255, 0, 0, 255)"]:::core
+        C["fa:fa-code HEX String<br/>#FF0000"]:::core
+        D["fa:fa-palette 8-bit Color<br/>Index 216"]:::core
     end
 
-    subgraph Operations["Color Operations"]
-        B --> E["Get RGBA<br/>Components"]
-        B --> F["Convert to HEX"]
-        B --> G["Adjust Opacity"]
-        B --> H["Mix Colors<br/>(Blending)"]
-        H --> I[New Color]
+    subgraph Transform["fa:fa-cogs Color Transformation Pipeline"]
+        direction TB
+        B["fa:fa-database Color Object<br/>(r,g,b,a)"]:::core
+        E["fa:fa-arrows-alt Get RGBA<br/>Components"]:::core
+        F["fa:fa-exchange-alt Convert<br/>to HEX"]:::core
+        G["fa:fa-adjust Adjust<br/>Opacity"]:::core
+        H["fa:fa-random Mix Colors<br/>(Blend Mode)"]:::core
+        I["fa:fa-database New Color<br/>Result"]:::core
+        
+        B --> E
+        B --> F
+        B --> G
+        B --> H
+        H --> I
     end
 
-    subgraph Usage["Usage in Rendering"]
-        B --> J["Painter.setColor()"]
-        J --> K["Draw Operations"]
-        K --> L["Rendered Object<br/>on Screen"]
+    subgraph Output["fa:fa-paint-brush Rendering Output"]
+        J["fa:fa-paint-brush Painter<br/>setColor()"]:::subsystem
+        K["fa:fa-pencil-square-o Draw<br/>Operations"]:::subsystem
+        L["fa:fa-desktop Rendered<br/>on Screen"]:::subsystem
     end
 
-    style B fill:#c0392b,stroke:#fff,stroke-width:2px
-    style I fill:#c0392b,stroke:#fff,stroke-width:2px
-    style J fill:#2a7f9c,stroke:#fff,stroke-width:2px
-    style L fill:#27ae60,stroke:#fff,stroke-width:2px
+    A -- "Parse RGBA" --> B
+    C -- "Parse HEX" --> B
+    D -- "Lookup palette" --> B
+    
+    B -- "Apply to painter" --> J
+    I -- "Apply result" --> J
+    J -- "Execute commands" --> K
+    K -- "Display pixels" --> L
+
+    linkStyle 0,1,2 stroke:#3498db,stroke-width:2px
+    linkStyle 3,4 stroke:#e67e22,stroke-width:2px
+    linkStyle 5,6,7 stroke:#2ecc71,stroke-width:2px
