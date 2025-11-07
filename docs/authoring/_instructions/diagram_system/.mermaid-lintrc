@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "no-duplicate-node-ids": true,
+    "max-label-lines": 3,
+    "max-label-length": 120,
+    "require-fallback-for-click": true,
+    "no-empty-subgraph": true,
+    "disallow-manual-style-overrides": false
+  },
+  "ignore": {
+    "files": []
+  }
+}
