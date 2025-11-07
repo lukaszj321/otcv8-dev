@@ -390,7 +390,7 @@ end
 - [Protocol Versions](./protocol_versions.md)
 - [Packet Structure](./packet_structure.md)
 - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
-- [Bot Integration](../03_modules/bot_integration.md)
+- <!-- [  Bot Integration](../03_modules/bot_integration.md) (link broken - needs target file) -->
 
 ## Diagram: bot_integration
 

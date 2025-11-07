@@ -1,0 +1,13 @@
+%%{init: {'theme':'dark','themeVariables': {'primaryTextColor':'#ddd','lineColor':'#9aa0a6'}, 'securityLevel':'loose'}}%%
+sequenceDiagram
+    participant User
+    participant Client
+    participant System
+    participant Server
+    
+    User->>Client: Initiate
+    Client->>System: Process
+    System->>Server: Request
+    Server-->>System: Response
+    System-->>Client: Update
+    Client-->>User: Display

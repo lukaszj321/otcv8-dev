@@ -371,8 +371,8 @@ Font
 
 ## See Also
 
-- [Override Resolution](./override_resolution.md)
-- [Image Properties](./image_properties.md)
+- <!-- [  Override Resolution](./override_resolution.md) (link broken - needs target file) -->
+- <!-- [  Image Properties](./image_properties.md) (link broken - needs target file) -->
 - [OTUI Reference](../04_ui/index.md)
 - [Asset Management](../11_data/index.md)
 
