@@ -41,8 +41,8 @@ Uwaga: pliki zostały umieszczone w następujących ścieżkach w repo. README i
   - `docs/authoring/_instructions/diagram_system/.mermaid-lintrc`
 
 - Skrypty narzędzi (validator i normalizer):
-  - `docs/scripts/diagram-tools/validate_diagram_links.py`
-  - `docs/scripts/diagram-tools/node_id_normalizer.py`
+  - `scripts/diagram-tools/validate_diagram_links.py`
+  - `scripts/diagram-tools/node_id_normalizer.py`
 
 Jeżeli używasz lokalnych instrukcji lub generatorów, upewnij się, że odniesienia w generatorze wskazują dokładnie te ścieżki (z prefiksem `docs/`).
 
@@ -84,7 +84,7 @@ Zalecenie: dodać do CI krok uruchamiający mermaid-lint nad repozytorium diagra
 ## 5. Sprawdzanie linków `click` — validate_diagram_links.py
 
 Skrypt:
-- `docs/scripts/diagram-tools/validate_diagram_links.py`
+- `scripts/diagram-tools/validate_diagram_links.py`
 
 Co robi:
 - Przeszukuje pliki `.md` (domyślnie katalog `docs/`) i wyciąga wystąpienia `click NodeID "path" "tooltip"`.
@@ -95,7 +95,7 @@ Co robi:
 Przykładowe użycie:
 ```bash
 # z repo root
-python3 docs/scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json
+python3 scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json
 ```
 
 Interpretacja exit code:
@@ -110,7 +110,7 @@ W CI: uruchom ten skrypt i wykorzystaj raport do generowania komentarzy/ostrzeż
 ## 6. Normalizacja node-id — node_id_normalizer.py
 
 Skrypt:
-- `docs/scripts/diagram-tools/node_id_normalizer.py`
+- `scripts/diagram-tools/node_id_normalizer.py`
 
 Co robi:
 - Normalizuje etykietę do bezpiecznego node-id: lowercase, spaces → underscore, usuwa niedozwolone znaki.
@@ -119,10 +119,10 @@ Co robi:
 Przykłady:
 ```bash
 # jednorazowo - zgeneruje normalized id dla etykiety
-python3 docs/scripts/diagram-tools/node_id_normalizer.py "Game Engine v2"
+python3 scripts/diagram-tools/node_id_normalizer.py "Game Engine v2"
 
 # skanuje katalog i zapisuje mapę
-python3 docs/scripts/diagram-tools/node_id_normalizer.py --dir docs/authoring --report /tmp/node_id_map.json
+python3 scripts/diagram-tools/node_id_normalizer.py --dir docs/authoring --report /tmp/node_id_map.json
 ```
 
 Generatorzy i skrypty aktualizujące diagramy powinni stosować tę normalizację lub identyczny algorytm, żeby zapewnić zgodność z regex `^[a-z0-9_:-]+$`.
@@ -155,7 +155,7 @@ jobs:
         run: npx mermaid-lint "docs/authoring/**/*.mmd" || true
       - name: Validate click targets
         run: |
-          python3 docs/scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json || exit $?
+          python3 scripts/diagram-tools/validate_diagram_links.py docs --report /tmp/diagram_links_report.json || exit $?
       - name: Render .mmd (smoke test)
         run: |
           find docs -name '*.mmd' -type f | while read f; do
@@ -172,7 +172,7 @@ jobs:
 - [ ] Automatycznie wygenerowane diagramy mają idempotency marker.
 - [ ] Frontmatter jest zgodny ze schematem: `docs/authoring/_instructions/diagram_system/frontmatter.schema.json`.
 - [ ] Uruchomiono mermaid-lint z regułami z `.mermaid-lintrc` i naprawiono krytyczne błędy.
-- [ ] Uruchomiono `python3 docs/scripts/diagram-tools/validate_diagram_links.py` i poprawiono/zgłoszono znalezione braki.
+- [ ] Uruchomiono `python3 scripts/diagram-tools/validate_diagram_links.py` i poprawiono/zgłoszono znalezione braki.
 - [ ] Node-id zostały znormalizowane (dołącz mapę zmian, jeśli generator rolował je automatycznie).
 - [ ] Wszystkie `click` mają dodatkowy fallback (lista "Powiązane dokumenty" pod diagramem).
 - [ ] Krótki opis (1–2 zdania) jest dodany pod diagramem (accessibility).
@@ -193,7 +193,7 @@ jobs:
 ---
 
 ## 10. Dalsze uwagi
-- Pliki narzędziowe znajdują się w repo pod prefiksem `docs/` (tzn. `docs/scripts/...`). README/CI i generator powinny odnosić się do faktycznych ścieżek w repo — zwróć szczególną uwagę, gdy kopiujesz przykłady z zewnętrznych instrukcji.
+- Pliki narzędziowe znajdują się w repo pod prefiksem `docs/` (tzn. `scripts/...`). README/CI i generator powinny odnosić się do faktycznych ścieżek w repo — zwróć szczególną uwagę, gdy kopiujesz przykłady z zewnętrznych instrukcji.
 - Jeżeli chcesz, by generator używał innej lokalizacji (np. `scripts/diagram-tools/` bez `docs/`), dostosuj ścieżki w generatorze lub przenieś pliki skryptów zgodnie z preferencją organizacyjną.
 
 ---
