@@ -285,7 +285,7 @@ Best practices:
 
 ## See Also
 
-- <!-- [  Module Dependencies](./module_dependencies.md) (link broken - needs target file) -->
+- <!-- [ Module Dependencies](./module_dependencies.md) (link broken - needs target file) -->
 - [Sandbox Security](./sandbox_security.md)
 - [OTMOD Manifest Reference](./blueprints/otmod_template.md)
 - [Datasets: module_deps.csv](./datasets/module_deps.csv)

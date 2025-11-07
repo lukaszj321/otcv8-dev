@@ -469,7 +469,7 @@ Or add to PATH environment variable.
 - [EGL Initialization](./egl_initialization.md)
 - [DLL Deployment Checklist](./dll_deployment.md)
 - [VC16 Build Configuration](../15_vc16/index.md)
-- <!-- [  Graphics Core](../01_core/graphics.md) (link broken - needs target file) -->
+- <!-- [ Graphics Core](../01_core/graphics.md) (link broken - needs target file) -->
 
 ## Diagram: graphics
 

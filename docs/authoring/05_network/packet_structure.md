@@ -423,7 +423,7 @@ tcp_table:add(7171, otclient_proto)
 
 - [Protocol Versions](./protocol_versions.md)
 - [Extended Opcodes](./extended_opcodes.md)
-- <!-- [  Network Classes](../01_core/network.md) (link broken - needs target file) -->
+- <!-- [ Network Classes](../01_core/network.md) (link broken - needs target file) -->
 - [TFS Extended Opcode Patch](./appendix_tfs_extendedopcode.md)
 
 ## Diagram: network

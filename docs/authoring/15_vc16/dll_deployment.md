@@ -412,4 +412,4 @@ int main() {
 - [ANGLE Integration Guide](./angle_integration.md)
 - [EGL Initialization](./egl_initialization.md)
 - [VC16 Build Configuration](./index.md)
-- <!-- [  Deployment Guide](../14_android/deployment.md) (link broken - needs target file) -->
+- <!-- [ Deployment Guide](../14_android/deployment.md) (link broken - needs target file) -->

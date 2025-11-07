@@ -390,9 +390,9 @@ This will enable:
 ## See Also
 
 - [Load-Later Patterns](./load_later_patterns.md)
-- <!-- [  Module Dependencies](./module_dependencies.md) (link broken - needs target file) -->
+- <!-- [ Module Dependencies](./module_dependencies.md) (link broken - needs target file) -->
 - [Lua API Reference](../03_modules/index.md)
-- <!-- [  Security Best Practices](../01_core/security.md) (link broken - needs target file) -->
+- <!-- [ Security Best Practices](../01_core/security.md) (link broken - needs target file) -->
 
 ## Diagram: module_dependencies
 
