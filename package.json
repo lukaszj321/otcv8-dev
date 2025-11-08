@@ -5,7 +5,7 @@
   "devDependencies": {
     "tree-sitter": "^0.20.0",
     "tree-sitter-cpp": "^0.20.0",
-    "tree-sitter-lua": "^0.20.0"
+    "tree-sitter-lua": "^0.19.0"
   },
   "scripts": {
     "install:parsers": "npm install --no-audit --no-fund tree-sitter tree-sitter-cpp tree-sitter-lua"
