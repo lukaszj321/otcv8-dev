@@ -37,10 +37,8 @@ jobs:
           printf -- "LIBCLANG_VERSION=%s\n" "${LIBCLANG_VERSION}"
           sudo apt-get update -y
           sudo apt-get install -y wget gnupg lsb-release ca-certificates || true
-
           CODENAME="$(lsb_release -cs || echo unknown)"
           printf -- "Detected distro codename: %s\n" "$CODENAME"
-
           if curl -sfI "https://apt.llvm.org/dists/${CODENAME}/" >/dev/null 2>&1; then
             printf -- "apt.llvm.org supports %s; using llvm.sh installer for %s\n" "$CODENAME" "${LIBCLANG_VERSION}"
             curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "${LIBCLANG_VERSION}" || true
@@ -52,7 +50,7 @@ jobs:
             sudo apt-get update -y || true
           fi
 
-      - name: Install system dependencies (including Boost, libzip, zlib, OpenGL, PhysFS)
+      - name: Install system dependencies (dev packages + debug)
         run: |
           set -euo pipefail
           sudo apt-get update -y
@@ -63,25 +61,36 @@ jobs:
             libboost-dev libboost-system-dev libboost-filesystem-dev \
             libzip-dev zlib1g-dev libbz2-dev \
             libluajit-5.1-dev libphysfs-dev \
-            libgl1-mesa-dev libglu1-mesa-dev libx11-dev || true
+            libgl1-mesa-dev libglu1-mesa-dev libx11-dev \
+            libglew-dev || true
 
-          echo "=== installed packages (grep relevant) ==="
-          dpkg -l | grep -E "libzip|zlib1g|libbz2|libphysfs|mesa|libgl1|libglu" || true
+          echo "=== dpkg -l | grep relevant libs ==="
+          dpkg -l | grep -E "libzip|zlib1g|libbz2|libphysfs|mesa|libgl1|libglu|glew" || true
 
-          echo "=== find likely libs/headers ==="
-          find /usr -name "libzip*.so*" -print || true
-          find /usr -name "libz*.so*" -print || true
-          find /usr -name "libphysfs*.so*" -print || true
-          find /usr -name "libGL*.so*" -print || true
-          find /usr -name "zip.h" -print || true
-          find /usr -name "zlib.h" -print || true
-          find /usr -name "physfs.h" -print || true
-          find /usr -name "GL/gl.h" -print || true
+          echo "=== apt-cache policies ==="
+          apt-cache policy libzip-dev libzip4 libphysfs-dev zlib1g-dev libglew-dev || true
+
+          echo "=== dpkg -L libzip-dev (first 200 lines) ==="
+          dpkg -L libzip-dev | sed -n '1,200p' || true
+
+          echo "=== dpkg -L libphysfs-dev (first 200 lines) ==="
+          dpkg -L libphysfs-dev | sed -n '1,200p' || true
+
+          echo "=== find libs and headers under /usr (first matches) ==="
+          find /usr -name "libzip*.so*" -print | head -n 5 || true
+          find /usr -name "libz*.so*" -print | head -n 5 || true
+          find /usr -name "libphysfs*.so*" -print | head -n 5 || true
+          find /usr -name "libGLEW*.so*" -print | head -n 5 || true
+          find /usr -name "zip.h" -print | head -n 5 || true
+          find /usr -name "zlib.h" -print | head -n 5 || true
+          find /usr -name "physfs.h" -print | head -n 5 || true
+          find /usr -name "GL/gl.h" -print | head -n 5 || true
 
           echo "=== pkg-config checks ==="
           pkg-config --exists libzip && pkg-config --cflags --libs libzip || echo "pkg-config libzip not available"
           pkg-config --exists zlib && pkg-config --cflags --libs zlib || echo "pkg-config zlib not available"
-          pkg-config --exists gl && pkg-config --cflags --libs gl || echo "pkg-config gl not available"
+          pkg-config --exists physfs && pkg-config --cflags --libs physfs || echo "pkg-config physfs not available"
+          pkg-config --exists glew && pkg-config --cflags --libs glew || echo "pkg-config glew not available"
 
       - name: Create Python venv & install deps
         run: |
@@ -94,10 +103,60 @@ jobs:
         env:
           NPM_CONFIG_LEGACY_PEER_DEPS: ${{ env.NPM_CONFIG_LEGACY_PEER_DEPS }}
         run: |
-          # Try strict install, then legacy-peer-deps, then fallback --force to handle peer/version issues
           npm ci --no-audit --no-fund || \
           npm install --legacy-peer-deps --no-audit --no-fund || \
           npm install --legacy-peer-deps --force --no-audit --no-fund || true
+
+      - name: Try to generate compile_commands.json with explicit library paths (fallback)
+        run: |
+          set -euo pipefail || true
+          # find first candidate paths (empty if not present)
+          LIBZIP_SO="$(find /usr -name 'libzip.so*' 2>/dev/null | head -n1 || true)"
+          LIBZIP_INC="$(find /usr -name 'zip.h' 2>/dev/null | head -n1 || true)"
+          if [ -n "$LIBZIP_INC" ]; then LIBZIP_INC="$(dirname "$LIBZIP_INC")"; fi
+          ZLIB_SO="$(find /usr -name 'libz.so*' 2>/dev/null | head -n1 || true)"
+          ZLIB_INC="$(find /usr -name 'zlib.h' 2>/dev/null | head -n1 || true)"
+          if [ -n "$ZLIB_INC" ]; then ZLIB_INC="$(dirname "$ZLIB_INC")"; fi
+          PHYSFS_SO="$(find /usr -name 'libphysfs*.so*' 2>/dev/null | head -n1 || true)"
+          PHYSFS_INC="$(find /usr -name 'physfs.h' 2>/dev/null | head -n1 || true)"
+          if [ -n "$PHYSFS_INC" ]; then PHYSFS_INC="$(dirname "$PHYSFS_INC")"; fi
+          GLEW_SO="$(find /usr -name 'libGLEW*.so*' 2>/dev/null | head -n1 || true)"
+          GLEW_INC="$(find /usr -name 'GL/glew.h' 2>/dev/null | head -n1 || true)"
+          if [ -n "$GLEW_INC" ]; then GLEW_INC="$(dirname "$GLEW_INC")"; fi
+
+          echo "Found LIBZIP_SO: $LIBZIP_SO"
+          echo "Found LIBZIP_INC: $LIBZIP_INC"
+          echo "Found ZLIB_SO: $ZLIB_SO"
+          echo "Found ZLIB_INC: $ZLIB_INC"
+          echo "Found PHYSFS_SO: $PHYSFS_SO"
+          echo "Found PHYSFS_INC: $PHYSFS_INC"
+          echo "Found GLEW_SO: $GLEW_SO"
+          echo "Found GLEW_INC: $GLEW_INC"
+
+          # Build configure flags only for non-empty variables
+          CMAKE_FLAGS="-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+          [ -n "$LIBZIP_SO" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DLIBZIP_LIBRARY=$LIBZIP_SO"
+          [ -n "$LIBZIP_INC" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DLIBZIP_INCLUDE_DIR=$LIBZIP_INC"
+          [ -n "$ZLIB_SO" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DZLIB_LIBRARY=$ZLIB_SO"
+          [ -n "$ZLIB_INC" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DZLIB_INCLUDE_DIR=$ZLIB_INC"
+          [ -n "$PHYSFS_SO" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DPHYSFS_LIBRARY=$PHYSFS_SO"
+          [ -n "$PHYSFS_INC" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DPHYSFS_INCLUDE_DIR=$PHYSFS_INC"
+          [ -n "$GLEW_SO" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DGLEW_LIBRARY=$GLEW_SO"
+          [ -n "$GLEW_INC" ] && CMAKE_FLAGS="$CMAKE_FLAGS -DGLEW_INCLUDE_DIR=$GLEW_INC"
+
+          echo "CMAKE_FLAGS: $CMAKE_FLAGS"
+
+          # Run CMake configure in build directory
+          cmake -S . -B build $CMAKE_FLAGS || true
+
+          # If compile_commands.json produced, copy to tmp for downstream scripts
+          if [ -f build/compile_commands.json ]; then
+            mkdir -p tmp
+            cp build/compile_commands.json tmp/ || true
+            echo "Copied build/compile_commands.json -> tmp/compile_commands.json"
+          else
+            echo "No compile_commands.json generated"
+          fi
 
       - name: Make scripts executable
         run: chmod +x scripts/*.sh
