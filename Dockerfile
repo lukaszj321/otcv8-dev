@@ -1,13 +1,13 @@
+# name=Dockerfile
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  build-essential cmake git wget curl python3 python3-venv python3-pip \
-  clang llvm libclang-dev nodejs npm jq ca-certificates \
-  && rm -rf /var/lib/apt/lists/*
-# nodejs in ubuntu may be older; you can add nodesource if you need v18+
+RUN apt-get update && apt-get install -y curl ca-certificates gnupg
+# add llvm apt repo and install pinned version (example llvm-14)
+RUN curl -sSL https://apt.llvm.org/llvm.sh | bash -s -- 14
+RUN apt-get update && apt-get install -y libclang-14-dev llvm-14 nodejs npm python3 python3-venv python3-pip cmake build-essential jq
+# optional: install pip deps
+COPY requirements.txt /tmp/
+RUN python3 -m venv /opt/venv && . /opt/venv/bin/activate && pip install --upgrade pip && pip install -r /tmp/requirements.txt
+# Copy project after building image in CI usage
 WORKDIR /workspace
-COPY . /workspace
-# optional: install python clang binding in venv
-RUN python3 -m venv /opt/venv && . /opt/venv/bin/activate && pip install --upgrade pip clang
-ENV PATH="/opt/venv/bin:${PATH}"
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
