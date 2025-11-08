@@ -1,6 +1,6 @@
 # Lokalna ekstrakcja API — wymagania i szybki start
 
-Ten dokument opisuje wymagania, przygotowanie środowiska i kroki uruchomienia lokalnego pipeline'u ekstrakcji API używanego w projekcie. Zawiera instrukcje dla deweloperów (lokalnie) oraz wskazówki CI (smoke vs full runs).
+Ten dokument opisuje wymagania, przygotowanie środowiska i kroki uruchomienia lokalnego pipeline'u ekstrakcji API używanego w projekcie. Zawiera instrukcje dla deweloperów (lokalnie) oraz wskazówki CI (smoke vs full).
 
 Spis treści
 - Wymagania
