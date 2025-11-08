@@ -29,7 +29,8 @@ jobs:
 
       - name: Add LLVM apt repo (pin libclang)
         run: |
-          curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "$LIBCLANG_VERSION" || true
+          curl -sSL https://apt.llvm.org/llvm.sh -o /tmp/llvm.sh
+          sudo bash /tmp/llvm.sh "$LIBCLANG_VERSION" || true
 
       - name: Install pinned system deps
         run: |

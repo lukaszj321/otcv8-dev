@@ -6,11 +6,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   curl ca-certificates gnupg lsb-release apt-transport-https
 
 # Install Node 18 via NodeSource
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x -o /tmp/nodesource_setup.sh \
+  && bash /tmp/nodesource_setup.sh \
   && apt-get install -y nodejs
 
 # Add LLVM apt helper and install pinned LLVM/libclang (example: 14)
-RUN curl -sSL https://apt.llvm.org/llvm.sh | bash -s -- 14 \
+RUN curl -sSL https://apt.llvm.org/llvm.sh -o /tmp/llvm.sh \
+  && bash /tmp/llvm.sh 14 \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
      libclang-14-dev llvm-14 cmake python3 python3-venv python3-pip build-essential jq pkg-config
