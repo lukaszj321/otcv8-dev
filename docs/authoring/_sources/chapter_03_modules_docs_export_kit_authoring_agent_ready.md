@@ -83,6 +83,8 @@ updated: "2025-10-17"
 
 * facet: `03_modules.modules_graph`
 
+Zobacz: diagrams/modules_flow.mmd, diagrams/modules_relations.mmd
+
 ## Relacje
 
 * uses → `04_ui.ui_widgets`

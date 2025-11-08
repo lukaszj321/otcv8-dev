@@ -100,7 +100,7 @@ Punktem wyjścia są interfejsy i symbole C++ (headers/symbols), które stanowi�
 ## Diagram: flow
 
 * facet: `01_runtime.flow`
-* opis: przepływy danych pomiędzy rdzeniem, zdarzeniami i modułami.
+* opis: przepływy danych pomiędzy rdzeniem, zdarzeniami i modułami. Zobacz: diagrams/runtime_stack.mmd
 
 ## Relacje
 
