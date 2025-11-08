@@ -1,4 +1,3 @@
-url=https://github.com/lukaszj321/otcv8-dev/blob/main/.github/workflows/build-and-push-image.yml
 name: Build and push extractor image
 on:
   workflow_dispatch:
