@@ -34,21 +34,21 @@ jobs:
       - name: Add LLVM apt repo (pin libclang) with fallback to jammy
         run: |
           set -euo pipefail
-          printf "LIBCLANG_VERSION=%s\n" "${LIBCLANG_VERSION}"
+          printf -- "LIBCLANG_VERSION=%s\n" "${LIBCLANG_VERSION}"
           sudo apt-get update -y
           sudo apt-get install -y wget gnupg lsb-release ca-certificates || true
 
           CODENAME="$(lsb_release -cs || echo unknown)"
-          printf "Detected distro codename: %s\n" "$CODENAME"
+          printf -- "Detected distro codename: %s\n" "$CODENAME"
 
           if curl -sfI "https://apt.llvm.org/dists/${CODENAME}/" >/dev/null 2>&1; then
-            printf "apt.llvm.org supports %s; using llvm.sh installer for %s\n" "$CODENAME" "${LIBCLANG_VERSION}"
+            printf -- "apt.llvm.org supports %s; using llvm.sh installer for %s\n" "$CODENAME" "${LIBCLANG_VERSION}"
             curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "${LIBCLANG_VERSION}" || true
             sudo apt-get update -y || true
           else
-            printf "apt.llvm.org does NOT support %s; falling back to jammy (22.04) packages\n" "$CODENAME"
+            printf -- "apt.llvm.org does NOT support %s; falling back to jammy (22.04) packages\n" "$CODENAME"
             wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo gpg --dearmour -o /usr/share/keyrings/llvm-archive-keyring.gpg || true
-            printf "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main\n" | sudo tee /etc/apt/sources.list.d/llvm.list
+            printf -- "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main\n" | sudo tee /etc/apt/sources.list.d/llvm.list
             sudo apt-get update -y || true
           fi
 
@@ -96,22 +96,22 @@ jobs:
             NEW="$(grep -i 'New count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
             REGRESSION="$(grep -i 'REGRESSION' "$REPORT" || true)"
             {
-              printf "# Full Extract Summary\n"
-              printf "- generated_at: %s (UTC)\n" "$TIMESTAMP"
-              printf "- baseline_count: %s\n" "${BASELINE:-N/A}"
-              printf "- new_count: %s\n" "${NEW:-N/A}"
-              printf "- percent_delta: %s\n" "${PERCENT:-N/A}"
+              printf -- "# Full Extract Summary\n"
+              printf -- "- generated_at: %s (UTC)\n" "$TIMESTAMP"
+              printf -- "- baseline_count: %s\n" "${BASELINE:-N/A}"
+              printf -- "- new_count: %s\n" "${NEW:-N/A}"
+              printf -- "- percent_delta: %s\n" "${PERCENT:-N/A}"
               if [ -n "$REGRESSION" ]; then
-                printf "- conclusion: REGRESSION\n"
+                printf -- "- conclusion: REGRESSION\n"
               else
-                printf "- conclusion: OK\n"
+                printf -- "- conclusion: OK\n"
               fi
-              printf "\n"
-              printf "## Short extract of report\n"
+              printf -- "\n"
+              printf -- "## Short extract of report\n"
               sed -n '1,50p' "$REPORT"
             } > "$OUT"
           else
-            printf "No report found to summarize\n" > tmp/full-extract-summary.md
+            printf -- "No report found to summarize\n" > tmp/full-extract-summary.md
           fi
 
       - name: Upload logs (always)
