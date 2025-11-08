@@ -98,18 +98,18 @@ jobs:
             REGRESSION="$(grep -i 'REGRESSION' "$REPORT" || true)"
 
             {
-              printf "# Full Extract Summary\n"
-              printf -- "- generated_at: %s (UTC)\n" "$TIMESTAMP"
-              printf -- "- baseline_count: %s\n" "${BASELINE:-N/A}"
-              printf -- "- new_count: %s\n" "${NEW:-N/A}"
-              printf -- "- percent_delta: %s\n" "${PERCENT:-N/A}"
+              printf '%s\n' "# Full Extract Summary"
+              printf '%s\n' "- generated_at: ${TIMESTAMP} (UTC)"
+              printf '%s\n' "- baseline_count: ${BASELINE:-N/A}"
+              printf '%s\n' "- new_count: ${NEW:-N/A}"
+              printf '%s\n' "- percent_delta: ${PERCENT:-N/A}"
               if [ -n "$REGRESSION" ]; then
-                printf -- "- conclusion: REGRESSION\n"
+                printf '%s\n' "- conclusion: REGRESSION"
               else
-                printf -- "- conclusion: OK\n"
+                printf '%s\n' "- conclusion: OK"
               fi
-              printf "\n"
-              printf "## Short extract of report\n"
+              printf '\n'
+              printf '%s\n' "## Short extract of report"
               sed -n '1,50p' "$REPORT"
             } > "$OUT"
           else
