@@ -1,0 +1,82 @@
+on:
+  pull_request:
+    types: [labeled]
+
+name: Label-trigger full extract
+
+env:
+  LIBCLANG_VERSION: 14
+
+jobs:
+  run-on-label:
+    if: ${{ github.event.label.name == 'run/full-extract' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Add LLVM apt repo (pin libclang) with fallback to jammy
+        run: |
+          set -euo pipefail
+          echo "LIBCLANG_VERSION=${LIBCLANG_VERSION}"
+          sudo apt-get update -y
+          sudo apt-get install -y wget gnupg lsb-release ca-certificates || true
+
+          CODENAME="$(lsb_release -cs || echo unknown)"
+          echo "Detected distro codename: $CODENAME"
+
+          # If apt.llvm.org supports this codename, use the llvm.sh installer
+          if curl -sfI "https://apt.llvm.org/dists/${CODENAME}/" >/dev/null 2>&1; then
+            echo "apt.llvm.org supports ${CODENAME}; using llvm.sh installer for ${LIBCLANG_VERSION}"
+            curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "${LIBCLANG_VERSION}" || true
+            sudo apt-get update -y || true
+          else
+            echo "apt.llvm.org does NOT support ${CODENAME}; falling back to jammy (22.04) packages"
+            # Add apt key and jammy repo for llvm-14
+            wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo gpg --dearmour -o /usr/share/keyrings/llvm-archive-keyring.gpg || true
+            echo "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main" | sudo tee /etc/apt/sources.list.d/llvm.list
+            sudo apt-get update -y || true
+          fi
+
+      - name: Install pinned system deps
+        run: |
+          set -euo pipefail
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            "libclang-${LIBCLANG_VERSION}-dev" \
+            "llvm-${LIBCLANG_VERSION}" \
+            cmake python3 python3-venv python3-pip build-essential jq pkg-config || true
+
+      - name: Create Python venv & install python deps
+        run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt || true
+
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      - name: Run full extraction (libclang)
+        env:
+          LIBCLANG_VERSION: ${{ env.LIBCLANG_VERSION }}
+        run: ./scripts/run-extract-full.sh --install-deps
+
+      - name: Upload logs (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-extract-logs-${{ github.run_id }}
+          path: tmp/**

@@ -177,3 +177,7 @@ docs/diagrams/*.mmd
 *.bak
 
 .fake
+
+# Temporary extraction files
+tmp/
+compile_commands.json
