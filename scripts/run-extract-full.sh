@@ -84,9 +84,7 @@ fi
 # 2) run local-extract.sh with selected flags
 EXTRACT_FLAGS=()
 $INSTALL_DEPS && EXTRACT_FLAGS+=("--install-deps")
-$SKIP_LIBCLANG || EXTRACT_FLAGS+=("--use-libclang")
 $SKIP_LIBCLANG && EXTRACT_FLAGS+=("--no-libclang")
-$SKIP_NODE || true
 
 if [ "$SKIP_NODE" = true ] && [ "$SKIP_LIBCLANG" = true ]; then
   echo "Both node and libclang extraction skipped; nothing to run." | tee -a "$REPORT"

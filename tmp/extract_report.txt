@@ -1,8 +1,0 @@
-Run started: Sat Nov  8 03:04:33 UTC 2025
-Preflight: checking tools...
-cmake: cmake version 3.31.6
-node: v20.19.5
-python: Python 3.12.3
-Skipping compile_commands generation (libclang skipped)
-Both node and libclang extraction skipped; nothing to run.
-Aborting.
