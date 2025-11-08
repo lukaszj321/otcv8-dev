@@ -1,7 +1,13 @@
 {
-  "dependencies": {
-    "glob": "^10.4.5",
-    "markdownlint-cli": "^0.45.0",
-    "prettier": "^3.6.2"
+  "name": "otcv8-extractor-deps",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "tree-sitter": "^0.20.0",
+    "tree-sitter-cpp": "^0.20.0",
+    "tree-sitter-lua": "^0.20.0"
+  },
+  "scripts": {
+    "install:parsers": "npm install --no-audit --no-fund tree-sitter tree-sitter-cpp tree-sitter-lua"
   }
 }
