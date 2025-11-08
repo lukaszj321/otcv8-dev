@@ -72,7 +72,6 @@ jobs:
         env:
           NPM_CONFIG_LEGACY_PEER_DEPS: ${{ env.NPM_CONFIG_LEGACY_PEER_DEPS }}
         run: |
-          # ensure npm uses legacy-peer-deps to avoid tree-sitter peer conflicts
           npm ci --no-audit --no-fund || npm install --legacy-peer-deps || true
 
       - name: Make scripts executable
@@ -83,20 +82,21 @@ jobs:
           LIBCLANG_VERSION: ${{ env.LIBCLANG_VERSION }}
         run: ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
 
-      - name: Generate short summary
-        if: always()
+      - name: Generate full extract summary
         run: |
           mkdir -p tmp
           REPORT="tmp/extract_report.txt"
           OUT="tmp/full-extract-summary.md"
+
           if [ -f "$REPORT" ]; then
             TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
             PERCENT="$(grep -i 'Percent delta' "$REPORT" | sed -E 's/[^0-9.-]*([0-9.]+).*/\1/' || true)"
             BASELINE="$(grep -i 'Baseline count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
             NEW="$(grep -i 'New count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
             REGRESSION="$(grep -i 'REGRESSION' "$REPORT" || true)"
+
             {
-              printf -- "# Full Extract Summary\n"
+              printf "# Full Extract Summary\n"
               printf -- "- generated_at: %s (UTC)\n" "$TIMESTAMP"
               printf -- "- baseline_count: %s\n" "${BASELINE:-N/A}"
               printf -- "- new_count: %s\n" "${NEW:-N/A}"
@@ -106,12 +106,12 @@ jobs:
               else
                 printf -- "- conclusion: OK\n"
               fi
-              printf -- "\n"
-              printf -- "## Short extract of report\n"
+              printf "\n"
+              printf "## Short extract of report\n"
               sed -n '1,50p' "$REPORT"
             } > "$OUT"
           else
-            printf -- "No report found to summarize\n" > tmp/full-extract-summary.md
+            printf "No report found to summarize\n" > "$OUT"
           fi
 
       - name: Upload logs (always)
