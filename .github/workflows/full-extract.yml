@@ -37,8 +37,10 @@ jobs:
           printf -- "LIBCLANG_VERSION=%s\n" "${LIBCLANG_VERSION}"
           sudo apt-get update -y
           sudo apt-get install -y wget gnupg lsb-release ca-certificates || true
+
           CODENAME="$(lsb_release -cs || echo unknown)"
           printf -- "Detected distro codename: %s\n" "$CODENAME"
+
           if curl -sfI "https://apt.llvm.org/dists/${CODENAME}/" >/dev/null 2>&1; then
             printf -- "apt.llvm.org supports %s; using llvm.sh installer for %s\n" "$CODENAME" "${LIBCLANG_VERSION}"
             curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "${LIBCLANG_VERSION}" || true
@@ -49,7 +51,8 @@ jobs:
             printf -- "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main\n" | sudo tee /etc/apt/sources.list.d/llvm.list
             sudo apt-get update -y || true
           fi
-      - name: Install system dependencies (including Boost, libzip, bzip2 and LuaJIT)
+
+      - name: Install system dependencies (including Boost, libzip, bzip2, LuaJIT and PhysFS)
         run: |
           set -euo pipefail
           sudo apt-get update -y
@@ -58,19 +61,49 @@ jobs:
             llvm-${LIBCLANG_VERSION} \
             cmake python3 python3-venv python3-pip build-essential jq pkg-config \
             libboost-dev libboost-system-dev libboost-filesystem-dev \
-            libzip-dev libbz2-dev libluajit-5.1-dev || true
+            libzip-dev libbz2-dev libluajit-5.1-dev libphysfs-dev || true
+
+      - name: Debug installed libs (libzip, physfs, bzip2)
+        run: |
+          set -euo pipefail || true
+          echo "=== dpkg -l | grep libzip/libphysfs/libbz2 ==="
+          dpkg -l | grep -E "libzip|libphysfs|libbz2" || true
+
+          echo "=== apt-cache policy libzip-dev libzip4 libphysfs-dev ==="
+          apt-cache policy libzip-dev libzip4 libphysfs-dev || true
+
+          echo "=== dpkg -L libzip-dev (first 200 lines) ==="
+          dpkg -L libzip-dev | sed -n '1,200p' || true
+
+          echo "=== dpkg -L libphysfs-dev (first 200 lines) ==="
+          dpkg -L libphysfs-dev | sed -n '1,200p' || true
+
+          echo "=== find libzip* libphysfs* under /usr ==="
+          find /usr -name "libzip*.so*" -print || true
+          find /usr -name "libphysfs*.so*" -print || true
+          find /usr -name "zip.h" -print || true
+          find /usr -name "physfs.h" -print || true
+
+          echo "=== pkg-config checks ==="
+          pkg-config --exists libzip && pkg-config --cflags --libs libzip || echo "pkg-config libzip not available"
+          pkg-config --exists physfs && pkg-config --cflags --libs physfs || echo "pkg-config physfs not available"
+
       - name: Create Python venv & install deps
         run: |
           python3 -m venv .venv
           . .venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt || true
+
       - name: Install npm deps (tree-sitter) with legacy peer deps and force fallback
         env:
           NPM_CONFIG_LEGACY_PEER_DEPS: ${{ env.NPM_CONFIG_LEGACY_PEER_DEPS }}
         run: |
-          # try the strict install first, then fall back to legacy-peer-deps, then force to handle ETARGET/peer issues
-          npm ci --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --force --no-audit --no-fund || true
+          # Try strict install, then legacy-peer-deps, then fallback --force to handle peer/version issues
+          npm ci --no-audit --no-fund || \
+          npm install --legacy-peer-deps --no-audit --no-fund || \
+          npm install --legacy-peer-deps --force --no-audit --no-fund || true
+
       - name: Make scripts executable
         run: chmod +x scripts/*.sh
 
@@ -109,6 +142,7 @@ jobs:
           else
             printf -- "No report found to summarize\n" > tmp/full-extract-summary.md
           fi
+
       - name: Upload logs (always)
         if: always()
         uses: actions/upload-artifact@v4
