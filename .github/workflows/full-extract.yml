@@ -52,7 +52,7 @@ jobs:
             sudo apt-get update -y || true
           fi
 
-      - name: Install system dependencies (including Boost, LuaJIT, LibZip)
+      - name: Install system dependencies (including Boost, libzip and LuaJIT)
         run: |
           set -euo pipefail
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -60,7 +60,7 @@ jobs:
             "llvm-${LIBCLANG_VERSION}" \
             cmake python3 python3-venv python3-pip build-essential jq pkg-config \
             libboost-dev libboost-system-dev libboost-filesystem-dev \
-            libluajit-5.1-dev libzip-dev || true
+            libzip-dev libluajit-5.1-dev || true
 
       - name: Create Python venv & install deps
         run: |
@@ -69,56 +69,50 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt || true
 
-      - name: Install npm deps (tree-sitter) with legacy peer deps
+      - name: Install npm deps (tree-sitter) with legacy peer deps and force fallback
         env:
           NPM_CONFIG_LEGACY_PEER_DEPS: ${{ env.NPM_CONFIG_LEGACY_PEER_DEPS }}
         run: |
-          npm ci --no-audit --no-fund || npm install --legacy-peer-deps || true
+          # try the strict install first, then fall back to legacy-peer-deps, then force to handle ETARGET/peer issues
+          npm ci --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --force --no-audit --no-fund || true
 
       - name: Make scripts executable
-        run: chmod +x scripts/*.sh || true
+        run: chmod +x scripts/*.sh
 
       - name: Run full extract orchestrator
         env:
           LIBCLANG_VERSION: ${{ env.LIBCLANG_VERSION }}
-        run: |
-          set -e
-          ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
+        run: ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
 
-      - name: Generate full extract summary
+      - name: Generate short summary
         if: always()
         run: |
           mkdir -p tmp
           REPORT="tmp/extract_report.txt"
           OUT="tmp/full-extract-summary.md"
-
           if [ -f "$REPORT" ]; then
             TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
             PERCENT="$(grep -i 'Percent delta' "$REPORT" | sed -E 's/[^0-9.-]*([0-9.]+).*/\1/' || true)"
             BASELINE="$(grep -i 'Baseline count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
             NEW="$(grep -i 'New count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
-
-            if grep -qi 'REGRESSION DETECTED' "$REPORT"; then
-              CONCLUSION="REGRESSION"
-            elif grep -qi 'ERROR:' "$REPORT" || grep -qi 'FAILED' "$REPORT"; then
-              CONCLUSION="FAILED"
-            else
-              CONCLUSION="OK"
-            fi
-
+            REGRESSION="$(grep -i 'REGRESSION' "$REPORT" || true)"
             {
-              printf "# Full Extract Summary\n"
+              printf -- "# Full Extract Summary\n"
               printf -- "- generated_at: %s (UTC)\n" "$TIMESTAMP"
               printf -- "- baseline_count: %s\n" "${BASELINE:-N/A}"
               printf -- "- new_count: %s\n" "${NEW:-N/A}"
               printf -- "- percent_delta: %s\n" "${PERCENT:-N/A}"
-              printf -- "- conclusion: %s\n" "$CONCLUSION"
-              printf "\n"
-              printf "## Short extract of report\n"
+              if [ -n "$REGRESSION" ]; then
+                printf -- "- conclusion: REGRESSION\n"
+              else
+                printf -- "- conclusion: OK\n"
+              fi
+              printf -- "\n"
+              printf -- "## Short extract of report\n"
               sed -n '1,50p' "$REPORT"
             } > "$OUT"
           else
-            printf "No report found to summarize\n" > "$OUT"
+            printf -- "No report found to summarize\n" > tmp/full-extract-summary.md
           fi
 
       - name: Upload logs (always)
