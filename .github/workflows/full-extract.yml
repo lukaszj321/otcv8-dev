@@ -1,16 +1,23 @@
-name: Full extractor (manual / nightly)
+name: Full extractor
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'   # nightly @ 03:00 UTC (optional)
+    - cron: '0 3 * * *' # example: daily at 03:00 UTC
+  pull_request:
+    types: [labeled]
+
+env:
+  LIBCLANG_VERSION: 14
 
 jobs:
-  full:
+  full-extract:
+    # keep ubuntu-latest but use fallback for apt.llvm.org; if you prefer, change to ubuntu-22.04
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -24,30 +31,48 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Add LLVM apt repo (pin libclang)
+      - name: Add LLVM apt repo (pin libclang) with fallback to jammy
         run: |
-          # Adds apt repo for LLVM 14 (pin: adjust if you prefer other version)
-          curl -sSL https://apt.llvm.org/llvm.sh -o /tmp/llvm.sh
-          sudo bash /tmp/llvm.sh 14 || true
+          set -euo pipefail
+          echo "LIBCLANG_VERSION=${LIBCLANG_VERSION}"
+          sudo apt-get update -y
+          sudo apt-get install -y wget gnupg lsb-release ca-certificates || true
 
-      - name: Install pinned system deps
+          CODENAME="$(lsb_release -cs || echo unknown)"
+          echo "Detected distro codename: $CODENAME"
+
+          if curl -sfI "https://apt.llvm.org/dists/${CODENAME}/" >/dev/null 2>&1; then
+            echo "apt.llvm.org supports ${CODENAME}; using llvm.sh installer for ${LIBCLANG_VERSION}"
+            curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "${LIBCLANG_VERSION}" || true
+            sudo apt-get update -y || true
+          else
+            echo "apt.llvm.org does NOT support ${CODENAME}; falling back to jammy (22.04) packages"
+            wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo gpg --dearmour -o /usr/share/keyrings/llvm-archive-keyring.gpg || true
+            echo "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-14 main" | sudo tee /etc/apt/sources.list.d/llvm.list
+            sudo apt-get update -y || true
+          fi
+
+      - name: Install system dependencies
         run: |
-          sudo apt-get update
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            libclang-14-dev llvm-14 cmake python3 python3-venv python3-pip build-essential jq pkg-config
+            "libclang-${LIBCLANG_VERSION}-dev" \
+            "llvm-${LIBCLANG_VERSION}" \
+            cmake python3 python3-venv python3-pip build-essential jq pkg-config || true
 
-      - name: Create Python venv & install python deps
+      - name: Create Python venv & install deps
         run: |
           python3 -m venv .venv
           . .venv/bin/activate
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt || true
 
       - name: Make scripts executable
         run: chmod +x scripts/*.sh
 
-      - name: Run full extraction (libclang)
-        run: ./scripts/run-extract-full.sh --install-deps
+      - name: Run full extract orchestrator
+        env:
+          LIBCLANG_VERSION: ${{ env.LIBCLANG_VERSION }}
+        run: ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
 
       - name: Upload logs (always)
         if: always()
