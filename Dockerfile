@@ -1,13 +1,25 @@
-# name=Dockerfile
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y curl ca-certificates gnupg
-# add llvm apt repo and install pinned version (example llvm-14)
-RUN curl -sSL https://apt.llvm.org/llvm.sh | bash -s -- 14
-RUN apt-get update && apt-get install -y libclang-14-dev llvm-14 nodejs npm python3 python3-venv python3-pip cmake build-essential jq
-# optional: install pip deps
-COPY requirements.txt /tmp/
-RUN python3 -m venv /opt/venv && . /opt/venv/bin/activate && pip install --upgrade pip && pip install -r /tmp/requirements.txt
-# Copy project after building image in CI usage
+
+# Basic tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  curl ca-certificates gnupg lsb-release apt-transport-https
+
+# Install Node 18 via NodeSource
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+  && apt-get install -y nodejs
+
+# Add LLVM apt helper and install pinned LLVM/libclang (example: 14)
+RUN curl -sSL https://apt.llvm.org/llvm.sh | bash -s -- 14 \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
+     libclang-14-dev llvm-14 cmake python3 python3-venv python3-pip build-essential jq pkg-config
+
+# Python venv and pip deps can be installed here (optional)
+COPY requirements.txt /tmp/requirements.txt
+RUN python3 -m venv /opt/venv && . /opt/venv/bin/activate \
+  && pip install --upgrade pip \
+  && pip install -r /tmp/requirements.txt
+
 WORKDIR /workspace
 ENTRYPOINT ["/bin/bash"]
