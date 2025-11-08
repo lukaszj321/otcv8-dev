@@ -1,22 +1,27 @@
+url=https://github.com/lukaszj321/otcv8-dev/blob/main/scripts/bootstrap-ubuntu.sh
 #!/usr/bin/env bash
 # Bootstrap system dependencies for extraction on Ubuntu/Debian.
-# Usage: sudo ./scripts/bootstrap-ubuntu.sh
+# Usage: sudo ./scripts/bootstrap-ubuntu.sh [LIBCLANG_VERSION]
+# Example: sudo ./scripts/bootstrap-ubuntu.sh 14
 set -euo pipefail
+
+LIBCLANG_VERSION=${1:-14}
 
 if [ "$(id -u)" -ne 0 ]; then
   echo "Please run as root (sudo)."
   exit 1
 fi
 
+echo "Using libclang/llvm version: $LIBCLANG_VERSION"
+
 echo "Adding Node.js 18 repository..."
-# Ensure basic tools are present before adding the repo
 apt-get update
 apt-get install -y --no-install-recommends curl ca-certificates || {
   echo "Failed to install curl/ca-certificates"
   exit 1
 }
 
-# Retry helper for network commands
+# Retry helper
 try_cmd() {
   local n=0 max=3 delay=3 cmd
   cmd="$*"
@@ -36,7 +41,7 @@ try_cmd curl -fsSL https://deb.nodesource.com/setup_18.x | bash - || {
   exit 1
 }
 
-echo "Installing all system dependencies..."
+echo "Installing system dependencies including libclang-$LIBCLANG_VERSION-dev ..."
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update && apt-get install -y --no-install-recommends \
@@ -50,8 +55,8 @@ apt-get update && apt-get install -y --no-install-recommends \
   nodejs \
   npm \
   clang \
-  libclang-dev \
-  llvm \
+  "libclang-${LIBCLANG_VERSION}-dev" \
+  "llvm-${LIBCLANG_VERSION}" \
   pkg-config \
   ca-certificates \
   curl || {
@@ -59,7 +64,6 @@ apt-get update && apt-get install -y --no-install-recommends \
     exit 1
 }
 
-# Optional: cleanup apt cache
 echo "Cleaning up apt cache..."
 apt-get clean
 rm -rf /var/lib/apt/lists/*
@@ -74,9 +78,9 @@ command -v cmake >/dev/null 2>&1 && cmake --version | head -n1 || echo "cmake: n
 command -v clang >/dev/null 2>&1 && clang --version | head -n1 || echo "clang: not found"
 
 echo ""
-echo "Recommended next steps for a developer:"
-echo "  1. Create a Python virtual environment: python3 -m venv .venv-extract"
-echo "  2. Activate it: source .venv-extract/bin/activate"
-echo "  3. Install Python packages: pip install -r requirements.txt"
-echo "  4. Make scripts executable: chmod +x scripts/*.sh"
-echo "  5. Run a quick smoke test: ./scripts/run-extract-full.sh --no-venv --skip-libclang"
+echo "Recommended next steps:"
+echo "  python3 -m venv .venv-extract"
+echo "  source .venv-extract/bin/activate"
+echo "  pip install -r requirements.txt"
+echo "  chmod +x scripts/*.sh"
+echo "  ./scripts/run-extract-full.sh --no-venv --skip-libclang   # quick smoke run"
