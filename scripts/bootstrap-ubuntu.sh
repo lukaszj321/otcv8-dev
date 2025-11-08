@@ -35,7 +35,11 @@ try_cmd() {
   return 1
 }
 
-try_cmd curl -fsSL https://deb.nodesource.com/setup_18.x | bash - || {
+try_cmd curl -fsSL https://deb.nodesource.com/setup_18.x -o /tmp/nodesource_setup.sh || {
+  echo "Failed to download NodeSource setup script"
+  exit 1
+}
+bash /tmp/nodesource_setup.sh || {
   echo "Failed to add NodeSource repo"
   exit 1
 }
