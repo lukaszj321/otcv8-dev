@@ -1,4 +1,3 @@
-url=https://github.com/lukaszj321/otcv8-dev/blob/main/docs/CONTRIBUTING_EXTRACT.md
 # Contributing: ekstrakcja API — krótka instrukcja
 
 Jeśli zgłaszasz błąd lub chcesz, aby maintainer uruchomił pełen extract dla PR:
