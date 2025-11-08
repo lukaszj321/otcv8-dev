@@ -1,0 +1,62 @@
+name: Full extractor (on PR label)
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  run-on-label:
+    # Uruchom tylko, gdy etykieta to "run/full-extract"
+    if: ${{ github.event.label.name == 'run/full-extract' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Add LLVM apt repo (pin libclang)
+        run: |
+          # Domyślnie używa wersji 14, można to zmienić w przyszłości
+          LIBCLANG_VERSION="${{ env.LIBCLANG_VERSION || '14' }}"
+          curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- "$LIBCLANG_VERSION"
+
+      - name: Install pinned system deps
+        run: |
+          # --- POPRAWKA TUTAJ: Usunięto || exit 0 ---
+          # Jeśli instalacja zawiedzie, cały workflow powinien się zatrzymać.
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            "libclang-${{ env.LIBCLANG_VERSION || '14' }}-dev" \
+            "llvm-${{ env.LIBCLANG_VERSION || '14' }}" \
+            cmake python3 python3-venv python3-pip build-essential jq pkg-config
+
+      - name: Create Python venv & install python deps
+        run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      - name: Run full extraction (libclang)
+        run: ./scripts/run-extract-full.sh --install-deps
+
+      - name: Upload logs (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-extract-logs-${{ github.run_id }}
+          path: tmp/**
