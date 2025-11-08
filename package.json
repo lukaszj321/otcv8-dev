@@ -1,9 +1,14 @@
 {
+  "dependencies": {
+    "glob": "^10.4.5",
+    "markdownlint-cli": "^0.45.0",
+    "prettier": "^3.6.2"
+  },
   "devDependencies": {
     "tree-sitter": "^0.21.1",
     "tree-sitter-cpp": "^0.21.0",
-    "tree-sitter-lua": "^0.21.0",
-    "tree-sitter-java": "^0.21.0"
+    "tree-sitter-java": "^0.21.0",
+    "tree-sitter-lua": "^0.21.0"
   },
   "scripts": {
     "install:parsers": "npm ci --no-audit --no-fund --legacy-peer-deps --no-optional && npm rebuild",
