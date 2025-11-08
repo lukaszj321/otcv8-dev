@@ -233,19 +233,24 @@ if [ "$REGRESSION_THRESHOLD" != "0" ]; then
     if [ "$baseline_count" -gt 0 ]; then
       pct=$(awk "BEGIN {printf \"%.0f\", ($abs_delta / $baseline_count) * 100}")
     else
-      pct=$abs_delta
+      pct="N/A"
     fi
 
     echo "- **Baseline count:** $baseline_count" >> "$SUMMARY"
     echo "- **New count:** $new_count" >> "$SUMMARY"
     echo "- **Delta:** $delta" >> "$SUMMARY"
-    echo "- **Percent change:** ${pct}%" >> "$SUMMARY"
-    echo "- **Threshold:** ${REGRESSION_THRESHOLD}%" >> "$SUMMARY"
-    
-    if [ "$pct" -gt "$REGRESSION_THRESHOLD" ]; then
-      echo "- **Status:** ❌ FAILED (delta ${pct}% exceeds threshold)" >> "$SUMMARY"
+    if [ "$pct" = "N/A" ]; then
+      echo "- **Percent change:** N/A (baseline is zero)" >> "$SUMMARY"
+      echo "- **Threshold:** ${REGRESSION_THRESHOLD}%" >> "$SUMMARY"
+      echo "- **Status:** ⚠️ SKIPPED (cannot compute percent change when baseline is zero)" >> "$SUMMARY"
     else
-      echo "- **Status:** ✅ PASSED" >> "$SUMMARY"
+      echo "- **Percent change:** ${pct}%" >> "$SUMMARY"
+      echo "- **Threshold:** ${REGRESSION_THRESHOLD}%" >> "$SUMMARY"
+      if [ "$pct" -gt "$REGRESSION_THRESHOLD" ]; then
+        echo "- **Status:** ❌ FAILED (delta ${pct}% exceeds threshold)" >> "$SUMMARY"
+      else
+        echo "- **Status:** ✅ PASSED" >> "$SUMMARY"
+      fi
     fi
   else
     echo "- **Status:** SKIPPED (jq not available)" >> "$SUMMARY"
