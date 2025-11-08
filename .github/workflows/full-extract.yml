@@ -2,7 +2,7 @@ name: Full extractor (manual / nightly)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'   # nightly @ 03:00 UTC (opcjonalnie)
+    - cron: '0 3 * * *'   # nightly @ 03:00 UTC (optional)
 
 jobs:
   full:
