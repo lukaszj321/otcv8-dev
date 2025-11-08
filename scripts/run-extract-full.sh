@@ -1,4 +1,3 @@
-url=https://github.com/lukaszj321/otcv8-dev/blob/main/scripts/run-extract-full.sh
 #!/usr/bin/env bash
 # Orchestrator: prepares env, generates compile_commands.json, runs local-extract.sh
 # and performs simple validation/reporting including optional regression check.
