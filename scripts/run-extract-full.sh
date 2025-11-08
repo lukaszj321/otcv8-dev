@@ -1,9 +1,10 @@
+url=https://github.com/lukaszj321/otcv8-dev/blob/main/scripts/run-extract-full.sh
 #!/usr/bin/env bash
 # Orchestrator: prepares env, generates compile_commands.json, runs local-extract.sh
-# and performs simple validation/reporting.
+# and performs simple validation/reporting including optional regression check.
 #
 # Usage:
-#   ./scripts/run-extract-full.sh [--install-deps] [--skip-libclang] [--skip-node] [--no-venv]
+#   ./scripts/run-extract-full.sh [--install-deps] [--skip-libclang] [--no-venv] [--regression-threshold <percent>]
 set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
@@ -13,6 +14,7 @@ SKIP_LIBCLANG=false
 SKIP_NODE=false
 USE_VENV=true
 PYTHON=python3
+REGRESSION_THRESHOLD=0  # percentage, 0 -> disabled
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -21,6 +23,7 @@ while [[ $# -gt 0 ]]; do
     --skip-node) SKIP_NODE=true; shift ;;
     --no-venv) USE_VENV=false; shift ;;
     --python) PYTHON="$2"; shift 2 ;;
+    --regression-threshold) REGRESSION_THRESHOLD="$2"; shift 2 ;;
     *) echo "Unknown arg: $1"; exit 1 ;;
   esac
 done
@@ -33,7 +36,7 @@ echo "Preflight: checking tools..." | tee -a "$REPORT"
 command -v cmake >/dev/null 2>&1 && echo "cmake: $(cmake --version | head -n1)" | tee -a "$REPORT" || echo "cmake: MISSING" | tee -a "$REPORT"
 command -v node >/dev/null 2>&1 && echo "node: $(node --version)" | tee -a "$REPORT" || echo "node: MISSING" | tee -a "$REPORT"
 command -v "$PYTHON" >/dev/null 2>&1 && echo "python: $($PYTHON --version 2>&1)" | tee -a "$REPORT" || echo "python: MISSING" | tee -a "$REPORT"
-command -v jq >/dev/null 2>&1 || echo "jq: MISSING (optional, used for JSON checks)" | tee -a "$REPORT"
+command -v jq >/dev/null 2>&1 || echo "jq: MISSING (optional)" | tee -a "$REPORT"
 command -v git >/dev/null 2>&1 || echo "git: MISSING (optional)" | tee -a "$REPORT"
 
 # optional venv and pip deps for libclang
@@ -102,10 +105,62 @@ fi
 # 3) simple validation: compare counts to manifest if present
 echo "Validation:" | tee -a "$REPORT"
 if [ -f docs/_data/_api_manifest.json ] && command -v jq >/dev/null 2>&1; then
-  echo "Manifest counts:" | tee -a "$REPORT"
+  echo "Manifest counts (raw):" | tee -a "$REPORT"
   jq '.counts' docs/_data/_api_manifest.json | tee -a "$REPORT"
 else
   echo "Manifest not present or jq missing; skipping manifest checks" | tee -a "$REPORT"
+fi
+
+# Regression check: compare new count vs committed baseline docs/_data/_api_entities.json (if present)
+if [ "$REGRESSION_THRESHOLD" != "0" ]; then
+  echo "Regression check enabled (threshold=${REGRESSION_THRESHOLD}%)" | tee -a "$REPORT"
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "jq required for regression check but is missing; skipping regression check" | tee -a "$REPORT"
+  else
+    # baseline: committed file if present
+    if [ -f docs/_data/_api_entities.json ]; then
+      baseline_count=$(jq 'length' docs/_data/_api_entities.json)
+    else
+      baseline_count=0
+    fi
+
+    # new: prefer tmp/clang_entities.json, fallback to docs/_data/_api_entities.json generated earlier
+    if [ -f tmp/clang_entities.json ]; then
+      # try to count entities array, fallback to 0
+      new_count=$(jq '.entities | length // 0' tmp/clang_entities.json)
+    elif [ -f docs/_data/_api_entities.json ]; then
+      new_count=$(jq 'length' docs/_data/_api_entities.json)
+    else
+      new_count=0
+    fi
+
+    echo "Baseline count: $baseline_count" | tee -a "$REPORT"
+    echo "New count: $new_count" | tee -a "$REPORT"
+
+    # compute absolute delta and percent (guard division by zero)
+    delta=$(( new_count - baseline_count ))
+    abs_delta=${delta#-}
+    pct=0
+    if [ "$baseline_count" -gt 0 ]; then
+      pct=$(awk "BEGIN {printf \"%.0f\", ($abs_delta / $baseline_count) * 100}")
+    else
+      pct=$abs_delta
+    fi
+
+    echo "Absolute delta: $abs_delta" | tee -a "$REPORT"
+    echo "Percent delta: ${pct}%" | tee -a "$REPORT"
+
+    # fail if percent delta > threshold
+    if [ "$pct" -gt "$REGRESSION_THRESHOLD" ]; then
+      echo "REGRESSION: delta ${pct}% exceeds threshold ${REGRESSION_THRESHOLD}% - failing run" | tee -a "$REPORT"
+      echo "Run artifacts available in tmp/" | tee -a "$REPORT"
+      exit 2
+    else
+      echo "Regression check passed (delta ${pct}% <= ${REGRESSION_THRESHOLD}%)" | tee -a "$REPORT"
+    fi
+  fi
+else
+  echo "Regression check disabled (REGRESSION_THRESHOLD=0)" | tee -a "$REPORT"
 fi
 
 if [ -f tmp/clang_entities.json ] && command -v jq >/dev/null 2>&1; then
