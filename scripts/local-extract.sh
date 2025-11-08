@@ -28,7 +28,7 @@ done
 if [ "$INSTALL_DEPS" = true ]; then
   echo "Installing tree-sitter packages (npm)..."
   npm install --no-audit --no-fund tree-sitter tree-sitter-cpp tree-sitter-lua tree-sitter-java || {
-    echo "npm install failed; continuing but tree-sitter may be unavailable"
+    echo "npm install failed; continue but tree-sitter unavailable"
   }
 fi
 
