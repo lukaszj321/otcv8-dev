@@ -52,16 +52,15 @@ jobs:
             sudo apt-get update -y || true
           fi
 
-      - name: Install system dependencies (including Boost)
+      - name: Install system dependencies (including Boost, LuaJIT, LibZip)
         run: |
           set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y libzip-dev libbz2-dev
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
             "libclang-${LIBCLANG_VERSION}-dev" \
             "llvm-${LIBCLANG_VERSION}" \
             cmake python3 python3-venv python3-pip build-essential jq pkg-config \
-            libboost-dev libboost-system-dev libboost-filesystem-dev || true
+            libboost-dev libboost-system-dev libboost-filesystem-dev \
+            libluajit-5.1-dev libzip-dev || true
 
       - name: Create Python venv & install deps
         run: |
@@ -77,14 +76,17 @@ jobs:
           npm ci --no-audit --no-fund || npm install --legacy-peer-deps || true
 
       - name: Make scripts executable
-        run: chmod +x scripts/*.sh
+        run: chmod +x scripts/*.sh || true
 
       - name: Run full extract orchestrator
         env:
           LIBCLANG_VERSION: ${{ env.LIBCLANG_VERSION }}
-        run: ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
+        run: |
+          set -e
+          ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
 
       - name: Generate full extract summary
+        if: always()
         run: |
           mkdir -p tmp
           REPORT="tmp/extract_report.txt"
@@ -95,21 +97,24 @@ jobs:
             PERCENT="$(grep -i 'Percent delta' "$REPORT" | sed -E 's/[^0-9.-]*([0-9.]+).*/\1/' || true)"
             BASELINE="$(grep -i 'Baseline count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
             NEW="$(grep -i 'New count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
-            REGRESSION="$(grep -i 'REGRESSION' "$REPORT" || true)"
+
+            if grep -qi 'REGRESSION DETECTED' "$REPORT"; then
+              CONCLUSION="REGRESSION"
+            elif grep -qi 'ERROR:' "$REPORT" || grep -qi 'FAILED' "$REPORT"; then
+              CONCLUSION="FAILED"
+            else
+              CONCLUSION="OK"
+            fi
 
             {
-              printf '%s\n' "# Full Extract Summary"
-              printf '%s\n' "- generated_at: ${TIMESTAMP} (UTC)"
-              printf '%s\n' "- baseline_count: ${BASELINE:-N/A}"
-              printf '%s\n' "- new_count: ${NEW:-N/A}"
-              printf '%s\n' "- percent_delta: ${PERCENT:-N/A}"
-              if [ -n "$REGRESSION" ]; then
-                printf '%s\n' "- conclusion: REGRESSION"
-              else
-                printf '%s\n' "- conclusion: OK"
-              fi
-              printf '\n'
-              printf '%s\n' "## Short extract of report"
+              printf "# Full Extract Summary\n"
+              printf -- "- generated_at: %s (UTC)\n" "$TIMESTAMP"
+              printf -- "- baseline_count: %s\n" "${BASELINE:-N/A}"
+              printf -- "- new_count: %s\n" "${NEW:-N/A}"
+              printf -- "- percent_delta: %s\n" "${PERCENT:-N/A}"
+              printf -- "- conclusion: %s\n" "$CONCLUSION"
+              printf "\n"
+              printf "## Short extract of report\n"
               sed -n '1,50p' "$REPORT"
             } > "$OUT"
           else
