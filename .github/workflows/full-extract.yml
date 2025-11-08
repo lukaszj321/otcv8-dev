@@ -103,9 +103,18 @@ jobs:
         env:
           NPM_CONFIG_LEGACY_PEER_DEPS: ${{ env.NPM_CONFIG_LEGACY_PEER_DEPS }}
         run: |
+          # Try strict install, then legacy-peer-deps, then fallback --force to handle peer/version issues
           npm ci --no-audit --no-fund || \
           npm install --legacy-peer-deps --no-audit --no-fund || \
           npm install --legacy-peer-deps --force --no-audit --no-fund || true
+
+      - name: Install node script deps (glob for extract-api)
+        run: |
+          # Ensure script dependencies used by scripts/extract-api.mjs are present
+          npm install --no-audit --no-fund glob || true
+
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
 
       - name: Try to generate compile_commands.json with explicit library paths (fallback)
         run: |
@@ -157,9 +166,6 @@ jobs:
           else
             echo "No compile_commands.json generated"
           fi
-
-      - name: Make scripts executable
-        run: chmod +x scripts/*.sh
 
       - name: Run full extract orchestrator
         env:
