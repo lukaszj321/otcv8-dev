@@ -1,0 +1,39 @@
+name: Full extractor (manual / nightly)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'   # nightly @ 03:00 UTC (opcjonalnie)
+
+jobs:
+  full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Add LLVM apt repo (for pinned libclang)
+        run: |
+          curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- 14 || true
+      - name: Install system deps (pinned)
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libclang-14-dev llvm-14 cmake python3 python3-venv python3-pip build-essential jq
+      - name: Install Python deps
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      - name: Run full extraction (libclang)
+        run: ./scripts/run-extract-full.sh --install-deps
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-extract-logs
+          path: tmp/**
