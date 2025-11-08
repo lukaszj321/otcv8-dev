@@ -1,4 +1,3 @@
-url=https://github.com/lukaszj321/otcv8-dev/blob/main/scripts/bootstrap-ubuntu.sh
 #!/usr/bin/env bash
 # Bootstrap system dependencies for extraction on Ubuntu/Debian.
 # Usage: sudo ./scripts/bootstrap-ubuntu.sh [LIBCLANG_VERSION]
