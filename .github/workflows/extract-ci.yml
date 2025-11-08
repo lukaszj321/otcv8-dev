@@ -1,0 +1,60 @@
+name: Extractor smoke-check
+on:
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - 'tools/**'
+      - 'docs/**'
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      # Setup Node (explicit version and integrated npm cache)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Optional: cache apt archives (may help but can be large)
+      - name: Cache apt packages (optional)
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: ${{ runner.os }}-apt-cache-v1
+          restore-keys: |
+            ${{ runner.os }}-apt-cache-v1
+
+      - name: Install minimal dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake jq build-essential ca-certificates || true
+
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/run-extract-full.sh scripts/local-extract.sh scripts/generate-compile-commands.sh
+
+      - name: Run orchestrator (skip libclang)
+        run: |
+          # Skip venv and libclang for quick smoke test in CI
+          ./scripts/run-extract-full.sh --no-venv --skip-libclang
+
+      - name: Upload logs for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extract-logs-${{ github.run_id }}
+          path: tmp/**
+          retention-days: 7
