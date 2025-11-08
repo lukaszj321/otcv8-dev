@@ -3,6 +3,7 @@
 Jeśli zgłaszasz błąd lub chcesz, aby maintainer uruchomił pełen extract dla PR:
 
 - Dołącz do PR/tmp artefakty, jeśli lokalny run się nie powiódł:
+  - tmp/full-extract-summary.md (czytelne podsumowanie z wynikami)
   - tmp/extract_report.txt
   - tmp/extract-api.log
   - tmp/clang_entities.json (jeśli istnieje)
