@@ -6,7 +6,7 @@
 #  - runs Node extractor
 #
 # Usage:
-#   ./scripts/local-extract.sh [--install-deps] [--run-lua-bindgen]
+#   ./scripts/local-extract.sh [--install-deps] [--run-lua-bindgen] [--no-libclang]
 set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
@@ -28,7 +28,7 @@ done
 if [ "$INSTALL_DEPS" = true ]; then
   echo "Installing tree-sitter packages (npm)..."
   npm install --no-audit --no-fund tree-sitter tree-sitter-cpp tree-sitter-lua tree-sitter-java || {
-    echo "npm install failed; continue but tree-sitter unavailable"
+    echo "npm install failed; continuing but tree-sitter may be unavailable"
   }
 fi
 
@@ -36,9 +36,8 @@ fi
 echo "Generating compile_commands.json (CMake)..."
 ./scripts/generate-compile-commands.sh build
 
-# 2) Collect headers list for libclang helper
+# 2) Collect headers list for libclang helper (avoid ARG_MAX by writing to tmp file)
 echo "Collecting header files..."
-# adjust globs as necessary
 HEADERS=()
 for dir in src include modules data vc16; do
   if [ -d "$dir" ]; then
@@ -65,14 +64,17 @@ if [ "$USE_LIBCLANG" = true ]; then
     mkdir -p tmp
     # Write header list to file to avoid ARG_MAX issues
     printf '%s\n' "${HEADERS[@]}" > tmp/headers.txt
-    # Call helper; pass compile_commands.json path and header list file
-    if [ -f compile_commands.json ]; then
-      "$PY" tools/clang-extract/clang_extract.py compile_commands.json tmp/headers.txt > tmp/clang_entities.json || {
-        echo "clang_extract.py failed (check python clang.cindex / libclang). See tmp/clang_entities.json (partial or empty)."
-      }
-      echo "libclang output -> tmp/clang_entities.json"
-    else
+    # Ensure clang_extract script exists
+    if [ ! -f tools/clang-extract/clang_extract.py ]; then
+      echo "tools/clang-extract/clang_extract.py not found; skipping libclang extraction."
+    elif [ ! -f compile_commands.json ]; then
       echo "compile_commands.json not found in repo root; abort libclang step."
+    else
+      if ! "$PY" tools/clang-extract/clang_extract.py compile_commands.json tmp/headers.txt > tmp/clang_entities.json; then
+        echo "clang_extract.py failed (check python clang.cindex / libclang). See tmp/clang_entities.json (partial or empty)."
+      else
+        echo "libclang output -> tmp/clang_entities.json"
+      fi
     fi
   fi
 else
@@ -89,14 +91,7 @@ fi
 
 EXTRACT_ARGS=()
 if [ "$RUN_LUA_BINDGEN" = true ]; then EXTRACT_ARGS+=("--run-lua-bindgen"); fi
-# If you want the extractor to try installing tree-sitter automatically, pass --install-deps
-# NOTE: Forwarding --install-deps to the Node extractor is currently disabled because
-# the extractor's install logic may conflict with the npm install step above, or may
-# not handle all required dependencies reliably. Enable this line only if the extractor
-# is updated to safely handle dependency installation, or if you want to delegate all
-# install logic to the Node extractor.
-# $INSTALL_DEPS && EXTRACT_ARGS+=("--install-deps")
-# enable libclang path flag
+# NOTE: ensure scripts/extract-api.mjs supports --use-libclang; if not, remove this flag or update extractor.
 EXTRACT_ARGS+=("--use-libclang")
 
 # Run extractor and capture stdout/stderr to log
@@ -108,15 +103,19 @@ echo "Extractor finished. Logs -> tmp/extract-api.log"
 
 # 5) Quick sanity checks (counts)
 echo "Running quick sanity checks..."
-if [ -f docs/_data/_api_manifest.json ]; then
-  echo "Manifest exists: docs/_data/_api_manifest.json"
-  jq '.counts' docs/_data/_api_manifest.json || true
-fi
-if [ -f tmp/clang_entities.json ]; then
-  echo "Libclang entities count: $(jq '.entities | length' tmp/clang_entities.json || echo '?')"
-fi
-if [ -f docs/_data/_api_entities.json ]; then
-  echo "All entities (final) count: $(jq 'length' docs/_data/_api_entities.json || echo '?')"
+if ! command -v jq >/dev/null 2>&1; then
+  echo "jq not found; skipping JSON sanity checks. Install jq for better output (apt/brew install jq)."
+else
+  if [ -f docs/_data/_api_manifest.json ]; then
+    echo "Manifest exists: docs/_data/_api_manifest.json"
+    jq '.counts' docs/_data/_api_manifest.json || true
+  fi
+  if [ -f tmp/clang_entities.json ]; then
+    echo "Libclang entities count: $(jq '.entities | length' tmp/clang_entities.json || echo '?')"
+  fi
+  if [ -f docs/_data/_api_entities.json ]; then
+    echo "All entities (final) count: $(jq 'length' docs/_data/_api_entities.json || echo '?')"
+  fi
 fi
 
 echo "Done. Inspect docs/ and tmp/ for outputs. Use CSV datasets in docs/authoring/datasets/ to validate content samples."
