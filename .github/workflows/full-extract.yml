@@ -8,32 +8,49 @@ jobs:
   full:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - name: Add LLVM apt repo (for pinned libclang)
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Add LLVM apt repo (pin libclang)
         run: |
+          # Adds apt repo for LLVM 14 (pin: adjust if you prefer other version)
           curl -sSL https://apt.llvm.org/llvm.sh | sudo bash -s -- 14 || true
-      - name: Install system deps (pinned)
+
+      - name: Install pinned system deps
         run: |
           sudo apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libclang-14-dev llvm-14 cmake python3 python3-venv python3-pip build-essential jq
-      - name: Install Python deps
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            libclang-14-dev llvm-14 cmake python3 python3-venv python3-pip build-essential jq pkg-config
+
+      - name: Create Python venv & install python deps
         run: |
           python3 -m venv .venv
-          source .venv/bin/activate
+          . .venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Make scripts executable
         run: chmod +x scripts/*.sh
+
       - name: Run full extraction (libclang)
         run: ./scripts/run-extract-full.sh --install-deps
-      - name: Upload logs
+
+      - name: Upload logs (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: full-extract-logs
+          name: full-extract-logs-${{ github.run_id }}
           path: tmp/**
