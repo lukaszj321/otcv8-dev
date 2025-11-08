@@ -31,6 +31,17 @@ mkdir -p tmp
 REPORT=tmp/extract_report.txt
 echo "Run started: $(date -u)" > "$REPORT"
 
+# Save baseline count early (before extraction runs) for regression check
+BASELINE_COUNT=0
+NEW_COUNT=0
+REGRESSION_PCT=0
+REGRESSION_DELTA=0
+REGRESSION_STATUS=""
+REGRESSION_EXIT_CODE=0
+if command -v jq >/dev/null 2>&1 && [ -f docs/_data/_api_entities.json ]; then
+  BASELINE_COUNT=$(jq 'length' docs/_data/_api_entities.json 2>/dev/null || echo 0)
+fi
+
 echo "Preflight: checking tools..." | tee -a "$REPORT"
 command -v cmake >/dev/null 2>&1 && echo "cmake: $(cmake --version | head -n1)" | tee -a "$REPORT" || echo "cmake: MISSING" | tee -a "$REPORT"
 command -v node >/dev/null 2>&1 && echo "node: $(node --version)" | tee -a "$REPORT" || echo "node: MISSING" | tee -a "$REPORT"
@@ -108,56 +119,61 @@ else
   echo "Manifest not present or jq missing; skipping manifest checks" | tee -a "$REPORT"
 fi
 
-# Regression check: compare new count vs committed baseline docs/_data/_api_entities.json (if present)
+# Regression check: compare new count vs committed baseline (saved earlier)
 if [ "$REGRESSION_THRESHOLD" != "0" ]; then
   echo "Regression check enabled (threshold=${REGRESSION_THRESHOLD}%)" | tee -a "$REPORT"
   if ! command -v jq >/dev/null 2>&1; then
     echo "jq required for regression check but is missing; skipping regression check" | tee -a "$REPORT"
+    REGRESSION_STATUS="SKIPPED (jq not available)"
   else
-    # baseline: committed file if present
-    if [ -f docs/_data/_api_entities.json ]; then
-      baseline_count=$(jq 'length' docs/_data/_api_entities.json)
-    else
-      baseline_count=0
-    fi
-
     # new: prefer tmp/clang_entities.json, fallback to docs/_data/_api_entities.json generated earlier
     if [ -f tmp/clang_entities.json ]; then
-      # try to count entities array, fallback to 0
-      new_count=$(jq '.entities | length // 0' tmp/clang_entities.json)
+      NEW_COUNT=$(jq '.entities | length // 0' tmp/clang_entities.json)
     elif [ -f docs/_data/_api_entities.json ]; then
-      new_count=$(jq 'length' docs/_data/_api_entities.json)
+      NEW_COUNT=$(jq 'length' docs/_data/_api_entities.json)
     else
-      new_count=0
+      NEW_COUNT=0
     fi
 
-    echo "Baseline count: $baseline_count" | tee -a "$REPORT"
-    echo "New count: $new_count" | tee -a "$REPORT"
+    echo "Baseline count: $BASELINE_COUNT" | tee -a "$REPORT"
+    echo "New count: $NEW_COUNT" | tee -a "$REPORT"
 
     # compute absolute delta and percent (guard division by zero)
-    delta=$(( new_count - baseline_count ))
-    abs_delta=${delta#-}
-    pct=0
-    if [ "$baseline_count" -gt 0 ]; then
-      pct=$(awk "BEGIN {printf \"%.0f\", ($abs_delta / $baseline_count) * 100}")
+    REGRESSION_DELTA=$(( NEW_COUNT - BASELINE_COUNT ))
+    abs_delta=${REGRESSION_DELTA#-}
+    
+    if [ "$BASELINE_COUNT" -gt 0 ]; then
+      REGRESSION_PCT=$(awk "BEGIN {printf \"%.0f\", ($abs_delta / $BASELINE_COUNT) * 100}")
     else
-      pct=$abs_delta
+      # When baseline is 0, we can't compute a meaningful percentage
+      # Set to a sentinel value that will be handled specially
+      REGRESSION_PCT="N/A"
     fi
 
     echo "Absolute delta: $abs_delta" | tee -a "$REPORT"
-    echo "Percent delta: ${pct}%" | tee -a "$REPORT"
-
-    # fail if percent delta > threshold
-    if [ "$pct" -gt "$REGRESSION_THRESHOLD" ]; then
-      echo "REGRESSION: delta ${pct}% exceeds threshold ${REGRESSION_THRESHOLD}% - failing run" | tee -a "$REPORT"
-      echo "Run artifacts available in tmp/" | tee -a "$REPORT"
-      exit 2
+    if [ "$REGRESSION_PCT" = "N/A" ]; then
+      echo "Percent delta: N/A (baseline is zero)" | tee -a "$REPORT"
+      REGRESSION_STATUS="SKIPPED (baseline is zero)"
+      echo "Regression check skipped: cannot compute percent change when baseline is zero" | tee -a "$REPORT"
     else
-      echo "Regression check passed (delta ${pct}% <= ${REGRESSION_THRESHOLD}%)" | tee -a "$REPORT"
+      echo "Percent delta: ${REGRESSION_PCT}%" | tee -a "$REPORT"
+      
+      # Check if percent delta > threshold (but don't exit yet - generate summary first)
+      if [ "$REGRESSION_PCT" -gt "$REGRESSION_THRESHOLD" ]; then
+        echo "REGRESSION: delta ${REGRESSION_PCT}% exceeds threshold ${REGRESSION_THRESHOLD}% - failing run" | tee -a "$REPORT"
+        echo "Run artifacts available in tmp/" | tee -a "$REPORT"
+        REGRESSION_STATUS="FAILED"
+        REGRESSION_EXIT_CODE=2
+      else
+        echo "Regression check passed (delta ${REGRESSION_PCT}% <= ${REGRESSION_THRESHOLD}%)" | tee -a "$REPORT"
+        REGRESSION_STATUS="PASSED"
+        REGRESSION_EXIT_CODE=0
+      fi
     fi
   fi
 else
   echo "Regression check disabled (REGRESSION_THRESHOLD=0)" | tee -a "$REPORT"
+  REGRESSION_STATUS="DISABLED"
 fi
 
 if [ -f tmp/clang_entities.json ] && command -v jq >/dev/null 2>&1; then
@@ -208,47 +224,30 @@ else
 fi
 echo "" >> "$SUMMARY"
 
-# Regression check results
+# Regression check results (reuse variables from earlier check)
 if [ "$REGRESSION_THRESHOLD" != "0" ]; then
   echo "## Regression Check" >> "$SUMMARY"
   echo "" >> "$SUMMARY"
-  if command -v jq >/dev/null 2>&1; then
-    if [ -f docs/_data/_api_entities.json ]; then
-      baseline_count=$(jq 'length' docs/_data/_api_entities.json 2>/dev/null || echo 0)
-    else
-      baseline_count=0
-    fi
-
-    if [ -f tmp/clang_entities.json ]; then
-      new_count=$(jq '.entities | length // 0' tmp/clang_entities.json)
-    elif [ -f docs/_data/_api_entities.json ]; then
-      new_count=$(jq 'length' docs/_data/_api_entities.json)
-    else
-      new_count=0
-    fi
-
-    delta=$(( new_count - baseline_count ))
-    abs_delta=${delta#-}
-    pct=0
-    if [ "$baseline_count" -gt 0 ]; then
-      pct=$(awk "BEGIN {printf \"%.0f\", ($abs_delta / $baseline_count) * 100}")
-    else
-      pct=$abs_delta
-    fi
-
-    echo "- **Baseline count:** $baseline_count" >> "$SUMMARY"
-    echo "- **New count:** $new_count" >> "$SUMMARY"
-    echo "- **Delta:** $delta" >> "$SUMMARY"
-    echo "- **Percent change:** ${pct}%" >> "$SUMMARY"
+  
+  echo "- **Baseline count:** $BASELINE_COUNT" >> "$SUMMARY"
+  echo "- **New count:** $NEW_COUNT" >> "$SUMMARY"
+  echo "- **Delta:** $REGRESSION_DELTA" >> "$SUMMARY"
+  
+  if [ "$REGRESSION_PCT" = "N/A" ]; then
+    echo "- **Percent change:** N/A (baseline is zero)" >> "$SUMMARY"
+    echo "- **Threshold:** ${REGRESSION_THRESHOLD}%" >> "$SUMMARY"
+    echo "- **Status:** ⚠️ SKIPPED (cannot compute percent change when baseline is zero)" >> "$SUMMARY"
+  else
+    echo "- **Percent change:** ${REGRESSION_PCT}%" >> "$SUMMARY"
     echo "- **Threshold:** ${REGRESSION_THRESHOLD}%" >> "$SUMMARY"
     
-    if [ "$pct" -gt "$REGRESSION_THRESHOLD" ]; then
-      echo "- **Status:** ❌ FAILED (delta ${pct}% exceeds threshold)" >> "$SUMMARY"
-    else
+    if [ "$REGRESSION_STATUS" = "FAILED" ]; then
+      echo "- **Status:** ❌ FAILED (delta ${REGRESSION_PCT}% exceeds threshold)" >> "$SUMMARY"
+    elif [ "$REGRESSION_STATUS" = "PASSED" ]; then
       echo "- **Status:** ✅ PASSED" >> "$SUMMARY"
+    else
+      echo "- **Status:** $REGRESSION_STATUS" >> "$SUMMARY"
     fi
-  else
-    echo "- **Status:** SKIPPED (jq not available)" >> "$SUMMARY"
   fi
 else
   echo "## Regression Check" >> "$SUMMARY"
@@ -275,20 +274,11 @@ echo "## Next Steps" >> "$SUMMARY"
 echo "" >> "$SUMMARY"
 echo "1. Review the full report in \`tmp/extract_report.txt\`" >> "$SUMMARY"
 echo "2. Check for errors in \`tmp/extract-api.log\`" >> "$SUMMARY"
-if [ "$REGRESSION_THRESHOLD" != "0" ] && command -v jq >/dev/null 2>&1; then
-  if [ -f tmp/clang_entities.json ]; then
-    new_count=$(jq '.entities | length // 0' tmp/clang_entities.json)
-    if [ -f docs/_data/_api_entities.json ]; then
-      baseline_count=$(jq 'length' docs/_data/_api_entities.json 2>/dev/null || echo 0)
-      delta=$(( new_count - baseline_count ))
-      if [ "$delta" -ne 0 ]; then
-        echo "3. **If API changes are intentional:** Update baseline with \`cp tmp/clang_entities.json docs/_data/_api_entities.json\`" >> "$SUMMARY"
-        echo "4. **If changes are unintentional:** Review and fix the code, then re-run extraction" >> "$SUMMARY"
-      else
-        echo "3. No baseline update needed (counts match)" >> "$SUMMARY"
-      fi
-    fi
-  fi
+if [ "$REGRESSION_THRESHOLD" != "0" ] && [ "$REGRESSION_DELTA" -ne 0 ] 2>/dev/null; then
+  echo "3. **If API changes are intentional:** Update baseline with \`cp tmp/clang_entities.json docs/_data/_api_entities.json\`" >> "$SUMMARY"
+  echo "4. **If changes are unintentional:** Review and fix the code, then re-run extraction" >> "$SUMMARY"
+elif [ "$REGRESSION_THRESHOLD" != "0" ]; then
+  echo "3. No baseline update needed (counts match)" >> "$SUMMARY"
 fi
 echo "" >> "$SUMMARY"
 
@@ -297,3 +287,8 @@ echo "" >> "$SUMMARY"
 echo "*Generated by run-extract-full.sh*" >> "$SUMMARY"
 
 echo "Summary saved to $SUMMARY"
+
+# Exit with regression check status if it failed
+if [ "${REGRESSION_EXIT_CODE:-0}" -ne 0 ]; then
+  exit "$REGRESSION_EXIT_CODE"
+fi
