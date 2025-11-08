@@ -1,4 +1,3 @@
-url=https://github.com/lukaszj321/otcv8-dev/blob/main/.github/PULL_REQUEST_TEMPLATE.md
 ## Opis zmian / What changed
 Krótki opis zmian w tym PR.
 
@@ -11,7 +10,6 @@ Jeśli pipeline/ekstrakcja się nie powiodła, dołącz proszę:
 - tmp/extract_report.txt
 - tmp/extract-api.log
 - tmp/clang_entities.json (jeśli istnieje)
-To bardzo przyspieszy debug.
 
 ## Prośba o full run
-Aby wymusić pełen run (może być kosztowny), dodaj labelę `run/full-extract` do PR (tylko maintainer/owner powinien używać).
+Aby wymusić pełen run (może być kosztowny), dodaj labelę `run/full-extract` do PR (maintainer/owner powinien używać).
