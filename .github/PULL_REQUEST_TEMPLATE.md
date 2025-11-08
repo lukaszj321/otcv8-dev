@@ -7,6 +7,7 @@ Krótki opis zmian w tym PR.
 
 ## Debug i artefakty
 Jeśli pipeline/ekstrakcja się nie powiodła, dołącz proszę:
+- tmp/full-extract-summary.md (czytelne podsumowanie)
 - tmp/extract_report.txt
 - tmp/extract-api.log
 - tmp/clang_entities.json (jeśli istnieje)
