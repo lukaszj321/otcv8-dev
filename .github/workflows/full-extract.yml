@@ -3,16 +3,16 @@ name: Full extractor
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *' # example: daily at 03:00 UTC
+    - cron: '0 3 * * *'
   pull_request:
     types: [labeled]
 
 env:
   LIBCLANG_VERSION: 14
+  NPM_CONFIG_LEGACY_PEER_DEPS: "true"
 
 jobs:
   full-extract:
-    # keep ubuntu-latest but use fallback for apt.llvm.org; if you prefer, change to ubuntu-22.04
     runs-on: ubuntu-latest
     timeout-minutes: 180
 
@@ -52,12 +52,14 @@ jobs:
             sudo apt-get update -y || true
           fi
 
-      - name: Install system dependencies
+      - name: Install system dependencies (including Boost)
         run: |
+          set -euo pipefail
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
             "libclang-${LIBCLANG_VERSION}-dev" \
             "llvm-${LIBCLANG_VERSION}" \
-            cmake python3 python3-venv python3-pip build-essential jq pkg-config || true
+            cmake python3 python3-venv python3-pip build-essential jq pkg-config \
+            libboost-dev libboost-system-dev libboost-filesystem-dev || true
 
       - name: Create Python venv & install deps
         run: |
@@ -66,6 +68,13 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt || true
 
+      - name: Install npm deps (tree-sitter) with legacy peer deps
+        env:
+          NPM_CONFIG_LEGACY_PEER_DEPS: ${{ env.NPM_CONFIG_LEGACY_PEER_DEPS }}
+        run: |
+          # ensure npm uses legacy-peer-deps to avoid tree-sitter peer conflicts
+          npm ci --no-audit --no-fund || npm install --legacy-peer-deps || true
+
       - name: Make scripts executable
         run: chmod +x scripts/*.sh
 
@@ -73,6 +82,33 @@ jobs:
         env:
           LIBCLANG_VERSION: ${{ env.LIBCLANG_VERSION }}
         run: ./scripts/run-extract-full.sh --install-deps --regression-threshold 0
+
+      - name: Generate short summary
+        if: always()
+        run: |
+          mkdir -p tmp
+          REPORT="tmp/extract_report.txt"
+          OUT="tmp/full-extract-summary.md"
+          if [ -f "$REPORT" ]; then
+            TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            PERCENT="$(grep -i 'Percent delta' "$REPORT" | sed -E 's/[^0-9.-]*([0-9.]+).*/\1/' || true)"
+            BASELINE="$(grep -i 'Baseline count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
+            NEW="$(grep -i 'New count' "$REPORT" | sed -E 's/[^0-9]*([0-9]+).*/\1/' || true)"
+            REGRESSION="$(grep -i 'REGRESSION' "$REPORT" || true)"
+            cat > "$OUT" <<EOF
+# Full Extract Summary
+- generated_at: $TIMESTAMP (UTC)
+- baseline_count: ${BASELINE:-N/A}
+- new_count: ${NEW:-N/A}
+- percent_delta: ${PERCENT:-N/A}
+- conclusion: $( [ -n "$REGRESSION" ] && echo "REGRESSION" || echo "OK" )
+
+## Short extract of report
+$(sed -n '1,50p' "$REPORT")
+EOF
+          else
+            echo "No report found to summarize" > tmp/full-extract-summary.md
+          fi
 
       - name: Upload logs (always)
         if: always()
